@@ -1,0 +1,23 @@
+{
+  "format": "atlas-maze-candidate-decision-v1",
+  "report": "reports/maze-candidate/validation-v1/report.json",
+  "reportSha256": "99d412b2970c58456220662b4e1b62a3a9583bd6a80d341e775ce0a4eb4feefc",
+  "candidateBinarySha256": "847d1899609d57f7a6a3c406bd3c10e9ece046786402fb8f6c4a2487709a2792",
+  "baselineBinarySha256": "62977fff79e51dcbc5e9de4f463d6db3a26b6c81ba7061e33aa5a08861db061a",
+  "selected": false,
+  "productionActive": false,
+  "holdoutSkipped": true,
+  "reason": "Validation maze regression: 2 wins and 4 losses. Overall wins do not override suite regression.",
+  "suites": {
+    "general": {
+      "win": 5,
+      "loss": 1,
+      "draw": 0
+    },
+    "maze": {
+      "win": 2,
+      "loss": 4,
+      "draw": 0
+    }
+  }
+}

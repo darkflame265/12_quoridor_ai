@@ -2,6 +2,8 @@
 
 개인용 쿼리도 대전·분석 앱.
 
+벽 위협 평가를 넓힌 별도 Rust 후보를 `npm run maze:build`와 `npm run maze:evaluate -- --out reports/maze-candidate/my-development`로 비교할 수 있습니다. 검증 합계는 7승 5패였지만 미로에서 2승 4패여서 실전은 Atlas 5.3을 유지합니다. [알고리즘 변경과 채택 보류 근거](reports/MAZE_EVALUATION.md)를 참고하세요.
+
 `npm run native:diagnose -- --out reports/native-diagnostics/my-review`로 Atlas 5.3의 패배 배치를 0.5초·3초 탐색 및 정확한 종반 해답과 비교할 수 있습니다. 실제 12개 배치에서 미로의 선택 차이 4개를 재현했습니다. [약점 분석과 다음 알고리즘 개선 순서](reports/NATIVE_DIAGNOSTICS.md)를 참고하세요.
 
 `npm run train:teacher -- --out training/runs/my-teacher`로 Atlas 5.3의 일반·미로 대국을 수집해 CNN을 보강할 수 있습니다. 실제 자료 32판과 선택된 실험 가중치를 저장했으며, 실전 반영은 별도 대전 평가를 거칩니다. [지도 학습 결과와 실행 방법](reports/TEACHER_LEARNING.md)을 참고하세요.

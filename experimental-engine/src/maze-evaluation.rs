@@ -54,7 +54,10 @@ impl SharedSearch {
         if p.left[attacker]==0 {return 0;}
         let base=self.geometry(p,None);let map=&base.maps[target];
         let distance=map[p.p[target]] as i32;let other=base.maps[attacker][p.p[attacker]] as i32;
-        let mut legacy=[0f64;128];let mut coverage=[0usize;128];let mut connections=[None;128];
+        let mut legacy=[0f64;128];let mut coverage=[0usize;128];
+        // A wall can cover multiple shortest-path edges. Its fit and contact
+        // contribution are constant throughout this immutable traversal.
+        let mut contributions=[None;128];let threat_weight=connection_threat_weight();
         let mut seen=[false;81];let mut queue=[0usize;81];queue[0]=p.p[target];seen[queue[0]]=true;let mut head=0;let mut tail=1;
         while head<tail {
             let n=queue[head];head+=1;
@@ -66,20 +69,24 @@ impl SharedSearch {
                 for (x,y) in anchors {
                     if !(0..8).contains(&x)||!(0..8).contains(&y) {continue;}
                     let i=if vertical {64} else {0}+(y*8+x) as usize;let a=(81+i) as u16;
-                    if p.fits(a) {
-                        let c=*connections[i].get_or_insert_with(||p.evaluation_connections(a));
-                        legacy[i]+=c as f64*connection_threat_weight()+(distance-map[n] as i32) as f64*0.2+1.;coverage[i]+=1;
+                    let contribution=*contributions[i].get_or_insert_with(|| {
+                        if p.fits(a) {Some(p.evaluation_connections(a) as f64*threat_weight)} else {None}
+                    });
+                    if let Some(c)=contribution {
+                        legacy[i]+=c+(distance-map[n] as i32) as f64*0.2+1.;coverage[i]+=1;
                     }
                 }
             }
         }
         // At most eight candidates: linear bounded selection avoids two sorts
         // and heap-backed queues while preserving the reference tie order.
+        let mut active=[0usize;128];let mut active_count=0;
+        for i in 0..128 {if coverage[i]>0 {active[active_count]=i;active_count+=1;}}
         let mut selected=[usize::MAX;8];let mut count=0;
         for round in 0..limit {
             let mut best=None;
-            for i in 0..128 {
-                if coverage[i]==0||selected[..count].contains(&i) {continue;}
+            for &i in &active[..active_count] {
+                if selected[..count].contains(&i) {continue;}
                 let better=best.is_none_or(|b:usize| {
                     if round<4 {legacy[i]>legacy[b]||legacy[i]==legacy[b]&&i<b}
                     else {coverage[i]>coverage[b]||coverage[i]==coverage[b]&&(legacy[i]>legacy[b]||legacy[i]==legacy[b]&&i<b)}

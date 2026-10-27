@@ -1,4 +1,4 @@
-﻿import {EnginePool} from './engine-pool.js';
+import {AdaptiveEngine} from './adaptive-engine.js';
 import {orientPosition,orientAction} from './view.js';
 import {initial,clone,moves,validWall,legal,apply,notation,distance} from './engine.js';
 import {SpectatorRunner,observationOutcome,replayRecords} from './spectator.js';
@@ -6,16 +6,16 @@ import {SpectatorRunner,observationOutcome,replayRecords} from './spectator.js';
 const $=s=>document.querySelector(s),colors=['#31d4c2','#fa7393'],names=['청록','분홍'];
 const defaultCores=Math.min(4,Math.max(1,(navigator.hardwareConcurrency||4)-2));
 let state=initial(),past=[],records=[],serial=0,busy=false,hint=null;
-let pool=new EnginePool({workers:defaultCores}),watchPools=[null,null],ponderTimer=null;
+let pool=new AdaptiveEngine({workers:defaultCores}),watchPools=[null,null],ponderTimer=null;
 const watching=()=>$('#mode').value==='watch';
 const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.turn===Number($('#side').value);
 const flipped=()=>Number($('#side').value)===0;
 const viewPosition=p=>orientPosition(p,flipped());
 const viewAction=a=>orientAction(a,flipped());
-const engineName=id=>id==='atlas3'?'Atlas 3':'Atlas 4';
+const engineName=id=>id==='atlas3'?'Atlas 3':id==='atlas5'?'Atlas 5 Auto':'Atlas 4';
 const escapeHtml=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function watchSettings(t){return {engine:$(`#watch-engine-${t}`).value,ms:Number($(`#watch-time-${t}`).value),cores:Number($(`#watch-cores-${t}`).value)};}
-function watchPool(t){const config=watchSettings(t);if(!watchPools[t])watchPools[t]=new EnginePool({workers:config.cores,engine:config.engine});return watchPools[t];}
+function watchPool(t){const config=watchSettings(t);if(!watchPools[t])watchPools[t]=new AdaptiveEngine({workers:config.cores,engine:config.engine});return watchPools[t];}
 function cancelWatch(){for(const p of watchPools)p?.cancel();}
 function disposeWatch(){for(const p of watchPools)p?.dispose();watchPools=[null,null];}
 const watchOutcome=()=>observationOutcome(state,past);
@@ -89,7 +89,7 @@ function schedule(){
   if(!human())think(true);
   else if($('#mode').value==='ai'){
     clearTimeout(ponderTimer);const snapshot=clone(state);
-    ponderTimer=setTimeout(()=>{if(!busy&&!watching())pool.search(snapshot,{ms:250,ponder:true}).catch(()=>{});},200);
+    ponderTimer=setTimeout(()=>{if(!busy&&!watching())pool.search(snapshot,{ms:pool.ponderMs,ponder:true}).catch(()=>{});},200);
   }
 }
 function think(auto=false){
@@ -121,7 +121,7 @@ $('#mode').onchange=()=>{stop();clearAnalysis();persist();render();schedule();};
 $('#side').onchange=()=>{stop();persist();render();schedule();};
 $('#time').onchange=()=>{stop();persist();render();schedule();};
 $('#cores').value=String(defaultCores);
-$('#cores').onchange=()=>{stop();pool.dispose();pool=new EnginePool({workers:Number($('#cores').value)});persist();render();schedule();};
+$('#cores').onchange=()=>{stop();pool.dispose();pool=new AdaptiveEngine({workers:Number($('#cores').value)});persist();render();schedule();};
 for(const t of [0,1])for(const field of ['engine','time','cores'])$(`#watch-${field}-${t}`).onchange=()=>{
   stop();if($(`#watch-engine-${t}`).value==='atlas3')$(`#watch-cores-${t}`).value='1';disposeWatch();clearAnalysis();persist();render();
 };
@@ -136,7 +136,7 @@ function restore(data){
   const replay=replayRecords(data);stop();state=replay.state;past=replay.past;records=replay.records;
   selectValue('#mode',data.mode);selectValue('#side',data.side);selectValue('#time',data.time);selectValue('#cores',data.cores);
   for(const t of [0,1]){const p=data.watch?.players?.[t];if(!p)continue;selectValue(`#watch-engine-${t}`,p.engine);selectValue(`#watch-time-${t}`,p.ms);selectValue(`#watch-cores-${t}`,p.cores);if($(`#watch-engine-${t}`).value==='atlas3')$(`#watch-cores-${t}`).value='1';}
-  selectValue('#watch-delay',data.watch?.delay);pool.dispose();pool=new EnginePool({workers:Number($('#cores').value)});disposeWatch();clearAnalysis();persist();render();schedule();
+  selectValue('#watch-delay',data.watch?.delay);pool.dispose();pool=new AdaptiveEngine({workers:Number($('#cores').value)});disposeWatch();clearAnalysis();persist();render();schedule();
 }
 $('#save').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(sessionData(),null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=watching()?'quoridor-ai-vs-ai.json':'quoridor-game.json';a.click();URL.revokeObjectURL(url);};
 $('#load').onclick=()=>$('#file').click();

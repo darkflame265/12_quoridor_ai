@@ -1,0 +1,707 @@
+{
+  "date": "2026-10-27T03:30:51.379Z",
+  "platform": "win32",
+  "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+  "logicalCpus": 12,
+  "budgetMs": 500,
+  "samples": [
+    {
+      "fixture": "validation-0",
+      "cores": 1,
+      "latencyMs": 553.2662,
+      "id": 1,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ],
+      "score": 0,
+      "depth": 4,
+      "nodes": 38808,
+      "elapsedMs": 552.8452000000001,
+      "engine": "Atlas 4 · Rust/WASM ×1",
+      "partitioned": false,
+      "done": true,
+      "workers": 1,
+      "partitionDepths": [
+        4
+      ],
+      "totalNodes": 38808
+    },
+    {
+      "fixture": "validation-1",
+      "cores": 1,
+      "latencyMs": 500.6112999999999,
+      "id": 2,
+      "pv": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "score": 396,
+      "depth": 3,
+      "nodes": 15460,
+      "elapsedMs": 500.5479,
+      "engine": "Atlas 4 · Rust/WASM ×1",
+      "partitioned": false,
+      "done": true,
+      "workers": 1,
+      "partitionDepths": [
+        3
+      ],
+      "totalNodes": 15460
+    },
+    {
+      "fixture": "validation-2",
+      "cores": 1,
+      "latencyMs": 500.6648,
+      "id": 3,
+      "pv": [
+        {
+          "type": "move",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "type": "wall",
+          "x": 5,
+          "y": 5,
+          "o": "h"
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 6
+        }
+      ],
+      "score": 192,
+      "depth": 3,
+      "nodes": 18647,
+      "elapsedMs": 500.6249,
+      "engine": "Atlas 4 · Rust/WASM ×1",
+      "partitioned": false,
+      "done": true,
+      "workers": 1,
+      "partitionDepths": [
+        3
+      ],
+      "totalNodes": 18647
+    },
+    {
+      "fixture": "maze-validation-0",
+      "cores": 1,
+      "latencyMs": 500.5020000000002,
+      "id": 4,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "wall",
+          "x": 3,
+          "y": 0,
+          "o": "h"
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        }
+      ],
+      "score": 172,
+      "depth": 3,
+      "nodes": 20251,
+      "elapsedMs": 500.46130000000016,
+      "engine": "Atlas 4 · Rust/WASM ×1",
+      "partitioned": false,
+      "done": true,
+      "workers": 1,
+      "partitionDepths": [
+        3
+      ],
+      "totalNodes": 20251
+    },
+    {
+      "fixture": "maze-validation-1",
+      "cores": 1,
+      "latencyMs": 500.6042000000002,
+      "id": 5,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "x": 4,
+          "y": 3,
+          "o": "h"
+        },
+        {
+          "type": "wall",
+          "x": 5,
+          "y": 1,
+          "o": "v"
+        }
+      ],
+      "score": -464,
+      "depth": 3,
+      "nodes": 18452,
+      "elapsedMs": 500.55219999999963,
+      "engine": "Atlas 4 · Rust/WASM ×1",
+      "partitioned": false,
+      "done": true,
+      "workers": 1,
+      "partitionDepths": [
+        3
+      ],
+      "totalNodes": 18452
+    },
+    {
+      "fixture": "maze-validation-2",
+      "cores": 1,
+      "latencyMs": 500.9676999999997,
+      "id": 6,
+      "pv": [
+        {
+          "type": "wall",
+          "x": 4,
+          "y": 3,
+          "o": "h"
+        },
+        {
+          "type": "wall",
+          "x": 4,
+          "y": 2,
+          "o": "v"
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        }
+      ],
+      "score": -592,
+      "depth": 3,
+      "nodes": 22115,
+      "elapsedMs": 500.59389999999985,
+      "engine": "Atlas 4 · Rust/WASM ×1",
+      "partitioned": false,
+      "done": true,
+      "workers": 1,
+      "partitionDepths": [
+        3
+      ],
+      "totalNodes": 22115
+    },
+    {
+      "fixture": "validation-0",
+      "cores": 2,
+      "latencyMs": 551.2314000000001,
+      "id": 1,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        }
+      ],
+      "score": 132,
+      "depth": 3,
+      "nodes": 13503,
+      "elapsedMs": 551.2003,
+      "engine": "Atlas 4 · Rust/WASM ×2",
+      "partitioned": true,
+      "done": false,
+      "workers": 2,
+      "partitionDepths": [
+        3,
+        4
+      ],
+      "totalNodes": 48026
+    },
+    {
+      "fixture": "validation-1",
+      "cores": 2,
+      "latencyMs": 503.1889000000001,
+      "id": 2,
+      "pv": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "score": 396,
+      "depth": 3,
+      "nodes": 14395,
+      "elapsedMs": 503.1329999999998,
+      "engine": "Atlas 4 · Rust/WASM ×2",
+      "partitioned": true,
+      "done": false,
+      "workers": 2,
+      "partitionDepths": [
+        4,
+        3
+      ],
+      "totalNodes": 33071
+    },
+    {
+      "fixture": "validation-2",
+      "cores": 2,
+      "latencyMs": 500.83819999999923,
+      "id": 3,
+      "pv": [
+        {
+          "type": "move",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "type": "wall",
+          "x": 5,
+          "y": 5,
+          "o": "h"
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 6
+        }
+      ],
+      "score": 192,
+      "depth": 3,
+      "nodes": 30649,
+      "elapsedMs": 500.76810000000023,
+      "engine": "Atlas 4 · Rust/WASM ×2",
+      "partitioned": true,
+      "done": true,
+      "workers": 2,
+      "partitionDepths": [
+        3,
+        3
+      ],
+      "totalNodes": 30649
+    },
+    {
+      "fixture": "maze-validation-0",
+      "cores": 2,
+      "latencyMs": 500.54219999999987,
+      "id": 4,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "wall",
+          "x": 3,
+          "y": 0,
+          "o": "h"
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        }
+      ],
+      "score": 172,
+      "depth": 3,
+      "nodes": 32558,
+      "elapsedMs": 500.48359999999957,
+      "engine": "Atlas 4 · Rust/WASM ×2",
+      "partitioned": true,
+      "done": true,
+      "workers": 2,
+      "partitionDepths": [
+        3,
+        3
+      ],
+      "totalNodes": 32558
+    },
+    {
+      "fixture": "maze-validation-1",
+      "cores": 2,
+      "latencyMs": 501.0523999999996,
+      "id": 5,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "x": 4,
+          "y": 3,
+          "o": "h"
+        },
+        {
+          "type": "wall",
+          "x": 5,
+          "y": 1,
+          "o": "v"
+        }
+      ],
+      "score": -464,
+      "depth": 3,
+      "nodes": 29341,
+      "elapsedMs": 501.0014000000001,
+      "engine": "Atlas 4 · Rust/WASM ×2",
+      "partitioned": true,
+      "done": true,
+      "workers": 2,
+      "partitionDepths": [
+        3,
+        3
+      ],
+      "totalNodes": 29341
+    },
+    {
+      "fixture": "maze-validation-2",
+      "cores": 2,
+      "latencyMs": 500.72429999999986,
+      "id": 6,
+      "pv": [
+        {
+          "type": "wall",
+          "x": 4,
+          "y": 4,
+          "o": "h"
+        },
+        {
+          "type": "wall",
+          "x": 5,
+          "y": 6,
+          "o": "v"
+        },
+        {
+          "type": "wall",
+          "x": 3,
+          "y": 3,
+          "o": "v"
+        },
+        {
+          "type": "wall",
+          "x": 3,
+          "y": 5,
+          "o": "v"
+        }
+      ],
+      "score": -924,
+      "depth": 4,
+      "nodes": 42940,
+      "elapsedMs": 500.4385000000002,
+      "engine": "Atlas 4 · Rust/WASM ×2",
+      "partitioned": true,
+      "done": true,
+      "workers": 2,
+      "partitionDepths": [
+        4,
+        4
+      ],
+      "totalNodes": 42940
+    },
+    {
+      "fixture": "validation-0",
+      "cores": 4,
+      "latencyMs": 557.8980000000001,
+      "id": 1,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        }
+      ],
+      "score": 132,
+      "depth": 3,
+      "nodes": 36330,
+      "elapsedMs": 557.8654999999999,
+      "engine": "Atlas 4 · Rust/WASM ×4",
+      "partitioned": true,
+      "done": false,
+      "workers": 4,
+      "partitionDepths": [
+        4,
+        3,
+        3,
+        3
+      ],
+      "totalNodes": 65409
+    },
+    {
+      "fixture": "validation-1",
+      "cores": 4,
+      "latencyMs": 500.60039999999935,
+      "id": 2,
+      "pv": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "score": 396,
+      "depth": 3,
+      "nodes": 41644,
+      "elapsedMs": 500.5589,
+      "engine": "Atlas 4 · Rust/WASM ×4",
+      "partitioned": true,
+      "done": false,
+      "workers": 4,
+      "partitionDepths": [
+        4,
+        3,
+        3,
+        3
+      ],
+      "totalNodes": 57502
+    },
+    {
+      "fixture": "validation-2",
+      "cores": 4,
+      "latencyMs": 500.91089999999986,
+      "id": 3,
+      "pv": [
+        {
+          "type": "move",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "type": "wall",
+          "x": 5,
+          "y": 5,
+          "o": "h"
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 6
+        }
+      ],
+      "score": 192,
+      "depth": 3,
+      "nodes": 48929,
+      "elapsedMs": 500.8622000000005,
+      "engine": "Atlas 4 · Rust/WASM ×4",
+      "partitioned": true,
+      "done": true,
+      "workers": 4,
+      "partitionDepths": [
+        4,
+        3,
+        3,
+        3
+      ],
+      "totalNodes": 61084
+    },
+    {
+      "fixture": "maze-validation-0",
+      "cores": 4,
+      "latencyMs": 500.5042000000003,
+      "id": 4,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "wall",
+          "x": 3,
+          "y": 0,
+          "o": "h"
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        }
+      ],
+      "score": 172,
+      "depth": 3,
+      "nodes": 24109,
+      "elapsedMs": 500.4366000000009,
+      "engine": "Atlas 4 · Rust/WASM ×4",
+      "partitioned": true,
+      "done": true,
+      "workers": 4,
+      "partitionDepths": [
+        3,
+        4,
+        4,
+        4
+      ],
+      "totalNodes": 64209
+    },
+    {
+      "fixture": "maze-validation-1",
+      "cores": 4,
+      "latencyMs": 504.4448999999986,
+      "id": 5,
+      "pv": [
+        {
+          "type": "wall",
+          "x": 3,
+          "y": 2,
+          "o": "h"
+        },
+        {
+          "type": "wall",
+          "x": 4,
+          "y": 3,
+          "o": "h"
+        },
+        {
+          "type": "wall",
+          "x": 7,
+          "y": 5,
+          "o": "h"
+        },
+        {
+          "type": "wall",
+          "x": 3,
+          "y": 5,
+          "o": "h"
+        }
+      ],
+      "score": -856,
+      "depth": 4,
+      "nodes": 59545,
+      "elapsedMs": 504.0136999999995,
+      "engine": "Atlas 4 · Rust/WASM ×4",
+      "partitioned": true,
+      "done": true,
+      "workers": 4,
+      "partitionDepths": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "totalNodes": 59545
+    },
+    {
+      "fixture": "maze-validation-2",
+      "cores": 4,
+      "latencyMs": 501.2011000000002,
+      "id": 6,
+      "pv": [
+        {
+          "type": "wall",
+          "x": 4,
+          "y": 4,
+          "o": "h"
+        },
+        {
+          "type": "wall",
+          "x": 5,
+          "y": 6,
+          "o": "v"
+        },
+        {
+          "type": "wall",
+          "x": 3,
+          "y": 3,
+          "o": "v"
+        },
+        {
+          "type": "wall",
+          "x": 3,
+          "y": 5,
+          "o": "v"
+        }
+      ],
+      "score": -924,
+      "depth": 4,
+      "nodes": 88520,
+      "elapsedMs": 500.8202999999994,
+      "engine": "Atlas 4 · Rust/WASM ×4",
+      "partitioned": true,
+      "done": true,
+      "workers": 4,
+      "partitionDepths": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "totalNodes": 88520
+    }
+  ]
+}

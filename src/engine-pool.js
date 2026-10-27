@@ -13,7 +13,7 @@ export class EnginePool{
    for(const i of active){let worker=this.slots[i];if(!worker){worker=this.factory(i);this.slots[i]=worker;}
     worker.onmessage=({data:r})=>{if(this.job!==job||r.id!==id)return;if(r.error){this.cancel(Error(r.error));return;}
      if(r.pv?.length){const depth=r.exact?0:r.depth;let bucket=job.depths.get(depth);if(!bucket){bucket=new Map();job.depths.set(depth,bucket);}bucket.set(i,r);if(bucket.size===active.length&&(!job.best||depth>=job.best.depth)){job.best=aggregate(bucket);onProgress(job.best);}}
-     if(r.done){job.done.set(i,r);if(job.done.size===active.length){this.job=null;const fallback=decode(legal.find(a=>a<81)??legal[0]);resolve(job.best??{pv:[fallback],score:0,depth:0,nodes:[...job.done.values()].reduce((n,r)=>n+r.nodes,0),elapsedMs:performance.now()-start,workers:active.length,engine:`${r.engine??this.engine} · budget fallback`});}}
+     if(r.done){job.done.set(i,r);if(job.done.size===active.length){this.job=null;const fallback=decode(legal.find(a=>a<81)??legal[0]),results=[...job.done.values()];resolve({...job.best??{pv:[fallback],score:0,depth:0,nodes:results.reduce((n,r)=>n+r.nodes,0),workers:active.length,engine:`${r.engine??this.engine} · budget fallback`},elapsedMs:performance.now()-start,partitionDepths:results.map(r=>r.depth),totalNodes:results.reduce((n,r)=>n+r.nodes,0)});}}
     };
     worker.onerror=e=>{if(this.job!==job)return;this.cancel(Error(e.message||'Worker failed'));};worker.postMessage({state,ms,id,offset:i,stride:size,engine:this.engine});
    }

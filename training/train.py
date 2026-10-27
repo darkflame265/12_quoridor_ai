@@ -191,6 +191,8 @@ def run(args):
         saved=torch.load(args.resume,map_location=device,weights_only=True)
         if saved['format']!='atlas-training-v1' or saved['hidden']!=args.hidden: raise ValueError('Incompatible checkpoint')
         model.load_state_dict(saved['model']); optimizer.load_state_dict(saved['optimizer']); iteration=saved['iteration']; torch.set_rng_state(saved['torch_rng'].cpu()); rng.bit_generator.state=json.loads(saved['numpy_rng'])
+        if device=='cuda' and saved.get('cuda_rng'):
+            torch.cuda.set_rng_state_all([state.cpu() for state in saved['cuda_rng']])
         replay=list(zip(saved['x'].cpu().numpy(),saved['pi'].cpu().numpy(),saved['z'].cpu().numpy()))
     output=Path(args.out); output.mkdir(parents=True,exist_ok=True); (output/'games').mkdir(exist_ok=True)
     report={'format':'atlas-training-report-v1','device':device,'seed':args.seed,'config':vars(args),'iterations':[],'status':'running','ruleArtifactSha256':hashlib.sha256((ROOT/'public/atlas.wasm').read_bytes()).hexdigest()}
@@ -219,6 +221,7 @@ def run(args):
                     optimizer.zero_grad(); loss.backward(); torch.nn.utils.clip_grad_norm_(model.parameters(),5); optimizer.step(); losses.append(float(loss.item()))
             model.eval(); entry={'iteration':it,'games':games,'collected':collected,'replaySamples':len(replay),'loss':sum(losses)/len(losses)}
             checkpoint={'format':'atlas-training-v1','hidden':args.hidden,'iteration':it+1,'model':model.state_dict(),'optimizer':optimizer.state_dict(),'torch_rng':torch.get_rng_state(),'numpy_rng':json.dumps(rng.bit_generator.state),'x':x.detach().cpu(),'pi':pi.detach().cpu(),'z':z.detach().cpu()}
+            if device=='cuda': checkpoint['cuda_rng']=torch.cuda.get_rng_state_all()
             torch.save(checkpoint,output/'checkpoint.pt'); export_model(model,output/'candidate.json',{'iteration':it+1,'bootstrap':args.bootstrap,'validated':False})
             entry['arena']=arena(model,bridge,rng,args)
             entry['championArena']=arena(model,bridge,rng,args,opponent_model=champion)

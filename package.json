@@ -25,7 +25,8 @@
     "selfplay:cpu": "python training/batch_selfplay.py --device cpu",
     "train:cnn": "node scripts/train-cnn.mjs",
     "neural:league": "node scripts/neural-league.mjs",
-    "train:teacher": "node scripts/train-teacher.mjs"
+    "train:teacher": "node scripts/train-teacher.mjs",
+    "native:diagnose": "node scripts/diagnose-native.mjs"
   },
   "devDependencies": {
     "vite": "^7.1.0"

@@ -1,0 +1,1154 @@
+{
+  "format": "atlas-native-search-review-v1",
+  "source": "reports/native-diagnostics/v1/report.json",
+  "sourceSha256": "77ce20e79ca78394e03d450decd96e9c2bd57ed85b41bb78372f777ff0b32dfc",
+  "developmentOnly": true,
+  "warning": "Tentative longer-search references; these are not mandatory optimal actions or untouched holdout fixtures.",
+  "cases": [
+    {
+      "id": "loss-4",
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 6,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "owner": 1
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 4
+        }
+      ],
+      "shortAction": {
+        "type": "move",
+        "x": 5,
+        "y": 5
+      },
+      "referenceAction": {
+        "type": "move",
+        "x": 3,
+        "y": 5
+      },
+      "diagnosis": {
+        "exactLoss": false,
+        "actionChanged": true,
+        "shortStable": true,
+        "heuristicGap": 12,
+        "review": "alternative-action",
+        "proven": false,
+        "warning": "Longer selective search and score gaps are diagnostic references, not proofs of optimal play."
+      },
+      "geometry": {
+        "short": {
+          "before": {
+            "own": 15,
+            "opponent": 20
+          },
+          "after": {
+            "own": 16,
+            "opponent": 20
+          },
+          "wallsLeft": [
+            0,
+            1
+          ],
+          "wallCount": 19
+        },
+        "long": {
+          "before": {
+            "own": 15,
+            "opponent": 20
+          },
+          "after": {
+            "own": 14,
+            "opponent": 20
+          },
+          "wallsLeft": [
+            0,
+            1
+          ],
+          "wallCount": 19
+        }
+      }
+    },
+    {
+      "id": "loss-5",
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 7
+          },
+          {
+            "x": 5,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "owner": 0
+          }
+        ],
+        "left": [
+          2,
+          4
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        }
+      ],
+      "shortAction": {
+        "o": "h",
+        "type": "wall",
+        "x": 4,
+        "y": 7
+      },
+      "referenceAction": {
+        "type": "move",
+        "x": 4,
+        "y": 6
+      },
+      "diagnosis": {
+        "exactLoss": false,
+        "actionChanged": true,
+        "shortStable": true,
+        "heuristicGap": 68,
+        "review": "search-sensitive-gap",
+        "proven": false,
+        "warning": "Longer selective search and score gaps are diagnostic references, not proofs of optimal play."
+      },
+      "geometry": {
+        "short": {
+          "before": {
+            "own": 15,
+            "opponent": 19
+          },
+          "after": {
+            "own": 15,
+            "opponent": 21
+          },
+          "wallsLeft": [
+            2,
+            4
+          ],
+          "wallCount": 14
+        },
+        "long": {
+          "before": {
+            "own": 15,
+            "opponent": 19
+          },
+          "after": {
+            "own": 14,
+            "opponent": 19
+          },
+          "wallsLeft": [
+            2,
+            4
+          ],
+          "wallCount": 14
+        }
+      }
+    },
+    {
+      "id": "loss-9",
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 7
+          },
+          {
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 3,
+            "owner": 1
+          }
+        ],
+        "left": [
+          5,
+          5
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 3
+        }
+      ],
+      "shortAction": {
+        "o": "v",
+        "type": "wall",
+        "x": 5,
+        "y": 1
+      },
+      "referenceAction": {
+        "o": "v",
+        "type": "wall",
+        "x": 7,
+        "y": 1
+      },
+      "diagnosis": {
+        "exactLoss": false,
+        "actionChanged": true,
+        "shortStable": true,
+        "heuristicGap": 130,
+        "review": "search-sensitive-gap",
+        "proven": false,
+        "warning": "Longer selective search and score gaps are diagnostic references, not proofs of optimal play."
+      },
+      "geometry": {
+        "short": {
+          "before": {
+            "own": 10,
+            "opponent": 17
+          },
+          "after": {
+            "own": 10,
+            "opponent": 19
+          },
+          "wallsLeft": [
+            5,
+            5
+          ],
+          "wallCount": 10
+        },
+        "long": {
+          "before": {
+            "own": 10,
+            "opponent": 17
+          },
+          "after": {
+            "own": 10,
+            "opponent": 19
+          },
+          "wallsLeft": [
+            5,
+            5
+          ],
+          "wallCount": 10
+        }
+      }
+    },
+    {
+      "id": "loss-11",
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 7,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 6,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 2,
+            "owner": 1
+          }
+        ],
+        "left": [
+          3,
+          3
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 2
+        }
+      ],
+      "shortAction": {
+        "o": "h",
+        "type": "wall",
+        "x": 1,
+        "y": 6
+      },
+      "referenceAction": {
+        "o": "h",
+        "type": "wall",
+        "x": 6,
+        "y": 7
+      },
+      "diagnosis": {
+        "exactLoss": false,
+        "actionChanged": true,
+        "shortStable": true,
+        "heuristicGap": 360,
+        "review": "search-sensitive-gap",
+        "proven": false,
+        "warning": "Longer selective search and score gaps are diagnostic references, not proofs of optimal play."
+      },
+      "geometry": {
+        "short": {
+          "before": {
+            "own": 9,
+            "opponent": 7
+          },
+          "after": {
+            "own": 9,
+            "opponent": 7
+          },
+          "wallsLeft": [
+            3,
+            3
+          ],
+          "wallCount": 14
+        },
+        "long": {
+          "before": {
+            "own": 9,
+            "opponent": 7
+          },
+          "after": {
+            "own": 9,
+            "opponent": 7
+          },
+          "wallsLeft": [
+            3,
+            3
+          ],
+          "wallCount": 14
+        }
+      }
+    }
+  ]
+}

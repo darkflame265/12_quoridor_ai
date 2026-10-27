@@ -1,0 +1,13 @@
+﻿export const initial=()=>({p:[{x:4,y:8},{x:4,y:0}],walls:[],left:[10,10],turn:0,winner:null});
+export const clone=s=>structuredClone(s);
+const inside=(x,y)=>x>=0&&x<9&&y>=0&&y<9;
+export function blocked(s,a,b){return s.walls.some(w=>w.o==='h'?a.x===b.x&&Math.min(a.y,b.y)===w.y&&(a.x===w.x||a.x===w.x+1):a.y===b.y&&Math.min(a.x,b.x)===w.x&&(a.y===w.y||a.y===w.y+1));}
+export function neighbors(s,p){return [[0,-1],[1,0],[0,1],[-1,0]].map(([x,y])=>({x:p.x+x,y:p.y+y})).filter(q=>inside(q.x,q.y)&&!blocked(s,p,q));}
+export function moves(s,t=s.turn){const a=s.p[t],b=s.p[1-t],out=[];for(const q of neighbors(s,a)){if(q.x!==b.x||q.y!==b.y){out.push({type:'move',...q});continue;}const behind={x:b.x+b.x-a.x,y:b.y+b.y-a.y};if(inside(behind.x,behind.y)&&!blocked(s,b,behind))out.push({type:'move',...behind});else for(const r of neighbors(s,b))if((r.x-b.x)*(b.x-a.x)+(r.y-b.y)*(b.y-a.y)===0)out.push({type:'move',...r});}return out;}
+export function distance(s,t){const q=[{...s.p[t],d:0}],seen=new Set([q[0].y*9+q[0].x]);for(let i=0;i<q.length;i++){const a=q[i];if(a.y===(t===0?0:8))return a.d;for(const b of neighbors(s,a)){const k=b.y*9+b.x;if(!seen.has(k)){seen.add(k);q.push({...b,d:a.d+1});}}}return 100;}
+export function validWall(s,w){if(s.winner!==null||s.left[s.turn]<=0||!['h','v'].includes(w.o)||!Number.isInteger(w.x)||!Number.isInteger(w.y)||w.x<0||w.y<0||w.x>7||w.y>7)return false;for(const a of s.walls){if(a.o!==w.o&&a.x===w.x&&a.y===w.y)return false;if(a.o===w.o&&(w.o==='h'?a.y===w.y&&Math.abs(a.x-w.x)<2:a.x===w.x&&Math.abs(a.y-w.y)<2))return false;}const n={...s,walls:[...s.walls,w]};return distance(n,0)<100&&distance(n,1)<100;}
+export function legal(s,a){return s.winner===null&&(a.type==='move'?moves(s).some(m=>m.x===a.x&&m.y===a.y):a.type==='wall'&&validWall(s,a));}
+export function apply(s,a){const n=clone(s),t=s.turn;if(a.type==='move'){n.p[t]={x:a.x,y:a.y};if(a.y===(t===0?0:8))n.winner=t;}else{n.walls.push({...a,owner:t});n.left[t]--;}n.turn=1-t;return n;}
+export const notation=a=>a.type==='move'?`${'abcdefghi'[a.x]}${9-a.y}`:`${'abcdefghi'[a.x]}${9-a.y}${a.o==='h'?'─':'│'}`;
+export function evaluate(s){if(s.winner!==null)return s.winner===s.turn?10000:-10000;return (distance(s,1-s.turn)-distance(s,s.turn))*12+(s.left[s.turn]-s.left[1-s.turn])*1.7;}
+export function candidates(s){const all=moves(s).map(a=>({a,s:apply(s,a)}));if(s.left[s.turn])for(let y=0;y<8;y++)for(let x=0;x<8;x++)for(const o of ['h','v']){const a={type:'wall',x,y,o};if(validWall(s,a))all.push({a,s:apply(s,a)});}all.forEach(c=>c.score=-evaluate(c.s));all.sort((a,b)=>b.score-a.score);return all;}

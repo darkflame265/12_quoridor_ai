@@ -1,0 +1,1872 @@
+{
+  "version": 1,
+  "id": "development-0-side0",
+  "openingId": "development-0",
+  "openingStyle": "standard",
+  "openingPlies": 0,
+  "candidateSide": 0,
+  "result": "win",
+  "reason": "goal reached",
+  "winner": 0,
+  "records": [
+    {
+      "type": "move",
+      "x": 4,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 1
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 6
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 2
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 5
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 3
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 3,
+      "y": 5
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 3,
+      "y": 4
+    },
+    {
+      "type": "wall",
+      "o": "v",
+      "x": 4,
+      "y": 3
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 5,
+      "y": 0
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 1,
+      "y": 5
+    },
+    {
+      "type": "move",
+      "x": 3,
+      "y": 3
+    },
+    {
+      "type": "wall",
+      "o": "v",
+      "x": 2,
+      "y": 3
+    },
+    {
+      "type": "move",
+      "x": 3,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "o": "v",
+      "x": 2,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 3,
+      "y": 0
+    },
+    {
+      "type": "wall",
+      "o": "v",
+      "x": 7,
+      "y": 0
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 5,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "o": "v",
+      "x": 6,
+      "y": 0
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 7,
+      "y": 5
+    },
+    {
+      "type": "wall",
+      "o": "v",
+      "x": 2,
+      "y": 5
+    },
+    {
+      "type": "wall",
+      "o": "v",
+      "x": 2,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 5,
+      "y": 2
+    },
+    {
+      "type": "move",
+      "x": 5,
+      "y": 5
+    },
+    {
+      "type": "move",
+      "x": 6,
+      "y": 2
+    },
+    {
+      "type": "move",
+      "x": 6,
+      "y": 5
+    },
+    {
+      "type": "move",
+      "x": 7,
+      "y": 2
+    },
+    {
+      "type": "move",
+      "x": 6,
+      "y": 4
+    },
+    {
+      "type": "wall",
+      "o": "v",
+      "x": 6,
+      "y": 3
+    },
+    {
+      "type": "move",
+      "x": 6,
+      "y": 5
+    },
+    {
+      "type": "move",
+      "x": 7,
+      "y": 3
+    },
+    {
+      "type": "move",
+      "x": 7,
+      "y": 5
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 6,
+      "y": 1
+    },
+    {
+      "type": "move",
+      "x": 8,
+      "y": 5
+    },
+    {
+      "type": "move",
+      "x": 7,
+      "y": 4
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 6,
+      "y": 4
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "type": "move",
+      "x": 8,
+      "y": 4
+    },
+    {
+      "type": "move",
+      "x": 8,
+      "y": 5
+    },
+    {
+      "type": "move",
+      "x": 8,
+      "y": 3
+    },
+    {
+      "type": "move",
+      "x": 7,
+      "y": 5
+    },
+    {
+      "type": "move",
+      "x": 8,
+      "y": 2
+    },
+    {
+      "type": "move",
+      "x": 6,
+      "y": 5
+    },
+    {
+      "type": "move",
+      "x": 8,
+      "y": 1
+    },
+    {
+      "type": "move",
+      "x": 6,
+      "y": 6
+    },
+    {
+      "type": "move",
+      "x": 8,
+      "y": 0
+    }
+  ],
+  "trace": [
+    {
+      "ply": 0,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "score": 132,
+      "depth": 3,
+      "exact": false,
+      "nodes": 2748,
+      "elapsedMs": 150.0552,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        }
+      ]
+    },
+    {
+      "ply": 1,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 1
+      },
+      "score": 0,
+      "depth": 3,
+      "exact": false,
+      "nodes": 4094,
+      "elapsedMs": 150.37519999999995,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "ply": 2,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 6
+      },
+      "score": 132,
+      "depth": 3,
+      "exact": false,
+      "nodes": 3103,
+      "elapsedMs": 150.04320000000007,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 3,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 2
+      },
+      "score": 0,
+      "depth": 3,
+      "exact": false,
+      "nodes": 3869,
+      "elapsedMs": 150.05099999999993,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "ply": 4,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 5
+      },
+      "score": 132,
+      "depth": 3,
+      "exact": false,
+      "nodes": 3252,
+      "elapsedMs": 150.0349000000001,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "ply": 5,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      },
+      "score": 40,
+      "depth": 3,
+      "exact": false,
+      "nodes": 4423,
+      "elapsedMs": 150.05550000000017,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "ply": 6,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 3,
+        "y": 5
+      },
+      "score": 87,
+      "depth": 3,
+      "exact": false,
+      "nodes": 3097,
+      "elapsedMs": 150.04020000000037,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 7,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 3,
+        "y": 4
+      },
+      "score": 40,
+      "depth": 3,
+      "exact": false,
+      "nodes": 4363,
+      "elapsedMs": 150.13149999999996,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "ply": 8,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 4,
+        "y": 3
+      },
+      "score": 124,
+      "depth": 3,
+      "exact": false,
+      "nodes": 3383,
+      "elapsedMs": 150.03809999999976,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 9,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 5,
+        "y": 0
+      },
+      "score": 8,
+      "depth": 3,
+      "exact": false,
+      "nodes": 5224,
+      "elapsedMs": 150.0684000000001,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "ply": 10,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 1,
+        "y": 5
+      },
+      "score": 68,
+      "depth": 2,
+      "exact": false,
+      "nodes": 2749,
+      "elapsedMs": 150.05610000000024,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 11,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 3
+      },
+      "score": -92,
+      "depth": 3,
+      "exact": false,
+      "nodes": 3941,
+      "elapsedMs": 150.0713999999998,
+      "pv": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "ply": 12,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 2,
+        "y": 3
+      },
+      "score": 277,
+      "depth": 3,
+      "exact": false,
+      "nodes": 3308,
+      "elapsedMs": 150.04240000000027,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "ply": 13,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 2
+      },
+      "score": -68,
+      "depth": 3,
+      "exact": false,
+      "nodes": 3954,
+      "elapsedMs": 150.08300000000008,
+      "pv": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "ply": 14,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 2,
+        "y": 1
+      },
+      "score": 399,
+      "depth": 3,
+      "exact": false,
+      "nodes": 2867,
+      "elapsedMs": 150.0585000000001,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 15,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 3,
+        "y": 0
+      },
+      "score": -168,
+      "depth": 3,
+      "exact": false,
+      "nodes": 4596,
+      "elapsedMs": 150.04680000000008,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "ply": 16,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 7,
+        "y": 0
+      },
+      "score": -61,
+      "depth": 2,
+      "exact": false,
+      "nodes": 3638,
+      "elapsedMs": 150.05099999999993,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "ply": 17,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 2
+      },
+      "score": -4,
+      "depth": 3,
+      "exact": false,
+      "nodes": 4465,
+      "elapsedMs": 150.04860000000008,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "ply": 18,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 5,
+        "y": 2
+      },
+      "score": 128,
+      "depth": 2,
+      "exact": false,
+      "nodes": 2890,
+      "elapsedMs": 150.08559999999943,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 19,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 6,
+        "y": 0
+      },
+      "score": -104,
+      "depth": 3,
+      "exact": false,
+      "nodes": 4062,
+      "elapsedMs": 150.0622000000003,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "ply": 20,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 7,
+        "y": 5
+      },
+      "score": 192,
+      "depth": 3,
+      "exact": false,
+      "nodes": 4183,
+      "elapsedMs": 150.03690000000006,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 6
+        }
+      ]
+    },
+    {
+      "ply": 21,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 2,
+        "y": 5
+      },
+      "score": -112,
+      "depth": 4,
+      "exact": false,
+      "nodes": 10554,
+      "elapsedMs": 150.03680000000077,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 22,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 2,
+        "y": 7
+      },
+      "score": 68,
+      "depth": 3,
+      "exact": false,
+      "nodes": 5488,
+      "elapsedMs": 150.03279999999995,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 23,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 2
+      },
+      "score": 20,
+      "depth": 3,
+      "exact": false,
+      "nodes": 8770,
+      "elapsedMs": 150.04280000000017,
+      "pv": [
+        {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "ply": 24,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 5
+      },
+      "score": -4,
+      "depth": 3,
+      "exact": false,
+      "nodes": 6854,
+      "elapsedMs": 150.03949999999986,
+      "pv": [
+        {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "ply": 25,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "move",
+        "x": 6,
+        "y": 2
+      },
+      "score": 60,
+      "depth": 3,
+      "exact": false,
+      "nodes": 9759,
+      "elapsedMs": 150.04210000000057,
+      "pv": [
+        {
+          "type": "move",
+          "x": 6,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "ply": 26,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "move",
+        "x": 6,
+        "y": 5
+      },
+      "score": -113,
+      "depth": 4,
+      "exact": false,
+      "nodes": 5426,
+      "elapsedMs": 150.02910000000065,
+      "pv": [
+        {
+          "type": "move",
+          "x": 6,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "ply": 27,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "move",
+        "x": 7,
+        "y": 2
+      },
+      "score": 28,
+      "depth": 3,
+      "exact": false,
+      "nodes": 5136,
+      "elapsedMs": 150.04059999999936,
+      "pv": [
+        {
+          "type": "move",
+          "x": 7,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "ply": 28,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "move",
+        "x": 6,
+        "y": 4
+      },
+      "score": -28,
+      "depth": 3,
+      "exact": false,
+      "nodes": 5378,
+      "elapsedMs": 150.04550000000017,
+      "pv": [
+        {
+          "type": "move",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 29,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 6,
+        "y": 3
+      },
+      "score": -92,
+      "depth": 4,
+      "exact": false,
+      "nodes": 10551,
+      "elapsedMs": 150.04719999999998,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 6
+        }
+      ]
+    },
+    {
+      "ply": 30,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "move",
+        "x": 6,
+        "y": 5
+      },
+      "score": -160,
+      "depth": 4,
+      "exact": false,
+      "nodes": 4699,
+      "elapsedMs": 150.04020000000037,
+      "pv": [
+        {
+          "type": "move",
+          "x": 6,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "ply": 31,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "move",
+        "x": 7,
+        "y": 3
+      },
+      "score": 40,
+      "depth": 3,
+      "exact": false,
+      "nodes": 7796,
+      "elapsedMs": 150.03549999999996,
+      "pv": [
+        {
+          "type": "move",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "ply": 32,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "move",
+        "x": 7,
+        "y": 5
+      },
+      "score": -101,
+      "depth": 4,
+      "exact": false,
+      "nodes": 6192,
+      "elapsedMs": 150.02719999999954,
+      "pv": [
+        {
+          "type": "move",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "ply": 33,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 6,
+        "y": 1
+      },
+      "score": 80,
+      "depth": 3,
+      "exact": false,
+      "nodes": 9109,
+      "elapsedMs": 150.32350000000042,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "ply": 34,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 5
+      },
+      "score": -101,
+      "depth": 4,
+      "exact": false,
+      "nodes": 6055,
+      "elapsedMs": 150.03470000000016,
+      "pv": [
+        {
+          "type": "move",
+          "x": 8,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "ply": 35,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "move",
+        "x": 7,
+        "y": 4
+      },
+      "score": -12,
+      "depth": 3,
+      "exact": false,
+      "nodes": 6147,
+      "elapsedMs": 150.04690000000028,
+      "pv": [
+        {
+          "type": "move",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "ply": 36,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 6,
+        "y": 4
+      },
+      "score": 83,
+      "depth": 5,
+      "exact": false,
+      "nodes": 15479,
+      "elapsedMs": 150.03539999999975,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "ply": 37,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 0,
+        "y": 0
+      },
+      "score": -52,
+      "depth": 5,
+      "exact": false,
+      "nodes": 29073,
+      "elapsedMs": 150.07660000000033,
+      "pv": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 38,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 4
+      },
+      "score": -49,
+      "depth": 6,
+      "exact": false,
+      "nodes": 28213,
+      "elapsedMs": 150.03070000000025,
+      "pv": [
+        {
+          "type": "move",
+          "x": 8,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 39,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 5
+      },
+      "score": -52,
+      "depth": 5,
+      "exact": false,
+      "nodes": 30871,
+      "elapsedMs": 150.04479999999967,
+      "pv": [
+        {
+          "type": "move",
+          "x": 8,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 40,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 3
+      },
+      "score": -49,
+      "depth": 4,
+      "exact": false,
+      "nodes": 37049,
+      "elapsedMs": 150.03579999999965,
+      "pv": [
+        {
+          "type": "move",
+          "x": 8,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 41,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "move",
+        "x": 7,
+        "y": 5
+      },
+      "score": -29994,
+      "depth": 4,
+      "exact": false,
+      "nodes": 36968,
+      "elapsedMs": 147.89760000000024,
+      "pv": [
+        {
+          "type": "move",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "ply": 42,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 2
+      },
+      "score": 29995,
+      "depth": 3,
+      "exact": false,
+      "nodes": 4920,
+      "elapsedMs": 18.289099999999962,
+      "pv": [
+        {
+          "type": "move",
+          "x": 8,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "ply": 43,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "move",
+        "x": 6,
+        "y": 5
+      },
+      "score": -29996,
+      "depth": 2,
+      "exact": false,
+      "nodes": 4900,
+      "elapsedMs": 17.113800000000083,
+      "pv": [
+        {
+          "type": "move",
+          "x": 6,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "ply": 44,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 1
+      },
+      "score": 29997,
+      "depth": 1,
+      "exact": false,
+      "nodes": 76,
+      "elapsedMs": 0.3206999999993059,
+      "pv": [
+        {
+          "type": "move",
+          "x": 8,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "ply": 45,
+      "turn": 1,
+      "engine": "atlas2",
+      "action": {
+        "type": "move",
+        "x": 6,
+        "y": 6
+      },
+      "score": -29998,
+      "depth": 1,
+      "exact": false,
+      "nodes": 73,
+      "elapsedMs": 0.25349999999980355,
+      "pv": [
+        {
+          "type": "move",
+          "x": 6,
+          "y": 6
+        }
+      ]
+    },
+    {
+      "ply": 46,
+      "turn": 0,
+      "engine": "Atlas 3",
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 0
+      },
+      "score": 29999,
+      "depth": 1,
+      "exact": false,
+      "nodes": 1,
+      "elapsedMs": 0.02080000000023574,
+      "pv": [
+        {
+          "type": "move",
+          "x": 8,
+          "y": 0
+        }
+      ]
+    }
+  ]
+}

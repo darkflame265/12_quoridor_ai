@@ -1,0 +1,16 @@
+{
+  "name": "quoridor-ai",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "test": "node --test",
+    "benchmark": "node scripts/benchmark.mjs",
+    "evaluate": "node scripts/evaluate.mjs",
+    "analyze-losses": "node scripts/analyze-losses.mjs"
+  },
+  "devDependencies": {
+    "vite": "^7.1.0"
+  }
+}

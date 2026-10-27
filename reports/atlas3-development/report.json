@@ -1,0 +1,200 @@
+{
+  "version": 1,
+  "engine": "Atlas 3",
+  "opponent": "atlas2",
+  "sourceHash": "eac806bd103ed953ac63f20ed75af83eb5c15a40237687dd4ecb47c94b824dbe",
+  "date": "2026-10-26T15:20:05.358Z",
+  "ms": 150,
+  "split": "development",
+  "seed": 137031,
+  "pairs": 4,
+  "maxPlies": 120,
+  "notes": "Paired colors. Repetition (3) and ply cap are benchmark adjudication only. Draws are not wins. Scores are from the side to move; heuristic scores are not win probabilities.",
+  "tactics": [
+    {
+      "id": "finish-0",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      "depth": 1
+    },
+    {
+      "id": "jump-0",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 0
+      },
+      "depth": 1
+    },
+    {
+      "id": "defend-0",
+      "expect": "prevent-loss",
+      "pass": true,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 4,
+        "y": 7
+      },
+      "depth": 4
+    },
+    {
+      "id": "diagonal-0",
+      "expect": "legal",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 1
+      },
+      "depth": 3
+    },
+    {
+      "id": "finish-1",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      },
+      "depth": 1
+    },
+    {
+      "id": "jump-1",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 8
+      },
+      "depth": 1
+    },
+    {
+      "id": "defend-1",
+      "expect": "prevent-loss",
+      "pass": true,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 3,
+        "y": 0
+      },
+      "depth": 4
+    },
+    {
+      "id": "diagonal-1",
+      "expect": "legal",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 7
+      },
+      "depth": 3
+    }
+  ],
+  "games": [
+    {
+      "id": "development-0-side0",
+      "file": "games/development-0-side0.json",
+      "result": "loss",
+      "reason": "goal reached",
+      "candidateSide": 0,
+      "openingStyle": "standard",
+      "plies": 76
+    },
+    {
+      "id": "development-0-side1",
+      "file": "games/development-0-side1.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 1,
+      "openingStyle": "standard",
+      "plies": 80
+    },
+    {
+      "id": "development-1-side0",
+      "file": "games/development-1-side0.json",
+      "result": "loss",
+      "reason": "goal reached",
+      "candidateSide": 0,
+      "openingStyle": "race",
+      "plies": 60
+    },
+    {
+      "id": "development-1-side1",
+      "file": "games/development-1-side1.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 1,
+      "openingStyle": "race",
+      "plies": 64
+    },
+    {
+      "id": "development-2-side0",
+      "file": "games/development-2-side0.json",
+      "result": "loss",
+      "reason": "goal reached",
+      "candidateSide": 0,
+      "openingStyle": "mixed",
+      "plies": 84
+    },
+    {
+      "id": "development-2-side1",
+      "file": "games/development-2-side1.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 1,
+      "openingStyle": "mixed",
+      "plies": 60
+    },
+    {
+      "id": "development-3-side0",
+      "file": "games/development-3-side0.json",
+      "result": "loss",
+      "reason": "goal reached",
+      "candidateSide": 0,
+      "openingStyle": "wall-maze",
+      "plies": 64
+    },
+    {
+      "id": "development-3-side1",
+      "file": "games/development-3-side1.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 1,
+      "openingStyle": "wall-maze",
+      "plies": 64
+    }
+  ],
+  "summary": {
+    "wins": 4,
+    "losses": 4,
+    "draws": 0,
+    "candidate": {
+      "moves": 252,
+      "nodes": 2675204,
+      "elapsedMs": 27420.657199999976,
+      "overruns": 0
+    },
+    "opponent": {
+      "moves": 252,
+      "nodes": 3294573,
+      "elapsedMs": 27447.331800000018,
+      "overruns": 0
+    },
+    "decisiveWilson95": [
+      0.21521252682444186,
+      0.7847874731755582
+    ]
+  }
+}

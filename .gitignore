@@ -1,0 +1,17 @@
+node_modules/
+dist/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+.npmrc
+*.pem
+*.key
+
+# Temporary files and operating-system metadata
+*.log
+*.tmp
+coverage/
+.DS_Store
+Thumbs.db

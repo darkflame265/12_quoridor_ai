@@ -1,0 +1,1371 @@
+{
+  "engine": "Atlas 3",
+  "sourceReport": "C:\\12_quoridor_ai\\reports\\atlas3-validation\\report.json",
+  "ms": 1000,
+  "losses": 5,
+  "analyzed": 6,
+  "results": [
+    {
+      "game": "validation-3-side1",
+      "file": "games/validation-3-side1.json",
+      "ply": 39,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 0,
+        "y": 3
+      },
+      "state": {
+        "p": [
+          {
+            "x": 8,
+            "y": 2
+          },
+          {
+            "x": 7,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 2,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 6,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 2,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 0,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 6,
+            "y": 2,
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "screeningSwing": 29329,
+      "wasDepth": 9,
+      "replay": "positions/validation-3-side1-ply39.json",
+      "classification": "no alternative found",
+      "best": {
+        "action": {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 3
+        },
+        "score": -29988,
+        "depth": 10,
+        "pv": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 8,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 8,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 8,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 8,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "exact": false,
+        "continuationScore": -29989,
+        "continuationDepth": 0
+      },
+      "played": {
+        "score": -29989,
+        "response": [
+          {
+            "type": "move",
+            "x": 8,
+            "y": 1
+          }
+        ],
+        "depth": 0
+      },
+      "estimatedRegret": 0,
+      "wallThreats": {
+        "ownThreat": {
+          "gain": 0,
+          "delay": 0,
+          "wall": null
+        },
+        "attack": {
+          "gain": 0,
+          "delay": 0,
+          "wall": null
+        }
+      },
+      "warning": "Heuristic diagnosis, not proof of a losing move. Both continuations receive the same time budget but may reach different depths."
+    },
+    {
+      "game": "validation-5-side0",
+      "file": "games/validation-5-side0.json",
+      "ply": 68,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 6,
+        "y": 7
+      },
+      "state": {
+        "p": [
+          {
+            "x": 5,
+            "y": 7
+          },
+          {
+            "x": 6,
+            "y": 6
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 2,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 2,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 0,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 5,
+            "owner": 0
+          }
+        ],
+        "left": [
+          2,
+          0
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "screeningSwing": 29187,
+      "wasDepth": 4,
+      "replay": "positions/validation-5-side0-ply68.json",
+      "classification": "wall timing / wall investment",
+      "best": {
+        "action": {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 6
+        },
+        "score": -660,
+        "depth": 9,
+        "pv": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 7,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        ],
+        "exact": false,
+        "continuationScore": -29989,
+        "continuationDepth": 9
+      },
+      "played": {
+        "score": -29987,
+        "response": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 7
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 7,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          }
+        ],
+        "depth": 11
+      },
+      "estimatedRegret": -2,
+      "wallThreats": {
+        "ownThreat": {
+          "gain": 0,
+          "delay": 0,
+          "wall": null
+        },
+        "attack": {
+          "gain": 1,
+          "delay": 2,
+          "wall": {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 7
+          }
+        }
+      },
+      "warning": "Heuristic diagnosis, not proof of a losing move. Both continuations receive the same time budget but may reach different depths."
+    },
+    {
+      "game": "validation-2-side1",
+      "file": "games/validation-2-side1.json",
+      "ply": 19,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 1,
+        "y": 5
+      },
+      "state": {
+        "p": [
+          {
+            "x": 5,
+            "y": 6
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 2,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 6,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 7,
+            "owner": 1
+          }
+        ],
+        "left": [
+          7,
+          4
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "screeningSwing": 293,
+      "wasDepth": 3,
+      "replay": "positions/validation-2-side1-ply19.json",
+      "classification": "no alternative found",
+      "best": {
+        "action": {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 5
+        },
+        "score": 386,
+        "depth": 4,
+        "pv": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 5
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 7
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 5
+          }
+        ],
+        "exact": false,
+        "continuationScore": 518,
+        "continuationDepth": 4
+      },
+      "played": {
+        "score": 518,
+        "response": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 6
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "depth": 4
+      },
+      "estimatedRegret": 0,
+      "wallThreats": {
+        "ownThreat": {
+          "gain": 0,
+          "delay": 0,
+          "wall": null
+        },
+        "attack": {
+          "gain": 0,
+          "delay": 0,
+          "wall": null
+        }
+      },
+      "warning": "Heuristic diagnosis, not proof of a losing move. Both continuations receive the same time budget but may reach different depths."
+    },
+    {
+      "game": "validation-2-side0",
+      "file": "games/validation-2-side0.json",
+      "ply": 22,
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 4,
+        "y": 0
+      },
+      "state": {
+        "p": [
+          {
+            "x": 6,
+            "y": 5
+          },
+          {
+            "x": 3,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 2,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 6,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 2,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 4,
+            "owner": 1
+          }
+        ],
+        "left": [
+          4,
+          6
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "screeningSwing": 202,
+      "wasDepth": 3,
+      "replay": "positions/validation-2-side0-ply22.json",
+      "classification": "no alternative found",
+      "best": {
+        "action": {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 0
+        },
+        "score": 130,
+        "depth": 3,
+        "pv": [
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 6
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 1
+          }
+        ],
+        "exact": false,
+        "continuationScore": -88,
+        "continuationDepth": 4
+      },
+      "played": {
+        "score": -88,
+        "response": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 7
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 6
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 2
+          }
+        ],
+        "depth": 4
+      },
+      "estimatedRegret": 0,
+      "wallThreats": {
+        "ownThreat": {
+          "gain": 1,
+          "delay": 3,
+          "wall": {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 6
+          }
+        },
+        "attack": {
+          "gain": 0,
+          "delay": 0,
+          "wall": null
+        }
+      },
+      "warning": "Heuristic diagnosis, not proof of a losing move. Both continuations receive the same time budget but may reach different depths."
+    },
+    {
+      "game": "validation-4-side0",
+      "file": "games/validation-4-side0.json",
+      "ply": 32,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 4,
+        "y": 1
+      },
+      "state": {
+        "p": [
+          {
+            "x": 6,
+            "y": 7
+          },
+          {
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 7,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 6,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 2,
+            "owner": 0
+          }
+        ],
+        "left": [
+          1,
+          1
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "screeningSwing": 188,
+      "wasDepth": 5,
+      "replay": "positions/validation-4-side0-ply32.json",
+      "classification": "no alternative found",
+      "best": {
+        "action": {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        "score": -108,
+        "depth": 8,
+        "pv": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          }
+        ],
+        "exact": false,
+        "continuationScore": -112,
+        "continuationDepth": 12
+      },
+      "played": {
+        "score": -112,
+        "response": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        ],
+        "depth": 12
+      },
+      "estimatedRegret": 0,
+      "wallThreats": {
+        "ownThreat": {
+          "gain": 0,
+          "delay": 0,
+          "wall": null
+        },
+        "attack": {
+          "gain": 2,
+          "delay": 4,
+          "wall": {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1
+          }
+        }
+      },
+      "warning": "Heuristic diagnosis, not proof of a losing move. Both continuations receive the same time budget but may reach different depths."
+    },
+    {
+      "game": "validation-5-side0",
+      "file": "games/validation-5-side0.json",
+      "ply": 20,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 3,
+        "y": 6
+      },
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 4
+          },
+          {
+            "x": 3,
+            "y": 5
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 3,
+            "owner": 1
+          }
+        ],
+        "left": [
+          10,
+          8
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "screeningSwing": 571,
+      "wasDepth": 3,
+      "replay": "positions/validation-5-side0-ply20.json",
+      "classification": "no alternative found",
+      "best": {
+        "action": {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 6
+        },
+        "score": -529,
+        "depth": 3,
+        "pv": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 6
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 5
+          }
+        ],
+        "exact": false,
+        "continuationScore": -832,
+        "continuationDepth": 4
+      },
+      "played": {
+        "score": -832,
+        "response": [
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 2,
+            "y": 4
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 5
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 4
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "depth": 4
+      },
+      "estimatedRegret": 0,
+      "wallThreats": {
+        "ownThreat": {
+          "gain": 3,
+          "delay": 4,
+          "wall": {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 4
+          }
+        },
+        "attack": {
+          "gain": 0,
+          "delay": 0,
+          "wall": null
+        }
+      },
+      "warning": "Heuristic diagnosis, not proof of a losing move. Both continuations receive the same time budget but may reach different depths."
+    }
+  ]
+}

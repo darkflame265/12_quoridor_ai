@@ -1,0 +1,25 @@
+{
+  "format": "atlas-model-registry-v1",
+  "active": null,
+  "candidate": "candidate.json",
+  "checkpoint": "bootstrap-checkpoint.pt",
+  "sha256": "10b70ee280ed9901878ad74e6bc19299e7b0d7ab67ecfd7e45af4fc127755fe0",
+  "metadata": {
+    "iteration": 4,
+    "validated": false,
+    "productionActive": false,
+    "note": "CPU bootstrap candidate. Not promoted over the Rust search engine."
+  },
+  "arena": {
+    "opponent": "Atlas 4 Rust/WASM",
+    "split": "validation",
+    "ms": 50,
+    "simulations": 16,
+    "bootstrap": 0.8,
+    "wins": 0,
+    "losses": 2,
+    "draws": 0,
+    "promotionEligible": false,
+    "warning": "Small smoke arenas are not strength certification. Unfinished games are adjudicated draws for arena only. No candidate becomes default without this gate and separate tactical validation."
+  }
+}

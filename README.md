@@ -29,7 +29,14 @@ npm run build
 
 ## AI 범위
 
-현재 기본 엔진은 **Atlas 3**입니다. 교체 검증 기록은 `reports/atlas3-release.json`에 있습니다. 브라우저 Web Worker에서 실행되며 외부 서버나 GPU가 필요하지 않습니다. Rust 도구가 없는 현재 PC에서 바로 사용할 수 있도록 JavaScript 엔진을 먼저 최적화했습니다. Rust/WASM 이식과 AlphaZero 자가대국 신경망 학습은 아직 구현하지 않았습니다.
+현재 기본 엔진은 **Atlas 4 Rust/WASM**입니다. `public/atlas.wasm`을 포함하므로 플레이할 때 Rust나 Python을 설치할 필요가 없습니다. 소스를 다시 빌드할 때는 Rust 1.99.1과 `wasm32-unknown-unknown` 대상이 필요합니다. 브라우저 계산 코어를 1~4개 선택할 수 있으며 외부 서버나 GPU 없이 실행됩니다. WASM 로딩에 실패하면 화면에 `JS fallback`을 표시하고 Atlas 3.1 JavaScript 엔진을 사용합니다.
+
+```powershell
+npm run wasm:build
+cargo test --manifest-path rust-engine/Cargo.toml
+```
+
+WASM의 합법 수와 전략 점수를 독립적인 JavaScript 구현에 대조하고, 소스·산출물 SHA-256을 `public/atlas-wasm.json`에 기록합니다. 코드 이식이 항상 실력 향상을 뜻하지는 않습니다. 상세 결과와 제한은 [Atlas 4 검증 기록](reports/ATLAS4.md)을 참고하세요.
 
 - 81개 칸의 인접 연결 배열과 128개 벽 자리로 검색 상태를 표현합니다.
 - 검색 중 수 적용·되돌리기를 사용하고 매번 전체 상태를 복사하지 않습니다.
@@ -42,7 +49,8 @@ npm run build
 - 기존 벽의 끝과 연결되는 설치 수를 우선 정렬하고 탐색 깊이 축소를 피합니다. 여러 턴에 걸친 벽 조합은 실제 게임 트리에서 읽으며, 전략 평가가 연결 벽을 더 일찍 고려하도록 돕습니다.
 - 탐색 내부 반복은 중립 평가합니다. 일반 게임에 반복 무승부 규칙을 추가하지 않습니다.
 - **양쪽 벽이 0개면 고정된 미로의 모든 말 위치와 차례를 역산**합니다. 이때만 화면에 정확한 승리·패배·무승부를 표시합니다. 이론적 무승부는 무한 반복을 피할 수 없는 경우를 뜻합니다. 예산 내 계산이 끝나지 않으면 일반 탐색으로 복귀합니다.
-- 완료된 검색의 Worker와 캐시를 다음 수에 재사용합니다. 실행 중 취소·무르기·진영 변경은 Worker를 종료하고 오래된 결과를 버립니다.
+- 루트 행동 코드를 기준으로 Worker마다 후보를 분할합니다. 같은 깊이를 모든 분할에서 완료한 결과를 합치며, 깊이가 다른 점수를 섞어 추천하지 않습니다. 완료된 검색의 Worker와 캐시는 재사용합니다. 취소·무르기·진영 변경 시 실행 중 Worker를 종료하고 오래된 결과를 버립니다.
+- 내 차례에는 250ms의 짧은 사전 계산을 실행해 다음 수의 캐시를 준비합니다. 기보를 자동으로 진행하지 않으며 마우스 입력을 막지 않습니다.
 - 생각 시간은 0.5 / 2 / 5 / 15 / 30초이며 기본값은 5초입니다. 단일 규칙 생성 작업 때문에 시간이 약간 초과할 수 있습니다.
 
 `src/engine.js`는 화면·저장 기보 검증을 위한 독립적인 규칙 구현입니다. `src/search.js`의 최적화된 규칙과 무작위 합법 상태에서 대조합니다. 기보 좌표와 내 진영이 화면 위에 보이는 방향은 유지됩니다.
@@ -83,6 +91,45 @@ node scripts/promote.mjs --validation reports/atlas3-validation/report.json --ho
 
 기본 엔진 교체는 검증/최종 확인의 완료, 동일한 후보 코드, Atlas 2 비교, 최소 표본, 모든 전술 통과, 검증 성적 비퇴보, 최종 확인의 승수 우위, 시간 초과율과 기보 합법성을 확인합니다. 통과하지 않으면 Worker import를 바꾸지 않습니다. 이 기준은 소규모 출시 확인이며 통계적으로 확정된 실력 우위나 초인적 수준의 인증이 아닙니다. 최종 확인 결과를 보고 코드를 조정했다면 새 최종 확인 시드를 정해서 다시 검증해야 합니다.
 
+위 `promote.mjs` 명령은 이전 Atlas 3의 JavaScript 교체 검사 도구로 보존한 것입니다. 현재 Atlas 4의 산출물·대국 검증은 `node scripts/verify-release.mjs`로 수행합니다.
+
 평가에서만 같은 상태 3회 반복 또는 수 제한을 무승부로 처리하며, 실제 게임의 승리 규칙은 바꾸지 않습니다. 시간제 탐색이므로 같은 시드라도 컴퓨터 부하에 따라 결과가 달라질 수 있습니다. 짧은 대전과 이전 엔진과의 승률은 인간 최상위 수준의 증거가 아닙니다. 평가 배치에 맞춘 조정 후에는 별도 시드/배치로 검증해야 합니다.
 
-남은 확장 대상: Rust/WASM 엔진, 병렬 탐색, 더 긴 벽 조합과 정확한 부분 후반 해석, 독립적인 강한 엔진과의 검증, GPU 자가대국 학습, 임의 배치 편집기, 추천 수 상위 3개, 독립 분기 트리.
+## 미로·WASM·외부 엔진 비교
+
+```powershell
+npm run evaluate -- --backend wasm --suite maze --split holdout --opponent atlas3 --pairs 6 --ms 150
+npm run external:setup
+npm run evaluate -- --backend wasm --split holdout --opponent gorisanson --pairs 4 --ms 500
+```
+
+외부 엔진은 [gorisanson/quoridor-ai](https://github.com/gorisanson/quoridor-ai)의 MIT 구현이며 커밋 `e15d6e7825e6f7c2f3a41de0ecef1af7aa290f1e`로 고정했습니다. 별도 `.external/`에 받고 Git에는 원본 소스를 재배포하지 않습니다. 어댑터는 원본 UCT MCTS를 8회 롤아웃 단위로 실행하고 단위 사이에서 시간을 확인합니다. 두 엔진의 실제 시간을 보고서에 기록합니다. 외부 엔진 한 개에 대한 소규모 승률은 인간 최상위 수준의 인증이 아닙니다.
+
+## AlphaZero 방식의 학습 기반
+
+Python 3.10 이상과 `training/requirements.txt`의 PyTorch·NumPy가 필요합니다. 이 PC에서는 Python 3.14, PyTorch 2.9.1 CPU로 실행 검증했습니다.
+
+```powershell
+python -m pip install -r training/requirements.txt
+npm run train:test
+python training/train.py --out training/runs/local --iterations 1 --games 4 --simulations 24
+```
+
+입력은 현재 차례 기준으로 정규화한 292개 값이고, 정책은 209개 행동, 가치는 승패 평가 1개입니다. PUCT MCTS의 방문 분포를 정책 목표로, 자가대국 승패를 가치 목표로 사용합니다. 불법 수는 제외하고 학습 중에만 루트 탐험 노이즈를 넣습니다. 기본 `--bootstrap 0.8`은 초기 진행을 돕는 명시적인 경로 휴리스틱 혼합이며 회차마다 감소합니다. `--bootstrap 0`으로 휴리스틱 혼합을 끌 수 있습니다. 즉시 승리·패배 방어 검사는 탐색에 유지됩니다. 원 논문의 대규모 AlphaZero 실험을 재현했다는 의미는 아닙니다.
+
+학습 데이터는 개발 시드의 자가대국에서 만들고 검증·최종 확인 시드는 분리합니다. 수 제한에 도달한 미완료 대국은 기록하되 학습 승패 라벨에서 제외합니다. 반복 대국은 학습용 무승부로 처리하며 실제 앱 규칙은 바꾸지 않습니다.
+
+```powershell
+python training/train.py --out training/runs/continued --resume models/bootstrap-checkpoint.pt --iterations 10 --games 16 --simulations 128 --arena-pairs 10
+```
+
+체크포인트에는 가중치, 옵티마이저, 회차, 재현용 난수 상태, 리플레이 버퍼가 있습니다. 현재 챔피언과 과거 스냅샷, Rust 기준 엔진에 대전하고 전술 검증을 수행합니다. 최소 대국 수와 승률 하한 기준, 별도 최종 확인을 통과할 때만 **학습 리그의 챔피언**을 갱신합니다. 기본 앱 엔진을 약한 후보로 자동 교체하지 않습니다. 실제 게임에 신경망을 기본 탑재하는 결정은 별도의 장시간·강도 검증이 필요합니다.
+
+```powershell
+python training/export.py --checkpoint training/runs/local/checkpoint.pt --report training/runs/local/report.json --out models
+python training/analyze.py --checkpoint models/bootstrap-checkpoint.pt --game reports/training-initial/games/iteration-0-game-0.json --simulations 128
+```
+
+`models/candidate.json`은 초기 학습 모델이고 `models/registry.json`의 `active`는 `null`입니다. 챔피언 승격에 실패했으므로 플레이 기본값은 Rust/WASM입니다. PyTorch와 JavaScript 추론 결과를 비교하는 테스트도 포함합니다. 실행 로그·일반 체크포인트는 `training/runs/`에 보관해 Git에서 제외하고, 재개 검증용 체크포인트 하나와 초기 모델·보고서는 Git에 포함합니다.
+
+남은 실력 검증: 장시간 자가대국과 충분한 학습량, 더 강한 독립 엔진 및 숙련자와의 평가, 미로 대국의 확실한 승률 개선. 화면 확장 대상은 임의 배치 편집기, 추천 수 상위 3개, 독립 분기 트리입니다.

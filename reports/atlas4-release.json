@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-27T02:49:36.165Z",
+  "productionEngine": "Atlas 4 Rust/WASM",
+  "wasmSha256": "0b2dd78b031d33507a53ba3ca9f5cf8b94b992525ef5dfeab18f2577d8a52be2",
+  "parallelWorkersMax": 4,
+  "ponderMs": 250,
+  "neuralModelActive": false,
+  "neuralCheckpointIteration": 4,
+  "evaluations": [
+    {
+      "report": "reports/atlas4-maze-holdout/report.json",
+      "games": 12,
+      "wins": 6,
+      "losses": 6,
+      "draws": 0
+    },
+    {
+      "report": "reports/atlas4-external-mcts/report.json",
+      "games": 4,
+      "wins": 4,
+      "losses": 0,
+      "draws": 0
+    },
+    {
+      "report": "reports/atlas4-external-holdout/report.json",
+      "games": 8,
+      "wins": 8,
+      "losses": 0,
+      "draws": 0
+    }
+  ],
+  "limitations": [
+    "Dense-maze strength superiority over Atlas 3 is not demonstrated (6-6).",
+    "Initial CPU neural model did not pass promotion.",
+    "No expert human match or superhuman-strength claim."
+  ]
+}

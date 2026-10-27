@@ -1,0 +1,320 @@
+{
+  "version": 1,
+  "status": "completed",
+  "engine": "Atlas 4 Rust/WASM",
+  "opponent": "gorisanson",
+  "sourceHash": "0b2dd78b031d33507a53ba3ca9f5cf8b94b992525ef5dfeab18f2577d8a52be2",
+  "date": "2026-10-27T02:37:41.587Z",
+  "ms": 500,
+  "split": "holdout",
+  "seed": 984127,
+  "pairs": 4,
+  "maxPlies": 180,
+  "notes": "Paired colors. The standard opening is a common anchor across splits. Repetition (3) and ply cap are benchmark adjudication only. Draws are not wins. Scores are from the side to move; heuristic scores are not win probabilities.",
+  "tactics": [
+    {
+      "id": "finish-0",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      "depth": 1
+    },
+    {
+      "id": "jump-0",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 0
+      },
+      "depth": 1
+    },
+    {
+      "id": "defend-0",
+      "expect": "prevent-loss",
+      "pass": true,
+      "action": {
+        "type": "wall",
+        "x": 4,
+        "y": 7,
+        "o": "h"
+      },
+      "depth": 5
+    },
+    {
+      "id": "diagonal-0",
+      "expect": "legal",
+      "pass": true,
+      "action": {
+        "type": "wall",
+        "x": 4,
+        "y": 2,
+        "o": "h"
+      },
+      "depth": 4
+    },
+    {
+      "id": "diagonal-finish-0",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 0
+      },
+      "depth": 1
+    },
+    {
+      "id": "defend-jump-0",
+      "expect": "prevent-loss",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 5
+      },
+      "depth": 4
+    },
+    {
+      "id": "finish-before-defense-0",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      "depth": 1
+    },
+    {
+      "id": "no-wall-resource-0",
+      "expect": "legal",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "depth": 5
+    },
+    {
+      "id": "finish-1",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      },
+      "depth": 1
+    },
+    {
+      "id": "jump-1",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 8
+      },
+      "depth": 1
+    },
+    {
+      "id": "defend-1",
+      "expect": "prevent-loss",
+      "pass": true,
+      "action": {
+        "type": "wall",
+        "x": 3,
+        "y": 0,
+        "o": "h"
+      },
+      "depth": 5
+    },
+    {
+      "id": "diagonal-1",
+      "expect": "legal",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 7
+      },
+      "depth": 3
+    },
+    {
+      "id": "diagonal-finish-1",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 8
+      },
+      "depth": 1
+    },
+    {
+      "id": "defend-jump-1",
+      "expect": "prevent-loss",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      },
+      "depth": 4
+    },
+    {
+      "id": "finish-before-defense-1",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      },
+      "depth": 1
+    },
+    {
+      "id": "no-wall-resource-1",
+      "expect": "legal",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 7,
+        "y": 4
+      },
+      "depth": 5
+    }
+  ],
+  "games": [
+    {
+      "id": "holdout-0-side0",
+      "file": "games/holdout-0-side0.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 0,
+      "openingStyle": "standard",
+      "plies": 49
+    },
+    {
+      "id": "holdout-0-side1",
+      "file": "games/holdout-0-side1.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 1,
+      "openingStyle": "standard",
+      "plies": 52
+    },
+    {
+      "id": "holdout-1-side0",
+      "file": "games/holdout-1-side0.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 0,
+      "openingStyle": "race",
+      "plies": 83
+    },
+    {
+      "id": "holdout-1-side1",
+      "file": "games/holdout-1-side1.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 1,
+      "openingStyle": "race",
+      "plies": 68
+    },
+    {
+      "id": "holdout-2-side0",
+      "file": "games/holdout-2-side0.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 0,
+      "openingStyle": "mixed",
+      "plies": 55
+    },
+    {
+      "id": "holdout-2-side1",
+      "file": "games/holdout-2-side1.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 1,
+      "openingStyle": "mixed",
+      "plies": 54
+    },
+    {
+      "id": "holdout-3-side0",
+      "file": "games/holdout-3-side0.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 0,
+      "openingStyle": "wall-maze",
+      "plies": 45
+    },
+    {
+      "id": "holdout-3-side1",
+      "file": "games/holdout-3-side1.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 1,
+      "openingStyle": "wall-maze",
+      "plies": 40
+    }
+  ],
+  "summary": {
+    "wins": 8,
+    "losses": 0,
+    "draws": 0,
+    "candidate": {
+      "moves": 201,
+      "nodes": 14390324,
+      "elapsedMs": 64934.08199999986,
+      "overruns": 0
+    },
+    "opponent": {
+      "moves": 197,
+      "nodes": 3344728,
+      "elapsedMs": 98781.09620000017,
+      "overruns": 0
+    },
+    "decisiveWilson95": [
+      0.6755843804891231,
+      1
+    ],
+    "paired": {
+      "standard": {
+        "wins": 2,
+        "losses": 0,
+        "draws": 0
+      },
+      "race": {
+        "wins": 2,
+        "losses": 0,
+        "draws": 0
+      },
+      "mixed": {
+        "wins": 2,
+        "losses": 0,
+        "draws": 0
+      },
+      "wall-maze": {
+        "wins": 2,
+        "losses": 0,
+        "draws": 0
+      }
+    }
+  },
+  "backend": "wasm",
+  "suite": "general",
+  "external": {
+    "url": "https://github.com/gorisanson/quoridor-ai",
+    "commit": "e15d6e7825e6f7c2f3a41de0ecef1af7aa290f1e",
+    "license": "MIT",
+    "configuration": "Upstream UCT MCTS, batches of 8 rollouts, sqrt(2) exploration. Time checked between batches; no human-level strength assumed."
+  }
+}

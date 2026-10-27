@@ -30,3 +30,11 @@ export function tactics(){
 }
 export function checkTactic(fixture,action){const s=fixture.state;if(!action||!legal(s,action))return false;const n=apply(s,action);if(fixture.expect==='win-now')return n.winner===s.turn;if(fixture.expect==='prevent-loss')return n.winner===s.turn||!moves(n).some(m=>m.y===(n.turn===0?0:8));return true;}
 export function wilson(wins,losses){const n=wins+losses;if(!n)return [0,1];const z=1.96,p=wins/n,d=1+z*z/n,c=(p+z*z/(2*n))/d,h=z*Math.sqrt(p*(1-p)/n+z*z/(4*n*n))/d;return [c-h,c+h];}
+export function mazeOpenings(split='development',count=8){
+ if(!(split in SPLITS))throw Error('Unknown split');let seed=SPLITS[split]^0x35d91;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed;},out=[];
+ for(let i=0;i<count;i++){let s=initial();const records=[];
+  const advance=2*(1+i%3);for(let k=0;k<advance;k++){const p=new Position(s),t=s.turn,list=p.pawnMoves().map(a=>{const u=p.make(a),d=p.distances(t);p.unmake(u);return {a,d};}).sort((a,b)=>a.d-b.d);const a=decode(list[0].a);records.push(a);s=apply(s,a);}
+  const walls=10+2*(i%4);for(let k=0;k<walls;k++){const p=new Position(s),list=p.actions().filter(a=>a>=81);if(!list.length)break;const ranked=list.map(a=>({a,r:p.wallConnections(a)*2+(random()%7)})).sort((a,b)=>b.r-a.r);const a=decode(ranked[random()%Math.min(6,ranked.length)].a);if(!legal(s,a))throw Error('Illegal maze fixture');records.push(a);s=apply(s,a);}
+  out.push({id:`maze-${split}-${i}`,style:'wall-maze',state:s,records});
+ }return out;
+}

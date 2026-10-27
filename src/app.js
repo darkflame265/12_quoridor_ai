@@ -1,30 +1,29 @@
+import {EnginePool} from './engine-pool.js';
 import {orientPosition,orientAction} from './view.js';
 import {initial,clone,moves,validWall,legal,apply,notation,distance} from './engine.js';
-const $=s=>document.querySelector(s);let state=initial(),past=[],records=[],worker=null,serial=0,busy=false,hint=null,preview=null;const colors=['#31d4c2','#fa7393'];
+const $=s=>document.querySelector(s);let state=initial(),past=[],records=[],serial=0,busy=false,hint=null,preview=null;const colors=['#31d4c2','#fa7393'];
 const human=()=>$('#mode').value==='sandbox'||state.turn===Number($('#side').value);
 const flipped=()=>Number($('#side').value)===0;
 const viewPosition=p=>orientPosition(p,flipped());
 const viewAction=a=>orientAction(a,flipped());
-function stop(){if(busy){worker?.terminate();worker=null;}serial++;busy=false;}
+let pool=new EnginePool({workers:Math.min(4,Math.max(1,(navigator.hardwareConcurrency||4)-2))}),ponderTimer=null;
+function stop(){clearTimeout(ponderTimer);pool.cancel();serial++;busy=false;}
 function wallSvg(w,extra=''){w=viewAction({...w,type:'wall'});const x=22+w.x*70,y=22+w.y*70;return `<rect class="wall ${extra}" x="${w.o==='h'?x-2:x+60}" y="${w.o==='h'?y+60:y-2}" width="${w.o==='h'?132:10}" height="${w.o==='h'?10:132}" rx="5" fill="${colors[w.owner??state.turn]}"/>`;}
 function render(){const can=human()&&!busy&&state.winner===null,opts=can?moves(state):[];let svg='<svg viewBox="0 0 664 664" role="img" aria-label="쿼리도 보드">';for(let y=0;y<9;y++)for(let x=0;x<9;x++){svg+=`<rect class="cell row${flipped()?8-y:y}" x="${22+x*70}" y="${22+y*70}" width="58" height="58" rx="9"/>`;if(x===0)svg+=`<text x="11" y="${56+y*70}">${flipped()?y+1:9-y}</text>`;if(y===8)svg+=`<text x="${51+x*70}" y="658">${'abcdefghi'[flipped()?8-x:x]}</text>`;}for(const move of opts){const m=viewPosition(move);svg+=`<circle class="move-dot" cx="${51+m.x*70}" cy="${51+m.y*70}" r="9"/>`;}for(const w of state.walls)svg+=wallSvg(w);state.p.forEach((position,t)=>{const p=viewPosition(position);svg+=`<circle class="pawn-ring" cx="${51+p.x*70}" cy="${51+p.y*70}" r="24" stroke="${colors[t]}"/><circle class="pawn" cx="${51+p.x*70}" cy="${51+p.y*70}" r="18" fill="${colors[t]}"/>`;});if(hint){if(hint.type==='wall')svg+=wallSvg(hint,'recommend');else {const h=viewPosition(hint);svg+=`<circle class="recommend" cx="${51+h.x*70}" cy="${51+h.y*70}" r="23" fill="none" stroke="#f4d18a" stroke-width="3"/>`;}}svg+='<g id="ghost"></g></svg>';$('#board').innerHTML=svg;$('#status').textContent=state.winner!==null?`${state.winner===0?'청록':'분홍'} 승리!`:busy?'AI가 수를 읽고 있습니다…':human()?`${state.turn===0?'청록':'분홍'}의 차례`:'AI의 차례';$('#players').innerHTML=[Number($('#side').value),1-Number($('#side').value)].map(t=>`<div class="player ${state.turn===t?'active':''}" style="--accent:${colors[t]}"><div class="avatar">${t===0?'◉':'✦'}</div><div><b>${$('#mode').value==='sandbox'?(t===0?'청록':'분홍'):t===Number($('#side').value)?'YOU':'AI ENGINE'}</b><small>목표까지 ${distance(state,t)}칸</small></div><div class="walls-count"><b>${state.left[t]}</b><small>WALLS</small><div>${'▏'.repeat(state.left[t])}</div></div></div>`).join('');$('#history').innerHTML=records.length?records.map((a,i)=>`<div><span>${String(i+1).padStart(2,'0')}</span><i style="background:${colors[i%2]}"></i><b>${notation(a)}</b><small>${a.type==='wall'?'벽 설치':'말 이동'}</small></div>`).join(''):'<p class="muted">첫 수를 두어 시작하세요.</p>';$('#history').scrollTop=1e6;$('#count').textContent=`${records.length} 수`;$('#hint').disabled=busy||state.winner!==null;$('#undo').disabled=!past.length;}
 function commit(a){if(!legal(state,a))return;stop();past.push(clone(state));records.push(a);state=apply(state,a);hint=null;preview=null;persist();render();schedule();}
-function schedule(){if(state.winner===null&&!human())think(true);}
+function schedule(){if(state.winner!==null)return;if(!human())think(true);else if($('#mode').value==='ai'){clearTimeout(ponderTimer);const snapshot=clone(state);ponderTimer=setTimeout(()=>{if(!busy)pool.search(snapshot,{ms:250,ponder:true}).catch(()=>{});},200);}}
 function think(auto=false){
   stop();busy=true;hint=null;const id=serial;
-  worker??=new Worker(new URL('./ai-worker.js',import.meta.url),{type:'module'});
   render();$('#analysis').textContent='가능한 이동과 벽을 분석하고 있습니다…';
-  worker.onmessage=({data:r})=>{
-    if(r.id!==serial)return;
-    if(r.error){stop();$('#analysis').textContent=r.error;render();return;}
+  const receive=(r,done=false)=>{
+    if(id!==serial)return;
     hint=r.pv[0];
     $('#depth').textContent=r.exact?'후반 완전 탐색':`깊이 ${r.depth}`;
     const verdict=r.exact?(r.outcome===1?'정확한 승리':r.outcome===-1?'정확한 패배':'정확한 무승부'):'선택적 심화 탐색';
     $('#analysis').innerHTML=`<strong>추천 ${notation(hint)}</strong><p>${r.pv.map(notation).join(' → ')}</p><small>${r.engine} · ${r.nodes.toLocaleString()}개 노드 · ${verdict} · ${(r.elapsedMs/1000).toFixed(1)}초</small>`;
-    if(r.done){busy=false;stop();if(auto)commit(hint);else render();}
+    if(done){busy=false;if(auto)commit(hint);else render();}
   };
-  worker.onerror=()=>{stop();render();$('#analysis').textContent='AI 계산 오류. 다시 분석해 주세요.';};
-  worker.postMessage({state,ms:Number($('#time').value),id});
+  pool.search(state,{ms:Number($('#time').value),onProgress:r=>receive(r)}).then(r=>receive(r,true)).catch(error=>{if(id!==serial||error.name==='AbortError')return;stop();render();$('#analysis').textContent=error.message;});
 }
 
 function pick(e){const svg=$('#board svg'),r=svg.getBoundingClientRect(),x=(e.clientX-r.left)*664/r.width,y=(e.clientY-r.top)*664/r.height;const gx=(x-22)/70,gy=(y-22)/70,cx=Math.floor(gx),cy=Math.floor(gy),fx=gx-cx,fy=gy-cy;if(cx<0||cy<0||cx>8||cy>8)return null;if(fx>58/70||fy>58/70){let o=fx>fy?'v':'h';let wx=cx,wy=cy;if(o==='h'){wx=Math.round((x-22-65)/70);wy=cy;}else{wx=cx;wy=Math.round((y-22-65)/70);}return viewAction({type:'wall',x:Math.max(0,Math.min(7,wx)),y:Math.max(0,Math.min(7,wy)),o});}return viewAction({type:'move',x:cx,y:cy});}
@@ -32,3 +31,5 @@ $('#board').onpointermove=e=>{if(!human()||busy||state.winner!==null)return;cons
 $('#hint').onclick=()=>think();$('#reset').onclick=()=>{stop();state=initial();past=[];records=[];hint=null;$('#analysis').textContent='현재 차례의 추천 수와 예상 진행을 확인하세요.';$('#depth').textContent='';persist();render();schedule();};$('#undo').onclick=()=>{stop();if(!past.length)return;do{state=past.pop();records.pop();}while($('#mode').value==='ai'&&past.length&&state.turn!==Number($('#side').value));hint=null;persist();render();schedule();};$('#mode').onchange=()=>{stop();hint=null;render();schedule();};$('#side').onchange=()=>{stop();render();schedule();};
 function persist(){localStorage.setItem('quoridor-session',JSON.stringify({records}));}function restore(data){if(!Array.isArray(data.records)||data.records.length>10000)throw Error('기보 형식 오류');let s=initial(),p=[];for(const a of data.records){if(!a||!legal(s,a))throw Error('불가능한 수가 포함된 기보입니다.');p.push(clone(s));s=apply(s,a);}stop();state=s;past=p;records=data.records;hint=null;persist();render();schedule();}
 $('#save').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify({version:1,records},null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='quoridor-game.json';a.click();URL.revokeObjectURL(url);};$('#load').onclick=()=>$('#file').click();$('#file').onchange=async e=>{try{restore(JSON.parse(await e.target.files[0].text()));}catch(err){alert(`불러오기 실패: ${err.message}`);}e.target.value='';};try{const saved=localStorage.getItem('quoridor-session');if(saved)restore(JSON.parse(saved));else render();}catch{render();}
+
+$('#cores').value=String(pool.size);$('#cores').onchange=()=>{stop();pool.dispose();pool=new EnginePool({workers:Number($('#cores').value)});render();schedule();};

@@ -1,5 +1,5 @@
 // Compact search state. Public game rules remain independently implemented in engine.js.
-export const ENGINE_VERSION = 'Atlas 3';
+export const ENGINE_VERSION = 'Atlas 3.1';
 const WIN = 30000, INF = 32000;
 const BASE = Array.from({length:81},(_,i)=>[i>=9?i-9:-1,i%9<8?i+1:-1,i<72?i+9:-1,i%9?i-1:-1]);
 const opposite=[2,3,0,1];
@@ -118,7 +118,9 @@ export class SearchEngine {
    const originalAlpha=alpha,originalBeta=beta,list=this.ordered(p,hit?.best,ply);let best=-INF,bestMove=list[0];path.add(signature);
    try{for(let i=0;i<list.length;i++){const a=list[i],u=p.make(a);let score;try{
        // Late moves get a shallow probe, but every improvement is searched at full depth.
-       const setup=a>=81&&this.strategy&&p.wallConnections(a)>0;
+       // In a dense maze almost every wall is connected. Exempting all of them
+       // at every depth destroyed selective deepening precisely in those games.
+       const setup=ply<2&&a>=81&&this.strategy&&p.wallConnections(a)>0;
        const reduce=depth>=3&&i>=8&&a!==hit?.best&&!p.terminal()&&!setup?1:0;
        if(i===0)score=-this.negamax(p,depth-1,-beta,-alpha,ply+1,path);
        else {score=-this.negamax(p,depth-1-reduce,-alpha-1,-alpha,ply+1,path);if(reduce&&score>alpha)score=-this.negamax(p,depth-1,-alpha-1,-alpha,ply+1,path);if(score>alpha&&score<beta)score=-this.negamax(p,depth-1,-beta,-alpha,ply+1,path);}

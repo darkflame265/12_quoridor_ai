@@ -1,0 +1,332 @@
+{
+  "version": 1,
+  "status": "completed",
+  "engine": "Atlas 4 Rust/WASM",
+  "opponent": "atlas3",
+  "sourceHash": "0b2dd78b031d33507a53ba3ca9f5cf8b94b992525ef5dfeab18f2577d8a52be2",
+  "date": "2026-10-27T02:24:53.583Z",
+  "ms": 150,
+  "split": "holdout",
+  "seed": 984127,
+  "pairs": 6,
+  "maxPlies": 160,
+  "notes": "Paired colors. The standard opening is a common anchor across splits. Repetition (3) and ply cap are benchmark adjudication only. Draws are not wins. Scores are from the side to move; heuristic scores are not win probabilities.",
+  "tactics": [
+    {
+      "id": "finish-0",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      "depth": 1
+    },
+    {
+      "id": "jump-0",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 0
+      },
+      "depth": 1
+    },
+    {
+      "id": "defend-0",
+      "expect": "prevent-loss",
+      "pass": true,
+      "action": {
+        "type": "wall",
+        "x": 4,
+        "y": 7,
+        "o": "h"
+      },
+      "depth": 5
+    },
+    {
+      "id": "diagonal-0",
+      "expect": "legal",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 1
+      },
+      "depth": 3
+    },
+    {
+      "id": "diagonal-finish-0",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 0
+      },
+      "depth": 1
+    },
+    {
+      "id": "defend-jump-0",
+      "expect": "prevent-loss",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 5
+      },
+      "depth": 4
+    },
+    {
+      "id": "finish-before-defense-0",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      "depth": 1
+    },
+    {
+      "id": "no-wall-resource-0",
+      "expect": "legal",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "depth": 5
+    },
+    {
+      "id": "finish-1",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      },
+      "depth": 1
+    },
+    {
+      "id": "jump-1",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 8
+      },
+      "depth": 1
+    },
+    {
+      "id": "defend-1",
+      "expect": "prevent-loss",
+      "pass": true,
+      "action": {
+        "type": "wall",
+        "x": 3,
+        "y": 0,
+        "o": "h"
+      },
+      "depth": 5
+    },
+    {
+      "id": "diagonal-1",
+      "expect": "legal",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 7
+      },
+      "depth": 3
+    },
+    {
+      "id": "diagonal-finish-1",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 8
+      },
+      "depth": 1
+    },
+    {
+      "id": "defend-jump-1",
+      "expect": "prevent-loss",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      },
+      "depth": 4
+    },
+    {
+      "id": "finish-before-defense-1",
+      "expect": "win-now",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      },
+      "depth": 1
+    },
+    {
+      "id": "no-wall-resource-1",
+      "expect": "legal",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 7,
+        "y": 4
+      },
+      "depth": 5
+    }
+  ],
+  "games": [
+    {
+      "id": "maze-holdout-0-side0",
+      "file": "games/maze-holdout-0-side0.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 0,
+      "openingStyle": "wall-maze",
+      "plies": 59
+    },
+    {
+      "id": "maze-holdout-0-side1",
+      "file": "games/maze-holdout-0-side1.json",
+      "result": "loss",
+      "reason": "goal reached",
+      "candidateSide": 1,
+      "openingStyle": "wall-maze",
+      "plies": 51
+    },
+    {
+      "id": "maze-holdout-1-side0",
+      "file": "games/maze-holdout-1-side0.json",
+      "result": "loss",
+      "reason": "goal reached",
+      "candidateSide": 0,
+      "openingStyle": "wall-maze",
+      "plies": 58
+    },
+    {
+      "id": "maze-holdout-1-side1",
+      "file": "games/maze-holdout-1-side1.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 1,
+      "openingStyle": "wall-maze",
+      "plies": 52
+    },
+    {
+      "id": "maze-holdout-2-side0",
+      "file": "games/maze-holdout-2-side0.json",
+      "result": "loss",
+      "reason": "goal reached",
+      "candidateSide": 0,
+      "openingStyle": "wall-maze",
+      "plies": 52
+    },
+    {
+      "id": "maze-holdout-2-side1",
+      "file": "games/maze-holdout-2-side1.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 1,
+      "openingStyle": "wall-maze",
+      "plies": 46
+    },
+    {
+      "id": "maze-holdout-3-side0",
+      "file": "games/maze-holdout-3-side0.json",
+      "result": "loss",
+      "reason": "goal reached",
+      "candidateSide": 0,
+      "openingStyle": "wall-maze",
+      "plies": 56
+    },
+    {
+      "id": "maze-holdout-3-side1",
+      "file": "games/maze-holdout-3-side1.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 1,
+      "openingStyle": "wall-maze",
+      "plies": 50
+    },
+    {
+      "id": "maze-holdout-4-side0",
+      "file": "games/maze-holdout-4-side0.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 0,
+      "openingStyle": "wall-maze",
+      "plies": 51
+    },
+    {
+      "id": "maze-holdout-4-side1",
+      "file": "games/maze-holdout-4-side1.json",
+      "result": "loss",
+      "reason": "goal reached",
+      "candidateSide": 1,
+      "openingStyle": "wall-maze",
+      "plies": 69
+    },
+    {
+      "id": "maze-holdout-5-side0",
+      "file": "games/maze-holdout-5-side0.json",
+      "result": "loss",
+      "reason": "goal reached",
+      "candidateSide": 0,
+      "openingStyle": "wall-maze",
+      "plies": 52
+    },
+    {
+      "id": "maze-holdout-5-side1",
+      "file": "games/maze-holdout-5-side1.json",
+      "result": "win",
+      "reason": "goal reached",
+      "candidateSide": 1,
+      "openingStyle": "wall-maze",
+      "plies": 64
+    }
+  ],
+  "summary": {
+    "wins": 6,
+    "losses": 6,
+    "draws": 0,
+    "candidate": {
+      "moves": 232,
+      "nodes": 8175019,
+      "elapsedMs": 19258.734400000023,
+      "overruns": 0
+    },
+    "opponent": {
+      "moves": 232,
+      "nodes": 2852068,
+      "elapsedMs": 19467.434299999994,
+      "overruns": 0
+    },
+    "decisiveWilson95": [
+      0.2537781703934222,
+      0.7462218296065778
+    ],
+    "paired": {
+      "wall-maze": {
+        "wins": 6,
+        "losses": 6,
+        "draws": 0
+      }
+    }
+  }
+}

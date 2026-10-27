@@ -1,0 +1,343 @@
+{
+  "format": "atlas-neural-league-v1",
+  "status": "completed",
+  "ms": 500,
+  "cores": 4,
+  "pairsPerSuite": 1,
+  "maxPlies": 120,
+  "seed": 271028,
+  "device": "cuda",
+  "torch": "2.11.0+cu128",
+  "sources": {
+    "training/league.py": "15e18a6460673a4563b0df453c09c20003c47521a8aac507b2a6123b19f9bc37",
+    "training/league_bridge.mjs": "4482e275a4d48241c7b04ff4fd6e700e640099c71ee07673827933fc2650468e",
+    "training/train.py": "a10d3520aa2c0aca13286edcc4f6c4681a5f9b88fa4b1e0f6e388d02a1d1c09a",
+    "training/networks.py": "c69b90fa90afd413bbe3ffa05ad0f0a70080794043b7ae961961d6708078c9c6",
+    "training/bridge.mjs": "2b5aadd21c963a459297b98d81f10830ccc15b8330d4547a87656831ba9a0118",
+    "src/engine.js": "27f673aeb1ff022aeb961440e0afa4e84477cd855601da29473bfc04530d16c0",
+    "src/search.js": "b0ef55353fba9e2d4ed180ba5ecbb0f22bfca45669c886384a648ecfb81d2795",
+    "src/wasm-core.js": "94b416e6a4564c48273697295eb4de8da2430bdbe61fe38e4cd4cd39c18e9817",
+    "src/wasm-node.js": "56a64b2285983e2432063a03b1309453a69dafe66ac308a3c3a68dfbb0672eef",
+    "server/native-process.mjs": "3274f7dfbc9b9e2547a3608e42fecec420bd701af761102dc0e0a2fb4bc7b2fe",
+    "evaluation/suite.js": "b4d1f0099eafe595deed937b3fdb74924eb5326121e0e0b35663e1af195fd8cb",
+    "evaluation/native-fixtures.mjs": "eaa74dacc9e796bb5d4690b4492008a021f96183ee711dfcc76941248ccf94fd",
+    "evaluation/native-policy.mjs": "fbc0767ccb0f8bfd0bc80f65544ccc887fc9b9d563473f83296b80dc81b51f4f",
+    "public/atlas.wasm": "0b2dd78b031d33507a53ba3ca9f5cf8b94b992525ef5dfeab18f2577d8a52be2",
+    "evaluation/native-release.json": "e88297025c635e178e979b5b47d1fdfd7fb9dc10de36d972648c6f91844ed698"
+  },
+  "candidate": {
+    "file": "models\\teacher-rescnn-v1\\experimental.pt",
+    "sha256": "dff2f0fa7b643f5963f0f54cafb2eb3010e4e1bc468f8b240537058f50f8161f",
+    "architecture": {
+      "type": "rescnn",
+      "channels": 64,
+      "blocks": 4
+    }
+  },
+  "pastModels": [
+    {
+      "id": "past-0",
+      "file": "models\\experimental-rescnn\\experimental.pt",
+      "sha256": "d4d6999acbcefea7c708582108086f3e498bf60e066d084ab77ad1d0a723923d",
+      "architecture": {
+        "type": "rescnn",
+        "channels": 64,
+        "blocks": 4
+      }
+    }
+  ],
+  "opponents": [
+    "native53",
+    "past-0"
+  ],
+  "games": [
+    {
+      "version": 1,
+      "split": "validation",
+      "suite": "general",
+      "openingIndex": 0,
+      "opponent": "native53",
+      "candidateSide": 0,
+      "result": "loss",
+      "winner": 1,
+      "reason": "goal reached",
+      "replayValidated": true,
+      "file": "games/validation-general-0-native53-side0.json",
+      "sha256": "7f421d609d93f5e32bc6790596b8f7b721659974dc5df474b734a44d1ed82b97"
+    },
+    {
+      "version": 1,
+      "split": "validation",
+      "suite": "general",
+      "openingIndex": 0,
+      "opponent": "native53",
+      "candidateSide": 1,
+      "result": "loss",
+      "winner": 0,
+      "reason": "goal reached",
+      "replayValidated": true,
+      "file": "games/validation-general-0-native53-side1.json",
+      "sha256": "9e3174960680040b4d99e57c80a727502d0079ffb857195ccf0014008f62c46a"
+    },
+    {
+      "version": 1,
+      "split": "validation",
+      "suite": "general",
+      "openingIndex": 0,
+      "opponent": "past-0",
+      "candidateSide": 0,
+      "result": "draw",
+      "winner": null,
+      "reason": "repetition draw",
+      "replayValidated": true,
+      "file": "games/validation-general-0-past-0-side0.json",
+      "sha256": "f4b6d919dba418af61e6d6cc6054a813058e7db6a0586eaa1fd153f9f9c73af7"
+    },
+    {
+      "version": 1,
+      "split": "validation",
+      "suite": "general",
+      "openingIndex": 0,
+      "opponent": "past-0",
+      "candidateSide": 1,
+      "result": "win",
+      "winner": 1,
+      "reason": "goal reached",
+      "replayValidated": true,
+      "file": "games/validation-general-0-past-0-side1.json",
+      "sha256": "1021737daca41bc96c291c22884d148933ce3e691add3b586e68a51ca529b933"
+    },
+    {
+      "version": 1,
+      "split": "validation",
+      "suite": "maze",
+      "openingIndex": 0,
+      "opponent": "native53",
+      "candidateSide": 0,
+      "result": "draw",
+      "winner": null,
+      "reason": "repetition draw",
+      "replayValidated": true,
+      "file": "games/validation-maze-0-native53-side0.json",
+      "sha256": "b274cbe17524db6fc6add5800bcd098697d55c67b22c87dfd34f1952f7659309"
+    },
+    {
+      "version": 1,
+      "split": "validation",
+      "suite": "maze",
+      "openingIndex": 0,
+      "opponent": "native53",
+      "candidateSide": 1,
+      "result": "loss",
+      "winner": 0,
+      "reason": "goal reached",
+      "replayValidated": true,
+      "file": "games/validation-maze-0-native53-side1.json",
+      "sha256": "fc450e6eea9c66159ef2d7e6794062aa9486f1a23a3a7a1ceab766faa0409a6e"
+    },
+    {
+      "version": 1,
+      "split": "validation",
+      "suite": "maze",
+      "openingIndex": 0,
+      "opponent": "past-0",
+      "candidateSide": 0,
+      "result": "draw",
+      "winner": null,
+      "reason": "repetition draw",
+      "replayValidated": true,
+      "file": "games/validation-maze-0-past-0-side0.json",
+      "sha256": "ffc805835ee6344f847a0524e019456d89a0e56552ff00e399e01be35d1cb5bd"
+    },
+    {
+      "version": 1,
+      "split": "validation",
+      "suite": "maze",
+      "openingIndex": 0,
+      "opponent": "past-0",
+      "candidateSide": 1,
+      "result": "draw",
+      "winner": null,
+      "reason": "repetition draw",
+      "replayValidated": true,
+      "file": "games/validation-maze-0-past-0-side1.json",
+      "sha256": "d5f61b5208a59350c77ccb056a56f2da1db577e02702437a0fde69ec46752e90"
+    }
+  ],
+  "tactics": [
+    {
+      "id": "finish-0",
+      "pass": true,
+      "simulations": 35964,
+      "expansions": 0,
+      "elapsedMs": 500.0228999997489
+    },
+    {
+      "id": "jump-0",
+      "pass": true,
+      "simulations": 35353,
+      "expansions": 0,
+      "elapsedMs": 500.0188999983948
+    },
+    {
+      "id": "defend-0",
+      "pass": true,
+      "simulations": 252,
+      "expansions": 176,
+      "elapsedMs": 502.2419999986596
+    },
+    {
+      "id": "diagonal-0",
+      "pass": true,
+      "simulations": 194,
+      "expansions": 194,
+      "elapsedMs": 500.20410000070115
+    },
+    {
+      "id": "diagonal-finish-0",
+      "pass": true,
+      "simulations": 35776,
+      "expansions": 0,
+      "elapsedMs": 500.01309999788646
+    },
+    {
+      "id": "defend-jump-0",
+      "pass": true,
+      "simulations": 226,
+      "expansions": 200,
+      "elapsedMs": 500.54649999947287
+    },
+    {
+      "id": "finish-before-defense-0",
+      "pass": true,
+      "simulations": 38709,
+      "expansions": 0,
+      "elapsedMs": 500.02130000211764
+    },
+    {
+      "id": "no-wall-resource-0",
+      "pass": true,
+      "simulations": 974,
+      "expansions": 188,
+      "elapsedMs": 500.00590000126977
+    },
+    {
+      "id": "finish-1",
+      "pass": true,
+      "simulations": 34830,
+      "expansions": 0,
+      "elapsedMs": 500.00530000033905
+    },
+    {
+      "id": "jump-1",
+      "pass": true,
+      "simulations": 40152,
+      "expansions": 0,
+      "elapsedMs": 500.010799998563
+    },
+    {
+      "id": "defend-1",
+      "pass": true,
+      "simulations": 312,
+      "expansions": 213,
+      "elapsedMs": 500.0830999997561
+    },
+    {
+      "id": "diagonal-1",
+      "pass": true,
+      "simulations": 178,
+      "expansions": 178,
+      "elapsedMs": 501.7862000022433
+    },
+    {
+      "id": "diagonal-finish-1",
+      "pass": true,
+      "simulations": 34410,
+      "expansions": 0,
+      "elapsedMs": 500.0198999987333
+    },
+    {
+      "id": "defend-jump-1",
+      "pass": true,
+      "simulations": 185,
+      "expansions": 168,
+      "elapsedMs": 500.7763000030536
+    },
+    {
+      "id": "finish-before-defense-1",
+      "pass": true,
+      "simulations": 40348,
+      "expansions": 0,
+      "elapsedMs": 500.0073000010161
+    },
+    {
+      "id": "no-wall-resource-1",
+      "pass": true,
+      "simulations": 766,
+      "expansions": 182,
+      "elapsedMs": 500.4967000022589
+    }
+  ],
+  "timing": {
+    "candidate": {
+      "moves": 195,
+      "elapsedMs": 97846.14260001399,
+      "overruns": 0,
+      "maxMs": 506.7444999986037
+    },
+    "native53": {
+      "moves": 89,
+      "elapsedMs": 34682.229500001995,
+      "overruns": 0,
+      "maxMs": 501.0493999980099
+    },
+    "past-0": {
+      "moves": 108,
+      "elapsedMs": 54184.40709997958,
+      "overruns": 0,
+      "maxMs": 504.9447000019427
+    }
+  },
+  "validationPositions": [
+    "[[{\"x\": 4, \"y\": 8}, {\"x\": 4, \"y\": 0}], [10, 10], 0, []]",
+    "[[{\"x\": 4, \"y\": 7}, {\"x\": 4, \"y\": 1}], [5, 5], 0, [[2, 1, \"h\"], [2, 2, \"h\"], [3, 0, \"v\"], [3, 3, \"h\"], [4, 1, \"h\"], [4, 2, \"h\"], [5, 3, \"h\"], [6, 1, \"h\"], [7, 3, \"h\"], [7, 4, \"h\"]]]"
+  ],
+  "holdoutPositions": [],
+  "productionActive": false,
+  "budgetNote": "Equal requested wall-clock budgets include neural rules and transfers. One indivisible expansion may overrun; actual times and overruns are retained. No hard real-time claim.",
+  "native": {
+    "sourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+    "binaryHash": "62977fff79e51dcbc5e9de4f463d6db3a26b6c81ba7061e33aa5a08861db061a",
+    "releaseHash": "e88297025c635e178e979b5b47d1fdfd7fb9dc10de36d972648c6f91844ed698",
+    "profile": "candidate",
+    "name": "Atlas 5.3 Native Rust"
+  },
+  "holdoutSkipped": "Validation gate failed; reserved holdout not opened",
+  "decision": {
+    "eligible": false,
+    "checks": {
+      "completed": true,
+      "budget": true,
+      "tactics": true,
+      "opponents": true,
+      "paired": false,
+      "replays": true,
+      "validation:native53:sample": false,
+      "validation:native53:superiority": false,
+      "validation:native53:suites": false,
+      "validation:past-0:sample": false,
+      "validation:past-0:superiority": false,
+      "validation:past-0:suites": false,
+      "holdout:native53:sample": false,
+      "holdout:native53:superiority": false,
+      "holdout:native53:suites": false,
+      "holdout:past-0:sample": false,
+      "holdout:past-0:superiority": false,
+      "holdout:past-0:suites": false,
+      "deadline": true,
+      "tacticDeadline": true,
+      "splitDisjoint": false
+    },
+    "productionActive": false
+  }
+}

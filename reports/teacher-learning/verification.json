@@ -1,0 +1,37 @@
+{
+  "validatedGames": 32,
+  "completedTrainingGames": 32,
+  "split": {
+    "validationGames": [
+      0,
+      1,
+      7,
+      12,
+      14,
+      21
+    ],
+    "validationSamples": 317,
+    "trainingOriginalSamples": 1212,
+    "trainingAugmentedSamples": 2424,
+    "excludedOverlappingStates": 0,
+    "mirrorAwareOverlap": 0
+  },
+  "beforeValidation": {
+    "policyLoss": 2.5195718277892105,
+    "valueTargetMse": 1.131534708787214,
+    "outcomeMse": 1.325820104556881,
+    "teacherTop1": 0.3943217665615142,
+    "zeroOutcomeMse": 1.0,
+    "loss": 3.6511065365764246
+  },
+  "selectedValidation": {
+    "policyLoss": 1.7809310335466162,
+    "valueTargetMse": 0.650057699402048,
+    "outcomeMse": 0.9230547402559395,
+    "teacherTop1": 0.45741324921135645,
+    "zeroOutcomeMse": 1.0,
+    "loss": 2.430988732948664
+  },
+  "gpuMaxAbsoluteError": 4.559755325317383e-06,
+  "productionActive": false
+}

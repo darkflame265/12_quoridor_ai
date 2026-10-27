@@ -1,0 +1,468 @@
+{
+  "format": "atlas-teacher-training-v1",
+  "status": "completed",
+  "config": {
+    "command": "fit",
+    "dataset": "reports/teacher-learning/dataset-v1",
+    "out": "training/runs/teacher-v1",
+    "checkpoint": "models/experimental-rescnn/experimental.pt",
+    "epochs": 20,
+    "batch_size": 64,
+    "lr": 0.0003,
+    "seed": 271029,
+    "validation_fraction": 0.2,
+    "value_blend": 0.5,
+    "cpu": false
+  },
+  "device": "cuda",
+  "torch": "2.11.0+cu128",
+  "architecture": {
+    "type": "rescnn",
+    "channels": 64,
+    "blocks": 4
+  },
+  "inputs": {
+    "sources": {
+      "training/league.py": "15e18a6460673a4563b0df453c09c20003c47521a8aac507b2a6123b19f9bc37",
+      "training/league_bridge.mjs": "4482e275a4d48241c7b04ff4fd6e700e640099c71ee07673827933fc2650468e",
+      "training/train.py": "a10d3520aa2c0aca13286edcc4f6c4681a5f9b88fa4b1e0f6e388d02a1d1c09a",
+      "training/networks.py": "c69b90fa90afd413bbe3ffa05ad0f0a70080794043b7ae961961d6708078c9c6",
+      "training/bridge.mjs": "2b5aadd21c963a459297b98d81f10830ccc15b8330d4547a87656831ba9a0118",
+      "src/engine.js": "27f673aeb1ff022aeb961440e0afa4e84477cd855601da29473bfc04530d16c0",
+      "src/search.js": "b0ef55353fba9e2d4ed180ba5ecbb0f22bfca45669c886384a648ecfb81d2795",
+      "src/wasm-core.js": "94b416e6a4564c48273697295eb4de8da2430bdbe61fe38e4cd4cd39c18e9817",
+      "src/wasm-node.js": "56a64b2285983e2432063a03b1309453a69dafe66ac308a3c3a68dfbb0672eef",
+      "server/native-process.mjs": "3274f7dfbc9b9e2547a3608e42fecec420bd701af761102dc0e0a2fb4bc7b2fe",
+      "evaluation/suite.js": "b4d1f0099eafe595deed937b3fdb74924eb5326121e0e0b35663e1af195fd8cb",
+      "evaluation/native-fixtures.mjs": "eaa74dacc9e796bb5d4690b4492008a021f96183ee711dfcc76941248ccf94fd",
+      "evaluation/native-policy.mjs": "fbc0767ccb0f8bfd0bc80f65544ccc887fc9b9d563473f83296b80dc81b51f4f",
+      "public/atlas.wasm": "0b2dd78b031d33507a53ba3ca9f5cf8b94b992525ef5dfeab18f2577d8a52be2",
+      "evaluation/native-release.json": "e88297025c635e178e979b5b47d1fdfd7fb9dc10de36d972648c6f91844ed698",
+      "training/teacher.py": "fcd2f64180c1996e8dae874342932f0bb535e91fbc01bab55233b71eaf3a56df",
+      "training/learner.py": "83d57d48ec0df23ad2e06832d7566165edfe9c7ba06148f35991b19b15ead65f",
+      "training/batch_selfplay.py": "43d67acdcc2e05346cf3c5af91c553c0b798702229757b7fe79ae3ceb2ee6cd0"
+    },
+    "datasetSha256": "b8c918f8f0e99c52df68ed3f6e1aad6125fb4ec3c79f52dcc01293892f1f4081",
+    "initialCheckpointSha256": "d4d6999acbcefea7c708582108086f3e498bf60e066d084ab77ad1d0a723923d"
+  },
+  "split": {
+    "validationGames": [
+      0,
+      1,
+      7,
+      12,
+      14,
+      21
+    ],
+    "validationSamples": 317,
+    "trainingOriginalSamples": 1212,
+    "trainingAugmentedSamples": 2424,
+    "excludedOverlappingStates": 0,
+    "mirrorAwareOverlap": 0
+  },
+  "before": {
+    "train": {
+      "policyLoss": 2.3855244350118605,
+      "valueTargetMse": 1.155117406310028,
+      "outcomeMse": 1.4025341449397626,
+      "teacherTop1": 0.4203795379537954,
+      "zeroOutcomeMse": 1.0,
+      "loss": 3.5406418413218885
+    },
+    "validation": {
+      "policyLoss": 2.5195389515970033,
+      "valueTargetMse": 1.1316659247461553,
+      "outcomeMse": 1.3259636912060084,
+      "teacherTop1": 0.3943217665615142,
+      "zeroOutcomeMse": 1.0,
+      "loss": 3.651204876343159
+    }
+  },
+  "epochs": [
+    {
+      "epoch": 1,
+      "train": {
+        "policyLoss": 1.5076932560886094,
+        "valueTargetMse": 0.06747153293181567,
+        "outcomeMse": 0.13134188699250174,
+        "teacherTop1": 0.5478547854785478,
+        "zeroOutcomeMse": 1.0,
+        "loss": 1.575164789020425
+      },
+      "validation": {
+        "policyLoss": 1.7808970261823491,
+        "valueTargetMse": 0.650081165205417,
+        "outcomeMse": 0.9230562805753401,
+        "teacherTop1": 0.45741324921135645,
+        "zeroOutcomeMse": 1.0,
+        "loss": 2.430978191387766
+      }
+    },
+    {
+      "epoch": 2,
+      "train": {
+        "policyLoss": 1.1772589982539514,
+        "valueTargetMse": 0.03463204416504787,
+        "outcomeMse": 0.07037330165554588,
+        "teacherTop1": 0.6514026402640264,
+        "zeroOutcomeMse": 1.0,
+        "loss": 1.2118910424189993
+      },
+      "validation": {
+        "policyLoss": 1.7268421883086678,
+        "valueTargetMse": 0.8262499980746008,
+        "outcomeMse": 1.1635394893610138,
+        "teacherTop1": 0.4637223974763407,
+        "zeroOutcomeMse": 1.0,
+        "loss": 2.5530921863832683
+      }
+    },
+    {
+      "epoch": 3,
+      "train": {
+        "policyLoss": 0.9333357165748923,
+        "valueTargetMse": 0.030249543315900043,
+        "outcomeMse": 0.07251087195015583,
+        "teacherTop1": 0.7260726072607261,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.9635852598907924
+      },
+      "validation": {
+        "policyLoss": 1.8246260682115043,
+        "valueTargetMse": 0.6744919063917094,
+        "outcomeMse": 0.963717295168326,
+        "teacherTop1": 0.48580441640378547,
+        "zeroOutcomeMse": 1.0,
+        "loss": 2.4991179746032137
+      }
+    },
+    {
+      "epoch": 4,
+      "train": {
+        "policyLoss": 0.7195123194074473,
+        "valueTargetMse": 0.02665203829409659,
+        "outcomeMse": 0.06857778313923196,
+        "teacherTop1": 0.7904290429042904,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.7461643577015439
+      },
+      "validation": {
+        "policyLoss": 1.8987330247175054,
+        "valueTargetMse": 0.7867498548248965,
+        "outcomeMse": 1.1269107662164826,
+        "teacherTop1": 0.49842271293375395,
+        "zeroOutcomeMse": 1.0,
+        "loss": 2.685482879542402
+      }
+    },
+    {
+      "epoch": 5,
+      "train": {
+        "policyLoss": 0.47058190607001676,
+        "valueTargetMse": 0.026211916502847925,
+        "outcomeMse": 0.07243796558466682,
+        "teacherTop1": 0.8741749174917491,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.4967938225728647
+      },
+      "validation": {
+        "policyLoss": 2.1209648926551408,
+        "valueTargetMse": 0.8039747653323394,
+        "outcomeMse": 1.161316327116091,
+        "teacherTop1": 0.4384858044164038,
+        "zeroOutcomeMse": 1.0,
+        "loss": 2.9249396579874802
+      }
+    },
+    {
+      "epoch": 6,
+      "train": {
+        "policyLoss": 0.29741068326994136,
+        "valueTargetMse": 0.02770123308641289,
+        "outcomeMse": 0.07319425789043062,
+        "teacherTop1": 0.9265676567656765,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.3251119163563542
+      },
+      "validation": {
+        "policyLoss": 2.284147533332512,
+        "valueTargetMse": 0.6449934661576424,
+        "outcomeMse": 0.9892805322111593,
+        "teacherTop1": 0.4479495268138801,
+        "zeroOutcomeMse": 1.0,
+        "loss": 2.929140999490154
+      }
+    },
+    {
+      "epoch": 7,
+      "train": {
+        "policyLoss": 0.23215638843700043,
+        "valueTargetMse": 0.022066497665033876,
+        "outcomeMse": 0.07338411392945268,
+        "teacherTop1": 0.933993399339934,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.2542228861020343
+      },
+      "validation": {
+        "policyLoss": 2.646919467095697,
+        "valueTargetMse": 0.7639722613506137,
+        "outcomeMse": 1.1255569578345266,
+        "teacherTop1": 0.47003154574132494,
+        "zeroOutcomeMse": 1.0,
+        "loss": 3.4108917284463107
+      }
+    },
+    {
+      "epoch": 8,
+      "train": {
+        "policyLoss": 0.12254433073226374,
+        "valueTargetMse": 0.02313030584908948,
+        "outcomeMse": 0.075445024290494,
+        "teacherTop1": 0.9707095709570958,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.1456746365813532
+      },
+      "validation": {
+        "policyLoss": 2.7765501966987873,
+        "valueTargetMse": 0.752658025699459,
+        "outcomeMse": 1.124669842163471,
+        "teacherTop1": 0.48264984227129337,
+        "zeroOutcomeMse": 1.0,
+        "loss": 3.529208222398246
+      }
+    },
+    {
+      "epoch": 9,
+      "train": {
+        "policyLoss": 0.11719402385623541,
+        "valueTargetMse": 0.022201246357593598,
+        "outcomeMse": 0.06154648984226063,
+        "teacherTop1": 0.9698844884488449,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.139395270213829
+      },
+      "validation": {
+        "policyLoss": 2.7974446053008553,
+        "valueTargetMse": 0.7750849438014467,
+        "outcomeMse": 1.0901714529524842,
+        "teacherTop1": 0.4353312302839117,
+        "zeroOutcomeMse": 1.0,
+        "loss": 3.5725295491023017
+      }
+    },
+    {
+      "epoch": 10,
+      "train": {
+        "policyLoss": 0.1033922516473449,
+        "valueTargetMse": 0.01962491065853893,
+        "outcomeMse": 0.0751294587606644,
+        "teacherTop1": 0.9723597359735974,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.12301716230588383
+      },
+      "validation": {
+        "policyLoss": 2.9071675971479447,
+        "valueTargetMse": 0.7706120367681942,
+        "outcomeMse": 1.1531903480505719,
+        "teacherTop1": 0.4384858044164038,
+        "zeroOutcomeMse": 1.0,
+        "loss": 3.677779633916139
+      }
+    },
+    {
+      "epoch": 11,
+      "train": {
+        "policyLoss": 0.06692955124102803,
+        "valueTargetMse": 0.01802410637781565,
+        "outcomeMse": 0.08205610700566383,
+        "teacherTop1": 0.9814356435643564,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.08495365761884369
+      },
+      "validation": {
+        "policyLoss": 3.162747211636805,
+        "valueTargetMse": 0.7204539302019667,
+        "outcomeMse": 1.0867006560605408,
+        "teacherTop1": 0.4384858044164038,
+        "zeroOutcomeMse": 1.0,
+        "loss": 3.8832011418387715
+      }
+    },
+    {
+      "epoch": 12,
+      "train": {
+        "policyLoss": 0.07492505245082842,
+        "valueTargetMse": 0.015816261075904267,
+        "outcomeMse": 0.07666697488366181,
+        "teacherTop1": 0.9839108910891089,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.09074131352673269
+      },
+      "validation": {
+        "policyLoss": 3.398417909062623,
+        "valueTargetMse": 0.7644616497051828,
+        "outcomeMse": 1.11304469063455,
+        "teacherTop1": 0.42902208201892744,
+        "zeroOutcomeMse": 1.0,
+        "loss": 4.162879558767806
+      }
+    },
+    {
+      "epoch": 13,
+      "train": {
+        "policyLoss": 0.06727529831058515,
+        "valueTargetMse": 0.016047511139128466,
+        "outcomeMse": 0.07013105746149623,
+        "teacherTop1": 0.9847359735973598,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.08332280944971363
+      },
+      "validation": {
+        "policyLoss": 3.546164527676459,
+        "valueTargetMse": 0.7883156376306191,
+        "outcomeMse": 1.1759796623927938,
+        "teacherTop1": 0.43217665615141954,
+        "zeroOutcomeMse": 1.0,
+        "loss": 4.334480165307078
+      }
+    },
+    {
+      "epoch": 14,
+      "train": {
+        "policyLoss": 0.04459106705763159,
+        "valueTargetMse": 0.01635861777924862,
+        "outcomeMse": 0.07136996946122387,
+        "teacherTop1": 0.9896864686468647,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.06094968483688021
+      },
+      "validation": {
+        "policyLoss": 3.566544782476094,
+        "valueTargetMse": 0.7841994228423206,
+        "outcomeMse": 1.2085407269113824,
+        "teacherTop1": 0.45425867507886436,
+        "zeroOutcomeMse": 1.0,
+        "loss": 4.350744205318414
+      }
+    },
+    {
+      "epoch": 15,
+      "train": {
+        "policyLoss": 0.06990600773210179,
+        "valueTargetMse": 0.01722206445810425,
+        "outcomeMse": 0.08126041971810974,
+        "teacherTop1": 0.9806105610561056,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.08712807219020605
+      },
+      "validation": {
+        "policyLoss": 3.808048958281989,
+        "valueTargetMse": 0.7104597362434074,
+        "outcomeMse": 1.1277773523180266,
+        "teacherTop1": 0.4889589905362776,
+        "zeroOutcomeMse": 1.0,
+        "loss": 4.518508694525397
+      }
+    },
+    {
+      "epoch": 16,
+      "train": {
+        "policyLoss": 0.06362282659354383,
+        "valueTargetMse": 0.013908560298653718,
+        "outcomeMse": 0.06735614817528048,
+        "teacherTop1": 0.9814356435643564,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.07753138689219755
+      },
+      "validation": {
+        "policyLoss": 3.541365566313831,
+        "valueTargetMse": 0.7505743465965102,
+        "outcomeMse": 1.1217318393454567,
+        "teacherTop1": 0.4479495268138801,
+        "zeroOutcomeMse": 1.0,
+        "loss": 4.291939912910341
+      }
+    },
+    {
+      "epoch": 17,
+      "train": {
+        "policyLoss": 0.03380216092559764,
+        "valueTargetMse": 0.012164992910407164,
+        "outcomeMse": 0.07820990996392253,
+        "teacherTop1": 0.9921617161716172,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.045967153836004804
+      },
+      "validation": {
+        "policyLoss": 3.7481581149417145,
+        "valueTargetMse": 0.7033400189613318,
+        "outcomeMse": 1.0976694871198491,
+        "teacherTop1": 0.45425867507886436,
+        "zeroOutcomeMse": 1.0,
+        "loss": 4.451498133903046
+      }
+    },
+    {
+      "epoch": 18,
+      "train": {
+        "policyLoss": 0.06151700236222925,
+        "valueTargetMse": 0.013126748377340462,
+        "outcomeMse": 0.06641435947748695,
+        "teacherTop1": 0.9789603960396039,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.0746437507395697
+      },
+      "validation": {
+        "policyLoss": 3.8043658139201746,
+        "valueTargetMse": 0.7932605322227118,
+        "outcomeMse": 1.2040928260008996,
+        "teacherTop1": 0.47318611987381703,
+        "zeroOutcomeMse": 1.0,
+        "loss": 4.597626346142887
+      }
+    },
+    {
+      "epoch": 19,
+      "train": {
+        "policyLoss": 0.03260235449071765,
+        "valueTargetMse": 0.013116112501412728,
+        "outcomeMse": 0.0773335582155599,
+        "teacherTop1": 0.9921617161716172,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.04571846699213038
+      },
+      "validation": {
+        "policyLoss": 3.904251531847644,
+        "valueTargetMse": 0.7054927115936761,
+        "outcomeMse": 1.0890835301733168,
+        "teacherTop1": 0.47003154574132494,
+        "zeroOutcomeMse": 1.0,
+        "loss": 4.6097442434413205
+      }
+    },
+    {
+      "epoch": 20,
+      "train": {
+        "policyLoss": 0.04100758781527529,
+        "valueTargetMse": 0.011087211740292337,
+        "outcomeMse": 0.06779243042170018,
+        "teacherTop1": 0.9867986798679867,
+        "zeroOutcomeMse": 1.0,
+        "loss": 0.05209479955556763
+      },
+      "validation": {
+        "policyLoss": 3.853190473201523,
+        "valueTargetMse": 0.8007527661248336,
+        "outcomeMse": 1.1936211691293808,
+        "teacherTop1": 0.444794952681388,
+        "zeroOutcomeMse": 1.0,
+        "loss": 4.653943239326357
+      }
+    }
+  ],
+  "productionActive": false,
+  "valueTargetNote": "Blended final result and tanh(Native score / 700). Heuristic distillation target, not calibrated win probability.",
+  "bestEpoch": 1,
+  "bestLoss": 2.430978191387766,
+  "bestSha256": "dff2f0fa7b643f5963f0f54cafb2eb3010e4e1bc468f8b240537058f50f8161f"
+}

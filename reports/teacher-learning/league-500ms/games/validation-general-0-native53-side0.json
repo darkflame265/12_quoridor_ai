@@ -1,0 +1,758 @@
+{
+  "version": 1,
+  "split": "validation",
+  "suite": "general",
+  "openingIndex": 0,
+  "opponent": "native53",
+  "candidateSide": 0,
+  "result": "loss",
+  "winner": 1,
+  "reason": "goal reached",
+  "records": [
+    {
+      "type": "wall",
+      "x": 5,
+      "y": 6,
+      "o": "v"
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 1
+    },
+    {
+      "type": "move",
+      "x": 5,
+      "y": 8
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 2
+    },
+    {
+      "type": "move",
+      "x": 5,
+      "y": 7
+    },
+    {
+      "o": "h",
+      "type": "wall",
+      "x": 4,
+      "y": 6
+    },
+    {
+      "type": "wall",
+      "x": 2,
+      "y": 6,
+      "o": "h"
+    },
+    {
+      "o": "h",
+      "type": "wall",
+      "x": 4,
+      "y": 7
+    },
+    {
+      "type": "wall",
+      "x": 6,
+      "y": 7,
+      "o": "h"
+    },
+    {
+      "o": "h",
+      "type": "wall",
+      "x": 0,
+      "y": 6
+    },
+    {
+      "type": "wall",
+      "x": 6,
+      "y": 6,
+      "o": "v"
+    },
+    {
+      "o": "h",
+      "type": "wall",
+      "x": 2,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 7
+    },
+    {
+      "o": "h",
+      "type": "wall",
+      "x": 7,
+      "y": 0
+    },
+    {
+      "type": "move",
+      "x": 3,
+      "y": 7
+    },
+    {
+      "o": "h",
+      "type": "wall",
+      "x": 5,
+      "y": 0
+    },
+    {
+      "type": "wall",
+      "x": 3,
+      "y": 6,
+      "o": "v"
+    },
+    {
+      "o": "h",
+      "type": "wall",
+      "x": 3,
+      "y": 0
+    },
+    {
+      "type": "move",
+      "x": 2,
+      "y": 7
+    },
+    {
+      "o": "h",
+      "type": "wall",
+      "x": 1,
+      "y": 0
+    },
+    {
+      "type": "move",
+      "x": 3,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 5,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "x": 4,
+      "y": 2,
+      "o": "h"
+    },
+    {
+      "type": "move",
+      "x": 6,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "x": 6,
+      "y": 2,
+      "o": "h"
+    },
+    {
+      "o": "v",
+      "type": "wall",
+      "x": 3,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "x": 5,
+      "y": 3,
+      "o": "h"
+    },
+    {
+      "o": "v",
+      "type": "wall",
+      "x": 7,
+      "y": 3
+    },
+    {
+      "type": "wall",
+      "x": 5,
+      "y": 2,
+      "o": "v"
+    },
+    {
+      "type": "move",
+      "x": 7,
+      "y": 2
+    },
+    {
+      "type": "move",
+      "x": 2,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 8,
+      "y": 2
+    },
+    {
+      "type": "move",
+      "x": 1,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 8,
+      "y": 3
+    },
+    {
+      "type": "move",
+      "x": 1,
+      "y": 8
+    },
+    {
+      "type": "move",
+      "x": 8,
+      "y": 4
+    },
+    {
+      "type": "move",
+      "x": 1,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 8,
+      "y": 5
+    },
+    {
+      "type": "move",
+      "x": 2,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 8,
+      "y": 6
+    },
+    {
+      "type": "move",
+      "x": 3,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 8,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 2,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 8,
+      "y": 8
+    }
+  ],
+  "trace": [
+    {
+      "ply": 0,
+      "role": "candidate",
+      "action": {
+        "type": "wall",
+        "x": 5,
+        "y": 6,
+        "o": "v"
+      },
+      "elapsedMs": 500.91080000129296,
+      "simulations": 206,
+      "expansions": 206
+    },
+    {
+      "ply": 1,
+      "role": "native53",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 1
+      },
+      "elapsedMs": 500.7079999995767
+    },
+    {
+      "ply": 2,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 8
+      },
+      "elapsedMs": 501.4116999991529,
+      "simulations": 186,
+      "expansions": 186
+    },
+    {
+      "ply": 3,
+      "role": "native53",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 2
+      },
+      "elapsedMs": 500.70190000042203
+    },
+    {
+      "ply": 4,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 7
+      },
+      "elapsedMs": 501.3681999989785,
+      "simulations": 140,
+      "expansions": 140
+    },
+    {
+      "ply": 5,
+      "role": "native53",
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 4,
+        "y": 6
+      },
+      "elapsedMs": 500.63000000227476
+    },
+    {
+      "ply": 6,
+      "role": "candidate",
+      "action": {
+        "type": "wall",
+        "x": 2,
+        "y": 6,
+        "o": "h"
+      },
+      "elapsedMs": 503.3287999976892,
+      "simulations": 174,
+      "expansions": 174
+    },
+    {
+      "ply": 7,
+      "role": "native53",
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 4,
+        "y": 7
+      },
+      "elapsedMs": 500.65019999965443
+    },
+    {
+      "ply": 8,
+      "role": "candidate",
+      "action": {
+        "type": "wall",
+        "x": 6,
+        "y": 7,
+        "o": "h"
+      },
+      "elapsedMs": 500.67960000160383,
+      "simulations": 164,
+      "expansions": 164
+    },
+    {
+      "ply": 9,
+      "role": "native53",
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 0,
+        "y": 6
+      },
+      "elapsedMs": 500.63589999990654
+    },
+    {
+      "ply": 10,
+      "role": "candidate",
+      "action": {
+        "type": "wall",
+        "x": 6,
+        "y": 6,
+        "o": "v"
+      },
+      "elapsedMs": 500.74429999949643,
+      "simulations": 201,
+      "expansions": 201
+    },
+    {
+      "ply": 11,
+      "role": "native53",
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 2,
+        "y": 7
+      },
+      "elapsedMs": 500.52169999980833
+    },
+    {
+      "ply": 12,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "elapsedMs": 501.12389999776497,
+      "simulations": 196,
+      "expansions": 196
+    },
+    {
+      "ply": 13,
+      "role": "native53",
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 7,
+        "y": 0
+      },
+      "elapsedMs": 500.56970000150613
+    },
+    {
+      "ply": 14,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 7
+      },
+      "elapsedMs": 500.6001000001561,
+      "simulations": 185,
+      "expansions": 185
+    },
+    {
+      "ply": 15,
+      "role": "native53",
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 5,
+        "y": 0
+      },
+      "elapsedMs": 500.55280000015046
+    },
+    {
+      "ply": 16,
+      "role": "candidate",
+      "action": {
+        "type": "wall",
+        "x": 3,
+        "y": 6,
+        "o": "v"
+      },
+      "elapsedMs": 506.7444999986037,
+      "simulations": 143,
+      "expansions": 143
+    },
+    {
+      "ply": 17,
+      "role": "native53",
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 3,
+        "y": 0
+      },
+      "elapsedMs": 500.7197000013548
+    },
+    {
+      "ply": 18,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 7
+      },
+      "elapsedMs": 502.57280000005267,
+      "simulations": 159,
+      "expansions": 159
+    },
+    {
+      "ply": 19,
+      "role": "native53",
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 1,
+        "y": 0
+      },
+      "elapsedMs": 500.5669999991369
+    },
+    {
+      "ply": 20,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 7
+      },
+      "elapsedMs": 500.9348999992653,
+      "simulations": 185,
+      "expansions": 185
+    },
+    {
+      "ply": 21,
+      "role": "native53",
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 2
+      },
+      "elapsedMs": 500.7218999999168
+    },
+    {
+      "ply": 22,
+      "role": "candidate",
+      "action": {
+        "type": "wall",
+        "x": 4,
+        "y": 2,
+        "o": "h"
+      },
+      "elapsedMs": 501.9594000004872,
+      "simulations": 165,
+      "expansions": 165
+    },
+    {
+      "ply": 23,
+      "role": "native53",
+      "action": {
+        "type": "move",
+        "x": 6,
+        "y": 2
+      },
+      "elapsedMs": 500.57980000201496
+    },
+    {
+      "ply": 24,
+      "role": "candidate",
+      "action": {
+        "type": "wall",
+        "x": 6,
+        "y": 2,
+        "o": "h"
+      },
+      "elapsedMs": 501.5611999988323,
+      "simulations": 178,
+      "expansions": 178
+    },
+    {
+      "ply": 25,
+      "role": "native53",
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 3,
+        "y": 1
+      },
+      "elapsedMs": 500.5450999997265
+    },
+    {
+      "ply": 26,
+      "role": "candidate",
+      "action": {
+        "type": "wall",
+        "x": 5,
+        "y": 3,
+        "o": "h"
+      },
+      "elapsedMs": 501.48470000203815,
+      "simulations": 177,
+      "expansions": 177
+    },
+    {
+      "ply": 27,
+      "role": "native53",
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 7,
+        "y": 3
+      },
+      "elapsedMs": 500.5024999991292
+    },
+    {
+      "ply": 28,
+      "role": "candidate",
+      "action": {
+        "type": "wall",
+        "x": 5,
+        "y": 2,
+        "o": "v"
+      },
+      "elapsedMs": 501.78819999928237,
+      "simulations": 178,
+      "expansions": 175
+    },
+    {
+      "ply": 29,
+      "role": "native53",
+      "action": {
+        "type": "move",
+        "x": 7,
+        "y": 2
+      },
+      "elapsedMs": 260.797700000694
+    },
+    {
+      "ply": 30,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 7
+      },
+      "elapsedMs": 502.2060000010242,
+      "simulations": 211,
+      "expansions": 199
+    },
+    {
+      "ply": 31,
+      "role": "native53",
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 2
+      },
+      "elapsedMs": 168.76720000072964
+    },
+    {
+      "ply": 32,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 7
+      },
+      "elapsedMs": 504.12539999888395,
+      "simulations": 198,
+      "expansions": 179
+    },
+    {
+      "ply": 33,
+      "role": "native53",
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 3
+      },
+      "elapsedMs": 153.4987999984878
+    },
+    {
+      "ply": 34,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 8
+      },
+      "elapsedMs": 502.5501999989501,
+      "simulations": 185,
+      "expansions": 177
+    },
+    {
+      "ply": 35,
+      "role": "native53",
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 4
+      },
+      "elapsedMs": 136.0543000009784
+    },
+    {
+      "ply": 36,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 7
+      },
+      "elapsedMs": 500.66209999931743,
+      "simulations": 230,
+      "expansions": 213
+    },
+    {
+      "ply": 37,
+      "role": "native53",
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 5
+      },
+      "elapsedMs": 129.8123000015039
+    },
+    {
+      "ply": 38,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 7
+      },
+      "elapsedMs": 502.0947000011802,
+      "simulations": 237,
+      "expansions": 213
+    },
+    {
+      "ply": 39,
+      "role": "native53",
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 6
+      },
+      "elapsedMs": 126.17889999819454
+    },
+    {
+      "ply": 40,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 7
+      },
+      "elapsedMs": 504.17600000218954,
+      "simulations": 261,
+      "expansions": 198
+    },
+    {
+      "ply": 41,
+      "role": "native53",
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 7
+      },
+      "elapsedMs": 0.7183000016084407
+    },
+    {
+      "ply": 42,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 7
+      },
+      "elapsedMs": 500.39729999843985,
+      "simulations": 8265,
+      "expansions": 61
+    },
+    {
+      "ply": 43,
+      "role": "native53",
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      },
+      "elapsedMs": 0.696099999913713
+    }
+  ],
+  "replayValidated": true
+}

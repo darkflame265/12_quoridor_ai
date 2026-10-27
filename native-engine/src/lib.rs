@@ -7,5 +7,6 @@ mod core {
     ));
     include!("search.rs");
     include!("strategy.rs");
+    include!("endgame-oracle.rs");
 }
 pub use core::{NativeEngine, NativeOutput, State};

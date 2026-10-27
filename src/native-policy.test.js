@@ -21,3 +21,6 @@ test('new evaluation cohort excludes previously used holdout positions',()=>{
  for(const suite of ['general','maze']){const old=new Set([...nativeFixtures('holdout',suite,4,'v1'),...nativeFixtures('validation',suite,3,'v2')].map(f=>JSON.stringify(f.state)));for(const f of nativeFixtures('holdout',suite,4,'v2'))assert.ok(!old.has(JSON.stringify(f.state)));}
  const a=report('validation',3),b=report('holdout',4);a.cohort='v1';b.cohort='v2';assert.equal(assessNative(a,b,'frozen').eligible,false);
 });
+test('third cohort remains separate from both earlier cohorts',()=>{
+ for(const suite of ['general','maze']){const used=new Set(['v1','v2'].flatMap(c=>nativeFixtures('holdout',suite,4,c)).concat(nativeFixtures('validation',suite,3,'v3')).map(f=>JSON.stringify(f.state)));for(const f of nativeFixtures('holdout',suite,4,'v3'))assert.ok(!used.has(JSON.stringify(f.state)));}
+});

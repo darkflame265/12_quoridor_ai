@@ -3,7 +3,7 @@ import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 export const root=fileURLToPath(new URL('../',import.meta.url));
-export const nativeSources=['rust-engine/src/lib.rs','native-engine/src/lib.rs','native-engine/src/search.rs','native-engine/src/strategy.rs','native-engine/src/main.rs','native-engine/Cargo.toml','native-engine/Cargo.lock','rust-toolchain.toml'];
+export const nativeSources=['rust-engine/src/lib.rs','native-engine/src/lib.rs','native-engine/src/search.rs','native-engine/src/strategy.rs','native-engine/src/endgame-oracle.rs','native-engine/src/main.rs','native-engine/Cargo.toml','native-engine/Cargo.lock','rust-toolchain.toml'];
 export const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
 export function nativeSourceHash(){return digest(nativeSources.map(file=>file+':'+digest(readFileSync(path.join(root,file)))).join('\n'));}
 export function assessNative(validation,holdout,sourceHash){

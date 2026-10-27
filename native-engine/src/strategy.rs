@@ -9,7 +9,7 @@ mod strategy_tests {
     use super::*;
     fn cache() -> SharedSearch {
         SharedSearch {
-            profile: 2,
+            profile: 4,
             ..SharedSearch::default()
         }
     }
@@ -211,7 +211,7 @@ impl SharedSearch {
     fn static_score(&self, p: &mut Position) -> i32 {
         // Preserve fast opening evaluation. Full exposure is useful after walls
         // form a maze; paying for it at every open-board leaf lost search depth.
-        if self.profile == 0 || self.profile == 2 || p.walls.count_ones() < 8 {
+        if self.profile == 0 || self.profile == 2 || self.profile == 4 || p.walls.count_ones() < 8 {
             return p.evaluate();
         }
         let t = p.turn;
@@ -236,7 +236,7 @@ impl SharedSearch {
             + (reserve + pressure as f64 + 0.5).floor() as i32
     }
     fn is_critical(&self, p: &Position, a: u16) -> bool {
-        if self.profile < 2 {
+        if !matches!(self.profile, 3 | 4) {
             return false;
         }
         let (key, flip) = canonical(p.key());

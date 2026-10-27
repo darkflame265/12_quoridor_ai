@@ -6,5 +6,5 @@ import path from 'node:path';
 import {createHash} from 'node:crypto';
 const local=path.join(homedir(),'.cargo','bin',process.platform==='win32'?'cargo.exe':'cargo'),cargo=existsSync(local)?local:'cargo';
 const result=spawnSync(cargo,['build','--release','--manifest-path','native-engine/Cargo.toml'],{stdio:'inherit'});if(result.status!==0)process.exit(result.status??1);
-const files=['rust-engine/src/lib.rs','native-engine/src/lib.rs','native-engine/src/search.rs','native-engine/src/strategy.rs','native-engine/src/main.rs','native-engine/Cargo.toml','native-engine/Cargo.lock','rust-toolchain.toml'],sources={};for(const f of files)sources[f]=createHash('sha256').update(await readFile(f)).digest('hex');
+const files=['rust-engine/src/lib.rs','native-engine/src/lib.rs','native-engine/src/search.rs','native-engine/src/strategy.rs','native-engine/src/endgame-oracle.rs','native-engine/src/main.rs','native-engine/Cargo.toml','native-engine/Cargo.lock','rust-toolchain.toml'],sources={};for(const f of files)sources[f]=createHash('sha256').update(await readFile(f)).digest('hex');
 await writeFile('native-engine/target/release/source-manifest.json',JSON.stringify({sources},null,2));

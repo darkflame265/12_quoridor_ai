@@ -1,0 +1,5136 @@
+{
+  "source": "reports/native52/holdout",
+  "sourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+  "ms": 500,
+  "cores": 4,
+  "maxDepth": 1,
+  "available": 73,
+  "analyzed": 12,
+  "warning": "Previously used development positions and depth-one diagnosis; not a win-rate benchmark. A null outcome means the action does not enter a wall-free ending.",
+  "results": [
+    {
+      "id": "general-0-side0-ply51",
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 4
+          },
+          {
+            "x": 0,
+            "y": 6
+          }
+        ],
+        "walls": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "owner": 1
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 2
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 2
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 4
+        }
+      ],
+      "baseline": {
+        "action": {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 3
+        },
+        "score": -660,
+        "endingOutcome": -1
+      },
+      "candidate": {
+        "action": {
+          "type": "move",
+          "x": 0,
+          "y": 7
+        },
+        "score": -672,
+        "endingOutcome": null,
+        "endgameSolves": 60,
+        "endgameHits": 0
+      }
+    },
+    {
+      "id": "general-0-side0-ply53",
+      "state": {
+        "p": [
+          {
+            "x": 5,
+            "y": 4
+          },
+          {
+            "x": 0,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "owner": 1
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 2
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 2
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 4
+        }
+      ],
+      "baseline": {
+        "action": {
+          "o": "v",
+          "type": "wall",
+          "x": 5,
+          "y": 3
+        },
+        "score": -396,
+        "endingOutcome": -1
+      },
+      "candidate": {
+        "action": {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        "score": -480,
+        "endingOutcome": null,
+        "endgameSolves": 60,
+        "endgameHits": 0
+      }
+    },
+    {
+      "id": "general-0-side1-ply47",
+      "state": {
+        "p": [
+          {
+            "x": 1,
+            "y": 5
+          },
+          {
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "walls": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "owner": 1
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        }
+      ],
+      "baseline": {
+        "action": {
+          "type": "move",
+          "x": 0,
+          "y": 5
+        },
+        "score": 2156,
+        "endingOutcome": null
+      },
+      "candidate": {
+        "action": {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 0
+        },
+        "score": 29987,
+        "endingOutcome": 1,
+        "endgameSolves": 55,
+        "endgameHits": 0
+      }
+    },
+    {
+      "id": "general-0-side1-ply49",
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 5
+          },
+          {
+            "x": 0,
+            "y": 5
+          }
+        ],
+        "walls": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "owner": 1
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 5
+        }
+      ],
+      "baseline": {
+        "action": {
+          "type": "move",
+          "x": 0,
+          "y": 6
+        },
+        "score": 2156,
+        "endingOutcome": null
+      },
+      "candidate": {
+        "action": {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 0
+        },
+        "score": 29989,
+        "endingOutcome": 1,
+        "endgameSolves": 55,
+        "endgameHits": 0
+      }
+    },
+    {
+      "id": "general-0-side1-ply51",
+      "state": {
+        "p": [
+          {
+            "x": 3,
+            "y": 5
+          },
+          {
+            "x": 0,
+            "y": 6
+          }
+        ],
+        "walls": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "owner": 1
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 5
+        }
+      ],
+      "baseline": {
+        "action": {
+          "type": "move",
+          "x": 0,
+          "y": 7
+        },
+        "score": 2156,
+        "endingOutcome": null
+      },
+      "candidate": {
+        "action": {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 0
+        },
+        "score": 29991,
+        "endingOutcome": 1,
+        "endgameSolves": 56,
+        "endgameHits": 0
+      }
+    },
+    {
+      "id": "general-0-side1-ply53",
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 0,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "owner": 1
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        }
+      ],
+      "baseline": {
+        "action": {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        "score": 2156,
+        "endingOutcome": null
+      },
+      "candidate": {
+        "action": {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 0
+        },
+        "score": 29993,
+        "endingOutcome": 1,
+        "endgameSolves": 57,
+        "endgameHits": 0
+      }
+    },
+    {
+      "id": "general-0-side1-ply55",
+      "state": {
+        "p": [
+          {
+            "x": 5,
+            "y": 5
+          },
+          {
+            "x": 1,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "owner": 1
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        }
+      ],
+      "baseline": {
+        "action": {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        "score": 29997,
+        "endingOutcome": null
+      },
+      "candidate": {
+        "action": {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 0
+        },
+        "score": 29995,
+        "endingOutcome": 1,
+        "endgameSolves": 59,
+        "endgameHits": 0
+      }
+    },
+    {
+      "id": "general-1-side0-ply42",
+      "state": {
+        "p": [
+          {
+            "x": 8,
+            "y": 6
+          },
+          {
+            "x": 5,
+            "y": 4
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "owner": 1
+          }
+        ],
+        "left": [
+          1,
+          0
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "baseline": {
+        "action": {
+          "type": "move",
+          "x": 8,
+          "y": 5
+        },
+        "score": -672,
+        "endingOutcome": null
+      },
+      "candidate": {
+        "action": {
+          "type": "move",
+          "x": 8,
+          "y": 5
+        },
+        "score": -672,
+        "endingOutcome": null,
+        "endgameSolves": 59,
+        "endgameHits": 0
+      }
+    },
+    {
+      "id": "general-1-side0-ply44",
+      "state": {
+        "p": [
+          {
+            "x": 7,
+            "y": 6
+          },
+          {
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "owner": 1
+          }
+        ],
+        "left": [
+          1,
+          0
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        }
+      ],
+      "baseline": {
+        "action": {
+          "o": "v",
+          "type": "wall",
+          "x": 7,
+          "y": 5
+        },
+        "score": -516,
+        "endingOutcome": -1
+      },
+      "candidate": {
+        "action": {
+          "type": "move",
+          "x": 7,
+          "y": 5
+        },
+        "score": -600,
+        "endingOutcome": null,
+        "endgameSolves": 58,
+        "endgameHits": 1
+      }
+    },
+    {
+      "id": "general-1-side1-ply39",
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 6
+          },
+          {
+            "x": 5,
+            "y": 3
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 2
+        }
+      ],
+      "baseline": {
+        "action": {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 5
+        },
+        "score": 660,
+        "endingOutcome": 1
+      },
+      "candidate": {
+        "action": {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 0
+        },
+        "score": 29975,
+        "endingOutcome": 1,
+        "endgameSolves": 56,
+        "endgameHits": 0
+      }
+    },
+    {
+      "id": "general-2-side1-ply32",
+      "state": {
+        "p": [
+          {
+            "x": 8,
+            "y": 7
+          },
+          {
+            "x": 8,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 0,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 2,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 7,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "owner": 0
+          }
+        ],
+        "left": [
+          1,
+          0
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 2
+        }
+      ],
+      "baseline": {
+        "action": {
+          "type": "move",
+          "x": 7,
+          "y": 7
+        },
+        "score": -136,
+        "endingOutcome": null
+      },
+      "candidate": {
+        "action": {
+          "type": "move",
+          "x": 7,
+          "y": 7
+        },
+        "score": -136,
+        "endingOutcome": null,
+        "endgameSolves": 61,
+        "endgameHits": 0
+      }
+    },
+    {
+      "id": "general-2-side1-ply34",
+      "state": {
+        "p": [
+          {
+            "x": 7,
+            "y": 7
+          },
+          {
+            "x": 8,
+            "y": 3
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 0,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 2,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 7,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "owner": 0
+          }
+        ],
+        "left": [
+          1,
+          0
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 8
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 7,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 8,
+          "y": 3
+        }
+      ],
+      "baseline": {
+        "action": {
+          "type": "move",
+          "x": 7,
+          "y": 6
+        },
+        "score": -136,
+        "endingOutcome": null
+      },
+      "candidate": {
+        "action": {
+          "type": "move",
+          "x": 7,
+          "y": 6
+        },
+        "score": -136,
+        "endingOutcome": null,
+        "endgameSolves": 62,
+        "endgameHits": 0
+      }
+    }
+  ]
+}

@@ -65,6 +65,12 @@ struct SharedSearch {
     moves: Vec<RwLock<HashMap<Key, Ranked>>>,
     critical: Vec<RwLock<HashMap<Key, Vec<u16>>>>,
     geometries: Vec<RwLock<HashMap<u128, Arc<GoalGeometry>>>>,
+    oracle: Mutex<HashMap<u128, Arc<FixedMaze>>>,
+    root_wins: Mutex<HashMap<u16, u16>>,
+    oracle_deadline: AtomicU64,
+    oracle_active: AtomicBool,
+    oracle_hits: AtomicU64,
+    oracle_solves: AtomicU64,
     hits: AtomicU64,
 }
 impl Default for SharedSearch {
@@ -76,6 +82,12 @@ impl Default for SharedSearch {
             moves: (0..SHARDS).map(|_| RwLock::new(HashMap::new())).collect(),
             critical: (0..SHARDS).map(|_| RwLock::new(HashMap::new())).collect(),
             geometries: (0..SHARDS).map(|_| RwLock::new(HashMap::new())).collect(),
+            oracle: Mutex::new(HashMap::new()),
+            root_wins: Mutex::new(HashMap::new()),
+            oracle_deadline: AtomicU64::new(0),
+            oracle_active: AtomicBool::new(false),
+            oracle_hits: AtomicU64::new(0),
+            oracle_solves: AtomicU64::new(0),
             hits: AtomicU64::new(0),
         }
     }
@@ -152,7 +164,7 @@ impl SharedSearch {
         }
         let mut ranked = vec![];
         let mut critical = vec![];
-        let urgent = self.profile >= 2
+        let urgent = matches!(self.profile, 3 | 4)
             && (enemy <= 2 || p.moves(1 - t).into_iter().any(|a| goal(a as usize, 1 - t)));
         for a in list {
             let u = p.make(a);
@@ -165,7 +177,7 @@ impl SharedSearch {
                     p.unmake(u);
                     continue;
                 }
-                if self.profile >= 2
+                if matches!(self.profile, 3 | 4)
                     && (urgent && (a < 81 || theirs > enemy)
                         || a >= 81
                             && ((theirs - enemy) - (mine - own) >= 2
@@ -291,6 +303,18 @@ impl NativeSearcher {
             );
             return Ok(WIN - ply as i32 - 1);
         }
+        if self.shared.profile == 2
+            && p.left == [0, 0]
+            && self.shared.oracle_active.load(Ordering::Relaxed)
+        {
+            self.check()?;
+            if let Some(score) =
+                self.shared
+                    .oracle_score(p, ply, path, self.deadline, &self.cancel)?
+            {
+                return Ok(score);
+            }
+        }
         if depth <= 0 {
             if ply < 12
                 && p.moves(1 - p.turn)
@@ -299,7 +323,10 @@ impl NativeSearcher {
             {
                 depth = 1;
             } else {
-                if self.shared.profile > 0 {
+                if self.shared.profile > 0
+                    && (self.shared.profile != 2
+                        || self.shared.oracle_active.load(Ordering::Relaxed))
+                {
                     self.check()?;
                 }
                 return Ok(self.shared.evaluate(p));
@@ -307,7 +334,10 @@ impl NativeSearcher {
         }
         let hit = self.shared.entry(&key);
         if let Some(e) = &hit {
-            if e.context == *path && e.depth >= depth {
+            if e.context == *path
+                && e.depth >= depth
+                && !self.shared.oracle_active.load(Ordering::Relaxed)
+            {
                 let score = if e.score > WIN - 500 {
                     e.score - ply as i32
                 } else if e.score < -WIN + 500 {
@@ -535,6 +565,8 @@ pub struct NativeOutput {
     pub result: Output,
     pub workers: usize,
     pub shared_cache_hits: u64,
+    pub endgame_hits: u64,
+    pub endgame_solves: u64,
     pub cancelled: bool,
     pub backend: &'static str,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -555,7 +587,7 @@ impl Default for NativeEngine {
 impl NativeEngine {
     pub fn with_profile(profile: u8) -> Self {
         let shared = Arc::new(SharedSearch {
-            profile: profile.min(3),
+            profile: profile.min(4),
             ..SharedSearch::default()
         });
         Self {
@@ -602,6 +634,21 @@ impl NativeEngine {
         let deadline = start + ms.clamp(1., 30000.);
         let cores = cores.clamp(1, 4);
         let hits = self.shared.hits.load(Ordering::Relaxed);
+        self.shared.root_wins.lock().unwrap().clear();
+        let oracle_hits = self.shared.oracle_hits.load(Ordering::Relaxed);
+        let oracle_solves = self.shared.oracle_solves.load(Ordering::Relaxed);
+        let ending = self.shared.profile == 2 && s.left.iter().sum::<usize>() <= 1;
+        self.shared.oracle_active.store(ending, Ordering::Relaxed);
+        self.shared.oracle_deadline.store(
+            if ending {
+                (start + ms.clamp(1., 30000.) * 0.25)
+                    .min(deadline)
+                    .to_bits()
+            } else {
+                0
+            },
+            Ordering::Relaxed,
+        );
         let mut out = NativeOutput {
             result: Output {
                 pv: vec![],
@@ -614,6 +661,8 @@ impl NativeEngine {
                     if self.shared.profile == 0 {
                         "5"
                     } else if self.shared.profile == 2 {
+                        "5.3"
+                    } else if self.shared.profile == 4 {
                         "5.2"
                     } else {
                         "5.1"
@@ -625,6 +674,8 @@ impl NativeEngine {
             },
             workers: cores,
             shared_cache_hits: 0,
+            endgame_hits: 0,
+            endgame_solves: 0,
             cancelled: false,
             backend: "native",
             exact: None,
@@ -808,6 +859,8 @@ impl NativeEngine {
                 .sum();
             out.result.elapsed_ms = now() - start;
             out.shared_cache_hits = self.shared.hits.load(Ordering::Relaxed) - hits;
+            out.endgame_hits = self.shared.oracle_hits.load(Ordering::Relaxed) - oracle_hits;
+            out.endgame_solves = self.shared.oracle_solves.load(Ordering::Relaxed) - oracle_solves;
             progress(&out);
             if score.abs() > WIN - 500 {
                 break;
@@ -821,6 +874,25 @@ impl NativeEngine {
             .sum();
         out.result.elapsed_ms = now() - start;
         out.shared_cache_hits = self.shared.hits.load(Ordering::Relaxed) - hits;
+        out.endgame_hits = self.shared.oracle_hits.load(Ordering::Relaxed) - oracle_hits;
+        out.endgame_solves = self.shared.oracle_solves.load(Ordering::Relaxed) - oracle_solves;
+        if !cancel.load(Ordering::Relaxed) {
+            // A directly proven winning last wall is safe even if a deeper
+            // iteration ran out of time before all root actions completed.
+            if let Some((&action, &distance)) = self
+                .shared
+                .root_wins
+                .lock()
+                .unwrap()
+                .iter()
+                .min_by_key(|(a, d)| (**d, **a))
+            {
+                out.result.pv = vec![decode(action)];
+                out.result.score = WIN - distance as i32 - 1;
+                out.exact = Some(true);
+                out.outcome = Some(1);
+            }
+        }
         out.cancelled = cancel.load(Ordering::Relaxed);
         out
     }
@@ -835,7 +907,7 @@ mod native_tests {
     fn returns_legal_and_shared_work() {
         let s = initial();
         let mut engine = NativeEngine::default();
-        let r = engine.search(&s, 200., 4, 3, Arc::new(AtomicBool::new(false)), |_| {});
+        let r = engine.search(&s, 2000., 4, 3, Arc::new(AtomicBool::new(false)), |_| {});
         assert_eq!(r.result.depth, 3);
         assert!(r.shared_cache_hits > 0);
         let a = &r.result.pv[0];
@@ -887,7 +959,7 @@ mod native_tests {
         let s = initial();
         let r = e.search(&s, 500., 4, 40, Arc::new(AtomicBool::new(true)), |_| {});
         assert!(r.cancelled);
-        let r = e.search(&s, 200., 2, 3, Arc::new(AtomicBool::new(false)), |_| {});
+        let r = e.search(&s, 2000., 2, 3, Arc::new(AtomicBool::new(false)), |_| {});
         assert_eq!(r.result.depth, 3);
     }
     #[test]

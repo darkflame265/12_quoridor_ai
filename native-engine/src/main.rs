@@ -17,6 +17,7 @@ fn main() {
             NativeEngine::with_profile(1),
             NativeEngine::with_profile(2),
             NativeEngine::with_profile(3),
+            NativeEngine::with_profile(4),
         ];
         for (v, cancel) in rx {
             let id = v["id"].clone();
@@ -33,6 +34,7 @@ fn main() {
                         "strategy" => 1,
                         "candidate" => 2,
                         "combined" => 3,
+                        "tactical" => 4,
                         _ => 0,
                     };
                     let engine = &mut engines[index];

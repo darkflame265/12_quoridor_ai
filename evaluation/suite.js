@@ -1,6 +1,6 @@
 import {initial,apply,legal,moves} from '../src/engine.js';
 import {Position,decode} from '../src/search.js';
-export const SPLITS={development:137031,validation:672041,holdout:984127,'native-validation':271051,'native-holdout':731849,'native52-development':457139,'native52-validation':816713,'native52-holdout':193651};
+export const SPLITS={development:137031,validation:672041,holdout:984127,'native-validation':271051,'native-holdout':731849,'native52-development':457139,'native52-validation':816713,'native52-holdout':193651,'native53-development':590203,'native53-validation':482917,'native53-holdout':907123};
 export function rotate(state){const s=structuredClone(state);s.p=state.p.map(p=>({x:8-p.x,y:8-p.y})).reverse();s.left.reverse();s.turn=1-s.turn;s.winner=s.winner===null?null:1-s.winner;s.walls=s.walls.map(w=>({...w,x:7-w.x,y:7-w.y,owner:w.owner===undefined?undefined:1-w.owner}));return s;}
 export function openings(split='development',count=8){
  if(!(split in SPLITS))throw Error('Unknown split');let seed=SPLITS[split];const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed;};const out=[];

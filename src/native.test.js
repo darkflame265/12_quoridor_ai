@@ -6,8 +6,9 @@ import {once} from 'node:events';
 import {NativeProcess,nativeExecutable} from '../server/native-process.mjs';
 import {createNativeService} from '../server/native-service.mjs';
 import {AdaptiveEngine} from './adaptive-engine.js';
-import {initial,legal} from './engine.js';
-import {tactics,checkTactic} from '../evaluation/suite.js';
+import {initial,legal,apply} from './engine.js';
+import {tactics,checkTactic,rotate} from '../evaluation/suite.js';
+import {solveEndgame} from './search.js';
 
 test('native persistent process: tactics, cancellation and reuse',{skip:!existsSync(nativeExecutable)},async()=>{
  const client=new NativeProcess({profile:'candidate'});try{
@@ -16,6 +17,11 @@ test('native persistent process: tactics, cancellation and reuse',{skip:!existsS
   const promise=client.search(initial(),{id:'cancel-test',ms:3000,cores:4});const rejection=assert.rejects(promise,{name:'AbortError'});client.cancel('cancel-test');await rejection;
   const result=await client.search(initial(),{ms:60,cores:4});assert.ok(legal(initial(),result.pv[0]));assert.equal(client.child.pid,pid);assert.equal(client.starts,1);
  }finally{client.close();}
+});
+test('last-wall search agrees with independent exact ending for both colors',{skip:!existsSync(nativeExecutable)},async()=>{
+ const client=new NativeProcess({profile:'candidate'}),s={...initial(),p:[{x:4,y:4},{x:4,y:5}],walls:[{type:'wall',x:2,y:5,o:'h'},{type:'wall',x:6,y:5,o:'h'}],left:[1,0]};
+ try{await client.health();for(const state of [s,rotate(s)]){const result=await client.search(state,{ms:500,cores:4,maxDepth:1});assert.ok(legal(state,result.pv[0]));assert.ok(result.endgameSolves>0);assert.ok(result.score>29900);assert.equal(result.exact,true);assert.equal(result.outcome,1);const after=apply(state,result.pv[0]);assert.deepEqual(after.left,[0,0]);const table=solveEndgame(after),value=table.lookup(after.p[0].y*9+after.p[0].x,after.p[1].y*9+after.p[1].x,after.turn);assert.equal(value.outcome,-1);}}
+ finally{client.close();}
 });
 test('local native HTTP: validate requests and stream results',{skip:!existsSync(nativeExecutable)},async()=>{
  const service=createNativeService();await new Promise(resolve=>service.server.listen(0,'127.0.0.1',resolve));const base=`http://127.0.0.1:${service.server.address().port}`;

@@ -1,16 +1,17 @@
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import path from 'node:path';
 import {NativeProcess,nativeExecutable} from '../server/native-process.mjs';
-import {verifyMazeBuild,mazeExecutable} from '../evaluation/maze-candidate-policy.mjs';
+import {verifyMazeBuild,mazeExecutable,mazeModes} from '../evaluation/maze-candidate-policy.mjs';
 import {activeNativeProfile,digest} from '../evaluation/native-policy.mjs';
 import {legal} from '../src/engine.js';
 import {actionKey} from '../evaluation/native-diagnostics.mjs';
 const args=process.argv.slice(2),get=(k,d)=>{const i=args.indexOf(k);return i<0?d:args[i+1];};
 const out=get('--out','reports/maze-candidate/review-v1'),ms=Number(get('--ms',500));
+const mode=get('--mode','cache4');if(!mazeModes.includes(mode))throw Error('Unknown maze mode');process.env.QUORIDOR_MAZE_MODE=mode;
 if(!Number.isInteger(ms)||ms<1||ms>30000||activeNativeProfile()!=='candidate')throw Error('Invalid review configuration');
 try{await readFile(path.join(out,'report.json'));throw Error('Use a fresh review directory');}catch(e){if(e.code!=='ENOENT')throw e;}
 const bytes=await readFile('evaluation/fixtures/native54-search-review.json'),fixtures=JSON.parse(bytes),identity=verifyMazeBuild();
-const report={format:'atlas-maze-candidate-review-v1',status:'running',identity,baselineBinary:digest(await readFile(nativeExecutable)),fixtureSha256:digest(bytes),ms,cores:4,cases:[],productionActive:false,warning:'Agreement with old long-search references is development diagnosis, not a strength gate.'};
+const report={format:'atlas-maze-candidate-review-v2',status:'running',mode,identity,baselineBinary:digest(await readFile(nativeExecutable)),fixtureSha256:digest(bytes),ms,cores:4,cases:[],productionActive:false,warning:'Agreement with old long-search references is development diagnosis, not a strength gate.'};
 await mkdir(out,{recursive:true});
 for(const f of fixtures.cases){
  const item={id:f.id,reference:f.referenceAction,players:{}};

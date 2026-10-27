@@ -7,3 +7,4 @@ mod core {
     include!("maze-evaluation.rs");
 }
 pub use core::{NativeEngine,NativeOutput,State};
+pub use core::evaluation_benchmark;

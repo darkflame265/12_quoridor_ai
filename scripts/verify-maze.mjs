@@ -1,6 +1,6 @@
 import {readFile,writeFile} from 'node:fs/promises';
 import path from 'node:path';
-import {verifyMazeBuild,assessMaze} from '../evaluation/maze-candidate-policy.mjs';
+import {verifyMazeBuild,assessMaze,mazeModes} from '../evaluation/maze-candidate-policy.mjs';
 import {nativeExecutable} from '../server/native-process.mjs';
 import {digest} from '../evaluation/native-policy.mjs';
 import {nativeFixtures} from '../evaluation/native-fixtures.mjs';
@@ -8,6 +8,7 @@ import {initial,apply,legal} from '../src/engine.js';
 import {tactics,checkTactic} from '../evaluation/suite.js';
 const args=process.argv.slice(2),directory=args[0];if(!directory)throw Error('Specify the arena directory');
 const bytes=await readFile(path.join(directory,'report.json')),report=JSON.parse(bytes);
+if(report.format!=='atlas-maze-candidate-arena-v2'||!mazeModes.includes(report.mode))throw Error('Historical or invalid arena mode; use its recorded source version for verification');
 if(report.status!=='completed'||JSON.stringify(report.identity)!==JSON.stringify(verifyMazeBuild())||report.baselineBinary!==digest(await readFile(nativeExecutable)))throw Error('Arena inputs changed');
 for(const [f,h] of Object.entries(report.sources))if(digest(await readFile(f))!==h)throw Error('Arena sources changed');
 if(report.tactics.length!==16||report.tactics.some((t,i)=>t.id!==tactics()[i].id||t.pass!==checkTactic(tactics()[i],t.action)))throw Error('Tactics mismatch');

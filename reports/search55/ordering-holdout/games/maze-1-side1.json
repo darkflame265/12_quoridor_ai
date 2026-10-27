@@ -1,0 +1,1712 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "type": "move",
+      "x": 4,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 1
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 6
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 7,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 5,
+      "y": 4
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 7,
+      "y": 4
+    },
+    {
+      "type": "wall",
+      "o": "v",
+      "x": 6,
+      "y": 4
+    },
+    {
+      "type": "wall",
+      "o": "v",
+      "x": 6,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "o": "v",
+      "x": 5,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "o": "v",
+      "x": 1,
+      "y": 0
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 4,
+      "y": 3
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 5,
+      "y": 0
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 4,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 6,
+      "y": 3
+    },
+    {
+      "type": "wall",
+      "o": "v",
+      "x": 1,
+      "y": 2
+    },
+    {
+      "o": "v",
+      "type": "wall",
+      "x": 3,
+      "y": 1
+    },
+    {
+      "o": "v",
+      "type": "wall",
+      "x": 4,
+      "y": 0
+    },
+    {
+      "type": "move",
+      "x": 3,
+      "y": 6
+    },
+    {
+      "o": "h",
+      "type": "wall",
+      "x": 2,
+      "y": 5
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 6
+    },
+    {
+      "o": "v",
+      "type": "wall",
+      "x": 3,
+      "y": 4
+    },
+    {
+      "type": "move",
+      "x": 3,
+      "y": 6
+    },
+    {
+      "o": "v",
+      "type": "wall",
+      "x": 1,
+      "y": 6
+    },
+    {
+      "type": "move",
+      "x": 3,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 1
+    },
+    {
+      "type": "move",
+      "x": 3,
+      "y": 8
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 0
+    },
+    {
+      "type": "move",
+      "x": 2,
+      "y": 8
+    },
+    {
+      "type": "move",
+      "x": 3,
+      "y": 0
+    },
+    {
+      "type": "move",
+      "x": 1,
+      "y": 8
+    },
+    {
+      "type": "move",
+      "x": 3,
+      "y": 1
+    },
+    {
+      "type": "move",
+      "x": 1,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 3,
+      "y": 2
+    },
+    {
+      "o": "v",
+      "type": "wall",
+      "x": 2,
+      "y": 2
+    },
+    {
+      "type": "move",
+      "x": 3,
+      "y": 1
+    },
+    {
+      "type": "move",
+      "x": 1,
+      "y": 6
+    },
+    {
+      "type": "move",
+      "x": 2,
+      "y": 1
+    },
+    {
+      "type": "move",
+      "x": 1,
+      "y": 5
+    },
+    {
+      "type": "move",
+      "x": 2,
+      "y": 2
+    },
+    {
+      "type": "move",
+      "x": 1,
+      "y": 4
+    },
+    {
+      "type": "move",
+      "x": 2,
+      "y": 3
+    },
+    {
+      "type": "move",
+      "x": 1,
+      "y": 3
+    },
+    {
+      "type": "move",
+      "x": 2,
+      "y": 4
+    },
+    {
+      "type": "move",
+      "x": 1,
+      "y": 2
+    },
+    {
+      "type": "move",
+      "x": 1,
+      "y": 4
+    },
+    {
+      "type": "move",
+      "x": 1,
+      "y": 1
+    },
+    {
+      "type": "move",
+      "x": 1,
+      "y": 5
+    },
+    {
+      "type": "move",
+      "x": 1,
+      "y": 0
+    }
+  ],
+  "trace": [
+    {
+      "ply": 16,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 3,
+        "y": 1
+      },
+      "elapsedMs": 500.6368000000075,
+      "depth": 5,
+      "nodes": 63452,
+      "score": 660,
+      "pv": [
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 17,
+      "turn": 1,
+      "role": "candidate",
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 4,
+        "y": 0
+      },
+      "elapsedMs": 500.66399999998976,
+      "depth": 5,
+      "nodes": 49490,
+      "score": -517,
+      "pv": [
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        }
+      ]
+    },
+    {
+      "ply": 18,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "elapsedMs": 500.2872999999963,
+      "depth": 5,
+      "nodes": 55035,
+      "score": 660,
+      "pv": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "ply": 19,
+      "turn": 1,
+      "role": "candidate",
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 2,
+        "y": 5
+      },
+      "elapsedMs": 500.2872999999963,
+      "depth": 4,
+      "nodes": 31221,
+      "score": -660,
+      "pv": [
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "ply": 20,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 6
+      },
+      "elapsedMs": 500.24259999999776,
+      "depth": 5,
+      "nodes": 71431,
+      "score": 497,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        }
+      ]
+    },
+    {
+      "ply": 21,
+      "turn": 1,
+      "role": "candidate",
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 3,
+        "y": 4
+      },
+      "elapsedMs": 500.51390000001993,
+      "depth": 6,
+      "nodes": 124644,
+      "score": -497,
+      "pv": [
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        }
+      ]
+    },
+    {
+      "ply": 22,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "elapsedMs": 500.2422999999835,
+      "depth": 7,
+      "nodes": 593995,
+      "score": 497,
+      "pv": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        }
+      ]
+    },
+    {
+      "ply": 23,
+      "turn": 1,
+      "role": "candidate",
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 1,
+        "y": 6
+      },
+      "elapsedMs": 500.30239999998594,
+      "depth": 7,
+      "nodes": 249266,
+      "score": -357,
+      "pv": [
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "ply": 24,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 7
+      },
+      "elapsedMs": 500.2834000000148,
+      "depth": 7,
+      "nodes": 588722,
+      "score": 489,
+      "pv": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 8
+        }
+      ]
+    },
+    {
+      "ply": 25,
+      "turn": 1,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 1
+      },
+      "elapsedMs": 500.29349999999977,
+      "depth": 7,
+      "nodes": 259159,
+      "score": -357,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "ply": 26,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 8
+      },
+      "elapsedMs": 500.44529999999213,
+      "depth": 7,
+      "nodes": 637462,
+      "score": 489,
+      "pv": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        }
+      ]
+    },
+    {
+      "ply": 27,
+      "turn": 1,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 0
+      },
+      "elapsedMs": 500.2597999999998,
+      "depth": 7,
+      "nodes": 249843,
+      "score": -357,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "ply": 28,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 8
+      },
+      "elapsedMs": 500.27979999998934,
+      "depth": 7,
+      "nodes": 705269,
+      "score": 489,
+      "pv": [
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 6
+        }
+      ]
+    },
+    {
+      "ply": 29,
+      "turn": 1,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 0
+      },
+      "elapsedMs": 500.23079999999027,
+      "depth": 7,
+      "nodes": 237740,
+      "score": -365,
+      "pv": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "ply": 30,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 8
+      },
+      "elapsedMs": 500.2456999999995,
+      "depth": 7,
+      "nodes": 616019,
+      "score": 497,
+      "pv": [
+        {
+          "type": "move",
+          "x": 1,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 31,
+      "turn": 1,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 1
+      },
+      "elapsedMs": 500.2423000000126,
+      "depth": 7,
+      "nodes": 276839,
+      "score": -445,
+      "pv": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "ply": 32,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 7
+      },
+      "elapsedMs": 500.2472999999882,
+      "depth": 7,
+      "nodes": 667855,
+      "score": 577,
+      "pv": [
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        }
+      ]
+    },
+    {
+      "ply": 33,
+      "turn": 1,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 2
+      },
+      "elapsedMs": 500.2786999999953,
+      "depth": 7,
+      "nodes": 279729,
+      "score": -528,
+      "pv": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "ply": 34,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 2,
+        "y": 2
+      },
+      "elapsedMs": 500.3110999999917,
+      "depth": 7,
+      "nodes": 893617,
+      "score": 788,
+      "pv": [
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "ply": 35,
+      "turn": 1,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 1
+      },
+      "elapsedMs": 500.3262999999861,
+      "depth": 9,
+      "nodes": 432559,
+      "score": -709,
+      "pv": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "ply": 36,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 6
+      },
+      "elapsedMs": 500.29649999999674,
+      "depth": 9,
+      "nodes": 719938,
+      "score": 1044,
+      "pv": [
+        {
+          "type": "move",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "ply": 37,
+      "turn": 1,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 1
+      },
+      "elapsedMs": 500.27350000001024,
+      "depth": 9,
+      "nodes": 461773,
+      "score": -912,
+      "pv": [
+        {
+          "type": "move",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "ply": 38,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 5
+      },
+      "elapsedMs": 462.25659999999334,
+      "depth": 9,
+      "nodes": 687250,
+      "score": 29989,
+      "pv": [
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 39,
+      "turn": 1,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 2
+      },
+      "elapsedMs": 193.56809999997495,
+      "depth": 8,
+      "nodes": 166659,
+      "score": -29990,
+      "pv": [
+        {
+          "type": "move",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "ply": 40,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "elapsedMs": 115.60579999999027,
+      "depth": 7,
+      "nodes": 167418,
+      "score": 29991,
+      "pv": [
+        {
+          "type": "move",
+          "x": 1,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 0,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "ply": 41,
+      "turn": 1,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 3
+      },
+      "elapsedMs": 24.174800000007963,
+      "depth": 6,
+      "nodes": 22715,
+      "score": -29992,
+      "pv": [
+        {
+          "type": "move",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "ply": 42,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 3
+      },
+      "elapsedMs": 11.583499999978812,
+      "depth": 5,
+      "nodes": 20964,
+      "score": 29993,
+      "pv": [
+        {
+          "type": "move",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "ply": 43,
+      "turn": 1,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 4
+      },
+      "elapsedMs": 6.063800000003539,
+      "depth": 4,
+      "nodes": 1964,
+      "score": -29994,
+      "pv": [
+        {
+          "type": "move",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "ply": 44,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 2
+      },
+      "elapsedMs": 2.4632999999739695,
+      "depth": 3,
+      "nodes": 1927,
+      "score": 29995,
+      "pv": [
+        {
+          "type": "move",
+          "x": 1,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "ply": 45,
+      "turn": 1,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "elapsedMs": 0.5688000000081956,
+      "depth": 2,
+      "nodes": 91,
+      "score": -29996,
+      "pv": [
+        {
+          "type": "move",
+          "x": 1,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "ply": 46,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 1
+      },
+      "elapsedMs": 0.3846000000194181,
+      "depth": 1,
+      "nodes": 72,
+      "score": 29997,
+      "pv": [
+        {
+          "type": "move",
+          "x": 1,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "ply": 47,
+      "turn": 1,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 5
+      },
+      "elapsedMs": 0.3294000000169035,
+      "depth": 1,
+      "nodes": 4,
+      "score": -29998,
+      "pv": [
+        {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        }
+      ]
+    },
+    {
+      "ply": 48,
+      "turn": 0,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 0
+      },
+      "elapsedMs": 0.10329999998793937,
+      "depth": 1,
+      "nodes": 1,
+      "score": 29999,
+      "pv": [
+        {
+          "type": "move",
+          "x": 1,
+          "y": 0
+        }
+      ]
+    }
+  ],
+  "winner": 0,
+  "reason": "goal",
+  "result": "loss",
+  "candidateSide": 1,
+  "openingPlies": 16
+}

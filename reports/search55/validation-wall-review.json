@@ -1,0 +1,5639 @@
+{
+  "format": "atlas-search-loss-review-v1",
+  "source": "reports\\search55\\ordering-validation\\report.json",
+  "sourceSha256": "aa1118eec5d492841d235d0df7ef2850e656b34f6d14ed5d0203ccd62c4f63b0",
+  "wallDecisions": 34,
+  "reviewCases": 27,
+  "nearGoalWithoutImmediateWin": 0,
+  "cases": [
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-0-side0.json",
+      "sourceSha256": "31f02ff7ae22f81101b0b4d7c3360801f614b6daa61f366d5740448cf5258554",
+      "ply": 8,
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 6
+          },
+          {
+            "x": 5,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "owner": 1
+          }
+        ],
+        "left": [
+          10,
+          9
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 5
+        }
+      ],
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 5,
+        "y": 0
+      },
+      "opponentDistance": 8,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 1,
+      "netAfterTempo": 0,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-0-side0.json",
+      "sourceSha256": "31f02ff7ae22f81101b0b4d7c3360801f614b6daa61f366d5740448cf5258554",
+      "ply": 12,
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 7
+          },
+          {
+            "x": 5,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 6,
+            "owner": 1
+          }
+        ],
+        "left": [
+          9,
+          7
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        }
+      ],
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 6,
+        "y": 0
+      },
+      "opponentDistance": 9,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-0-side0.json",
+      "sourceSha256": "31f02ff7ae22f81101b0b4d7c3360801f614b6daa61f366d5740448cf5258554",
+      "ply": 14,
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 7
+          },
+          {
+            "x": 5,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "owner": 1
+          }
+        ],
+        "left": [
+          8,
+          6
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 0
+        }
+      ],
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 1,
+        "y": 5
+      },
+      "opponentDistance": 9,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-0-side0.json",
+      "sourceSha256": "31f02ff7ae22f81101b0b4d7c3360801f614b6daa61f366d5740448cf5258554",
+      "ply": 16,
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 7
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 5,
+            "owner": 0
+          }
+        ],
+        "left": [
+          7,
+          6
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        }
+      ],
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 4,
+        "y": 0
+      },
+      "opponentDistance": 8,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-0-side0.json",
+      "sourceSha256": "31f02ff7ae22f81101b0b4d7c3360801f614b6daa61f366d5740448cf5258554",
+      "ply": 18,
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 7
+          },
+          {
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          }
+        ],
+        "left": [
+          6,
+          6
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        }
+      ],
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 3,
+        "y": 1
+      },
+      "opponentDistance": 7,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 3,
+      "enemyDelay": 4,
+      "netAfterTempo": 0,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-0-side0.json",
+      "sourceSha256": "31f02ff7ae22f81101b0b4d7c3360801f614b6daa61f366d5740448cf5258554",
+      "ply": 20,
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 7
+          },
+          {
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "owner": 1
+          }
+        ],
+        "left": [
+          5,
+          5
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 1,
+          "y": 0
+        }
+      ],
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 2,
+        "y": 2
+      },
+      "opponentDistance": 11,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-0-side0.json",
+      "sourceSha256": "31f02ff7ae22f81101b0b4d7c3360801f614b6daa61f366d5740448cf5258554",
+      "ply": 22,
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 7
+          },
+          {
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          }
+        ],
+        "left": [
+          4,
+          4
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 0
+        }
+      ],
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 1,
+        "y": 6
+      },
+      "opponentDistance": 11,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-0-side0.json",
+      "sourceSha256": "31f02ff7ae22f81101b0b4d7c3360801f614b6daa61f366d5740448cf5258554",
+      "ply": 28,
+      "state": {
+        "p": [
+          {
+            "x": 1,
+            "y": 8
+          },
+          {
+            "x": 3,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "owner": 1
+          }
+        ],
+        "left": [
+          3,
+          2
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        }
+      ],
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 3,
+        "y": 0
+      },
+      "opponentDistance": 12,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-1-side0.json",
+      "sourceSha256": "c48b555960efc9264351240322a19ca4ad505311e5f6ad8372cb063df491dfd1",
+      "ply": 8,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 8
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          }
+        ],
+        "left": [
+          8,
+          10
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        }
+      ],
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 3,
+        "y": 0
+      },
+      "opponentDistance": 9,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 1,
+      "netAfterTempo": 0,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-1-side0.json",
+      "sourceSha256": "c48b555960efc9264351240322a19ca4ad505311e5f6ad8372cb063df491dfd1",
+      "ply": 10,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 8
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          }
+        ],
+        "left": [
+          7,
+          9
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        }
+      ],
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 7,
+        "y": 4
+      },
+      "opponentDistance": 10,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-1-side0.json",
+      "sourceSha256": "c48b555960efc9264351240322a19ca4ad505311e5f6ad8372cb063df491dfd1",
+      "ply": 14,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 8
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "owner": 1
+          }
+        ],
+        "left": [
+          5,
+          7
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        }
+      ],
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 4,
+        "y": 7
+      },
+      "opponentDistance": 12,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-1-side0.json",
+      "sourceSha256": "c48b555960efc9264351240322a19ca4ad505311e5f6ad8372cb063df491dfd1",
+      "ply": 16,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 8
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "owner": 1
+          }
+        ],
+        "left": [
+          4,
+          6
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 5
+        }
+      ],
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 4,
+        "y": 5
+      },
+      "opponentDistance": 12,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-1-side0.json",
+      "sourceSha256": "c48b555960efc9264351240322a19ca4ad505311e5f6ad8372cb063df491dfd1",
+      "ply": 22,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 6
+          },
+          {
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "owner": 0
+          }
+        ],
+        "left": [
+          3,
+          6
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        }
+      ],
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 1,
+        "y": 6
+      },
+      "opponentDistance": 9,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-1-side0.json",
+      "sourceSha256": "c48b555960efc9264351240322a19ca4ad505311e5f6ad8372cb063df491dfd1",
+      "ply": 28,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 6,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 1,
+            "owner": 1
+          }
+        ],
+        "left": [
+          1,
+          4
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 2
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 1
+        }
+      ],
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 1,
+        "y": 2
+      },
+      "opponentDistance": 12,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-1-side1.json",
+      "sourceSha256": "b9b70b68b365248f9b127ae5263ad26fc51a2cad1441cdbafd5bd137a464acf8",
+      "ply": 9,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 8
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "owner": 0
+          }
+        ],
+        "left": [
+          7,
+          10
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 0
+        }
+      ],
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 2,
+        "y": 1
+      },
+      "opponentDistance": 9,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 1,
+      "netAfterTempo": 0,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-1-side1.json",
+      "sourceSha256": "b9b70b68b365248f9b127ae5263ad26fc51a2cad1441cdbafd5bd137a464acf8",
+      "ply": 11,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 8
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4,
+            "owner": 0
+          }
+        ],
+        "left": [
+          6,
+          9
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 4
+        }
+      ],
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 7,
+        "y": 0
+      },
+      "opponentDistance": 10,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-1-side1.json",
+      "sourceSha256": "b9b70b68b365248f9b127ae5263ad26fc51a2cad1441cdbafd5bd137a464acf8",
+      "ply": 13,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 8
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "owner": 0
+          }
+        ],
+        "left": [
+          5,
+          8
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 4
+        }
+      ],
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 3,
+        "y": 7
+      },
+      "opponentDistance": 10,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-1-side1.json",
+      "sourceSha256": "b9b70b68b365248f9b127ae5263ad26fc51a2cad1441cdbafd5bd137a464acf8",
+      "ply": 15,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 8
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "owner": 0
+          }
+        ],
+        "left": [
+          4,
+          7
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 5,
+          "y": 7
+        }
+      ],
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 3,
+        "y": 5
+      },
+      "opponentDistance": 10,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-1-side1.json",
+      "sourceSha256": "b9b70b68b365248f9b127ae5263ad26fc51a2cad1441cdbafd5bd137a464acf8",
+      "ply": 23,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 7
+          },
+          {
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "owner": 0
+          }
+        ],
+        "left": [
+          1,
+          6
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 3
+        }
+      ],
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 0,
+        "y": 1
+      },
+      "opponentDistance": 9,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\general-1-side1.json",
+      "sourceSha256": "b9b70b68b365248f9b127ae5263ad26fc51a2cad1441cdbafd5bd137a464acf8",
+      "ply": 33,
+      "state": {
+        "p": [
+          {
+            "x": 5,
+            "y": 4
+          },
+          {
+            "x": 5,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 2,
+            "owner": 1
+          }
+        ],
+        "left": [
+          0,
+          3
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 7,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 4
+        }
+      ],
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 5,
+        "y": 0
+      },
+      "opponentDistance": 11,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\maze-0-side0.json",
+      "sourceSha256": "0b7eec7cb73bd5daa7b2f448ce4de829f2a6da7d55ac817c28c67e8351cd5e61",
+      "ply": 14,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 6
+          },
+          {
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "owner": 1
+          }
+        ],
+        "left": [
+          5,
+          4
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 5,
+          "y": 5
+        }
+      ],
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 6,
+        "y": 3
+      },
+      "opponentDistance": 8,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\maze-0-side0.json",
+      "sourceSha256": "0b7eec7cb73bd5daa7b2f448ce4de829f2a6da7d55ac817c28c67e8351cd5e61",
+      "ply": 16,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 6
+          },
+          {
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "owner": 0
+          }
+        ],
+        "left": [
+          4,
+          4
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ],
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 2,
+        "y": 7
+      },
+      "opponentDistance": 7,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 1,
+      "netAfterTempo": 0,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\maze-0-side0.json",
+      "sourceSha256": "0b7eec7cb73bd5daa7b2f448ce4de829f2a6da7d55ac817c28c67e8351cd5e61",
+      "ply": 18,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 6
+          },
+          {
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "owner": 1
+          }
+        ],
+        "left": [
+          3,
+          3
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 1
+        }
+      ],
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 6,
+        "y": 2
+      },
+      "opponentDistance": 8,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\maze-0-side0.json",
+      "sourceSha256": "0b7eec7cb73bd5daa7b2f448ce4de829f2a6da7d55ac817c28c67e8351cd5e61",
+      "ply": 20,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 6
+          },
+          {
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "owner": 1
+          }
+        ],
+        "left": [
+          2,
+          2
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 6,
+          "y": 2
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 7,
+          "y": 1
+        }
+      ],
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 2,
+        "y": 4
+      },
+      "opponentDistance": 8,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 0,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\maze-2-side0.json",
+      "sourceSha256": "ccdce53d9950a583707a07c7387d22fc640d9a821cf76645499ea10e7033d45c",
+      "ply": 20,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          }
+        ],
+        "left": [
+          3,
+          3
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 0
+        }
+      ],
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 3,
+        "y": 3
+      },
+      "opponentDistance": 5,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 1,
+      "netAfterTempo": 0,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\maze-2-side0.json",
+      "sourceSha256": "ccdce53d9950a583707a07c7387d22fc640d9a821cf76645499ea10e7033d45c",
+      "ply": 22,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "owner": 1
+          }
+        ],
+        "left": [
+          2,
+          2
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 4
+        }
+      ],
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 4,
+        "y": 3
+      },
+      "opponentDistance": 6,
+      "opponentHasImmediateWin": false,
+      "selfDelay": 0,
+      "enemyDelay": 1,
+      "netAfterTempo": 0,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    },
+    {
+      "source": "reports\\search55\\ordering-validation\\games\\maze-2-side0.json",
+      "sourceSha256": "ccdce53d9950a583707a07c7387d22fc640d9a821cf76645499ea10e7033d45c",
+      "ply": 36,
+      "state": {
+        "p": [
+          {
+            "x": 1,
+            "y": 8
+          },
+          {
+            "x": 2,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "owner": 1
+          }
+        ],
+        "left": [
+          1,
+          1
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 1,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        }
+      ],
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 1,
+        "y": 7
+      },
+      "opponentDistance": 1,
+      "opponentHasImmediateWin": true,
+      "selfDelay": 2,
+      "enemyDelay": 2,
+      "netAfterTempo": -1,
+      "warning": "Exposure diagnosis only. Neutral immediate distance gain does not prove the wall is a mistake."
+    }
+  ],
+  "developmentOnly": true,
+  "warning": "Selected losing-game observations do not establish causes or optimal replacement moves."
+}

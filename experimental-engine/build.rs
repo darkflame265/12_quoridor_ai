@@ -7,10 +7,12 @@ fn main() {
         let source=fs::read_to_string(path).unwrap();
         let modified=if file=="strategy.rs" {
             assert_eq!(source.matches("fn static_score(").count(),1);
-            source.replace("fn static_score(","fn legacy_static_score(")
+            assert_eq!(source.matches("fn is_critical(").count(),1);
+            source.replace("fn static_score(","fn legacy_static_score(").replace("fn is_critical(","fn legacy_is_critical(")
         } else {
             assert_eq!(source.matches("\"5.3\"").count(),1);
-            source.replace("\"5.3\"","\"5.4 experiment\"")
+            assert_eq!(source.matches("fn ranked(").count(),1);
+            source.replace("\"5.3\"","\"5.5 experiment\"").replace("fn ranked(","fn legacy_ranked(")
         };
         fs::write(out.join(file),modified).unwrap();
     }

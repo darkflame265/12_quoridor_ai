@@ -9,14 +9,15 @@ import time
 from types import SimpleNamespace
 import torch
 from train import ROOT,Bridge,PolicyValue
+from networks import load_model,model_config
 from batch_selfplay import generate_games,sha_file,atomic_json
 
 def main():
     p=argparse.ArgumentParser(); p.add_argument('--checkpoint',default='models/bootstrap-checkpoint.pt'); p.add_argument('--out',default='reports/gpu-batch/benchmark.json'); p.add_argument('--device',choices=['cpu','cuda'],default='cuda'); p.add_argument('--games',type=int,default=16); p.add_argument('--parallel-games',type=int,default=16); p.add_argument('--rules-workers',type=int,default=2); p.add_argument('--inference-batch',type=int,default=64); p.add_argument('--simulations',type=int,default=12); p.add_argument('--max-plies',type=int,default=120); p.add_argument('--repeats',type=int,default=2); a=p.parse_args()
     if min(a.games,a.parallel_games,a.rules_workers,a.inference_batch,a.simulations,a.max_plies,a.repeats)<1: raise ValueError('Invalid benchmark budget')
     if a.device=='cuda' and not torch.cuda.is_available(): raise RuntimeError('CUDA unavailable')
-    torch.set_num_threads(2); saved=torch.load(a.checkpoint,map_location='cpu',weights_only=True); model=PolicyValue(saved['hidden']).to(a.device); model.load_state_dict(saved['model']); model.eval()
-    report={'format':'batched-selfplay-benchmark-v1','torch':str(torch.__version__),'python':platform.python_version(),'logicalCpus':os.cpu_count(),'device':a.device,'gpu':torch.cuda.get_device_name(0) if a.device=='cuda' else None,'checkpointSha256':sha_file(a.checkpoint),'wasmSha256':sha_file(ROOT/'public/atlas.wasm'),'pipelineSha256':hashlib.sha256(''.join(sha_file(ROOT/f) for f in ['training/train.py','training/batch_selfplay.py','training/bridge.mjs']).encode()).hexdigest(),'config':vars(a),'runs':[],'status':'running'}
+    torch.set_num_threads(2); saved=torch.load(a.checkpoint,map_location='cpu',weights_only=True); model=load_model(saved,a.device).eval()
+    report={'format':'batched-selfplay-benchmark-v1','architecture':model_config(model),'torch':str(torch.__version__),'python':platform.python_version(),'logicalCpus':os.cpu_count(),'device':a.device,'gpu':torch.cuda.get_device_name(0) if a.device=='cuda' else None,'checkpointSha256':sha_file(a.checkpoint),'wasmSha256':sha_file(ROOT/'public/atlas.wasm'),'pipelineSha256':hashlib.sha256(''.join(sha_file(ROOT/f) for f in ['training/train.py','training/networks.py','training/batch_selfplay.py','training/bridge.mjs']).encode()).hexdigest(),'config':vars(a),'runs':[],'status':'running'}
     output=Path(a.out)
     if output.exists(): raise ValueError('Benchmark output already exists; preserve earlier evidence')
     output.parent.mkdir(parents=True,exist_ok=True); atomic_json(output,report)

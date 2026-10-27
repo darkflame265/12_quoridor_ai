@@ -2,6 +2,8 @@
 
 개인용 쿼리도 대전·분석 앱.
 
+잔차 CNN 정책·가치망과 GPU 배치 MCTS 학습을 추가했습니다. `npm run train:cnn`으로 학습·평가·재개할 수 있습니다. 실제 128판을 학습했지만 기준 엔진 대전에서 0승 4패여서 실전 기본값은 Atlas 5.3입니다. [학습 결과와 재실행 방법](reports/CNN_TRAINING.md)을 참고하세요.
+
 GitHub 비공개 저장소: [darkflame265/12_quoridor_ai](https://github.com/darkflame265/12_quoridor_ai)
 
 ## 실행

@@ -1,0 +1,25 @@
+{
+  "architecture": {
+    "type": "rescnn",
+    "channels": 64,
+    "blocks": 4
+  },
+  "parameters": 343572,
+  "selectedIteration": 5,
+  "checkpointSha256": "d4d6999acbcefea7c708582108086f3e498bf60e066d084ab77ad1d0a723923d",
+  "pipelineSha256": "6e28202df4fe6cbc51b007d6bfd8fdbae9807cd6e202263eeb94dc71b6af5232",
+  "cpuParityPassed": true,
+  "gpuMaxAbsoluteError": 3.337860107421875e-06,
+  "trainValidationOverlap": 0,
+  "recomputedValidation": {
+    "samples": 253,
+    "policyLoss": 2.4010077314414526,
+    "valueMse": 1.1377685305629324,
+    "loss": 3.5387762620043848,
+    "policyTop1": 0.6245059288537549
+  },
+  "zeroValueBaselineMse": 1.0,
+  "validatedSelfplayGames": 128,
+  "replaysSha256": "f4850b3b0e26f57ff9e5e864bf492bd86bfdc3ffc3f1092f896d0976ac4d2c38",
+  "productionActive": false
+}

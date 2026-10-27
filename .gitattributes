@@ -1,3 +1,5 @@
 * text=auto eol=lf
 *.wasm binary
 *.pt binary
+# Preserve the byte-level source fingerprint recorded by CNN training.
+training/train.py text eol=crlf

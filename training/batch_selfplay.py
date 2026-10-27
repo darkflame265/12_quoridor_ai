@@ -13,6 +13,7 @@ import threading
 import time
 import numpy as np
 import torch
+from networks import load_model,model_config
 from train import (ROOT, FEATURES, ACTIONS, Bridge, PolicyValue, MCTS, features,
                    state_key, apply_action, action_object, canonical_action,
                    expand_prediction)
@@ -218,6 +219,35 @@ def load_dataset(directory,limit=None):
     finally: bridge.close()
     return list(replay),{'manifestSha256':sha_file(directory/'manifest.json'),'games':len(manifest['entries']),'samples':len(replay),'source':str(directory)}
 
+def load_split_dataset(directory,fraction,seed,limit=20000):
+    """Split whole games, then exclude shared feature states from training."""
+    if not 0<=fraction<1: raise ValueError('Invalid validation fraction')
+    if fraction==0:
+        replay,metadata=load_dataset(directory,limit)
+        return replay,[],{**metadata,'validationFraction':0.,'splitSeed':seed,'validationSamples':0,'sharedPositionsExcluded':0}
+    directory=Path(directory); manifest=json.loads((directory/'manifest.json').read_text(encoding='utf-8'))
+    if manifest['format']!=FORMAT or manifest['status']!='completed' or manifest['config'].get('featureSchema')!='atlas-292-current-turn-v1' or manifest['config']['wasmSha256']!=sha_file(ROOT/'public/atlas.wasm'): raise ValueError('Unsupported or incomplete dataset')
+    entries=sorted(manifest['entries'],key=lambda e:e['gameId']); count=manifest['config']['games']
+    if count<2 or [e['gameId'] for e in entries]!=list(range(count)): raise ValueError('Validation needs complete, distinct games')
+    held=set(np.random.default_rng(seed).permutation(count)[:min(count-1,max(1,int(np.ceil(count*fraction))))].tolist())
+    validation=deque(maxlen=limit); replay=deque(maxlen=limit); excluded=0; bridge=Bridge()
+    try:
+        for entry in entries:
+            if entry['gameId'] in held:
+                examples,_=read_entry(directory,entry,bridge); validation.extend(examples)
+        if not validation: raise ValueError('Validation games contain no completed labels')
+        reserved={x.tobytes() for x,_,_ in validation}
+        for entry in entries:
+            if entry['gameId'] not in held:
+                examples,_=read_entry(directory,entry,bridge)
+                for example in examples:
+                    if example[0].tobytes() in reserved: excluded+=1
+                    else: replay.append(example)
+    finally: bridge.close()
+    if not replay: raise ValueError('No training positions after validation exclusion')
+    metadata={'source':str(directory),'manifestSha256':sha_file(directory/'manifest.json'),'games':count,'samples':len(replay),'validationSamples':len(validation),'validationFraction':fraction,'splitSeed':seed,'trainGameIds':[i for i in range(count) if i not in held],'validationGameIds':sorted(held),'sharedPositionsExcluded':excluded}
+    return list(replay),list(validation),metadata
+
 class CollectionPaused(Exception): pass
 
 def collect(args):
@@ -225,11 +255,11 @@ def collect(args):
     device='cuda' if args.device=='auto' and torch.cuda.is_available() else 'cpu' if args.device=='auto' else args.device
     if device=='cuda' and not torch.cuda.is_available(): raise RuntimeError('CUDA is unavailable; explicitly use --device cpu if intended')
     saved=torch.load(args.checkpoint,map_location='cpu',weights_only=True)
-    if saved.get('format')!='atlas-training-v1' or not isinstance(saved.get('hidden'),int) or not isinstance(saved.get('iteration'),int) or saved['iteration']<0: raise ValueError('Unsupported training checkpoint')
+    if saved.get('format') not in {'atlas-training-v1','atlas-training-v2','atlas-model-snapshot-v1'} or not isinstance(saved.get('iteration'),int) or saved['iteration']<0: raise ValueError('Unsupported training checkpoint')
     iteration=saved['iteration']
-    model=PolicyValue(saved['hidden']).to(device); model.load_state_dict(saved['model']); model.eval()
+    model=load_model(saved,device).eval()
     config={k:getattr(args,k) for k in ['games','parallel_games','rules_workers','inference_batch','simulations','max_plies','bootstrap','seed','threads']}
-    config.update({'featureSchema':'atlas-292-current-turn-v1','device':device,'gpu':torch.cuda.get_device_name(0) if device=='cuda' else None,'torch':str(torch.__version__),'hidden':saved['hidden'],'iteration':iteration,'checkpointSha256':sha_file(args.checkpoint),'wasmSha256':sha_file(ROOT/'public/atlas.wasm'),'pipelineSha256':hashlib.sha256(''.join(sha_file(ROOT/p) for p in ['training/train.py','training/batch_selfplay.py','training/bridge.mjs']).encode()).hexdigest()})
+    config.update({'featureSchema':'atlas-292-current-turn-v1','architecture':model_config(model),'device':device,'gpu':torch.cuda.get_device_name(0) if device=='cuda' else None,'torch':str(torch.__version__),'hidden':model.hidden,'iteration':iteration,'checkpointSha256':sha_file(args.checkpoint),'wasmSha256':sha_file(ROOT/'public/atlas.wasm'),'pipelineSha256':hashlib.sha256(''.join(sha_file(ROOT/p) for p in ['training/train.py','training/networks.py','training/batch_selfplay.py','training/bridge.mjs']).encode()).hexdigest()})
     directory=Path(args.out); directory.mkdir(parents=True,exist_ok=True); manifest_path=directory/'manifest.json'
     if args.resume:
         manifest=json.loads(manifest_path.read_text(encoding='utf-8'))

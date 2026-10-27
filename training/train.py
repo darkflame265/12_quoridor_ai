@@ -15,7 +15,7 @@ import subprocess
 import time
 import numpy as np
 import torch
-from torch import nn
+from networks import PolicyValue,create_model,load_model,model_config,checkpoint_config,select_config
 
 ROOT = Path(__file__).resolve().parents[1]
 FEATURES, ACTIONS = 292, 209
@@ -79,14 +79,6 @@ class Bridge:
         try: self.proc.wait(timeout=3)
         except subprocess.TimeoutExpired: self.proc.kill(); self.proc.wait()
         self.proc.stdout.close()
-
-class PolicyValue(nn.Module):
-    def __init__(self,hidden=128):
-        super().__init__(); self.hidden=hidden
-        self.trunk=nn.Sequential(nn.Linear(FEATURES,hidden),nn.ReLU(),nn.Linear(hidden,hidden),nn.ReLU())
-        self.policy=nn.Linear(hidden,ACTIONS); self.value=nn.Linear(hidden,1)
-    def forward(self,x):
-        h=self.trunk(x); return self.policy(h),torch.tanh(self.value(h)).squeeze(-1)
 
 class Node:
     def __init__(self,state):
@@ -172,11 +164,13 @@ def selfplay(model,bridge,rng,args,iteration,game_index):
     return examples,{'version':1,'records':records,'winner':winner,'reason':reason,'plies':len(samples),'trainingSamples':len(examples)}
 
 def export_model(model,path,metadata):
-    data={'format':'atlas-policy-value-v1','features':FEATURES,'actions':ACTIONS,'hidden':model.hidden,'weights':{k:v.detach().cpu().tolist() for k,v in model.state_dict().items()},'metadata':metadata}
+    config=model_config(model)
+    data={'format':'atlas-policy-value-v1' if config['type']=='mlp' else 'atlas-policy-value-rescnn-v1','features':FEATURES,'actions':ACTIONS,'hidden':model.hidden,'architecture':config,'weights':{k:v.detach().cpu().tolist() for k,v in model.state_dict().items()},'metadata':metadata}
     path.parent.mkdir(parents=True,exist_ok=True); path.write_text(json.dumps(data,separators=(',',':')),encoding='utf-8')
 
 def arena(model,bridge,rng,args,opponent_model=None,split='validation'):
-    report={'opponent':'previous policy/value champion' if opponent_model is not None else 'Atlas 4 Rust/WASM','split':split,'ms':args.arena_ms,'simulations':args.simulations,'bootstrap':args.bootstrap,'games':[],'wins':0,'losses':0,'draws':0}
+    bootstrap=args.bootstrap if getattr(args,'arena_bootstrap',None) is None else args.arena_bootstrap
+    report={'opponent':'previous policy/value champion' if opponent_model is not None else 'Atlas 4 Rust/WASM','split':split,'ms':args.arena_ms,'simulations':args.simulations,'bootstrap':bootstrap,'games':[],'wins':0,'losses':0,'draws':0,'timing':{role:{'moves':0,'seconds':0.} for role in ['candidate','opponent']},'budgetNote':'Neural players use fixed simulations, not the reference engine time budget.'}
     for pair in range(args.arena_pairs):
         for side in [0,1]:
             opening=bridge.call(op='initial') if pair==0 else bridge.call(op='opening',index=pair%6,split=split)
@@ -184,11 +178,13 @@ def arena(model,bridge,rng,args,opponent_model=None,split='validation'):
             for ply in range(args.max_plies):
                 key=state_key(s); seen[key]=seen.get(key,0)+1
                 if seen[key]>=3: reason='repetition draw'; break
-                if s['turn']==side: a,_=MCTS(model,bridge,rng,args.simulations,args.bootstrap).search(s)
-                elif opponent_model is not None: a,_=MCTS(opponent_model,bridge,rng,args.simulations,args.bootstrap).search(s)
+                role='candidate' if s['turn']==side else 'opponent'; turn_started=time.monotonic()
+                if s['turn']==side: a,_=MCTS(model,bridge,rng,args.simulations,bootstrap).search(s)
+                elif opponent_model is not None: a,_=MCTS(opponent_model,bridge,rng,args.simulations,bootstrap).search(s)
                 else:
                     action=bridge.call(op='search',state=s,ms=args.arena_ms)['pv'][0]
                     a=action['y']*9+action['x'] if action['type']=='move' else 81+(64 if action['o']=='v' else 0)+action['y']*8+action['x']
+                report['timing'][role]['moves']+=1; report['timing'][role]['seconds']+=time.monotonic()-turn_started
                 records.append(action_object(a)); s=apply_action(s,a)
                 if s['winner'] is not None: winner=s['winner']; reason='goal reached'; break
             outcome='draw' if winner is None else 'win' if winner==side else 'loss'
@@ -202,99 +198,23 @@ def arena(model,bridge,rng,args,opponent_model=None,split='validation'):
 
 def tactical_validation(model,bridge,rng,args):
     results=[]
+    bootstrap=args.bootstrap if getattr(args,'arena_bootstrap',None) is None else args.arena_bootstrap
     for fixture in bridge.call(op='tactics'):
-        a,_=MCTS(model,bridge,rng,args.simulations,args.bootstrap).search(fixture['state'])
+        a,_=MCTS(model,bridge,rng,args.simulations,bootstrap).search(fixture['state'])
         passed=bridge.call(op='checkTactic',id=fixture['id'],action=action_object(a))['pass']
         results.append({'id':fixture['id'],'pass':passed,'action':action_object(a)})
     return results
 
 def run(args):
-    torch.set_num_threads(args.threads); torch.manual_seed(args.seed); random.seed(args.seed); rng=np.random.default_rng(args.seed)
-    device='cuda' if torch.cuda.is_available() and not args.cpu else 'cpu'
-    model=PolicyValue(args.hidden).to(device); optimizer=torch.optim.Adam(model.parameters(),lr=args.lr,weight_decay=1e-4)
-    iteration=0; replay=[]
-    if args.resume:
-        saved=torch.load(args.resume,map_location=device,weights_only=True)
-        if saved['format']!='atlas-training-v1' or saved['hidden']!=args.hidden: raise ValueError('Incompatible checkpoint')
-        model.load_state_dict(saved['model']); optimizer.load_state_dict(saved['optimizer']); iteration=saved['iteration']; torch.set_rng_state(saved['torch_rng'].cpu()); rng.bit_generator.state=json.loads(saved['numpy_rng'])
-        if device=='cuda' and saved.get('cuda_rng'):
-            torch.cuda.set_rng_state_all([state.cpu() for state in saved['cuda_rng']])
-        replay=list(zip(saved['x'].cpu().numpy(),saved['pi'].cpu().numpy(),saved['z'].cpu().numpy()))
-    imported=None
-    if args.replay_dir:
-        from batch_selfplay import load_dataset
-        examples,imported=load_dataset(args.replay_dir,limit=args.replay_size); replay.extend(examples)
-    output=Path(args.out); output.mkdir(parents=True,exist_ok=True); (output/'games').mkdir(exist_ok=True)
-    report={'format':'atlas-training-report-v1','device':device,'seed':args.seed,'config':vars(args),'iterations':[],'status':'running','ruleArtifactSha256':hashlib.sha256((ROOT/'public/atlas.wasm').read_bytes()).hexdigest()}
-    report['replayImport']=imported
-    champion=copy.deepcopy(model).eval()
-    champion_path=Path(args.champion) if args.champion else output/'champion.pt'
-    if champion_path.exists():
-        champion_state=torch.load(champion_path,map_location=device,weights_only=True); champion.load_state_dict(champion_state['model'])
-    registry=json.loads((output/'registry.json').read_text(encoding='utf-8')) if (output/'registry.json').exists() else {'active':None,'candidates':[]}
-    snapshots=output/'snapshots'; snapshots.mkdir(exist_ok=True)
-    if not list(snapshots.glob('*.pt')): torch.save({'model':champion.state_dict(),'hidden':args.hidden,'iteration':iteration},snapshots/f'iteration-{iteration:06d}.pt')
-    bridge=Bridge(); started=time.monotonic()
-    try:
-        for it in range(iteration,iteration+args.iterations):
-            collected=0; games=[]
-            model.eval()
-            selfplay_metrics={}
-            if args.selfplay_backend=='batched':
-                from batch_selfplay import generate_games
-                collection=generate_games(model,bridge,args,it,metrics=selfplay_metrics)
-            else: collection=(selfplay(model,bridge,rng,args,it,g) for g in range(args.games))
-            try:
-                for g,(examples,game) in enumerate(collection):
-                    replay.extend(examples); collected+=len(examples); games.append({k:v for k,v in game.items() if k!='records'})
-                    (output/'games'/f'iteration-{it}-game-{g}.json').write_text(json.dumps(game),encoding='utf-8'); print(f'iteration {it} game {g}: {game["reason"]}, {len(examples)} samples',flush=True)
-            finally: collection.close()
-            replay=replay[-args.replay_size:]
-            if not replay: raise RuntimeError('No terminal/repetition training samples; increase simulations or max plies')
-            x=torch.tensor(np.stack([v[0] for v in replay]),device=device); pi=torch.tensor(np.stack([v[1] for v in replay]),device=device); z=torch.tensor(np.asarray([v[2] for v in replay],dtype=np.float32),device=device)
-            model.train(); losses=[]
-            for _ in range(args.epochs):
-                for ids in torch.randperm(len(replay),device=device).split(args.batch_size):
-                    policy,value=model(x[ids]); loss=-(pi[ids]*torch.log_softmax(policy,dim=-1)).sum(-1).mean()+torch.mean((value-z[ids])**2)
-                    optimizer.zero_grad(); loss.backward(); torch.nn.utils.clip_grad_norm_(model.parameters(),5); optimizer.step(); losses.append(float(loss.item()))
-            model.eval(); entry={'iteration':it,'games':games,'collected':collected,'replaySamples':len(replay),'loss':sum(losses)/len(losses)}
-            entry['selfplayMetrics']=selfplay_metrics
-            checkpoint={'format':'atlas-training-v1','hidden':args.hidden,'iteration':it+1,'model':model.state_dict(),'optimizer':optimizer.state_dict(),'torch_rng':torch.get_rng_state(),'numpy_rng':json.dumps(rng.bit_generator.state),'x':x.detach().cpu(),'pi':pi.detach().cpu(),'z':z.detach().cpu()}
-            if device=='cuda': checkpoint['cuda_rng']=torch.cuda.get_rng_state_all()
-            torch.save(checkpoint,output/'checkpoint.pt'); export_model(model,output/'candidate.json',{'iteration':it+1,'bootstrap':args.bootstrap,'validated':False})
-            entry['arena']=arena(model,bridge,rng,args)
-            entry['championArena']=arena(model,bridge,rng,args,opponent_model=champion)
-            history_paths=sorted(snapshots.glob('*.pt'))
-            past_state=torch.load(history_paths[it%len(history_paths)],map_location=device,weights_only=True)
-            past_model=PolicyValue(args.hidden).to(device); past_model.load_state_dict(past_state['model']); past_model.eval()
-            entry['historicalArena']=arena(model,bridge,rng,args,opponent_model=past_model)
-            entry['historicalArena']['snapshotIteration']=past_state['iteration']
-            entry['tactics']=tactical_validation(model,bridge,rng,args)
-            eligible=entry['arena']['promotionEligible'] and entry['championArena']['promotionEligible'] and entry['historicalArena']['promotionEligible'] and all(t['pass'] for t in entry['tactics'])
-            if eligible:
-                entry['holdout']=arena(model,bridge,rng,args,split='holdout')
-                eligible=entry['holdout']['promotionEligible']
-            entry['promoted']=eligible
-            if eligible:
-                champion=copy.deepcopy(model).eval(); torch.save(checkpoint,output/'champion.pt'); export_model(model,output/'champion.json',{'iteration':it+1,'bootstrap':args.bootstrap,'validated':True})
-                registry['active']='champion.json'
-            registry['candidates'].append({'iteration':it+1,'promoted':eligible,'baseline':{k:entry['arena'][k] for k in ['wins','losses','draws']}})
-            (output/'registry.json').write_text(json.dumps(registry,indent=2),encoding='utf-8')
-            torch.save({'model':model.state_dict(),'hidden':args.hidden,'iteration':it+1},snapshots/f'iteration-{it+1:06d}.pt')
-            for old in sorted(snapshots.glob('*.pt'))[:-args.league_size]: old.unlink()
-            # Candidate artifacts are retained regardless of arena result; no unverified model is activated.
-            report['iterations'].append(entry); report['elapsedSeconds']=time.monotonic()-started
-            (output/'report.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
-            print(f'iteration {it}: loss={entry["loss"]:.4f}, arena {entry["arena"]["wins"]}W/{entry["arena"]["losses"]}L/{entry["arena"]["draws"]}D',flush=True)
-        report['status']='completed'; (output/'report.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
-    except KeyboardInterrupt:
-        report['status']='interrupted'; (output/'report.json').write_text(json.dumps(report,indent=2),encoding='utf-8'); raise
-    finally: bridge.close()
+    from learner import run as learn
+    return learn(args)
+
 
 def parser():
-    p=argparse.ArgumentParser(); p.add_argument('--out',default='training/runs/local'); p.add_argument('--resume'); p.add_argument('--champion'); p.add_argument('--iterations',type=int,default=1); p.add_argument('--games',type=int,default=4); p.add_argument('--simulations',type=int,default=24); p.add_argument('--max-plies',type=int,default=200); p.add_argument('--epochs',type=int,default=3); p.add_argument('--batch-size',type=int,default=64); p.add_argument('--replay-size',type=int,default=20000); p.add_argument('--hidden',type=int,default=128); p.add_argument('--threads',type=int,default=2); p.add_argument('--lr',type=float,default=1e-3); p.add_argument('--seed',type=int,default=271027); p.add_argument('--bootstrap',type=float,default=.8); p.add_argument('--league-size',type=int,default=4); p.add_argument('--arena-pairs',type=int,default=2); p.add_argument('--arena-ms',type=int,default=80); p.add_argument('--cpu',action='store_true')
-    p.add_argument('--selfplay-backend',choices=['serial','batched'],default='serial'); p.add_argument('--parallel-games',type=int,default=16); p.add_argument('--rules-workers',type=int,default=2); p.add_argument('--inference-batch',type=int,default=64); p.add_argument('--replay-dir'); return p
+    p=argparse.ArgumentParser(); p.add_argument('--out',default='training/runs/local'); p.add_argument('--resume'); p.add_argument('--champion'); p.add_argument('--iterations',type=int,default=1); p.add_argument('--games',type=int,default=4); p.add_argument('--simulations',type=int,default=24); p.add_argument('--max-plies',type=int,default=200); p.add_argument('--epochs',type=int,default=3); p.add_argument('--batch-size',type=int,default=64); p.add_argument('--replay-size',type=int,default=20000); p.add_argument('--hidden',type=int); p.add_argument('--threads',type=int,default=2); p.add_argument('--lr',type=float); p.add_argument('--seed',type=int,default=271027); p.add_argument('--bootstrap',type=float,default=.8); p.add_argument('--league-size',type=int,default=4); p.add_argument('--arena-pairs',type=int,default=2); p.add_argument('--arena-ms',type=int,default=80); p.add_argument('--arena-bootstrap',type=float); p.add_argument('--cpu',action='store_true')
+    p.add_argument('--selfplay-backend',choices=['serial','batched'],default='serial'); p.add_argument('--parallel-games',type=int,default=16); p.add_argument('--rules-workers',type=int,default=2); p.add_argument('--inference-batch',type=int,default=64); p.add_argument('--replay-dir')
+    p.add_argument('--architecture',choices=['mlp','rescnn']); p.add_argument('--channels',type=int); p.add_argument('--blocks',type=int); p.add_argument('--init-checkpoint'); p.add_argument('--validation-fraction',type=float); p.add_argument('--evaluation-interval',type=int,default=1); p.add_argument('--deterministic',action=argparse.BooleanOptionalAction,default=None); return p
 if __name__=='__main__':
     args=parser().parse_args()
-    if args.iterations<1 or args.games<0 or args.games==0 and not args.replay_dir or args.simulations<1 or args.max_plies<1 or args.epochs<1 or args.arena_pairs<1 or args.threads<1 or args.batch_size<1 or args.replay_size<1 or args.league_size<1 or not 0<=args.bootstrap<=1 or not 1<=args.parallel_games<=256 or not 1<=args.rules_workers<=16 or not 1<=args.inference_batch<=512: raise ValueError('Invalid training budget')
+    if args.arena_bootstrap is not None and not 0<=args.arena_bootstrap<=1 or args.lr is not None and args.lr<=0 or args.evaluation_interval<1 or args.validation_fraction is not None and not 0<=args.validation_fraction<1 or args.iterations<1 or args.games<0 or args.games==0 and not (args.replay_dir or args.resume) or args.simulations<1 or args.max_plies<1 or args.epochs<1 or args.arena_pairs<1 or args.threads<1 or args.batch_size<1 or args.replay_size<1 or args.league_size<1 or not 0<=args.bootstrap<=1 or not 1<=args.parallel_games<=256 or not 1<=args.rules_workers<=16 or not 1<=args.inference_batch<=512: raise ValueError('Invalid training budget')
     run(args)

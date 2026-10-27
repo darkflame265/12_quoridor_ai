@@ -12,7 +12,7 @@ fn main() {
         } else {
             assert_eq!(source.matches("\"5.3\"").count(),1);
             assert_eq!(source.matches("fn ranked(").count(),1);
-            source.replace("\"5.3\"","\"5.5 experiment\"").replace("fn ranked(","fn legacy_ranked(")
+            source.replace("\"5.3\"","\"5.6 experiment\"").replace("fn ranked(","fn legacy_ranked(")
         };
         fs::write(out.join(file),modified).unwrap();
     }

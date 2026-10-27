@@ -1,11 +1,21 @@
 #[derive(Clone,Copy,PartialEq)]
-enum SearchMode {Legacy,Ordering,Protected}
+enum SearchMode {Legacy,Ordering,Protected,Threat,Resource}
 fn search_mode()->SearchMode {
     static MODE:std::sync::OnceLock<SearchMode>=std::sync::OnceLock::new();
     *MODE.get_or_init(||match std::env::var("QUORIDOR_MAZE_SEARCH").as_deref() {
         Ok("ordering")=>SearchMode::Ordering,Ok("protected")=>SearchMode::Protected,
+        Ok("threat")=>SearchMode::Threat,Ok("resource")=>SearchMode::Resource,
         Ok("legacy")|Err(_)=>SearchMode::Legacy,Ok(other)=>panic!("Unknown search mode: {other}"),
     })
+}
+fn wall_priority(mode:SearchMode,wall:bool,stock:usize,net:i32,connections:i32,immediate:bool,stops:bool)->i32 {
+    // Actual one-move threats are checked with legal pawn moves, including jumps.
+    // Never penalize a life-saving wall because its immediate distance gain is small.
+    if immediate {return if stops {12000} else {-20000};}
+    if !wall {return 0;}
+    let setup=if connections>0&&net>=2 {200} else {0};
+    let reserve=if mode==SearchMode::Resource&&net<=1 {match stock {1=>900,2=>450,_=>0}} else {0};
+    setup-reserve
 }
 impl SharedSearch {
     fn ranked(&self,p:&mut Position)->Ranked {self.ranked_mode(p,search_mode())}
@@ -18,7 +28,8 @@ impl SharedSearch {
             return list.iter().map(|&(a,s)|(if flip {mirror_action(a)} else {a},s)).collect();
         }
         let t=p.turn;let own=p.distance(t,false);let enemy=p.distance(1-t,false);
-        let urgent=enemy<=2||p.moves(1-t).into_iter().any(|a|goal(a as usize,1-t));
+        let immediate=p.moves(1-t).into_iter().any(|a|goal(a as usize,1-t));
+        let urgent=enemy<=2||immediate;let stock=p.left[t];
         let mut actions=p.moves(t);
         if p.left[t]>0 {actions.extend((81..209u16).filter(|&a|p.fits(a)));}
         let mut ranked=vec![];let mut protected=vec![];
@@ -33,7 +44,11 @@ impl SharedSearch {
                 let forcing=a>=81&&(net>=2||p.left[t]==0&&theirs>enemy||connections>0&&net>=1);
                 critical=defense||forcing;
                 let base=if a<81 {(own-mine)*1500+250} else {net*1600-130};
-                base+if a>=81&&urgent&&theirs>enemy {6000} else if a>=81&&connections>0&&net>=1 {400} else {0}
+                let bonus=if matches!(mode,SearchMode::Threat|SearchMode::Resource) {
+                    let stops=immediate&&!p.moves(1-t).into_iter().any(|a|goal(a as usize,1-t));
+                    wall_priority(mode,a>=81,stock,net,connections,immediate,stops)
+                } else if a>=81&&urgent&&theirs>enemy {6000} else if a>=81&&connections>0&&net>=1 {400} else {0};
+                base+bonus
             };
             p.unmake(u);let score=score+connections*180;
             ranked.push((a,score));
@@ -67,13 +82,23 @@ mod ordering_tests {
         for f in fixtures["cases"].as_array().unwrap() {
             let s:State=serde_json::from_value(f["state"].clone()).unwrap();let mut p=Position::from_state(&s).unwrap();let key=p.key();let edges=p.edges;
             let mut expected:Vec<u16>=cache().legacy_ranked(&mut p).into_iter().map(|(a,_)|a).collect();expected.sort();
-            for mode in [SearchMode::Ordering,SearchMode::Protected] {
+            for mode in [SearchMode::Ordering,SearchMode::Protected,SearchMode::Threat,SearchMode::Resource] {
                 let c=cache();let mut found=c.ranked_mode(&mut p,mode);let mut ids:Vec<u16>=found.iter().map(|(a,_)|*a).collect();ids.sort();assert_eq!(ids,expected);assert!(key==p.key());assert_eq!(p.edges,edges);
                 let mut mirrored=mirror_position(&p);let mut other=cache().ranked_mode(&mut mirrored,mode);for (a,_) in &mut other {*a=mirror_action(*a);}found.sort();other.sort();assert_eq!(found,other);
                 if p.distance(1-p.turn,false)>2&&!p.moves(1-p.turn).into_iter().any(|a|goal(a as usize,1-p.turn)) {assert!(ids.iter().filter(|&&a|c.critical_mode(&p,a,mode)).count()<=if mode==SearchMode::Protected {4} else {0});}
                 for &a in &ids {assert_eq!(c.critical_mode(&p,a,mode),c.critical_mode(&mirrored,mirror_action(a),mode));}
             }
         }
+    }
+    #[test]
+    fn resource_penalty_is_narrow_and_never_overrides_immediate_defense() {
+        assert_eq!(wall_priority(SearchMode::Resource,true,1,1,1,false,false),-900);
+        assert_eq!(wall_priority(SearchMode::Resource,true,2,1,1,false,false),-450);
+        assert_eq!(wall_priority(SearchMode::Resource,true,3,1,1,false,false),0);
+        assert_eq!(wall_priority(SearchMode::Threat,true,1,1,1,false,false),0);
+        assert!(wall_priority(SearchMode::Resource,true,1,0,0,true,true)>10000);
+        assert!(wall_priority(SearchMode::Resource,false,1,0,0,true,false)< -10000);
+        assert_eq!(wall_priority(SearchMode::Resource,true,1,2,1,false,false),200);
     }
     #[test]
     fn urgent_defenses_are_protected_but_ordering_only_keeps_legacy_reductions() {

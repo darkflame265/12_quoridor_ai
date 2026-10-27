@@ -2,6 +2,8 @@
 
 개인용 쿼리도 대전·분석 앱.
 
+실제 한 수 패배 방어와 마지막 벽 소모를 분리한 후보를 `--search threat`와 `--search resource`로 시험할 수 있습니다. validation은 6승 6패, 일반 배치는 2승 4패여서 실전 Atlas 5.3을 유지합니다. [벽 기준 조정·연결도 대칭 문제·검증 기록](reports/WALL_RESOURCE.md)을 참고하세요.
+
 `npm run maze:compare-search -- reports/search55/my-comparison`으로 기존 탐색·위험 벽 우선 정렬·깊이 보호를 새 배치에서 분리 비교할 수 있습니다. 정렬 후보는 validation 7승 5패, 새 holdout 7승 9패여서 실전은 Atlas 5.3을 유지합니다. [탐색 변경과 실제 검증 기록](reports/SEARCH_ORDERING.md)을 참고하세요.
 
 `npm run maze:ablate -- --out reports/maze-ablation/my-run`으로 벽 평가 항목과 계산 비용을 분리 비교할 수 있습니다. 점수를 유지한 캐시 경로는 167개 상태의 반복 평가에서 약 38% 짧은 시간을 기록했습니다. [모드별 의미·측정 범위·실제 대전](reports/MAZE_ABLATION.md)을 참고하세요.

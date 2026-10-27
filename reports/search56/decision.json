@@ -1,0 +1,30 @@
+{
+  "format": "atlas-search-validation-decision-v1",
+  "source": "reports/search56/resource-validation/report.json",
+  "sourceSha256": "a10cac2b3d59ed089650d44e8b7d2c19decbffca00ba459a5476a6903e88b91d",
+  "mode": "cache4",
+  "searchMode": "resource",
+  "cohort": "search56-v1",
+  "checks": {
+    "completed": true,
+    "minimumSample": true,
+    "validationPositive": false,
+    "suites": false,
+    "tactics": true,
+    "deadline": true
+  },
+  "suites": {
+    "general": {
+      "wins": 2,
+      "losses": 4
+    },
+    "maze": {
+      "wins": 4,
+      "losses": 2
+    }
+  },
+  "selected": false,
+  "productionActive": false,
+  "holdoutSkipped": true,
+  "reason": "Validation is 6 wins and 6 losses; general layouts regress 2 wins to 4 losses. Preserve the unevaluated holdout."
+}

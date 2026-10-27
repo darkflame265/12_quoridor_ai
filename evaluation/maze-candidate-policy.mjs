@@ -3,7 +3,7 @@ import {fileURLToPath} from 'node:url';
 import {nativeSources,nativeSourceHash,digest} from './native-policy.mjs';
 export const mazeExecutable=fileURLToPath(new URL(`../experimental-engine/target/release/quoridor-maze-candidate${process.platform==='win32'?'.exe':''}`,import.meta.url));
 export const mazeModes=['baseline','cache4','reserve','coverage8','combined8','reference8'];
-export const mazeSearchModes=['legacy','ordering','protected'];
+export const mazeSearchModes=['legacy','ordering','protected','threat','resource'];
 export const mazeSources=[...nativeSources,'experimental-engine/Cargo.toml','experimental-engine/Cargo.lock','experimental-engine/build.rs','experimental-engine/src/lib.rs','experimental-engine/src/main.rs','experimental-engine/src/maze-evaluation.rs','experimental-engine/src/tactical-ordering.rs','experimental-engine/src/bin/eval-benchmark.rs','evaluation/fixtures/native54-search-review.json'];
 export function mazeIdentity(){return {baselineSourceHash:nativeSourceHash(),sources:Object.fromEntries(mazeSources.map(f=>[f,digest(readFileSync(f))])),binaryHash:digest(readFileSync(mazeExecutable))};}
 export function verifyMazeBuild(){const saved=JSON.parse(readFileSync('experimental-engine/target/release/source-manifest.json'));const current=mazeIdentity();if(JSON.stringify(current)!==JSON.stringify(saved))throw Error('Rebuild the experimental maze engine');return current;}

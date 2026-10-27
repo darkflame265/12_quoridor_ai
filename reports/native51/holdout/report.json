@@ -1,0 +1,441 @@
+{
+  "format": "native-arena-v1",
+  "status": "completed",
+  "date": "2026-10-27T04:30:35.886Z",
+  "split": "holdout",
+  "fixtureSeed": 731849,
+  "sourceHash": "68bcc4f8eaee3bbfeaf9e55a2e80cb6b79afaa620db2dc24467a62ec4f677853",
+  "binaryHash": "5bbd4fd7733c727c51a211daf62c2abddd64a7da3b1c1cb97b36519a6641642d",
+  "candidate": "candidate",
+  "baseline": "baseline",
+  "pairsPerSuite": 4,
+  "ms": 500,
+  "cores": 4,
+  "tactics": [
+    {
+      "id": "finish-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "jump-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 0
+      }
+    },
+    {
+      "id": "defend-0",
+      "pass": true,
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 4,
+        "y": 7
+      }
+    },
+    {
+      "id": "diagonal-0",
+      "pass": true,
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "diagonal-finish-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 0
+      }
+    },
+    {
+      "id": "defend-jump-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "finish-before-defense-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "no-wall-resource-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      }
+    },
+    {
+      "id": "finish-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      }
+    },
+    {
+      "id": "jump-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 8
+      }
+    },
+    {
+      "id": "defend-1",
+      "pass": true,
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 3,
+        "y": 0
+      }
+    },
+    {
+      "id": "diagonal-1",
+      "pass": true,
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "id": "diagonal-finish-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 8
+      }
+    },
+    {
+      "id": "defend-jump-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      }
+    },
+    {
+      "id": "finish-before-defense-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      }
+    },
+    {
+      "id": "no-wall-resource-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 7,
+        "y": 4
+      }
+    }
+  ],
+  "games": [
+    {
+      "id": "general-0-side0",
+      "suite": "general",
+      "openingIndex": 0,
+      "candidateSide": 0,
+      "result": "win",
+      "winner": 0,
+      "reason": "goal",
+      "plies": 65,
+      "file": "games/general-0-side0.json",
+      "replayValidated": true
+    },
+    {
+      "id": "general-0-side1",
+      "suite": "general",
+      "openingIndex": 0,
+      "candidateSide": 1,
+      "result": "win",
+      "winner": 1,
+      "reason": "goal",
+      "plies": 66,
+      "file": "games/general-0-side1.json",
+      "replayValidated": true
+    },
+    {
+      "id": "general-1-side0",
+      "suite": "general",
+      "openingIndex": 1,
+      "candidateSide": 0,
+      "result": "win",
+      "winner": 0,
+      "reason": "goal",
+      "plies": 59,
+      "file": "games/general-1-side0.json",
+      "replayValidated": true
+    },
+    {
+      "id": "general-1-side1",
+      "suite": "general",
+      "openingIndex": 1,
+      "candidateSide": 1,
+      "result": "win",
+      "winner": 1,
+      "reason": "goal",
+      "plies": 60,
+      "file": "games/general-1-side1.json",
+      "replayValidated": true
+    },
+    {
+      "id": "general-2-side0",
+      "suite": "general",
+      "openingIndex": 2,
+      "candidateSide": 0,
+      "result": "win",
+      "winner": 0,
+      "reason": "goal",
+      "plies": 57,
+      "file": "games/general-2-side0.json",
+      "replayValidated": true
+    },
+    {
+      "id": "general-2-side1",
+      "suite": "general",
+      "openingIndex": 2,
+      "candidateSide": 1,
+      "result": "win",
+      "winner": 1,
+      "reason": "goal",
+      "plies": 48,
+      "file": "games/general-2-side1.json",
+      "replayValidated": true
+    },
+    {
+      "id": "general-3-side0",
+      "suite": "general",
+      "openingIndex": 3,
+      "candidateSide": 0,
+      "result": "loss",
+      "winner": 1,
+      "reason": "goal",
+      "plies": 38,
+      "file": "games/general-3-side0.json",
+      "replayValidated": true
+    },
+    {
+      "id": "general-3-side1",
+      "suite": "general",
+      "openingIndex": 3,
+      "candidateSide": 1,
+      "result": "loss",
+      "winner": 0,
+      "reason": "goal",
+      "plies": 43,
+      "file": "games/general-3-side1.json",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-0-side0",
+      "suite": "maze",
+      "openingIndex": 0,
+      "candidateSide": 0,
+      "result": "loss",
+      "winner": 1,
+      "reason": "goal",
+      "plies": 44,
+      "file": "games/maze-0-side0.json",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-0-side1",
+      "suite": "maze",
+      "openingIndex": 0,
+      "candidateSide": 1,
+      "result": "win",
+      "winner": 1,
+      "reason": "goal",
+      "plies": 54,
+      "file": "games/maze-0-side1.json",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-1-side0",
+      "suite": "maze",
+      "openingIndex": 1,
+      "candidateSide": 0,
+      "result": "loss",
+      "winner": 1,
+      "reason": "goal",
+      "plies": 44,
+      "file": "games/maze-1-side0.json",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-1-side1",
+      "suite": "maze",
+      "openingIndex": 1,
+      "candidateSide": 1,
+      "result": "loss",
+      "winner": 0,
+      "reason": "goal",
+      "plies": 49,
+      "file": "games/maze-1-side1.json",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-2-side0",
+      "suite": "maze",
+      "openingIndex": 2,
+      "candidateSide": 0,
+      "result": "loss",
+      "winner": 1,
+      "reason": "goal",
+      "plies": 18,
+      "file": "games/maze-2-side0.json",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-2-side1",
+      "suite": "maze",
+      "openingIndex": 2,
+      "candidateSide": 1,
+      "result": "win",
+      "winner": 1,
+      "reason": "goal",
+      "plies": 20,
+      "file": "games/maze-2-side1.json",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-3-side0",
+      "suite": "maze",
+      "openingIndex": 3,
+      "candidateSide": 0,
+      "result": "win",
+      "winner": 0,
+      "reason": "goal",
+      "plies": 35,
+      "file": "games/maze-3-side0.json",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-3-side1",
+      "suite": "maze",
+      "openingIndex": 3,
+      "candidateSide": 1,
+      "result": "loss",
+      "winner": 0,
+      "reason": "goal",
+      "plies": 35,
+      "file": "games/maze-3-side1.json",
+      "replayValidated": true
+    }
+  ],
+  "timing": {
+    "candidate": {
+      "moves": 368,
+      "elapsedMs": 121629.27539999993,
+      "overruns": 0
+    },
+    "baseline": {
+      "moves": 367,
+      "elapsedMs": 120479.77679999982,
+      "overruns": 0
+    }
+  },
+  "summary": {
+    "wins": 9,
+    "losses": 7,
+    "draws": 0,
+    "bySuite": {
+      "general": {
+        "wins": 6,
+        "losses": 2,
+        "draws": 0
+      },
+      "maze": {
+        "wins": 3,
+        "losses": 5,
+        "draws": 0
+      }
+    },
+    "decisiveWilson95": [
+      0.33178195606776517,
+      0.7690163666481448
+    ],
+    "pairScores": [
+      {
+        "suite": "general",
+        "index": 0,
+        "complete": true,
+        "score": 1
+      },
+      {
+        "suite": "general",
+        "index": 1,
+        "complete": true,
+        "score": 1
+      },
+      {
+        "suite": "general",
+        "index": 2,
+        "complete": true,
+        "score": 1
+      },
+      {
+        "suite": "general",
+        "index": 3,
+        "complete": true,
+        "score": 0
+      },
+      {
+        "suite": "maze",
+        "index": 0,
+        "complete": true,
+        "score": 0.5
+      },
+      {
+        "suite": "maze",
+        "index": 1,
+        "complete": true,
+        "score": 0
+      },
+      {
+        "suite": "maze",
+        "index": 2,
+        "complete": true,
+        "score": 0.5
+      },
+      {
+        "suite": "maze",
+        "index": 3,
+        "complete": true,
+        "score": 0.5
+      }
+    ]
+  }
+}

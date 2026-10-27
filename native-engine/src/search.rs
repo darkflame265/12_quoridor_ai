@@ -59,17 +59,23 @@ fn mirror_entry(mut e: Entry) -> Entry {
     e
 }
 struct SharedSearch {
+    profile: u8,
     entries: Vec<RwLock<HashMap<Key, Entry>>>,
     evaluations: Vec<RwLock<HashMap<Key, i32>>>,
     moves: Vec<RwLock<HashMap<Key, Ranked>>>,
+    critical: Vec<RwLock<HashMap<Key, Vec<u16>>>>,
+    geometries: Vec<RwLock<HashMap<u128, Arc<GoalGeometry>>>>,
     hits: AtomicU64,
 }
 impl Default for SharedSearch {
     fn default() -> Self {
         Self {
+            profile: 0,
             entries: (0..SHARDS).map(|_| RwLock::new(HashMap::new())).collect(),
             evaluations: (0..SHARDS).map(|_| RwLock::new(HashMap::new())).collect(),
             moves: (0..SHARDS).map(|_| RwLock::new(HashMap::new())).collect(),
+            critical: (0..SHARDS).map(|_| RwLock::new(HashMap::new())).collect(),
+            geometries: (0..SHARDS).map(|_| RwLock::new(HashMap::new())).collect(),
             hits: AtomicU64::new(0),
         }
     }
@@ -117,9 +123,9 @@ impl SharedSearch {
             return score;
         }
         let score = if flip {
-            mirror_position(p).evaluate()
+            self.static_score(&mut mirror_position(p))
         } else {
-            p.evaluate()
+            self.static_score(p)
         };
         let mut map = self.evaluations[Self::shard(&key)].write().unwrap();
         if map.len() >= 1024 {
@@ -145,6 +151,9 @@ impl SharedSearch {
             list.extend((81..209u16).filter(|&a| p.fits(a)));
         }
         let mut ranked = vec![];
+        let mut critical = vec![];
+        let urgent = self.profile >= 2
+            && (enemy <= 2 || p.moves(1 - t).into_iter().any(|a| goal(a as usize, 1 - t)));
         for a in list {
             let u = p.make(a);
             let score = if p.terminal() {
@@ -156,6 +165,14 @@ impl SharedSearch {
                     p.unmake(u);
                     continue;
                 }
+                if self.profile >= 2
+                    && (urgent && (a < 81 || theirs > enemy)
+                        || a >= 81
+                            && ((theirs - enemy) - (mine - own) >= 2
+                                || p.left[t] == 0 && theirs > enemy))
+                {
+                    critical.push(if flip { mirror_action(a) } else { a });
+                }
                 if a < 81 {
                     (own - mine) * 1500 + 250
                 } else {
@@ -165,6 +182,12 @@ impl SharedSearch {
             p.unmake(u);
             ranked.push((a, score + if a >= 81 { p.connections(a) * 180 } else { 0 }));
         }
+        let mut protected = self.critical[Self::shard(&key)].write().unwrap();
+        if protected.len() >= 512 {
+            protected.clear();
+        }
+        protected.insert(key, critical);
+        drop(protected);
         let mut map = self.moves[Self::shard(&key)].write().unwrap();
         if map.len() >= 512 {
             map.clear();
@@ -276,6 +299,9 @@ impl NativeSearcher {
             {
                 depth = 1;
             } else {
+                if self.shared.profile > 0 {
+                    self.check()?;
+                }
                 return Ok(self.shared.evaluate(p));
             }
         }
@@ -308,12 +334,14 @@ impl NativeSearcher {
         let (mut best, mut best_move) = (-INF, list[0]);
         path.push(key);
         for (i, &a) in list.iter().enumerate() {
+            let protected = self.shared.is_critical(p, a);
             let u = p.make(a);
             let setup = ply < 2 && a >= 81 && p.connections(a) > 0;
             let reduce = depth >= 3
                 && i >= 8
                 && Some(a) != hit.as_ref().map(|e| e.best)
                 && !setup
+                && !protected
                 && !p.terminal();
             let result = (|| {
                 let mut score;
@@ -521,7 +549,15 @@ pub struct NativeEngine {
 }
 impl Default for NativeEngine {
     fn default() -> Self {
-        let shared = Arc::new(SharedSearch::default());
+        Self::with_profile(2)
+    }
+}
+impl NativeEngine {
+    pub fn with_profile(profile: u8) -> Self {
+        let shared = Arc::new(SharedSearch {
+            profile: profile.min(2),
+            ..SharedSearch::default()
+        });
         Self {
             workers: (0..4)
                 .map(|_| Mutex::new(NativeSearcher::new(shared.clone())))
@@ -573,7 +609,11 @@ impl NativeEngine {
                 depth: 0,
                 nodes: 0,
                 elapsed_ms: 0.,
-                engine: format!("Atlas 5 · Native Rust ×{}", cores),
+                engine: format!(
+                    "Atlas {} · Native Rust ×{}",
+                    if self.shared.profile == 0 { "5" } else { "5.1" },
+                    cores
+                ),
                 partitioned: false,
                 error: None,
             },
@@ -684,12 +724,14 @@ impl NativeEngine {
                                 break;
                             }
                             let a = roots[i];
+                            let protected = searcher.shared.is_critical(pos, a);
                             let mut p = pos.clone();
                             p.make(a);
                             let base = alpha.load(Ordering::Acquire);
                             let reduced = depth >= 3
                                 && i >= 8
                                 && !(a >= 81 && p.connections(a) > 0)
+                                && !protected
                                 && !p.terminal();
                             let result = (|| {
                                 let mut score = -searcher.negamax(

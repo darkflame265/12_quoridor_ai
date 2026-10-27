@@ -16,7 +16,11 @@
     "model:export": "python training/export.py",
     "dev:web": "vite --host 127.0.0.1",
     "native:build": "node scripts/build-native.mjs",
-    "native:serve": "node server/native-service.mjs"
+    "native:serve": "node server/native-service.mjs",
+    "native:review": "node scripts/review-native-losses.mjs",
+    "native:evaluate": "node scripts/evaluate-native.mjs",
+    "native:promote": "node scripts/promote-native.mjs",
+    "native:verify": "node scripts/verify-native.mjs"
   },
   "devDependencies": {
     "vite": "^7.1.0"

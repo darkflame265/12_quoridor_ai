@@ -12,7 +12,11 @@ fn main() {
     let (tx, rx) = mpsc::channel::<(serde_json::Value, Arc<AtomicBool>)>();
     let writer = output.clone();
     std::thread::spawn(move || {
-        let mut engine = NativeEngine::default();
+        let mut engines = [
+            NativeEngine::with_profile(0),
+            NativeEngine::with_profile(1),
+            NativeEngine::with_profile(2),
+        ];
         for (v, cancel) in rx {
             let id = v["id"].clone();
             if cancel.load(Ordering::Relaxed) {
@@ -24,6 +28,12 @@ fn main() {
             }
             match serde_json::from_value::<State>(v["state"].clone()) {
                 Ok(state) => {
+                    let index = match v["profile"].as_str().unwrap_or("baseline") {
+                        "strategy" => 1,
+                        "candidate" => 2,
+                        _ => 0,
+                    };
+                    let engine = &mut engines[index];
                     let r = engine.search(
                         &state,
                         v["ms"].as_f64().unwrap_or(500.),

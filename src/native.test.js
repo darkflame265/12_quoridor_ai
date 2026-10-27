@@ -10,7 +10,7 @@ import {initial,legal} from './engine.js';
 import {tactics,checkTactic} from '../evaluation/suite.js';
 
 test('native persistent process: tactics, cancellation and reuse',{skip:!existsSync(nativeExecutable)},async()=>{
- const client=new NativeProcess();try{
+ const client=new NativeProcess({profile:'candidate'});try{
   await client.health();const pid=client.child.pid;
   for(const fixture of tactics()){const result=await client.search(fixture.state,{ms:100,cores:4});assert.ok(checkTactic(fixture,result.pv[0]),fixture.id);}
   const promise=client.search(initial(),{id:'cancel-test',ms:3000,cores:4});const rejection=assert.rejects(promise,{name:'AbortError'});client.cancel('cancel-test');await rejection;

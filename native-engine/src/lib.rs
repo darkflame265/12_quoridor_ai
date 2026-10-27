@@ -6,5 +6,6 @@ mod core {
         "/../rust-engine/src/lib.rs"
     ));
     include!("search.rs");
+    include!("strategy.rs");
 }
 pub use core::{NativeEngine, NativeOutput, State};

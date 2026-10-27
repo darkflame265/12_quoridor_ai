@@ -26,7 +26,7 @@ impl SharedSearch {
                     let i=if vertical {64} else {0}+(y*8+x) as usize;
                     let a=(81+i) as u16;
                     if p.fits(a) {
-                        legacy[i]+=p.evaluation_connections(a) as f64*30.+(distance-map[n] as i32) as f64*0.2+1.;
+                        legacy[i]+=p.evaluation_connections(a) as f64*connection_threat_weight()+(distance-map[n] as i32) as f64*0.2+1.;
                         coverage[i]+=1;
                     }
                 }
@@ -68,7 +68,7 @@ impl SharedSearch {
                     let i=if vertical {64} else {0}+(y*8+x) as usize;let a=(81+i) as u16;
                     if p.fits(a) {
                         let c=*connections[i].get_or_insert_with(||p.evaluation_connections(a));
-                        legacy[i]+=c as f64*30.+(distance-map[n] as i32) as f64*0.2+1.;coverage[i]+=1;
+                        legacy[i]+=c as f64*connection_threat_weight()+(distance-map[n] as i32) as f64*0.2+1.;coverage[i]+=1;
                     }
                 }
             }

@@ -50,7 +50,7 @@ impl SharedSearch {
                 } else if a>=81&&urgent&&theirs>enemy {6000} else if a>=81&&connections>0&&net>=1 {400} else {0};
                 base+bonus
             };
-            p.unmake(u);let score=score+connections*180;
+            p.unmake(u);let score=score+connections*connection_order_weight();
             ranked.push((a,score));
             if critical {protected.push((if flip {mirror_action(a)} else {a},score));}
         }

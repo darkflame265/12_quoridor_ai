@@ -1,0 +1,42 @@
+{
+  "validation": "reports/weights59/threat0-validation/report.json",
+  "sha256": "49cc76d94c9ac406d76b1f7195556824b0e3e5871f09175c71e661c32f3c6b2d",
+  "mode": "cache4",
+  "searchMode": "legacy",
+  "geometryMode": "rank-eval",
+  "weights": {
+    "order": 180,
+    "threat": 0
+  },
+  "cohort": "search59-v1",
+  "summary": {
+    "win": 5,
+    "loss": 7,
+    "draw": 0
+  },
+  "bySuite": {
+    "general": {
+      "win": 2,
+      "loss": 4,
+      "draw": 0
+    },
+    "maze": {
+      "win": 3,
+      "loss": 3,
+      "draw": 0
+    }
+  },
+  "checks": {
+    "completed": true,
+    "minimumGames": true,
+    "validationPositive": false,
+    "bySuiteNoRegression": false,
+    "tactics": true,
+    "deadline": true
+  },
+  "eligible": false,
+  "productionActive": false,
+  "liveEngine": "Atlas 5.3",
+  "holdoutSkipped": true,
+  "reason": "Validation finished at 5 wins and 7 losses, including general 2 wins and 4 losses; promotion gates failed."
+}

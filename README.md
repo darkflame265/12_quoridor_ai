@@ -2,6 +2,8 @@
 
 개인용 쿼리도 대전·분석 앱.
 
+실험 엔진의 연결도 정렬 계수와 위협 후보 가중치를 `--order-weight`, `--threat-weight`로 독립 조정할 수 있습니다. 기본값은 180·30입니다. 네 조합을 비교했지만 선택 후보의 별도 validation이 5승 7패여서 실전 Atlas 5.3을 유지합니다. [계수 분리 검증과 대전 기록](reports/CONNECTION_WEIGHTS.md)을 참고하세요.
+
 교정 연결도를 정렬에만 쓰는 `--geometry rank-only`와 평가까지 쓰는 `rank-eval`을 분리했습니다. 167개 상태의 점수 보존과 적용 위치를 확인했지만 validation 5승 5패 2무여서 실전 Atlas 5.3을 유지합니다. [적용 위치 분리·검증 결과](reports/GEOMETRY_SCOPES.md)를 참고하세요.
 
 벽 연결도를 실제 선분 접촉으로 계산하는 `--geometry physical` 후보를 추가했습니다. 16,384개 조합에서 독립 계산과 일치하지만 대전 validation은 6승 6패여서 실전 Atlas 5.3을 유지합니다. [연결도 교정·전수 검사·채택 보류 근거](reports/WALL_GEOMETRY.md)를 참고하세요.

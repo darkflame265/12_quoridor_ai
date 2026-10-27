@@ -7,7 +7,9 @@ mod core {
     include!("maze-evaluation.rs");
     include!("tactical-ordering.rs");
     include!("wall-geometry.rs");
+    include!("connection-weights.rs");
 }
 pub use core::{NativeEngine,NativeOutput,State};
 pub use core::evaluation_benchmark;
 pub use core::{geometry_snapshot,geometry_scores};
+pub use core::weight_snapshot;

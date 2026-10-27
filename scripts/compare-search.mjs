@@ -6,7 +6,7 @@ import {SEARCH_COHORTS} from '../evaluation/search-fixtures.mjs';
 import {digest} from '../evaluation/native-policy.mjs';
 const out=process.argv[2]??'reports/search55';
 const args=process.argv.slice(3),get=(key,fallback)=>{const i=args.indexOf(key);return i<0?fallback:args[i+1];};
-const searchModes=get('--searches','legacy,ordering,protected').split(','),cohort=get('--cohort','search57-v1');
+const searchModes=get('--searches','legacy,ordering,protected').split(','),cohort=get('--cohort','search58-v1');
 if(searchModes.length<2||new Set(searchModes).size!==searchModes.length||!searchModes.includes('legacy')||searchModes.some(m=>!mazeSearchModes.includes(m))||!(cohort in SEARCH_COHORTS))throw Error('Invalid search comparison modes or cohort');
 try{await readFile(path.join(out,'comparison.json'));throw Error('Use a fresh comparison directory');}catch(e){if(e.code!=='ENOENT')throw e;}
 const sources=Object.fromEntries(await Promise.all(['scripts/compare-search.mjs','scripts/evaluate-maze.mjs','scripts/verify-maze.mjs','evaluation/search-fixtures.mjs','evaluation/maze-candidate-policy.mjs'].map(async f=>[f,digest(await readFile(f))])));

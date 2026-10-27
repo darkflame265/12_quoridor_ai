@@ -10,4 +10,4 @@ mod core {
 }
 pub use core::{NativeEngine,NativeOutput,State};
 pub use core::evaluation_benchmark;
-pub use core::geometry_snapshot;
+pub use core::{geometry_snapshot,geometry_scores};

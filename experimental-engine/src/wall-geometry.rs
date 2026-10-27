@@ -12,19 +12,35 @@ const fn contact_masks()->[u128;128] {
     while a<128 {let mut b=0;while b<128 {if touching(a,b) {masks[a]|=1u128<<b;}b+=1;}a+=1;}masks
 }
 const CONTACT_MASKS:[u128;128]=contact_masks();
-fn physical_geometry()->bool {
-    static MODE:std::sync::OnceLock<bool>=std::sync::OnceLock::new();
-    *MODE.get_or_init(||match std::env::var("QUORIDOR_MAZE_GEOMETRY").as_deref(){Ok("physical")=>true,Ok("legacy")|Err(_)=>false,Ok(other)=>panic!("Unknown geometry mode: {other}")})
+#[derive(Clone,Copy)]
+enum GeometryMode {Legacy,RankOnly,EvalOnly,RankEval,Physical}
+#[derive(Clone,Copy)]
+enum ConnectionScope {Ranking,Evaluation,Setup}
+fn geometry_mode()->GeometryMode {
+    static MODE:std::sync::OnceLock<GeometryMode>=std::sync::OnceLock::new();
+    *MODE.get_or_init(||match std::env::var("QUORIDOR_MAZE_GEOMETRY").as_deref(){Ok("physical")=>GeometryMode::Physical,Ok("rank-only")=>GeometryMode::RankOnly,Ok("eval-only")=>GeometryMode::EvalOnly,Ok("rank-eval")=>GeometryMode::RankEval,Ok("legacy")|Err(_)=>GeometryMode::Legacy,Ok(other)=>panic!("Unknown geometry mode: {other}")})
+}
+fn physical_geometry()->bool {matches!(geometry_mode(),GeometryMode::Physical)}
+fn physical_scope(mode:GeometryMode,scope:ConnectionScope)->bool {
+    match scope {ConnectionScope::Ranking=>matches!(mode,GeometryMode::RankOnly|GeometryMode::RankEval|GeometryMode::Physical),ConnectionScope::Evaluation=>matches!(mode,GeometryMode::EvalOnly|GeometryMode::RankEval|GeometryMode::Physical),ConnectionScope::Setup=>matches!(mode,GeometryMode::Physical)}
 }
 impl Position {
     fn physical_connections(&self,a:u16)->i32 {(self.walls&CONTACT_MASKS[(a-81) as usize]).count_ones() as i32}
-    fn connections(&self,a:u16)->i32 {if physical_geometry(){self.physical_connections(a)}else{self.legacy_connections(a)}}
+    fn scoped_connections(&self,a:u16,scope:ConnectionScope)->i32 {if physical_scope(geometry_mode(),scope){self.physical_connections(a)}else{self.legacy_connections(a)}}
+    fn connections(&self,a:u16)->i32 {self.scoped_connections(a,ConnectionScope::Setup)}
+    fn ordering_connections(&self,a:u16)->i32 {self.scoped_connections(a,ConnectionScope::Ranking)}
+    fn evaluation_connections(&self,a:u16)->i32 {self.scoped_connections(a,ConnectionScope::Evaluation)}
 }
 pub fn geometry_snapshot()->serde_json::Value {
     let s:State=serde_json::from_str(r#"{"p":[{"x":4,"y":8},{"x":4,"y":0}],"walls":[],"left":[10,10],"turn":0,"winner":null}"#).unwrap();
-    let mut p=Position::from_state(&s).unwrap();let mut counts=vec![];let mut legacy=vec![];
-    for a in 81..209u16 {let mut row=vec![];let mut old=vec![];for b in 0..128 {p.walls=1u128<<b;row.push(p.connections(a));old.push(p.legacy_connections(a));}counts.push(row);legacy.push(old);}
-    serde_json::json!({"physicalMode":physical_geometry(),"counts":counts,"legacy":legacy})
+    let mut p=Position::from_state(&s).unwrap();let mut counts=vec![];let mut legacy=vec![];let mut ranking=vec![];let mut evaluation=vec![];
+    for a in 81..209u16 {let mut row=vec![];let mut old=vec![];let mut rank=vec![];let mut eval=vec![];for b in 0..128 {p.walls=1u128<<b;row.push(p.connections(a));old.push(p.legacy_connections(a));rank.push(p.ordering_connections(a));eval.push(p.evaluation_connections(a));}counts.push(row);legacy.push(old);ranking.push(rank);evaluation.push(eval);}
+    serde_json::json!({"physicalMode":physical_geometry(),"counts":counts,"legacy":legacy,"ranking":ranking,"evaluation":evaluation})
+}
+pub fn geometry_scores(states:&[State])->serde_json::Value {
+    let cache=SharedSearch{profile:2,..SharedSearch::default()};let mut raw=vec![];let mut cached=vec![];
+    for s in states {let mut p=Position::from_state(s).unwrap();raw.push(p.evaluate());cached.push(cache.score_mode(&mut p,MazeMode::Cache4));}
+    serde_json::json!({"raw":raw,"cached":cached})
 }
 #[cfg(test)]
 mod geometry_tests {
@@ -44,5 +60,12 @@ mod geometry_tests {
         assert!(touching(h(3,4),h(5,4))); // straight end-to-end
         assert!(touching(h(3,4),v(4,3))); // endpoint contact
         assert!(touching(h(3,4),v(3,3))); // T joint
+    }
+    #[test]
+    fn rank_only_does_not_change_evaluation_or_depth_setup() {
+        assert!(physical_scope(GeometryMode::RankOnly,ConnectionScope::Ranking));
+        assert!(!physical_scope(GeometryMode::RankOnly,ConnectionScope::Evaluation));assert!(!physical_scope(GeometryMode::RankOnly,ConnectionScope::Setup));
+        assert!(physical_scope(GeometryMode::RankEval,ConnectionScope::Ranking));assert!(physical_scope(GeometryMode::RankEval,ConnectionScope::Evaluation));assert!(!physical_scope(GeometryMode::RankEval,ConnectionScope::Setup));
+        assert!(!physical_scope(GeometryMode::EvalOnly,ConnectionScope::Ranking));assert!(physical_scope(GeometryMode::EvalOnly,ConnectionScope::Evaluation));
     }
 }

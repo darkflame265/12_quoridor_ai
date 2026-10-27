@@ -34,7 +34,7 @@ impl SharedSearch {
         if p.left[t]>0 {actions.extend((81..209u16).filter(|&a|p.fits(a)));}
         let mut ranked=vec![];let mut protected=vec![];
         for a in actions {
-            let connections=if a>=81 {p.connections(a)} else {0};
+            let connections=if a>=81 {p.ordering_connections(a)} else {0};
             let u=p.make(a);let mut critical=false;
             let score=if p.terminal() {20_000_000} else {
                 let mine=p.distance(t,false);let theirs=p.distance(1-t,false);

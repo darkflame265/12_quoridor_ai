@@ -12,7 +12,7 @@ const out=get('--out','reports/maze-candidate/development'),split=get('--split',
 const mode=get('--mode','cache4');if(!mazeModes.includes(mode))throw Error('Unknown maze evaluation mode');process.env.QUORIDOR_MAZE_MODE=mode;
 const searchMode=get('--search','legacy');if(!mazeSearchModes.includes(searchMode))throw Error('Unknown search mode');process.env.QUORIDOR_MAZE_SEARCH=searchMode;
 const geometryMode=get('--geometry','legacy');if(!mazeGeometryModes.includes(geometryMode))throw Error('Unknown geometry mode');process.env.QUORIDOR_MAZE_GEOMETRY=geometryMode;
-const cohort=get('--cohort','search57-v1');if(cohort!=='native53-v3'&&!(cohort in SEARCH_COHORTS))throw Error('Unknown search fixture cohort');
+const cohort=get('--cohort','search58-v1');if(cohort!=='native53-v3'&&!(cohort in SEARCH_COHORTS))throw Error('Unknown search fixture cohort');
 if(!['development','validation','holdout'].includes(split)||!Number.isInteger(pairs)||pairs<1||pairs>50||!Number.isInteger(ms)||ms<1||ms>30000||!Number.isInteger(cores)||cores<1||cores>4||!Number.isInteger(maxPlies)||maxPlies<1)throw Error('Invalid arena options');
 if(activeNativeProfile()!=='candidate')throw Error('Approved Atlas 5.3 baseline unavailable');
 try{await readFile(path.join(out,'report.json'));throw Error('Use a fresh output directory');}catch(e){if(e.code!=='ENOENT')throw e;}

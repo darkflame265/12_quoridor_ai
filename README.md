@@ -2,6 +2,8 @@
 
 개인용 쿼리도 대전·분석 앱.
 
+교정 연결도를 정렬에만 쓰는 `--geometry rank-only`와 평가까지 쓰는 `rank-eval`을 분리했습니다. 167개 상태의 점수 보존과 적용 위치를 확인했지만 validation 5승 5패 2무여서 실전 Atlas 5.3을 유지합니다. [적용 위치 분리·검증 결과](reports/GEOMETRY_SCOPES.md)를 참고하세요.
+
 벽 연결도를 실제 선분 접촉으로 계산하는 `--geometry physical` 후보를 추가했습니다. 16,384개 조합에서 독립 계산과 일치하지만 대전 validation은 6승 6패여서 실전 Atlas 5.3을 유지합니다. [연결도 교정·전수 검사·채택 보류 근거](reports/WALL_GEOMETRY.md)를 참고하세요.
 
 실제 한 수 패배 방어와 마지막 벽 소모를 분리한 후보를 `--search threat`와 `--search resource`로 시험할 수 있습니다. validation은 6승 6패, 일반 배치는 2승 4패여서 실전 Atlas 5.3을 유지합니다. [벽 기준 조정·연결도 대칭 문제·검증 기록](reports/WALL_RESOURCE.md)을 참고하세요.

@@ -33,7 +33,8 @@
     "maze:assess": "node scripts/assess-maze.mjs",
     "maze:compare-search": "node scripts/compare-search.mjs",
     "maze:check-geometry": "node scripts/check-wall-geometry.mjs",
-    "maze:compare-geometry": "node scripts/compare-geometry.mjs"
+    "maze:compare-geometry": "node scripts/compare-geometry.mjs",
+    "maze:check-scopes": "node scripts/check-geometry-scopes.mjs"
   },
   "devDependencies": {
     "vite": "^7.1.0"

@@ -11,5 +11,5 @@ for(const directory of [validationDir,holdoutDir]){
  const file=path.join(directory,'report.json'),bytes=await readFile(file);reports.push({file,sha256:digest(bytes),report:JSON.parse(bytes)});
 }
 const assessment=assessMaze(...reports.map(r=>r.report));
-const receipt={format:'atlas-maze-paired-decision-v2',assessorSha256:digest(await readFile(fileURLToPath(import.meta.url))),reports:reports.map(({file,sha256})=>({file,sha256})),mode:reports[0].report.mode,searchMode:reports[0].report.searchMode,assessment,productionActive:false,note:'Eligibility receipt only. This command does not change the live engine.'};
+const receipt={format:'atlas-maze-paired-decision-v3',assessorSha256:digest(await readFile(fileURLToPath(import.meta.url))),reports:reports.map(({file,sha256})=>({file,sha256})),mode:reports[0].report.mode,searchMode:reports[0].report.searchMode,geometryMode:reports[0].report.geometryMode,assessment,productionActive:false,note:'Eligibility receipt only. This command does not change the live engine.'};
 await mkdir(path.dirname(out),{recursive:true});await writeFile(out,JSON.stringify(receipt,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify(receipt,null,2));

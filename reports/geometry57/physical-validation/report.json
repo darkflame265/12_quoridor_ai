@@ -1,0 +1,352 @@
+{
+  "format": "atlas-maze-candidate-arena-v4",
+  "status": "completed",
+  "mode": "cache4",
+  "searchMode": "legacy",
+  "geometryMode": "physical",
+  "cohort": "search57-v1",
+  "fixtureSeed": 468793,
+  "split": "validation",
+  "pairs": 3,
+  "ms": 500,
+  "cores": 4,
+  "maxPlies": 180,
+  "identity": {
+    "baselineSourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+    "sources": {
+      "rust-engine/src/lib.rs": "363cd3197f8fc1e21acb20c576d5dac3be4f741e808e9caa963f10bcd3984078",
+      "native-engine/src/lib.rs": "477ba4dfc0bc64536aa47f67ff8e00646c51066e9ad4f54ac409fcd83d24310a",
+      "native-engine/src/search.rs": "4aa7c1703c2d425bec3fe22090243649c40ad92a8a597b2be550b25dd2cfc4a7",
+      "native-engine/src/strategy.rs": "3be980d2aba7889ce5734665a6fb06a8682ef5b64667d120710ccf77e3d88cdf",
+      "native-engine/src/endgame-oracle.rs": "1b65399e328980de658eb6d5628e3fa301fa2ee85892f5dce50c002770b5856d",
+      "native-engine/src/main.rs": "85bd0779574b2331468415215e60e0f8076613367c5de1ed9d790ad4af80b8c4",
+      "native-engine/Cargo.toml": "0e2ace99f5def761ceb9e5bb79fa02e440fa03df9c956e40ad015b7fb28701c2",
+      "native-engine/Cargo.lock": "767b8a0cacf898be5d2d8a0250e18b9ded346252ddf61195adc967b03893af16",
+      "rust-toolchain.toml": "690e8b2d01e4b515848ba8c0cfcb69e54605754c53f29f95eacb61ea7b4fb3b6",
+      "experimental-engine/Cargo.toml": "8a914264829cd45318de85b1c68f439979309b8ee85d3ef6c1572767a62b4566",
+      "experimental-engine/Cargo.lock": "1a94a99e60da948704843e6cca2bea3ac5dca080aa21bf2059162fc880d933fe",
+      "experimental-engine/build.rs": "91fab67b143e3378ec4df7ced917a6b47a77dc8073b0a852ed94dec495fa5e88",
+      "experimental-engine/src/lib.rs": "796351bd8ebae48b74f950e3289cbe4e12ca070f240d7efe256e9edc071d1f48",
+      "experimental-engine/src/main.rs": "9b21bec00b094dd347dd49bb481bebdc45898dc9df18ef9f8baf7aedc06af60b",
+      "experimental-engine/src/maze-evaluation.rs": "313e3d8e16e16b5d7c64b540fcdd9d86ceb77d2535ff4bc5344e5af21fa7bae1",
+      "experimental-engine/src/tactical-ordering.rs": "ecb421e84b599cea8c370cbe6ca25c5833f778f00edc28ae498f61ffffb35aec",
+      "experimental-engine/src/wall-geometry.rs": "d2d03e28e20d1be25cd7d1b0222a34e807958ea9d67fb3498e0cefc688285ed5",
+      "experimental-engine/src/bin/wall-geometry.rs": "26647f4fa0461eef5b838ad3a4920527d764c2cfee73b7e80de73e0c0657097c",
+      "experimental-engine/src/bin/eval-benchmark.rs": "b2ebe9411bacb0394a80bbae0b43ed72d211022ded37c3ad2f30065c9efc46d6",
+      "evaluation/fixtures/native54-search-review.json": "b58a027e78256a3d16b48c0dfafe5a23fda481c81c22339733e1d1d14620c7b2"
+    },
+    "binaryHash": "97bb849f7681b610ddfacf2d0d9026370b4c6963d5cac4445b3378a9efc25eed"
+  },
+  "baselineBinary": "62977fff79e51dcbc5e9de4f463d6db3a26b6c81ba7061e33aa5a08861db061a",
+  "sources": {
+    "scripts/evaluate-maze.mjs": "f30f615f3217ea8bb9f51f76098a161dca287ed2259f6307a19846c3fb4f4ec3",
+    "evaluation/maze-candidate-policy.mjs": "1cd3d706eaa1d677290730636b8418877bbe754db7b0dacdfa24229cdc627a70",
+    "evaluation/search-fixtures.mjs": "b791cd63dcc496b684fa3324b229863fe2b891c1fc7c36d8d81834883022780d",
+    "evaluation/native-fixtures.mjs": "eaa74dacc9e796bb5d4690b4492008a021f96183ee711dfcc76941248ccf94fd",
+    "evaluation/native-diagnostics.mjs": "2c63bc3e36275c75e6df5ea0ad78723d511178a0840633d8d6f5f8cfc3ad1909",
+    "evaluation/suite.js": "b4d1f0099eafe595deed937b3fdb74924eb5326121e0e0b35663e1af195fd8cb",
+    "src/engine.js": "27f673aeb1ff022aeb961440e0afa4e84477cd855601da29473bfc04530d16c0"
+  },
+  "games": [
+    {
+      "id": "general-0-side0",
+      "suite": "general",
+      "openingIndex": 0,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-0-side0.json",
+      "sha256": "009c20b79451ef1e42d7383edcb0eda57b9143185c1db24b7de2ce7005e563e8",
+      "replayValidated": true
+    },
+    {
+      "id": "general-0-side1",
+      "suite": "general",
+      "openingIndex": 0,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-0-side1.json",
+      "sha256": "66767477d6ee52d8d3089b85edef169a41357a2f7a21ef6ab2e4f0f5b29a2e73",
+      "replayValidated": true
+    },
+    {
+      "id": "general-1-side0",
+      "suite": "general",
+      "openingIndex": 1,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-1-side0.json",
+      "sha256": "1ddb58d70eae7e0418dfd43451b94834337f5b420dd6cef49c9060468f9266f5",
+      "replayValidated": true
+    },
+    {
+      "id": "general-1-side1",
+      "suite": "general",
+      "openingIndex": 1,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-1-side1.json",
+      "sha256": "77779da80af1f9dfc026706ddef1123abd9e02d9ff8b184557dfa3b604f846cd",
+      "replayValidated": true
+    },
+    {
+      "id": "general-2-side0",
+      "suite": "general",
+      "openingIndex": 2,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-2-side0.json",
+      "sha256": "d313467ff39377236d3ebfff7261780347c05c5432aabc5bfd23625c6359d31e",
+      "replayValidated": true
+    },
+    {
+      "id": "general-2-side1",
+      "suite": "general",
+      "openingIndex": 2,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-2-side1.json",
+      "sha256": "c53c80884539e8c78e3b8ba1751cce34273ef340187eee051f3efa7362a80bca",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-0-side0",
+      "suite": "maze",
+      "openingIndex": 0,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-0-side0.json",
+      "sha256": "8cd6ed0e641bd89b27999cc5ff317c82c461056a010223be306249a4c523a735",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-0-side1",
+      "suite": "maze",
+      "openingIndex": 0,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-0-side1.json",
+      "sha256": "347ec4f28ce938e898971ebffefd7746426b1f165fcc8a3626b36dddb3147a71",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-1-side0",
+      "suite": "maze",
+      "openingIndex": 1,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-1-side0.json",
+      "sha256": "13994a80dbe91fa531ce85212ce41792cae0564c637917a24c22898fd89d76c4",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-1-side1",
+      "suite": "maze",
+      "openingIndex": 1,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-1-side1.json",
+      "sha256": "be2e19b516ebfbf0f1f1e71f051f1d845967b154b37deb47c262f2ecced170a4",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-2-side0",
+      "suite": "maze",
+      "openingIndex": 2,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-2-side0.json",
+      "sha256": "2208dfbd250f7696f4b8ee90189367932bf809867749b40a8d2700d6eeac435d",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-2-side1",
+      "suite": "maze",
+      "openingIndex": 2,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-2-side1.json",
+      "sha256": "c1cf2e0fd78a6f891185823e9dc2fa8b8754040007ff5970ab6c504c4ef277fb",
+      "replayValidated": true
+    }
+  ],
+  "tactics": [
+    {
+      "id": "finish-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "jump-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 0
+      }
+    },
+    {
+      "id": "defend-0",
+      "pass": true,
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 3,
+        "y": 7
+      }
+    },
+    {
+      "id": "diagonal-0",
+      "pass": true,
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "diagonal-finish-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 0
+      }
+    },
+    {
+      "id": "defend-jump-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "finish-before-defense-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "no-wall-resource-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 3
+      }
+    },
+    {
+      "id": "finish-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      }
+    },
+    {
+      "id": "jump-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 8
+      }
+    },
+    {
+      "id": "defend-1",
+      "pass": true,
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 4,
+        "y": 0
+      }
+    },
+    {
+      "id": "diagonal-1",
+      "pass": true,
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "id": "diagonal-finish-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 8
+      }
+    },
+    {
+      "id": "defend-jump-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      }
+    },
+    {
+      "id": "finish-before-defense-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      }
+    },
+    {
+      "id": "no-wall-resource-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 7,
+        "y": 4
+      }
+    }
+  ],
+  "timing": {
+    "candidate": {
+      "moves": 276,
+      "elapsedMs": 72948.73369999985,
+      "overruns": 0
+    },
+    "baseline": {
+      "moves": 276,
+      "elapsedMs": 72770.14659999988,
+      "overruns": 0
+    }
+  },
+  "productionActive": false,
+  "summary": {
+    "win": 6,
+    "loss": 6,
+    "draw": 0
+  }
+}

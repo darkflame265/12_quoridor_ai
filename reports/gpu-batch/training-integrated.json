@@ -1,0 +1,2363 @@
+{
+  "format": "atlas-training-report-v1",
+  "device": "cuda",
+  "seed": 271027,
+  "config": {
+    "out": "training/runs/gpu-batch-integrated-smoke",
+    "resume": "models/bootstrap-checkpoint.pt",
+    "champion": null,
+    "iterations": 1,
+    "games": 4,
+    "simulations": 8,
+    "max_plies": 120,
+    "epochs": 1,
+    "batch_size": 64,
+    "replay_size": 20000,
+    "hidden": 128,
+    "threads": 2,
+    "lr": 0.001,
+    "seed": 271027,
+    "bootstrap": 0.8,
+    "league_size": 4,
+    "arena_pairs": 1,
+    "arena_ms": 20,
+    "cpu": false,
+    "selfplay_backend": "batched",
+    "parallel_games": 4,
+    "rules_workers": 2,
+    "inference_batch": 16,
+    "replay_dir": null
+  },
+  "iterations": [
+    {
+      "iteration": 4,
+      "games": [
+        {
+          "version": 1,
+          "gameId": 0,
+          "seed": 4271039,
+          "bootstrap": 0.3276800000000001,
+          "openingPlies": 0,
+          "winner": 1,
+          "reason": "goal reached",
+          "plies": 76,
+          "trainingSamples": 76
+        },
+        {
+          "version": 1,
+          "gameId": 1,
+          "seed": 4368448,
+          "bootstrap": 0.3276800000000001,
+          "openingPlies": 18,
+          "winner": 1,
+          "reason": "goal reached",
+          "plies": 24,
+          "trainingSamples": 24
+        },
+        {
+          "version": 1,
+          "gameId": 2,
+          "seed": 4465857,
+          "bootstrap": 0.3276800000000001,
+          "openingPlies": 0,
+          "winner": 0,
+          "reason": "goal reached",
+          "plies": 93,
+          "trainingSamples": 93
+        },
+        {
+          "version": 1,
+          "gameId": 3,
+          "seed": 4563266,
+          "bootstrap": 0.3276800000000001,
+          "openingPlies": 16,
+          "winner": 0,
+          "reason": "goal reached",
+          "plies": 35,
+          "trainingSamples": 35
+        }
+      ],
+      "collected": 228,
+      "replaySamples": 740,
+      "loss": 4.879418094952901,
+      "selfplayMetrics": {
+        "rules": {
+          "workers": 2,
+          "processes": 2,
+          "startupSeconds": 0.04787149999901885,
+          "inspectSeconds": 0.36371840001811506,
+          "inspectedRows": 975,
+          "cacheHits": 1035
+        },
+        "inference": {
+          "device": "cuda:0",
+          "forwardCalls": 595,
+          "inferredRows": 975,
+          "meanBatch": 1.638655462184874,
+          "batchHistogram": {
+            "3": 63,
+            "4": 35,
+            "1": 348,
+            "2": 149
+          },
+          "cacheHits": 1035,
+          "inferenceSeconds": 0.28541190005853423,
+          "warmupSeconds": 0.08129120000012335,
+          "peakGpuBytes": 12242944
+        },
+        "schedulerCycles": 829,
+        "generationSeconds": 1.0162702999987232,
+        "totalSeconds": 1.1455313000005845
+      },
+      "arena": {
+        "opponent": "Atlas 4 Rust/WASM",
+        "split": "validation",
+        "ms": 20,
+        "simulations": 8,
+        "bootstrap": 0.8,
+        "games": [
+          {
+            "version": 1,
+            "records": [
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 1,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 1,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 2
+              },
+              {
+                "type": "wall",
+                "x": 7,
+                "y": 1,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "o": "v"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 3
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "v"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 4
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 5
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 6
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 6,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 7,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 8,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 8,
+                "y": 8
+              }
+            ],
+            "candidateSide": 0,
+            "result": "loss",
+            "reason": "goal reached"
+          },
+          {
+            "version": 1,
+            "records": [
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 3
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 5,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 4
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "v"
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 3
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "o": "v"
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "wall",
+                "x": 7,
+                "y": 5,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 1,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 1,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 2
+              },
+              {
+                "type": "wall",
+                "x": 6,
+                "y": 1,
+                "o": "v"
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 7,
+                "y": 3
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 1,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 7,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 7,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 7,
+                "y": 0
+              },
+              {
+                "type": "move",
+                "x": 7,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 0
+              },
+              {
+                "type": "move",
+                "x": 7,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 8,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 8,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 8,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 8,
+                "y": 0
+              }
+            ],
+            "candidateSide": 1,
+            "result": "loss",
+            "reason": "goal reached"
+          }
+        ],
+        "wins": 0,
+        "losses": 2,
+        "draws": 0,
+        "promotionEligible": false,
+        "warning": "Small smoke arenas are not strength certification. Unfinished games are adjudicated draws for arena only. No candidate becomes default without this gate and separate tactical validation."
+      },
+      "championArena": {
+        "opponent": "previous policy/value champion",
+        "split": "validation",
+        "ms": 20,
+        "simulations": 8,
+        "bootstrap": 0.8,
+        "games": [
+          {
+            "version": 1,
+            "records": [
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 4,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 0,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 0,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 1,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 7,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 7,
+                "y": 0,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 6,
+                "o": "v"
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 1,
+                "o": "v"
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 4,
+                "o": "v"
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 3,
+                "o": "v"
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 2,
+                "o": "v"
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 5,
+                "o": "v"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 6
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 6,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 4,
+                "y": 1,
+                "o": "v"
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 0,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 1,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 6,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 7,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 0,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 8,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 0,
+                "y": 0
+              }
+            ],
+            "candidateSide": 0,
+            "result": "win",
+            "reason": "goal reached"
+          },
+          {
+            "version": 1,
+            "records": [
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 4,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 0,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 0,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 1,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 7,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 7,
+                "y": 0,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 6,
+                "o": "v"
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 1,
+                "o": "v"
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 4,
+                "o": "v"
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 3,
+                "o": "v"
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 2,
+                "o": "v"
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 5,
+                "o": "v"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 6
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 6,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 6,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 7,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 8,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 8,
+                "y": 8
+              }
+            ],
+            "candidateSide": 1,
+            "result": "win",
+            "reason": "goal reached"
+          }
+        ],
+        "wins": 2,
+        "losses": 0,
+        "draws": 0,
+        "promotionEligible": false,
+        "warning": "Small smoke arenas are not strength certification. Unfinished games are adjudicated draws for arena only. No candidate becomes default without this gate and separate tactical validation."
+      },
+      "historicalArena": {
+        "opponent": "previous policy/value champion",
+        "split": "validation",
+        "ms": 20,
+        "simulations": 8,
+        "bootstrap": 0.8,
+        "games": [
+          {
+            "version": 1,
+            "records": [
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 4,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 0,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 0,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 1,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 7,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 7,
+                "y": 0,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 6,
+                "o": "v"
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 1,
+                "o": "v"
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 4,
+                "o": "v"
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 3,
+                "o": "v"
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 2,
+                "o": "v"
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 5,
+                "o": "v"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 6
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 6,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 4,
+                "y": 1,
+                "o": "v"
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 0,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 1,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 6,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 7,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 0,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 8,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 0,
+                "y": 0
+              }
+            ],
+            "candidateSide": 0,
+            "result": "win",
+            "reason": "goal reached"
+          },
+          {
+            "version": 1,
+            "records": [
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 4,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 0,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 0,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 1,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 7,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 7,
+                "y": 0,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 6,
+                "o": "v"
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 1
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 1,
+                "o": "v"
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 4,
+                "o": "v"
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 3,
+                "o": "v"
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 2,
+                "o": "v"
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 5,
+                "o": "v"
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 6
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 6,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 5,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 1
+              },
+              {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 3,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 5
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 6
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 4
+              },
+              {
+                "type": "move",
+                "x": 6,
+                "y": 7
+              },
+              {
+                "type": "wall",
+                "x": 6,
+                "y": 7,
+                "o": "h"
+              },
+              {
+                "type": "move",
+                "x": 7,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 3
+              },
+              {
+                "type": "move",
+                "x": 8,
+                "y": 7
+              },
+              {
+                "type": "move",
+                "x": 2,
+                "y": 2
+              },
+              {
+                "type": "move",
+                "x": 8,
+                "y": 8
+              }
+            ],
+            "candidateSide": 1,
+            "result": "win",
+            "reason": "goal reached"
+          }
+        ],
+        "wins": 2,
+        "losses": 0,
+        "draws": 0,
+        "promotionEligible": false,
+        "warning": "Small smoke arenas are not strength certification. Unfinished games are adjudicated draws for arena only. No candidate becomes default without this gate and separate tactical validation.",
+        "snapshotIteration": 4
+      },
+      "tactics": [
+        {
+          "id": "finish-0",
+          "pass": true,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "jump-0",
+          "pass": true,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          }
+        },
+        {
+          "id": "defend-0",
+          "pass": true,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "id": "diagonal-0",
+          "pass": true,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "id": "diagonal-finish-0",
+          "pass": true,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 0
+          }
+        },
+        {
+          "id": "defend-jump-0",
+          "pass": true,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        },
+        {
+          "id": "finish-before-defense-0",
+          "pass": true,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "no-wall-resource-0",
+          "pass": true,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 3
+          }
+        },
+        {
+          "id": "finish-1",
+          "pass": true,
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          }
+        },
+        {
+          "id": "jump-1",
+          "pass": true,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        },
+        {
+          "id": "defend-1",
+          "pass": true,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "id": "diagonal-1",
+          "pass": true,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "id": "diagonal-finish-1",
+          "pass": true,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 8
+          }
+        },
+        {
+          "id": "defend-jump-1",
+          "pass": true,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "id": "finish-before-defense-1",
+          "pass": true,
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          }
+        },
+        {
+          "id": "no-wall-resource-1",
+          "pass": true,
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          }
+        }
+      ],
+      "promoted": false
+    }
+  ],
+  "status": "completed",
+  "ruleArtifactSha256": "0b2dd78b031d33507a53ba3ca9f5cf8b94b992525ef5dfeab18f2577d8a52be2",
+  "replayImport": null,
+  "elapsedSeconds": 4.223991299997579
+}

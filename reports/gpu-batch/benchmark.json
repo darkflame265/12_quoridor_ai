@@ -1,0 +1,281 @@
+{
+  "format": "batched-selfplay-benchmark-v1",
+  "torch": "2.11.0+cu128",
+  "python": "3.14.0",
+  "logicalCpus": 12,
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3060 Ti",
+  "checkpointSha256": "83657e379d90540f0f1ac0130240b996198fad6600ad444e8e0319a680416719",
+  "wasmSha256": "0b2dd78b031d33507a53ba3ca9f5cf8b94b992525ef5dfeab18f2577d8a52be2",
+  "pipelineSha256": "2f69e7f3cbcc9491327df1558e8fcfcd2855259c583b1659f058d2dbbd6a5674",
+  "config": {
+    "checkpoint": "models/bootstrap-checkpoint.pt",
+    "out": "reports/gpu-batch/benchmark.json",
+    "device": "cuda",
+    "games": 16,
+    "parallel_games": 16,
+    "rules_workers": 2,
+    "inference_batch": 64,
+    "simulations": 12,
+    "max_plies": 120,
+    "repeats": 2
+  },
+  "runs": [
+    {
+      "repeat": 0,
+      "mode": "serial",
+      "elapsedSeconds": 5.4761450000005425,
+      "plies": 662,
+      "trainingSamples": 662,
+      "pliesPerSecond": 120.88796041739845,
+      "sameRecordsAsFirstRun": true,
+      "reasons": [
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached"
+      ],
+      "metrics": {
+        "rules": {
+          "workers": 1,
+          "processes": 1,
+          "startupSeconds": 0.05815419999998994,
+          "inspectSeconds": 1.825137499927223,
+          "inspectedRows": 3941,
+          "cacheHits": 4374
+        },
+        "inference": {
+          "device": "cuda:0",
+          "forwardCalls": 3941,
+          "inferredRows": 3941,
+          "meanBatch": 1.0,
+          "batchHistogram": {
+            "1": 3941
+          },
+          "cacheHits": 4374,
+          "inferenceSeconds": 1.8762656001090363,
+          "warmupSeconds": 0.07690870000078576,
+          "peakGpuBytes": 9897472
+        },
+        "schedulerCycles": 8315,
+        "generationSeconds": 5.320139899999049,
+        "totalSeconds": 5.455310700002883
+      }
+    },
+    {
+      "repeat": 0,
+      "mode": "batched",
+      "elapsedSeconds": 2.86617070000284,
+      "plies": 662,
+      "trainingSamples": 662,
+      "pliesPerSecond": 230.97019308701468,
+      "sameRecordsAsFirstRun": true,
+      "reasons": [
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached"
+      ],
+      "metrics": {
+        "rules": {
+          "workers": 2,
+          "processes": 2,
+          "startupSeconds": 0.05045850000169594,
+          "inspectSeconds": 0.943102400022326,
+          "inspectedRows": 3941,
+          "cacheHits": 4374
+        },
+        "inference": {
+          "device": "cuda:0",
+          "forwardCalls": 971,
+          "inferredRows": 3941,
+          "meanBatch": 4.05870236869207,
+          "batchHistogram": {
+            "4": 112,
+            "7": 60,
+            "5": 115,
+            "6": 85,
+            "1": 199,
+            "2": 170,
+            "8": 15,
+            "9": 19,
+            "10": 16,
+            "11": 20,
+            "12": 14,
+            "14": 4,
+            "15": 4,
+            "13": 8,
+            "3": 130
+          },
+          "cacheHits": 4374,
+          "inferenceSeconds": 0.5726198000120348,
+          "warmupSeconds": 0.01774920000025304,
+          "peakGpuBytes": 9932800
+        },
+        "schedulerCycles": 1207,
+        "generationSeconds": 2.7670863999992434,
+        "totalSeconds": 2.8353912999991735
+      }
+    },
+    {
+      "repeat": 1,
+      "mode": "batched",
+      "elapsedSeconds": 3.1544868999990285,
+      "plies": 662,
+      "trainingSamples": 662,
+      "pliesPerSecond": 209.8598031902443,
+      "sameRecordsAsFirstRun": true,
+      "reasons": [
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached"
+      ],
+      "metrics": {
+        "rules": {
+          "workers": 2,
+          "processes": 2,
+          "startupSeconds": 0.0517985000005865,
+          "inspectSeconds": 0.9467662998722517,
+          "inspectedRows": 3941,
+          "cacheHits": 4374
+        },
+        "inference": {
+          "device": "cuda:0",
+          "forwardCalls": 971,
+          "inferredRows": 3941,
+          "meanBatch": 4.05870236869207,
+          "batchHistogram": {
+            "4": 112,
+            "7": 60,
+            "5": 115,
+            "6": 85,
+            "1": 199,
+            "2": 170,
+            "8": 15,
+            "9": 19,
+            "10": 16,
+            "11": 20,
+            "12": 14,
+            "14": 4,
+            "15": 4,
+            "13": 8,
+            "3": 130
+          },
+          "cacheHits": 4374,
+          "inferenceSeconds": 0.8556210999850009,
+          "warmupSeconds": 0.0009754999991855584,
+          "peakGpuBytes": 9932800
+        },
+        "schedulerCycles": 1207,
+        "generationSeconds": 3.067380599997705,
+        "totalSeconds": 3.1202391000006173
+      }
+    },
+    {
+      "repeat": 1,
+      "mode": "serial",
+      "elapsedSeconds": 5.828297300002305,
+      "plies": 662,
+      "trainingSamples": 662,
+      "pliesPerSecond": 113.58377342894609,
+      "sameRecordsAsFirstRun": true,
+      "reasons": [
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached",
+        "goal reached"
+      ],
+      "metrics": {
+        "rules": {
+          "workers": 1,
+          "processes": 1,
+          "startupSeconds": 0.048940000000584405,
+          "inspectSeconds": 1.852447400240635,
+          "inspectedRows": 3941,
+          "cacheHits": 4374
+        },
+        "inference": {
+          "device": "cuda:0",
+          "forwardCalls": 3941,
+          "inferredRows": 3941,
+          "meanBatch": 1.0,
+          "batchHistogram": {
+            "1": 3941
+          },
+          "cacheHits": 4374,
+          "inferenceSeconds": 2.2668930999207078,
+          "warmupSeconds": 0.0012809999971068464,
+          "peakGpuBytes": 9897472
+        },
+        "schedulerCycles": 8315,
+        "generationSeconds": 5.755748899999162,
+        "totalSeconds": 5.806056899997202
+      }
+    }
+  ],
+  "status": "completed",
+  "summary": {
+    "serial": {
+      "seconds": 11.304442300002847,
+      "plies": 1324,
+      "pliesPerSecond": 117.12209809763606,
+      "forwardCalls": 7882
+    },
+    "batched": {
+      "seconds": 6.020657600001869,
+      "plies": 1324,
+      "pliesPerSecond": 219.90953280578339,
+      "forwardCalls": 1942
+    },
+    "throughputRatio": 1.8776092332504242
+  }
+}

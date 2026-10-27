@@ -138,6 +138,14 @@ npm run evaluate -- --backend wasm --split holdout --opponent gorisanson --pairs
 
 ## AlphaZero 방식의 학습 기반
 
+**GPU 배치 자가대국**을 추가했습니다. 여러 게임의 노드를 모아 신경망을 추론하고, 합법 수 계산은 별도 CPU 규칙 프로세스에 나눕니다. 이 PC의 같은 16대국 비교에서 처리량은 약 **1.85배**, 실제 CUDA 32대국 생성에서는 **1,208개 학습 샘플**을 만들었습니다. 저장·재개·파일 무결성·GPU 학습 연결도 확인했습니다. 실전 엔진은 Atlas 5.3을 유지합니다. [측정 결과와 실행·재개 방법](reports/GPU_BATCH.md).
+
+```powershell
+npm run selfplay:gpu -- --out training/runs/my-gpu-batch --games 32 --simulations 24
+```
+
+GPU 환경이 없는 PC는 위 문서의 `.venv-gpu` 설치 절차를 먼저 실행하세요. 기존 학습기는 `--selfplay-backend batched`로 배치 생성을 사용하거나 `--replay-dir <완료 데이터 폴더> --games 0`으로 저장된 데이터를 가져올 수 있습니다. 새 네트워크를 충분히 학습하고 강도를 검증하는 작업은 다음 단계입니다.
+
 Python 3.10 이상과 `training/requirements.txt`의 PyTorch·NumPy가 필요합니다. 이 PC에서는 Python 3.14, PyTorch 2.9.1 CPU로 실행 검증했습니다.
 
 ```powershell
@@ -161,6 +169,6 @@ python training/export.py --checkpoint training/runs/local/checkpoint.pt --repor
 python training/analyze.py --checkpoint models/bootstrap-checkpoint.pt --game reports/training-initial/games/iteration-0-game-0.json --simulations 128
 ```
 
-`models/candidate.json`은 초기 학습 모델이고 `models/registry.json`의 `active`는 `null`입니다. 챔피언 승격에 실패했으므로 플레이 기본값은 Rust/WASM입니다. PyTorch와 JavaScript 추론 결과를 비교하는 테스트도 포함합니다. 실행 로그·일반 체크포인트는 `training/runs/`에 보관해 Git에서 제외하고, 재개 검증용 체크포인트 하나와 초기 모델·보고서는 Git에 포함합니다.
+`models/candidate.json`은 초기 학습 모델이고 `models/registry.json`의 `active`는 `null`입니다. 신경망은 승격하지 않았으며 플레이 기본값은 Atlas 5.3 네이티브 엔진과 연결 실패 시 WASM입니다. PyTorch와 JavaScript 추론 결과를 비교하는 테스트도 포함합니다. 실행 로그·일반 체크포인트는 `training/runs/`에 보관해 Git에서 제외하고, 재개 검증용 체크포인트·초기 모델·보고서와 작은 검증용 데이터는 Git에 포함합니다.
 
 남은 실력 검증: 장시간 자가대국과 충분한 학습량, 더 강한 독립 엔진 및 숙련자와의 평가, 미로 대국의 확실한 승률 개선. 화면 확장 대상은 임의 배치 편집기, 추천 수 상위 3개, 독립 분기 트리입니다.

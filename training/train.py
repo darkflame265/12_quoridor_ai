@@ -54,6 +54,7 @@ class Bridge:
     def __init__(self):
         self.proc=subprocess.Popen(['node',str(ROOT/'training/bridge.mjs')],cwd=ROOT,stdin=subprocess.PIPE,stdout=subprocess.PIPE,text=True,encoding='utf-8',bufsize=1)
         self.cache={}
+        self.closed=False
     def call(self,**request):
         self.proc.stdin.write(json.dumps(request,separators=(',',':'))+'\n'); self.proc.stdin.flush()
         line=self.proc.stdout.readline()
@@ -67,8 +68,14 @@ class Bridge:
             if len(self.cache)>10000: self.cache.clear()
             self.cache[key]=self.call(op='inspect',state=s)
         return self.cache[key]
+    def inspect_many(self,states):
+        if not states: return []
+        return self.call(op='inspectMany',states=states)
     def close(self):
-        self.proc.stdin.close()
+        if self.closed: return
+        self.closed=True
+        try: self.proc.stdin.close()
+        except (BrokenPipeError,OSError): pass
         try: self.proc.wait(timeout=3)
         except subprocess.TimeoutExpired: self.proc.kill(); self.proc.wait()
         self.proc.stdout.close()
@@ -85,28 +92,45 @@ class Node:
     def __init__(self,state):
         self.state=state; self.actions=[]; self.prior=None; self.n=None; self.w=None; self.children={}; self.expanded=False
 
+def expand_prediction(node,info,logits,value,bootstrap):
+    """Shared legal masking and backup value for serial and batched inference."""
+    s=node.state; node.actions=info['actions']
+    if not node.actions: raise RuntimeError('Nonterminal position has no legal actions')
+    ids=[canonical_action(a,s['turn']) for a in node.actions]
+    scores=np.asarray(logits,dtype=np.float64)[ids]; scores=scores-scores.max()
+    policy=np.exp(scores); policy/=policy.sum()
+    policy=(1-bootstrap)*policy+bootstrap*np.asarray(info['prior'],dtype=np.float64)
+    wins=[i for i,a in enumerate(node.actions) if a<81 and a//9==(0 if s['turn']==0 else 8)]
+    if wins: policy.fill(0); policy[wins]=1/len(wins)
+    elif len(info['unsafe'])<len(node.actions):
+        unsafe=set(info['unsafe']); policy=np.asarray([p if a not in unsafe else p*1e-6 for a,p in zip(node.actions,policy)])
+    total=policy.sum()
+    if not np.isfinite(total) or total<=0 or not np.isfinite(value): raise RuntimeError('Non-finite network prediction')
+    node.prior=policy/total; node.n=np.zeros(len(policy)); node.w=np.zeros(len(policy)); node.expanded=True
+    return float(value)*(1-bootstrap*.25)+math.tanh(info['score']/700)*bootstrap*.25
+
 class MCTS:
     def __init__(self,model,bridge,rng,simulations=24,bootstrap=0.0):
         self.model=model; self.bridge=bridge; self.rng=rng; self.simulations=simulations; self.bootstrap=bootstrap
-        self.device=next(model.parameters()).device
+        self.device=next(model.parameters()).device if model is not None else None
     @torch.no_grad()
     def expand(self,node):
         s=node.state
         if s['winner'] is not None: return 1.0 if s['winner']==s['turn'] else -1.0
-        info=self.bridge.inspect(s); node.actions=info['actions']
+        if self.model is None: raise RuntimeError('Batched search must be driven by an inference scheduler')
+        info=self.bridge.inspect(s)
         logits,value=self.model(torch.from_numpy(features(s)).to(self.device).unsqueeze(0))
-        ids=[canonical_action(a,s['turn']) for a in node.actions]
-        policy=torch.softmax(logits[0,ids],dim=0).cpu().numpy().astype(np.float64)
-        policy=(1-self.bootstrap)*policy+self.bootstrap*np.asarray(info['prior'])
-        # Immediate-win and immediate-loss checks are search rules, not learned labels.
-        wins=[i for i,a in enumerate(node.actions) if a<81 and a//9==(0 if s['turn']==0 else 8)]
-        if wins: policy.fill(0); policy[wins]=1/len(wins)
-        elif len(info['unsafe'])<len(node.actions):
-            unsafe=set(info['unsafe']); policy=np.asarray([p if a not in unsafe else p*1e-6 for a,p in zip(node.actions,policy)])
-        policy/=policy.sum(); node.prior=policy; node.n=np.zeros(len(policy)); node.w=np.zeros(len(policy)); node.expanded=True
-        return float(value.item())*(1-self.bootstrap*.25)+math.tanh(info['score']/700)*self.bootstrap*.25
+        return expand_prediction(node,info,logits[0].cpu().numpy(),value.item(),self.bootstrap)
     def search(self,s,noise=False,temperature=0):
-        root=Node(s); self.expand(root)
+        stream=self.search_stream(s,noise,temperature)
+        try:
+            node=next(stream)
+            while True: node=stream.send(self.expand(node))
+        except StopIteration as completed: return completed.value
+    def search_stream(self,s,noise=False,temperature=0):
+        """Yield one unexpanded leaf; the caller expands it and sends its value."""
+        if s['winner'] is not None: raise ValueError('Cannot search a terminal position')
+        root=Node(s); yield root
         if noise and len(root.actions)>1: root.prior=.85*root.prior+.15*self.rng.dirichlet(np.full(len(root.actions),.3))
         for _ in range(self.simulations):
             node=root; path=[]; seen=set()
@@ -118,7 +142,9 @@ class MCTS:
                 i=int(np.argmax(q+u)); path.append((node,i))
                 if i not in node.children: node.children[i]=Node(apply_action(node.state,node.actions[i]))
                 node=node.children[i]
-            value=0.0 if node.expanded and node.state['winner'] is None else self.expand(node)
+            if node.state['winner'] is not None: value=1.0 if node.state['winner']==node.state['turn'] else -1.0
+            elif node.expanded: value=0.0
+            else: value=yield node
             for parent,i in reversed(path): value=-value; parent.n[i]+=1; parent.w[i]+=value
         visits=root.n/root.n.sum() if root.n.sum() else root.prior
         index=int(self.rng.choice(len(visits),p=visits)) if temperature else int(np.argmax(visits))
@@ -194,8 +220,13 @@ def run(args):
         if device=='cuda' and saved.get('cuda_rng'):
             torch.cuda.set_rng_state_all([state.cpu() for state in saved['cuda_rng']])
         replay=list(zip(saved['x'].cpu().numpy(),saved['pi'].cpu().numpy(),saved['z'].cpu().numpy()))
+    imported=None
+    if args.replay_dir:
+        from batch_selfplay import load_dataset
+        examples,imported=load_dataset(args.replay_dir,limit=args.replay_size); replay.extend(examples)
     output=Path(args.out); output.mkdir(parents=True,exist_ok=True); (output/'games').mkdir(exist_ok=True)
     report={'format':'atlas-training-report-v1','device':device,'seed':args.seed,'config':vars(args),'iterations':[],'status':'running','ruleArtifactSha256':hashlib.sha256((ROOT/'public/atlas.wasm').read_bytes()).hexdigest()}
+    report['replayImport']=imported
     champion=copy.deepcopy(model).eval()
     champion_path=Path(args.champion) if args.champion else output/'champion.pt'
     if champion_path.exists():
@@ -208,9 +239,16 @@ def run(args):
         for it in range(iteration,iteration+args.iterations):
             collected=0; games=[]
             model.eval()
-            for g in range(args.games):
-                examples,game=selfplay(model,bridge,rng,args,it,g); replay.extend(examples); collected+=len(examples); games.append({k:v for k,v in game.items() if k!='records'})
-                (output/'games'/f'iteration-{it}-game-{g}.json').write_text(json.dumps(game),encoding='utf-8'); print(f'iteration {it} game {g}: {game["reason"]}, {len(examples)} samples',flush=True)
+            selfplay_metrics={}
+            if args.selfplay_backend=='batched':
+                from batch_selfplay import generate_games
+                collection=generate_games(model,bridge,args,it,metrics=selfplay_metrics)
+            else: collection=(selfplay(model,bridge,rng,args,it,g) for g in range(args.games))
+            try:
+                for g,(examples,game) in enumerate(collection):
+                    replay.extend(examples); collected+=len(examples); games.append({k:v for k,v in game.items() if k!='records'})
+                    (output/'games'/f'iteration-{it}-game-{g}.json').write_text(json.dumps(game),encoding='utf-8'); print(f'iteration {it} game {g}: {game["reason"]}, {len(examples)} samples',flush=True)
+            finally: collection.close()
             replay=replay[-args.replay_size:]
             if not replay: raise RuntimeError('No terminal/repetition training samples; increase simulations or max plies')
             x=torch.tensor(np.stack([v[0] for v in replay]),device=device); pi=torch.tensor(np.stack([v[1] for v in replay]),device=device); z=torch.tensor(np.asarray([v[2] for v in replay],dtype=np.float32),device=device)
@@ -220,6 +258,7 @@ def run(args):
                     policy,value=model(x[ids]); loss=-(pi[ids]*torch.log_softmax(policy,dim=-1)).sum(-1).mean()+torch.mean((value-z[ids])**2)
                     optimizer.zero_grad(); loss.backward(); torch.nn.utils.clip_grad_norm_(model.parameters(),5); optimizer.step(); losses.append(float(loss.item()))
             model.eval(); entry={'iteration':it,'games':games,'collected':collected,'replaySamples':len(replay),'loss':sum(losses)/len(losses)}
+            entry['selfplayMetrics']=selfplay_metrics
             checkpoint={'format':'atlas-training-v1','hidden':args.hidden,'iteration':it+1,'model':model.state_dict(),'optimizer':optimizer.state_dict(),'torch_rng':torch.get_rng_state(),'numpy_rng':json.dumps(rng.bit_generator.state),'x':x.detach().cpu(),'pi':pi.detach().cpu(),'z':z.detach().cpu()}
             if device=='cuda': checkpoint['cuda_rng']=torch.cuda.get_rng_state_all()
             torch.save(checkpoint,output/'checkpoint.pt'); export_model(model,output/'candidate.json',{'iteration':it+1,'bootstrap':args.bootstrap,'validated':False})
@@ -253,8 +292,9 @@ def run(args):
     finally: bridge.close()
 
 def parser():
-    p=argparse.ArgumentParser(); p.add_argument('--out',default='training/runs/local'); p.add_argument('--resume'); p.add_argument('--champion'); p.add_argument('--iterations',type=int,default=1); p.add_argument('--games',type=int,default=4); p.add_argument('--simulations',type=int,default=24); p.add_argument('--max-plies',type=int,default=200); p.add_argument('--epochs',type=int,default=3); p.add_argument('--batch-size',type=int,default=64); p.add_argument('--replay-size',type=int,default=20000); p.add_argument('--hidden',type=int,default=128); p.add_argument('--threads',type=int,default=2); p.add_argument('--lr',type=float,default=1e-3); p.add_argument('--seed',type=int,default=271027); p.add_argument('--bootstrap',type=float,default=.8); p.add_argument('--league-size',type=int,default=4); p.add_argument('--arena-pairs',type=int,default=2); p.add_argument('--arena-ms',type=int,default=80); p.add_argument('--cpu',action='store_true'); return p
+    p=argparse.ArgumentParser(); p.add_argument('--out',default='training/runs/local'); p.add_argument('--resume'); p.add_argument('--champion'); p.add_argument('--iterations',type=int,default=1); p.add_argument('--games',type=int,default=4); p.add_argument('--simulations',type=int,default=24); p.add_argument('--max-plies',type=int,default=200); p.add_argument('--epochs',type=int,default=3); p.add_argument('--batch-size',type=int,default=64); p.add_argument('--replay-size',type=int,default=20000); p.add_argument('--hidden',type=int,default=128); p.add_argument('--threads',type=int,default=2); p.add_argument('--lr',type=float,default=1e-3); p.add_argument('--seed',type=int,default=271027); p.add_argument('--bootstrap',type=float,default=.8); p.add_argument('--league-size',type=int,default=4); p.add_argument('--arena-pairs',type=int,default=2); p.add_argument('--arena-ms',type=int,default=80); p.add_argument('--cpu',action='store_true')
+    p.add_argument('--selfplay-backend',choices=['serial','batched'],default='serial'); p.add_argument('--parallel-games',type=int,default=16); p.add_argument('--rules-workers',type=int,default=2); p.add_argument('--inference-batch',type=int,default=64); p.add_argument('--replay-dir'); return p
 if __name__=='__main__':
     args=parser().parse_args()
-    if args.iterations<1 or args.games<1 or args.simulations<1 or args.max_plies<1 or args.epochs<1 or args.arena_pairs<1 or args.threads<1 or args.batch_size<1 or args.replay_size<1 or args.league_size<1 or not 0<=args.bootstrap<=1: raise ValueError('Invalid training budget')
+    if args.iterations<1 or args.games<0 or args.games==0 and not args.replay_dir or args.simulations<1 or args.max_plies<1 or args.epochs<1 or args.arena_pairs<1 or args.threads<1 or args.batch_size<1 or args.replay_size<1 or args.league_size<1 or not 0<=args.bootstrap<=1 or not 1<=args.parallel_games<=256 or not 1<=args.rules_workers<=16 or not 1<=args.inference_batch<=512: raise ValueError('Invalid training budget')
     run(args)

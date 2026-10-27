@@ -20,7 +20,9 @@
     "native:review": "node scripts/review-native-losses.mjs",
     "native:evaluate": "node scripts/evaluate-native.mjs",
     "native:promote": "node scripts/promote-native.mjs",
-    "native:verify": "node scripts/verify-native.mjs"
+    "native:verify": "node scripts/verify-native.mjs",
+    "selfplay:gpu": "node scripts/gpu-selfplay.mjs",
+    "selfplay:cpu": "python training/batch_selfplay.py --device cpu"
   },
   "devDependencies": {
     "vite": "^7.1.0"

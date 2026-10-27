@@ -1,0 +1,155 @@
+{
+  "format": "atlas-batched-selfplay-v1",
+  "status": "partial",
+  "config": {
+    "games": 32,
+    "parallel_games": 16,
+    "rules_workers": 2,
+    "inference_batch": 64,
+    "simulations": 24,
+    "max_plies": 200,
+    "bootstrap": 0.8,
+    "seed": 271027,
+    "threads": 2,
+    "featureSchema": "atlas-292-current-turn-v1",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 3060 Ti",
+    "torch": "2.11.0+cu128",
+    "hidden": 128,
+    "iteration": 4,
+    "checkpointSha256": "83657e379d90540f0f1ac0130240b996198fad6600ad444e8e0319a680416719",
+    "wasmSha256": "0b2dd78b031d33507a53ba3ca9f5cf8b94b992525ef5dfeab18f2577d8a52be2",
+    "pipelineSha256": "6883e7af739fe424113188af2edc0cff4bc10e8456d4177b48f4b14d6aa5beda"
+  },
+  "entries": [
+    {
+      "gameId": 1,
+      "replay": "games/game-000001.json",
+      "samples": "samples/game-000001.npz",
+      "replaySha256": "94ee0281e7fcebd56615bc06ebef969164c0678d65e47ca7fe48a3953ae658bc",
+      "samplesSha256": "ba63860df5b4cd360dc50b83645334d8d3bbbcafcd0e2f6fd9b9d771b2a34c4b",
+      "trainingSamples": 9,
+      "reason": "goal reached",
+      "plies": 9
+    },
+    {
+      "gameId": 3,
+      "replay": "games/game-000003.json",
+      "samples": "samples/game-000003.npz",
+      "replaySha256": "4ea1cfbdab1d2b61d414e38516417497cf9ca650cc04abdb5ca827f14e878fe2",
+      "samplesSha256": "e99ea203ef87fc003236123b6d1ea0df943eda1109f2930c53bb60ca4ffe6abc",
+      "trainingSamples": 21,
+      "reason": "goal reached",
+      "plies": 21
+    },
+    {
+      "gameId": 5,
+      "replay": "games/game-000005.json",
+      "samples": "samples/game-000005.npz",
+      "replaySha256": "8d066c45587f82cddadcbadcd54b5d72ca2b19c59a87b1f0791ecabde47e9d88",
+      "samplesSha256": "f1477c21c9a8efc9d49e476c6d554e322930e4166b8dc41ba376cd1658252cac",
+      "trainingSamples": 17,
+      "reason": "goal reached",
+      "plies": 17
+    },
+    {
+      "gameId": 7,
+      "replay": "games/game-000007.json",
+      "samples": "samples/game-000007.npz",
+      "replaySha256": "463d6427f1c9db1b09d0d9b458df97c7036fcccfe8e90244f9b675b9da344923",
+      "samplesSha256": "dd0c223859f35129b3c46c5d124754ce307adb05755ca61ddd3900778753283e",
+      "trainingSamples": 9,
+      "reason": "goal reached",
+      "plies": 9
+    },
+    {
+      "gameId": 9,
+      "replay": "games/game-000009.json",
+      "samples": "samples/game-000009.npz",
+      "replaySha256": "53830363ae5e1a29af9fa1dc2594ea1d12f1033fbe00197527193e1fb7b48303",
+      "samplesSha256": "03bd03e6cd2923dcd05534bf3ef2303db87306a46883b5b3e57f716367c96be3",
+      "trainingSamples": 21,
+      "reason": "goal reached",
+      "plies": 21
+    },
+    {
+      "gameId": 11,
+      "replay": "games/game-000011.json",
+      "samples": "samples/game-000011.npz",
+      "replaySha256": "620c200dc0e30cc407fbd29dd1640dd300687ea4253460c795431d5f0200608e",
+      "samplesSha256": "bfd841e01a026469e835ec502393eb4f205d70e4e6286e86e91a544f997632c5",
+      "trainingSamples": 17,
+      "reason": "goal reached",
+      "plies": 17
+    },
+    {
+      "gameId": 13,
+      "replay": "games/game-000013.json",
+      "samples": "samples/game-000013.npz",
+      "replaySha256": "e9e62053a4cfd00a0ba3ccc99e2a2d058e2e3585ab2e670a75043d0e8aed28c9",
+      "samplesSha256": "ba667d3f510bf2ec15b56c7de590e64325d305d7d4ace957d6d81a314ea62b1b",
+      "trainingSamples": 9,
+      "reason": "goal reached",
+      "plies": 9
+    },
+    {
+      "gameId": 15,
+      "replay": "games/game-000015.json",
+      "samples": "samples/game-000015.npz",
+      "replaySha256": "e07ee4f8d4c8250c1efc21d32e178b25b55c6e713060ae52ad9a80b650b8d0e0",
+      "samplesSha256": "b5f5873d0207fd2bbcebf0cb89721d58ceef7057255f1f5f25619c58fbe7d910",
+      "trainingSamples": 19,
+      "reason": "goal reached",
+      "plies": 19
+    }
+  ],
+  "sessions": [
+    {
+      "newGames": 8,
+      "status": "partial",
+      "errorType": null,
+      "elapsedSeconds": 2.2135603000024275,
+      "metrics": {
+        "rules": {
+          "workers": 2,
+          "processes": 2,
+          "startupSeconds": 0.05305149999912828,
+          "inspectSeconds": 0.7017174999273266,
+          "inspectedRows": 3216,
+          "cacheHits": 3450
+        },
+        "inference": {
+          "device": "cuda:0",
+          "forwardCalls": 467,
+          "inferredRows": 3216,
+          "meanBatch": 6.886509635974304,
+          "batchHistogram": {
+            "4": 60,
+            "7": 61,
+            "5": 39,
+            "6": 46,
+            "1": 17,
+            "2": 26,
+            "3": 39,
+            "8": 39,
+            "9": 42,
+            "13": 22,
+            "12": 18,
+            "14": 15,
+            "16": 1,
+            "15": 9,
+            "10": 24,
+            "11": 9
+          },
+          "cacheHits": 3450,
+          "inferenceSeconds": 0.2709603000039351,
+          "warmupSeconds": 0.09126349999860395,
+          "peakGpuBytes": 9935360
+        },
+        "schedulerCycles": 500,
+        "generationSeconds": 2.034777799999574,
+        "totalSeconds": 2.1792084999979124
+      }
+    }
+  ]
+}

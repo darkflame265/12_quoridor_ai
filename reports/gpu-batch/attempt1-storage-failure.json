@@ -1,0 +1,99 @@
+{
+  "status": "interrupted",
+  "pipelineSha256": "2f69e7f3cbcc9491327df1558e8fcfcd2855259c583b1659f058d2dbbd6a5674",
+  "completedGames": 14,
+  "lastError": "PermissionError",
+  "sessions": [
+    {
+      "newGames": 8,
+      "elapsedSeconds": 2.5609098999993876,
+      "metrics": {
+        "rules": {
+          "workers": 2,
+          "processes": 2,
+          "startupSeconds": 0.058753400000568945,
+          "inspectSeconds": 0.7808989999721234,
+          "inspectedRows": 3216,
+          "cacheHits": 3450
+        },
+        "inference": {
+          "device": "cuda:0",
+          "forwardCalls": 467,
+          "inferredRows": 3216,
+          "meanBatch": 6.886509635974304,
+          "batchHistogram": {
+            "1": 17,
+            "2": 26,
+            "3": 39,
+            "4": 60,
+            "5": 39,
+            "6": 46,
+            "7": 61,
+            "8": 39,
+            "9": 42,
+            "10": 24,
+            "11": 9,
+            "12": 18,
+            "13": 22,
+            "14": 15,
+            "15": 9,
+            "16": 1
+          },
+          "cacheHits": 3450,
+          "inferenceSeconds": 0.32284639999852516,
+          "warmupSeconds": 0.10063369999988936,
+          "peakGpuBytes": 9935360
+        },
+        "schedulerCycles": 500,
+        "generationSeconds": 2.3642850000032922,
+        "totalSeconds": 2.523797800000466
+      }
+    },
+    {
+      "newGames": 5,
+      "elapsedSeconds": 3.765451600000233,
+      "metrics": {
+        "rules": {
+          "workers": 2,
+          "processes": 2,
+          "startupSeconds": 0.05106259999956819,
+          "inspectSeconds": 1.2727535000631178,
+          "inspectedRows": 5549,
+          "cacheHits": 5419
+        },
+        "inference": {
+          "device": "cuda:0",
+          "forwardCalls": 728,
+          "inferredRows": 5549,
+          "meanBatch": 7.622252747252747,
+          "batchHistogram": {
+            "1": 22,
+            "2": 26,
+            "3": 42,
+            "4": 72,
+            "5": 53,
+            "6": 54,
+            "7": 65,
+            "8": 77,
+            "9": 93,
+            "10": 79,
+            "11": 56,
+            "12": 38,
+            "13": 25,
+            "14": 14,
+            "15": 11,
+            "16": 1
+          },
+          "cacheHits": 5419,
+          "inferenceSeconds": 0.4792813000094611,
+          "warmupSeconds": 0.09450750000178232,
+          "peakGpuBytes": 9935360
+        },
+        "schedulerCycles": 776,
+        "generationSeconds": 3.4496178999979747,
+        "totalSeconds": 3.595304499998747
+      }
+    }
+  ],
+  "reason": "Transient Windows file lock during atomic manifest replacement; fixed with bounded retries. This run is not used as the final dataset."
+}

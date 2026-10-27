@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-27T04:35:54.400Z",
-  "sourceHash": "68bcc4f8eaee3bbfeaf9e55a2e80cb6b79afaa620db2dc24467a62ec4f677853",
+  "date": "2026-10-27T07:21:00.955Z",
+  "sourceHash": "5f7033894dfb574f98e602052c0a334cdd07309e802829523567e2ee96efb1d2",
   "eligible": false,
   "checks": {
     "completed": true,
@@ -10,19 +10,20 @@
     "sameConditions": true,
     "tactics": true,
     "validationNoRegression": true,
-    "holdoutPositive": true,
+    "holdoutPositive": false,
     "suiteNoRegression": false,
-    "timeBudget": true
+    "timeBudget": true,
+    "sameFixtureCohort": true
   },
   "caveat": "Small paired release gate; no claim of statistically decisive or human-level strength.",
   "reports": [
     {
-      "file": "reports/native51/validation-focused/report.json",
-      "sha256": "5bce253f6de2cb2a959483e75bbf8a5f1cde72497093697b526425e4bdbf2db8"
+      "file": "reports/native52/validation/report.json",
+      "sha256": "9adf971f489540bc839e00e55e3f2488d941eda174b1925a049891ad136b1b66"
     },
     {
-      "file": "reports/native51/holdout/report.json",
-      "sha256": "071b42d3353912e67adea952e5e93fd5d0eebe91b58be9689114f3f2178dbeff"
+      "file": "reports/native52/holdout/report.json",
+      "sha256": "fa43989fc366441765c0578a22a6adae2b297999050074b0d5862218bdf3e508"
     }
   ],
   "applied": false

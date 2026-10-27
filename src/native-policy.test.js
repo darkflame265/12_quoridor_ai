@@ -17,3 +17,7 @@ test('native release rejects losing mazes, altered code, overruns and partial re
 test('native holdout excludes the shared standard opening and validation layouts',()=>{
  for(const suite of ['general','maze']){const validation=nativeFixtures('validation',suite,3),holdout=nativeFixtures('holdout',suite,4),signatures=new Set(validation.map(f=>JSON.stringify(f.state)));assert.equal(holdout.length,4);for(const f of holdout){assert.ok(f.records.length>0);assert.ok(!signatures.has(JSON.stringify(f.state)));}}
 });
+test('new evaluation cohort excludes previously used holdout positions',()=>{
+ for(const suite of ['general','maze']){const old=new Set([...nativeFixtures('holdout',suite,4,'v1'),...nativeFixtures('validation',suite,3,'v2')].map(f=>JSON.stringify(f.state)));for(const f of nativeFixtures('holdout',suite,4,'v2'))assert.ok(!old.has(JSON.stringify(f.state)));}
+ const a=report('validation',3),b=report('holdout',4);a.cohort='v1';b.cohort='v2';assert.equal(assessNative(a,b,'frozen').eligible,false);
+});

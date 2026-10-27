@@ -555,7 +555,7 @@ impl Default for NativeEngine {
 impl NativeEngine {
     pub fn with_profile(profile: u8) -> Self {
         let shared = Arc::new(SharedSearch {
-            profile: profile.min(2),
+            profile: profile.min(3),
             ..SharedSearch::default()
         });
         Self {
@@ -611,7 +611,13 @@ impl NativeEngine {
                 elapsed_ms: 0.,
                 engine: format!(
                     "Atlas {} · Native Rust ×{}",
-                    if self.shared.profile == 0 { "5" } else { "5.1" },
+                    if self.shared.profile == 0 {
+                        "5"
+                    } else if self.shared.profile == 2 {
+                        "5.2"
+                    } else {
+                        "5.1"
+                    },
                     cores
                 ),
                 partitioned: false,

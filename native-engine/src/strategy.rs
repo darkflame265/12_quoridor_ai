@@ -50,6 +50,7 @@ mod strategy_tests {
             let target = f["target"].as_u64().unwrap() as usize;
             let found = cache.wall_threat(&mut p, target);
             assert_eq!(found.gain, brute(&mut p, target));
+            assert_eq!(cache.static_score(&mut p), p.evaluate());
             assert_eq!(found.gain, f["gain"].as_i64().unwrap() as i32);
             assert!(p.key() == key);
             assert_eq!(p.edges, edges);
@@ -61,8 +62,8 @@ mod strategy_tests {
                 p.turn = old;
             }
             assert_eq!(
-                cache.static_score(&mut p),
-                cache.static_score(&mut mirror_position(&p))
+                cache.evaluate(&mut p),
+                cache.evaluate(&mut mirror_position(&p))
             );
         }
     }
@@ -210,7 +211,7 @@ impl SharedSearch {
     fn static_score(&self, p: &mut Position) -> i32 {
         // Preserve fast opening evaluation. Full exposure is useful after walls
         // form a maze; paying for it at every open-board leaf lost search depth.
-        if self.profile == 0 || p.walls.count_ones() < 8 {
+        if self.profile == 0 || self.profile == 2 || p.walls.count_ones() < 8 {
             return p.evaluate();
         }
         let t = p.turn;

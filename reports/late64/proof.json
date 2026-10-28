@@ -1,0 +1,2918 @@
+{
+  "format": "atlas-late-threat-proof-v1",
+  "identity": {
+    "baselineSourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+    "sources": {
+      "rust-engine/src/lib.rs": "363cd3197f8fc1e21acb20c576d5dac3be4f741e808e9caa963f10bcd3984078",
+      "native-engine/src/lib.rs": "477ba4dfc0bc64536aa47f67ff8e00646c51066e9ad4f54ac409fcd83d24310a",
+      "native-engine/src/search.rs": "4aa7c1703c2d425bec3fe22090243649c40ad92a8a597b2be550b25dd2cfc4a7",
+      "native-engine/src/strategy.rs": "3be980d2aba7889ce5734665a6fb06a8682ef5b64667d120710ccf77e3d88cdf",
+      "native-engine/src/endgame-oracle.rs": "1b65399e328980de658eb6d5628e3fa301fa2ee85892f5dce50c002770b5856d",
+      "native-engine/src/main.rs": "85bd0779574b2331468415215e60e0f8076613367c5de1ed9d790ad4af80b8c4",
+      "native-engine/Cargo.toml": "0e2ace99f5def761ceb9e5bb79fa02e440fa03df9c956e40ad015b7fb28701c2",
+      "native-engine/Cargo.lock": "767b8a0cacf898be5d2d8a0250e18b9ded346252ddf61195adc967b03893af16",
+      "rust-toolchain.toml": "690e8b2d01e4b515848ba8c0cfcb69e54605754c53f29f95eacb61ea7b4fb3b6",
+      "experimental-engine/Cargo.toml": "8a914264829cd45318de85b1c68f439979309b8ee85d3ef6c1572767a62b4566",
+      "experimental-engine/Cargo.lock": "1a94a99e60da948704843e6cca2bea3ac5dca080aa21bf2059162fc880d933fe",
+      "experimental-engine/build.rs": "ae0934628de3a9c046d183f0938888f3d483ca45087ed5f371d24d53f1bc41ba",
+      "experimental-engine/src/lib.rs": "fbecb2c19b054e77042a53b4d952e2c0ad4862f160f08f01e8793bd1b47497ef",
+      "experimental-engine/src/main.rs": "9b21bec00b094dd347dd49bb481bebdc45898dc9df18ef9f8baf7aedc06af60b",
+      "experimental-engine/src/maze-evaluation.rs": "d2c82d65061365480bd485f312acfbfe0521b5fbc918e7660c9f9c133c946e03",
+      "experimental-engine/src/tactical-ordering.rs": "f26798c2aabb1690aa86b583fce9a3cac9b4b66ad93e3a75800364176c887ac4",
+      "experimental-engine/src/wall-geometry.rs": "eeb1f57d663b590e39a2888a87c326326753a7701683f7567369ef32d31d4c5b",
+      "experimental-engine/src/connection-weights.rs": "86fa74a20ab1df7e4aa1c1b599c6d67ae661e9ead2423e0dc0774808cbd4cab7",
+      "experimental-engine/src/ranking-paths.rs": "d60f0c3c2f7d65b218a5c3ecae91c9fa8800e5e5fdd9f2214762cd9915558305",
+      "experimental-engine/src/forcing-search.rs": "2ab2cf3b8629be6c33a4e00b259bccd6e021ae0663dd95ffe72c26924dd9e351",
+      "experimental-engine/src/bin/wall-geometry.rs": "e24939cb26e79464e81a85e4c90e9639565365db1bd74c375e1d2e6c02d7c8b1",
+      "experimental-engine/src/bin/eval-benchmark.rs": "f7555515dd822753f194d2083dc4503c58e46aa586bdae3d6fdb449143f00f21",
+      "evaluation/fixtures/native54-search-review.json": "b58a027e78256a3d16b48c0dfafe5a23fda481c81c22339733e1d1d14620c7b2",
+      "evaluation/fixtures/forcing63-threat-gap.json": "f2b6fbfeefca2ccb5dcef65916f90f0b2f373419d55e42e3692348f8a08bbf69"
+    },
+    "binaryHash": "c34a83f04957f2b910661c6b16682c7030818a1773b8ca2043aa568640301853"
+  },
+  "source": {
+    "file": "reports/forcing63/analysis.json",
+    "sha256": "484fef68b25d8111fe6d966b6ac11ffbab1405fa0c630f0540647f8162c4711f"
+  },
+  "scriptSha256": "0c8cef2101b7e5c1632e3d6401e0615246d6d8b8b499d6529d93364a0190e74c",
+  "benchmarkSha256": "05326ade361cf243922103d0497bc00de33cbca4e78b6cfc1d1d6fe656277eff",
+  "summary": {
+    "states": 81,
+    "observations": 162,
+    "missedBefore": 37,
+    "missedAfter": 2,
+    "maximumGapAfter": 3
+  },
+  "timings": [
+    {
+      "checksum": -2511500,
+      "coldMicros": 618,
+      "mode": "baseline",
+      "positions": 81,
+      "rounds": 50,
+      "scores": [
+        -196,
+        -196,
+        -200,
+        -176,
+        -176,
+        7,
+        -185,
+        -185,
+        -181,
+        -445,
+        -709,
+        -709,
+        -781,
+        -913,
+        -897,
+        -833,
+        -841,
+        -841,
+        -841,
+        -20,
+        47,
+        52,
+        132,
+        124,
+        53,
+        132,
+        144,
+        144,
+        136,
+        144,
+        144,
+        144,
+        144,
+        12,
+        12,
+        -44,
+        -44,
+        -264,
+        -528,
+        -792,
+        -1056,
+        -1320,
+        -1584,
+        -264,
+        -396,
+        -664,
+        -589,
+        -589,
+        -477,
+        -477,
+        -780,
+        -724,
+        -932,
+        -924,
+        -1188,
+        -1188,
+        -1188,
+        -1188,
+        -1188,
+        -1452,
+        -1716,
+        -1980,
+        -388,
+        60,
+        -132,
+        -396,
+        -396,
+        -396,
+        -396,
+        -396,
+        -660,
+        -924,
+        -1188,
+        -1188,
+        -1452,
+        -1452,
+        -1716,
+        -1716,
+        -1980,
+        -1980,
+        -2244
+      ],
+      "warmMicros": 30122
+    },
+    {
+      "checksum": -2511500,
+      "coldMicros": 508,
+      "mode": "cache4",
+      "positions": 81,
+      "rounds": 50,
+      "scores": [
+        -196,
+        -196,
+        -200,
+        -176,
+        -176,
+        7,
+        -185,
+        -185,
+        -181,
+        -445,
+        -709,
+        -709,
+        -781,
+        -913,
+        -897,
+        -833,
+        -841,
+        -841,
+        -841,
+        -20,
+        47,
+        52,
+        132,
+        124,
+        53,
+        132,
+        144,
+        144,
+        136,
+        144,
+        144,
+        144,
+        144,
+        12,
+        12,
+        -44,
+        -44,
+        -264,
+        -528,
+        -792,
+        -1056,
+        -1320,
+        -1584,
+        -264,
+        -396,
+        -664,
+        -589,
+        -589,
+        -477,
+        -477,
+        -780,
+        -724,
+        -932,
+        -924,
+        -1188,
+        -1188,
+        -1188,
+        -1188,
+        -1188,
+        -1452,
+        -1716,
+        -1980,
+        -388,
+        60,
+        -132,
+        -396,
+        -396,
+        -396,
+        -396,
+        -396,
+        -660,
+        -924,
+        -1188,
+        -1188,
+        -1452,
+        -1452,
+        -1716,
+        -1716,
+        -1980,
+        -1980,
+        -2244
+      ],
+      "warmMicros": 9128
+    },
+    {
+      "checksum": -2510900,
+      "coldMicros": 395,
+      "mode": "reserve",
+      "positions": 81,
+      "rounds": 50,
+      "scores": [
+        -196,
+        -196,
+        -200,
+        -176,
+        -176,
+        7,
+        -185,
+        -185,
+        -181,
+        -445,
+        -709,
+        -709,
+        -781,
+        -913,
+        -897,
+        -833,
+        -841,
+        -841,
+        -841,
+        -20,
+        47,
+        52,
+        132,
+        124,
+        53,
+        132,
+        144,
+        144,
+        136,
+        144,
+        144,
+        144,
+        144,
+        12,
+        12,
+        -44,
+        -44,
+        -264,
+        -528,
+        -792,
+        -1056,
+        -1320,
+        -1584,
+        -264,
+        -396,
+        -664,
+        -589,
+        -589,
+        -477,
+        -477,
+        -780,
+        -724,
+        -920,
+        -924,
+        -1188,
+        -1188,
+        -1188,
+        -1188,
+        -1188,
+        -1452,
+        -1716,
+        -1980,
+        -388,
+        60,
+        -132,
+        -396,
+        -396,
+        -396,
+        -396,
+        -396,
+        -660,
+        -924,
+        -1188,
+        -1188,
+        -1452,
+        -1452,
+        -1716,
+        -1716,
+        -1980,
+        -1980,
+        -2244
+      ],
+      "warmMicros": 11778
+    },
+    {
+      "checksum": -2553100,
+      "coldMicros": 635,
+      "mode": "coverage8",
+      "positions": 81,
+      "rounds": 50,
+      "scores": [
+        -196,
+        -196,
+        -200,
+        -176,
+        -176,
+        7,
+        -185,
+        -185,
+        -181,
+        -509,
+        -709,
+        -709,
+        -781,
+        -913,
+        -897,
+        -897,
+        -905,
+        -905,
+        -841,
+        -20,
+        47,
+        52,
+        132,
+        124,
+        53,
+        132,
+        144,
+        144,
+        136,
+        80,
+        80,
+        80,
+        80,
+        -52,
+        -52,
+        -44,
+        -44,
+        -264,
+        -528,
+        -792,
+        -1056,
+        -1320,
+        -1584,
+        -264,
+        -460,
+        -664,
+        -589,
+        -589,
+        -477,
+        -477,
+        -780,
+        -788,
+        -932,
+        -924,
+        -1188,
+        -1188,
+        -1188,
+        -1188,
+        -1188,
+        -1452,
+        -1716,
+        -1980,
+        -388,
+        60,
+        -196,
+        -396,
+        -396,
+        -396,
+        -396,
+        -396,
+        -660,
+        -924,
+        -1188,
+        -1188,
+        -1452,
+        -1452,
+        -1716,
+        -1716,
+        -1980,
+        -1980,
+        -2244
+      ],
+      "warmMicros": 16384
+    },
+    {
+      "checksum": -2552500,
+      "coldMicros": 920,
+      "mode": "combined8",
+      "positions": 81,
+      "rounds": 50,
+      "scores": [
+        -196,
+        -196,
+        -200,
+        -176,
+        -176,
+        7,
+        -185,
+        -185,
+        -181,
+        -509,
+        -709,
+        -709,
+        -781,
+        -913,
+        -897,
+        -897,
+        -905,
+        -905,
+        -841,
+        -20,
+        47,
+        52,
+        132,
+        124,
+        53,
+        132,
+        144,
+        144,
+        136,
+        80,
+        80,
+        80,
+        80,
+        -52,
+        -52,
+        -44,
+        -44,
+        -264,
+        -528,
+        -792,
+        -1056,
+        -1320,
+        -1584,
+        -264,
+        -460,
+        -664,
+        -589,
+        -589,
+        -477,
+        -477,
+        -780,
+        -788,
+        -920,
+        -924,
+        -1188,
+        -1188,
+        -1188,
+        -1188,
+        -1188,
+        -1452,
+        -1716,
+        -1980,
+        -388,
+        60,
+        -196,
+        -396,
+        -396,
+        -396,
+        -396,
+        -396,
+        -660,
+        -924,
+        -1188,
+        -1188,
+        -1452,
+        -1452,
+        -1716,
+        -1716,
+        -1980,
+        -1980,
+        -2244
+      ],
+      "warmMicros": 15919
+    },
+    {
+      "checksum": -2552500,
+      "coldMicros": 681,
+      "mode": "reference8",
+      "positions": 81,
+      "rounds": 50,
+      "scores": [
+        -196,
+        -196,
+        -200,
+        -176,
+        -176,
+        7,
+        -185,
+        -185,
+        -181,
+        -509,
+        -709,
+        -709,
+        -781,
+        -913,
+        -897,
+        -897,
+        -905,
+        -905,
+        -841,
+        -20,
+        47,
+        52,
+        132,
+        124,
+        53,
+        132,
+        144,
+        144,
+        136,
+        80,
+        80,
+        80,
+        80,
+        -52,
+        -52,
+        -44,
+        -44,
+        -264,
+        -528,
+        -792,
+        -1056,
+        -1320,
+        -1584,
+        -264,
+        -460,
+        -664,
+        -589,
+        -589,
+        -477,
+        -477,
+        -780,
+        -788,
+        -920,
+        -924,
+        -1188,
+        -1188,
+        -1188,
+        -1188,
+        -1188,
+        -1452,
+        -1716,
+        -1980,
+        -388,
+        60,
+        -196,
+        -396,
+        -396,
+        -396,
+        -396,
+        -396,
+        -660,
+        -924,
+        -1188,
+        -1188,
+        -1452,
+        -1452,
+        -1716,
+        -1716,
+        -1980,
+        -1980,
+        -2244
+      ],
+      "warmMicros": 22283
+    },
+    {
+      "checksum": -2581900,
+      "coldMicros": 875,
+      "mode": "late-full",
+      "positions": 81,
+      "rounds": 50,
+      "scores": [
+        -196,
+        -196,
+        -200,
+        -112,
+        -112,
+        71,
+        -121,
+        -185,
+        -245,
+        -509,
+        -709,
+        -709,
+        -781,
+        -1041,
+        -897,
+        -897,
+        -905,
+        -905,
+        -841,
+        -20,
+        47,
+        -12,
+        68,
+        60,
+        53,
+        132,
+        80,
+        80,
+        72,
+        80,
+        80,
+        80,
+        80,
+        -52,
+        -52,
+        -44,
+        -44,
+        -264,
+        -528,
+        -792,
+        -1056,
+        -1320,
+        -1584,
+        -264,
+        -460,
+        -856,
+        -589,
+        -589,
+        -477,
+        -477,
+        -780,
+        -788,
+        -932,
+        -924,
+        -1188,
+        -1188,
+        -1188,
+        -1188,
+        -1188,
+        -1452,
+        -1716,
+        -1980,
+        -132,
+        -132,
+        -324,
+        -396,
+        -396,
+        -396,
+        -396,
+        -396,
+        -660,
+        -924,
+        -1188,
+        -1188,
+        -1452,
+        -1452,
+        -1716,
+        -1716,
+        -1980,
+        -1980,
+        -2244
+      ],
+      "warmMicros": 12201
+    }
+  ],
+  "rows": [
+    {
+      "actions": 98,
+      "index": 0,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": 87,
+          "bestWallProtected": false,
+          "fast4": 1,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 88,
+      "index": 1,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": 87,
+          "bestWallProtected": false,
+          "fast4": 1,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 81,
+      "index": 2,
+      "protected": [
+        142
+      ],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 142,
+          "bestWallProtected": true,
+          "fast4": 1,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 79,
+      "index": 3,
+      "protected": [
+        140
+      ],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 140,
+          "bestWallProtected": true,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 80,
+      "index": 4,
+      "protected": [
+        140
+      ],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 140,
+          "bestWallProtected": true,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 72,
+      "index": 5,
+      "protected": [
+        138
+      ],
+      "threats": [
+        {
+          "bestWall": 111,
+          "bestWallProtected": false,
+          "fast4": 1,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 0
+        },
+        {
+          "bestWall": 138,
+          "bestWallProtected": true,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 73,
+      "index": 6,
+      "protected": [
+        138
+      ],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 138,
+          "bestWallProtected": true,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 73,
+      "index": 7,
+      "protected": [
+        138
+      ],
+      "threats": [
+        {
+          "bestWall": 180,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 0
+        },
+        {
+          "bestWall": 138,
+          "bestWallProtected": true,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 8,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": 180,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 9,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": 179,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 10,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 11,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 12,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": 111,
+          "bestWallProtected": false,
+          "fast4": 1,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 13,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": 198,
+          "bestWallProtected": false,
+          "fast4": 1,
+          "fast8": 1,
+          "fullDelay": 4,
+          "fullGain": 3,
+          "lateFull": 3,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 14,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": 111,
+          "bestWallProtected": false,
+          "fast4": 1,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 15,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": 111,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 16,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": 111,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 17,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": 111,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 18,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 92,
+      "index": 19,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 159,
+          "bestWallProtected": false,
+          "fast4": 1,
+          "fast8": 1,
+          "fullDelay": 4,
+          "fullGain": 3,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 83,
+      "index": 20,
+      "protected": [
+        87
+      ],
+      "threats": [
+        {
+          "bestWall": 87,
+          "bestWallProtected": true,
+          "fast4": 1,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 0
+        },
+        {
+          "bestWall": 142,
+          "bestWallProtected": false,
+          "fast4": 1,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 76,
+      "index": 21,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 140,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 71,
+      "index": 22,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 140,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 72,
+      "index": 23,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 132,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 71,
+      "index": 24,
+      "protected": [
+        124
+      ],
+      "threats": [
+        {
+          "bestWall": 124,
+          "bestWallProtected": true,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 0
+        },
+        {
+          "bestWall": 130,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 65,
+      "index": 25,
+      "protected": [
+        122
+      ],
+      "threats": [
+        {
+          "bestWall": 122,
+          "bestWallProtected": true,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 4,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 0
+        },
+        {
+          "bestWall": 130,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 26,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 129,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 27,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 129,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 28,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 129,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 29,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 129,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 30,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 129,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 31,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 129,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 32,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 129,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 33,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 129,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 34,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 129,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 35,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 129,
+          "bestWallProtected": false,
+          "fast4": 1,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 36,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": 113,
+          "bestWallProtected": false,
+          "fast4": 1,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 2,
+      "index": 37,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 38,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 39,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 40,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 41,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 42,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 94,
+      "index": 43,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": 195,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 4,
+          "fullGain": 3,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 84,
+      "index": 44,
+      "protected": [
+        100,
+        101,
+        108,
+        118,
+        126,
+        134,
+        173
+      ],
+      "threats": [
+        {
+          "bestWall": 193,
+          "bestWallProtected": false,
+          "fast4": 2,
+          "fast8": 3,
+          "fullDelay": 4,
+          "fullGain": 3,
+          "lateFull": 3,
+          "target": 0
+        },
+        {
+          "bestWall": 108,
+          "bestWallProtected": true,
+          "fast4": 2,
+          "fast8": 2,
+          "fullDelay": 3,
+          "fullGain": 2,
+          "lateFull": 2,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 74,
+      "index": 45,
+      "protected": [
+        100,
+        101,
+        108,
+        118,
+        126,
+        134,
+        173
+      ],
+      "threats": [
+        {
+          "bestWall": 99,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 4,
+          "fullGain": 3,
+          "lateFull": 3,
+          "target": 0
+        },
+        {
+          "bestWall": 108,
+          "bestWallProtected": true,
+          "fast4": 2,
+          "fast8": 2,
+          "fullDelay": 3,
+          "fullGain": 2,
+          "lateFull": 2,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 70,
+      "index": 46,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 71,
+      "index": 47,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 73,
+      "index": 48,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 73,
+      "index": 49,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 73,
+      "index": 50,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": 178,
+          "bestWallProtected": false,
+          "fast4": 6,
+          "fast8": 6,
+          "fullDelay": 8,
+          "fullGain": 6,
+          "lateFull": 6,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 73,
+      "index": 51,
+      "protected": [
+        137
+      ],
+      "threats": [
+        {
+          "bestWall": 115,
+          "bestWallProtected": false,
+          "fast4": 2,
+          "fast8": 3,
+          "fullDelay": 4,
+          "fullGain": 3,
+          "lateFull": 3,
+          "target": 0
+        },
+        {
+          "bestWall": 137,
+          "bestWallProtected": true,
+          "fast4": 1,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 73,
+      "index": 52,
+      "protected": [
+        137
+      ],
+      "threats": [
+        {
+          "bestWall": 115,
+          "bestWallProtected": false,
+          "fast4": 3,
+          "fast8": 3,
+          "fullDelay": 4,
+          "fullGain": 3,
+          "lateFull": 3,
+          "target": 0
+        },
+        {
+          "bestWall": 137,
+          "bestWallProtected": true,
+          "fast4": 1,
+          "fast8": 1,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 53,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 54,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 55,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 56,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 57,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 58,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 59,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 60,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 2,
+      "index": 61,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 89,
+      "index": 62,
+      "protected": [
+        172
+      ],
+      "threats": [
+        {
+          "bestWall": 81,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 2,
+          "fullGain": 1,
+          "lateFull": 1,
+          "target": 0
+        },
+        {
+          "bestWall": 172,
+          "bestWallProtected": true,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 6,
+          "fullGain": 5,
+          "lateFull": 5,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 78,
+      "index": 63,
+      "protected": [
+        102
+      ],
+      "threats": [
+        {
+          "bestWall": 125,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 4,
+          "fullGain": 3,
+          "lateFull": 3,
+          "target": 0
+        },
+        {
+          "bestWall": 102,
+          "bestWallProtected": true,
+          "fast4": 3,
+          "fast8": 3,
+          "fullDelay": 4,
+          "fullGain": 3,
+          "lateFull": 3,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 66,
+      "index": 64,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": 127,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 1,
+          "fullDelay": 4,
+          "fullGain": 3,
+          "lateFull": 3,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 2,
+      "index": 65,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 66,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 67,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 68,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 4,
+      "index": 69,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 70,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 71,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 2,
+      "index": 72,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 73,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 2,
+      "index": 74,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 75,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 2,
+      "index": 76,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 77,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 2,
+      "index": 78,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 3,
+      "index": 79,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    },
+    {
+      "actions": 2,
+      "index": 80,
+      "protected": [],
+      "threats": [
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 0
+        },
+        {
+          "bestWall": null,
+          "bestWallProtected": false,
+          "fast4": 0,
+          "fast8": 0,
+          "fullDelay": 0,
+          "fullGain": 0,
+          "lateFull": 0,
+          "target": 1
+        }
+      ]
+    }
+  ],
+  "productionActive": false,
+  "warning": "Exposed development diagnostics; isolated evaluation timing is not full-search speed or strength"
+}

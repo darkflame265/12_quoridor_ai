@@ -113,7 +113,8 @@ impl SharedSearch {
         let bonus=matches!(mode,MazeMode::Reserve|MazeMode::Combined8|MazeMode::Reference8);
         let stock=|n:usize,enemy:i32|100.*(n as f64).sqrt()+20.*n as f64+if bonus&&n>0 {(5-enemy).clamp(0,4) as f64*12.} else {0.};
         let reserve=stock(p.left[t],db)-stock(p.left[o],da);
-        let potential=|p:&mut Position,side| if mode==MazeMode::Reference8 {self.reference_potential(p,side)} else {self.fast_potential(p,side,if matches!(mode,MazeMode::Coverage8|MazeMode::Combined8) {8} else {4})};
+        let potential=|p:&mut Position,side| if mode==MazeMode::LateFull&&(1..=3).contains(&p.left[1-side]) {self.wall_threat(p,side).gain}
+            else if mode==MazeMode::Reference8 {self.reference_potential(p,side)} else {self.fast_potential(p,side,if matches!(mode,MazeMode::Coverage8|MazeMode::Combined8) {8} else {4})};
         let pressure=(potential(p,o)-potential(p,t))*64;
         (db-da)*120+(b-a)*12+if p.left[t]+p.left[o]>0 {(ar-br)*8} else {0}+(reserve+pressure as f64+0.5).floor() as i32
     }
@@ -121,19 +122,20 @@ impl SharedSearch {
 }
 
 #[derive(Clone,Copy,PartialEq)]
-enum MazeMode {Baseline,Cache4,Reserve,Coverage8,Combined8,Reference8}
+enum MazeMode {Baseline,Cache4,Reserve,Coverage8,Combined8,Reference8,LateFull}
 fn maze_mode()->MazeMode {
     static MODE:std::sync::OnceLock<MazeMode>=std::sync::OnceLock::new();
     *MODE.get_or_init(||match std::env::var("QUORIDOR_MAZE_MODE").as_deref() {
         Ok("baseline")=>MazeMode::Baseline,Ok("reserve")=>MazeMode::Reserve,Ok("coverage8")=>MazeMode::Coverage8,
         Ok("combined8")=>MazeMode::Combined8,Ok("reference8")=>MazeMode::Reference8,Ok("cache4")|Err(_)=>MazeMode::Cache4,
+        Ok("late-full")=>MazeMode::LateFull,
         Ok(other)=>panic!("Unknown QUORIDOR_MAZE_MODE: {other}"),
     })
 }
 
 pub fn evaluation_benchmark(states:&[State],rounds:usize)->serde_json::Value {
     let mut rows=vec![];
-    for (name,mode) in [("baseline",MazeMode::Baseline),("cache4",MazeMode::Cache4),("reserve",MazeMode::Reserve),("coverage8",MazeMode::Coverage8),("combined8",MazeMode::Combined8),("reference8",MazeMode::Reference8)] {
+    for (name,mode) in [("baseline",MazeMode::Baseline),("cache4",MazeMode::Cache4),("reserve",MazeMode::Reserve),("coverage8",MazeMode::Coverage8),("combined8",MazeMode::Combined8),("reference8",MazeMode::Reference8),("late-full",MazeMode::LateFull)] {
         let cache=SharedSearch{profile:2,..SharedSearch::default()};let mut positions:Vec<Position>=states.iter().map(|s|Position::from_state(s).unwrap()).collect();
         let cold=std::time::Instant::now();let first:Vec<i32>=positions.iter_mut().map(|p|cache.score_mode(p,mode)).collect();let cold_us=cold.elapsed().as_micros();
         let start=std::time::Instant::now();let mut checksum=0i64;
@@ -146,6 +148,20 @@ pub fn evaluation_benchmark(states:&[State],rounds:usize)->serde_json::Value {
 #[cfg(test)]
 mod maze_tests {
     use super::*;
+    #[test]
+    fn late_full_recovers_archived_five_step_threat_and_preserves_board() {
+        let f:serde_json::Value=serde_json::from_str(include_str!(concat!(env!("CARGO_MANIFEST_DIR"),"/../evaluation/fixtures/forcing63-threat-gap.json"))).unwrap();
+        let s:State=serde_json::from_value(f["state"].clone()).unwrap();let mut p=Position::from_state(&s).unwrap();
+        let cache=SharedSearch{profile:2,..SharedSearch::default()};let key=p.key();let edges=p.edges;
+        let target=f["target"].as_u64().unwrap() as usize;
+        assert_eq!(cache.fast_potential(&mut p,target,4),0);
+        assert_eq!(cache.wall_threat(&mut p,target).gain,5);
+        let original=cache.score_mode(&mut p,MazeMode::Cache4);
+        let full=cache.score_mode(&mut p,MazeMode::LateFull);assert_ne!(full,original);
+        assert!(key==p.key());assert_eq!(edges,p.edges);
+        // The other side of the late-stock boundary must keep original scores.
+        p.left=[4,4];assert_eq!(cache.score_mode(&mut p,MazeMode::LateFull),cache.score_mode(&mut p,MazeMode::Cache4));
+    }
     #[test]
     fn expanded_threat_preserves_original_candidates_and_board() {
         let fixtures:serde_json::Value=serde_json::from_str(include_str!(concat!(env!("CARGO_MANIFEST_DIR"),"/../evaluation/fixtures/native54-search-review.json"))).unwrap();

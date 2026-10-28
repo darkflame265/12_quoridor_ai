@@ -50,6 +50,7 @@ pub fn forcing_analysis(states:&[State])->serde_json::Value {
             let full=cache.wall_threat(&mut p,target);
             let candidates=if target!=p.turn {&protected[..]}else{&[][..]};
             threats.push(serde_json::json!({"target":target,"fast4":fast,"fast8":expanded,
+                "lateFull":if p.walls.count_ones()>=8&&(1..=3).contains(&p.left[1-target]) {full.gain}else{fast},
                 "fullGain":full.gain,"fullDelay":full.delay,"bestWall":full.action,
                 "bestWallProtected":full.action.is_some_and(|a|candidates.contains(&a))}));
         }

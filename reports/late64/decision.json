@@ -1,0 +1,31 @@
+{
+  "development": "reports/late64/development/report.json",
+  "sha256": "b9b2de856ab57f57184d2da3db5bc26bf2adce0f18be7c2e1e1d739f8531e3f1",
+  "mode": "late-full",
+  "searchMode": "legacy",
+  "cohort": "search64-v1",
+  "summary": {
+    "win": 1,
+    "loss": 3,
+    "draw": 0
+  },
+  "tactics": 16,
+  "timing": {
+    "candidate": {
+      "moves": 103,
+      "elapsedMs": 37543.95170000001,
+      "overruns": 0
+    },
+    "baseline": {
+      "moves": 104,
+      "elapsedMs": 37174.628099999994,
+      "overruns": 0
+    }
+  },
+  "eligible": false,
+  "productionActive": false,
+  "liveEngine": "Atlas 5.3",
+  "validationSkipped": true,
+  "holdoutSkipped": true,
+  "reason": "Exploratory development ended 1 win and 3 losses, including maze 0 wins and 2 losses. No promotion or further validation of this variant. Small sample is not a conclusive strength estimate."
+}

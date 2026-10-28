@@ -1,0 +1,51 @@
+{
+  "source": {
+    "file": "reports\\speed65\\validation\\report.json",
+    "sha256": "05f737a246cf9a27c40f9c2663744309c67cd353f78cf78dae225cc6fb252240"
+  },
+  "summary": {
+    "win": 52,
+    "loss": 48,
+    "draw": 0
+  },
+  "bySuite": {
+    "general": {
+      "win": 28,
+      "loss": 22,
+      "draw": 0
+    },
+    "maze": {
+      "win": 24,
+      "loss": 26,
+      "draw": 0
+    }
+  },
+  "decisiveWilson95": [
+    0.4231640509017654,
+    0.6153561567991945
+  ],
+  "roles": {
+    "candidate": {
+      "moves": 2285,
+      "nodes": 328005726,
+      "totalDepth": 9852,
+      "elapsedMs": 622049.0090000012,
+      "sharedCacheHits": 277274888,
+      "endgameHits": 2210263,
+      "averageDepth": 4.311597374179431,
+      "nodesPerSecond": 527298.848248787
+    },
+    "baseline": {
+      "moves": 2283,
+      "nodes": 274938264,
+      "totalDepth": 9578,
+      "elapsedMs": 625805.959199996,
+      "sharedCacheHits": 249374575,
+      "endgameHits": 2448066,
+      "averageDepth": 4.195356986421375,
+      "nodesPerSecond": 439334.68506990495
+    }
+  },
+  "caution": "Arena roles reach different positions; use matched-position benchmark for controlled speed. Wilson excludes draws and does not account for paired-game dependence.",
+  "productionActive": false
+}

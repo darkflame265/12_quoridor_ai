@@ -1,0 +1,7177 @@
+{
+  "format": "atlas-speed-benchmark-v1",
+  "identity": {
+    "baselineSourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+    "sources": {
+      "rust-engine/src/lib.rs": "363cd3197f8fc1e21acb20c576d5dac3be4f741e808e9caa963f10bcd3984078",
+      "native-engine/src/lib.rs": "477ba4dfc0bc64536aa47f67ff8e00646c51066e9ad4f54ac409fcd83d24310a",
+      "native-engine/src/search.rs": "4aa7c1703c2d425bec3fe22090243649c40ad92a8a597b2be550b25dd2cfc4a7",
+      "native-engine/src/strategy.rs": "3be980d2aba7889ce5734665a6fb06a8682ef5b64667d120710ccf77e3d88cdf",
+      "native-engine/src/endgame-oracle.rs": "1b65399e328980de658eb6d5628e3fa301fa2ee85892f5dce50c002770b5856d",
+      "native-engine/src/main.rs": "85bd0779574b2331468415215e60e0f8076613367c5de1ed9d790ad4af80b8c4",
+      "native-engine/Cargo.toml": "0e2ace99f5def761ceb9e5bb79fa02e440fa03df9c956e40ad015b7fb28701c2",
+      "native-engine/Cargo.lock": "767b8a0cacf898be5d2d8a0250e18b9ded346252ddf61195adc967b03893af16",
+      "rust-toolchain.toml": "690e8b2d01e4b515848ba8c0cfcb69e54605754c53f29f95eacb61ea7b4fb3b6",
+      "speed-engine/Cargo.toml": "f88b6073e566b84e79011734d0faf4fca8cdbcca80dd1bebc9c702510ac0d8d3",
+      "speed-engine/Cargo.lock": "8df5258e61bed5a122577aa37d73a5b2b4ea1138ef81efbac277c0e4a9ccf3a7",
+      "speed-engine/build.rs": "97f4652b8aac4780e3276889d70b4dac234d8d6126f98b7daac83ce74a42b19d",
+      "speed-engine/src/lib.rs": "82a108a2df5f9188d3e11fa225e2ddfbd0b26fb6221291a9dc25e9fe46a0d5b2",
+      "speed-engine/src/main.rs": "9b21bec00b094dd347dd49bb481bebdc45898dc9df18ef9f8baf7aedc06af60b",
+      "speed-engine/src/ranking-paths.rs": "0b9305232a2013f98f71d9ba333337656362089c6976360127107fb5fb30cb3d"
+    },
+    "binaryHash": "7458652b7abdb19a0f937215261e5a0289faaa633913eddf11348abb28cbcc7c"
+  },
+  "baselineBinary": "62977fff79e51dcbc5e9de4f463d6db3a26b6c81ba7061e33aa5a08861db061a",
+  "scriptSha256": "2d259968fdc56d8c76260515cac8ec6a4c8d528160b4317643b90af0e470dbb6",
+  "inputs": [
+    {
+      "file": "reports\\native53\\validation\\games\\general-0-side1.json",
+      "sha256": "21e06dfc9dea29500250430aa55888403340dfa10b1a2ed58fd2f5b0bc798f61"
+    },
+    {
+      "file": "reports\\native53\\validation\\games\\general-1-side1.json",
+      "sha256": "3b7567dfaeef3e4af8af8f3f60d10b99e82914975c783200ea94e67025a58e49"
+    },
+    {
+      "file": "reports\\native53\\validation\\games\\general-2-side1.json",
+      "sha256": "5d661792ef8864914fc481fee403f0a475f13bff19679737f44b728fb6c10d22"
+    },
+    {
+      "file": "reports\\native53\\validation\\games\\maze-0-side0.json",
+      "sha256": "c72470bd546c5a3bae5c671cc6c1ef386c2f5900dbdff92e74defcd403992ff1"
+    },
+    {
+      "file": "reports\\native53\\validation\\games\\maze-1-side1.json",
+      "sha256": "d5be7defe87b115e959c9bfd55315c731da63423224e5a8073b3a142a2d1e3ee"
+    },
+    {
+      "file": "reports\\native53\\validation\\games\\maze-2-side0.json",
+      "sha256": "d102aacd2d691fa2369828d1532aa449134bade568df393a2b847a76e98b7b61"
+    }
+  ],
+  "summary": {
+    "fixedStates": 93,
+    "fixedResultsIdentical": true,
+    "fixedOriginalMs": 873.2792999999916,
+    "fixedOptimizedMs": 555.3617999999971,
+    "timedStates": 12,
+    "timedOriginalNodes": 1262501,
+    "timedOptimizedNodes": 1748700,
+    "timedOriginalDepth": 5.833333333333333,
+    "timedOptimizedDepth": 6.25
+  },
+  "fixed": [
+    {
+      "index": 0,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 8.450500000000002,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "7e8aa1ac-8d0c-4928-868c-2ebd1b9e4777",
+        "nodes": 458,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "score": 0,
+        "sharedCacheHits": 198,
+        "workers": 1,
+        "wallMs": 8.873399999999975
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 3.7043,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "a8b24f15-2491-4933-b246-36b13c68ea8f",
+        "nodes": 458,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "score": 0,
+        "sharedCacheHits": 198,
+        "workers": 1,
+        "wallMs": 4.194099999999992
+      }
+    },
+    {
+      "index": 1,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 3.823,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "8f2c7d43-fa6f-4b2d-99ba-404c79910fc3",
+        "nodes": 459,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "score": -132,
+        "sharedCacheHits": 198,
+        "workers": 1,
+        "wallMs": 4.13330000000002
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 8.548399999999999,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "26c9d692-a749-44fe-a1f6-e17dbd534fed",
+        "nodes": 459,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "score": -132,
+        "sharedCacheHits": 198,
+        "workers": 1,
+        "wallMs": 8.86160000000001
+      }
+    },
+    {
+      "index": 2,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.1847,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "22c8571c-732c-4c43-9be0-5b62687c9783",
+        "nodes": 462,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "score": -132,
+        "sharedCacheHits": 198,
+        "workers": 1,
+        "wallMs": 9.512900000000002
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.6290000000000004,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "9dcbc568-e7f1-4b56-ad43-f22122710974",
+        "nodes": 462,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "score": -132,
+        "sharedCacheHits": 198,
+        "workers": 1,
+        "wallMs": 4.891900000000078
+      }
+    },
+    {
+      "index": 3,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.951,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "4783f66a-77b3-4dd0-9926-1ab3c56d6d81",
+        "nodes": 462,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        ],
+        "score": -132,
+        "sharedCacheHits": 198,
+        "workers": 1,
+        "wallMs": 5.229799999999955
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.456999999999999,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "5b13b459-6e3a-40bd-bc86-5762a24a88e8",
+        "nodes": 462,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        ],
+        "score": -132,
+        "sharedCacheHits": 198,
+        "workers": 1,
+        "wallMs": 9.715800000000058
+      }
+    },
+    {
+      "index": 4,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 23.045199999999998,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "d20d52d2-ea62-431b-a1d6-88b43436d365",
+        "nodes": 890,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 7
+          }
+        ],
+        "score": -87,
+        "sharedCacheHits": 14,
+        "workers": 1,
+        "wallMs": 23.415899999999965
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 16.3541,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "e07633e9-aeed-4a4e-8ec7-41f196680a1f",
+        "nodes": 890,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 7
+          }
+        ],
+        "score": -87,
+        "sharedCacheHits": 14,
+        "workers": 1,
+        "wallMs": 16.701799999999935
+      }
+    },
+    {
+      "index": 5,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 11.246,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "d9310ff9-c7fa-4270-8146-d09a1d7a7991",
+        "nodes": 618,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "score": -124,
+        "sharedCacheHits": 7,
+        "workers": 1,
+        "wallMs": 11.64390000000003
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 20.832800000000002,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "505d376e-2489-42a1-a60f-83a069f3340f",
+        "nodes": 618,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "score": -124,
+        "sharedCacheHits": 7,
+        "workers": 1,
+        "wallMs": 21.200699999999983
+      }
+    },
+    {
+      "index": 6,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 20.855900000000002,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "051e2685-6e1b-4fae-aef1-b68e14b892a7",
+        "nodes": 593,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "score": -4,
+        "sharedCacheHits": 11,
+        "workers": 1,
+        "wallMs": 21.48799999999983
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 12.149999999999999,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "19bd3fb9-dfc7-4024-a616-5491df721741",
+        "nodes": 593,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "score": -4,
+        "sharedCacheHits": 11,
+        "workers": 1,
+        "wallMs": 12.475100000000111
+      }
+    },
+    {
+      "index": 7,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 8.904300000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "21f7a1f5-cf33-4b51-a1cb-36895914bfed",
+        "nodes": 442,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "score": -324,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 9.23519999999985
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 14.4034,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "1f9250e2-5c62-48f4-954b-17bdc84813b3",
+        "nodes": 442,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "score": -324,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 14.740499999999884
+      }
+    },
+    {
+      "index": 8,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 11.8643,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "d0c328fd-d697-483f-8791-ff2c657931c5",
+        "nodes": 429,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1
+          }
+        ],
+        "score": -551,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 12.231600000000071
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.7738,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "69537ee2-e339-45bf-8e21-f7f7b9b00089",
+        "nodes": 429,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1
+          }
+        ],
+        "score": -551,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 7.151399999999967
+      }
+    },
+    {
+      "index": 9,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.9326,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "f28986a5-7eaa-4840-8c75-7f7e686e24c6",
+        "nodes": 396,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          }
+        ],
+        "score": -332,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 7.2608000000000175
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 12.2146,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "185be0a6-3eda-4a1c-9c77-7bd5e316b5b5",
+        "nodes": 396,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          }
+        ],
+        "score": -332,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 12.521399999999858
+      }
+    },
+    {
+      "index": 10,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 11.506,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "6bc97285-3872-409c-a0dd-a04bffda60a1",
+        "nodes": 463,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -314,
+        "sharedCacheHits": 11,
+        "workers": 1,
+        "wallMs": 11.7654
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.3795,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "937ca294-8ffa-4125-bd45-c522b4c3b8a3",
+        "nodes": 463,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -314,
+        "sharedCacheHits": 11,
+        "workers": 1,
+        "wallMs": 6.817999999999984
+      }
+    },
+    {
+      "index": 11,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.8837,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "6a78a0d9-2824-4b24-84ea-ff4b72cd60e9",
+        "nodes": 538,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 7
+          }
+        ],
+        "score": -429,
+        "sharedCacheHits": 11,
+        "workers": 1,
+        "wallMs": 8.289700000000039
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 12.2346,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "f1531a24-76e2-44a9-bb12-2fc8a04891ad",
+        "nodes": 538,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 7
+          }
+        ],
+        "score": -429,
+        "sharedCacheHits": 11,
+        "workers": 1,
+        "wallMs": 12.595900000000029
+      }
+    },
+    {
+      "index": 12,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.0262,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "4d5b1a2a-afff-4ff2-9b86-b98970210f9d",
+        "nodes": 316,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -508,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 9.294800000000123
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.230200000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "fabb87fc-a71d-4c8e-b39c-e03073eb31a9",
+        "nodes": 316,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -508,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 6.509800000000041
+      }
+    },
+    {
+      "index": 13,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 5.883,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "417b3a31-02e2-4cbb-9e39-322ea064cc98",
+        "nodes": 325,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -492,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 6.556999999999789
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.512300000000002,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "86ac7a20-dbcf-4bba-840c-a985c40eb554",
+        "nodes": 325,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -492,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 9.821699999999964
+      }
+    },
+    {
+      "index": 14,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.653,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "542b0c4e-1293-42dd-83f6-bc773c5dd3bb",
+        "nodes": 332,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -492,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 9.923699999999826
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.0564,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "c2924987-c56f-4f8c-ac86-c7d547934870",
+        "nodes": 332,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -492,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 6.332899999999881
+      }
+    },
+    {
+      "index": 15,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.9948,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "b19145db-71ab-4a19-874f-eaeb31eb480c",
+        "nodes": 503,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "score": -493,
+        "sharedCacheHits": 11,
+        "workers": 1,
+        "wallMs": 8.24850000000015
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 11.2405,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "90714efb-3ef9-4d05-a9ed-f76596f71b27",
+        "nodes": 503,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "score": -493,
+        "sharedCacheHits": 11,
+        "workers": 1,
+        "wallMs": 11.55809999999974
+      }
+    },
+    {
+      "index": 16,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 8.316199999999998,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "cb263140-5889-40db-8ea0-944080d482bc",
+        "nodes": 325,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "score": -487,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 8.653600000000097
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.5684,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "7db8d2cf-0332-4b3d-a4f9-0032922472b0",
+        "nodes": 325,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "score": -487,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 4.916700000000219
+      }
+    },
+    {
+      "index": 17,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.6583000000000006,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "8f47245c-d8a5-4da4-a776-187421d16611",
+        "nodes": 320,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -512,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 5.095299999999952
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.0311,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "83e30724-f85c-47a8-8582-70d9d562da85",
+        "nodes": 320,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -512,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 9.287899999999809
+      }
+    },
+    {
+      "index": 18,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 8.7071,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "2281f2fc-f851-4e85-b391-22a76fe169a1",
+        "nodes": 320,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -504,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 8.990200000000186
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 5.2831,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "cb9f1ae9-1a11-4102-92cf-b2e366acb4f1",
+        "nodes": 320,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -504,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 5.585199999999986
+      }
+    },
+    {
+      "index": 19,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.7867,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "db0daeb5-f402-4bfb-b298-af253a32bcc8",
+        "nodes": 322,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        ],
+        "score": -496,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 5.061499999999796
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.3019,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "5902b5a2-c8ec-4ccd-acdf-623e4fe56626",
+        "nodes": 322,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        ],
+        "score": -496,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 7.830799999999726
+      }
+    },
+    {
+      "index": 20,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 10.238800000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "2e9163ae-b15b-471e-9b01-6f9e8b09a537",
+        "nodes": 583,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -471,
+        "sharedCacheHits": 22,
+        "workers": 1,
+        "wallMs": 10.783599999999751
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 8.0076,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "aa811b43-d577-4398-a201-210274c2d7d9",
+        "nodes": 583,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -471,
+        "sharedCacheHits": 22,
+        "workers": 1,
+        "wallMs": 8.315099999999802
+      }
+    },
+    {
+      "index": 21,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 3.6656000000000004,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "acfa8fe8-66bb-4305-b28b-e0fc233811d5",
+        "nodes": 268,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 3
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "score": -280,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 3.9328999999997905
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 5.0369,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "2f000639-2043-4f80-9acd-ff9373a13cdb",
+        "nodes": 268,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 3
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "score": -280,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 5.335599999999886
+      }
+    },
+    {
+      "index": 22,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.576300000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "3112d601-d207-44e0-b0b1-45a41f7ccf5b",
+        "nodes": 245,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        ],
+        "score": -396,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 4.865399999999681
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 3.1299999999999994,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "f90c9bce-7af5-4714-9d43-a008d1c68173",
+        "nodes": 245,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        ],
+        "score": -396,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 3.444600000000264
+      }
+    },
+    {
+      "index": 23,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 2.4712,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "2bcf01c2-7baa-46a0-bb00-b3ed937b175c",
+        "nodes": 250,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "score": -528,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 2.6575000000002547
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.3406,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "d8b7031f-8378-42d5-ac22-eb938c47a769",
+        "nodes": 250,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "score": -528,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 4.603100000000268
+      }
+    },
+    {
+      "index": 24,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 3.8844000000000003,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "6c8ff2ee-278b-4213-abd4-e538dd6f9728",
+        "nodes": 260,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "score": -408,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 4.117700000000241
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 3.1381,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "1acfbb38-5fa9-455f-8d65-df94e5fa7acf",
+        "nodes": 260,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "score": -408,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 3.381199999999808
+      }
+    },
+    {
+      "index": 25,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 2.4528,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "ec85c4a1-40e1-4686-aa9b-36436df7264c",
+        "nodes": 271,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          }
+        ],
+        "score": -408,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 2.6794999999997344
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.3417,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "bdcabc1a-1642-4560-b586-5eed48d09195",
+        "nodes": 271,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          }
+        ],
+        "score": -408,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 4.6305999999999585
+      }
+    },
+    {
+      "index": 26,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 16.0825,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "de93b577-3f97-4e75-afe8-5197eb44e0e0",
+        "nodes": 529,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "score": -132,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 16.303100000000086
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.093500000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "9cd5dd28-4a5a-402f-a87f-825ebe885ab9",
+        "nodes": 529,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "score": -132,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 7.32529999999997
+      }
+    },
+    {
+      "index": 27,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.7249,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "dae78d73-7f27-4ab1-9b3f-3820e2463cf3",
+        "nodes": 509,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1
+          }
+        ],
+        "score": -101,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 8.01220000000012
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 16.164,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "6e64bb18-e128-4cf0-a669-e0d1ce9f4be9",
+        "nodes": 509,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1
+          }
+        ],
+        "score": -101,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 16.44309999999996
+      }
+    },
+    {
+      "index": 28,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 19.157799999999998,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "d8c086d8-bf26-4098-8bd7-4c76a83ec77d",
+        "nodes": 715,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 0
+          }
+        ],
+        "score": -106,
+        "sharedCacheHits": 13,
+        "workers": 1,
+        "wallMs": 19.471300000000156
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 10.903300000000002,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "bc5a1638-814c-4a3f-bd3d-08fea7970da0",
+        "nodes": 715,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 0
+          }
+        ],
+        "score": -106,
+        "sharedCacheHits": 13,
+        "workers": 1,
+        "wallMs": 11.214500000000044
+      }
+    },
+    {
+      "index": 29,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 8.0228,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "a152a47a-2e15-440e-b8dc-5abceeb1d7ee",
+        "nodes": 444,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "score": -44,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 8.3075000000008
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 14.437,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "04f15ff1-d057-4159-80fc-14833174e1ec",
+        "nodes": 444,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "score": -44,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 14.80619999999999
+      }
+    },
+    {
+      "index": 30,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 15.1441,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "4e6c5ded-2648-401a-90df-93f5688e4310",
+        "nodes": 504,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": -41,
+        "sharedCacheHits": 8,
+        "workers": 1,
+        "wallMs": 15.42659999999978
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.5107,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "e0144e22-8110-4b4e-984c-e89228cbdf63",
+        "nodes": 504,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": -41,
+        "sharedCacheHits": 8,
+        "workers": 1,
+        "wallMs": 9.875200000000405
+      }
+    },
+    {
+      "index": 31,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.2801,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "258a649e-efb0-4bf8-b75b-ea36e60c3ba4",
+        "nodes": 379,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 220,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 7.6130999999995765
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 13.151299999999999,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "27c2128d-ebdf-41a9-8db8-a3f3a6494ced",
+        "nodes": 379,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 220,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 13.539099999999962
+      }
+    },
+    {
+      "index": 32,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 11.1535,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "c2e919b5-4f42-410c-bd9d-40d36abeccc3",
+        "nodes": 351,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 217,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 11.478300000000672
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.693700000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "0d37e235-879b-4d96-b977-de4bd14100cf",
+        "nodes": 351,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 217,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 8.063300000000709
+      }
+    },
+    {
+      "index": 33,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.3928,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "289c9a12-769d-4687-bcc8-78db613f0462",
+        "nodes": 332,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 132,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 7.628700000000208
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.6305,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "0f9d61fa-4984-4424-9054-7046a10bf991",
+        "nodes": 332,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 132,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 9.89639999999963
+      }
+    },
+    {
+      "index": 34,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.760000000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "b0f93743-de40-4141-bf5a-4184fa40d30a",
+        "nodes": 304,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 132,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 8.04280000000017
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.8349,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "65280cca-ab1c-4974-b870-42986399ecb9",
+        "nodes": 304,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 132,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 5.084700000000339
+      }
+    },
+    {
+      "index": 35,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 5.5279,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "ef7218b3-56cb-4dac-b860-a10a1e03ab77",
+        "nodes": 309,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 132,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 5.76680000000033
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.943200000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "e36a8b56-af35-4847-81f6-6fa4f2a2560d",
+        "nodes": 309,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 132,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 8.206199999999626
+      }
+    },
+    {
+      "index": 36,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 8.2619,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "63211c83-b83b-471e-ae20-17187d79b151",
+        "nodes": 320,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 140,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 8.545500000000175
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.8578,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "d5d855ae-2786-44dd-88d5-20cb7343a922",
+        "nodes": 320,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 140,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 5.136700000000019
+      }
+    },
+    {
+      "index": 37,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.7092,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "70536ee0-cb89-422c-8f3d-179cc2255df3",
+        "nodes": 320,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 140,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 4.981200000000172
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.7076,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "9afb0312-8340-49e3-8ac2-7b10cff8000e",
+        "nodes": 320,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 140,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 7.972400000000562
+      }
+    },
+    {
+      "index": 38,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.727600000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "5f4d2eae-339e-4543-87ef-680ca7a129dc",
+        "nodes": 324,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 140,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 7.979400000000169
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 5.018700000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "3fa74992-9ab3-4f0d-98ab-f3d670d0b673",
+        "nodes": 324,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 140,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 5.297899999999572
+      }
+    },
+    {
+      "index": 39,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.3243,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "666a4641-9f96-454c-8ed6-4ef886e4e263",
+        "nodes": 381,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          }
+        ],
+        "score": 71,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 6.672199999999975
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.627500000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "57dbfdc7-a21b-435f-9e23-1bed6cc6c762",
+        "nodes": 381,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          }
+        ],
+        "score": 71,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 10.015699999999924
+      }
+    },
+    {
+      "index": 40,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 5.897200000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "a34232b3-0295-4126-a4fa-713a8eff9fab",
+        "nodes": 292,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 1,
+            "y": 8
+          }
+        ],
+        "score": 71,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 6.149999999999636
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 3.9613999999999994,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "e71c3ff5-7e06-4563-8f6c-18fa730bad35",
+        "nodes": 292,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 1,
+            "y": 8
+          }
+        ],
+        "score": 71,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 4.189100000000508
+      }
+    },
+    {
+      "index": 41,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.0325,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "908a98dd-fe44-448d-90d9-5df6525a92f3",
+        "nodes": 298,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 0,
+            "y": 8
+          }
+        ],
+        "score": 79,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 4.268900000000031
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.2869,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "96e4a154-db2a-4c5f-9d2e-534775fe43d3",
+        "nodes": 298,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 0,
+            "y": 8
+          }
+        ],
+        "score": 79,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 7.5733000000000175
+      }
+    },
+    {
+      "index": 42,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.3564,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "54cc4720-9ad8-4286-8d41-bd215f41075a",
+        "nodes": 302,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 0,
+            "y": 7
+          }
+        ],
+        "score": 79,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 6.638299999999617
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.5313,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "53b6eca8-3020-4d96-9e1b-235530b5166a",
+        "nodes": 302,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 0,
+            "y": 7
+          }
+        ],
+        "score": 79,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 4.850199999999859
+      }
+    },
+    {
+      "index": 43,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.465800000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "df413668-294a-4de2-8ea6-de4aca796ee9",
+        "nodes": 301,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 0,
+            "y": 6
+          }
+        ],
+        "score": 79,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 4.802899999999681
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.9723,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "14035924-369d-4f21-b614-4875fcdf7540",
+        "nodes": 301,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 0,
+            "y": 6
+          }
+        ],
+        "score": 79,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 8.244700000000194
+      }
+    },
+    {
+      "index": 44,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 8.181600000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "23056256-8f77-40a6-86f5-6555838e4f80",
+        "nodes": 376,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        ],
+        "score": 71,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 8.447699999999713
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 5.6627,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "17d74a99-e6dc-43ea-b5d9-4a44bfcc307d",
+        "nodes": 376,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        ],
+        "score": 71,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 5.927200000000084
+      }
+    },
+    {
+      "index": 45,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 2.4368,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "4df6f4b1-2099-400b-9fc8-b43b772b35e7",
+        "nodes": 288,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        ],
+        "score": 72,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 2.74120000000039
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.7823,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "2697f6ca-353d-4eef-a685-7291379eb6e6",
+        "nodes": 288,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        ],
+        "score": 72,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 5.231400000000576
+      }
+    },
+    {
+      "index": 46,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.3991,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "9cdbc105-de5e-4405-be69-0247efe8de61",
+        "nodes": 293,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "score": -12,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 6.694899999999507
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.5415,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "028d5fac-b50a-437f-a807-4a6c535e65ca",
+        "nodes": 293,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "score": -12,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 4.813099999999395
+      }
+    },
+    {
+      "index": 47,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 3.3762999999999996,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "f932fcec-05ff-4693-90ef-1f81ec8151f4",
+        "nodes": 285,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 5
+          }
+        ],
+        "score": 0,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 3.6383999999998196
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 5.3899,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "474df138-ed6c-459d-8401-75fe75366477",
+        "nodes": 285,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 5
+          }
+        ],
+        "score": 0,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 5.912100000000464
+      }
+    },
+    {
+      "index": 48,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 5.9178999999999995,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "4689fa3a-d6f6-43b8-9ff1-d90fa27e900f",
+        "nodes": 285,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          }
+        ],
+        "score": 0,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 6.166299999999865
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.0056,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "ed14daf8-8d64-41df-bdb6-4b1b485f45fe",
+        "nodes": 285,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          }
+        ],
+        "score": 0,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 4.428899999999885
+      }
+    },
+    {
+      "index": 49,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.6527,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "387b4dca-72d6-4634-a637-1e4d6748b413",
+        "nodes": 288,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "score": 0,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 4.96309999999994
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.9605,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "0aebb6ba-ae05-48ae-be1f-8ddb88769484",
+        "nodes": 288,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "score": 0,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 7.36239999999998
+      }
+    },
+    {
+      "index": 50,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.104900000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "d6cd33d7-a7f0-488b-9dd0-4ecdb0e403e6",
+        "nodes": 292,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "score": -64,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 6.996299999999792
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 3.7719,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "0cfceade-87ec-46b0-a302-66aa63bdc5c3",
+        "nodes": 292,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "score": -64,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 4.112799999999879
+      }
+    },
+    {
+      "index": 51,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 8.8581,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "ab1c5268-eea4-4e56-8e07-b32e37c79c82",
+        "nodes": 580,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1
+          }
+        ],
+        "score": 47,
+        "sharedCacheHits": 8,
+        "workers": 1,
+        "wallMs": 9.590499999999338
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 15.2349,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "4fedcd8b-0aac-4f30-80cf-0a907d756b66",
+        "nodes": 580,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1
+          }
+        ],
+        "score": 47,
+        "sharedCacheHits": 8,
+        "workers": 1,
+        "wallMs": 15.486700000000383
+      }
+    },
+    {
+      "index": 52,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 12.1029,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "f51be623-e0b3-4026-82b1-0d8a9d610053",
+        "nodes": 423,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 7
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 1
+          }
+        ],
+        "score": 89,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 12.38590000000022
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.4934,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "39372d83-2f28-4817-a3bf-9cd06b3f87db",
+        "nodes": 423,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 7
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 1
+          }
+        ],
+        "score": 89,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 7.870700000000397
+      }
+    },
+    {
+      "index": 53,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.3847000000000005,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "793cbe0c-bf96-4e5e-90c2-e045f9753e3f",
+        "nodes": 403,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 0
+          }
+        ],
+        "score": -7,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 6.601799999999457
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.9761,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "3c579255-3516-4ef8-9e0f-a95c7dc22a02",
+        "nodes": 403,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 0
+          }
+        ],
+        "score": -7,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 10.217899999999645
+      }
+    },
+    {
+      "index": 54,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 10.4347,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "1e3e5dbf-fea6-4001-866f-a9a80a9761cc",
+        "nodes": 384,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 2
+          }
+        ],
+        "score": -25,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 11.170200000000477
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.538200000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "f0cd68fc-8860-4c69-b209-f616304bb516",
+        "nodes": 384,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 2
+          }
+        ],
+        "score": -25,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 6.869699999999284
+      }
+    },
+    {
+      "index": 55,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 5.0394,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "baa6396d-8ddf-4234-91de-57de50ca6c03",
+        "nodes": 371,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "score": -41,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 5.2719999999999345
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 8.6334,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "5ad31e8b-0c23-48b3-9c62-1491a560a608",
+        "nodes": 371,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "score": -41,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 8.877199999999903
+      }
+    },
+    {
+      "index": 56,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.0998,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "3d9ded04-c86e-42f7-bb70-d867fc00e3b8",
+        "nodes": 369,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "score": -41,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 9.337800000000243
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 5.611700000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "8c08d8b5-89a6-4f94-a0f3-184b8984e72a",
+        "nodes": 369,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "score": -41,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 5.883899999999812
+      }
+    },
+    {
+      "index": 57,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 5.7494000000000005,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "aa52020b-bf03-462a-8512-26a271939120",
+        "nodes": 373,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 8,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "score": -41,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 6.058199999999488
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.155,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "469e3bcc-3134-46a3-a4ac-97b7eb52f4ba",
+        "nodes": 373,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 8,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "score": -41,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 9.398199999999633
+      }
+    },
+    {
+      "index": 58,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.382700000000002,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "e3d1760b-dcae-43b5-80cd-7b6e91084848",
+        "nodes": 375,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 8,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 8,
+            "y": 6
+          }
+        ],
+        "score": -89,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 9.71309999999994
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.6584,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "c3484653-f914-4acb-ac96-c09ba7c5396d",
+        "nodes": 375,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 8,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 8,
+            "y": 6
+          }
+        ],
+        "score": -89,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 4.939099999999598
+      }
+    },
+    {
+      "index": 59,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.6395,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "0abd6955-d6ac-44c0-a628-c5927ef55798",
+        "nodes": 375,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 6
+          }
+        ],
+        "score": -173,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 5.081500000000233
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 8.7063,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "700c7a55-d37b-4fa9-85d6-c384cd006ab8",
+        "nodes": 375,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 6
+          }
+        ],
+        "score": -173,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 9.029699999999139
+      }
+    },
+    {
+      "index": 60,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.5995,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "7d3c72bb-86a8-4660-a254-71279d4133b9",
+        "nodes": 366,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          }
+        ],
+        "score": -173,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 9.857099999999264
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 5.5203,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "3db4a4af-9cc0-4133-a798-21c6fbdbbee7",
+        "nodes": 366,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          }
+        ],
+        "score": -173,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 6.042400000000271
+      }
+    },
+    {
+      "index": 61,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 5.2955000000000005,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "5198ddec-84de-4ba9-98b6-d0a943d851e7",
+        "nodes": 351,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        ],
+        "score": -88,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 5.626699999998891
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.8432,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "baa6c4a7-2619-4e85-8d14-2d00f7b7dc4a",
+        "nodes": 351,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        ],
+        "score": -88,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 10.105199999999968
+      }
+    },
+    {
+      "index": 62,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 11.593399999999999,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "6cd19985-f8e4-47f2-a7fb-49c319a349b2",
+        "nodes": 424,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          }
+        ],
+        "score": -60,
+        "sharedCacheHits": 8,
+        "workers": 1,
+        "wallMs": 11.853900000000067
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.529300000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "42b3623c-0a58-4376-b4e4-04bd98b67bf0",
+        "nodes": 424,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          }
+        ],
+        "score": -60,
+        "sharedCacheHits": 8,
+        "workers": 1,
+        "wallMs": 7.839500000000044
+      }
+    },
+    {
+      "index": 63,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.3082,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "8b391eb3-6bdb-4f72-9f18-25e79831535e",
+        "nodes": 322,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "score": 44,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 6.893100000001141
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.261899999999999,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "aaebc0fb-794e-48b8-9e2b-0c49f15e2784",
+        "nodes": 322,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "score": 44,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 9.881800000001022
+      }
+    },
+    {
+      "index": 64,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.415,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "691869d3-169d-408b-8aae-0b02da4a26e6",
+        "nodes": 380,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          }
+        ],
+        "score": 113,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 9.668900000000576
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.3918,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "59a96ea4-825a-4d1c-b987-e19f10ecf145",
+        "nodes": 380,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          }
+        ],
+        "score": 113,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 6.688099999999395
+      }
+    },
+    {
+      "index": 65,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.1669,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "fb070f43-65a5-4169-a436-a66f2ded4f9a",
+        "nodes": 279,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        ],
+        "score": 64,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 4.852899999999863
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.164700000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "e59f44ea-203d-4553-a551-c556f1f9174d",
+        "nodes": 279,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        ],
+        "score": 64,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 7.611499999999069
+      }
+    },
+    {
+      "index": 66,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.830900000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "85d2d947-5d46-4b72-9511-a8a8dc8cd009",
+        "nodes": 258,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "score": 144,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 5.346400000000358
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 2.6123000000000003,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "07ec4fe5-d626-4add-8462-15d309c0cd48",
+        "nodes": 258,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "score": 144,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 3.1924999999991996
+      }
+    },
+    {
+      "index": 67,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.5943000000000005,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "74e68874-7189-4676-8732-bc7c93d996ad",
+        "nodes": 449,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 1
+          }
+        ],
+        "score": 528,
+        "sharedCacheHits": 9,
+        "workers": 1,
+        "wallMs": 8.014299999998912
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 11.6841,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "11897c8e-9854-4b46-9d3a-a6b5a3219e4b",
+        "nodes": 449,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 1
+          }
+        ],
+        "score": 528,
+        "sharedCacheHits": 9,
+        "workers": 1,
+        "wallMs": 12.14639999999963
+      }
+    },
+    {
+      "index": 68,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.655999999999999,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "14bc8a6a-facb-4cb2-b1dc-d7d66ac76eb0",
+        "nodes": 345,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 3
+          }
+        ],
+        "score": 443,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 9.918899999998757
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.551,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "c5b03a46-7fcd-48d5-b6a5-4cd74f6d34e0",
+        "nodes": 345,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 3
+          }
+        ],
+        "score": 443,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 6.925600000000486
+      }
+    },
+    {
+      "index": 69,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.446999999999999,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "17b5229b-71fc-4e87-8abb-82d39fadd9c6",
+        "nodes": 334,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 493,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 6.907100000000355
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.917300000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "0d235cd1-7da1-40cc-b326-e99642cf2db9",
+        "nodes": 334,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 493,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 10.344200000001365
+      }
+    },
+    {
+      "index": 70,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 9.8253,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "939295db-cc4d-43ba-971f-dc4f259c90f0",
+        "nodes": 323,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          }
+        ],
+        "score": 508,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 10.396899999999732
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 5.6081,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "4667a2ec-515f-4ddc-9680-f074ab0099ea",
+        "nodes": 323,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          }
+        ],
+        "score": 508,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 6.326199999999517
+      }
+    },
+    {
+      "index": 71,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 4.6715,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "102d838f-cde0-41d8-b243-3c3eeb1720a0",
+        "nodes": 354,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          }
+        ],
+        "score": 427,
+        "sharedCacheHits": 8,
+        "workers": 1,
+        "wallMs": 5.1590999999989435
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.814600000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "0c0a94ee-19ee-4831-a653-593f8df8eadc",
+        "nodes": 354,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          }
+        ],
+        "score": 427,
+        "sharedCacheHits": 8,
+        "workers": 1,
+        "wallMs": 8.29819999999927
+      }
+    },
+    {
+      "index": 72,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 0.8597,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "6945e297-9753-455a-a21d-6adc1ac64c28",
+        "nodes": 70,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 0
+          }
+        ],
+        "score": 427,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 1.0426000000006752
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 1.155,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "49c49d14-b973-4161-b5bb-c2ef8c5286fc",
+        "nodes": 70,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 0
+          }
+        ],
+        "score": 427,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 1.4362999999993917
+      }
+    },
+    {
+      "index": 73,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 0.8354,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "f80f1ef4-e11c-4af5-881e-b3e49885922a",
+        "nodes": 72,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 4
+          }
+        ],
+        "score": 476,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 1.009200000000419
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 1.3725999999999998,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "72e6a6a0-ccba-40f8-bf07-0805dd31df43",
+        "nodes": 72,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 4
+          }
+        ],
+        "score": 476,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 1.7622000000010303
+      }
+    },
+    {
+      "index": 74,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 18.7407,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "2926a07c-b48e-4a5b-a88c-057936571a9f",
+        "nodes": 677,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 5
+          }
+        ],
+        "score": 268,
+        "sharedCacheHits": 16,
+        "workers": 1,
+        "wallMs": 19.141700000000128
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 12.91,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "d8be4ee3-7ad5-4999-abb7-c2af0a3d06ea",
+        "nodes": 677,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 5
+          }
+        ],
+        "score": 268,
+        "sharedCacheHits": 16,
+        "workers": 1,
+        "wallMs": 13.374799999999595
+      }
+    },
+    {
+      "index": 75,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 8.3101,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "e659186d-e411-4b15-9afe-68b744fe1516",
+        "nodes": 356,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 5
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": 416,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 8.758100000000923
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 12.7407,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "f6a4e3ae-2ca4-45f9-bcab-1587aa519653",
+        "nodes": 356,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 5
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": 416,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 13.216500000000451
+      }
+    },
+    {
+      "index": 76,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 13.228,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "dd20ffe7-f5f0-4bb9-90fe-ae0ad59434b6",
+        "nodes": 398,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "score": 537,
+        "sharedCacheHits": 8,
+        "workers": 1,
+        "wallMs": 13.48739999999998
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 10.151800000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "0bdc88d2-f7ba-4a77-96e2-bebd66cdc48c",
+        "nodes": 398,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "score": 537,
+        "sharedCacheHits": 8,
+        "workers": 1,
+        "wallMs": 10.535900000000765
+      }
+    },
+    {
+      "index": 77,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 3.6798,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "0b0b3330-f084-438c-9c99-eb778b738c3a",
+        "nodes": 294,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": 804,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 4.447799999999916
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.1192,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "97837357-9bb4-4fd8-bc0a-1991306d9633",
+        "nodes": 294,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": 804,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 7.564699999998993
+      }
+    },
+    {
+      "index": 78,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 1.0466,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "1fc8fbaf-9c76-4cc0-b084-a3305cd08d0c",
+        "nodes": 80,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": 748,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 1.2344000000011874
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 0.9445,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "41a0fc88-81d8-4881-8e52-5d29c97aa497",
+        "nodes": 80,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": 748,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 1.165100000000166
+      }
+    },
+    {
+      "index": 79,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 1.3108,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "4c4d4065-7c0a-4514-abc5-3806f20c7013",
+        "nodes": 81,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          }
+        ],
+        "score": 627,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 1.6090999999996711
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 1.3269,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "025dcc80-3865-45a3-9db2-6eaa8a37d342",
+        "nodes": 81,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          }
+        ],
+        "score": 627,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 1.5656999999991967
+      }
+    },
+    {
+      "index": 80,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 1.3608,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "a139892a-654c-4831-ad9b-0f68cd0a1b6a",
+        "nodes": 87,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": 612,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 1.826100000000224
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 1.4649999999999999,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "0797fde1-d1d1-4972-a9cb-40e29804004c",
+        "nodes": 87,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": 612,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 2.03440000000046
+      }
+    },
+    {
+      "index": 81,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 1.1935,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "2766547d-c505-4a73-b026-9486e7da178a",
+        "nodes": 86,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 3
+          }
+        ],
+        "score": 476,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 1.4205999999994674
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 1.0984,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "4dccb5d9-fe0a-4c0d-9816-a25d23764291",
+        "nodes": 86,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 3
+          }
+        ],
+        "score": 476,
+        "sharedCacheHits": 3,
+        "workers": 1,
+        "wallMs": 1.3118999999987864
+      }
+    },
+    {
+      "index": 82,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 2.1898999999999997,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "484f652a-a545-45aa-a773-c0b91ac03d04",
+        "nodes": 158,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 3
+          }
+        ],
+        "score": 404,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 2.4582999999984168
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 2.1481999999999997,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "3d168562-009e-4ab6-b33b-643e5628f3e6",
+        "nodes": 158,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 3
+          }
+        ],
+        "score": 404,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 2.396099999999933
+      }
+    },
+    {
+      "index": 83,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 2.205,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "e19aa92e-2773-46a3-9280-9f3f6ea2d671",
+        "nodes": 157,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 5
+          }
+        ],
+        "score": 156,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 2.405000000000655
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 2.0841,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "5b5d677e-bede-4dd8-bd50-1fb65bf1e189",
+        "nodes": 157,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 5
+          }
+        ],
+        "score": 156,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 2.2861999999986438
+      }
+    },
+    {
+      "index": 84,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 1.3834,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "cd9d2527-2604-4aed-8782-1fdae9055d46",
+        "nodes": 86,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "score": 83,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 1.8562999999994645
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 1.1387,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "027373af-071d-440c-8cfe-5d7620141676",
+        "nodes": 86,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          }
+        ],
+        "score": 83,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 1.3692000000010012
+      }
+    },
+    {
+      "index": 85,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 1.2439,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "704d7d50-b0ba-4917-b996-290f21ebe57c",
+        "nodes": 85,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 5
+          }
+        ],
+        "score": -116,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 1.4584999999988213
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 1.8138,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "324f8128-6bf0-48a1-87b3-12e83d9a1969",
+        "nodes": 85,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 5
+          }
+        ],
+        "score": -116,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 2.048399999999674
+      }
+    },
+    {
+      "index": 86,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 1.8044,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "c0e1420e-e7e5-4203-89d2-3a6178a5f377",
+        "nodes": 91,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 3
+          }
+        ],
+        "score": -308,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 2.1031999999995605
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 1.4882,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "cc7ec89e-ddb8-42db-acb7-20d3ab01b4cc",
+        "nodes": 91,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 3
+          }
+        ],
+        "score": -308,
+        "sharedCacheHits": 6,
+        "workers": 1,
+        "wallMs": 1.7256999999990512
+      }
+    },
+    {
+      "index": 87,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 14.730599999999999,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "70c7ed82-e9d3-4206-9894-d2d863951bfa",
+        "nodes": 689,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 6
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 4
+          }
+        ],
+        "score": -528,
+        "sharedCacheHits": 19,
+        "workers": 1,
+        "wallMs": 15.157400000000052
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 19.8658,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "bb27b8f2-f4dc-42a1-ad8d-4e349b91b85a",
+        "nodes": 689,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 6
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 4
+          }
+        ],
+        "score": -528,
+        "sharedCacheHits": 19,
+        "workers": 1,
+        "wallMs": 20.685699999999997
+      }
+    },
+    {
+      "index": 88,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 11.8679,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "2c371d4b-d009-4e1c-a1c2-a0d5fba887ce",
+        "nodes": 332,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 4
+          }
+        ],
+        "score": -687,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 12.126500000000306
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.7632,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "c3ae7a2d-ab27-4e03-825f-8cc3159fc4bd",
+        "nodes": 332,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 4
+          }
+        ],
+        "score": -687,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 8.289300000000367
+      }
+    },
+    {
+      "index": 89,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 6.4193,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "63406f36-29e7-4998-b447-12416d2f2df9",
+        "nodes": 319,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 7
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -883,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 7.046299999999974
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 10.0583,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "92ad0fd2-14d9-41ee-93ea-1a6543dea9df",
+        "nodes": 319,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 7
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -883,
+        "sharedCacheHits": 5,
+        "workers": 1,
+        "wallMs": 10.445599999999104
+      }
+    },
+    {
+      "index": 90,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 10.6406,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "6851e6f0-b2d8-4b71-a772-6af8e54a1277",
+        "nodes": 315,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -883,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 11.01260000000002
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 5.896800000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "5f72acdf-c96c-4152-8161-3b0d36b287ee",
+        "nodes": 315,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -883,
+        "sharedCacheHits": 4,
+        "workers": 1,
+        "wallMs": 6.155800000000454
+      }
+    },
+    {
+      "index": 91,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 7.273899999999999,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "57191df5-6e99-44e6-87cf-4252f6739396",
+        "nodes": 385,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -911,
+        "sharedCacheHits": 8,
+        "workers": 1,
+        "wallMs": 7.621800000000803
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 10.4244,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "9f671ccc-1f60-4588-9d31-5a6abc98f1f3",
+        "nodes": 385,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -911,
+        "sharedCacheHits": 8,
+        "workers": 1,
+        "wallMs": 10.686399999998685
+      }
+    },
+    {
+      "index": 92,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 3.8733,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "aaa6f6f9-60a1-47a8-94bf-7f9ebdc63205",
+        "nodes": 226,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -1004,
+        "sharedCacheHits": 9,
+        "workers": 1,
+        "wallMs": 4.207399999999325
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 2,
+        "done": true,
+        "elapsedMs": 2.5128999999999997,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×1",
+        "id": "f8c3093b-769e-42d2-b16b-a7040a950992",
+        "nodes": 226,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -1004,
+        "sharedCacheHits": 9,
+        "workers": 1,
+        "wallMs": 2.8526999999994587
+      }
+    }
+  ],
+  "timed": [
+    {
+      "index": 0,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.09370000000007,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "e6048ee9-b414-4e27-84ca-979865e5ed44",
+        "nodes": 56481,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "score": 132,
+        "sharedCacheHits": 21645,
+        "workers": 4,
+        "wallMs": 500.53240000000005
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.00399999999996,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×4",
+        "id": "ce83cae7-444a-47bb-b3cd-b2d265e19342",
+        "nodes": 79862,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "score": 132,
+        "sharedCacheHits": 27935,
+        "workers": 4,
+        "wallMs": 500.3123999999989
+      }
+    },
+    {
+      "index": 1,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.88509999999997,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×4",
+        "id": "b9def1d5-3d8e-41d9-bcb1-de08923cae59",
+        "nodes": 75520,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1
+          }
+        ],
+        "score": -551,
+        "sharedCacheHits": 14610,
+        "workers": 4,
+        "wallMs": 501.2672999999995
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 3,
+        "done": true,
+        "elapsedMs": 500.0782,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "ac5c017f-a7fa-4792-8deb-779f94fad4b5",
+        "nodes": 42126,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 5
+          }
+        ],
+        "score": -64,
+        "sharedCacheHits": 8331,
+        "workers": 4,
+        "wallMs": 500.35169999999925
+      }
+    },
+    {
+      "index": 2,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.0516,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "756fa842-d026-42ff-bcdf-74f011b9a637",
+        "nodes": 35524,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "score": -500,
+        "sharedCacheHits": 5550,
+        "workers": 4,
+        "wallMs": 500.3574000000008
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.5407,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×4",
+        "id": "c8b9fe12-5c14-4b36-969a-0728f342b0c2",
+        "nodes": 76546,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        ],
+        "score": -364,
+        "sharedCacheHits": 15787,
+        "workers": 4,
+        "wallMs": 500.9466000000011
+      }
+    },
+    {
+      "index": 3,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 12,
+        "done": true,
+        "elapsedMs": 500.0154,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×4",
+        "id": "5c4e80d3-eabb-42ce-b98e-22abf3327ac0",
+        "nodes": 305134,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        ],
+        "score": -264,
+        "sharedCacheHits": 407405,
+        "workers": 4,
+        "wallMs": 500.3162999999986
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 12,
+        "done": true,
+        "elapsedMs": 500.0029,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "60f44078-3984-4037-9a0c-896f089794e9",
+        "nodes": 285331,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        ],
+        "score": -264,
+        "sharedCacheHits": 380821,
+        "workers": 4,
+        "wallMs": 500.3891999999978
+      }
+    },
+    {
+      "index": 4,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.01590000000004,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "6ebfcf22-c2f4-45db-a633-bc0b23f9247e",
+        "nodes": 37442,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 6
+          }
+        ],
+        "score": 217,
+        "sharedCacheHits": 8167,
+        "workers": 4,
+        "wallMs": 500.42239999999947
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.0489,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×4",
+        "id": "8595850f-c5d5-48eb-a910-e14ea666bc49",
+        "nodes": 65823,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          }
+        ],
+        "score": 217,
+        "sharedCacheHits": 12230,
+        "workers": 4,
+        "wallMs": 500.60359999999855
+      }
+    },
+    {
+      "index": 5,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.01779999999997,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×4",
+        "id": "4a13b1e3-2ae5-42aa-9254-9994600837a4",
+        "nodes": 62251,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 0
+          }
+        ],
+        "score": 203,
+        "sharedCacheHits": 21244,
+        "workers": 4,
+        "wallMs": 500.31089999999676
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.0418000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "f7fdfa89-611a-49e3-b136-110e53d61dc1",
+        "nodes": 45151,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 0
+          }
+        ],
+        "score": 203,
+        "sharedCacheHits": 13788,
+        "workers": 4,
+        "wallMs": 500.380799999999
+      }
+    },
+    {
+      "index": 6,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 11,
+        "done": true,
+        "elapsedMs": 500.00390000000004,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "b4077978-751f-416d-84e8-50f4fb7d814b",
+        "nodes": 317468,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 1,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          }
+        ],
+        "score": 68,
+        "sharedCacheHits": 405501,
+        "workers": 4,
+        "wallMs": 500.28670000000056
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 11,
+        "done": true,
+        "elapsedMs": 500.0149,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×4",
+        "id": "851ac8d5-5db3-4ed7-91b6-426a33f576a4",
+        "nodes": 501039,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 1,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          }
+        ],
+        "score": 68,
+        "sharedCacheHits": 643320,
+        "workers": 4,
+        "wallMs": 500.5548999999992
+      }
+    },
+    {
+      "index": 7,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.3876,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×4",
+        "id": "9b7fc4ea-c166-4938-917d-7de84822e2e2",
+        "nodes": 74650,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 0
+          }
+        ],
+        "score": 107,
+        "sharedCacheHits": 13578,
+        "workers": 4,
+        "wallMs": 500.6948999999986
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.1865000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "b516f347-acf6-4f69-a9ac-0c4fe16f7b49",
+        "nodes": 46414,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "score": -41,
+        "sharedCacheHits": 8173,
+        "workers": 4,
+        "wallMs": 500.80249999999796
+      }
+    },
+    {
+      "index": 8,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.02529999999996,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "2638e420-e42d-4d00-9e1e-f3d748de0908",
+        "nodes": 28395,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "score": 44,
+        "sharedCacheHits": 4787,
+        "workers": 4,
+        "wallMs": 500.4353999999985
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.12620000000004,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×4",
+        "id": "44ff1736-256f-4e72-95d4-0065b5849307",
+        "nodes": 71912,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 7
+          }
+        ],
+        "score": 256,
+        "sharedCacheHits": 14015,
+        "workers": 4,
+        "wallMs": 500.4938000000002
+      }
+    },
+    {
+      "index": 9,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.03130000000004,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×4",
+        "id": "7b330cdb-b5f4-4320-9dba-86ed5e43ffc9",
+        "nodes": 71137,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "score": 652,
+        "sharedCacheHits": 19375,
+        "workers": 4,
+        "wallMs": 500.5059999999976
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.08020000000005,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "7b2679e1-26bc-4d82-90a4-a19cb3839b35",
+        "nodes": 41499,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          }
+        ],
+        "score": 508,
+        "sharedCacheHits": 9059,
+        "workers": 4,
+        "wallMs": 500.5542999999998
+      }
+    },
+    {
+      "index": 10,
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 7,
+        "done": true,
+        "elapsedMs": 500.2804,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "7869ca7d-df49-49a9-b582-3b6b1e19d336",
+        "nodes": 182507,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          }
+        ],
+        "score": 751,
+        "sharedCacheHits": 113710,
+        "workers": 4,
+        "wallMs": 500.6889999999985
+      },
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 7,
+        "done": true,
+        "elapsedMs": 500.0175,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×4",
+        "id": "f399d251-f44f-474d-8e96-7304237c1bd6",
+        "nodes": 228873,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          }
+        ],
+        "score": 751,
+        "sharedCacheHits": 137592,
+        "workers": 4,
+        "wallMs": 500.422300000002
+      }
+    },
+    {
+      "index": 11,
+      "optimized": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 7,
+        "done": true,
+        "elapsedMs": 500.1046,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 speed · Native Rust ×4",
+        "id": "b4b24c62-2ddd-4954-98ea-e8d4bf20c58b",
+        "nodes": 135953,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          }
+        ],
+        "score": -312,
+        "sharedCacheHits": 73830,
+        "workers": 4,
+        "wallMs": 500.4986000000026
+      },
+      "original": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 7,
+        "done": true,
+        "elapsedMs": 500.00690000000003,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "ef3d414f-6532-44a9-a1ee-6b497dc74626",
+        "nodes": 144163,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          }
+        ],
+        "score": -312,
+        "sharedCacheHits": 81366,
+        "workers": 4,
+        "wallMs": 500.3483000000015
+      }
+    }
+  ],
+  "productionActive": false,
+  "caveat": "Fixed depth uses one core; timed search uses 500ms and four cores. Shared cache hits include multiple cache types, not a transposition-table hit rate."
+}

@@ -3,6 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "speed:build": "node scripts/build-speed.mjs",
+    "speed:benchmark": "node scripts/benchmark-speed.mjs",
+    "speed:evaluate": "node scripts/evaluate-speed.mjs",
+    "speed:verify": "node scripts/verify-speed.mjs",
+    "speed:assess": "node scripts/assess-speed.mjs",
     "play": "node scripts/play.mjs",
     "play:stop": "node scripts/play.mjs --stop",
     "play:shortcuts": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/install-play-shortcuts.ps1",

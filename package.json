@@ -3,6 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "search:boundary-build": "node scripts/build-boundary-order.mjs",
+    "search:boundary-check": "node scripts/check-boundary-order.mjs",
+    "search:boundary-verify": "node scripts/verify-boundary-order.mjs",
+    "search:boundary-ranks": "node scripts/audit-boundary-ranks.mjs",
     "search:order-scope-build": "node scripts/build-response-depth.mjs",
     "search:order-scope-check": "node scripts/check-response-depth.mjs",
     "search:order-scope-verify": "node scripts/verify-response-depth.mjs",

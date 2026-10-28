@@ -6,18 +6,20 @@ import {SpectatorRunner,observationOutcome,replayRecords} from './spectator.js';
 const $=s=>document.querySelector(s),colors=['#31d4c2','#fa7393'],names=['청록','분홍'];
 const defaultCores=Math.min(4,Math.max(1,(navigator.hardwareConcurrency||4)-2));
 let state=initial(),past=[],records=[],serial=0,busy=false,hint=null;
-let pool=new AdaptiveEngine({workers:defaultCores}),watchPools=[null,null],ponderTimer=null;
+let pool=createPlayPool(defaultCores),watchPools=[null,null],ponderTimer=null;
 const watching=()=>$('#mode').value==='watch';
 const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.turn===Number($('#side').value);
 const flipped=()=>Number($('#side').value)===0;
 const viewPosition=p=>orientPosition(p,flipped());
 const viewAction=a=>orientAction(a,flipped());
-const engineName=id=>id==='atlas3'?'Atlas 3':id==='atlas5'?'Atlas 5 Auto':'Atlas 4';
+const engineName=id=>id==='atlas3'?'Atlas 3':id==='atlas5'?'Atlas 5.3 안정':id==='atlas-experiment'?'Atlas 실험 late-full':'Atlas 4 WASM';
+function statusFor(selector){return (status,info)=>{const label=info?.engineInfo;$(selector).textContent=status==='atlas3'?'Atlas 3 사용':status==='atlas4'?'Atlas 4 WASM 사용':status==='native'?`${label?.label??'Atlas Native'} · ${label?.version??info.engine??'Native'}${label?.variant?' · '+label.variant:''}${label?.build?' · '+label.build:''}`:status==='unavailable'?'실험 엔진 사용 불가 · 다른 엔진으로 자동 대체하지 않습니다.':'Atlas 4 WASM 사용 (Native 연결 불가)';};}
+function createPlayPool(workers){const engine=$('#play-engine').value;$('#engine-status').textContent=['atlas4','atlas3'].includes(engine)?(engine==='atlas3'?'Atlas 3':'Atlas 4 WASM')+' 사용':'선택 엔진 확인 중…';return new AdaptiveEngine({workers,engine,onStatus:statusFor('#engine-status')});}
 const escapeHtml=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function watchSettings(t){return {engine:$(`#watch-engine-${t}`).value,ms:Number($(`#watch-time-${t}`).value),cores:Number($(`#watch-cores-${t}`).value)};}
-function watchPool(t){const config=watchSettings(t);if(!watchPools[t])watchPools[t]=new AdaptiveEngine({workers:config.cores,engine:config.engine});return watchPools[t];}
+function watchPool(t){const config=watchSettings(t);if(!watchPools[t]){$(`#watch-engine-status-${t}`).textContent=['atlas3','atlas4'].includes(config.engine)?engineName(config.engine)+' 사용':'선택 엔진 확인 중…';watchPools[t]=new AdaptiveEngine({workers:config.cores,engine:config.engine,onStatus:statusFor(`#watch-engine-status-${t}`)});}return watchPools[t];}
 function cancelWatch(){for(const p of watchPools)p?.cancel();}
-function disposeWatch(){for(const p of watchPools)p?.dispose();watchPools=[null,null];}
+function disposeWatch(){for(const p of watchPools)p?.dispose();watchPools=[null,null];for(const t of [0,1])$(`#watch-engine-status-${t}`).textContent='선택한 엔진은 계산할 때 확인합니다.';}
 const watchOutcome=()=>observationOutcome(state,past);
 const watcher=new SpectatorRunner({
   getState:()=>state,getOutcome:watchOutcome,
@@ -121,7 +123,7 @@ $('#mode').onchange=()=>{stop();clearAnalysis();persist();render();schedule();};
 $('#side').onchange=()=>{stop();persist();render();schedule();};
 $('#time').onchange=()=>{stop();persist();render();schedule();};
 $('#cores').value=String(defaultCores);
-$('#cores').onchange=()=>{stop();pool.dispose();pool=new AdaptiveEngine({workers:Number($('#cores').value)});persist();render();schedule();};
+$('#play-engine').onchange=$('#cores').onchange=()=>{stop();if($('#play-engine').value==='atlas3')$('#cores').value='1';$('#cores').disabled=$('#play-engine').value==='atlas3';pool.dispose();pool=createPlayPool(Number($('#cores').value));clearAnalysis();persist();render();schedule();};
 for(const t of [0,1])for(const field of ['engine','time','cores'])$(`#watch-${field}-${t}`).onchange=()=>{
   stop();if($(`#watch-engine-${t}`).value==='atlas3')$(`#watch-cores-${t}`).value='1';disposeWatch();clearAnalysis();persist();render();
 };
@@ -129,14 +131,15 @@ $('#watch-delay').onchange=()=>{stop();persist();render();};
 $('#watch-start').onclick=()=>{stop();hint=null;watcher.start();};
 $('#watch-pause').onclick=()=>{stop();render();};
 $('#watch-step').onclick=()=>{stop();hint=null;watcher.step();};
-function sessionData(){return {version:2,records,mode:$('#mode').value,side:Number($('#side').value),time:$('#time').value,cores:$('#cores').value,watch:{players:[watchSettings(0),watchSettings(1)],delay:Number($('#watch-delay').value)},result:watching()?watchOutcome():null};}
+function sessionData(){return {version:2,records,mode:$('#mode').value,side:Number($('#side').value),time:$('#time').value,cores:$('#cores').value,engine:$('#play-engine').value,watch:{players:[watchSettings(0),watchSettings(1)],delay:Number($('#watch-delay').value)},result:watching()?watchOutcome():null};}
 function persist(){try{localStorage.setItem('quoridor-session',JSON.stringify(sessionData()));$('#storage-note').hidden=true;}catch{$('#storage-note').hidden=false;$('#storage-note').textContent='자동 저장 공간이 부족합니다. 기보 저장을 이용해 주세요.';}}
 function selectValue(id,value){const element=$(id);if([...element.options].some(option=>option.value===String(value)))element.value=String(value);}
 function restore(data){
   const replay=replayRecords(data);stop();state=replay.state;past=replay.past;records=replay.records;
-  selectValue('#mode',data.mode);selectValue('#side',data.side);selectValue('#time',data.time);selectValue('#cores',data.cores);
+  selectValue('#mode',data.mode);selectValue('#side',data.side);selectValue('#time',data.time);selectValue('#cores',data.cores);selectValue('#play-engine',data.engine??'atlas5');
+  if($('#play-engine').value==='atlas3')$('#cores').value='1';$('#cores').disabled=$('#play-engine').value==='atlas3';
   for(const t of [0,1]){const p=data.watch?.players?.[t];if(!p)continue;selectValue(`#watch-engine-${t}`,p.engine);selectValue(`#watch-time-${t}`,p.ms);selectValue(`#watch-cores-${t}`,p.cores);if($(`#watch-engine-${t}`).value==='atlas3')$(`#watch-cores-${t}`).value='1';}
-  selectValue('#watch-delay',data.watch?.delay);pool.dispose();pool=new AdaptiveEngine({workers:Number($('#cores').value)});disposeWatch();clearAnalysis();persist();render();schedule();
+  selectValue('#watch-delay',data.watch?.delay);pool.dispose();pool=createPlayPool(Number($('#cores').value));disposeWatch();clearAnalysis();persist();render();schedule();
 }
 $('#save').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(sessionData(),null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=watching()?'quoridor-ai-vs-ai.json':'quoridor-game.json';a.click();URL.revokeObjectURL(url);};
 $('#load').onclick=()=>$('#file').click();

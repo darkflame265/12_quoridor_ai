@@ -18,13 +18,17 @@ test('play launcher serves built game, proxies native AI, reuses instance and st
   }
   assert.ok(state?.url,output);assert.equal(state.pid,child.pid);
   const html=await fetch(state.url);assert.equal(html.status,200);assert.match(await html.text(),/<html/);
-  const health=await fetch(state.url+'/api/native/health');assert.equal(health.status,200);assert.equal((await health.json()).service,'quoridor-native-v1');
+  const health=await fetch(state.url+'/api/native/health');assert.equal(health.status,200);const stable=await health.json();assert.equal(stable.service,'quoridor-native-v1');assert.equal(stable.engineInfo.id,'atlas5');
+  const experimental=await fetch(state.url+'/api/experimental/health');assert.equal(experimental.status,200);const candidate=await experimental.json();assert.equal(candidate.engineInfo.id,'atlas-experiment');assert.equal(candidate.engineInfo.variant,'late-full');assert.equal(candidate.engineInfo.promoted,false);assert.notEqual(candidate.engineInfo.version,stable.engineInfo.version);
   assert.equal((await fetch(state.url+'/__app/stop',{method:'POST'})).status,403);
   const duplicate=run();assert.equal(await exited(duplicate),0,output);
   assert.equal(JSON.parse(await readFile(path.join(folder,'running.json'),'utf8')).pid,child.pid);
   const result=await fetch(state.url+'/api/native/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:'launcher-test',session:'launcher-test',state:initial(),ms:25,cores:1})});
   assert.equal(result.status,200);const lines=(await result.text()).trim().split('\n').map(x=>JSON.parse(x));
   assert.ok(lines.some(x=>x.done&&!x.error),JSON.stringify(lines));
+  assert.ok(lines.at(-1).engine.includes(stable.engineInfo.version));
+  const trial=await fetch(state.url+'/api/experimental/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:'experiment-test',session:'launcher-test',state:initial(),ms:25,cores:1})});
+  assert.equal(trial.status,200);const experimentLines=(await trial.text()).trim().split('\n').map(JSON.parse);assert.ok(experimentLines.some(x=>x.done&&!x.error));assert.ok(experimentLines.at(-1).engine.includes(candidate.engineInfo.version));
   const stop=run(['--stop']);assert.equal(await exited(stop),0,output);assert.equal(await done,0,output);
   await assert.rejects(readFile(path.join(folder,'running.json')));
   await assert.rejects(fetch(state.url));

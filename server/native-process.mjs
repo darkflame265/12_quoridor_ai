@@ -4,8 +4,8 @@ import {fileURLToPath} from 'node:url';
 import {randomUUID} from 'node:crypto';
 export const nativeExecutable=fileURLToPath(new URL(`../native-engine/target/release/quoridor-native${process.platform==='win32'?'.exe':''}`,import.meta.url));
 export class NativeProcess{
- constructor({executable=nativeExecutable,profile='baseline'}={}){this.executable=executable;this.profile=profile;this.child=null;this.pending=new Map();this.starts=0;this.closed=false;}
- ensure(){if(this.closed)throw Error('Native process closed');if(this.child)return;const child=spawn(this.executable,[],{stdio:['pipe','pipe','pipe'],windowsHide:true});this.child=child;this.starts++;
+ constructor({executable=nativeExecutable,profile='baseline',env}={}){this.env=env;this.executable=executable;this.profile=profile;this.child=null;this.pending=new Map();this.starts=0;this.closed=false;}
+ ensure(){if(this.closed)throw Error('Native process closed');if(this.child)return;const child=spawn(this.executable,[],{stdio:['pipe','pipe','pipe'],windowsHide:true,env:this.env?{...process.env,...this.env}:process.env});this.child=child;this.starts++;
   const fail=error=>{if(this.child!==child)return;this.child=null;for(const p of this.pending.values()){clearTimeout(p.timer);p.reject(error);}this.pending.clear();};
   child.on('error',fail);child.on('exit',(code,signal)=>fail(Error(`Native process exited (${code??signal})`)));child.stdin.on('error',fail);child.stderr.on('data',()=>{});
   readline.createInterface({input:child.stdout}).on('line',line=>{let r;try{r=JSON.parse(line);}catch{return;}const p=this.pending.get(r.id);if(!p)return;

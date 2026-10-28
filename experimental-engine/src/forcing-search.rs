@@ -36,6 +36,29 @@ pub fn forcing_review(states:&[State])->serde_json::Value {
     serde_json::json!(rows)
 }
 
+pub fn forcing_analysis(states:&[State])->serde_json::Value {
+    let mut rows=vec![];
+    for (index,s) in states.iter().enumerate() {
+        let mut p=Position::from_state(s).unwrap();let key=p.key();let edges=p.edges;
+        let cache=SharedSearch{profile:2,..SharedSearch::default()};
+        let ranked=cache.forcing_ranked(&mut p);
+        let protected:Vec<_>=ranked.iter().filter(|(a,_)|cache.critical_mode(&p,*a,SearchMode::Forcing)).map(|&(a,_)|a).collect();
+        let mut threats=vec![];
+        for target in 0..2 {
+            let fast=cache.fast_potential(&mut p,target,4);
+            let expanded=cache.fast_potential(&mut p,target,8);
+            let full=cache.wall_threat(&mut p,target);
+            let candidates=if target!=p.turn {&protected[..]}else{&[][..]};
+            threats.push(serde_json::json!({"target":target,"fast4":fast,"fast8":expanded,
+                "fullGain":full.gain,"fullDelay":full.delay,"bestWall":full.action,
+                "bestWallProtected":full.action.is_some_and(|a|candidates.contains(&a))}));
+        }
+        assert!(key==p.key());assert_eq!(edges,p.edges);
+        rows.push(serde_json::json!({"index":index,"actions":ranked.len(),"protected":protected,"threats":threats}));
+    }
+    serde_json::json!(rows)
+}
+
 #[cfg(test)]
 mod forcing_tests {
     use super::*;

@@ -17,3 +17,4 @@ pub use core::{geometry_snapshot,geometry_scores};
 pub use core::weight_snapshot;
 pub use core::ranking_benchmark;
 pub use core::forcing_review;
+pub use core::forcing_analysis;

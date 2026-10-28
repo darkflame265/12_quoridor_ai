@@ -1,0 +1,8 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {assessMazeGuardRelease} from '../evaluation/maze-guard-release-policy.mjs';
+function arena(split,pairs){const games=[];for(const suite of ['general','maze'])for(let openingIndex=0;openingIndex<pairs;openingIndex++)for(const candidateSide of [0,1])games.push({suite,openingIndex,candidateSide,replayValidated:true,result:candidateSide===0?'win':'draw'});
+ return {status:'completed',split,pairs,games,identity:{build:'maze'},baseline:'original',baselineBinary:'original',fixtureSeed:split,summary:{win:pairs*2,loss:0},ms:500,cores:4,maxPlies:180,cohort:'search68-v1',tactics:Array.from({length:16},()=>({pass:true})),timing:{candidate:{moves:100,overruns:0}}};}
+test('maze-guard release needs isolated development, 100 paired validation games and separate holdout',()=>{
+ const d={...arena('development',3),baseline:'speed',baselineIdentity:{build:'speed'}},v=arena('validation',25),h=arena('holdout',4),p={identity:{build:'maze'},speedIdentity:{build:'speed'},summary:{fixedChecks:24,allFixedScoresMovesNodesMatch:true,openChecks:7,openResultsIdentical:true}};
+ assert.equal(assessMazeGuardRelease(d,v,h,p).eligible,true);
+ for(const mutate of [x=>x.v.games.pop(),x=>x.h.split='validation',x=>x.h.baseline='speed',x=>x.v.games.filter(g=>g.suite==='maze').forEach(g=>g.result='loss'),x=>x.p.summary.openResultsIdentical=false,x=>x.h.identity.build='changed',x=>x.h.timing.candidate.overruns=5]){const x=structuredClone({d,v,h,p});mutate(x);assert.equal(assessMazeGuardRelease(x.d,x.v,x.h,x.p).eligible,false);}
+});

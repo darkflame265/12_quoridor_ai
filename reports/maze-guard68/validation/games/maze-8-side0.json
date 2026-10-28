@@ -1,0 +1,951 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "type": "move",
+      "x": 4,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 1
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 6
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 2
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 5
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 3
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 1,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 2,
+      "y": 3
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 7,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 2,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "o": "v",
+      "x": 2,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 5,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 4,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 2,
+      "y": 0
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 1,
+      "y": 4
+    },
+    {
+      "type": "wall",
+      "o": "h",
+      "x": 6,
+      "y": 2
+    },
+    {
+      "o": "h",
+      "type": "wall",
+      "x": 3,
+      "y": 1
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 4
+    },
+    {
+      "o": "h",
+      "type": "wall",
+      "x": 4,
+      "y": 7
+    },
+    {
+      "o": "v",
+      "type": "wall",
+      "x": 2,
+      "y": 5
+    },
+    {
+      "o": "v",
+      "type": "wall",
+      "x": 2,
+      "y": 7
+    },
+    {
+      "o": "v",
+      "type": "wall",
+      "x": 3,
+      "y": 4
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 6
+    },
+    {
+      "o": "h",
+      "type": "wall",
+      "x": 4,
+      "y": 3
+    },
+    {
+      "o": "v",
+      "type": "wall",
+      "x": 7,
+      "y": 2
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 5
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 4
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 6
+    },
+    {
+      "type": "move",
+      "x": 5,
+      "y": 4
+    },
+    {
+      "type": "move",
+      "x": 4,
+      "y": 7
+    },
+    {
+      "o": "v",
+      "type": "wall",
+      "x": 3,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 5,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 6,
+      "y": 4
+    },
+    {
+      "type": "move",
+      "x": 6,
+      "y": 7
+    },
+    {
+      "type": "move",
+      "x": 6,
+      "y": 3
+    },
+    {
+      "type": "move",
+      "x": 6,
+      "y": 8
+    }
+  ],
+  "trace": [
+    {
+      "ply": 16,
+      "turn": 0,
+      "role": "candidate",
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 3,
+        "y": 1
+      },
+      "elapsedMs": 500.63099999993574,
+      "depth": 4,
+      "nodes": 61816,
+      "score": -840,
+      "pv": [
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 1
+        }
+      ],
+      "sharedCacheHits": 15139,
+      "endgameHits": 0
+    },
+    {
+      "ply": 17,
+      "turn": 1,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 4
+      },
+      "elapsedMs": 500.5508999999147,
+      "depth": 4,
+      "nodes": 61683,
+      "score": 647,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 5
+        }
+      ],
+      "sharedCacheHits": 3359,
+      "endgameHits": 0
+    },
+    {
+      "ply": 18,
+      "turn": 0,
+      "role": "candidate",
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 4,
+        "y": 7
+      },
+      "elapsedMs": 500.4151000001002,
+      "depth": 4,
+      "nodes": 322933,
+      "score": -988,
+      "pv": [
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 7
+        }
+      ],
+      "sharedCacheHits": 20971,
+      "endgameHits": 0
+    },
+    {
+      "ply": 19,
+      "turn": 1,
+      "role": "baseline",
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 2,
+        "y": 5
+      },
+      "elapsedMs": 500.46590000006836,
+      "depth": 4,
+      "nodes": 35429,
+      "score": 823,
+      "pv": [
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 4
+        }
+      ],
+      "sharedCacheHits": 6597,
+      "endgameHits": 0
+    },
+    {
+      "ply": 20,
+      "turn": 0,
+      "role": "candidate",
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 2,
+        "y": 7
+      },
+      "elapsedMs": 500.2547000000486,
+      "depth": 4,
+      "nodes": 71469,
+      "score": -1032,
+      "pv": [
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 7
+        }
+      ],
+      "sharedCacheHits": 15182,
+      "endgameHits": 0
+    },
+    {
+      "ply": 21,
+      "turn": 1,
+      "role": "baseline",
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 3,
+        "y": 4
+      },
+      "elapsedMs": 500.2896999999648,
+      "depth": 4,
+      "nodes": 37122,
+      "score": 792,
+      "pv": [
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 6
+        }
+      ],
+      "sharedCacheHits": 6668,
+      "endgameHits": 0
+    },
+    {
+      "ply": 22,
+      "turn": 0,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 6
+      },
+      "elapsedMs": 500.33559999999125,
+      "depth": 5,
+      "nodes": 102749,
+      "score": -867,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 6
+        }
+      ],
+      "sharedCacheHits": 23654,
+      "endgameHits": 0
+    },
+    {
+      "ply": 23,
+      "turn": 1,
+      "role": "baseline",
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 4,
+        "y": 3
+      },
+      "elapsedMs": 500.5263000000268,
+      "depth": 4,
+      "nodes": 48050,
+      "score": 912,
+      "pv": [
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        }
+      ],
+      "sharedCacheHits": 6922,
+      "endgameHits": 0
+    },
+    {
+      "ply": 24,
+      "turn": 0,
+      "role": "candidate",
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 7,
+        "y": 2
+      },
+      "elapsedMs": 500.4372999999905,
+      "depth": 5,
+      "nodes": 192110,
+      "score": -1109,
+      "pv": [
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 7,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        }
+      ],
+      "sharedCacheHits": 56809,
+      "endgameHits": 0
+    },
+    {
+      "ply": 25,
+      "turn": 1,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 5
+      },
+      "elapsedMs": 500.34230000001844,
+      "depth": 6,
+      "nodes": 99507,
+      "score": 1308,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        }
+      ],
+      "sharedCacheHits": 32974,
+      "endgameHits": 0
+    },
+    {
+      "ply": 26,
+      "turn": 0,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 4
+      },
+      "elapsedMs": 500.4971999999834,
+      "depth": 5,
+      "nodes": 126919,
+      "score": -1308,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        }
+      ],
+      "sharedCacheHits": 39100,
+      "endgameHits": 0
+    },
+    {
+      "ply": 27,
+      "turn": 1,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 6
+      },
+      "elapsedMs": 500.31380000000354,
+      "depth": 7,
+      "nodes": 229575,
+      "score": 2124,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        }
+      ],
+      "sharedCacheHits": 76701,
+      "endgameHits": 0
+    },
+    {
+      "ply": 28,
+      "turn": 0,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 4
+      },
+      "elapsedMs": 134.37280000001192,
+      "depth": 6,
+      "nodes": 55051,
+      "score": -29992,
+      "pv": [
+        {
+          "type": "move",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 7
+        }
+      ],
+      "sharedCacheHits": 21698,
+      "endgameHits": 0
+    },
+    {
+      "ply": 29,
+      "turn": 1,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "elapsedMs": 66.91490000009071,
+      "depth": 5,
+      "nodes": 26539,
+      "score": 29993,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 7
+        }
+      ],
+      "sharedCacheHits": 9750,
+      "endgameHits": 0
+    },
+    {
+      "ply": 30,
+      "turn": 0,
+      "role": "candidate",
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 3,
+        "y": 7
+      },
+      "elapsedMs": 7.131900000036694,
+      "depth": 4,
+      "nodes": 6610,
+      "score": -29994,
+      "pv": [
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 7
+        }
+      ],
+      "sharedCacheHits": 3328,
+      "endgameHits": 0
+    },
+    {
+      "ply": 31,
+      "turn": 1,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 7
+      },
+      "elapsedMs": 4.132799999904819,
+      "depth": 3,
+      "nodes": 2365,
+      "score": 29995,
+      "pv": [
+        {
+          "type": "move",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 7
+        }
+      ],
+      "sharedCacheHits": 829,
+      "endgameHits": 0
+    },
+    {
+      "ply": 32,
+      "turn": 0,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 6,
+        "y": 4
+      },
+      "elapsedMs": 0.6255999999120831,
+      "depth": 2,
+      "nodes": 90,
+      "score": -29996,
+      "pv": [
+        {
+          "type": "move",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 7
+        }
+      ],
+      "sharedCacheHits": 90,
+      "endgameHits": 0
+    },
+    {
+      "ply": 33,
+      "turn": 1,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 6,
+        "y": 7
+      },
+      "elapsedMs": 0.39020000002346933,
+      "depth": 1,
+      "nodes": 76,
+      "score": 29997,
+      "pv": [
+        {
+          "type": "move",
+          "x": 6,
+          "y": 7
+        }
+      ],
+      "sharedCacheHits": 76,
+      "endgameHits": 0
+    },
+    {
+      "ply": 34,
+      "turn": 0,
+      "role": "candidate",
+      "action": {
+        "type": "move",
+        "x": 6,
+        "y": 3
+      },
+      "elapsedMs": 0.3628999999491498,
+      "depth": 1,
+      "nodes": 4,
+      "score": -29998,
+      "pv": [
+        {
+          "type": "move",
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "sharedCacheHits": 3,
+      "endgameHits": 0
+    },
+    {
+      "ply": 35,
+      "turn": 1,
+      "role": "baseline",
+      "action": {
+        "type": "move",
+        "x": 6,
+        "y": 8
+      },
+      "elapsedMs": 0.1298999999416992,
+      "depth": 1,
+      "nodes": 1,
+      "score": 29999,
+      "pv": [
+        {
+          "type": "move",
+          "x": 6,
+          "y": 8
+        }
+      ],
+      "sharedCacheHits": 0,
+      "endgameHits": 0
+    }
+  ],
+  "winner": 1,
+  "reason": "goal",
+  "result": "loss",
+  "candidateSide": 0,
+  "openingPlies": 16
+}

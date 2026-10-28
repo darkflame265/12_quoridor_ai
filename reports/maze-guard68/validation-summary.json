@@ -1,0 +1,51 @@
+{
+  "source": {
+    "file": "reports\\maze-guard68\\validation\\report.json",
+    "sha256": "ddf416c53b4a3507a79826ed933c488eae9cd852b19aa847f952bbaaedd03c51"
+  },
+  "summary": {
+    "win": 49,
+    "loss": 51,
+    "draw": 0
+  },
+  "bySuite": {
+    "general": {
+      "win": 25,
+      "loss": 25,
+      "draw": 0
+    },
+    "maze": {
+      "win": 24,
+      "loss": 26,
+      "draw": 0
+    }
+  },
+  "decisiveWilson95": [
+    0.3942183009238615,
+    0.5865215952256586
+  ],
+  "roles": {
+    "candidate": {
+      "moves": 2126,
+      "nodes": 359688267,
+      "totalDepth": 9375,
+      "elapsedMs": 591503.4305999991,
+      "sharedCacheHits": 293886766,
+      "endgameHits": 1688130,
+      "averageDepth": 4.409689557855127,
+      "nodesPerSecond": 608091.5991225031
+    },
+    "baseline": {
+      "moves": 2127,
+      "nodes": 299523635,
+      "totalDepth": 9254,
+      "elapsedMs": 589838.9552999914,
+      "sharedCacheHits": 268944499,
+      "endgameHits": 1814305,
+      "averageDepth": 4.3507287259050305,
+      "nodesPerSecond": 507805.78717060597
+    }
+  },
+  "caution": "Arena roles reach different positions; use matched-position benchmark for controlled speed. Wilson excludes draws and does not account for paired-game dependence.",
+  "productionActive": false
+}

@@ -1,5 +1,5 @@
 import {AdaptiveEngine} from './adaptive-engine.js';
-import {orientPosition,orientAction} from './view.js';
+import {orientPosition,orientAction,viewFlipped} from './view.js';
 import {initial,clone,moves,validWall,legal,apply,notation,distance} from './engine.js';
 import {SpectatorRunner,observationOutcome,replayRecords} from './spectator.js';
 
@@ -9,7 +9,7 @@ let state=initial(),past=[],records=[],serial=0,busy=false,hint=null;
 let pool=createPlayPool(defaultCores),watchPools=[null,null],ponderTimer=null;
 const watching=()=>$('#mode').value==='watch';
 const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.turn===Number($('#side').value);
-const flipped=()=>Number($('#side').value)===0;
+const flipped=()=>viewFlipped(Number($('#side').value),$('#start-position').value);
 const viewPosition=p=>orientPosition(p,flipped());
 const viewAction=a=>orientAction(a,flipped());
 const engineName=id=>id==='atlas3'?'Atlas 3':id==='atlas5'?'Atlas 5.3 안정':id==='atlas-experiment'?'Atlas 실험 late-full':'Atlas 4 WASM';
@@ -56,7 +56,7 @@ function drawBoard(){
 }
 function render(){
   const watch=watching(),outcome=watch?watchOutcome():state.winner!==null?{type:'win',winner:state.winner}:null;
-  $('#watch-panel').hidden=!watch;$('#human-settings').hidden=watch;$('#side-label').textContent=watch?'위쪽 진영':'내 진영';
+  $('#watch-panel').hidden=!watch;$('#human-settings').hidden=watch;$('#side-label').textContent=watch?'기준 진영':'내 진영';$('#position-label').textContent=watch?'기준 진영 시작 위치':'내 시작 위치';
   let status=outcome?.type==='win'?`${names[outcome.winner]} 승리!`:outcome?.type==='draw'?'관전 종료 · 무승부':busy?`${names[state.turn]} AI가 수를 읽고 있습니다…`:watch?(watcher.running?'다음 수를 기다리고 있습니다…':`${names[state.turn]} 차례 · 관전 일시정지`):human()?`${names[state.turn]}의 차례`:'AI의 차례';
   $('#status').textContent=status;
   $('#watch-state').textContent=outcome?'종료':watcher.thinking?'계산 중':watcher.running?'자동 진행':'일시정지';
@@ -121,6 +121,7 @@ $('#hint').onclick=()=>think();$('#reset').onclick=resetGame;
 $('#undo').onclick=()=>{stop();if(!past.length)return;do{state=past.pop();records.pop();}while($('#mode').value==='ai'&&past.length&&state.turn!==Number($('#side').value));clearAnalysis();persist();render();schedule();};
 $('#mode').onchange=()=>{stop();clearAnalysis();persist();render();schedule();};
 $('#side').onchange=()=>{stop();persist();render();schedule();};
+$('#start-position').onchange=()=>{persist();render();};
 $('#time').onchange=()=>{stop();persist();render();schedule();};
 $('#cores').value=String(defaultCores);
 $('#play-engine').onchange=$('#cores').onchange=()=>{stop();if($('#play-engine').value==='atlas3')$('#cores').value='1';$('#cores').disabled=$('#play-engine').value==='atlas3';pool.dispose();pool=createPlayPool(Number($('#cores').value));clearAnalysis();persist();render();schedule();};
@@ -131,12 +132,13 @@ $('#watch-delay').onchange=()=>{stop();persist();render();};
 $('#watch-start').onclick=()=>{stop();hint=null;watcher.start();};
 $('#watch-pause').onclick=()=>{stop();render();};
 $('#watch-step').onclick=()=>{stop();hint=null;watcher.step();};
-function sessionData(){return {version:2,records,mode:$('#mode').value,side:Number($('#side').value),time:$('#time').value,cores:$('#cores').value,engine:$('#play-engine').value,watch:{players:[watchSettings(0),watchSettings(1)],delay:Number($('#watch-delay').value)},result:watching()?watchOutcome():null};}
+function sessionData(){return {version:2,records,mode:$('#mode').value,side:Number($('#side').value),startPosition:$('#start-position').value,time:$('#time').value,cores:$('#cores').value,engine:$('#play-engine').value,watch:{players:[watchSettings(0),watchSettings(1)],delay:Number($('#watch-delay').value)},result:watching()?watchOutcome():null};}
 function persist(){try{localStorage.setItem('quoridor-session',JSON.stringify(sessionData()));$('#storage-note').hidden=true;}catch{$('#storage-note').hidden=false;$('#storage-note').textContent='자동 저장 공간이 부족합니다. 기보 저장을 이용해 주세요.';}}
 function selectValue(id,value){const element=$(id);if([...element.options].some(option=>option.value===String(value)))element.value=String(value);}
 function restore(data){
   const replay=replayRecords(data);stop();state=replay.state;past=replay.past;records=replay.records;
   selectValue('#mode',data.mode);selectValue('#side',data.side);selectValue('#time',data.time);selectValue('#cores',data.cores);selectValue('#play-engine',data.engine??'atlas5');
+  selectValue('#start-position',data.startPosition??'top');
   if($('#play-engine').value==='atlas3')$('#cores').value='1';$('#cores').disabled=$('#play-engine').value==='atlas3';
   for(const t of [0,1]){const p=data.watch?.players?.[t];if(!p)continue;selectValue(`#watch-engine-${t}`,p.engine);selectValue(`#watch-time-${t}`,p.ms);selectValue(`#watch-cores-${t}`,p.cores);if($(`#watch-engine-${t}`).value==='atlas3')$(`#watch-cores-${t}`).value='1';}
   selectValue('#watch-delay',data.watch?.delay);pool.dispose();pool=createPlayPool(Number($('#cores').value));disposeWatch();clearAnalysis();persist();render();schedule();

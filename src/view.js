@@ -1,4 +1,7 @@
 ﻿// A 180-degree rotation is its own inverse. Walls use an 8×8 anchor grid.
+export function viewFlipped(side,startPosition='top') {
+  return (side===0)===(startPosition==='top');
+}
 export function orientPosition(position, flipped) {
   return flipped ? {...position, x:8-position.x, y:8-position.y} : {...position};
 }

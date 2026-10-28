@@ -1,15 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {orientPosition,orientAction} from './view.js';
+import {orientPosition,orientAction,viewFlipped} from './view.js';
 import {initial,moves,validWall,apply} from './engine.js';
-test('selected player starts at top with forward move below',()=>{
+test('either player can start at top or bottom with forward moves oriented correctly',()=>{
   const s=initial();
-  for(const side of [0,1]){
-    const flip=side===0;
-    assert.deepEqual(orientPosition(s.p[side],flip),{x:4,y:0});
-    assert.deepEqual(orientPosition(s.p[1-side],flip),{x:4,y:8});
+  for(const side of [0,1])for(const position of ['top','bottom']){
+    const flip=viewFlipped(side,position),row=position==='top'?0:8;
+    assert.deepEqual(orientPosition(s.p[side],flip),{x:4,y:row});
+    assert.deepEqual(orientPosition(s.p[1-side],flip),{x:4,y:8-row});
     const forward=moves(s,side).find(m=>m.x===4);
-    assert.equal(orientAction(forward,flip).y,1);
+    assert.equal(orientAction(forward,flip).y,position==='top'?1:7);
   }
 });
 test('every square and wall anchor round trips without changing orientation or owner',()=>{

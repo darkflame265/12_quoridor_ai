@@ -3,6 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "search:order-scope-build": "node scripts/build-response-depth.mjs",
+    "search:order-scope-check": "node scripts/check-response-depth.mjs",
+    "search:order-scope-verify": "node scripts/verify-response-depth.mjs",
+    "search:order-build": "node scripts/build-response-order.mjs",
+    "search:order-check": "node scripts/check-response-order.mjs",
+    "search:order-verify": "node scripts/verify-response-order.mjs",
     "search:probe-build": "node scripts/build-search-probe.mjs",
     "search:diagnose-budget": "node scripts/diagnose-search-budget.mjs",
     "search:verify-budget": "node scripts/verify-search-budget.mjs",

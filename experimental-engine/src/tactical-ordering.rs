@@ -27,7 +27,7 @@ impl SharedSearch {
             self.hits.fetch_add(1,Ordering::Relaxed);
             return list.iter().map(|&(a,s)|(if flip {mirror_action(a)} else {a},s)).collect();
         }
-        let t=p.turn;let own=p.distance(t,false);let enemy=p.distance(1-t,false);
+        let t=p.turn;let ((own,enemy),path_cuts)=p.ranking_paths();
         let immediate=p.moves(1-t).into_iter().any(|a|goal(a as usize,1-t));
         let urgent=enemy<=2||immediate;let stock=p.left[t];
         let mut actions=p.moves(t);
@@ -37,7 +37,7 @@ impl SharedSearch {
             let connections=if a>=81 {p.ordering_connections(a)} else {0};
             let u=p.make(a);let mut critical=false;
             let score=if p.terminal() {20_000_000} else {
-                let mine=p.distance(t,false);let theirs=p.distance(1-t,false);
+                let mine=p.ranking_distance(t,a,own,&path_cuts);let theirs=p.ranking_distance(1-t,a,enemy,&path_cuts);
                 if mine>=100||theirs>=100 {p.unmake(u);continue;}
                 let net=(theirs-enemy)-(mine-own);
                 let defense=urgent&&(a<81||theirs>enemy);

@@ -8,8 +8,10 @@ mod core {
     include!("tactical-ordering.rs");
     include!("wall-geometry.rs");
     include!("connection-weights.rs");
+    include!("ranking-paths.rs");
 }
 pub use core::{NativeEngine,NativeOutput,State};
 pub use core::evaluation_benchmark;
 pub use core::{geometry_snapshot,geometry_scores};
 pub use core::weight_snapshot;
+pub use core::ranking_benchmark;

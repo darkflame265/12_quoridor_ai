@@ -1,0 +1,1318 @@
+{
+  "format": "atlas-root-guard-arena-v1",
+  "status": "completed",
+  "split": "validation",
+  "pairs": 25,
+  "ms": 500,
+  "cores": 4,
+  "maxPlies": 180,
+  "cohort": "search69-v1",
+  "fixtureSeed": 478139,
+  "identity": {
+    "baselineSourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+    "sources": {
+      "rust-engine/src/lib.rs": "363cd3197f8fc1e21acb20c576d5dac3be4f741e808e9caa963f10bcd3984078",
+      "native-engine/src/lib.rs": "477ba4dfc0bc64536aa47f67ff8e00646c51066e9ad4f54ac409fcd83d24310a",
+      "native-engine/src/search.rs": "4aa7c1703c2d425bec3fe22090243649c40ad92a8a597b2be550b25dd2cfc4a7",
+      "native-engine/src/strategy.rs": "3be980d2aba7889ce5734665a6fb06a8682ef5b64667d120710ccf77e3d88cdf",
+      "native-engine/src/endgame-oracle.rs": "1b65399e328980de658eb6d5628e3fa301fa2ee85892f5dce50c002770b5856d",
+      "native-engine/src/main.rs": "85bd0779574b2331468415215e60e0f8076613367c5de1ed9d790ad4af80b8c4",
+      "native-engine/Cargo.toml": "0e2ace99f5def761ceb9e5bb79fa02e440fa03df9c956e40ad015b7fb28701c2",
+      "native-engine/Cargo.lock": "767b8a0cacf898be5d2d8a0250e18b9ded346252ddf61195adc967b03893af16",
+      "rust-toolchain.toml": "690e8b2d01e4b515848ba8c0cfcb69e54605754c53f29f95eacb61ea7b4fb3b6",
+      "speed-engine/src/ranking-paths.rs": "0b9305232a2013f98f71d9ba333337656362089c6976360127107fb5fb30cb3d",
+      "root-guard-engine/Cargo.toml": "05389f70de9a1d793bea1df363c649928d81569252e1ef5fe8f9d9194d8da521",
+      "root-guard-engine/Cargo.lock": "a4c0e86a896987bb8c9bb235f2cd163f73fda1b41c55c99a84ed375587b4c0f5",
+      "root-guard-engine/build.rs": "0b948252312963be8a1f8328484dd6fd5cdf15657baad22dc1cedfafe3960cd6",
+      "root-guard-engine/src/lib.rs": "b252dc47482505f434f4342cd95dd662519a4e4c1e01c1988b3de1aae4e5a494",
+      "root-guard-engine/src/main.rs": "9b21bec00b094dd347dd49bb481bebdc45898dc9df18ef9f8baf7aedc06af60b",
+      "root-guard-engine/src/root-policy.rs": "2cd3459a52bbe7a90673b7ea50c912f407ad96057f4c6944330da7a1f95a5586",
+      "root-guard-engine/src/bin/branches.rs": "b31a8dff6708923361a24d670f3ce919f48930edc493758606c493e3ce637108"
+    },
+    "binaryHash": "b0b914f4569b9b4029c68d492fcd7421370923a5423de9201e7c36ed8c68c660",
+    "branchBinaryHash": "2328ea1d0a3afce72202de23bca2f41f8464ce16bf46092ee852c41977390b7e"
+  },
+  "mode": "root",
+  "baseline": "original",
+  "baselineIdentity": null,
+  "baselineBinary": "62977fff79e51dcbc5e9de4f463d6db3a26b6c81ba7061e33aa5a08861db061a",
+  "sources": {
+    "scripts/evaluate-root-guard.mjs": "06c34abe0525af5ab0bce17db45aecfb6edb92c6e62f11701ebacf016e35e100",
+    "evaluation/root-guard-policy.mjs": "da95161e00371a46782db711e7e86d94b02e1dc98dc2f71d3155c4f22cc626eb",
+    "evaluation/speed-policy.mjs": "64014a48916a7ae0bb7d2b744375dcdcd057f0616121836f8c2f321589c9c040",
+    "server/native-process.mjs": "fa22f417773a1982a7011399fb6b44db100bb05731fa6ff144c654cd8168eb95",
+    "evaluation/search-fixtures.mjs": "374e417054e210a3b7ae55ff768e8eb428aff063c1e4fc7f2a8c61c65f840e2e",
+    "evaluation/suite.js": "b4d1f0099eafe595deed937b3fdb74924eb5326121e0e0b35663e1af195fd8cb",
+    "src/engine.js": "27f673aeb1ff022aeb961440e0afa4e84477cd855601da29473bfc04530d16c0"
+  },
+  "games": [
+    {
+      "id": "general-0-side0",
+      "suite": "general",
+      "openingIndex": 0,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-0-side0.json",
+      "sha256": "d406d8b7074a1818d279480804981d018fcfaa1131ce213fa8af6d0af800a021",
+      "replayValidated": true
+    },
+    {
+      "id": "general-0-side1",
+      "suite": "general",
+      "openingIndex": 0,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-0-side1.json",
+      "sha256": "268564ddbc145eb7a5a0146d8d365a8c4fbd94bacb458627b67ab67c77855b3d",
+      "replayValidated": true
+    },
+    {
+      "id": "general-1-side0",
+      "suite": "general",
+      "openingIndex": 1,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-1-side0.json",
+      "sha256": "b022b9c49a30568518879b039ac210c6b5dbb95166f382d92c77708048610ee8",
+      "replayValidated": true
+    },
+    {
+      "id": "general-1-side1",
+      "suite": "general",
+      "openingIndex": 1,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-1-side1.json",
+      "sha256": "d0f41a1cd49f360fa2956aed5a7ad4d35a2d73c29866c385c74e54c8c8ef68df",
+      "replayValidated": true
+    },
+    {
+      "id": "general-2-side0",
+      "suite": "general",
+      "openingIndex": 2,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-2-side0.json",
+      "sha256": "d8492d30ab5ade66d2a61d8ac71d97151fcd4a75ed999792fb28e1c5dfdb746f",
+      "replayValidated": true
+    },
+    {
+      "id": "general-2-side1",
+      "suite": "general",
+      "openingIndex": 2,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-2-side1.json",
+      "sha256": "6cc07da4e247f34ad0867c35f2505889b72b339f189b876236382afbce3333a2",
+      "replayValidated": true
+    },
+    {
+      "id": "general-3-side0",
+      "suite": "general",
+      "openingIndex": 3,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-3-side0.json",
+      "sha256": "8e5b33287c85f8f89c5cd25522f0b8fe0c76bb0f9fe558a0ff644b8be2125d3b",
+      "replayValidated": true
+    },
+    {
+      "id": "general-3-side1",
+      "suite": "general",
+      "openingIndex": 3,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-3-side1.json",
+      "sha256": "37793c91a021970f393ca64e775805cdbc34d06bc7f03b835d78d6a5eabc0d5d",
+      "replayValidated": true
+    },
+    {
+      "id": "general-4-side0",
+      "suite": "general",
+      "openingIndex": 4,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-4-side0.json",
+      "sha256": "a98d9efe3f673e514a7c10f243ab867e708e5c979b08f4b1c084104fb3ac2db5",
+      "replayValidated": true
+    },
+    {
+      "id": "general-4-side1",
+      "suite": "general",
+      "openingIndex": 4,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-4-side1.json",
+      "sha256": "1ce753ce2ba1709fe63b5249653c1422d9e2fca3112aade2200a9e9b9d0fa34f",
+      "replayValidated": true
+    },
+    {
+      "id": "general-5-side0",
+      "suite": "general",
+      "openingIndex": 5,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-5-side0.json",
+      "sha256": "c66f865c039a598c122074120ceb26c9767ec8c818b1891328610321ffa991f3",
+      "replayValidated": true
+    },
+    {
+      "id": "general-5-side1",
+      "suite": "general",
+      "openingIndex": 5,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-5-side1.json",
+      "sha256": "f91885f2c91251a825f852ac1086dab2782604dace8fa5d0301be7943fc275ae",
+      "replayValidated": true
+    },
+    {
+      "id": "general-6-side0",
+      "suite": "general",
+      "openingIndex": 6,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-6-side0.json",
+      "sha256": "ca9a67afab54a14206db50d157e4d49aa362a762d2cdd7470f876258b33ec897",
+      "replayValidated": true
+    },
+    {
+      "id": "general-6-side1",
+      "suite": "general",
+      "openingIndex": 6,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-6-side1.json",
+      "sha256": "620deaa62af2da3af9fa836d360c5d530fc1165f60a720afc265cb6d97bcb92e",
+      "replayValidated": true
+    },
+    {
+      "id": "general-7-side0",
+      "suite": "general",
+      "openingIndex": 7,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-7-side0.json",
+      "sha256": "e81ce98c9329479f4f582aa38d203273acb59616ed375cafd06b83d3aeefe12b",
+      "replayValidated": true
+    },
+    {
+      "id": "general-7-side1",
+      "suite": "general",
+      "openingIndex": 7,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-7-side1.json",
+      "sha256": "a95c954d360d6488783a8d7d22c3f23d3ee2e8f992ad287a7a6662633f378a3f",
+      "replayValidated": true
+    },
+    {
+      "id": "general-8-side0",
+      "suite": "general",
+      "openingIndex": 8,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-8-side0.json",
+      "sha256": "fcf95c61c1b56d4d4a7eb51fb7371f15df80749229b2a0fa4da7432408d3dac0",
+      "replayValidated": true
+    },
+    {
+      "id": "general-8-side1",
+      "suite": "general",
+      "openingIndex": 8,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-8-side1.json",
+      "sha256": "4ee2556caa806c56ac69f76c79cc1f40656e2fa8a4c26129bd8beabf2f05fc04",
+      "replayValidated": true
+    },
+    {
+      "id": "general-9-side0",
+      "suite": "general",
+      "openingIndex": 9,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-9-side0.json",
+      "sha256": "ae84c5ca0f2a427cbb5741ba90252fa7b5c3438365786d6f4795903f5acdbd80",
+      "replayValidated": true
+    },
+    {
+      "id": "general-9-side1",
+      "suite": "general",
+      "openingIndex": 9,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-9-side1.json",
+      "sha256": "5751f05a29806b9c930d0366fb77f0573e56c37e1dde061dbdaf58a307289616",
+      "replayValidated": true
+    },
+    {
+      "id": "general-10-side0",
+      "suite": "general",
+      "openingIndex": 10,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-10-side0.json",
+      "sha256": "dc184edf6e3fc1c8eef036cac4f3f14e84e53429120887bc12ea9332dfbfaff9",
+      "replayValidated": true
+    },
+    {
+      "id": "general-10-side1",
+      "suite": "general",
+      "openingIndex": 10,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-10-side1.json",
+      "sha256": "db8cfa55c48f63f46deb943f695d9eae35304e8a4ba5f3cb08aa24540a4255a9",
+      "replayValidated": true
+    },
+    {
+      "id": "general-11-side0",
+      "suite": "general",
+      "openingIndex": 11,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-11-side0.json",
+      "sha256": "09882b04f2c9093c7aa85c24a52986bf06e9d3b757d158971aa97312e271fc57",
+      "replayValidated": true
+    },
+    {
+      "id": "general-11-side1",
+      "suite": "general",
+      "openingIndex": 11,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-11-side1.json",
+      "sha256": "6d27b60d37f36ecad47405a7d45d1fb7e9e2b42d6776dcaf75505e5860327aff",
+      "replayValidated": true
+    },
+    {
+      "id": "general-12-side0",
+      "suite": "general",
+      "openingIndex": 12,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-12-side0.json",
+      "sha256": "488639e875b524ad7e3a81e368cab0a528d6ac1460711894758f678ab5b62da0",
+      "replayValidated": true
+    },
+    {
+      "id": "general-12-side1",
+      "suite": "general",
+      "openingIndex": 12,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-12-side1.json",
+      "sha256": "aca7d3acca77c892068e76df7d3c4371af0683c4b4109af66c7e668ae197a60e",
+      "replayValidated": true
+    },
+    {
+      "id": "general-13-side0",
+      "suite": "general",
+      "openingIndex": 13,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-13-side0.json",
+      "sha256": "d3e0485c08f2236beb526dd42d00087b2ff17293484a700a0909991d5a742832",
+      "replayValidated": true
+    },
+    {
+      "id": "general-13-side1",
+      "suite": "general",
+      "openingIndex": 13,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-13-side1.json",
+      "sha256": "3c5c9c91225add96e830cc3d39aa78edb6c23836fb568ff2ad6559f66a0a8d9a",
+      "replayValidated": true
+    },
+    {
+      "id": "general-14-side0",
+      "suite": "general",
+      "openingIndex": 14,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-14-side0.json",
+      "sha256": "a56b9663d9cdf0f0b48bfe4a36ed4553125f71256b6b82c1edf1163cf2e443c4",
+      "replayValidated": true
+    },
+    {
+      "id": "general-14-side1",
+      "suite": "general",
+      "openingIndex": 14,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-14-side1.json",
+      "sha256": "13cbf19b214c9cd29af77825c45953728ebaeee1c458d874bcaee7d6386c18b5",
+      "replayValidated": true
+    },
+    {
+      "id": "general-15-side0",
+      "suite": "general",
+      "openingIndex": 15,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-15-side0.json",
+      "sha256": "ccaeabd2b9f86b8334cb00ede1f719e719aa4c87a32dacbb0bdd921a7f312d1d",
+      "replayValidated": true
+    },
+    {
+      "id": "general-15-side1",
+      "suite": "general",
+      "openingIndex": 15,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-15-side1.json",
+      "sha256": "3e492b85ff9bd2c4d84d8c2f922d0e8aad8e12fff079c879aa469c6c65f6b89f",
+      "replayValidated": true
+    },
+    {
+      "id": "general-16-side0",
+      "suite": "general",
+      "openingIndex": 16,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-16-side0.json",
+      "sha256": "5254a87ad2bde594e75962df65bacb77c16b7e54adae26267fc13df9f9ea37a2",
+      "replayValidated": true
+    },
+    {
+      "id": "general-16-side1",
+      "suite": "general",
+      "openingIndex": 16,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-16-side1.json",
+      "sha256": "f30ef450b9d3bc54961060084617c695e675b3ea428b1f9198a46119fd0aede2",
+      "replayValidated": true
+    },
+    {
+      "id": "general-17-side0",
+      "suite": "general",
+      "openingIndex": 17,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-17-side0.json",
+      "sha256": "8c80a423844c3dd408e34eb1e6f272456108b65a2f0dc2484341beea19e6b793",
+      "replayValidated": true
+    },
+    {
+      "id": "general-17-side1",
+      "suite": "general",
+      "openingIndex": 17,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-17-side1.json",
+      "sha256": "24cd0476dcf34a9bf2ec56dde45e4ad2087157bb609a3bb288e21a0c4d629f21",
+      "replayValidated": true
+    },
+    {
+      "id": "general-18-side0",
+      "suite": "general",
+      "openingIndex": 18,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-18-side0.json",
+      "sha256": "ace03d919f953ce1a3be887476aa2b384b4b67c7a64c882a5efc03dc05b685f6",
+      "replayValidated": true
+    },
+    {
+      "id": "general-18-side1",
+      "suite": "general",
+      "openingIndex": 18,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-18-side1.json",
+      "sha256": "80f869770d56552056459f946c01022adc94adb379ce4de4b9a9810f0d85de46",
+      "replayValidated": true
+    },
+    {
+      "id": "general-19-side0",
+      "suite": "general",
+      "openingIndex": 19,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-19-side0.json",
+      "sha256": "0b07882c2dc7bd484502a1c3fa3216f419fa55e7e7c41579b0abf8925e1ef706",
+      "replayValidated": true
+    },
+    {
+      "id": "general-19-side1",
+      "suite": "general",
+      "openingIndex": 19,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-19-side1.json",
+      "sha256": "7a194d9b38c3616e8fdd71612088b95e1294efb5698b69786920ea012db7c9a3",
+      "replayValidated": true
+    },
+    {
+      "id": "general-20-side0",
+      "suite": "general",
+      "openingIndex": 20,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-20-side0.json",
+      "sha256": "68802a8010dbecb5a5162251a6e70a26fb755a751869d514f83c6ad6ad14732c",
+      "replayValidated": true
+    },
+    {
+      "id": "general-20-side1",
+      "suite": "general",
+      "openingIndex": 20,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-20-side1.json",
+      "sha256": "eda5ac179695bdbaa5c0a7f250551152c0ffe8aa9bafa0c4544895da2067fd94",
+      "replayValidated": true
+    },
+    {
+      "id": "general-21-side0",
+      "suite": "general",
+      "openingIndex": 21,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-21-side0.json",
+      "sha256": "652aff6d24ff90b0d1ef23d6efe102f82ff4cfd58b4cf160e34ff17ac9500d84",
+      "replayValidated": true
+    },
+    {
+      "id": "general-21-side1",
+      "suite": "general",
+      "openingIndex": 21,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-21-side1.json",
+      "sha256": "40df059ce8f341dfcf56964fda29e8ea9ba96e5b1dc3ea6e5a60a771a2f62ee1",
+      "replayValidated": true
+    },
+    {
+      "id": "general-22-side0",
+      "suite": "general",
+      "openingIndex": 22,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-22-side0.json",
+      "sha256": "c9dbe06c3f90a6fe0b48a39e0a3b21a6b1e6254beaf0146987b591173105f755",
+      "replayValidated": true
+    },
+    {
+      "id": "general-22-side1",
+      "suite": "general",
+      "openingIndex": 22,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-22-side1.json",
+      "sha256": "438212d3df74fe4c60fcf917b63dc82d741b34fa67ddcfeacdd7ae9ca71d2dd6",
+      "replayValidated": true
+    },
+    {
+      "id": "general-23-side0",
+      "suite": "general",
+      "openingIndex": 23,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-23-side0.json",
+      "sha256": "d6ea136224f85be1b2b043451c165528d677e724a0cc97c1b0b7298999cd1322",
+      "replayValidated": true
+    },
+    {
+      "id": "general-23-side1",
+      "suite": "general",
+      "openingIndex": 23,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-23-side1.json",
+      "sha256": "2893872474db7a37f65ac3516e16ffc6b5ff42ad48b301f41d184f8dee692166",
+      "replayValidated": true
+    },
+    {
+      "id": "general-24-side0",
+      "suite": "general",
+      "openingIndex": 24,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/general-24-side0.json",
+      "sha256": "ed5331152ff1edbf3aa0c02a589539610b948c1dde4021869445b9681a879bc3",
+      "replayValidated": true
+    },
+    {
+      "id": "general-24-side1",
+      "suite": "general",
+      "openingIndex": 24,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/general-24-side1.json",
+      "sha256": "a053813970756d9795d18ba899dcf34bfc5ada50c2bafde6ffaeb0e81a495e6e",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-0-side0",
+      "suite": "maze",
+      "openingIndex": 0,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-0-side0.json",
+      "sha256": "093f46c34fb504dba969f5b8fb18ca764877e892aff47aebe9cdd909ef33af8c",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-0-side1",
+      "suite": "maze",
+      "openingIndex": 0,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-0-side1.json",
+      "sha256": "8e402d57444424eb58fca136837acd10bcb223e8cb5a2d66c980b2fb6e6ebad8",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-1-side0",
+      "suite": "maze",
+      "openingIndex": 1,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-1-side0.json",
+      "sha256": "c45b1137cabd0eb96bdcc8f5b7ed8e04ae4676c42580fd74c25e4c8bfdee0da6",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-1-side1",
+      "suite": "maze",
+      "openingIndex": 1,
+      "candidateSide": 1,
+      "result": "draw",
+      "reason": "repetition draw",
+      "file": "games/maze-1-side1.json",
+      "sha256": "027f6009165651a91f8371ddfb2b7c640bf74f034dd0c3a57995757e9d9a6076",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-2-side0",
+      "suite": "maze",
+      "openingIndex": 2,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-2-side0.json",
+      "sha256": "98a1deec7b1b455324f86ed5045a08f15995e71aee65304dd21129fa2e903c1e",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-2-side1",
+      "suite": "maze",
+      "openingIndex": 2,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-2-side1.json",
+      "sha256": "8945702bcb589a13cf6c7aa4a9db470fd660aeef186da45585d1c75aed4d0f58",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-3-side0",
+      "suite": "maze",
+      "openingIndex": 3,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-3-side0.json",
+      "sha256": "8cfcfecf119fd7920ffe2d351dc22ffc60a08937697e54ca9d22c0e6c116c923",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-3-side1",
+      "suite": "maze",
+      "openingIndex": 3,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-3-side1.json",
+      "sha256": "bc1172f16ed0a54535afc1fc616cebfdd3a3072f787c2ed211d0e4e985ca9aca",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-4-side0",
+      "suite": "maze",
+      "openingIndex": 4,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-4-side0.json",
+      "sha256": "b5c7125e04171c7105644721106117ebfb1bb2f36ec06a5cb652514564dd741a",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-4-side1",
+      "suite": "maze",
+      "openingIndex": 4,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-4-side1.json",
+      "sha256": "5c989ef326af4ac782730294870f6b2445228b888710ff4ed2dc4b2cb63a39f4",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-5-side0",
+      "suite": "maze",
+      "openingIndex": 5,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-5-side0.json",
+      "sha256": "cad4796c1b534a60721e4f54c11323ad5cc1df83cef6f3fcc7740f05059e2224",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-5-side1",
+      "suite": "maze",
+      "openingIndex": 5,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-5-side1.json",
+      "sha256": "ad323b4251f4d81b1382bfcf8f658e5d2d184214178b777170870acd4f5066f2",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-6-side0",
+      "suite": "maze",
+      "openingIndex": 6,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-6-side0.json",
+      "sha256": "1d5ed5845cde3802480145fbac398f06ace7480f996c57ed1e0c2a0406731d98",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-6-side1",
+      "suite": "maze",
+      "openingIndex": 6,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-6-side1.json",
+      "sha256": "ed360a7afaf6b43ce464bcfd89926e7937908f6f11163c9d006e98ce498d18c8",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-7-side0",
+      "suite": "maze",
+      "openingIndex": 7,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-7-side0.json",
+      "sha256": "4413ec0f79168266118b113f53099c256b6bb8d0749891f58df3ebad38fcb0d9",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-7-side1",
+      "suite": "maze",
+      "openingIndex": 7,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-7-side1.json",
+      "sha256": "dd2f2ee69f46dca9b1ee63d7d2857b4c81b43ad6b3960dbb51bf79b5f7f383f6",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-8-side0",
+      "suite": "maze",
+      "openingIndex": 8,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-8-side0.json",
+      "sha256": "986590fef9c620112d38098fec8e40bb1638b844d39c785404047307ef5253cc",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-8-side1",
+      "suite": "maze",
+      "openingIndex": 8,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-8-side1.json",
+      "sha256": "bc746a9804d60f2bfa7b715f9b78c33442f39a23f244cde4b9ca38298c310a39",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-9-side0",
+      "suite": "maze",
+      "openingIndex": 9,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-9-side0.json",
+      "sha256": "d2432b64fdcb6dc8cda890180981860f229b3edab0e67967e1d0b6ec7875de38",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-9-side1",
+      "suite": "maze",
+      "openingIndex": 9,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-9-side1.json",
+      "sha256": "89dfba9187e5babcb7b974237d598d1fe6416a80cfd3c7ee5cba1d5cfaa70c9a",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-10-side0",
+      "suite": "maze",
+      "openingIndex": 10,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-10-side0.json",
+      "sha256": "df2fef14ffd3951c15dbef4274580eed39fb28b4fce070bca3d3b97beed79961",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-10-side1",
+      "suite": "maze",
+      "openingIndex": 10,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-10-side1.json",
+      "sha256": "5fb94957a3ed3aac5e587b85173585a644e8aa49effa44f5f189713ee8473589",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-11-side0",
+      "suite": "maze",
+      "openingIndex": 11,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-11-side0.json",
+      "sha256": "54f87729938de2f7815386cc4af2c2c29b51d0133ce8eaa328d8a37dee6999ef",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-11-side1",
+      "suite": "maze",
+      "openingIndex": 11,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-11-side1.json",
+      "sha256": "74a6221c440a14e631357eb5b669afc6c992c382e8e98d2dce67e93f3d55e4d4",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-12-side0",
+      "suite": "maze",
+      "openingIndex": 12,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-12-side0.json",
+      "sha256": "2ed9a3f2d8f50b2dfd1fc0e6357491983d68875b40f6bbfa6108241990d0bd2a",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-12-side1",
+      "suite": "maze",
+      "openingIndex": 12,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-12-side1.json",
+      "sha256": "9c1e43c589388db95c3b036b1c3a7116b84381887792ca89891a2aff178c781f",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-13-side0",
+      "suite": "maze",
+      "openingIndex": 13,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-13-side0.json",
+      "sha256": "8c56b0b84f221aa5857b2c053e8859fabf135a19bc342565e7ec4bfa71f8d4cb",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-13-side1",
+      "suite": "maze",
+      "openingIndex": 13,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-13-side1.json",
+      "sha256": "59198a51499f3fe018620ee6a1131df2577163ab77584ef0a342bf10fb36d956",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-14-side0",
+      "suite": "maze",
+      "openingIndex": 14,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-14-side0.json",
+      "sha256": "73543a3d846a65f5630f72dee0d9554ea3744f7557578fd94de7d366638813b6",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-14-side1",
+      "suite": "maze",
+      "openingIndex": 14,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-14-side1.json",
+      "sha256": "f94ceba0fa5f976076adc03425ba8d06eb85cf744ebaf415d851d5adc39769ab",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-15-side0",
+      "suite": "maze",
+      "openingIndex": 15,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-15-side0.json",
+      "sha256": "0fe9d69a69a5303aead67cf3d855fedadf50e2419dfe78db914677e9c9fb1fb3",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-15-side1",
+      "suite": "maze",
+      "openingIndex": 15,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-15-side1.json",
+      "sha256": "922b18c453b8608b36867d5ea9dce410b939756e3a17f344cece5c7738c1cbc2",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-16-side0",
+      "suite": "maze",
+      "openingIndex": 16,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-16-side0.json",
+      "sha256": "cce68784de5543462702606efb164676f04459935e24ea2a3e7804b5528c3f95",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-16-side1",
+      "suite": "maze",
+      "openingIndex": 16,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-16-side1.json",
+      "sha256": "dc305b5b81f44dc80ec078da202f92858bad1dd63110da8afebf9eafc6c41024",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-17-side0",
+      "suite": "maze",
+      "openingIndex": 17,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-17-side0.json",
+      "sha256": "9aa96935a6772d11d52cacd076b1722fee875585cc08120ebd26640484600dc3",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-17-side1",
+      "suite": "maze",
+      "openingIndex": 17,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-17-side1.json",
+      "sha256": "14fe2c47efb9e25d3b74c54d39fc09017626bc7226026a21a163e28878936ef3",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-18-side0",
+      "suite": "maze",
+      "openingIndex": 18,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-18-side0.json",
+      "sha256": "a9b640f03416488ff1cfe716915ee1c91ed5438db3d39b065c1e951a33a02e04",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-18-side1",
+      "suite": "maze",
+      "openingIndex": 18,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-18-side1.json",
+      "sha256": "2cdfb23f764c78db01f05ab4747ac5d4915670a8dd78d9c2c32fa6aabddd1cbf",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-19-side0",
+      "suite": "maze",
+      "openingIndex": 19,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-19-side0.json",
+      "sha256": "92c026f9313f3ef7bc5867c75972cfbc9a48fc0a22b4fca7cb307c9568590c98",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-19-side1",
+      "suite": "maze",
+      "openingIndex": 19,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-19-side1.json",
+      "sha256": "7f624e4f9bafcd77a084f1e8845480769382a288ad8a11a953de21bb72e10157",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-20-side0",
+      "suite": "maze",
+      "openingIndex": 20,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-20-side0.json",
+      "sha256": "97974946aac0269fced34d658d287123b8100b22ae42255658bf3bc3d9eed92a",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-20-side1",
+      "suite": "maze",
+      "openingIndex": 20,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-20-side1.json",
+      "sha256": "b729e8a9c1d428a3dfae68016258541025005f2aa8e93b3f02ecd3039f02df71",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-21-side0",
+      "suite": "maze",
+      "openingIndex": 21,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-21-side0.json",
+      "sha256": "ab0f329e9704eafd73e8f6a895d60e0ef86e9c7ac02cbe6173a50edf43f08980",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-21-side1",
+      "suite": "maze",
+      "openingIndex": 21,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-21-side1.json",
+      "sha256": "b81fa21c356481508f281c08da87b8dc16b2197eee5c08d38bca3fce7c422d82",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-22-side0",
+      "suite": "maze",
+      "openingIndex": 22,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-22-side0.json",
+      "sha256": "c8db93f77f1a5bc58edd12f8dae701f5845c451e11a7fa5fb4c0ded2881e86ee",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-22-side1",
+      "suite": "maze",
+      "openingIndex": 22,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-22-side1.json",
+      "sha256": "fa9ca1e37df578f0eda302ca793c3f4a0c779ace8f4f94820e93b9bfeb6fb758",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-23-side0",
+      "suite": "maze",
+      "openingIndex": 23,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-23-side0.json",
+      "sha256": "e1eb1919852b3fd29f05ef20b33d094abcdb9dfc6abcb018e6eeb4bc1a1d164e",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-23-side1",
+      "suite": "maze",
+      "openingIndex": 23,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "file": "games/maze-23-side1.json",
+      "sha256": "b196f3e47c49e4e36806c302d6d472b54931dba92e7f61e69e197a92ea1f31a4",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-24-side0",
+      "suite": "maze",
+      "openingIndex": 24,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-24-side0.json",
+      "sha256": "62663c9ed0c445a5d7b814bc09c764f0b8332fd319a26e059a7d30b518a67df1",
+      "replayValidated": true
+    },
+    {
+      "id": "maze-24-side1",
+      "suite": "maze",
+      "openingIndex": 24,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "file": "games/maze-24-side1.json",
+      "sha256": "b448376361bda22c7cf55e245ba252c7ac2d925de96ff2f5380e0aa034d4def5",
+      "replayValidated": true
+    }
+  ],
+  "tactics": [
+    {
+      "id": "finish-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "jump-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 0
+      }
+    },
+    {
+      "id": "defend-0",
+      "pass": true,
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 4,
+        "y": 7
+      }
+    },
+    {
+      "id": "diagonal-0",
+      "pass": true,
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "diagonal-finish-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 0
+      }
+    },
+    {
+      "id": "defend-jump-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "finish-before-defense-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "no-wall-resource-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      }
+    },
+    {
+      "id": "finish-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      }
+    },
+    {
+      "id": "jump-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 8
+      }
+    },
+    {
+      "id": "defend-1",
+      "pass": true,
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 3,
+        "y": 0
+      }
+    },
+    {
+      "id": "diagonal-1",
+      "pass": true,
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "id": "diagonal-finish-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 8
+      }
+    },
+    {
+      "id": "defend-jump-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      }
+    },
+    {
+      "id": "finish-before-defense-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      }
+    },
+    {
+      "id": "no-wall-resource-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 7,
+        "y": 4
+      }
+    }
+  ],
+  "timing": {
+    "candidate": {
+      "moves": 2260,
+      "elapsedMs": 639482.8755999964,
+      "overruns": 0
+    },
+    "baseline": {
+      "moves": 2265,
+      "elapsedMs": 641092.3284000024,
+      "overruns": 0
+    }
+  },
+  "productionActive": false,
+  "summary": {
+    "win": 45,
+    "loss": 54,
+    "draw": 1
+  }
+}

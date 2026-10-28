@@ -1,0 +1,7215 @@
+{
+  "format": "atlas-speed-diagnostics-v1",
+  "status": "completed",
+  "identity": {
+    "speed": {
+      "baselineSourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+      "sources": {
+        "rust-engine/src/lib.rs": "363cd3197f8fc1e21acb20c576d5dac3be4f741e808e9caa963f10bcd3984078",
+        "native-engine/src/lib.rs": "477ba4dfc0bc64536aa47f67ff8e00646c51066e9ad4f54ac409fcd83d24310a",
+        "native-engine/src/search.rs": "4aa7c1703c2d425bec3fe22090243649c40ad92a8a597b2be550b25dd2cfc4a7",
+        "native-engine/src/strategy.rs": "3be980d2aba7889ce5734665a6fb06a8682ef5b64667d120710ccf77e3d88cdf",
+        "native-engine/src/endgame-oracle.rs": "1b65399e328980de658eb6d5628e3fa301fa2ee85892f5dce50c002770b5856d",
+        "native-engine/src/main.rs": "85bd0779574b2331468415215e60e0f8076613367c5de1ed9d790ad4af80b8c4",
+        "native-engine/Cargo.toml": "0e2ace99f5def761ceb9e5bb79fa02e440fa03df9c956e40ad015b7fb28701c2",
+        "native-engine/Cargo.lock": "767b8a0cacf898be5d2d8a0250e18b9ded346252ddf61195adc967b03893af16",
+        "rust-toolchain.toml": "690e8b2d01e4b515848ba8c0cfcb69e54605754c53f29f95eacb61ea7b4fb3b6",
+        "speed-engine/Cargo.toml": "f88b6073e566b84e79011734d0faf4fca8cdbcca80dd1bebc9c702510ac0d8d3",
+        "speed-engine/Cargo.lock": "8df5258e61bed5a122577aa37d73a5b2b4ea1138ef81efbac277c0e4a9ccf3a7",
+        "speed-engine/build.rs": "97f4652b8aac4780e3276889d70b4dac234d8d6126f98b7daac83ce74a42b19d",
+        "speed-engine/src/lib.rs": "82a108a2df5f9188d3e11fa225e2ddfbd0b26fb6221291a9dc25e9fe46a0d5b2",
+        "speed-engine/src/main.rs": "9b21bec00b094dd347dd49bb481bebdc45898dc9df18ef9f8baf7aedc06af60b",
+        "speed-engine/src/ranking-paths.rs": "0b9305232a2013f98f71d9ba333337656362089c6976360127107fb5fb30cb3d"
+      },
+      "binaryHash": "7458652b7abdb19a0f937215261e5a0289faaa633913eddf11348abb28cbcc7c"
+    },
+    "sources": {
+      "rust-engine/src/lib.rs": "363cd3197f8fc1e21acb20c576d5dac3be4f741e808e9caa963f10bcd3984078",
+      "native-engine/src/lib.rs": "477ba4dfc0bc64536aa47f67ff8e00646c51066e9ad4f54ac409fcd83d24310a",
+      "native-engine/src/search.rs": "4aa7c1703c2d425bec3fe22090243649c40ad92a8a597b2be550b25dd2cfc4a7",
+      "native-engine/src/strategy.rs": "3be980d2aba7889ce5734665a6fb06a8682ef5b64667d120710ccf77e3d88cdf",
+      "native-engine/src/endgame-oracle.rs": "1b65399e328980de658eb6d5628e3fa301fa2ee85892f5dce50c002770b5856d",
+      "native-engine/src/main.rs": "85bd0779574b2331468415215e60e0f8076613367c5de1ed9d790ad4af80b8c4",
+      "native-engine/Cargo.toml": "0e2ace99f5def761ceb9e5bb79fa02e440fa03df9c956e40ad015b7fb28701c2",
+      "native-engine/Cargo.lock": "767b8a0cacf898be5d2d8a0250e18b9ded346252ddf61195adc967b03893af16",
+      "rust-toolchain.toml": "690e8b2d01e4b515848ba8c0cfcb69e54605754c53f29f95eacb61ea7b4fb3b6",
+      "speed-engine/src/ranking-paths.rs": "0b9305232a2013f98f71d9ba333337656362089c6976360127107fb5fb30cb3d",
+      "diagnostic-engine/Cargo.toml": "cac677a6aed99c384fa34e6bd969d661d8a26ecd081cc3a67af0fc98d0ddf597",
+      "diagnostic-engine/Cargo.lock": "7e336f9d06169d34eb79178e35164ad60c26ce924e5205a8864a185678b947e2",
+      "diagnostic-engine/build.rs": "1fe63c27b10b0dd43ae32889fafd0dcf20cab49c341803f64e14e19aae502363",
+      "diagnostic-engine/src/lib.rs": "b2f8a6d47c2943181828b0f353aa91c6621824e7521ad2e1a898cb22da236aa6",
+      "diagnostic-engine/src/main.rs": "9b21bec00b094dd347dd49bb481bebdc45898dc9df18ef9f8baf7aedc06af60b",
+      "diagnostic-engine/src/bin/audit.rs": "b70d10cff8439e0a2895e257791df231f7944007592828145671e532affc5715",
+      "scripts/diagnose-speed-losses.mjs": "287b5767e71bcf454390efe07a492fedad410d3fe9b7b6e8b22799aa9bd557ac",
+      "evaluation/speed-diagnosis.mjs": "ba9ac88f1dcffcacc57d3d7eebf09393d4e1b4d23fd8b9a2491aa6a8eb4d2bbf",
+      "evaluation/native-diagnostics.mjs": "2c63bc3e36275c75e6df5ea0ad78723d511178a0840633d8d6f5f8cfc3ad1909",
+      "server/native-process.mjs": "fa22f417773a1982a7011399fb6b44db100bb05731fa6ff144c654cd8168eb95",
+      "src/engine.js": "27f673aeb1ff022aeb961440e0afa4e84477cd855601da29473bfc04530d16c0",
+      "src/search.js": "b0ef55353fba9e2d4ed180ba5ecbb0f22bfca45669c886384a648ecfb81d2795"
+    },
+    "diagnosticBinary": "e784444cb7522326d3ade93be1b09342031a27e406c951eef8aeafa5dbb4ff8e",
+    "auditBinary": "2d548778e9fc15acf7afd76a9fccf47ad3742fd9a7b6cd3bc19e398655c46c81",
+    "originalBinary": "62977fff79e51dcbc5e9de4f463d6db3a26b6c81ba7061e33aa5a08861db061a"
+  },
+  "inputs": [
+    {
+      "file": "reports/speed65/validation/report.json",
+      "sha256": "05f737a246cf9a27c40f9c2663744309c67cd353f78cf78dae225cc6fb252240"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-0-side0.json",
+      "sha256": "0eea9a37d877dfe6d00a45bb2c7c8bf8fe1eb95b410f45f0c14de35aa6a0904e"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-0-side1.json",
+      "sha256": "37af8f81a6a22441bac2df0c904c2e8eef2d3dba62dee66008ba9f3dd5bab8fb"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-1-side0.json",
+      "sha256": "19295e8bdc2852532b3eba0139174d14062b3fd8f986c86a69257f8afb2b1315"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-2-side1.json",
+      "sha256": "99574880517534a668d6c1845d077fa1b182d3217e0aba6fe05399fd1a614790"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-3-side0.json",
+      "sha256": "2d30879c0b9c559ea7c685d3bc22bafb44c8d8d16b7450eead2c4e7c97dd2cd1"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-4-side0.json",
+      "sha256": "63e21fc46eaed2607024a9c0ee69972a80c905ad544fa88b846958a84d6018a8"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-5-side0.json",
+      "sha256": "77c3aa14adf2441d69405210c5c701ec84fec549d6298df528ba2774125b1ad0"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-6-side0.json",
+      "sha256": "c872efd0238673b7532f22ddf5b67757e80667f8ea0df1998d5d5f2984028531"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-7-side0.json",
+      "sha256": "3b43f09f8f771a02916d51185e1bc55ac35a3645c8039eaf62dfd28f832cb004"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-8-side0.json",
+      "sha256": "4a3c519b725e21f652de25b2ab6895fb70820b2567fbc01220c7e9efd98c7156"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-9-side1.json",
+      "sha256": "f8f72685483ed73fa23e7773fa2bcf658fdd5315d50957bbd6ac58b4eb7650c7"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-10-side0.json",
+      "sha256": "f463238deb92715d079fe9dd618841ab82144083e7cecee180c09bad5e86044b"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-11-side1.json",
+      "sha256": "ecaca59ad5bce82626bae7339c9f01596029ed5b877a4893a24453be9d806517"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-12-side1.json",
+      "sha256": "c024c8dfca58aa4e1e96397879106057b4cb27532fae3e36d5c744a442bd9370"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-13-side0.json",
+      "sha256": "cdc48d86eb8e7972b8d8a93b61210c3b744ad89d2d2da0144097b33f0dda0684"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-14-side0.json",
+      "sha256": "712ea67f53035b9d1b929a2704d6a1f6b49f729fcb86cce8a95343b3b7e01aa8"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-15-side0.json",
+      "sha256": "6bc017284c60b8a05a61153d45d11b1193b7affa1374f3059078d5d9a7ea3dcb"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-16-side0.json",
+      "sha256": "1c8eda506eb1f450afd144b97768614b6d51db25fa269767d83dd92590dc4405"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-17-side0.json",
+      "sha256": "c60826237a9e440f8474f5add38e387537f61ad24ba51ef5c8b1bcfc9c95b341"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-18-side0.json",
+      "sha256": "025d827fdb77556956b574d2f8e7ea94f8d4468035ace15314333009343eb2f9"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-19-side1.json",
+      "sha256": "fff103615b169ec374a13f380387558141f39942735902f1a4c62e763f9fe667"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-20-side1.json",
+      "sha256": "d78a88d5660d803cc6ebb75f15b25d257a0a5c6ef404310a136b87811bdf6563"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-21-side0.json",
+      "sha256": "2a906d6be4866c5dba4daea1a7fe79cf6863b9917a862f9b736435cac093f981"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-22-side0.json",
+      "sha256": "ce29d2ae1442c6aecada0592f13a8edb66139f87791372ec8faf6401da65e1c0"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-23-side0.json",
+      "sha256": "9dca0cf87da2172b1c9a1f731fd1cb45e2b348943d39eb09e54a71f3ec8c4162"
+    },
+    {
+      "file": "reports\\speed65\\validation\\games\\maze-24-side0.json",
+      "sha256": "da983a6794060d473ec154930346fe65bb6c8106a7c813167eaf6a24cc5ec03e"
+    }
+  ],
+  "exposedDevelopment": true,
+  "candidatePositions": 212,
+  "config": {
+    "sample": 12,
+    "fixedMs": 15000,
+    "fixedDepths": [
+      3,
+      4
+    ],
+    "shortMs": 500,
+    "longMs": 3000
+  },
+  "positions": [
+    {
+      "id": "maze-0",
+      "source": {
+        "file": "reports\\speed65\\validation\\games\\maze-0-side1.json",
+        "suite": "maze",
+        "id": "maze-0-side1"
+      },
+      "ply": 17,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 7
+          },
+          {
+            "x": 3,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 7,
+            "owner": 0
+          }
+        ],
+        "left": [
+          2,
+          4
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 7
+        }
+      ],
+      "played": {
+        "o": "v",
+        "type": "wall",
+        "x": 5,
+        "y": 6
+      },
+      "suite": "maze",
+      "searches": {
+        "speed3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 41.3354,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 speed · Native Rust ×1",
+          "id": "b4deb2ca-1351-44c7-b991-f620d1795273",
+          "nodes": 2896,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 0
+            }
+          ],
+          "score": -352,
+          "sharedCacheHits": 439,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 41.921599999999955
+        },
+        "selective3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 40.7069,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "f49871fb-69b8-440d-a84a-54b153b84be7",
+          "nodes": 2896,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 0
+            }
+          ],
+          "score": -352,
+          "sharedCacheHits": 439,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 41.36200000000002
+        },
+        "full3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 86.227,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "44e28043-8553-456e-b945-bfebabd5f8b8",
+          "nodes": 7104,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 0
+            }
+          ],
+          "score": -352,
+          "sharedCacheHits": 1883,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 86.72079999999994
+        },
+        "parallel3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 17.354499999999998,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "548c0c98-d88a-4ac5-9446-8d57a89fba23",
+          "nodes": 2894,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 0
+            }
+          ],
+          "score": -352,
+          "sharedCacheHits": 466,
+          "workers": 4,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 17.8365
+        },
+        "selective4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 172.9735,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "982568d2-f839-4cd2-8bbb-97f465dcee63",
+          "nodes": 13791,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            }
+          ],
+          "score": -484,
+          "sharedCacheHits": 3337,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 173.55230000000006
+        },
+        "full4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 308.6816,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "2780a5d0-0b76-44cd-a4d1-3ec2f25e531c",
+          "nodes": 26341,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            }
+          ],
+          "score": -484,
+          "sharedCacheHits": 9433,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 309.16380000000004
+        },
+        "timed4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 5,
+          "done": true,
+          "elapsedMs": 500.01110000000006,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "9faf97ed-0832-4373-9608-ca051bef914c",
+          "nodes": 69254,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 2,
+              "y": 0
+            }
+          ],
+          "score": -352,
+          "sharedCacheHits": 18429,
+          "workers": 4,
+          "requestedMs": 500,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 500.5135
+        },
+        "long4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 6,
+          "done": true,
+          "elapsedMs": 3000.0294999999996,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "7a479477-87ca-46c1-9b37-f319aee999c7",
+          "nodes": 447866,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            }
+          ],
+          "score": -468,
+          "sharedCacheHits": 104674,
+          "workers": 4,
+          "requestedMs": 3000,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 3000.5002999999997
+        }
+      },
+      "staticScore": -573,
+      "threats": [
+        {
+          "bestWall": 88,
+          "full": 2,
+          "sampled": 2,
+          "target": 0,
+          "independentGain": 2
+        },
+        {
+          "bestWall": 141,
+          "full": 1,
+          "sampled": 0,
+          "target": 1,
+          "independentGain": 1
+        }
+      ],
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 1,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-1",
+      "source": {
+        "file": "reports\\speed65\\validation\\games\\maze-0-side0.json",
+        "suite": "maze",
+        "id": "maze-0-side0"
+      },
+      "ply": 12,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 7
+          },
+          {
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 1,
+            "owner": 1
+          }
+        ],
+        "left": [
+          5,
+          5
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 1
+        }
+      ],
+      "played": {
+        "o": "h",
+        "type": "wall",
+        "x": 0,
+        "y": 7
+      },
+      "suite": "maze",
+      "searches": {
+        "speed3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 39.64939999999999,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 speed · Native Rust ×1",
+          "id": "a53ff145-3dcb-4e01-90e0-bcc82e9176f0",
+          "nodes": 3421,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 7
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 7
+            }
+          ],
+          "score": 489,
+          "sharedCacheHits": 414,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 40.368499999999585
+        },
+        "selective3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 39.7861,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "5fd5de61-470d-4a72-b4fc-3cd0bb3e6c3e",
+          "nodes": 3421,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 7
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 7
+            }
+          ],
+          "score": 489,
+          "sharedCacheHits": 414,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 40.51140000000032
+        },
+        "full3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 94.80149999999999,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "df33fc21-7f4f-46f5-be82-5c41a2b629fa",
+          "nodes": 10383,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 7
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 7
+            }
+          ],
+          "score": 489,
+          "sharedCacheHits": 2433,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 95.83600000000024
+        },
+        "parallel3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 15.931199999999999,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "0c8288f5-b097-43e8-95ec-f9561ed0d2a3",
+          "nodes": 3425,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 7
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 7
+            }
+          ],
+          "score": 489,
+          "sharedCacheHits": 414,
+          "workers": 4,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 16.496900000000096
+        },
+        "selective4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 224.0367,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "a0279d46-9b4d-4ab2-a50f-948a20e6c0c8",
+          "nodes": 18973,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 7
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 1
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 0
+            }
+          ],
+          "score": 378,
+          "sharedCacheHits": 3293,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 224.5568999999996
+        },
+        "full4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 553.3143,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "b12afe08-8a28-4048-8102-5e5933e2a0a6",
+          "nodes": 47879,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 1
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 5
+            }
+          ],
+          "score": 370,
+          "sharedCacheHits": 12607,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 553.7680999999993
+        },
+        "timed4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 500.01890000000003,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "d5f8eb1b-eb12-4584-8702-0e8ae6085013",
+          "nodes": 85203,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 7
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 1
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 0
+            }
+          ],
+          "score": 378,
+          "sharedCacheHits": 17279,
+          "workers": 4,
+          "requestedMs": 500,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 500.5147999999999
+        },
+        "long4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 6,
+          "done": true,
+          "elapsedMs": 3000.155,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "b69d9c0e-b9fa-4399-8ee8-6ccaf83f0179",
+          "nodes": 544429,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            }
+          ],
+          "score": 394,
+          "sharedCacheHits": 88224,
+          "workers": 4,
+          "requestedMs": 3000,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 3000.9689000000008
+        }
+      },
+      "staticScore": 204,
+      "threats": [
+        {
+          "bestWall": null,
+          "full": 0,
+          "sampled": 0,
+          "target": 0,
+          "independentGain": 0
+        },
+        {
+          "bestWall": 97,
+          "full": 1,
+          "sampled": 1,
+          "target": 1,
+          "independentGain": 1
+        }
+      ],
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": true,
+          "firstMoveDiffers": true,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": true,
+        "threatOmissions": 0,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-2",
+      "source": {
+        "file": "reports\\speed65\\validation\\games\\maze-0-side1.json",
+        "suite": "maze",
+        "id": "maze-0-side1"
+      },
+      "ply": 13,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 7
+          },
+          {
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "owner": 0
+          }
+        ],
+        "left": [
+          4,
+          5
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 7
+        }
+      ],
+      "played": {
+        "o": "h",
+        "type": "wall",
+        "x": 0,
+        "y": 0
+      },
+      "suite": "maze",
+      "searches": {
+        "speed3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 45.9698,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 speed · Native Rust ×1",
+          "id": "5a21d53d-915f-441d-a60c-1f5bbf0ec0eb",
+          "nodes": 3206,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 3,
+              "y": 1
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 0
+            }
+          ],
+          "score": -378,
+          "sharedCacheHits": 365,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 46.45640000000094
+        },
+        "selective3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 48.3968,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "de01dfd4-0e25-4b70-9a4f-cf900efb133a",
+          "nodes": 3206,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 3,
+              "y": 1
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 0
+            }
+          ],
+          "score": -378,
+          "sharedCacheHits": 365,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 48.89090000000033
+        },
+        "full3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 117.01010000000001,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "f2ced959-93c1-4084-a3df-78008e1a8324",
+          "nodes": 9173,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 0
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 7
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            }
+          ],
+          "score": -272,
+          "sharedCacheHits": 1988,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 117.84699999999975
+        },
+        "parallel3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 20.7133,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "4a666a2d-cd56-4a40-be53-6cc679c2b586",
+          "nodes": 3484,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 3,
+              "y": 1
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 0
+            }
+          ],
+          "score": -378,
+          "sharedCacheHits": 322,
+          "workers": 4,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 21.124499999999898
+        },
+        "selective4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 271.75110000000006,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "e85e2c93-35ab-4238-a3a4-48790c53a4ec",
+          "nodes": 19781,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 0
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 7
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 7
+            }
+          ],
+          "score": -484,
+          "sharedCacheHits": 3474,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 272.7548000000006
+        },
+        "full4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 492.5304,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "6beee246-4d52-40a4-a5af-7082b8688fe5",
+          "nodes": 33076,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "score": -484,
+          "sharedCacheHits": 9187,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 492.90439999999944
+        },
+        "timed4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 5,
+          "done": true,
+          "elapsedMs": 500.5138,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "ff6fe640-7245-4ed7-a808-24ff8b5dccd5",
+          "nodes": 67886,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "score": -352,
+          "sharedCacheHits": 12953,
+          "workers": 4,
+          "requestedMs": 500,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 500.9238999999998
+        },
+        "long4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 5,
+          "done": true,
+          "elapsedMs": 3000.7344,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "6dac1f84-0381-48de-87d3-1ee1670a8d6d",
+          "nodes": 492943,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "score": -352,
+          "sharedCacheHits": 76143,
+          "workers": 4,
+          "requestedMs": 3000,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 3001.1364000000012
+        }
+      },
+      "staticScore": -424,
+      "threats": [
+        {
+          "bestWall": null,
+          "full": 0,
+          "sampled": 0,
+          "target": 0,
+          "independentGain": 0
+        },
+        {
+          "bestWall": 139,
+          "full": 1,
+          "sampled": 1,
+          "target": 1,
+          "independentGain": 1
+        }
+      ],
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": true,
+          "firstMoveDiffers": true,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 0,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-3",
+      "source": {
+        "file": "reports\\speed65\\validation\\games\\maze-1-side0.json",
+        "suite": "maze",
+        "id": "maze-1-side0"
+      },
+      "ply": 16,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 6
+          },
+          {
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 0,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 6,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 7,
+            "y": 5,
+            "owner": 1
+          }
+        ],
+        "left": [
+          4,
+          4
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 6,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 7,
+          "y": 5
+        }
+      ],
+      "played": {
+        "type": "move",
+        "x": 4,
+        "y": 5
+      },
+      "suite": "maze",
+      "searches": {
+        "speed3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 44.3086,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 speed · Native Rust ×1",
+          "id": "3373dac6-ecbc-4930-82a6-1c23fec09b30",
+          "nodes": 3427,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            }
+          ],
+          "score": -37,
+          "sharedCacheHits": 495,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 44.85289999999986
+        },
+        "selective3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 44.4764,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "b8c312de-85cf-449e-bdd9-11e8d9777241",
+          "nodes": 3427,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            }
+          ],
+          "score": -37,
+          "sharedCacheHits": 495,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 45.04900000000089
+        },
+        "full3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 100.5428,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "ecbf7711-03e6-4374-affc-9c7578e12164",
+          "nodes": 9142,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            }
+          ],
+          "score": -37,
+          "sharedCacheHits": 2153,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 101.38910000000033
+        },
+        "parallel3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 21.2161,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "2d619682-4200-4d69-b31a-d74d2785b675",
+          "nodes": 3427,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            }
+          ],
+          "score": -37,
+          "sharedCacheHits": 422,
+          "workers": 4,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 21.629100000000108
+        },
+        "selective4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 661.0129999999999,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "8bf7ee9b-9d91-49b0-b3d0-814483784334",
+          "nodes": 36088,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 3
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 3
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 4
+            }
+          ],
+          "score": -380,
+          "sharedCacheHits": 6717,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 661.535899999999
+        },
+        "full4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 547.8683,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "dbe90a81-e8d5-4397-92b5-97809b06ee2a",
+          "nodes": 36161,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 3
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 3
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 4
+            }
+          ],
+          "score": -380,
+          "sharedCacheHits": 10425,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 548.6325000000015
+        },
+        "timed4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 500.47580000000005,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "b25c1f47-c97e-4d43-9559-e972c2fa5bf9",
+          "nodes": 59492,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 3
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 3
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 4
+            }
+          ],
+          "score": -380,
+          "sharedCacheHits": 9493,
+          "workers": 4,
+          "requestedMs": 500,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 501.07760000000053
+        },
+        "long4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 5,
+          "done": true,
+          "elapsedMs": 3000.0636999999997,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "cc9b3e4d-d955-4558-b548-38edad28af57",
+          "nodes": 327274,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 6
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 3
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 1
+            }
+          ],
+          "score": -208,
+          "sharedCacheHits": 59439,
+          "workers": 4,
+          "requestedMs": 3000,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 3001.1647999999986
+        }
+      },
+      "staticScore": -196,
+      "threats": [
+        {
+          "bestWall": 85,
+          "full": 1,
+          "sampled": 1,
+          "target": 0,
+          "independentGain": 1
+        },
+        {
+          "bestWall": null,
+          "full": 0,
+          "sampled": 0,
+          "target": 1,
+          "independentGain": 0
+        }
+      ],
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": true,
+        "threatOmissions": 0,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-4",
+      "source": {
+        "file": "reports\\speed65\\validation\\games\\maze-2-side1.json",
+        "suite": "maze",
+        "id": "maze-2-side1"
+      },
+      "ply": 21,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 0,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 7,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "owner": 0
+          }
+        ],
+        "left": [
+          2,
+          3
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 7,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 3
+        }
+      ],
+      "played": {
+        "o": "v",
+        "type": "wall",
+        "x": 5,
+        "y": 4
+      },
+      "suite": "maze",
+      "searches": {
+        "speed3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 24.047,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 speed · Native Rust ×1",
+          "id": "6c68a841-991c-4fda-b7d6-079f1a298e5b",
+          "nodes": 1812,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 4
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 0
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 6
+            }
+          ],
+          "score": -800,
+          "sharedCacheHits": 219,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 24.72229999999763
+        },
+        "selective3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 23.2633,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "d98d5f1c-4fbc-4d1a-90d8-6e353b019b76",
+          "nodes": 1812,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 4
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 0
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 6
+            }
+          ],
+          "score": -800,
+          "sharedCacheHits": 219,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 23.852999999999156
+        },
+        "full3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 53.9648,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "676b36c0-f2ce-416f-9432-9bbfabf2d1a2",
+          "nodes": 5588,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 4
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 0
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 6
+            }
+          ],
+          "score": -800,
+          "sharedCacheHits": 1881,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 54.49449999999706
+        },
+        "parallel3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 11.3292,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "00221160-5013-4410-8417-7053824c99da",
+          "nodes": 1823,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 4
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 0
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 6
+            }
+          ],
+          "score": -800,
+          "sharedCacheHits": 170,
+          "workers": 4,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 11.84179999999833
+        },
+        "selective4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 118.79579999999999,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "d63f9b05-afc4-49a4-b4ce-80ac6d755b96",
+          "nodes": 11510,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 4
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 0
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            }
+          ],
+          "score": -944,
+          "sharedCacheHits": 2737,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 119.72560000000158
+        },
+        "full4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 241.0734,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "904cdbd2-fa7e-4767-ac48-5eb36c218000",
+          "nodes": 25953,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 4
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 0
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            }
+          ],
+          "score": -944,
+          "sharedCacheHits": 9287,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 242.54829999999856
+        },
+        "timed4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 5,
+          "done": true,
+          "elapsedMs": 500.5351,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "ec533176-23a1-412f-91e1-d689654ac76c",
+          "nodes": 159590,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 4
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 0
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 5
+            }
+          ],
+          "score": -792,
+          "sharedCacheHits": 35374,
+          "workers": 4,
+          "requestedMs": 500,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 501.26790000000256
+        },
+        "long4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 7,
+          "done": true,
+          "elapsedMs": 3000.258,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "cb5709d6-57f6-418e-9ced-53de8ac4971b",
+          "nodes": 1414884,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 4
+            }
+          ],
+          "score": -792,
+          "sharedCacheHits": 402819,
+          "workers": 4,
+          "requestedMs": 3000,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 3000.798999999999
+        }
+      },
+      "staticScore": -1004,
+      "threats": [
+        {
+          "bestWall": 182,
+          "full": 1,
+          "sampled": 1,
+          "target": 0,
+          "independentGain": 1
+        },
+        {
+          "bestWall": 83,
+          "full": 3,
+          "sampled": 1,
+          "target": 1,
+          "independentGain": 3
+        }
+      ],
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 1,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-5",
+      "source": {
+        "file": "reports\\speed65\\validation\\games\\maze-3-side0.json",
+        "suite": "maze",
+        "id": "maze-3-side0"
+      },
+      "ply": 18,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 7
+          },
+          {
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 2,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          }
+        ],
+        "left": [
+          2,
+          2
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 0
+        }
+      ],
+      "played": {
+        "o": "h",
+        "type": "wall",
+        "x": 7,
+        "y": 7
+      },
+      "suite": "maze",
+      "searches": {
+        "speed3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 27.802500000000002,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 speed · Native Rust ×1",
+          "id": "efd481f0-205b-4dba-a6d4-485015d1d4b5",
+          "nodes": 3001,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 8
+            }
+          ],
+          "score": -140,
+          "sharedCacheHits": 438,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 28.44470000000001
+        },
+        "selective3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 25.3534,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "80c8dfd4-4344-4d96-b820-b97bbbf24e42",
+          "nodes": 3001,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 8
+            }
+          ],
+          "score": -140,
+          "sharedCacheHits": 438,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 25.8804999999993
+        },
+        "full3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 52.637699999999995,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "9f429099-009c-494a-811b-be8817cea1aa",
+          "nodes": 7968,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 8
+            }
+          ],
+          "score": -140,
+          "sharedCacheHits": 2007,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 53.13769999999931
+        },
+        "parallel3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 11.3721,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "be33741b-1661-4e5a-a256-690f073c33e4",
+          "nodes": 2913,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 8
+            }
+          ],
+          "score": -140,
+          "sharedCacheHits": 333,
+          "workers": 4,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 11.90899999999965
+        },
+        "selective4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 235.7447,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "7a857a6b-8782-4f08-a6d1-d3e11300505b",
+          "nodes": 26691,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 6
+            }
+          ],
+          "score": -528,
+          "sharedCacheHits": 6071,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 236.29709999999977
+        },
+        "full4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 177.8185,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "75f0831a-443d-443c-9dc3-72a60d350423",
+          "nodes": 28234,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 5
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 7
+            }
+          ],
+          "score": -528,
+          "sharedCacheHits": 9935,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 178.7428
+        },
+        "timed4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 5,
+          "done": true,
+          "elapsedMs": 500.29580000000004,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "c906eea5-df7a-4867-afbc-7126106ab209",
+          "nodes": 270781,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 5
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 8
+            }
+          ],
+          "score": -396,
+          "sharedCacheHits": 61850,
+          "workers": 4,
+          "requestedMs": 500,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 501.15729999999894
+        },
+        "long4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 7,
+          "done": true,
+          "elapsedMs": 3000.0166,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "372b0103-ef4a-456a-8c0f-8012bf7b8a54",
+          "nodes": 1652048,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            }
+          ],
+          "score": -396,
+          "sharedCacheHits": 490063,
+          "workers": 4,
+          "requestedMs": 3000,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 3000.511999999999
+        }
+      },
+      "staticScore": -264,
+      "threats": [
+        {
+          "bestWall": 86,
+          "full": 1,
+          "sampled": 0,
+          "target": 0,
+          "independentGain": 1
+        },
+        {
+          "bestWall": 136,
+          "full": 1,
+          "sampled": 0,
+          "target": 1,
+          "independentGain": 1
+        }
+      ],
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 2,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-6",
+      "source": {
+        "file": "reports\\speed65\\validation\\games\\maze-4-side0.json",
+        "suite": "maze",
+        "id": "maze-4-side0"
+      },
+      "ply": 14,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 6
+          },
+          {
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 2,
+            "owner": 1
+          }
+        ],
+        "left": [
+          5,
+          5
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 2
+        }
+      ],
+      "played": {
+        "o": "v",
+        "type": "wall",
+        "x": 2,
+        "y": 2
+      },
+      "suite": "maze",
+      "searches": {
+        "speed3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 29.733800000000002,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 speed · Native Rust ×1",
+          "id": "8b688c8c-fba4-4fdb-b382-221b9c7afcbd",
+          "nodes": 2568,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 2
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 6
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 1
+            }
+          ],
+          "score": 465,
+          "sharedCacheHits": 256,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 30.451199999999517
+        },
+        "selective3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 29.455000000000002,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "66ccc115-b26d-4539-a89b-ece37705e9ea",
+          "nodes": 2568,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 2
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 6
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 1
+            }
+          ],
+          "score": 465,
+          "sharedCacheHits": 256,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 29.995100000000093
+        },
+        "full3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 94.67620000000001,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "8f0d2787-fa1f-472f-b3ba-c3fb7f60a7fa",
+          "nodes": 9490,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 2
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 6
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 1
+            }
+          ],
+          "score": 465,
+          "sharedCacheHits": 1805,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 95.35380000000077
+        },
+        "parallel3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 12.966700000000001,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "91c07309-d97d-4f6b-8128-314845a3470f",
+          "nodes": 2550,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 2
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 6
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 1
+            }
+          ],
+          "score": 465,
+          "sharedCacheHits": 174,
+          "workers": 4,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 13.722799999999552
+        },
+        "selective4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 180.638,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "85e036ac-01e4-4a43-9b63-70441d3acdac",
+          "nodes": 16190,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 2
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 1
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 4
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 1
+            }
+          ],
+          "score": 114,
+          "sharedCacheHits": 2053,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 181.11529999999766
+        },
+        "full4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 440.204,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "68d4790a-ef18-45e2-8e53-bb75e91076e5",
+          "nodes": 36527,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 2
+            }
+          ],
+          "score": 114,
+          "sharedCacheHits": 7649,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 440.6322
+        },
+        "timed4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 5,
+          "done": true,
+          "elapsedMs": 500.01649999999995,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "c29dc41a-77a0-4c96-8b92-7c6d23bd6a40",
+          "nodes": 75946,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 2
+            }
+          ],
+          "score": 365,
+          "sharedCacheHits": 11889,
+          "workers": 4,
+          "requestedMs": 500,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 500.4818000000014
+        },
+        "long4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 6,
+          "done": true,
+          "elapsedMs": 3000.0017,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "a786512d-2a99-4755-805c-a583c6f530ce",
+          "nodes": 472132,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 2
+            }
+          ],
+          "score": -4,
+          "sharedCacheHits": 66849,
+          "workers": 4,
+          "requestedMs": 3000,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 3000.3943
+        }
+      },
+      "staticScore": -72,
+      "threats": [
+        {
+          "bestWall": 161,
+          "full": 1,
+          "sampled": 0,
+          "target": 0,
+          "independentGain": 1
+        },
+        {
+          "bestWall": 163,
+          "full": 5,
+          "sampled": 3,
+          "target": 1,
+          "independentGain": 5
+        }
+      ],
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 2,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-7",
+      "source": {
+        "file": "reports\\speed65\\validation\\games\\maze-5-side0.json",
+        "suite": "maze",
+        "id": "maze-5-side0"
+      },
+      "ply": 18,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 0,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 3,
+            "owner": 1
+          }
+        ],
+        "left": [
+          4,
+          4
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 3
+        }
+      ],
+      "played": {
+        "o": "h",
+        "type": "wall",
+        "x": 7,
+        "y": 4
+      },
+      "suite": "maze",
+      "searches": {
+        "speed3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 61.7037,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 speed · Native Rust ×1",
+          "id": "acc88012-b818-44f6-bf5f-a730f8eb29b3",
+          "nodes": 3899,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 2
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 4
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 2
+            }
+          ],
+          "score": -308,
+          "sharedCacheHits": 494,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 62.43010000000504
+        },
+        "selective3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 62.926399999999994,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "670df5ea-f755-41d1-bb7f-b9cd65bc425f",
+          "nodes": 3899,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 2
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 4
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 2
+            }
+          ],
+          "score": -308,
+          "sharedCacheHits": 494,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 63.455000000001746
+        },
+        "full3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 147.10819999999998,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "7d41f9d0-636a-46a5-9e1b-076f0e25bbc7",
+          "nodes": 10269,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 4
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 4
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 2
+            }
+          ],
+          "score": -268,
+          "sharedCacheHits": 1881,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 148.14340000000084
+        },
+        "parallel3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 27.5113,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "548cc3c8-c711-4461-b502-d214e3359815",
+          "nodes": 4278,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 2
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 4
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 2
+            }
+          ],
+          "score": -308,
+          "sharedCacheHits": 537,
+          "workers": 4,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 28.093999999997322
+        },
+        "selective4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 730.8697000000001,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "59b32128-04ba-4f23-a975-4141e09b2e30",
+          "nodes": 43457,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 4
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 3
+            }
+          ],
+          "score": -528,
+          "sharedCacheHits": 7468,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 731.6800000000003
+        },
+        "full4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 1023.3991000000001,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "10476092-d09f-41b7-a43d-b65f760f6094",
+          "nodes": 68002,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 5,
+              "y": 5
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 4
+            },
+            {
+              "type": "move",
+              "x": 5,
+              "y": 6
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 2
+            }
+          ],
+          "score": -681,
+          "sharedCacheHits": 9956,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 1023.9114000000045
+        },
+        "timed4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 500.1411,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "0e554a9e-df56-40fd-b0e9-e4f27c3a0cab",
+          "nodes": 65850,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 4
+            }
+          ],
+          "score": -528,
+          "sharedCacheHits": 9006,
+          "workers": 4,
+          "requestedMs": 500,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 500.55599999999686
+        },
+        "long4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 5,
+          "done": true,
+          "elapsedMs": 3000.2639,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "90f40eac-e933-4f38-8811-aa7ea95923ad",
+          "nodes": 339317,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 4
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 4
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 5
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            }
+          ],
+          "score": -472,
+          "sharedCacheHits": 60310,
+          "workers": 4,
+          "requestedMs": 3000,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 3001.1412000000055
+        }
+      },
+      "staticScore": -436,
+      "threats": [
+        {
+          "bestWall": 101,
+          "full": 3,
+          "sampled": 3,
+          "target": 0,
+          "independentGain": 3
+        },
+        {
+          "bestWall": null,
+          "full": 0,
+          "sampled": 0,
+          "target": 1,
+          "independentGain": 0
+        }
+      ],
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": true,
+          "firstMoveDiffers": true,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": true,
+          "firstMoveDiffers": true,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 0,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-8",
+      "source": {
+        "file": "reports\\speed65\\validation\\games\\maze-6-side0.json",
+        "suite": "maze",
+        "id": "maze-6-side0"
+      },
+      "ply": 16,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 7
+          },
+          {
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 7,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 6,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 3,
+            "owner": 1
+          }
+        ],
+        "left": [
+          3,
+          3
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 7,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 3
+        }
+      ],
+      "played": {
+        "o": "v",
+        "type": "wall",
+        "x": 0,
+        "y": 1
+      },
+      "suite": "maze",
+      "searches": {
+        "speed3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 21.0307,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 speed · Native Rust ×1",
+          "id": "5a56a4c3-3078-4ed0-b523-151f0594c6bd",
+          "nodes": 1861,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            }
+          ],
+          "score": 476,
+          "sharedCacheHits": 211,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 21.45799999999872
+        },
+        "selective3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 20.3464,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "6903e407-cd86-42d5-bf0a-d9e5f2c5d1af",
+          "nodes": 1861,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            }
+          ],
+          "score": 476,
+          "sharedCacheHits": 211,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 20.937700000002224
+        },
+        "full3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 58.0602,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "5dc65d1c-19dc-46df-87f0-1760907bdd3e",
+          "nodes": 7338,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            }
+          ],
+          "score": 476,
+          "sharedCacheHits": 2257,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 58.57509999999456
+        },
+        "parallel3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 11.7057,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "f948625b-6da8-4fc3-8716-40fd5e4d1b3a",
+          "nodes": 1854,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            }
+          ],
+          "score": 476,
+          "sharedCacheHits": 166,
+          "workers": 4,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 12.16870000000199
+        },
+        "selective4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 102.8694,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "dee984e3-16de-4685-8849-6b5f1a0d09a5",
+          "nodes": 11093,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            },
+            {
+              "type": "move",
+              "x": 2,
+              "y": 1
+            }
+          ],
+          "score": 344,
+          "sharedCacheHits": 2836,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 103.29650000000402
+        },
+        "full4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 267.29540000000003,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "32c21ca2-4b81-4a7b-bc36-912dd44f20df",
+          "nodes": 27002,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            },
+            {
+              "type": "move",
+              "x": 2,
+              "y": 1
+            }
+          ],
+          "score": 344,
+          "sharedCacheHits": 10706,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 267.7699999999968
+        },
+        "timed4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 5,
+          "done": true,
+          "elapsedMs": 500.15279999999996,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "91dabd5d-7b51-4da6-9825-73b1910de533",
+          "nodes": 72008,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 6
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 7
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 1
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 7
+            }
+          ],
+          "score": 471,
+          "sharedCacheHits": 22249,
+          "workers": 4,
+          "requestedMs": 500,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 500.8770000000004
+        },
+        "long4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 6,
+          "done": true,
+          "elapsedMs": 3000.0164999999997,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "79cb6b17-3078-4513-b9ad-599dd6d9fdcf",
+          "nodes": 521002,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            }
+          ],
+          "score": 336,
+          "sharedCacheHits": 133371,
+          "workers": 4,
+          "requestedMs": 3000,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 3000.448900000003
+        }
+      },
+      "staticScore": 336,
+      "threats": [
+        {
+          "bestWall": 81,
+          "full": 1,
+          "sampled": 0,
+          "target": 0,
+          "independentGain": 1
+        },
+        {
+          "bestWall": 115,
+          "full": 1,
+          "sampled": 1,
+          "target": 1,
+          "independentGain": 1
+        }
+      ],
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 1,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-9",
+      "source": {
+        "file": "reports\\speed65\\validation\\games\\maze-7-side0.json",
+        "suite": "maze",
+        "id": "maze-7-side0"
+      },
+      "ply": 20,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 6
+          },
+          {
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 2,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 2,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 6,
+            "y": 0,
+            "owner": 1
+          }
+        ],
+        "left": [
+          2,
+          2
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 6,
+          "y": 0
+        }
+      ],
+      "played": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "suite": "maze",
+      "searches": {
+        "speed3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 22.403200000000002,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 speed · Native Rust ×1",
+          "id": "77139d2a-8594-45b1-accc-6d7df9bd1291",
+          "nodes": 1763,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 5
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            }
+          ],
+          "score": -863,
+          "sharedCacheHits": 182,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 23.003600000003644
+        },
+        "selective3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 19.499,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "5d94c401-1128-492e-b6f3-805c6d984f2b",
+          "nodes": 1763,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 5
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            }
+          ],
+          "score": -863,
+          "sharedCacheHits": 182,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 19.93699999999808
+        },
+        "full3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 51.2204,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "cd36655b-416b-4b5f-b3d0-f1ef65ccf5ed",
+          "nodes": 6158,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 5
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            }
+          ],
+          "score": -863,
+          "sharedCacheHits": 723,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 51.926800000001094
+        },
+        "parallel3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 10.8209,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "60ea38cb-2876-44e9-b3ab-4c0869515d89",
+          "nodes": 2001,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 5
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            }
+          ],
+          "score": -863,
+          "sharedCacheHits": 143,
+          "workers": 4,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 11.259699999995064
+        },
+        "selective4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 93.3138,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "4ebd8afb-c4fa-4ed3-92f9-4e04aa2149c1",
+          "nodes": 9928,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 5
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 7
+            }
+          ],
+          "score": -999,
+          "sharedCacheHits": 1191,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 94.0060999999987
+        },
+        "full4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 237.11759999999998,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "7cb4fff0-cb35-48af-8aa7-1d4d71cc58ea",
+          "nodes": 23562,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 5
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 7
+            }
+          ],
+          "score": -999,
+          "sharedCacheHits": 4630,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 237.93769999999495
+        },
+        "timed4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 5,
+          "done": true,
+          "elapsedMs": 500.03149999999994,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "f8317fb9-ef52-419a-9c2a-c113bf40b739",
+          "nodes": 70269,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 4
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 6
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 5
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            }
+          ],
+          "score": -928,
+          "sharedCacheHits": 12681,
+          "workers": 4,
+          "requestedMs": 500,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 501.1648999999961
+        },
+        "long4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 7,
+          "done": true,
+          "elapsedMs": 3000.0128,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "293d1626-5a5f-44ce-84c7-0bd1bfb0ef76",
+          "nodes": 721046,
+          "partitioned": false,
+          "pv": [
+            {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 2
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 7
+            }
+          ],
+          "score": -936,
+          "sharedCacheHits": 151209,
+          "workers": 4,
+          "requestedMs": 3000,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 3000.5062000000034
+        }
+      },
+      "staticScore": -916,
+      "threats": [
+        {
+          "bestWall": 185,
+          "full": 1,
+          "sampled": 0,
+          "target": 0,
+          "independentGain": 1
+        },
+        {
+          "bestWall": null,
+          "full": 0,
+          "sampled": 0,
+          "target": 1,
+          "independentGain": 0
+        }
+      ],
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 1,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-10",
+      "source": {
+        "file": "reports\\speed65\\validation\\games\\maze-8-side0.json",
+        "suite": "maze",
+        "id": "maze-8-side0"
+      },
+      "ply": 16,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 6,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 7,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 4,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 2,
+            "owner": 1
+          }
+        ],
+        "left": [
+          5,
+          5
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 7,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 2
+        }
+      ],
+      "played": {
+        "o": "h",
+        "type": "wall",
+        "x": 3,
+        "y": 2
+      },
+      "suite": "maze",
+      "searches": {
+        "speed3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 41.571799999999996,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 speed · Native Rust ×1",
+          "id": "9ee324d3-7faf-41f2-a6a9-fb616c8b2094",
+          "nodes": 2823,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 2
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 5
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 0
+            }
+          ],
+          "score": 865,
+          "sharedCacheHits": 282,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 42.532500000001164
+        },
+        "selective3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 41.49229999999999,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "22faa302-0320-43fc-8ee8-10c643639a05",
+          "nodes": 2823,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 2
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 5
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 0
+            }
+          ],
+          "score": 865,
+          "sharedCacheHits": 282,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 42.05870000000141
+        },
+        "full3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 139.5195,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "b7cabf7e-2ec7-47f5-8cb8-a683612f050f",
+          "nodes": 10048,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 2
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 5
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 0
+            }
+          ],
+          "score": 865,
+          "sharedCacheHits": 1465,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 140.01550000000134
+        },
+        "parallel3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 16.7986,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "4294f547-0451-4acc-a856-77c0554bdc9f",
+          "nodes": 2825,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 2
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 5
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 0
+            }
+          ],
+          "score": 865,
+          "sharedCacheHits": 280,
+          "workers": 4,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 18.039600000003702
+        },
+        "selective4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 456.3299,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "2e7dde41-6f84-478f-8afc-0c467990c9e7",
+          "nodes": 28302,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 2
+            }
+          ],
+          "score": 464,
+          "sharedCacheHits": 3205,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 456.6712000000043
+        },
+        "full4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 583.5432999999999,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "4592684d-0352-41af-abc3-04cc7e508446",
+          "nodes": 37769,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 2
+            }
+          ],
+          "score": 404,
+          "sharedCacheHits": 5730,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 583.9092000000019
+        },
+        "timed4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 500.01099999999997,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "423b9dd4-6382-42eb-b820-e06e1965eb1f",
+          "nodes": 50103,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 2
+            }
+          ],
+          "score": 464,
+          "sharedCacheHits": 5904,
+          "workers": 4,
+          "requestedMs": 500,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 500.3775000000023
+        },
+        "long4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 5,
+          "done": true,
+          "elapsedMs": 3000.079,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "1dbf2d7e-ffb9-465d-ba64-f1ccda8443b7",
+          "nodes": 232081,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 2
+            }
+          ],
+          "score": 740,
+          "sharedCacheHits": 31598,
+          "workers": 4,
+          "requestedMs": 3000,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 3000.4549000000043
+        }
+      },
+      "staticScore": 328,
+      "threats": [
+        {
+          "bestWall": 187,
+          "full": 2,
+          "sampled": 2,
+          "target": 0,
+          "independentGain": 2
+        },
+        {
+          "bestWall": 105,
+          "full": 3,
+          "sampled": 3,
+          "target": 1,
+          "independentGain": 3
+        }
+      ],
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": true,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 0,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-11",
+      "source": {
+        "file": "reports\\speed65\\validation\\games\\maze-9-side1.json",
+        "suite": "maze",
+        "id": "maze-9-side1"
+      },
+      "ply": 15,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 7
+          },
+          {
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 3,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 0,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 0,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 1,
+            "y": 1,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 7,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 1,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "owner": 0
+          }
+        ],
+        "left": [
+          3,
+          4
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "records": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 2
+        }
+      ],
+      "played": {
+        "o": "h",
+        "type": "wall",
+        "x": 7,
+        "y": 0
+      },
+      "suite": "maze",
+      "searches": {
+        "speed3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 20.936200000000003,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 speed · Native Rust ×1",
+          "id": "f74624ac-a32e-415f-b3bf-f2d4dae4c653",
+          "nodes": 1955,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            },
+            {
+              "type": "move",
+              "x": 5,
+              "y": 1
+            }
+          ],
+          "score": -932,
+          "sharedCacheHits": 199,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 21.340200000006007
+        },
+        "selective3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 19.812099999999997,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "dea92e28-43fa-4790-ad4c-e858f8b286c4",
+          "nodes": 1955,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            },
+            {
+              "type": "move",
+              "x": 5,
+              "y": 1
+            }
+          ],
+          "score": -932,
+          "sharedCacheHits": 199,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 20.22690000000148
+        },
+        "full3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 59.6815,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "cd0200fb-a027-4abd-8a2a-23a3c7e7ecdb",
+          "nodes": 7004,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            },
+            {
+              "type": "move",
+              "x": 5,
+              "y": 1
+            }
+          ],
+          "score": -932,
+          "sharedCacheHits": 1494,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 60.11970000000292
+        },
+        "parallel3": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 3,
+          "done": true,
+          "elapsedMs": 12.406699999999999,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "c8715821-139b-4ab6-8070-95fa2706ea05",
+          "nodes": 2121,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            },
+            {
+              "type": "move",
+              "x": 5,
+              "y": 1
+            }
+          ],
+          "score": -932,
+          "sharedCacheHits": 204,
+          "workers": 4,
+          "requestedMs": 15000,
+          "maxDepth": 3,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 12.942900000001828
+        },
+        "selective4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 112.5612,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "c2f348a9-ba72-4ffc-bb78-dbb4f140a7fc",
+          "nodes": 11601,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            },
+            {
+              "type": "move",
+              "x": 5,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            }
+          ],
+          "score": -1064,
+          "sharedCacheHits": 2107,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": false,
+          "wallMs": 112.98750000000291
+        },
+        "full4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 4,
+          "done": true,
+          "elapsedMs": 264.88800000000003,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×1",
+          "id": "c9dcc4e0-28a3-4a9e-a03b-cdd6fde1c763",
+          "nodes": 26007,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            },
+            {
+              "type": "move",
+              "x": 5,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            }
+          ],
+          "score": -1064,
+          "sharedCacheHits": 7642,
+          "workers": 1,
+          "requestedMs": 15000,
+          "maxDepth": 4,
+          "requestedCores": 1,
+          "fullWidth": true,
+          "wallMs": 265.5535999999993
+        },
+        "timed4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 5,
+          "done": true,
+          "elapsedMs": 500.0429,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "aa96e01e-fb47-4f8f-8e22-fdc891c1f5e2",
+          "nodes": 73174,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            },
+            {
+              "type": "move",
+              "x": 5,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 6
+            }
+          ],
+          "score": -916,
+          "sharedCacheHits": 18857,
+          "workers": 4,
+          "requestedMs": 500,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 500.64570000000094
+        },
+        "long4": {
+          "backend": "native",
+          "cancelled": false,
+          "depth": 6,
+          "done": true,
+          "elapsedMs": 3000.0062000000003,
+          "endgameHits": 0,
+          "endgameSolves": 0,
+          "engine": "Atlas 5.3 diagnostic · Native Rust ×4",
+          "id": "d113ad86-c688-498c-bde8-3ef999beaaa8",
+          "nodes": 492742,
+          "partitioned": false,
+          "pv": [
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 7
+            },
+            {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 6
+            },
+            {
+              "o": "h",
+              "type": "wall",
+              "x": 1,
+              "y": 2
+            },
+            {
+              "type": "move",
+              "x": 5,
+              "y": 1
+            },
+            {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            }
+          ],
+          "score": -996,
+          "sharedCacheHits": 90584,
+          "workers": 4,
+          "requestedMs": 3000,
+          "maxDepth": 40,
+          "requestedCores": 4,
+          "fullWidth": false,
+          "wallMs": 3000.631500000003
+        }
+      },
+      "staticScore": -885,
+      "threats": [
+        {
+          "bestWall": null,
+          "full": 0,
+          "sampled": 0,
+          "target": 0,
+          "independentGain": 0
+        },
+        {
+          "bestWall": 87,
+          "full": 3,
+          "sampled": 0,
+          "target": 1,
+          "independentGain": 3
+        }
+      ],
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": true,
+        "threatOmissions": 1,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    }
+  ],
+  "productionActive": false,
+  "summary": {
+    "positions": 12,
+    "selective3ScoreDifferences": 2,
+    "selective4ScoreDifferences": 3,
+    "coreScoreDifferences": 0,
+    "timeActionChanges": 3,
+    "threatOmissions": 9
+  }
+}

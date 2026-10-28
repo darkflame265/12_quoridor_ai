@@ -1,0 +1,125 @@
+{
+  "source": {
+    "file": "reports\\speed65\\validation\\games\\maze-0-side1.json",
+    "suite": "maze",
+    "id": "maze-0-side1"
+  },
+  "ply": 13,
+  "state": {
+    "p": [
+      {
+        "x": 4,
+        "y": 7
+      },
+      {
+        "x": 4,
+        "y": 1
+      }
+    ],
+    "walls": [
+      {
+        "type": "wall",
+        "o": "h",
+        "x": 4,
+        "y": 4,
+        "owner": 0
+      },
+      {
+        "type": "wall",
+        "o": "v",
+        "x": 5,
+        "y": 4,
+        "owner": 1
+      },
+      {
+        "type": "wall",
+        "o": "h",
+        "x": 3,
+        "y": 1,
+        "owner": 0
+      },
+      {
+        "type": "wall",
+        "o": "v",
+        "x": 5,
+        "y": 2,
+        "owner": 1
+      },
+      {
+        "type": "wall",
+        "o": "h",
+        "x": 3,
+        "y": 2,
+        "owner": 0
+      },
+      {
+        "type": "wall",
+        "o": "v",
+        "x": 4,
+        "y": 0,
+        "owner": 1
+      },
+      {
+        "type": "wall",
+        "o": "h",
+        "x": 5,
+        "y": 0,
+        "owner": 0
+      },
+      {
+        "type": "wall",
+        "o": "h",
+        "x": 5,
+        "y": 1,
+        "owner": 1
+      },
+      {
+        "type": "wall",
+        "o": "v",
+        "x": 4,
+        "y": 2,
+        "owner": 0
+      },
+      {
+        "type": "wall",
+        "o": "h",
+        "x": 1,
+        "y": 1,
+        "owner": 1
+      },
+      {
+        "o": "h",
+        "type": "wall",
+        "x": 0,
+        "y": 7,
+        "owner": 0
+      }
+    ],
+    "left": [
+      4,
+      5
+    ],
+    "turn": 1,
+    "winner": null
+  },
+  "maxDepth": 3,
+  "cores": 1,
+  "selective": {
+    "score": -378,
+    "action": {
+      "type": "move",
+      "x": 3,
+      "y": 1
+    }
+  },
+  "fullWidth": {
+    "score": -272,
+    "action": {
+      "o": "h",
+      "type": "wall",
+      "x": 0,
+      "y": 0
+    }
+  },
+  "warning": "Exposed development fixture; full-width reference uses the same heuristic and is not a game-solving oracle."
+}

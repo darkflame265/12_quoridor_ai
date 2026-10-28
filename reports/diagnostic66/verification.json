@@ -1,0 +1,344 @@
+{
+  "verifiedPositions": 12,
+  "reportSha256": "cd2933414963195a109605e6633faddfdf114d8500e687b8950b45180aafccda",
+  "verifierSha256": "5cd40ed84633b48500fb4b8043cf0c4abf37219cdb8820b437f64624657183a1",
+  "fixtures": [
+    {
+      "id": "maze-0",
+      "file": "cases/maze-0.json",
+      "sha256": "f50ec1258095471967307a4ab643d191e4aa8915f112e83b5bd8f45b92ddf305",
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 1,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-1",
+      "file": "cases/maze-1.json",
+      "sha256": "f265165e11b0bb68fa104be77d76d151dde7a8734d0f45570c2578a7ee6bdf3a",
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": true,
+          "firstMoveDiffers": true,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": true,
+        "threatOmissions": 0,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-2",
+      "file": "cases/maze-2.json",
+      "sha256": "67b107ae413b51e83688281fe06f7fe0d2c1ba65559b7aaa2586e054046e895d",
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": true,
+          "firstMoveDiffers": true,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 0,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-3",
+      "file": "cases/maze-3.json",
+      "sha256": "13b703fd26da9a4061b13152281ba04080d2e19b7f711745ce0de283265a21f0",
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": true,
+        "threatOmissions": 0,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-4",
+      "file": "cases/maze-4.json",
+      "sha256": "c73ec0f0b4e307d8bd19d410b14457f67bd25a1f6b33a2183feeb00074458f3c",
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 1,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-5",
+      "file": "cases/maze-5.json",
+      "sha256": "5ca5467487d9dd28f45affc7c30ab3de72e48e51dd4bb98ab19d0e84bc4243c2",
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 2,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-6",
+      "file": "cases/maze-6.json",
+      "sha256": "6e994eedd38073e133ac8850718c818218483da82b79d295ec6bb5faf6bb2ffb",
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 2,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-7",
+      "file": "cases/maze-7.json",
+      "sha256": "9ddc6e58d1344404616c53a385bb44d6a8683860068e878591787890c9327ec6",
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": true,
+          "firstMoveDiffers": true,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": true,
+          "firstMoveDiffers": true,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 0,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-8",
+      "file": "cases/maze-8.json",
+      "sha256": "38b9e2bce2d34fe5c9e841f47c74e12531ed15060d43603cef5e1f8d5a3bca4d",
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 1,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-9",
+      "file": "cases/maze-9.json",
+      "sha256": "de008600a37c6840a1d95e1fb4d74d5ed11e21991b9715ed2d01a487dae700aa",
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 1,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-10",
+      "file": "cases/maze-10.json",
+      "sha256": "1ac0ce07c1aade686a16709eb4b6adb7c9d17a6ac802c2182f02ecf27d10bd8e",
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": true,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": false,
+        "threatOmissions": 0,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    },
+    {
+      "id": "maze-11",
+      "file": "cases/maze-11.json",
+      "sha256": "f96bb229612351428b57d034bb4a0dcf6e4fcdb18a2b0810720b68de2b34971e",
+      "diagnosis": {
+        "selective3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "selective4": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "cores3": {
+          "comparable": true,
+          "scoreDiffers": false,
+          "firstMoveDiffers": false,
+          "tiedAlternative": false
+        },
+        "timeActionChanges": true,
+        "threatOmissions": 1,
+        "warning": "Fixed-depth full-width is a reference under the same heuristic, not a proof of the game outcome. Core and time differences alone do not prove an error."
+      }
+    }
+  ],
+  "productionActive": false
+}

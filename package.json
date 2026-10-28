@@ -3,6 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "strategy:check": "node scripts/check-strategy-book.mjs",
+    "strategy:depth": "node scripts/check-strategy-book-depth.mjs",
+    "strategy:verify": "node scripts/verify-strategy-book.mjs",
     "speed:build": "node scripts/build-speed.mjs",
     "speed:benchmark": "node scripts/benchmark-speed.mjs",
     "speed:evaluate": "node scripts/evaluate-speed.mjs",

@@ -1,0 +1,889 @@
+{
+  "sourceReportSha256": "30769c26ba074ca6a1cbc899e39249cfff16db4029ff888b7704187fc6ef82e7",
+  "scriptSha256": "49b3b9964c653b1240769786749f26612667cb2d5e8a3511c0ff201103afbe08",
+  "identity": {
+    "baselineSourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+    "sources": {
+      "rust-engine/src/lib.rs": "363cd3197f8fc1e21acb20c576d5dac3be4f741e808e9caa963f10bcd3984078",
+      "native-engine/src/lib.rs": "477ba4dfc0bc64536aa47f67ff8e00646c51066e9ad4f54ac409fcd83d24310a",
+      "native-engine/src/search.rs": "4aa7c1703c2d425bec3fe22090243649c40ad92a8a597b2be550b25dd2cfc4a7",
+      "native-engine/src/strategy.rs": "3be980d2aba7889ce5734665a6fb06a8682ef5b64667d120710ccf77e3d88cdf",
+      "native-engine/src/endgame-oracle.rs": "1b65399e328980de658eb6d5628e3fa301fa2ee85892f5dce50c002770b5856d",
+      "native-engine/src/main.rs": "85bd0779574b2331468415215e60e0f8076613367c5de1ed9d790ad4af80b8c4",
+      "native-engine/Cargo.toml": "0e2ace99f5def761ceb9e5bb79fa02e440fa03df9c956e40ad015b7fb28701c2",
+      "native-engine/Cargo.lock": "767b8a0cacf898be5d2d8a0250e18b9ded346252ddf61195adc967b03893af16",
+      "rust-toolchain.toml": "690e8b2d01e4b515848ba8c0cfcb69e54605754c53f29f95eacb61ea7b4fb3b6",
+      "speed-engine/src/ranking-paths.rs": "0b9305232a2013f98f71d9ba333337656362089c6976360127107fb5fb30cb3d",
+      "root-guard-engine/Cargo.toml": "05389f70de9a1d793bea1df363c649928d81569252e1ef5fe8f9d9194d8da521",
+      "root-guard-engine/Cargo.lock": "a4c0e86a896987bb8c9bb235f2cd163f73fda1b41c55c99a84ed375587b4c0f5",
+      "root-guard-engine/build.rs": "0b948252312963be8a1f8328484dd6fd5cdf15657baad22dc1cedfafe3960cd6",
+      "root-guard-engine/src/lib.rs": "b252dc47482505f434f4342cd95dd662519a4e4c1e01c1988b3de1aae4e5a494",
+      "root-guard-engine/src/main.rs": "9b21bec00b094dd347dd49bb481bebdc45898dc9df18ef9f8baf7aedc06af60b",
+      "root-guard-engine/src/root-policy.rs": "2cd3459a52bbe7a90673b7ea50c912f407ad96057f4c6944330da7a1f95a5586",
+      "root-guard-engine/src/bin/branches.rs": "b31a8dff6708923361a24d670f3ce919f48930edc493758606c493e3ce637108"
+    },
+    "binaryHash": "b0b914f4569b9b4029c68d492fcd7421370923a5423de9201e7c36ed8c68c660",
+    "branchBinaryHash": "2328ea1d0a3afce72202de23bca2f41f8464ce16bf46092ee852c41977390b7e"
+  },
+  "summary": {
+    "depth": 4,
+    "positions": 30,
+    "fastInferior": 15,
+    "fastSameDepthPositions": 15,
+    "fastSameDepthInferior": 0,
+    "longInferior": 3
+  },
+  "rows": [
+    {
+      "id": "inside-edge/balanced/normal",
+      "reference": {
+        "actions": [
+          {
+            "action": 126,
+            "elapsedMs": 156.9806,
+            "nodes": 13013,
+            "score": -528,
+            "tacticalProtected": false
+          },
+          {
+            "action": 128,
+            "elapsedMs": 139.98819999999998,
+            "nodes": 13844,
+            "score": -592,
+            "tacticalProtected": false
+          },
+          {
+            "action": 136,
+            "elapsedMs": 152.2511,
+            "nodes": 13348,
+            "score": -528,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 4,
+      "fastGap": 0,
+      "longDepth": 4,
+      "longGap": 64
+    },
+    {
+      "id": "inside-edge/balanced/rotated",
+      "reference": {
+        "actions": [
+          {
+            "action": 99,
+            "elapsedMs": 137.8673,
+            "nodes": 13016,
+            "score": -528,
+            "tacticalProtected": false
+          },
+          {
+            "action": 97,
+            "elapsedMs": 157.4403000000001,
+            "nodes": 13443,
+            "score": -592,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 3,
+      "fastGap": 64,
+      "longDepth": 4,
+      "longGap": 64
+    },
+    {
+      "id": "inside-edge/attacker-poor/normal",
+      "reference": {
+        "actions": [
+          {
+            "action": 126,
+            "elapsedMs": 151.25349999999992,
+            "nodes": 13013,
+            "score": -691,
+            "tacticalProtected": false
+          },
+          {
+            "action": 128,
+            "elapsedMs": 154.78469999999993,
+            "nodes": 13844,
+            "score": -755,
+            "tacticalProtected": false
+          },
+          {
+            "action": 136,
+            "elapsedMs": 154.96370000000002,
+            "nodes": 13348,
+            "score": -691,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 4,
+      "fastGap": 0,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "inside-edge/attacker-poor/rotated",
+      "reference": {
+        "actions": [
+          {
+            "action": 99,
+            "elapsedMs": 151.87980000000016,
+            "nodes": 13016,
+            "score": -691,
+            "tacticalProtected": false
+          },
+          {
+            "action": 97,
+            "elapsedMs": 149.23119999999994,
+            "nodes": 13443,
+            "score": -755,
+            "tacticalProtected": false
+          },
+          {
+            "action": 81,
+            "elapsedMs": 174.25260000000003,
+            "nodes": 13375,
+            "score": -699,
+            "tacticalProtected": true
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 3,
+      "fastGap": 8,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "inside-edge/defender-poor/normal",
+      "reference": {
+        "actions": [
+          {
+            "action": 126,
+            "elapsedMs": 148.10800000000017,
+            "nodes": 13013,
+            "score": -365,
+            "tacticalProtected": false
+          },
+          {
+            "action": 128,
+            "elapsedMs": 160.41129999999976,
+            "nodes": 13844,
+            "score": -429,
+            "tacticalProtected": false
+          },
+          {
+            "action": 136,
+            "elapsedMs": 160.37980000000016,
+            "nodes": 13348,
+            "score": -365,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 4,
+      "fastGap": 0,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "inside-edge/defender-poor/rotated",
+      "reference": {
+        "actions": [
+          {
+            "action": 99,
+            "elapsedMs": 143.76839999999993,
+            "nodes": 13016,
+            "score": -365,
+            "tacticalProtected": false
+          },
+          {
+            "action": 97,
+            "elapsedMs": 144.26119999999992,
+            "nodes": 13443,
+            "score": -429,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 3,
+      "fastGap": 64,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "chamber-horizontal/balanced/normal",
+      "reference": {
+        "actions": [
+          {
+            "action": 119,
+            "elapsedMs": 108.15250000000015,
+            "nodes": 9757,
+            "score": -771,
+            "tacticalProtected": true
+          },
+          {
+            "action": 58,
+            "elapsedMs": 115.17309999999998,
+            "nodes": 11617,
+            "score": -883,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 3,
+      "fastGap": 112,
+      "longDepth": 5,
+      "longGap": 0
+    },
+    {
+      "id": "chamber-horizontal/balanced/rotated",
+      "reference": {
+        "actions": [
+          {
+            "action": 106,
+            "elapsedMs": 103.47659999999996,
+            "nodes": 9767,
+            "score": -771,
+            "tacticalProtected": true
+          },
+          {
+            "action": 22,
+            "elapsedMs": 123.36480000000029,
+            "nodes": 11779,
+            "score": -939,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 3,
+      "fastGap": 168,
+      "longDepth": 5,
+      "longGap": 0
+    },
+    {
+      "id": "chamber-horizontal/attacker-poor/normal",
+      "reference": {
+        "actions": [
+          {
+            "action": 119,
+            "elapsedMs": 106.73500000000013,
+            "nodes": 9757,
+            "score": -1117,
+            "tacticalProtected": true
+          },
+          {
+            "action": 58,
+            "elapsedMs": 133.95539999999983,
+            "nodes": 11617,
+            "score": -1223,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 3,
+      "fastGap": 106,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "chamber-horizontal/attacker-poor/rotated",
+      "reference": {
+        "actions": [
+          {
+            "action": 106,
+            "elapsedMs": 107.85689999999977,
+            "nodes": 9767,
+            "score": -1117,
+            "tacticalProtected": true
+          },
+          {
+            "action": 22,
+            "elapsedMs": 129.3082000000004,
+            "nodes": 11873,
+            "score": -1279,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 3,
+      "fastGap": 162,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "chamber-horizontal/defender-poor/normal",
+      "reference": {
+        "actions": [
+          {
+            "action": 119,
+            "elapsedMs": 103.42930000000024,
+            "nodes": 9757,
+            "score": -496,
+            "tacticalProtected": true
+          },
+          {
+            "action": 58,
+            "elapsedMs": 120.97330000000011,
+            "nodes": 11934,
+            "score": -625,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 3,
+      "fastGap": 129,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "chamber-horizontal/defender-poor/rotated",
+      "reference": {
+        "actions": [
+          {
+            "action": 106,
+            "elapsedMs": 100.78759999999966,
+            "nodes": 9767,
+            "score": -496,
+            "tacticalProtected": true
+          },
+          {
+            "action": 22,
+            "elapsedMs": 126.38140000000021,
+            "nodes": 11874,
+            "score": -681,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 3,
+      "fastGap": 185,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "chamber-vertical/balanced/normal",
+      "reference": {
+        "actions": [
+          {
+            "action": 183,
+            "elapsedMs": 107.09029999999984,
+            "nodes": 9729,
+            "score": -771,
+            "tacticalProtected": true
+          },
+          {
+            "action": 58,
+            "elapsedMs": 158.16920000000027,
+            "nodes": 11917,
+            "score": -899,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 3,
+      "fastGap": 128,
+      "longDepth": 5,
+      "longGap": 0
+    },
+    {
+      "id": "chamber-vertical/balanced/rotated",
+      "reference": {
+        "actions": [
+          {
+            "action": 170,
+            "elapsedMs": 100.33399999999938,
+            "nodes": 10048,
+            "score": -771,
+            "tacticalProtected": true
+          },
+          {
+            "action": 22,
+            "elapsedMs": 164.29280000000017,
+            "nodes": 12784,
+            "score": -939,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 3,
+      "fastGap": 168,
+      "longDepth": 5,
+      "longGap": 168
+    },
+    {
+      "id": "chamber-vertical/attacker-poor/normal",
+      "reference": {
+        "actions": [
+          {
+            "action": 183,
+            "elapsedMs": 105.24290000000019,
+            "nodes": 9729,
+            "score": -1117,
+            "tacticalProtected": true
+          },
+          {
+            "action": 58,
+            "elapsedMs": 159.79459999999926,
+            "nodes": 11917,
+            "score": -1245,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 3,
+      "fastGap": 128,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "chamber-vertical/attacker-poor/rotated",
+      "reference": {
+        "actions": [
+          {
+            "action": 170,
+            "elapsedMs": 95.48979999999938,
+            "nodes": 10048,
+            "score": -1117,
+            "tacticalProtected": true
+          },
+          {
+            "action": 22,
+            "elapsedMs": 154.97419999999966,
+            "nodes": 12784,
+            "score": -1279,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 3,
+      "fastGap": 162,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "chamber-vertical/defender-poor/normal",
+      "reference": {
+        "actions": [
+          {
+            "action": 183,
+            "elapsedMs": 109.28619999999955,
+            "nodes": 9729,
+            "score": -496,
+            "tacticalProtected": true
+          },
+          {
+            "action": 58,
+            "elapsedMs": 154.22560000000067,
+            "nodes": 12376,
+            "score": -625,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 3,
+      "fastGap": 129,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "chamber-vertical/defender-poor/rotated",
+      "reference": {
+        "actions": [
+          {
+            "action": 170,
+            "elapsedMs": 86.49420000000009,
+            "nodes": 10048,
+            "score": -496,
+            "tacticalProtected": true
+          },
+          {
+            "action": 22,
+            "elapsedMs": 153.89350000000013,
+            "nodes": 12784,
+            "score": -681,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 3,
+      "fastGap": 185,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "long-net/balanced/normal",
+      "reference": {
+        "actions": [
+          {
+            "action": 127,
+            "elapsedMs": 92.4927000000007,
+            "nodes": 11059,
+            "score": -96,
+            "tacticalProtected": false
+          },
+          {
+            "action": 144,
+            "elapsedMs": 102.5591000000004,
+            "nodes": 11126,
+            "score": -96,
+            "tacticalProtected": false
+          },
+          {
+            "action": 111,
+            "elapsedMs": 87.30289999999968,
+            "nodes": 10464,
+            "score": -80,
+            "tacticalProtected": true
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 4,
+      "fastGap": 0,
+      "longDepth": 5,
+      "longGap": 0
+    },
+    {
+      "id": "long-net/balanced/rotated",
+      "reference": {
+        "actions": [
+          {
+            "action": 98,
+            "elapsedMs": 131.67510000000038,
+            "nodes": 11047,
+            "score": -160,
+            "tacticalProtected": true
+          },
+          {
+            "action": 81,
+            "elapsedMs": 108.3766999999998,
+            "nodes": 11016,
+            "score": -152,
+            "tacticalProtected": false
+          },
+          {
+            "action": 114,
+            "elapsedMs": 86.47379999999976,
+            "nodes": 10449,
+            "score": -88,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 4,
+      "fastGap": 0,
+      "longDepth": 5,
+      "longGap": 0
+    },
+    {
+      "id": "long-net/attacker-poor/normal",
+      "reference": {
+        "actions": [
+          {
+            "action": 127,
+            "elapsedMs": 106.31980000000021,
+            "nodes": 11280,
+            "score": -463,
+            "tacticalProtected": false
+          },
+          {
+            "action": 144,
+            "elapsedMs": 110.84560000000056,
+            "nodes": 11126,
+            "score": -463,
+            "tacticalProtected": false
+          },
+          {
+            "action": 111,
+            "elapsedMs": 93.96719999999914,
+            "nodes": 10582,
+            "score": -447,
+            "tacticalProtected": true
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 4,
+      "fastGap": 0,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "long-net/attacker-poor/rotated",
+      "reference": {
+        "actions": [
+          {
+            "action": 98,
+            "elapsedMs": 95.40829999999914,
+            "nodes": 11047,
+            "score": -527,
+            "tacticalProtected": true
+          },
+          {
+            "action": 81,
+            "elapsedMs": 97.09580000000005,
+            "nodes": 11016,
+            "score": -519,
+            "tacticalProtected": false
+          },
+          {
+            "action": 114,
+            "elapsedMs": 93.22469999999976,
+            "nodes": 10449,
+            "score": -455,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 4,
+      "fastGap": 0,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "long-net/defender-poor/normal",
+      "reference": {
+        "actions": [
+          {
+            "action": 127,
+            "elapsedMs": 104.17269999999917,
+            "nodes": 11059,
+            "score": 183,
+            "tacticalProtected": false
+          },
+          {
+            "action": 144,
+            "elapsedMs": 120.48149999999896,
+            "nodes": 11126,
+            "score": 183,
+            "tacticalProtected": false
+          },
+          {
+            "action": 111,
+            "elapsedMs": 88.8164999999999,
+            "nodes": 10464,
+            "score": 199,
+            "tacticalProtected": true
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 4,
+      "fastGap": 0,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "long-net/defender-poor/rotated",
+      "reference": {
+        "actions": [
+          {
+            "action": 98,
+            "elapsedMs": 105.84300000000076,
+            "nodes": 11047,
+            "score": 119,
+            "tacticalProtected": true
+          },
+          {
+            "action": 81,
+            "elapsedMs": 99.60680000000048,
+            "nodes": 11016,
+            "score": 127,
+            "tacticalProtected": false
+          },
+          {
+            "action": 114,
+            "elapsedMs": 83.97839999999997,
+            "nodes": 10449,
+            "score": 191,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 4,
+      "fastGap": 0,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "backdoor/balanced/normal",
+      "reference": {
+        "actions": [
+          {
+            "action": 121,
+            "elapsedMs": 92.78470000000016,
+            "nodes": 9327,
+            "score": -396,
+            "tacticalProtected": false
+          },
+          {
+            "action": 122,
+            "elapsedMs": 85.41589999999997,
+            "nodes": 9221,
+            "score": -128,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 4,
+      "fastGap": 0,
+      "longDepth": 5,
+      "longGap": 0
+    },
+    {
+      "id": "backdoor/balanced/rotated",
+      "reference": {
+        "actions": [
+          {
+            "action": 104,
+            "elapsedMs": 98.51460000000043,
+            "nodes": 9322,
+            "score": -332,
+            "tacticalProtected": false
+          },
+          {
+            "action": 140,
+            "elapsedMs": 87.50919999999951,
+            "nodes": 8566,
+            "score": -60,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 4,
+      "fastGap": 0,
+      "longDepth": 5,
+      "longGap": 0
+    },
+    {
+      "id": "backdoor/attacker-poor/normal",
+      "reference": {
+        "actions": [
+          {
+            "action": 121,
+            "elapsedMs": 58.76080000000002,
+            "nodes": 9340,
+            "score": -903,
+            "tacticalProtected": false
+          },
+          {
+            "action": 48,
+            "elapsedMs": 135.86369999999897,
+            "nodes": 10892,
+            "score": -517,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 4,
+      "fastGap": 0,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "backdoor/attacker-poor/rotated",
+      "reference": {
+        "actions": [
+          {
+            "action": 104,
+            "elapsedMs": 47.17959999999948,
+            "nodes": 9323,
+            "score": -839,
+            "tacticalProtected": false
+          },
+          {
+            "action": 32,
+            "elapsedMs": 107.45550000000003,
+            "nodes": 10729,
+            "score": -436,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 4,
+      "fastGap": 0,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "backdoor/defender-poor/normal",
+      "reference": {
+        "actions": [
+          {
+            "action": 121,
+            "elapsedMs": 61.338700000000244,
+            "nodes": 9322,
+            "score": 111,
+            "tacticalProtected": false
+          },
+          {
+            "action": 48,
+            "elapsedMs": 78.9903000000013,
+            "nodes": 10762,
+            "score": 324,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 4,
+      "fastGap": 0,
+      "longDepth": null,
+      "longGap": null
+    },
+    {
+      "id": "backdoor/defender-poor/rotated",
+      "reference": {
+        "actions": [
+          {
+            "action": 104,
+            "elapsedMs": 61.22870000000057,
+            "nodes": 9319,
+            "score": 111,
+            "tacticalProtected": false
+          },
+          {
+            "action": 32,
+            "elapsedMs": 71.77379999999903,
+            "nodes": 10810,
+            "score": 324,
+            "tacticalProtected": false
+          }
+        ],
+        "depth": 4
+      },
+      "fastDepth": 4,
+      "fastGap": 0,
+      "longDepth": null,
+      "longGap": null
+    }
+  ],
+  "caveat": "Only the recorded comparison set is ranked. A deeper timed search may legitimately disagree with a depth-four reference. Equal-depth deficits identify a selective-search discrepancy, not a proven losing move."
+}

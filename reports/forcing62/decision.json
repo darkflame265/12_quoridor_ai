@@ -1,0 +1,43 @@
+{
+  "validation": "reports/forcing62/validation/report.json",
+  "validationSha256": "dfdcb2193e8718de6332e076274ee76cb68c221e0f552ee1637704da97a09a61",
+  "searchMode": "forcing",
+  "mode": "cache4",
+  "geometryMode": "legacy",
+  "weights": {
+    "order": 180,
+    "threat": 30
+  },
+  "cohort": "search62-v1",
+  "summary": {
+    "win": 6,
+    "loss": 5,
+    "draw": 1
+  },
+  "bySuite": {
+    "general": {
+      "win": 4,
+      "loss": 1,
+      "draw": 1
+    },
+    "maze": {
+      "win": 2,
+      "loss": 4,
+      "draw": 0
+    }
+  },
+  "checks": {
+    "completed": true,
+    "minimumGames": true,
+    "conditions": true,
+    "validationPositive": true,
+    "suites": false,
+    "tactics": true,
+    "deadline": true
+  },
+  "eligible": false,
+  "productionActive": false,
+  "holdoutSkipped": true,
+  "liveEngine": "Atlas 5.3",
+  "reason": "Validation maze 2 wins and 4 losses fails the per-suite non-regression gate despite overall 6 wins, 5 losses and 1 draw."
+}

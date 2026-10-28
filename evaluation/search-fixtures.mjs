@@ -2,7 +2,7 @@ import {SPLITS,openings,mazeOpenings} from './suite.js';
 import {nativeFixtures} from './native-fixtures.mjs';
 import {positionKey} from './native-diagnostics.mjs';
 export const SEARCH_SEEDS={development:881931,validation:443159,holdout:755627};
-export const SEARCH_COHORTS={'search55-v1':SEARCH_SEEDS,'search56-v1':{development:569321,validation:349979,holdout:926347},'search57-v1':{development:713821,validation:468793,holdout:182537},'search58-v1':{development:849193,validation:293761,holdout:637499},'search59-v1':{development:517873,validation:962431,holdout:328619}};
+export const SEARCH_COHORTS={'search55-v1':SEARCH_SEEDS,'search56-v1':{development:569321,validation:349979,holdout:926347},'search57-v1':{development:713821,validation:468793,holdout:182537},'search58-v1':{development:849193,validation:293761,holdout:637499},'search59-v1':{development:517873,validation:962431,holdout:328619},'search62-v1':{development:625817,validation:843271,holdout:196537}};
 for(const [cohort,seeds] of Object.entries(SEARCH_COHORTS))for(const [split,seed] of Object.entries(seeds))SPLITS[`${cohort}-${split}`]=seed;
 const pools=new Map();
 export function searchFixtures(split,suite,count,cohort='search55-v1'){

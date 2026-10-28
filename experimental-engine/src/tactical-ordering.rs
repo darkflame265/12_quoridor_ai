@@ -1,10 +1,11 @@
 #[derive(Clone,Copy,PartialEq)]
-enum SearchMode {Legacy,Ordering,Protected,Threat,Resource}
+enum SearchMode {Legacy,Ordering,Protected,Threat,Resource,Forcing}
 fn search_mode()->SearchMode {
     static MODE:std::sync::OnceLock<SearchMode>=std::sync::OnceLock::new();
     *MODE.get_or_init(||match std::env::var("QUORIDOR_MAZE_SEARCH").as_deref() {
         Ok("ordering")=>SearchMode::Ordering,Ok("protected")=>SearchMode::Protected,
         Ok("threat")=>SearchMode::Threat,Ok("resource")=>SearchMode::Resource,
+        Ok("forcing")=>SearchMode::Forcing,
         Ok("legacy")|Err(_)=>SearchMode::Legacy,Ok(other)=>panic!("Unknown search mode: {other}"),
     })
 }
@@ -20,6 +21,7 @@ fn wall_priority(mode:SearchMode,wall:bool,stock:usize,net:i32,connections:i32,i
 impl SharedSearch {
     fn ranked(&self,p:&mut Position)->Ranked {self.ranked_mode(p,search_mode())}
     fn ranked_mode(&self,p:&mut Position,mode:SearchMode)->Ranked {
+        if self.profile==2&&mode==SearchMode::Forcing {return self.forcing_ranked(p);}
         if self.profile!=2||mode==SearchMode::Legacy {return self.legacy_ranked(p);}
         let (key,flip)=canonical(p.key());
         if flip {let mut mirrored=mirror_position(p);return self.ranked_mode(&mut mirrored,mode).into_iter().map(|(a,s)|(mirror_action(a),s)).collect();}
@@ -66,7 +68,7 @@ impl SharedSearch {
     }
     fn is_critical(&self,p:&Position,a:u16)->bool {self.critical_mode(p,a,search_mode())}
     fn critical_mode(&self,p:&Position,a:u16,mode:SearchMode)->bool {
-        if self.profile!=2||mode!=SearchMode::Protected {return self.legacy_is_critical(p,a);}
+        if self.profile!=2||!matches!(mode,SearchMode::Protected|SearchMode::Forcing) {return self.legacy_is_critical(p,a);}
         let (key,flip)=canonical(p.key());let a=if flip {mirror_action(a)} else {a};
         self.critical[Self::shard(&key)].read().unwrap().get(&key).is_none_or(|list|list.contains(&a))
     }

@@ -1,0 +1,62 @@
+{
+  "reportSha256": "fc7f3a85eb779ddd7b6f32a72fef5f1c23f9e19d7a7dc3c0b70b9e62201b33eb",
+  "verifierSha256": "f69370bf9ba6dbe86a82bbc13bcc3b8783b4f60964c152075faf88acbd1bc958",
+  "recomputedSearches": 40,
+  "recomputedBranchSets": 5,
+  "summary": {
+    "positions": 5,
+    "parityChecks": 5,
+    "exactNodeBudgetRepeats": 20,
+    "nodeBudget": 20000,
+    "nodeBudgetCores": 1,
+    "timedSearches": 15,
+    "timedActionVaries": 4,
+    "timedDepthVaries": 3,
+    "modes": {
+      "off": {
+        "fixedDepthInferior": 3,
+        "budgetInferiorAtDepth4": 4,
+        "budgetDepths": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      "root": {
+        "fixedDepthInferior": 3,
+        "budgetInferiorAtDepth4": 4,
+        "budgetDepths": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      "internal": {
+        "fixedDepthInferior": 0,
+        "budgetInferiorAtDepth4": 4,
+        "budgetDepths": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      "full": {
+        "fixedDepthInferior": 0,
+        "budgetInferiorAtDepth4": 4,
+        "budgetDepths": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      }
+    }
+  }
+}

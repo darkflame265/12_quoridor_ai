@@ -1,0 +1,248 @@
+{
+  "sourceReportSha256": "fc7f3a85eb779ddd7b6f32a72fef5f1c23f9e19d7a7dc3c0b70b9e62201b33eb",
+  "candidateReportSha256": "eb7a665ebca6a092e3bc93db410c225abedb11a3773112929f58c79ae292d51b",
+  "scriptSha256": "88deac2df46a8f35f0557ee2ad39afaae29ce33b45e5530b186a0d8a4856277a",
+  "rows": [
+    {
+      "id": "inside-edge/balanced/rotated",
+      "off": {
+        "depth": 4,
+        "score": -528,
+        "nodes": 50000,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "referenceGap": 8
+      },
+      "chain": {
+        "depth": 3,
+        "score": -304,
+        "nodes": 50000,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0
+          }
+        ],
+        "referenceGap": 8
+      }
+    },
+    {
+      "id": "inside-edge/attacker-poor/rotated",
+      "off": {
+        "depth": 4,
+        "score": -691,
+        "nodes": 50000,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "referenceGap": 8
+      },
+      "chain": {
+        "depth": 3,
+        "score": -464,
+        "nodes": 50000,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0
+          }
+        ],
+        "referenceGap": 8
+      }
+    },
+    {
+      "id": "inside-edge/defender-poor/rotated",
+      "off": {
+        "depth": 4,
+        "score": -365,
+        "nodes": 50000,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "referenceGap": 8
+      },
+      "chain": {
+        "depth": 3,
+        "score": -145,
+        "nodes": 50000,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0
+          }
+        ],
+        "referenceGap": 8
+      }
+    },
+    {
+      "id": "chamber-horizontal/balanced/normal",
+      "off": {
+        "depth": 4,
+        "score": -771,
+        "nodes": 50000,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "referenceGap": 0
+      },
+      "chain": {
+        "depth": 3,
+        "score": -415,
+        "nodes": 50000,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "referenceGap": 112
+      }
+    },
+    {
+      "id": "long-net/balanced/normal",
+      "off": {
+        "depth": 4,
+        "score": -24,
+        "nodes": 50000,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 3
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 4
+          }
+        ],
+        "referenceGap": 0
+      },
+      "chain": {
+        "depth": 3,
+        "score": 204,
+        "nodes": 50000,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 3
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 2
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "referenceGap": 0
+      }
+    }
+  ],
+  "summary": {
+    "positions": 5,
+    "nodeBudget": 50000,
+    "cores": 1,
+    "exactRepeats": 10,
+    "depthRegressions": 5,
+    "gapImprovements": 0,
+    "gapRegressions": 1
+  }
+}

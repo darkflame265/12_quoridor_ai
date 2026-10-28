@@ -3,6 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "search:probe-build": "node scripts/build-search-probe.mjs",
+    "search:diagnose-budget": "node scripts/diagnose-search-budget.mjs",
+    "search:verify-budget": "node scripts/verify-search-budget.mjs",
+    "search:check-chain": "node scripts/check-chain-guard.mjs",
     "strategy:check": "node scripts/check-strategy-book.mjs",
     "strategy:depth": "node scripts/check-strategy-book-depth.mjs",
     "strategy:verify": "node scripts/verify-strategy-book.mjs",

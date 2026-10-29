@@ -5,5 +5,6 @@ mod core {
     include!(concat!(env!("CARGO_MANIFEST_DIR"), "/../native-engine/src/strategy.rs"));
     include!(concat!(env!("CARGO_MANIFEST_DIR"), "/../native-engine/src/endgame-oracle.rs"));
     include!("pressure.rs");
+    include!("reserve.rs");
 }
 pub use core::{NativeEngine, NativeOutput, State, explain_pressure};

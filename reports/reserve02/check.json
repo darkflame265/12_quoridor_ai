@@ -1,0 +1,447 @@
+{
+  "identity": {
+    "nativeSourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+    "sources": {
+      "rust-engine/src/lib.rs": "363cd3197f8fc1e21acb20c576d5dac3be4f741e808e9caa963f10bcd3984078",
+      "native-engine/src/lib.rs": "477ba4dfc0bc64536aa47f67ff8e00646c51066e9ad4f54ac409fcd83d24310a",
+      "native-engine/src/search.rs": "4aa7c1703c2d425bec3fe22090243649c40ad92a8a597b2be550b25dd2cfc4a7",
+      "native-engine/src/strategy.rs": "3be980d2aba7889ce5734665a6fb06a8682ef5b64667d120710ccf77e3d88cdf",
+      "native-engine/src/endgame-oracle.rs": "1b65399e328980de658eb6d5628e3fa301fa2ee85892f5dce50c002770b5856d",
+      "native-engine/src/main.rs": "85bd0779574b2331468415215e60e0f8076613367c5de1ed9d790ad4af80b8c4",
+      "native-engine/Cargo.toml": "0e2ace99f5def761ceb9e5bb79fa02e440fa03df9c956e40ad015b7fb28701c2",
+      "native-engine/Cargo.lock": "767b8a0cacf898be5d2d8a0250e18b9ded346252ddf61195adc967b03893af16",
+      "rust-toolchain.toml": "690e8b2d01e4b515848ba8c0cfcb69e54605754c53f29f95eacb61ea7b4fb3b6",
+      "pressure-engine/Cargo.toml": "c854b852b4b1999f75bd6f3879ec6ca0c7d2f14e74588d8f4a93a944737e7030",
+      "pressure-engine/Cargo.lock": "46bf54f2cdbabc18338cfb9e88bf9690c9068da6319fb104fa516e880510aa88",
+      "pressure-engine/build.rs": "64fcfcd5e9e9798c362a240f80b14c39dcfc58797b638352200ecbbf66e63681",
+      "pressure-engine/src/lib.rs": "30de71c427aa092eaa30b4b7ffb34c3493f56131403c0039c23b7c641f790716",
+      "pressure-engine/src/main.rs": "4a4f97d4d1c88bd34a97ff1401058ca1fd65d1930c6d013eecca1c55f1822bb3",
+      "pressure-engine/src/pressure.rs": "e0f9e9479f073b29048dcc7c4b20d28aa5a528b3c053789992faa6dbaf87acbe",
+      "pressure-engine/src/reserve.rs": "e2f227483ae45a4b17e99641cb46724b9d8939a8d019b25f04547ffe9331d084"
+    },
+    "binaryHash": "f3e5b2b4cdd4c3d86b5ff353153fa5d59611bcd95c9777ed8aa1b85fd2ab59ab"
+  },
+  "sourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+  "defaultProfile": "candidate",
+  "developmentOnly": true,
+  "positions": [
+    {
+      "id": "user-loss-ply-25",
+      "protected": false,
+      "control": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 3,
+        "done": true,
+        "elapsedMs": 20.4012,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "d4b50724-1187-41b5-bff9-dc13b2f6eac9",
+        "nodes": 2249,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 3250,
+          "nearCutEdges": 0,
+          "netGain": 2,
+          "ownDelay": -2,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 3
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "score": 169,
+        "sharedCacheHits": 394,
+        "workers": 1
+      },
+      "candidate": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 3,
+        "done": true,
+        "elapsedMs": 95.4054,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + immediate pressure 0.2 · Native Rust ×1",
+        "id": "82028746-18f2-40ac-ae72-53da67d95d71",
+        "nodes": 2852,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 3
+          },
+          "bias": 17,
+          "connections": 1,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 2,
+          "firstContact": 0,
+          "legacyOrderScore": 3250,
+          "nearCutEdges": 2,
+          "netGain": 1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 3
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        ],
+        "score": 70,
+        "sharedCacheHits": 579,
+        "workers": 1
+      }
+    },
+    {
+      "id": "user-loss-ply-27",
+      "protected": true,
+      "control": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 3,
+        "done": true,
+        "elapsedMs": 11.910099999999971,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "5976faf1-a1f0-4a5e-b1cf-677aa76d03a6",
+        "nodes": 1847,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 250,
+          "nearCutEdges": 0,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "score": 221,
+        "sharedCacheHits": 433,
+        "workers": 1
+      },
+      "candidate": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 3,
+        "done": true,
+        "elapsedMs": 63.74859999999998,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + immediate pressure 0.2 · Native Rust ×1",
+        "id": "b6ea0c28-3070-48fa-a7c1-f29c51f47313",
+        "nodes": 1847,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 250,
+          "nearCutEdges": 0,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        ],
+        "score": -12,
+        "sharedCacheHits": 433,
+        "workers": 1
+      }
+    },
+    {
+      "id": "user-loss-ply-41",
+      "protected": true,
+      "control": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 3,
+        "done": true,
+        "elapsedMs": 12.532800000000037,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "4362d7b5-ddeb-4857-84fc-5035e7264792",
+        "nodes": 2462,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 2,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        ],
+        "score": 221,
+        "sharedCacheHits": 491,
+        "workers": 1
+      },
+      "candidate": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 3,
+        "done": true,
+        "elapsedMs": 72.6755,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + immediate pressure 0.2 · Native Rust ×1",
+        "id": "5154aa61-c6de-4dbe-bae5-fcac2b272d07",
+        "nodes": 2462,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 2,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        ],
+        "score": -12,
+        "sharedCacheHits": 491,
+        "workers": 1
+      }
+    },
+    {
+      "id": "user-loss-ply-51",
+      "protected": true,
+      "control": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 1,
+        "done": true,
+        "elapsedMs": 0.26979999999997517,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×1",
+        "id": "9ddc34bf-b423-4b16-bfbf-cc95c1ebf1a3",
+        "nodes": 74,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 2
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 2,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 8,
+            "y": 2
+          }
+        ],
+        "score": -29998,
+        "sharedCacheHits": 1,
+        "workers": 1
+      },
+      "candidate": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 1,
+        "done": true,
+        "elapsedMs": 0.3482000000000198,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + immediate pressure 0.2 · Native Rust ×1",
+        "id": "49db09b6-1070-4ac9-9303-441defa536ad",
+        "nodes": 74,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 2
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 2,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 8,
+            "y": 2
+          }
+        ],
+        "score": -29998,
+        "sharedCacheHits": 1,
+        "workers": 1
+      }
+    }
+  ],
+  "status": "passed"
+}

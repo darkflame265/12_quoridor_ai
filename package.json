@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "reserve:check": "node scripts/check-reserve.mjs",
     "pressure:build": "node scripts/build-pressure.mjs",
     "pressure:check": "node scripts/check-pressure.mjs",
     "pressure:evaluate": "node scripts/evaluate-pressure.mjs",

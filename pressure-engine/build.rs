@@ -6,6 +6,8 @@ fn main(){
  // Root action utility is bounded and never alters interior static evaluation.
  // Null windows are translated by the action's utility before searching.
  for(from,to) in [
+  ("self.static_score(&mut mirror_position(p))", "self.reserve_score(&mut mirror_position(p))"),
+  ("self.static_score(p)", "self.reserve_score(p)"),
   ("pub struct NativeOutput {","pub struct NativeOutput {\n    #[serde(skip_serializing_if = \"Option::is_none\")]\n    pub pressure: Option<PressureFeatures>,"),
   ("let mut out = NativeOutput {","let mut out = NativeOutput {\n            pressure: None,"),
   ("let root_key = pos.key();","let root_key = pos.key();\n        let biases = pressure_biases(&mut pos, deadline, &cancel);"),
@@ -14,7 +16,7 @@ fn main(){
   ("let Ok(score) = result else {","let Ok(raw_score) = result else {"),
   ("let mut record = best.lock().unwrap();","let score = pressure_adjust(raw_score, bias, global_base);\n                                let mut record = best.lock().unwrap();"),
   ("progress(&out);","out.pressure = pressure_advice(s, out.result.pv.first());\n            progress(&out);"),
-  ("if self.shared.profile == 0 {","if pressure_enabled() { \"5.3 + immediate pressure 0.1\" } else if self.shared.profile == 0 {"),
+  ("if self.shared.profile == 0 {","if pressure_enabled() { \"5.3 + immediate pressure 0.2\" } else if self.shared.profile == 0 {"),
   ("return out;","out.pressure = pressure_advice(s, out.result.pv.first()); out.result.elapsed_ms = now()-start; return out;"),
  ]{let count=s.matches(from).count();assert!(count>0,"missing patch {from}");if from!="return out;"{assert_eq!(count,1,"ambiguous patch {from}");}s=s.replace(from,to);}
  // The final expression follows all cancellation/endgame fallbacks.

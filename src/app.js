@@ -81,6 +81,7 @@ function render(){
   $('#history').innerHTML=records.length?records.map((a,i)=>`<div class="${i===records.length-1?'latest':''}"><span>${String(i+1).padStart(2,'0')}</span><i style="background:${colors[(baseState?.turn??0)^(i%2)]}"></i><b>${notation(a)}</b><small>${a.type==='wall'?'벽 설치':'말 이동'}</small></div>`).join(''):baseState?'<p class="muted">가져온 시작 배치 · 이전 기보는 없습니다.</p>':'<p class="muted">첫 수를 기다리고 있습니다.</p>';
   $('#history').scrollTop=1e6;$('#count').textContent=`${records.length} 수`;$('#hint').disabled=busy||watcher.running||!!outcome;$('#undo').disabled=!past.length;
   $('#reset').disabled=screen;
+  $('#side').disabled=screen;$('#start-position').disabled=screen;
   if(screen)$('#undo').disabled=true;
   if(baseState)$('#count').textContent=`가져온 배치 이후 ${records.length}수`;
   if(baseState&&screenRebased){$('#count').textContent=`재동기화 이후 ${records.length}수 · 중간 기보 누락`;if(!records.length)$('#history').innerHTML='<p class="muted">현재 화면에서 재동기화했습니다. 복원하지 못한 중간 기보는 만들지 않습니다.</p>';}
@@ -159,6 +160,7 @@ function restore(data){
   observedBottom=baseState&&[0,1].includes(data.sourceBottom)?data.sourceBottom:null;screenCapture?.setBottom(observedBottom);
   selectValue('#mode',data.mode);selectValue('#side',data.side);selectValue('#time',data.time);selectValue('#cores',data.cores);selectValue('#play-engine',data.engine??'atlas5');
   selectValue('#start-position',data.startPosition??'top');
+  if($('#mode').value==='screen'&&observedBottom!==null){$('#side').value=String(observedBottom);$('#start-position').value='bottom';}
   if($('#play-engine').value==='atlas3')$('#cores').value='1';$('#cores').disabled=$('#play-engine').value==='atlas3';
   for(const t of [0,1]){const p=data.watch?.players?.[t];if(!p)continue;selectValue(`#watch-engine-${t}`,p.engine);selectValue(`#watch-time-${t}`,p.ms);selectValue(`#watch-cores-${t}`,p.cores);if($(`#watch-engine-${t}`).value==='atlas3')$(`#watch-cores-${t}`).value='1';}
   selectValue('#watch-delay',data.watch?.delay);pool.dispose();pool=createPlayPool(Number($('#cores').value));disposeWatch();clearAnalysis();persist();render();schedule();
@@ -175,7 +177,7 @@ screenCapture=mountScreenCapture({
   onWatchChange:()=>{screenReady=false;stop();clearAnalysis();render();},
   onUncertain:()=>{screenReady=false;stop();clearAnalysis();$('#analysis').textContent='원본 배치 변화 확인 중 · 인식이 안정되면 최신 배치를 분석합니다.';render();},
   onRecovered:()=>{screenReady=true;render();schedule();},
-  onApply:(snapshot,bottom)=>{if(baseState&&records.length){screenSegments.push({baseState:clone(baseState),records:clone(records)});if(screenSegments.length>8)screenSegments.shift();}screenRebased=!!baseState&&(screenRebased||boardKey(state)!==boardKey(snapshot)||state.turn!==snapshot.turn);stop();state=clone(snapshot);baseState=clone(snapshot);observedBottom=bottom;past=[];records=[];$('#mode').value='screen';$('#start-position').value=Number($('#side').value)===bottom?'bottom':'top';clearAnalysis();persist();render();},
+  onApply:(snapshot,bottom)=>{if(baseState&&records.length){screenSegments.push({baseState:clone(baseState),records:clone(records)});if(screenSegments.length>8)screenSegments.shift();}screenRebased=!!baseState&&(screenRebased||boardKey(state)!==boardKey(snapshot)||state.turn!==snapshot.turn);stop();state=clone(snapshot);baseState=clone(snapshot);observedBottom=bottom;past=[];records=[];$('#mode').value='screen';$('#side').value=String(bottom);$('#start-position').value='bottom';clearAnalysis();persist();render();},
   onDirty:()=>{if($('#mode').value==='screen'){stop();clearAnalysis();$('#analysis').textContent='새로 가져온 내용은 확인 후 적용해야 반영됩니다.';render();}}
 });
 window.addEventListener('pagehide',()=>{stop();pool.dispose();disposeWatch();screenCapture?.dispose();});

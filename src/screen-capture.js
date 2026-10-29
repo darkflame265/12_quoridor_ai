@@ -2,6 +2,7 @@ import {recognizeBoard,gridGeometry} from './screen-recognition.js';
 import {snapshotFromDraft,snapshotIssues,checkedSnapshot} from './observed-state.js';
 import {recoverScreenSequence,StableScreenBoard,boardKey} from './screen-sync.js';
 import {detectBoards,trackedBoard,gridFingerprint,retainedGridMatches} from './board-detection.js';
+import {createSourceTemplates,readSourceContext} from './source-context.js';
 const colors=['#31d4c2','#fa7393'];
 export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChange,onUncertain,onRecovered}){
  const panel=document.createElement('section');panel.className='panel';panel.id='screen-panel';panel.hidden=true;
@@ -14,25 +15,43 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
  <div class="screen-workspace"><section class="screen-source"><div class="screen-actions"><button id="screen-connect">오른쪽 게임 화면 연결</button><button id="screen-image">이미지 가져오기</button><button id="screen-freeze" disabled>현재 프레임 고정</button><input id="screen-image-file" type="file" accept="image/png,image/jpeg,image/webp" hidden></div><p class="screen-help">공유할 게임 탭/창을 선택하세요. 마우스를 원본 보드 밖으로 옮겨 벽 미리보기를 지운 뒤 프레임을 고정하세요.</p><video id="screen-video" muted autoplay playsinline hidden></video><div id="screen-empty" class="screen-empty">화면을 연결하거나 PNG·JPG·WebP를 가져오세요.</div><canvas id="screen-source-canvas" hidden aria-label="원본 이미지: 9×9 칸의 바깥 모서리를 드래그해 보드 영역 선택"></canvas><p class="screen-help">숫자·글자·테두리를 제외하고, 첫 칸 왼쪽 위부터 마지막 칸 오른쪽 아래까지 드래그하세요.</p><label>칸 사이 간격 (%)<input id="screen-gap" type="number" min="6" max="30" step="1" value="16"></label><button id="screen-recognize" class="primary" disabled>선택 영역 인식</button><p id="screen-message" role="status" aria-live="polite" class="screen-help">먼저 화면이나 이미지를 준비하세요.</p></section>
  <section class="screen-review"><h3>인식 결과 검토·보정</h3><p class="screen-help">단색 청록·분홍 말/벽 테마를 우선 지원합니다. 점은 말로, 회색 미리보기는 벽으로 확정하지 않습니다.</p><div id="screen-review-board" aria-label="인식 배치 보정 보드"></div><label>클릭 보정<select id="screen-brush"><option value="p0">청록 말</option><option value="p1">분홍 말</option><option value="h0">청록 가로벽</option><option value="v0">청록 세로벽</option><option value="h1">분홍 가로벽</option><option value="v1">분홍 세로벽</option><option value="erase">벽 지우기</option></select></label><p id="screen-detected" class="screen-help"></p><div id="screen-wall-list"></div><button id="screen-clear-walls">보정 벽 전체 지우기</button><label>원본의 아래쪽 출발 진영<select id="screen-bottom"><option value="0">청록</option><option value="1">분홍</option></select></label><label>현재 차례 (직접 선택)<select id="screen-turn"><option value="0">청록</option><option value="1">분홍</option></select></label><label>청록 잔여 벽<input id="screen-left-0" type="number" min="0" max="10" value="10"></label><label>분홍 잔여 벽<input id="screen-left-1" type="number" min="0" max="10" value="10"></label><p class="screen-help">차례는 자동으로 읽지 않습니다. 잔여 벽은 설치된 벽 색으로 추정하므로 원본 숫자와 직접 대조하세요.</p><button id="screen-stock-reset">설치 벽으로 잔여 수 재계산</button><ul id="screen-issues" class="screen-issues"></ul><button id="screen-apply" class="primary" disabled>확인한 배치를 왼쪽에 적용</button></section></div>`;
  document.body.append(dialog);
+ const contextControls=document.createElement('div');contextControls.innerHTML='<label><input id="screen-auto-side" type="checkbox" checked> 아래 출발 줄 색으로 내 진영 자동 설정</label><p id="screen-side-result" class="screen-help" role="status">내 진영 판독 대기</p><label><input id="screen-auto-turn" type="checkbox" checked> 원본 차례 표시 자동 판독</label><p id="screen-turn-result" class="screen-help" role="status">게임 카드·차례 표시까지 공유하세요.</p><details id="screen-manual-context"><summary>판독 실패 시 진영·차례 수동 보정</summary></details>';
+ const bottomLabel=document.getElementById('screen-bottom').parentElement,turnLabel=document.getElementById('screen-turn').parentElement;bottomLabel.before(contextControls);document.getElementById('screen-manual-context').append(bottomLabel,turnLabel);
+ const sourceState=document.createElement('p');sourceState.id='screen-source-state';sourceState.className='watch-note';sourceState.textContent='내 진영·현재 차례 판독 대기';panel.append(sourceState);
  const detectionControls=document.createElement('div');detectionControls.innerHTML='<button id="screen-find-board">보드 자동 찾기</button><p id="screen-grid-status" class="screen-help" role="status">화면을 연결하면 보드와 칸 간격을 자동으로 찾습니다.</p><div id="screen-board-candidates"></div><label>세로 칸 간격 (%)<input id="screen-gap-y" type="number" min="6" max="30" step="0.01" value="16"></label>';
  document.getElementById('screen-recognize').before(detectionControls);document.getElementById('screen-gap').step='0.01';
  const $=id=>document.getElementById(id),canvas=$('screen-source-canvas'),ctx=canvas.getContext('2d'),frame=document.createElement('canvas'),video=$('screen-video');
  canvas.nextElementSibling.textContent='보드와 격자는 자동으로 찾습니다. 자동 탐지가 실패했거나 어긋났을 때만 9×9 칸의 바깥 모서리를 드래그해 보정하세요.';
  $('screen-gap').parentElement.firstChild.textContent='가로 칸 간격 (%)';
+ $('screen-stock-reset').previousElementSibling.textContent='차례는 원본 문구·활성 카드와 수 추적으로 대조합니다. 잔여 벽은 설치된 벽 색으로 추정하므로 원본 숫자와 확인하세요.';
  const footer=document.createElement('div');footer.className='screen-dialog-foot';const footerNote=document.createElement('span');footerNote.textContent='검토 후 적용 · 차례와 잔여 벽은 원본과 대조하세요.';footer.append(footerNote,$('screen-apply'));dialog.append(footer);
  let stream=null,hasFrame=false,rect=null,drag=null,draft=null,manualStock=[false,false],visible=false,token=0,disposed=false,edited=false;
  let timer=null,calibration=null,uncertain=false,lastVideoTime=-1,lastFrameAt=0;const stable=new StableScreenBoard(3),live=document.createElement('canvas');
  let automaticGrid=false,lastGridCheck=0;
  let lastDraft=null,frameKey=null,frameCount=0;const observedFrames=[],diagnostics=[];
+ let templates=null,sourceMeta=null,lastContext=null;
+ function context(pixels,area=rect,gap=gaps()){templates??=createSourceTemplates(document);return readSourceContext(pixels,area,{gap,templates});}
+ function sourceErrors(){const issues=[],winner=draft?snapshotFromDraft(draft,{bottom:Number($('screen-bottom').value),turn:0}).winner:null;if($('screen-auto-side').checked&&sourceMeta?.bottom==null)issues.push('아래 출발 줄 색을 읽지 못했습니다. 전체 보드를 공유하거나 수동 보정하세요.');if($('screen-auto-turn').checked&&sourceMeta?.relative==null&&winner===null)issues.push(sourceMeta?.turnReason??'원본 차례를 읽지 못했습니다. 차례 표시까지 공유하거나 수동 보정하세요.');return issues;}
+ function updateContext(){
+  if(hasFrame&&rect){sourceMeta=context(frame.getContext('2d').getImageData(0,0,frame.width,frame.height));lastContext=sourceMeta;if(draft)lastDraft=draft;}
+  const autoSide=$('screen-auto-side').checked,autoTurn=$('screen-auto-turn').checked;
+  if(autoSide&&sourceMeta?.bottom!=null)$('screen-bottom').value=String(sourceMeta.bottom);
+  const bottom=Number($('screen-bottom').value);
+  if(autoTurn&&sourceMeta?.relative!=null)$('screen-turn').value=String(sourceMeta.relative==='self'?bottom:1-bottom);
+  $('screen-bottom').disabled=autoSide;$('screen-turn').disabled=autoTurn;
+  $('screen-side-result').textContent=autoSide?sourceMeta?.bottom!=null?`내 진영: ${sourceMeta.bottom===0?'청록':'분홍'} · 아래 시작 · 자동`:'내 진영: 판독 대기 · 아래 출발 줄을 확인하세요.':`내 진영: ${bottom===0?'청록':'분홍'} · 아래 시작 · 수동 보정`;
+  $('screen-turn-result').textContent=autoTurn?sourceMeta?.turnReason??'차례 표시 판독 대기':`현재: ${Number($('screen-turn').value)===bottom?'내':'상대'} 차례 · 수동 보정`;
+  if(draft&&sourceErrors().length)recordDiagnostic(`초기 진영·차례 판독 보류 · ${sourceErrors().join(' ')}`);
+ }
  function clearFrames(){observedFrames.length=0;frameKey=null;frameCount=0;}
- function recordDiagnostic(reason){const before=getState?.(),entry={time:new Date().toISOString(),reason,grid:calibration?{rect:calibration.rect,gap:calibration.gap}:null,lastGood:before??null,observed:lastDraft?{p:lastDraft.p,walls:lastDraft.walls,rawWallCount:lastDraft.rawWallCount,wallIssues:lastDraft.wallIssues,ownerCounts:[0,1].map(t=>lastDraft.walls.filter(w=>w.owner===t).length)}:null};if(diagnostics.at(-1)?.reason===reason&&JSON.stringify(diagnostics.at(-1)?.observed)===JSON.stringify(entry.observed))return;diagnostics.push(entry);if(diagnostics.length>40)diagnostics.shift();}
+ function recordDiagnostic(reason){const before=getState?.(),entry={time:new Date().toISOString(),reason,context:lastContext,grid:calibration?{rect:calibration.rect,gap:calibration.gap}:null,lastGood:before??null,observed:lastDraft?{p:lastDraft.p,walls:lastDraft.walls,rawWallCount:lastDraft.rawWallCount,wallIssues:lastDraft.wallIssues,ownerCounts:[0,1].map(t=>lastDraft.walls.filter(w=>w.owner===t).length)}:null};if(diagnostics.at(-1)?.reason===reason&&JSON.stringify(diagnostics.at(-1)?.observed)===JSON.stringify(entry.observed))return;diagnostics.push(entry);if(diagnostics.length>40)diagnostics.shift();}
  function observedSnapshot(d,bottom,turn){lastDraft=d;if(d.wallIssues?.length)throw Error(`벽 후보 충돌 · ${d.wallIssues.join(' ')}`);const s=snapshotFromDraft(d,{bottom,turn});const counts=[0,1].map(t=>d.walls.filter(w=>w.owner===t).length);if(counts.some(n=>n>10))throw Error(`벽 과다 검출 · 청록 ${counts[0]}개 / 분홍 ${counts[1]}개 (각 최대 10개)`);return checkedSnapshot(s);}
  function recognizeLive(pixels){const before=getState?.(),bottom=calibration.bottom,knownWalls=(before?.walls??[]).map(w=>({...w,x:bottom===1?7-w.x:w.x,y:bottom===1?7-w.y:w.y}));return recognizeBoard(pixels,calibration.rect,{gap:calibration.gap,knownWalls});}
  const gaps=()=>({x:Number($('screen-gap').value)/100,y:Number($('screen-gap-y').value)/100});
  function boardCandidates(pixels){return detectBoards(pixels).filter(candidate=>recognizeBoard(pixels,candidate.rect,{gap:candidate.gap}).p.every(Boolean));}
  function selectBoard(candidate,pixels){
   dirty();rect={...candidate.rect};automaticGrid=true;$('screen-gap').value=(candidate.gap.x*100).toFixed(2);$('screen-gap-y').value=(candidate.gap.y*100).toFixed(2);
-  draft=recognizeBoard(pixels,rect,{gap:gaps()});manualStock=[false,false];edited=false;stock();review();redraw();controls();$('screen-grid-status').textContent=`격자 자동 정렬 완료 · ${candidate.cells}/81칸 확인`;
+  draft=recognizeBoard(pixels,rect,{gap:gaps()});manualStock=[false,false];edited=false;updateContext();stock();review();redraw();controls();$('screen-grid-status').textContent=`격자 자동 정렬 완료 · ${candidate.cells}/81칸 확인`;
   message('보드와 가로·세로 간격을 자동으로 찾았습니다. 말·벽·진영·차례를 확인하고 적용하세요.');
  }
  function findBoard(){
@@ -67,18 +86,26 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
    if(calibration.auto&&(Date.now()-lastGridCheck>=1000||w!==calibration.width||h!==calibration.height)){refreshGrid(pixels,w,h);gridChecked=true;}
    const detected=recognizeLive(pixels);
    const before=getState?.();if(!before){pause('배치를 다시 적용하세요.');return;}
-   const target=observedSnapshot(detected,calibration.bottom,before.turn),key=boardKey(target);
+   const target=observedSnapshot(detected,calibration.bottom,before.turn);let sourceTurn,expectedPlies;
+   if(calibration.autoSide||calibration.autoTurn){
+    lastContext=context(pixels,calibration.rect,calibration.gap);
+    if(calibration.autoSide&&lastContext.bottom!==calibration.bottom)throw Error('내 진영 판독 불일치 · 출발 줄 색 변경 또는 가림을 확인하고 현재 화면 재동기화를 이용하세요.');
+    if(calibration.autoTurn&&target.winner===null){if(lastContext.relative===null)throw Error(lastContext.turnReason);sourceTurn=lastContext.relative==='self'?calibration.bottom:1-calibration.bottom;target.turn=sourceTurn;}
+    if(calibration.autoTurn&&lastContext.moveCount!==null&&calibration.sourcePly!==null){expectedPlies=lastContext.moveCount-calibration.sourcePly;if(expectedPlies<0||expectedPlies>6)throw Error('원본 수 번호가 추적 범위와 다릅니다. 되돌리기·새 게임·누락 진행을 재동기화하세요.');}
+    $('screen-source-state').textContent=`내 진영: ${calibration.bottom===0?'청록':'분홍'} · 아래 시작 · 현재: ${sourceTurn===undefined?'수 추적 대조 중':sourceTurn===calibration.bottom?'내 차례':'상대 차례'}${lastContext.moveCount===null?'':` · 원본 ${lastContext.moveCount}수`}`;
+   }
+   const key=boardKey(target)+':'+(sourceTurn??'');
    if(frameKey===key)frameCount++;else{frameKey=key;frameCount=1;}
    if(frameCount===2){observedFrames.push({time:Date.now(),board:target});while(observedFrames.length>24||observedFrames[0]?.time<Date.now()-6000)observedFrames.shift();}
-   if(!stable.observe(target)){if(boardKey(before)!==boardKey(target)&&!uncertain){uncertain=true;onUncertain?.();}autoStatus('배치 변화 확인 중 · 동일한 화면 3회 대기');return;}
+   if(!stable.observe(target,sourceTurn)){if((boardKey(before)!==boardKey(target)||sourceTurn!==undefined&&sourceTurn!==before.turn)&&!uncertain){uncertain=true;onUncertain?.();}autoStatus('배치·차례 변화 확인 중 · 동일한 화면 3회 대기');return;}
    // A whole-board translation by one cell can look like two legal pawn moves.
    // Confirm geometry on this very frame before committing any changed board.
    if(calibration.auto&&!gridChecked&&boardKey(before)!==boardKey(target)){
     const moved=refreshGrid(pixels,w,h),verified=observedSnapshot(recognizeLive(pixels),calibration.bottom,before.turn);
     if(moved||boardKey(verified)!==boardKey(target)){stable.reset();autoStatus('격자 재정렬 · 배치 안정화 확인 중');return;}
    }
-   const actions=recoverScreenSequence(before,target,observedFrames.map(f=>f.board));
-   if(actions.length){if(onSync?.(actions,before)===false)throw Error('왼쪽 배치가 변경됐습니다. 다시 확인하세요.');recordDiagnostic(`${actions.length}수 합법 진행 복원`);clearFrames();uncertain=false;autoStatus(`${actions.length}수 자동 반영 · ${new Date().toLocaleTimeString()}`);}
+   const actions=recoverScreenSequence(before,target,observedFrames.map(f=>f.board),{expectedTurn:sourceTurn,expectedPlies});
+   if(actions.length){if(onSync?.(actions,before)===false)throw Error('왼쪽 배치가 변경됐습니다. 다시 확인하세요.');if(calibration.autoTurn)calibration.sourcePly=lastContext?.moveCount??null;recordDiagnostic(`${actions.length}수 합법 진행 복원`);clearFrames();uncertain=false;autoStatus(`${actions.length}수 자동 반영 · ${new Date().toLocaleTimeString()}`);}
    else {if(uncertain){uncertain=false;onRecovered?.();}autoStatus('자동 감시 중 · 원본과 일치');}
   }catch(error){reject(error.message);}
  }
@@ -121,7 +148,7 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
  function stock(){if(!draft)return;for(const t of [0,1])if(!manualStock[t])$(`screen-left-${t}`).value=String(10-draft.walls.filter(w=>w.owner===t).length);}
  function readSnapshot(){return snapshotFromDraft(draft,{bottom:Number($('screen-bottom').value),turn:Number($('screen-turn').value),left:[0,1].map(t=>$(`screen-left-${t}`).value.trim()===''?NaN:Number($(`screen-left-${t}`).value))});}
  function review(){
-  if(!draft)return;const issues=[...snapshotIssues(readSnapshot()),...(!edited?draft.wallIssues??[]:[])];$('screen-issues').replaceChildren(...issues.map(text=>{const li=document.createElement('li');li.textContent=text;return li;}));$('screen-apply').disabled=issues.length>0;
+  if(!draft)return;const issues=[...snapshotIssues(readSnapshot()),...(!edited?draft.wallIssues??[]:[]),...sourceErrors()];$('screen-issues').replaceChildren(...issues.map(text=>{const li=document.createElement('li');li.textContent=text;return li;}));$('screen-apply').disabled=issues.length>0;
   let svg='<svg viewBox="0 0 400 400" role="img" aria-label="원본 방향의 배치 보정: 클릭해 말 또는 벽 지정">';
   for(let y=0;y<9;y++)for(let x=0;x<9;x++)svg+=`<rect x="${10+x*42}" y="${10+y*42}" width="34" height="34" rx="5" fill="#29271f"/><text x="${27+x*42}" y="${22+y*42}" font-size="7">${x+1}·${y+1}</text>`;
   for(const w of draft.walls)svg+=`<rect x="${10+w.x*42+(w.o==='v'?35:0)}" y="${10+w.y*42+(w.o==='h'?35:0)}" width="${w.o==='h'?76:6}" height="${w.o==='v'?76:6}" rx="3" fill="${colors[w.owner]}"/>`;
@@ -137,14 +164,15 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
   }else{const w={type:'wall',o:brush[0],owner:Number(brush[1]),x:Math.max(0,Math.min(7,Math.round((x-48)/42))),y:Math.max(0,Math.min(7,Math.round((y-48)/42)))},old=draft.walls.findIndex(a=>a.x===w.x&&a.y===w.y&&a.o===w.o);if(old>=0)draft.walls[old]=w;else draft.walls.push(w);}
   edited=true;stock();onDirty();review();
  };
- $('screen-recognize').onclick=()=>{try{if(!rect||rect.width<180||rect.height<180)throw Error('보드 영역을 180×180 픽셀 이상으로 선택하세요.');draft=recognizeBoard(frame.getContext('2d').getImageData(0,0,frame.width,frame.height),rect,{gap:gaps()});manualStock=[false,false];edited=false;stock();review();onDirty();message('자동 판독을 마쳤습니다. 말·벽·출발 방향·차례·잔여 벽을 검토하고 적용하세요.');}catch(error){dirty();message(error.message,true);}};
+ $('screen-recognize').onclick=()=>{try{if(!rect||rect.width<180||rect.height<180)throw Error('보드 영역을 180×180 픽셀 이상으로 선택하세요.');draft=recognizeBoard(frame.getContext('2d').getImageData(0,0,frame.width,frame.height),rect,{gap:gaps()});manualStock=[false,false];edited=false;updateContext();stock();review();onDirty();message('자동 판독을 마쳤습니다. 말·벽·출발 방향·차례·잔여 벽을 검토하고 적용하세요.');}catch(error){dirty();message(error.message,true);}};
  $('screen-find-board').onclick=findBoard;
  for(const id of ['screen-gap','screen-gap-y'])$(id).oninput=()=>{automaticGrid=false;dirty();redraw();controls();};
- for(const id of ['screen-bottom','screen-turn'])$(id).onchange=()=>{onDirty();review();};
+ for(const id of ['screen-bottom','screen-turn'])$(id).onchange=()=>{$(id==='screen-bottom'?'screen-auto-side':'screen-auto-turn').checked=false;updateContext();onDirty();review();};
+ for(const id of ['screen-auto-side','screen-auto-turn'])$(id).onchange=()=>{updateContext();onDirty();review();};
  for(const t of [0,1])$(`screen-left-${t}`).oninput=()=>{manualStock[t]=true;onDirty();review();};
  $('screen-stock-reset').onclick=()=>{manualStock=[false,false];stock();onDirty();review();};
  $('screen-clear-walls').onclick=()=>{if(draft){draft.walls=[];edited=true;stock();onDirty();review();}};
- $('screen-apply').onclick=()=>{try{if(!edited&&draft?.wallIssues?.length)throw Error(draft.wallIssues.join(' '));const snapshot=checkedSnapshot(readSnapshot());pause();onApply(snapshot,Number($('screen-bottom').value));calibration={rect:{...rect},gap:gaps(),auto:automaticGrid,bottom:Number($('screen-bottom').value),width:frame.width,height:frame.height,fingerprint:gridFingerprint(frame.getContext('2d').getImageData(0,0,frame.width,frame.height),{rect,gap:gaps()})};recordDiagnostic('사용자가 현재 배치·차례를 확인해 기준 상태 적용');controls();dialog.close();message('확인한 배치를 적용했습니다. 공유 중이면 자동 감시 시작을 눌러 연동하세요.');}catch(error){message(error.message,true);review();}};
+ $('screen-apply').onclick=()=>{try{if(sourceErrors().length)throw Error(sourceErrors().join(' '));if(!edited&&draft?.wallIssues?.length)throw Error(draft.wallIssues.join(' '));const snapshot=checkedSnapshot(readSnapshot());pause();onApply(snapshot,Number($('screen-bottom').value));calibration={rect:{...rect},gap:gaps(),auto:automaticGrid,autoSide:$('screen-auto-side').checked,autoTurn:$('screen-auto-turn').checked,sourcePly:$('screen-auto-turn').checked?sourceMeta?.moveCount??null:null,bottom:Number($('screen-bottom').value),width:frame.width,height:frame.height,fingerprint:gridFingerprint(frame.getContext('2d').getImageData(0,0,frame.width,frame.height),{rect,gap:gaps()})};lastContext=sourceMeta;$('screen-source-state').textContent=`내 진영: ${calibration.bottom===0?'청록':'분홍'} · 아래 시작 · ${snapshot.turn===calibration.bottom?'내':'상대'} 차례${calibration.autoTurn?' · 자동':' · 수동 보정'}`;recordDiagnostic('사용자가 현재 배치·차례를 확인해 기준 상태 적용');controls();dialog.close();message('확인한 배치를 적용했습니다. 공유 중이면 자동 감시 시작을 눌러 연동하세요.');}catch(error){message(error.message,true);review();}};
  $('screen-auto-start').onclick=()=>{if(!timer)start();};$('screen-auto-pause').onclick=()=>pause();$('screen-auto-hint').onchange=()=>{stable.reset();uncertain=true;onWatchChange?.(!!timer);};
  // Editing an approved draft invalidates its calibration before it can be reused.
  dialog.addEventListener('input',e=>{if(e.target.id!=='screen-image-file'){invalidate();controls();}});
@@ -154,6 +182,6 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
  $('screen-open').onclick=openDialog;$('screen-close').onclick=()=>dialog.close();$('screen-connect').onclick=()=>connect();$('screen-freeze').onclick=()=>{try{freeze();}catch(e){message(e.message,true);}};
  $('screen-resync').onclick=()=>{const wasActive=!!timer;openDialog();if(!wasActive&&stream)try{freeze();}catch(error){message(error.message,true);}message('현재 배치와 차례를 확인해 새 기준으로 적용하세요. 복원하지 못한 중간 수는 만들지 않습니다.');};
  $('screen-diagnostic').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify({version:1,events:diagnostics,buffer:observedFrames,lastGood:getState?.()??null},null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='quoridor-screen-diagnostic.json';a.click();URL.revokeObjectURL(url);};
- $('screen-disconnect').onclick=()=>disconnect();$('screen-image').onclick=()=>$('screen-image-file').click();$('screen-image-file').onchange=e=>{imageFile(e.target.files[0]);e.target.value='';};controls();
+ $('screen-disconnect').onclick=()=>disconnect();$('screen-image').onclick=()=>$('screen-image-file').click();$('screen-image-file').onchange=e=>{imageFile(e.target.files[0]);e.target.value='';};updateContext();controls();
  return {get active(){return !!timer;},get autoHint(){return $('screen-auto-hint').checked;},open:openDialog,setBottom(bottom){invalidate();if([0,1].includes(bottom)){$('screen-bottom').value=String(bottom);review();}},setVisible(next){if(visible===next)return;visible=next;panel.hidden=!next;if(!next){if(dialog.open)dialog.close();disconnect(false);}},dispose(){disposed=true;disconnect(false);dialog.remove();panel.remove();}};
 }

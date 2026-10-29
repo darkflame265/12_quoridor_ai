@@ -1,6 +1,9 @@
 {
   "browser": "isolated headless Chrome/Edge",
   "checks": [
+    "source captions and active player cards identify either turn for both bottom colors across fonts",
+    "dim one-pixel rounded player cards with small captions identify either turn without a turn phrase",
+    "small and larger turn captions identify the source turn independently of card highlights",
     "image import automatically finds lattice, axis spacing, pawns and walls without dragging",
     "image, drag calibration, recognition and stock inference",
     "manual pawn/wall correction and invalid-state blocking",
@@ -16,7 +19,7 @@
     "reopening calibration pauses monitoring, freezes latest frame and requires reviewed reapplication",
     "capture dimension change stops monitoring and requires a fresh crop",
     "explicit capture request, stop, denial and late permission-result cleanup using synthetic stream",
-    "pink-bottom source mapping, matching rendered orientation and saved calibration",
+    "pink-bottom source mapping automatically sets own side below and persists orientation",
     "whole-board translation by one cell does not fabricate two pawn moves",
     "automatic calibration tracks a moved and rescaled board inside unchanged video dimensions",
     "video resolution change automatically reacquires grid and resumes legal synchronization",
@@ -27,7 +30,13 @@
     "confirmed current-frame resynchronization marks missing history and resumes monitoring",
     "dense connected twenty-wall video imports without duplicate walls or negative stock",
     "failed full-grid detection retains confirmed geometry when corner evidence still matches",
-    "missing-history annotation survives session reload without fabricated actions"
+    "missing-history annotation survives session reload without fabricated actions",
+    "initial full-screen import automatically selects pink own side below and its source turn without manual selections",
+    "source turn and MOVES count track both players, cancelling recommendations on opponent turn",
+    "contradictory source turn never silently rewrites tracked state or produces a stale recommendation",
+    "conflicting source caption and active-card evidence suspend automatic analysis",
+    "new bottom color requires resynchronization and then automatically updates own side while keeping it below",
+    "unreadable initial turn blocks automatic application, records diagnosis and allows explicit manual correction"
   ],
   "uncaughtErrors": [],
   "realScreenCaptureTested": false,
@@ -37,6 +46,7 @@
     "applied-board.png",
     "automatic-sync.png",
     "automatic-grid.png",
-    "recovery.png"
+    "recovery.png",
+    "automatic-side-turn.png"
   ]
 }

@@ -1,6 +1,7 @@
 {
   "browser": "isolated headless Chrome/Edge",
   "checks": [
+    "image import automatically finds lattice, axis spacing, pawns and walls without dragging",
     "image, drag calibration, recognition and stock inference",
     "manual pawn/wall correction and invalid-state blocking",
     "read-only observed board and manual engine recommendation without auto-move",
@@ -15,7 +16,12 @@
     "reopening calibration pauses monitoring, freezes latest frame and requires reviewed reapplication",
     "capture dimension change stops monitoring and requires a fresh crop",
     "explicit capture request, stop, denial and late permission-result cleanup using synthetic stream",
-    "pink-bottom source mapping, matching rendered orientation and saved calibration"
+    "pink-bottom source mapping, matching rendered orientation and saved calibration",
+    "whole-board translation by one cell does not fabricate two pawn moves",
+    "automatic calibration tracks a moved and rescaled board inside unchanged video dimensions",
+    "video resolution change automatically reacquires grid and resumes legal synchronization",
+    "multiple visible boards require selection and tracking retains the selected board",
+    "missing board blocks application and offers manual calibration instead of guessing"
   ],
   "uncaughtErrors": [],
   "realScreenCaptureTested": false,
@@ -23,6 +29,7 @@
   "screenshots": [
     "recognition-review.png",
     "applied-board.png",
-    "automatic-sync.png"
+    "automatic-sync.png",
+    "automatic-grid.png"
   ]
 }

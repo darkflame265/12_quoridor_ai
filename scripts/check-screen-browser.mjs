@@ -35,7 +35,11 @@ try{
  await send('Page.addScriptToEvaluateOnNewDocument',{source:`if(!localStorage.getItem('quoridor-session'))localStorage.setItem('quoridor-session',JSON.stringify({version:2,records:[],mode:'sandbox',side:0,startPosition:'bottom',time:'500',cores:'1',engine:'atlas3'}));`});
  await send('Page.navigate',{url});await until(`!!document.querySelector('#screen-open')`);
  await evaluate(`(async()=>{const {screenFixture}=await import('/_qa/fixture.js');const f=screenFixture();window.qaCanvas=document.createElement('canvas');qaCanvas.width=f.width;qaCanvas.height=f.height;qaCanvas.getContext('2d').putImageData(new ImageData(f.data,f.width,f.height),0,0);const blob=await new Promise(r=>qaCanvas.toBlob(r));const transfer=new DataTransfer();transfer.items.add(new File([blob],'board.png',{type:'image/png'}));document.querySelector('#mode').value='screen';document.querySelector('#mode').dispatchEvent(new Event('change'));const input=document.querySelector('#screen-image-file');input.files=transfer.files;input.dispatchEvent(new Event('change'));})()`);
- await until(`!document.querySelector('#screen-source-canvas').hidden && document.querySelector('#screen-source-canvas').width===560`);await crop();
+ await until(`!document.querySelector('#screen-source-canvas').hidden && document.querySelector('#screen-source-canvas').width===560`);
+ assert.equal(await evaluate(`document.querySelectorAll('#screen-review-board circle').length`),2);
+ assert.equal(await evaluate(`document.querySelectorAll('#screen-wall-list button').length`),3);
+ assert.equal(await evaluate(`document.querySelector('#screen-grid-status').textContent.includes('자동 정렬 완료')`),true);
+ checks.push('image import automatically finds lattice, axis spacing, pawns and walls without dragging');await crop();
  await evaluate(`document.querySelector('#screen-recognize').click();document.querySelector('#screen-turn').value='1';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));`);
  await until(`!document.querySelector('#screen-apply').disabled`);
  assert.equal(await evaluate(`document.querySelector('#hint').disabled`),true);
@@ -108,6 +112,7 @@ try{
  assert.equal(await evaluate(`document.querySelector('#screen-dialog').open && document.querySelector('#screen-auto-pause').disabled && document.querySelector('#screen-auto-start').disabled`),true);
  assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);
  assert.equal(await evaluate(`qaStream.getTracks().every(t=>t.readyState==='live')`),true);
+ await crop(); // Explicit manual fallback must retain its resize-stop behavior.
  await evaluate(`document.querySelector('#screen-recognize').click();document.querySelector('#screen-turn').value='0';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click();document.querySelector('#screen-auto-start').click()`);
  await until(`!!document.querySelector('#board .recommend')`);
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.walls.length`),4);
@@ -121,9 +126,39 @@ try{
  await evaluate(`Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async()=>{throw new DOMException('denied','NotAllowedError');}});document.querySelector('#screen-connect').click();`);await until(`document.querySelector('#screen-message').textContent.includes('취소')`);
  await evaluate(`Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:()=>new Promise(r=>window.qaResolve=r)});document.querySelector('#screen-connect').click();document.querySelector('#mode').value='sandbox';document.querySelector('#mode').dispatchEvent(new Event('change'));window.qaPending=qaCanvas.captureStream(1);qaResolve(qaPending);`);await until(`qaPending.getTracks().every(t=>t.readyState==='ended')`);checks.push('explicit capture request, stop, denial and late permission-result cleanup using synthetic stream');
  await evaluate(`(async()=>{const {screenFixture}=await import('/_qa/fixture.js');const f=screenFixture({bottom:1}),canvas=document.createElement('canvas');canvas.width=f.width;canvas.height=f.height;canvas.getContext('2d').putImageData(new ImageData(f.data,f.width,f.height),0,0);const blob=await new Promise(r=>canvas.toBlob(r));const transfer=new DataTransfer();transfer.items.add(new File([blob],'pink-bottom.png',{type:'image/png'}));document.querySelector('#mode').value='screen';document.querySelector('#mode').dispatchEvent(new Event('change'));const input=document.querySelector('#screen-image-file');input.files=transfer.files;input.dispatchEvent(new Event('change'));})()`);
- await until(`!document.querySelector('#screen-source-canvas').hidden`);await crop();await evaluate(`document.querySelector('#screen-recognize').click();document.querySelector('#screen-bottom').value='1';document.querySelector('#screen-bottom').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click();`);await until(`!document.querySelector('#screen-dialog').open`);
+ await until(`!document.querySelector('#screen-source-canvas').hidden && document.querySelector('#screen-source-canvas').width===560 && document.querySelector('#screen-grid-status').textContent.includes('자동 정렬 완료')`);await crop();await evaluate(`document.querySelector('#screen-recognize').click();document.querySelector('#screen-bottom').value='1';document.querySelector('#screen-bottom').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click();`);await until(`!document.querySelector('#screen-dialog').open`);
  const pink=await evaluate(`JSON.parse(localStorage.getItem('quoridor-session'))`);assert.equal(pink.startPosition,'top');assert.equal(pink.sourceBottom,1);assert.deepEqual(pink.baseState.p,[{x:4,y:2},{x:4,y:6}]);assert.deepEqual(await evaluate(`[...document.querySelectorAll('#board .pawn')].map(c=>Number(c.getAttribute('cy')))`),[471,191]);await send('Page.reload');await until(`document.querySelector('#count')?.textContent.includes('가져온')`);assert.equal(await evaluate(`document.querySelector('#screen-bottom').value`),'1');checks.push('pink-bottom source mapping, matching rendered orientation and saved calibration');
- assert.deepEqual(errors,[]);await writeFile(path.join(out,'browser-qa.json'),JSON.stringify({browser:'isolated headless Chrome/Edge',checks,uncaughtErrors:errors,realScreenCaptureTested:false,syntheticMediaStreamTested:true,screenshots:['recognition-review.png','applied-board.png','automatic-sync.png']},null,2)+'\n');console.log(JSON.stringify({checks,uncaughtErrors:errors},null,2));
+ await evaluate(`(async()=>{const {screenFixture}=await import('/_qa/fixture.js');window.qaSceneCanvas=document.createElement('canvas');window.qaPaint=(options={},layout={})=>{const f=screenFixture(options),tile=document.createElement('canvas');tile.width=f.width;tile.height=f.height;tile.getContext('2d').putImageData(new ImageData(f.data,f.width,f.height),0,0);qaSceneCanvas.width=layout.width??900;qaSceneCanvas.height=layout.height??800;const ctx=qaSceneCanvas.getContext('2d');ctx.fillStyle='#10120e';ctx.fillRect(0,0,qaSceneCanvas.width,qaSceneCanvas.height);ctx.drawImage(tile,layout.x??130,layout.y??80,560*(layout.sx??.8),560*(layout.sy??.85));if(layout.second)ctx.drawImage(tile,650,100,392,392);window.qaSceneStream?.getVideoTracks()[0].requestFrame?.();};qaPaint();Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async()=>{window.qaSceneStream=qaSceneCanvas.captureStream(30);setTimeout(()=>qaSceneStream.getVideoTracks()[0].requestFrame?.(),100);return qaSceneStream;}});document.querySelector('#screen-open').click();document.querySelector('#screen-connect').click();})()`);
+ await until(`document.querySelector('#screen-source-canvas').width===900 && document.querySelectorAll('#screen-review-board circle').length===2`);
+ await evaluate(`document.querySelector('#screen-bottom').value='0';document.querySelector('#screen-bottom').dispatchEvent(new Event('change'));document.querySelector('#screen-turn').value='1';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click();document.querySelector('#screen-auto-start').click()`);
+ await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
+ await evaluate(`qaPaint({}, {x:176.4,y:80,sx:.8,sy:.85})`);
+ await evaluate(`new Promise(r=>setTimeout(r,1800))`);
+ assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),0);
+ checks.push('whole-board translation by one cell does not fabricate two pawn moves');
+ await evaluate(`qaPaint({positions:[{x:4,y:6},{x:4,y:3}]},{x:270,y:140,sx:.65,sy:.7})`);
+ await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===1`);
+ await until(`!!document.querySelector('#board .recommend')`);
+ checks.push('automatic calibration tracks a moved and rescaled board inside unchanged video dimensions');
+ await evaluate(`qaPaint({positions:[{x:4,y:5},{x:5,y:3}]},{x:170,y:100,sx:.9,sy:.95,width:1000,height:850})`);
+ await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===3`);
+ await until(`!!document.querySelector('#board .recommend')`);
+ checks.push('video resolution change automatically reacquires grid and resumes legal synchronization');
+ await screenshot('automatic-grid.png');
+ await evaluate(`document.querySelector('#screen-open').click();qaPaint({}, {width:1200,height:850,x:30,y:90,sx:.7,sy:.7,second:true});`);
+ await until(`document.querySelector('#screen-video').videoWidth===1200`);
+ await evaluate(`document.querySelector('#screen-freeze').click()`);
+ await until(`document.querySelectorAll('#screen-board-candidates button').length===2`);
+ assert.equal(await evaluate(`document.querySelector('#screen-apply').disabled`),true);
+ await evaluate(`document.querySelector('#screen-board-candidates button').click();document.querySelector('#screen-apply').click();document.querySelector('#screen-auto-start').click()`);
+ await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
+ checks.push('multiple visible boards require selection and tracking retains the selected board');
+ await evaluate(`document.querySelector('#screen-open').click();qaSceneCanvas.getContext('2d').fillRect(0,0,1200,850);qaSceneStream.getVideoTracks()[0].requestFrame?.()`);
+ await evaluate(`new Promise(r=>setTimeout(r,200))`);await evaluate(`document.querySelector('#screen-freeze').click()`);
+ await until(`document.querySelector('#screen-grid-status').textContent.includes('확정하지 못했습니다')`);
+ assert.equal(await evaluate(`document.querySelector('#screen-apply').disabled`),true);
+ checks.push('missing board blocks application and offers manual calibration instead of guessing');
+ assert.deepEqual(errors,[]);await writeFile(path.join(out,'browser-qa.json'),JSON.stringify({browser:'isolated headless Chrome/Edge',checks,uncaughtErrors:errors,realScreenCaptureTested:false,syntheticMediaStreamTested:true,screenshots:['recognition-review.png','applied-board.png','automatic-sync.png','automatic-grid.png']},null,2)+'\n');console.log(JSON.stringify({checks,uncaughtErrors:errors},null,2));
 }catch(error){try{await screenshot('failure.png');console.error(await evaluate(`JSON.stringify({message:document.querySelector('#screen-message')?.textContent,calls:window.qaCalls,videoReady:document.querySelector('#screen-video')?.readyState,connection:document.querySelector('#screen-connection')?.textContent,mode:document.querySelector('#mode')?.value})`));}catch{}throw error;}finally{
  if(ws?.readyState===WebSocket.OPEN){try{await send('Browser.close',{},null);}catch{}ws.close();}
  if(chrome&&chrome.exitCode===null){await new Promise(resolve=>{const timer=setTimeout(()=>{chrome.kill();resolve();},3000);chrome.once('exit',()=>{clearTimeout(timer);resolve();});});}

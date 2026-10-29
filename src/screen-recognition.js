@@ -6,9 +6,10 @@ export function pieceColor(r,g,b){
  return -1;
 }
 export function gridGeometry(rect,gap=.16){
- if(!rect||![rect.x,rect.y,rect.width,rect.height,gap].every(Number.isFinite)||rect.width<90||rect.height<90||gap<.06||gap>.3)throw Error('보드 영역과 간격을 확인하세요.');
- const sx=rect.width/(9-gap),sy=rect.height/(9-gap),cw=sx*(1-gap),ch=sy*(1-gap);
- return {sx,sy,cw,ch,cell:(x,y)=>({x:rect.x+x*sx,y:rect.y+y*sy,width:cw,height:ch}),center:(x,y)=>({x:rect.x+x*sx+cw/2,y:rect.y+y*sy+ch/2}),joint:(x,y)=>({x:rect.x+(x+1)*sx-sx*gap/2,y:rect.y+(y+1)*sy-sy*gap/2})};
+ const gx=typeof gap==='number'?gap:gap?.x,gy=typeof gap==='number'?gap:gap?.y;
+ if(!rect||![rect.x,rect.y,rect.width,rect.height,gx,gy].every(Number.isFinite)||rect.width<90||rect.height<90||gx<.06||gx>.3||gy<.06||gy>.3)throw Error('보드 영역과 간격을 확인하세요.');
+ const sx=rect.width/(9-gx),sy=rect.height/(9-gy),cw=sx*(1-gx),ch=sy*(1-gy);
+ return {sx,sy,cw,ch,cell:(x,y)=>({x:rect.x+x*sx,y:rect.y+y*sy,width:cw,height:ch}),center:(x,y)=>({x:rect.x+x*sx+cw/2,y:rect.y+y*sy+ch/2}),joint:(x,y)=>({x:rect.x+(x+1)*sx-sx*gx/2,y:rect.y+(y+1)*sy-sy*gy/2})};
 }
 function sample(image,cx,cy,rx,ry){
  const counts=[0,0],bounds=[[Infinity,Infinity,-Infinity,-Infinity],[Infinity,Infinity,-Infinity,-Infinity]];let total=0;
@@ -28,8 +29,14 @@ export function recognizeBoard(image,rect,{gap=.16}={}){
  }
  for(let y=0;y<8;y++)for(let x=0;x<8;x++)for(const o of ['h','v']){
   const c=grid.joint(x,y),first=grid.center(x,y),second=grid.center(x+1,y+1);
-  const samples=o==='h'?[sample(image,first.x,c.y,grid.sx*.14,grid.sy*.025),sample(image,c.x,c.y,grid.sx*.025,grid.sy*.025),sample(image,second.x,c.y,grid.sx*.14,grid.sy*.025)]:[sample(image,c.x,first.y,grid.sx*.025,grid.sy*.14),sample(image,c.x,c.y,grid.sx*.025,grid.sy*.025),sample(image,c.x,second.y,grid.sx*.025,grid.sy*.14)];
-  for(const owner of [0,1])if(samples.every(s=>s.total>0&&s.counts[owner]/s.total>=.6))walls.push({type:'wall',x,y,o,owner});
+  // Scan a narrow band around the lane center. Requiring all three segments
+  // on the SAME raster line tolerates rounding without joining separate walls.
+  const horizontal=o==='h',center=horizontal?c.y:c.x,range=Math.max(1,Math.min(horizontal?grid.sy-grid.ch:grid.sx-grid.cw,(horizontal?grid.sy:grid.sx)*.11)/2),owners=new Set();
+  for(let line=Math.round(center-range);line<=Math.round(center+range);line++){
+   const samples=horizontal?[sample(image,first.x,line,grid.sx*.14,0),sample(image,c.x,line,grid.sx*.025,0),sample(image,second.x,line,grid.sx*.14,0)]:[sample(image,line,first.y,0,grid.sy*.14),sample(image,line,c.y,0,grid.sy*.025),sample(image,line,second.y,0,grid.sy*.14)];
+   for(const owner of [0,1])if(samples.every(s=>s.total>0&&s.counts[owner]/s.total>=.65))owners.add(owner);
+  }
+  if(owners.size===1)walls.push({type:'wall',x,y,o,owner:[...owners][0]});
  }
  const notes=candidates.flatMap((list,t)=>list.length===1?[]:[`${t===0?'청록':'분홍'} 말 후보 ${list.length}개: 검토 보드에서 위치를 지정하세요.`]);
  return {p:candidates.map(list=>list.length===1?list[0]:null),walls,candidates,notes};

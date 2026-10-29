@@ -1,10 +1,12 @@
 import {recognizeBoard,gridGeometry} from './screen-recognition.js';
 import {snapshotFromDraft,snapshotIssues,checkedSnapshot} from './observed-state.js';
+import {inferScreenMoves,StableScreenBoard,boardKey} from './screen-sync.js';
 const colors=['#31d4c2','#fa7393'];
-export function mountScreenCapture({onApply,onDirty}){
+export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChange,onUncertain,onRecovered}){
  const panel=document.createElement('section');panel.className='panel';panel.id='screen-panel';panel.hidden=true;
- panel.innerHTML='<div class="panel-title">화면 가져오기 <span>수동 확인</span></div><p class="watch-note">게임 화면이나 이미지에서 프레임을 가져와 배치를 검토하고 적용합니다.</p><button id="screen-open" class="primary">화면 연결 · 이미지 인식</button><div class="buttons"><button id="screen-disconnect" disabled>공유 중지</button></div><p id="screen-connection" class="watch-note" role="status">연결된 화면 없음</p>';
+ panel.innerHTML='<div class="panel-title">화면 연동 <span>자동 감시</span></div><p class="watch-note">처음 배치·차례를 확인해 적용한 뒤 자동 감시를 시작하세요. 벽 미리보기가 남지 않도록 원본 보드 밖으로 커서를 옮겨 주세요.</p><button id="screen-open" class="primary">화면 연결 · 이미지 인식</button><div class="buttons"><button id="screen-disconnect" disabled>공유 중지</button></div><p id="screen-connection" class="watch-note" role="status">연결된 화면 없음</p>';
  document.querySelector('#watch-panel').before(panel);
+ const liveControls=document.createElement('div');liveControls.innerHTML='<div class="buttons"><button id="screen-auto-start" disabled>자동 감시 시작</button><button id="screen-auto-pause" disabled>일시정지</button></div><label><input id="screen-auto-hint" type="checkbox" checked> 내 차례에 최선 수 자동 분석</label><p id="screen-auto-status" class="watch-note" role="status">배치를 확인해 적용한 뒤 자동 감시를 시작하세요.</p>';panel.append(liveControls);
  const dialog=document.createElement('dialog');dialog.id='screen-dialog';dialog.className='screen-dialog';
  dialog.innerHTML=`<div class="screen-dialog-head"><div><h2>게임 화면 가져오기</h2><p>말·벽을 읽은 뒤 직접 확인해 적용하세요. 이미지는 이 브라우저에서 처리합니다.</p></div><button id="screen-close" aria-label="화면 가져오기 닫기">닫기</button></div>
  <div class="screen-workspace"><section class="screen-source"><div class="screen-actions"><button id="screen-connect">오른쪽 게임 화면 연결</button><button id="screen-image">이미지 가져오기</button><button id="screen-freeze" disabled>현재 프레임 고정</button><input id="screen-image-file" type="file" accept="image/png,image/jpeg,image/webp" hidden></div><p class="screen-help">공유할 게임 탭/창을 선택하세요. 마우스를 원본 보드 밖으로 옮겨 벽 미리보기를 지운 뒤 프레임을 고정하세요.</p><video id="screen-video" muted autoplay playsinline hidden></video><div id="screen-empty" class="screen-empty">화면을 연결하거나 PNG·JPG·WebP를 가져오세요.</div><canvas id="screen-source-canvas" hidden aria-label="원본 이미지: 9×9 칸의 바깥 모서리를 드래그해 보드 영역 선택"></canvas><p class="screen-help">숫자·글자·테두리를 제외하고, 첫 칸 왼쪽 위부터 마지막 칸 오른쪽 아래까지 드래그하세요.</p><label>칸 사이 간격 (%)<input id="screen-gap" type="number" min="6" max="30" step="1" value="16"></label><button id="screen-recognize" class="primary" disabled>선택 영역 인식</button><p id="screen-message" role="status" aria-live="polite" class="screen-help">먼저 화면이나 이미지를 준비하세요.</p></section>
@@ -13,10 +15,33 @@ export function mountScreenCapture({onApply,onDirty}){
  const $=id=>document.getElementById(id),canvas=$('screen-source-canvas'),ctx=canvas.getContext('2d'),frame=document.createElement('canvas'),video=$('screen-video');
  const footer=document.createElement('div');footer.className='screen-dialog-foot';const footerNote=document.createElement('span');footerNote.textContent='검토 후 적용 · 차례와 잔여 벽은 원본과 대조하세요.';footer.append(footerNote,$('screen-apply'));dialog.append(footer);
  let stream=null,hasFrame=false,rect=null,drag=null,draft=null,manualStock=[false,false],visible=false,token=0,disposed=false,edited=false;
+ let timer=null,calibration=null,uncertain=false,lastVideoTime=-1,lastFrameAt=0;const stable=new StableScreenBoard(3),live=document.createElement('canvas');
+ const autoStatus=text=>{$('screen-auto-status').textContent=text;};
+ function pause(reason='자동 감시 일시정지'){clearInterval(timer);timer=null;stable.reset();lastVideoTime=-1;onWatchChange?.(false);autoStatus(reason);controls();}
+ function invalidate(){calibration=null;if(timer)pause('영역·배치를 변경했습니다. 검토 후 다시 적용하세요.');}
+ function reject(text){stable.reset();autoStatus(`갱신 보류 · ${text}`);if(!uncertain){uncertain=true;onUncertain?.();}}
+ function tick(){
+  if(!timer||!stream||!calibration||disposed)return;
+  try{
+   if(video.readyState<2||video.paused||video.currentTime===lastVideoTime){if(Date.now()-lastFrameAt>3000)reject('새 영상 프레임을 받지 못했습니다. 공유 상태를 확인하세요.');return;}
+   lastVideoTime=video.currentTime;lastFrameAt=Date.now();
+   const scale=Math.min(1,2048/Math.max(video.videoWidth,video.videoHeight)),w=Math.round(video.videoWidth*scale),h=Math.round(video.videoHeight*scale);
+   if(w!==calibration.width||h!==calibration.height){invalidate();autoStatus('공유 화면 크기가 바뀌었습니다. 프레임을 고정하고 영역을 다시 지정하세요.');onUncertain?.();return;}
+   live.width=w;live.height=h;live.getContext('2d').drawImage(video,0,0,w,h);
+   const detected=recognizeBoard(live.getContext('2d').getImageData(0,0,w,h),calibration.rect,{gap:calibration.gap});
+   const before=getState?.();if(!before){pause('배치를 다시 적용하세요.');return;}
+   const target=checkedSnapshot(snapshotFromDraft(detected,{bottom:calibration.bottom,turn:before.turn}));
+   if(!stable.observe(target)){if(boardKey(before)!==boardKey(target)&&!uncertain){uncertain=true;onUncertain?.();}autoStatus('배치 변화 확인 중 · 동일한 화면 3회 대기');return;}
+   const actions=inferScreenMoves(before,target);
+   if(actions.length){if(onSync?.(actions,before)===false)throw Error('왼쪽 배치가 변경됐습니다. 다시 확인하세요.');uncertain=false;autoStatus(`${actions.length}수 자동 반영 · ${new Date().toLocaleTimeString()}`);}
+   else {if(uncertain){uncertain=false;onRecovered?.();}autoStatus('자동 감시 중 · 원본과 일치');}
+  }catch(error){reject(error.message);}
+ }
+ function start(){if(!stream||!calibration)return;stable.reset();uncertain=true;lastVideoTime=-1;lastFrameAt=Date.now();timer=setInterval(tick,250);onWatchChange?.(true);autoStatus('자동 감시 시작 · 동일한 배치 3회 확인 후 반영');controls();}
  const message=(text,error=false)=>{$('screen-message').textContent=text;$('screen-message').classList.toggle('screen-error',error);};
- const dirty=()=>{draft=null;$('screen-apply').disabled=true;$('screen-review-board').innerHTML='';$('screen-wall-list').replaceChildren();$('screen-detected').textContent='';$('screen-issues').replaceChildren();onDirty();};
- function controls(){const active=!!stream;$('screen-disconnect').disabled=!active;$('screen-freeze').disabled=!active;$('screen-connect').disabled=!navigator.mediaDevices?.getDisplayMedia;$('screen-recognize').disabled=!hasFrame||!rect;$('screen-connection').textContent=active?'공유 중 · 프레임은 수동으로 고정':hasFrame?'마지막 프레임/이미지 · 실시간 갱신 없음':'연결된 화면 없음';}
- function disconnect(invalidate=true){token++;const old=stream;stream=null;video.srcObject=null;video.hidden=true;old?.getTracks().forEach(t=>t.stop());controls();if(invalidate)onDirty();}
+ const dirty=()=>{invalidate();draft=null;$('screen-apply').disabled=true;$('screen-review-board').innerHTML='';$('screen-wall-list').replaceChildren();$('screen-detected').textContent='';$('screen-issues').replaceChildren();onDirty();};
+ function controls(){const active=!!stream;$('screen-auto-start').disabled=!active||!calibration||!!timer;$('screen-auto-pause').disabled=!timer;$('screen-disconnect').disabled=!active;$('screen-freeze').disabled=!active;$('screen-connect').disabled=!navigator.mediaDevices?.getDisplayMedia;$('screen-recognize').disabled=!hasFrame||!rect;$('screen-connection').textContent=active?timer?'공유 중 · 자동 감시 활성':'공유 중 · 자동 감시는 일시정지':hasFrame?'마지막 프레임/이미지 · 실시간 갱신 없음':'연결된 화면 없음';}
+ function disconnect(notify=true){pause('화면 공유 중지 · 자동 감시 종료');calibration=null;token++;const old=stream;stream=null;video.srcObject=null;video.hidden=true;old?.getTracks().forEach(t=>t.stop());controls();if(notify)onDirty();}
  function redraw(){
   if(!hasFrame)return;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(frame,0,0);
   if(rect){ctx.save();ctx.strokeStyle='#f4d18a';ctx.lineWidth=Math.max(2,canvas.width/600);ctx.strokeRect(rect.x,rect.y,rect.width,rect.height);try{const g=gridGeometry(rect,Number($('screen-gap').value)/100);ctx.strokeStyle='#31d4c277';ctx.lineWidth=1;for(let y=0;y<9;y++)for(let x=0;x<9;x++){const c=g.cell(x,y);ctx.strokeRect(c.x,c.y,c.width,c.height);}}catch{}ctx.restore();}
@@ -34,7 +59,7 @@ export function mountScreenCapture({onApply,onDirty}){
    next=await navigator.mediaDevices.getDisplayMedia({video:true,audio:false});
    if(disposed||mine!==token){next.getTracks().forEach(t=>t.stop());return;}
    const old=stream;stream=next;old?.getTracks().forEach(t=>t.stop());video.srcObject=next;video.hidden=false;controls();
-   next.getVideoTracks()[0].addEventListener('ended',()=>{if(stream===next){stream=null;video.srcObject=null;video.hidden=true;controls();onDirty();message('화면 공유가 종료됐습니다. 마지막 프레임은 다시 검토할 수 있습니다.');}});
+   next.getVideoTracks()[0].addEventListener('ended',()=>{if(stream===next){disconnect();message('화면 공유가 종료됐습니다. 마지막 프레임은 다시 검토할 수 있습니다.');}});
    await video.play();if(disposed||mine!==token||stream!==next)return;rect=null;freeze();
   }catch(error){if(next&&stream!==next)next.getTracks().forEach(t=>t.stop());if(mine===token)message(error.name==='NotAllowedError'?'화면 공유가 취소됐거나 허용되지 않았습니다. 다시 연결하거나 이미지를 가져오세요.':error.message,true);controls();}
  }
@@ -73,8 +98,14 @@ export function mountScreenCapture({onApply,onDirty}){
  for(const t of [0,1])$(`screen-left-${t}`).oninput=()=>{manualStock[t]=true;onDirty();review();};
  $('screen-stock-reset').onclick=()=>{manualStock=[false,false];stock();onDirty();review();};
  $('screen-clear-walls').onclick=()=>{if(draft){draft.walls=[];edited=true;stock();onDirty();review();}};
- $('screen-apply').onclick=()=>{try{const snapshot=checkedSnapshot(readSnapshot());onApply(snapshot,Number($('screen-bottom').value));dialog.close();message('확인한 배치를 왼쪽에 적용했습니다. 다음 상황은 새 프레임을 고정해 가져오세요.');}catch(error){message(error.message,true);review();}};
- $('screen-open').onclick=()=>{if(!dialog.open)dialog.showModal();controls();};$('screen-close').onclick=()=>dialog.close();$('screen-connect').onclick=()=>connect();$('screen-freeze').onclick=()=>{try{freeze();}catch(e){message(e.message,true);}};
+ $('screen-apply').onclick=()=>{try{const snapshot=checkedSnapshot(readSnapshot());pause();onApply(snapshot,Number($('screen-bottom').value));calibration={rect:{...rect},gap:Number($('screen-gap').value)/100,bottom:Number($('screen-bottom').value),width:frame.width,height:frame.height};controls();dialog.close();message('확인한 배치를 적용했습니다. 공유 중이면 자동 감시 시작을 눌러 연동하세요.');}catch(error){message(error.message,true);review();}};
+ $('screen-auto-start').onclick=()=>{if(!timer)start();};$('screen-auto-pause').onclick=()=>pause();$('screen-auto-hint').onchange=()=>{stable.reset();uncertain=true;onWatchChange?.(!!timer);};
+ // Editing an approved draft invalidates its calibration before it can be reused.
+ dialog.addEventListener('input',e=>{if(e.target.id!=='screen-image-file'){invalidate();controls();}});
+ dialog.addEventListener('change',()=>{invalidate();controls();});
+ $('screen-review-board').addEventListener('click',()=>{invalidate();controls();});$('screen-wall-list').addEventListener('click',()=>{invalidate();controls();});$('screen-clear-walls').addEventListener('click',()=>{invalidate();controls();});$('screen-stock-reset').addEventListener('click',()=>{invalidate();controls();});
+ function openDialog(){if(timer){pause('배치 검토를 위해 일시정지했습니다. 검토·적용 후 감시를 다시 시작하세요.');try{freeze();}catch(error){message(error.message,true);}}if(!dialog.open)dialog.showModal();controls();}
+ $('screen-open').onclick=openDialog;$('screen-close').onclick=()=>dialog.close();$('screen-connect').onclick=()=>connect();$('screen-freeze').onclick=()=>{try{freeze();}catch(e){message(e.message,true);}};
  $('screen-disconnect').onclick=()=>disconnect();$('screen-image').onclick=()=>$('screen-image-file').click();$('screen-image-file').onchange=e=>{imageFile(e.target.files[0]);e.target.value='';};controls();
- return {open(){if(!dialog.open)dialog.showModal();controls();},setBottom(bottom){if([0,1].includes(bottom)){$('screen-bottom').value=String(bottom);review();}},setVisible(next){if(visible===next)return;visible=next;panel.hidden=!next;if(!next){if(dialog.open)dialog.close();disconnect(false);}},dispose(){disposed=true;disconnect(false);dialog.remove();panel.remove();}};
+ return {get active(){return !!timer;},get autoHint(){return $('screen-auto-hint').checked;},open:openDialog,setBottom(bottom){invalidate();if([0,1].includes(bottom)){$('screen-bottom').value=String(bottom);review();}},setVisible(next){if(visible===next)return;visible=next;panel.hidden=!next;if(!next){if(dialog.open)dialog.close();disconnect(false);}},dispose(){disposed=true;disconnect(false);dialog.remove();panel.remove();}};
 }

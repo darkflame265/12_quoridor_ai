@@ -6,6 +6,14 @@
     "read-only observed board and manual engine recommendation without auto-move",
     "saved snapshot download payload and JSON file restore",
     "observed-base reload, subsequent move, correct player color and undo",
+    "live video move auto-sync with dialog closed and own-turn automatic recommendation",
+    "two fast plies, wall owner, remaining stock and history synchronize together",
+    "illegal recognition preserves last good board, clears stale hint and recovers",
+    "pause prevents synchronization; resume catches up without suggesting on opponent turn",
+    "automatic analysis can be disabled and re-enabled without changing the board",
+    "stalled video clears stale analysis and resumes after fresh stable frames",
+    "reopening calibration pauses monitoring, freezes latest frame and requires reviewed reapplication",
+    "capture dimension change stops monitoring and requires a fresh crop",
     "explicit capture request, stop, denial and late permission-result cleanup using synthetic stream",
     "pink-bottom source mapping, matching rendered orientation and saved calibration"
   ],
@@ -14,6 +22,7 @@
   "syntheticMediaStreamTested": true,
   "screenshots": [
     "recognition-review.png",
-    "applied-board.png"
+    "applied-board.png",
+    "automatic-sync.png"
   ]
 }

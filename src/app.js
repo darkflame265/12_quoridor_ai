@@ -4,11 +4,13 @@ import {initial,clone,moves,validWall,legal,apply,notation,distance} from './eng
 import {SpectatorRunner,observationOutcome} from './spectator.js';
 import {mountScreenCapture} from './screen-capture.js';
 import {restoreObservedSession} from './observed-state.js';
+import {boardKey} from './screen-sync.js';
 
 const $=s=>document.querySelector(s),colors=['#31d4c2','#fa7393'],names=['청록','분홍'];
 const defaultCores=Math.min(4,Math.max(1,(navigator.hardwareConcurrency||4)-2));
 let state=initial(),past=[],records=[],serial=0,busy=false,hint=null;
 let baseState=null,observedBottom=null,screenCapture=null;
+let screenReady=false;
 let pool=createPlayPool(defaultCores),watchPools=[null,null],ponderTimer=null;
 const watching=()=>$('#mode').value==='watch';
 const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.turn===Number($('#side').value);
@@ -79,11 +81,12 @@ function render(){
   $('#history').innerHTML=records.length?records.map((a,i)=>`<div class="${i===records.length-1?'latest':''}"><span>${String(i+1).padStart(2,'0')}</span><i style="background:${colors[(baseState?.turn??0)^(i%2)]}"></i><b>${notation(a)}</b><small>${a.type==='wall'?'벽 설치':'말 이동'}</small></div>`).join(''):baseState?'<p class="muted">가져온 시작 배치 · 이전 기보는 없습니다.</p>':'<p class="muted">첫 수를 기다리고 있습니다.</p>';
   $('#history').scrollTop=1e6;$('#count').textContent=`${records.length} 수`;$('#hint').disabled=busy||watcher.running||!!outcome;$('#undo').disabled=!past.length;
   $('#reset').disabled=screen;
+  if(screen)$('#undo').disabled=true;
   if(baseState)$('#count').textContent=`가져온 배치 이후 ${records.length}수`;
   if(screen){
-    $('#hint').disabled=busy||!!outcome||!baseState;
-    $('#status').textContent=!baseState?'화면 배치 대기':outcome?`화면 배치 · ${names[outcome.winner]} 승리`:`${records.length?'가져온 배치에서 수동 진행':'화면 배치'} · ${names[state.turn]} 차례${busy?' · 분석 중':''}`;
-    $('#instruction').textContent=!baseState?'화면을 가져와 검토·적용하면 이 보드가 바뀝니다':records.length?'가져온 배치 이후 수동 진행 상태입니다 · 원본과 맞추려면 새 프레임을 적용하세요':'확인한 프레임의 배치입니다 · 화면 변경 시 새 프레임을 수동으로 가져오세요';
+    $('#hint').disabled=busy||!!outcome||!baseState||screenCapture?.active&&!screenReady;
+    $('#status').textContent=!baseState?'화면 배치 대기':outcome?`화면 배치 · ${names[outcome.winner]} 승리`:`${screenCapture?.active?'화면 자동 연동':'확인한 화면 배치'} · ${names[state.turn]} 차례${busy?' · 분석 중':screenCapture?.active&&!screenReady?' · 변화 확인 중':''}`;
+    $('#instruction').textContent=!baseState?'화면을 가져와 검토·적용하면 이 보드가 바뀝니다':screenCapture?.active?'자동 감시 중 · 안정된 합법 수를 반영하고 내 차례에 추천합니다':'자동 감시는 일시정지 상태입니다 · 화면 공유 후 자동 감시 시작을 누르세요';
   }
 }
 function writeAnalysis(r,label='추천'){
@@ -98,7 +101,10 @@ function applyMove(action){
 }
 function commitMove(action){if(!legal(state,action))return;stop();applyMove(action);schedule();}
 function schedule(){
-  if($('#mode').value==='screen')return;
+  if($('#mode').value==='screen'){
+    if(screenReady&&screenCapture?.active&&screenCapture.autoHint&&baseState&&state.winner===null&&state.turn===Number($('#side').value))think();
+    return;
+  }
   if(watching()||state.winner!==null)return;
   if(!human())think(true);
   else if($('#mode').value==='ai'){
@@ -160,6 +166,14 @@ $('#save').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(s
 $('#load').onclick=()=>$('#file').click();
 $('#file').onchange=async e=>{try{const file=e.target.files[0];if(file)restore(JSON.parse(await file.text()));}catch(error){alert(`불러오기 실패: ${error.message}`);}e.target.value='';};
 screenCapture=mountScreenCapture({
+  getState:()=>$('#mode').value==='screen'&&baseState?clone(state):null,
+  onSync:(actions,before)=>{
+    if($('#mode').value!=='screen'||state.turn!==before.turn||boardKey(state)!==boardKey(before))return false;
+    stop();clearAnalysis();for(const action of actions)applyMove(action);screenReady=true;render();schedule();return true;
+  },
+  onWatchChange:()=>{screenReady=false;stop();clearAnalysis();render();},
+  onUncertain:()=>{screenReady=false;stop();clearAnalysis();$('#analysis').textContent='원본 배치 변화 확인 중 · 인식이 안정되면 최신 배치를 분석합니다.';render();},
+  onRecovered:()=>{screenReady=true;render();schedule();},
   onApply:(snapshot,bottom)=>{stop();state=clone(snapshot);baseState=clone(snapshot);observedBottom=bottom;past=[];records=[];$('#mode').value='screen';$('#start-position').value=Number($('#side').value)===bottom?'bottom':'top';clearAnalysis();persist();render();},
   onDirty:()=>{if($('#mode').value==='screen'){stop();clearAnalysis();$('#analysis').textContent='새로 가져온 내용은 확인 후 적용해야 반영됩니다.';render();}}
 });

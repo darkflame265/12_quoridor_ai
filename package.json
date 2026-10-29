@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "screen:qa": "node scripts/check-screen-browser.mjs",
     "search:independent-prepare": "node scripts/prepare-preview-independent.mjs",
     "search:independent-run": "node scripts/run-preview-independent.mjs",
     "search:independent-verify": "node scripts/verify-preview-independent.mjs",

@@ -1,11 +1,14 @@
 import {AdaptiveEngine} from './adaptive-engine.js';
 import {orientPosition,orientAction,viewFlipped} from './view.js';
 import {initial,clone,moves,validWall,legal,apply,notation,distance} from './engine.js';
-import {SpectatorRunner,observationOutcome,replayRecords} from './spectator.js';
+import {SpectatorRunner,observationOutcome} from './spectator.js';
+import {mountScreenCapture} from './screen-capture.js';
+import {restoreObservedSession} from './observed-state.js';
 
 const $=s=>document.querySelector(s),colors=['#31d4c2','#fa7393'],names=['청록','분홍'];
 const defaultCores=Math.min(4,Math.max(1,(navigator.hardwareConcurrency||4)-2));
 let state=initial(),past=[],records=[],serial=0,busy=false,hint=null;
+let baseState=null,observedBottom=null,screenCapture=null;
 let pool=createPlayPool(defaultCores),watchPools=[null,null],ponderTimer=null;
 const watching=()=>$('#mode').value==='watch';
 const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.turn===Number($('#side').value);
@@ -55,6 +58,7 @@ function drawBoard(){
   $('#board').innerHTML=svg+'<g id="ghost"></g></svg>';
 }
 function render(){
+  const screen=$('#mode').value==='screen';screenCapture?.setVisible(screen);
   const watch=watching(),outcome=watch?watchOutcome():state.winner!==null?{type:'win',winner:state.winner}:null;
   $('#watch-panel').hidden=!watch;$('#human-settings').hidden=watch;$('#side-label').textContent=watch?'기준 진영':'내 진영';$('#position-label').textContent=watch?'기준 진영 시작 위치':'내 시작 위치';
   let status=outcome?.type==='win'?`${names[outcome.winner]} 승리!`:outcome?.type==='draw'?'관전 종료 · 무승부':busy?`${names[state.turn]} AI가 수를 읽고 있습니다…`:watch?(watcher.running?'다음 수를 기다리고 있습니다…':`${names[state.turn]} 차례 · 관전 일시정지`):human()?`${names[state.turn]}의 차례`:'AI의 차례';
@@ -69,11 +73,18 @@ function render(){
   if(outcome){$('#result').textContent=outcome.type==='win'?`${names[outcome.winner]} 승리 · ${records.length}수`:`관전 무승부 · ${outcome.reason==='repetition'?'같은 배치가 3회 반복되었습니다':'관전 최대 300수에 도달했습니다'}`;}
   drawBoard();
   $('#players').innerHTML=[Number($('#side').value),1-Number($('#side').value)].map(t=>{
-    const title=watch?engineName(watchSettings(t).engine):$('#mode').value==='sandbox'?names[t]:t===Number($('#side').value)?'YOU':'AI ENGINE';
+    const title=watch?engineName(watchSettings(t).engine):$('#mode').value==='sandbox'?names[t]:screen?(t===Number($('#side').value)?'YOU':'상대 진영'):t===Number($('#side').value)?'YOU':'AI ENGINE';
     return `<div class="player ${state.turn===t&&!outcome?'active':''}" style="--accent:${colors[t]}"><div class="avatar">${t===0?'◉':'✦'}</div><div><b>${title}</b><small>${names[t]} · 목표까지 ${distance(state,t)}칸</small></div><div class="walls-count"><b>${state.left[t]}</b><small>WALLS</small><div>${'▏'.repeat(state.left[t])}</div></div></div>`;
   }).join('');
-  $('#history').innerHTML=records.length?records.map((a,i)=>`<div class="${i===records.length-1?'latest':''}"><span>${String(i+1).padStart(2,'0')}</span><i style="background:${colors[i%2]}"></i><b>${notation(a)}</b><small>${a.type==='wall'?'벽 설치':'말 이동'}</small></div>`).join(''):'<p class="muted">첫 수를 기다리고 있습니다.</p>';
+  $('#history').innerHTML=records.length?records.map((a,i)=>`<div class="${i===records.length-1?'latest':''}"><span>${String(i+1).padStart(2,'0')}</span><i style="background:${colors[(baseState?.turn??0)^(i%2)]}"></i><b>${notation(a)}</b><small>${a.type==='wall'?'벽 설치':'말 이동'}</small></div>`).join(''):baseState?'<p class="muted">가져온 시작 배치 · 이전 기보는 없습니다.</p>':'<p class="muted">첫 수를 기다리고 있습니다.</p>';
   $('#history').scrollTop=1e6;$('#count').textContent=`${records.length} 수`;$('#hint').disabled=busy||watcher.running||!!outcome;$('#undo').disabled=!past.length;
+  $('#reset').disabled=screen;
+  if(baseState)$('#count').textContent=`가져온 배치 이후 ${records.length}수`;
+  if(screen){
+    $('#hint').disabled=busy||!!outcome||!baseState;
+    $('#status').textContent=!baseState?'화면 배치 대기':outcome?`화면 배치 · ${names[outcome.winner]} 승리`:`${records.length?'가져온 배치에서 수동 진행':'화면 배치'} · ${names[state.turn]} 차례${busy?' · 분석 중':''}`;
+    $('#instruction').textContent=!baseState?'화면을 가져와 검토·적용하면 이 보드가 바뀝니다':records.length?'가져온 배치 이후 수동 진행 상태입니다 · 원본과 맞추려면 새 프레임을 적용하세요':'확인한 프레임의 배치입니다 · 화면 변경 시 새 프레임을 수동으로 가져오세요';
+  }
 }
 function writeAnalysis(r,label='추천'){
   if(!r.pv?.length)return;
@@ -87,6 +98,7 @@ function applyMove(action){
 }
 function commitMove(action){if(!legal(state,action))return;stop();applyMove(action);schedule();}
 function schedule(){
+  if($('#mode').value==='screen')return;
   if(watching()||state.winner!==null)return;
   if(!human())think(true);
   else if($('#mode').value==='ai'){
@@ -116,10 +128,10 @@ $('#board').onpointermove=e=>{
 $('#board').onpointerleave=()=>{if($('#ghost'))$('#ghost').innerHTML='';};
 $('#board').onclick=e=>{if(human()&&!busy&&state.winner===null){const a=pick(e);if(a)commitMove(a);}};
 function clearAnalysis(){$('#analysis').textContent='현재 차례의 추천 수와 예상 진행을 확인하세요.';$('#depth').textContent='';hint=null;}
-function resetGame(){stop();state=initial();past=[];records=[];clearAnalysis();persist();render();schedule();}
+function resetGame(){stop();state=initial();baseState=null;observedBottom=null;past=[];records=[];clearAnalysis();persist();render();schedule();}
 $('#hint').onclick=()=>think();$('#reset').onclick=resetGame;
 $('#undo').onclick=()=>{stop();if(!past.length)return;do{state=past.pop();records.pop();}while($('#mode').value==='ai'&&past.length&&state.turn!==Number($('#side').value));clearAnalysis();persist();render();schedule();};
-$('#mode').onchange=()=>{stop();clearAnalysis();persist();render();schedule();};
+$('#mode').onchange=()=>{stop();clearAnalysis();persist();render();schedule();if($('#mode').value==='screen')screenCapture?.open();};
 $('#side').onchange=()=>{stop();persist();render();schedule();};
 $('#start-position').onchange=()=>{persist();render();};
 $('#time').onchange=()=>{stop();persist();render();schedule();};
@@ -132,11 +144,12 @@ $('#watch-delay').onchange=()=>{stop();persist();render();};
 $('#watch-start').onclick=()=>{stop();hint=null;watcher.start();};
 $('#watch-pause').onclick=()=>{stop();render();};
 $('#watch-step').onclick=()=>{stop();hint=null;watcher.step();};
-function sessionData(){return {version:2,records,mode:$('#mode').value,side:Number($('#side').value),startPosition:$('#start-position').value,time:$('#time').value,cores:$('#cores').value,engine:$('#play-engine').value,watch:{players:[watchSettings(0),watchSettings(1)],delay:Number($('#watch-delay').value)},result:watching()?watchOutcome():null};}
+function sessionData(){return {version:baseState?3:2,...(baseState?{baseState,sourceBottom:observedBottom}:{}),records,mode:$('#mode').value,side:Number($('#side').value),startPosition:$('#start-position').value,time:$('#time').value,cores:$('#cores').value,engine:$('#play-engine').value,watch:{players:[watchSettings(0),watchSettings(1)],delay:Number($('#watch-delay').value)},result:watching()?watchOutcome():null};}
 function persist(){try{localStorage.setItem('quoridor-session',JSON.stringify(sessionData()));$('#storage-note').hidden=true;}catch{$('#storage-note').hidden=false;$('#storage-note').textContent='자동 저장 공간이 부족합니다. 기보 저장을 이용해 주세요.';}}
 function selectValue(id,value){const element=$(id);if([...element.options].some(option=>option.value===String(value)))element.value=String(value);}
 function restore(data){
-  const replay=replayRecords(data);stop();state=replay.state;past=replay.past;records=replay.records;
+  const replay=restoreObservedSession(data);stop();state=replay.state;past=replay.past;records=replay.records;baseState=replay.baseState;
+  observedBottom=baseState&&[0,1].includes(data.sourceBottom)?data.sourceBottom:null;screenCapture?.setBottom(observedBottom);
   selectValue('#mode',data.mode);selectValue('#side',data.side);selectValue('#time',data.time);selectValue('#cores',data.cores);selectValue('#play-engine',data.engine??'atlas5');
   selectValue('#start-position',data.startPosition??'top');
   if($('#play-engine').value==='atlas3')$('#cores').value='1';$('#cores').disabled=$('#play-engine').value==='atlas3';
@@ -146,5 +159,9 @@ function restore(data){
 $('#save').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(sessionData(),null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=watching()?'quoridor-ai-vs-ai.json':'quoridor-game.json';a.click();URL.revokeObjectURL(url);};
 $('#load').onclick=()=>$('#file').click();
 $('#file').onchange=async e=>{try{const file=e.target.files[0];if(file)restore(JSON.parse(await file.text()));}catch(error){alert(`불러오기 실패: ${error.message}`);}e.target.value='';};
-window.addEventListener('pagehide',()=>{stop();pool.dispose();disposeWatch();});
+screenCapture=mountScreenCapture({
+  onApply:(snapshot,bottom)=>{stop();state=clone(snapshot);baseState=clone(snapshot);observedBottom=bottom;past=[];records=[];$('#mode').value='screen';$('#start-position').value=Number($('#side').value)===bottom?'bottom':'top';clearAnalysis();persist();render();},
+  onDirty:()=>{if($('#mode').value==='screen'){stop();clearAnalysis();$('#analysis').textContent='새로 가져온 내용은 확인 후 적용해야 반영됩니다.';render();}}
+});
+window.addEventListener('pagehide',()=>{stop();pool.dispose();disposeWatch();screenCapture?.dispose();});
 try{const saved=localStorage.getItem('quoridor-session');if(saved)restore(JSON.parse(saved));else render();}catch{render();}

@@ -1,0 +1,80 @@
+import {recognizeBoard,gridGeometry} from './screen-recognition.js';
+import {snapshotFromDraft,snapshotIssues,checkedSnapshot} from './observed-state.js';
+const colors=['#31d4c2','#fa7393'];
+export function mountScreenCapture({onApply,onDirty}){
+ const panel=document.createElement('section');panel.className='panel';panel.id='screen-panel';panel.hidden=true;
+ panel.innerHTML='<div class="panel-title">화면 가져오기 <span>수동 확인</span></div><p class="watch-note">게임 화면이나 이미지에서 프레임을 가져와 배치를 검토하고 적용합니다.</p><button id="screen-open" class="primary">화면 연결 · 이미지 인식</button><div class="buttons"><button id="screen-disconnect" disabled>공유 중지</button></div><p id="screen-connection" class="watch-note" role="status">연결된 화면 없음</p>';
+ document.querySelector('#watch-panel').before(panel);
+ const dialog=document.createElement('dialog');dialog.id='screen-dialog';dialog.className='screen-dialog';
+ dialog.innerHTML=`<div class="screen-dialog-head"><div><h2>게임 화면 가져오기</h2><p>말·벽을 읽은 뒤 직접 확인해 적용하세요. 이미지는 이 브라우저에서 처리합니다.</p></div><button id="screen-close" aria-label="화면 가져오기 닫기">닫기</button></div>
+ <div class="screen-workspace"><section class="screen-source"><div class="screen-actions"><button id="screen-connect">오른쪽 게임 화면 연결</button><button id="screen-image">이미지 가져오기</button><button id="screen-freeze" disabled>현재 프레임 고정</button><input id="screen-image-file" type="file" accept="image/png,image/jpeg,image/webp" hidden></div><p class="screen-help">공유할 게임 탭/창을 선택하세요. 마우스를 원본 보드 밖으로 옮겨 벽 미리보기를 지운 뒤 프레임을 고정하세요.</p><video id="screen-video" muted autoplay playsinline hidden></video><div id="screen-empty" class="screen-empty">화면을 연결하거나 PNG·JPG·WebP를 가져오세요.</div><canvas id="screen-source-canvas" hidden aria-label="원본 이미지: 9×9 칸의 바깥 모서리를 드래그해 보드 영역 선택"></canvas><p class="screen-help">숫자·글자·테두리를 제외하고, 첫 칸 왼쪽 위부터 마지막 칸 오른쪽 아래까지 드래그하세요.</p><label>칸 사이 간격 (%)<input id="screen-gap" type="number" min="6" max="30" step="1" value="16"></label><button id="screen-recognize" class="primary" disabled>선택 영역 인식</button><p id="screen-message" role="status" aria-live="polite" class="screen-help">먼저 화면이나 이미지를 준비하세요.</p></section>
+ <section class="screen-review"><h3>인식 결과 검토·보정</h3><p class="screen-help">단색 청록·분홍 말/벽 테마를 우선 지원합니다. 점은 말로, 회색 미리보기는 벽으로 확정하지 않습니다.</p><div id="screen-review-board" aria-label="인식 배치 보정 보드"></div><label>클릭 보정<select id="screen-brush"><option value="p0">청록 말</option><option value="p1">분홍 말</option><option value="h0">청록 가로벽</option><option value="v0">청록 세로벽</option><option value="h1">분홍 가로벽</option><option value="v1">분홍 세로벽</option><option value="erase">벽 지우기</option></select></label><p id="screen-detected" class="screen-help"></p><div id="screen-wall-list"></div><button id="screen-clear-walls">보정 벽 전체 지우기</button><label>원본의 아래쪽 출발 진영<select id="screen-bottom"><option value="0">청록</option><option value="1">분홍</option></select></label><label>현재 차례 (직접 선택)<select id="screen-turn"><option value="0">청록</option><option value="1">분홍</option></select></label><label>청록 잔여 벽<input id="screen-left-0" type="number" min="0" max="10" value="10"></label><label>분홍 잔여 벽<input id="screen-left-1" type="number" min="0" max="10" value="10"></label><p class="screen-help">차례는 자동으로 읽지 않습니다. 잔여 벽은 설치된 벽 색으로 추정하므로 원본 숫자와 직접 대조하세요.</p><button id="screen-stock-reset">설치 벽으로 잔여 수 재계산</button><ul id="screen-issues" class="screen-issues"></ul><button id="screen-apply" class="primary" disabled>확인한 배치를 왼쪽에 적용</button></section></div>`;
+ document.body.append(dialog);
+ const $=id=>document.getElementById(id),canvas=$('screen-source-canvas'),ctx=canvas.getContext('2d'),frame=document.createElement('canvas'),video=$('screen-video');
+ const footer=document.createElement('div');footer.className='screen-dialog-foot';const footerNote=document.createElement('span');footerNote.textContent='검토 후 적용 · 차례와 잔여 벽은 원본과 대조하세요.';footer.append(footerNote,$('screen-apply'));dialog.append(footer);
+ let stream=null,hasFrame=false,rect=null,drag=null,draft=null,manualStock=[false,false],visible=false,token=0,disposed=false,edited=false;
+ const message=(text,error=false)=>{$('screen-message').textContent=text;$('screen-message').classList.toggle('screen-error',error);};
+ const dirty=()=>{draft=null;$('screen-apply').disabled=true;$('screen-review-board').innerHTML='';$('screen-wall-list').replaceChildren();$('screen-detected').textContent='';$('screen-issues').replaceChildren();onDirty();};
+ function controls(){const active=!!stream;$('screen-disconnect').disabled=!active;$('screen-freeze').disabled=!active;$('screen-connect').disabled=!navigator.mediaDevices?.getDisplayMedia;$('screen-recognize').disabled=!hasFrame||!rect;$('screen-connection').textContent=active?'공유 중 · 프레임은 수동으로 고정':hasFrame?'마지막 프레임/이미지 · 실시간 갱신 없음':'연결된 화면 없음';}
+ function disconnect(invalidate=true){token++;const old=stream;stream=null;video.srcObject=null;video.hidden=true;old?.getTracks().forEach(t=>t.stop());controls();if(invalidate)onDirty();}
+ function redraw(){
+  if(!hasFrame)return;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(frame,0,0);
+  if(rect){ctx.save();ctx.strokeStyle='#f4d18a';ctx.lineWidth=Math.max(2,canvas.width/600);ctx.strokeRect(rect.x,rect.y,rect.width,rect.height);try{const g=gridGeometry(rect,Number($('screen-gap').value)/100);ctx.strokeStyle='#31d4c277';ctx.lineWidth=1;for(let y=0;y<9;y++)for(let x=0;x<9;x++){const c=g.cell(x,y);ctx.strokeRect(c.x,c.y,c.width,c.height);}}catch{}ctx.restore();}
+ }
+ function setFrame(source,width,height,keepRect=false){
+  if(width<1||height<1)throw Error('화면 크기를 읽지 못했습니다.');const scale=Math.min(1,2048/Math.max(width,height)),w=Math.round(width*scale),h=Math.round(height*scale);
+  if(!keepRect||frame.width!==w||frame.height!==h)rect=null;
+  frame.width=w;frame.height=h;frame.getContext('2d').drawImage(source,0,0,w,h);canvas.width=w;canvas.height=h;hasFrame=true;canvas.hidden=false;$('screen-empty').hidden=true;dirty();redraw();controls();message('프레임을 고정했습니다. 보드 영역을 지정하고 격자가 칸과 맞는지 확인하세요.');
+ }
+ function freeze(){if(!stream||video.readyState<2)throw Error('연결된 화면을 아직 읽을 수 없습니다.');setFrame(video,video.videoWidth,video.videoHeight,true);}
+ async function connect(){
+  const mine=++token;let next=null;dirty();message('공유할 게임 탭 또는 창을 선택하세요.');
+  try{
+   if(!navigator.mediaDevices?.getDisplayMedia)throw Error('화면 공유를 사용할 수 없습니다. 이미지 가져오기를 이용하세요.');
+   next=await navigator.mediaDevices.getDisplayMedia({video:true,audio:false});
+   if(disposed||mine!==token){next.getTracks().forEach(t=>t.stop());return;}
+   const old=stream;stream=next;old?.getTracks().forEach(t=>t.stop());video.srcObject=next;video.hidden=false;controls();
+   next.getVideoTracks()[0].addEventListener('ended',()=>{if(stream===next){stream=null;video.srcObject=null;video.hidden=true;controls();onDirty();message('화면 공유가 종료됐습니다. 마지막 프레임은 다시 검토할 수 있습니다.');}});
+   await video.play();if(disposed||mine!==token||stream!==next)return;rect=null;freeze();
+  }catch(error){if(next&&stream!==next)next.getTracks().forEach(t=>t.stop());if(mine===token)message(error.name==='NotAllowedError'?'화면 공유가 취소됐거나 허용되지 않았습니다. 다시 연결하거나 이미지를 가져오세요.':error.message,true);controls();}
+ }
+ async function imageFile(file){
+  if(!file)return;if(!['image/png','image/jpeg','image/webp'].includes(file.type)||file.size>32*1024*1024){message('32MB 이하 PNG·JPG·WebP 파일을 선택하세요.',true);return;}
+  disconnect(false);const mine=token;dirty();message('이미지를 읽고 있습니다…');let bitmap;
+  try{bitmap=await createImageBitmap(file);if(!disposed&&token===mine)setFrame(bitmap,bitmap.width,bitmap.height);}catch(error){if(token===mine)message(`이미지를 읽지 못했습니다: ${error.message}`,true);}finally{bitmap?.close();}
+ }
+ const point=e=>{const box=canvas.getBoundingClientRect();return {x:Math.max(0,Math.min(canvas.width,(e.clientX-box.left)*canvas.width/box.width)),y:Math.max(0,Math.min(canvas.height,(e.clientY-box.top)*canvas.height/box.height))};};
+ canvas.onpointerdown=e=>{if(!hasFrame)return;canvas.setPointerCapture(e.pointerId);drag=point(e);rect=null;dirty();};
+ canvas.onpointermove=e=>{if(!drag)return;const p=point(e);rect={x:Math.min(drag.x,p.x),y:Math.min(drag.y,p.y),width:Math.abs(p.x-drag.x),height:Math.abs(p.y-drag.y)};redraw();};
+ canvas.onpointerup=e=>{if(!drag)return;const p=point(e);rect={x:Math.min(drag.x,p.x),y:Math.min(drag.y,p.y),width:Math.abs(p.x-drag.x),height:Math.abs(p.y-drag.y)};drag=null;redraw();controls();message('격자가 칸과 맞는지 확인한 뒤 영역을 인식하세요.');};
+ canvas.onpointercancel=()=>{drag=null;rect=null;redraw();controls();};
+ function stock(){if(!draft)return;for(const t of [0,1])if(!manualStock[t])$(`screen-left-${t}`).value=String(10-draft.walls.filter(w=>w.owner===t).length);}
+ function readSnapshot(){return snapshotFromDraft(draft,{bottom:Number($('screen-bottom').value),turn:Number($('screen-turn').value),left:[0,1].map(t=>$(`screen-left-${t}`).value.trim()===''?NaN:Number($(`screen-left-${t}`).value))});}
+ function review(){
+  if(!draft)return;const issues=snapshotIssues(readSnapshot());$('screen-issues').replaceChildren(...issues.map(text=>{const li=document.createElement('li');li.textContent=text;return li;}));$('screen-apply').disabled=issues.length>0;
+  let svg='<svg viewBox="0 0 400 400" role="img" aria-label="원본 방향의 배치 보정: 클릭해 말 또는 벽 지정">';
+  for(let y=0;y<9;y++)for(let x=0;x<9;x++)svg+=`<rect x="${10+x*42}" y="${10+y*42}" width="34" height="34" rx="5" fill="#29271f"/><text x="${27+x*42}" y="${22+y*42}" font-size="7">${x+1}·${y+1}</text>`;
+  for(const w of draft.walls)svg+=`<rect x="${10+w.x*42+(w.o==='v'?35:0)}" y="${10+w.y*42+(w.o==='h'?35:0)}" width="${w.o==='h'?76:6}" height="${w.o==='v'?76:6}" rx="3" fill="${colors[w.owner]}"/>`;
+  draft.p.forEach((p,t)=>{if(p)svg+=`<circle cx="${27+p.x*42}" cy="${27+p.y*42}" r="13" fill="${colors[t]}" stroke="#fff9"/>`;});$('screen-review-board').innerHTML=svg+'</svg>';
+  $('screen-detected').textContent=`벽 ${draft.walls.length}개 · 자동 말 후보 청록 ${draft.candidates[0].length}/분홍 ${draft.candidates[1].length}${edited?' · 수동 보정됨':''}${draft.notes.length?' · '+draft.notes.join(' '):''}`;
+  $('screen-wall-list').replaceChildren(...draft.walls.map((w,i)=>{const row=document.createElement('div'),label=document.createElement('span'),button=document.createElement('button');label.textContent=`${w.owner===0?'청록':'분홍'} ${w.o==='h'?'가로':'세로'}벽 · ${w.x+1}열 ${w.y+1}행`;button.textContent='삭제';button.onclick=()=>{draft.walls.splice(i,1);edited=true;stock();onDirty();review();};row.append(label,button);return row;}));
+ }
+ $('screen-review-board').onclick=e=>{
+  if(!draft)return;const svg=$('screen-review-board').querySelector('svg'),box=svg.getBoundingClientRect(),x=(e.clientX-box.left)*400/box.width,y=(e.clientY-box.top)*400/box.height,brush=$('screen-brush').value;
+  if(brush[0]==='p')draft.p[Number(brush[1])]={x:Math.max(0,Math.min(8,Math.round((x-27)/42))),y:Math.max(0,Math.min(8,Math.round((y-27)/42)))};
+  else if(brush==='erase'){
+   let best=-1,score=Infinity;draft.walls.forEach((w,i)=>{const ax=10+w.x*42,ay=10+w.y*42,dx=w.o==='h'?Math.max(ax-x,0,x-ax-76):Math.abs(x-ax-38),dy=w.o==='v'?Math.max(ay-y,0,y-ay-76):Math.abs(y-ay-38),d=Math.hypot(dx,dy);if(d<score&&d<14){best=i;score=d;}});if(best>=0)draft.walls.splice(best,1);
+  }else{const w={type:'wall',o:brush[0],owner:Number(brush[1]),x:Math.max(0,Math.min(7,Math.round((x-48)/42))),y:Math.max(0,Math.min(7,Math.round((y-48)/42)))},old=draft.walls.findIndex(a=>a.x===w.x&&a.y===w.y&&a.o===w.o);if(old>=0)draft.walls[old]=w;else draft.walls.push(w);}
+  edited=true;stock();onDirty();review();
+ };
+ $('screen-recognize').onclick=()=>{try{if(!rect||rect.width<180||rect.height<180)throw Error('보드 영역을 180×180 픽셀 이상으로 선택하세요.');draft=recognizeBoard(frame.getContext('2d').getImageData(0,0,frame.width,frame.height),rect,{gap:Number($('screen-gap').value)/100});manualStock=[false,false];edited=false;stock();review();onDirty();message('자동 판독을 마쳤습니다. 말·벽·출발 방향·차례·잔여 벽을 검토하고 적용하세요.');}catch(error){dirty();message(error.message,true);}};
+ $('screen-gap').oninput=()=>{dirty();redraw();controls();};
+ for(const id of ['screen-bottom','screen-turn'])$(id).onchange=()=>{onDirty();review();};
+ for(const t of [0,1])$(`screen-left-${t}`).oninput=()=>{manualStock[t]=true;onDirty();review();};
+ $('screen-stock-reset').onclick=()=>{manualStock=[false,false];stock();onDirty();review();};
+ $('screen-clear-walls').onclick=()=>{if(draft){draft.walls=[];edited=true;stock();onDirty();review();}};
+ $('screen-apply').onclick=()=>{try{const snapshot=checkedSnapshot(readSnapshot());onApply(snapshot,Number($('screen-bottom').value));dialog.close();message('확인한 배치를 왼쪽에 적용했습니다. 다음 상황은 새 프레임을 고정해 가져오세요.');}catch(error){message(error.message,true);review();}};
+ $('screen-open').onclick=()=>{if(!dialog.open)dialog.showModal();controls();};$('screen-close').onclick=()=>dialog.close();$('screen-connect').onclick=()=>connect();$('screen-freeze').onclick=()=>{try{freeze();}catch(e){message(e.message,true);}};
+ $('screen-disconnect').onclick=()=>disconnect();$('screen-image').onclick=()=>$('screen-image-file').click();$('screen-image-file').onchange=e=>{imageFile(e.target.files[0]);e.target.value='';};controls();
+ return {open(){if(!dialog.open)dialog.showModal();controls();},setBottom(bottom){if([0,1].includes(bottom)){$('screen-bottom').value=String(bottom);review();}},setVisible(next){if(visible===next)return;visible=next;panel.hidden=!next;if(!next){if(dialog.open)dialog.close();disconnect(false);}},dispose(){disposed=true;disconnect(false);dialog.remove();panel.remove();}};
+}

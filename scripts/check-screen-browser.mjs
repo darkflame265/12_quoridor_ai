@@ -78,7 +78,7 @@ try{
  assert.equal(await evaluate(`qaCalls`),0);await evaluate(`document.querySelector('#screen-connect').click()`);await until(`window.qaStream && !document.querySelector('#screen-source-canvas').hidden`);assert.equal(await evaluate(`qaCalls`),1);
  await until(`document.querySelector('#screen-video').readyState>=2`);
  await evaluate(`document.querySelector('#screen-freeze').click()`);await crop();
- await evaluate(`document.querySelector('#screen-recognize').click();document.querySelector('#screen-bottom').value='0';document.querySelector('#screen-bottom').dispatchEvent(new Event('change'));document.querySelector('#screen-turn').value='1';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click();document.querySelector('#screen-auto-start').click();`);
+ await evaluate(`document.querySelector('#screen-recognize').click();document.querySelector('#screen-bottom').value='0';document.querySelector('#screen-bottom').dispatchEvent(new Event('change'));document.querySelector('#screen-turn').value='1';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click();`);
  await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
  assert.equal(await evaluate(`document.querySelector('#screen-dialog').open`),false);
  await evaluate(`(async()=>{const {screenFixture}=await import('/_qa/fixture.js');window.qaDraw=(options)=>{const f=screenFixture(options);qaCanvas.getContext('2d').putImageData(new ImageData(f.data,f.width,f.height),0,0);qaStream.getVideoTracks()[0].requestFrame?.();};qaDraw({positions:[{x:4,y:6},{x:4,y:3}]});})()`);
@@ -105,7 +105,7 @@ try{
  await evaluate(`document.querySelector('#screen-auto-pause').click();qaDraw({positions:[{x:4,y:4},{x:6,y:3}],installed:qaInstalled})`);
  await evaluate(`new Promise(r=>setTimeout(r,1000))`);
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),5);
- await evaluate(`document.querySelector('#screen-auto-start').click()`);
+ await evaluate(`document.querySelector('#screen-auto-pause').click()`);
  await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===6`);
  assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);
  checks.push('pause prevents synchronization; resume catches up without suggesting on opponent turn');
@@ -123,17 +123,17 @@ try{
  checks.push('stalled video clears stale analysis and resumes after fresh stable frames');
  await screenshot('automatic-sync.png');
  await evaluate(`document.querySelector('#screen-open').click()`);
- assert.equal(await evaluate(`document.querySelector('#screen-dialog').open && document.querySelector('#screen-auto-pause').disabled && document.querySelector('#screen-auto-start').disabled`),true);
+ assert.equal(await evaluate(`document.querySelector('#screen-dialog').open && document.querySelector('#screen-auto-pause').disabled`),true);
  assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);
  assert.equal(await evaluate(`qaStream.getTracks().every(t=>t.readyState==='live')`),true);
  await crop(); // Explicit manual fallback must retain its resize-stop behavior.
- await evaluate(`document.querySelector('#screen-recognize').click();document.querySelector('#screen-turn').value='0';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click();document.querySelector('#screen-auto-start').click()`);
+ await evaluate(`document.querySelector('#screen-recognize').click();document.querySelector('#screen-turn').value='0';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click()`);
  await until(`!!document.querySelector('#board .recommend')`);
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.walls.length`),4);
  checks.push('reopening calibration pauses monitoring, freezes latest frame and requires reviewed reapplication');
  await evaluate(`qaCanvas.width=600;qaCanvas.height=600;qaCanvas.getContext('2d').fillRect(0,0,600,600);qaStream.getVideoTracks()[0].requestFrame?.()`);
  await until(`document.querySelector('#screen-auto-status').textContent.includes('크기가 바뀌었습니다')`);
- assert.equal(await evaluate(`document.querySelector('#screen-auto-start').disabled && document.querySelector('#screen-auto-pause').disabled`),true);
+ assert.equal(await evaluate(`document.querySelector('#screen-auto-pause').disabled`),true);
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),0);
  checks.push('capture dimension change stops monitoring and requires a fresh crop');
  await evaluate(`document.querySelector('#screen-disconnect').click()`);assert.equal(await evaluate(`qaStream.getTracks().every(t=>t.readyState==='ended')`),true);
@@ -144,7 +144,7 @@ try{
  const pink=await evaluate(`JSON.parse(localStorage.getItem('quoridor-session'))`);assert.equal(pink.startPosition,'bottom');assert.equal(pink.side,1);assert.equal(pink.sourceBottom,1);assert.deepEqual(pink.baseState.p,[{x:4,y:2},{x:4,y:6}]);assert.deepEqual(await evaluate(`[...document.querySelectorAll('#board .pawn')].map(c=>Number(c.getAttribute('cy')))`),[471,191]);await send('Page.reload');await until(`document.querySelector('#count')?.textContent.match(/가져온|재동기화/)`);assert.equal(await evaluate(`document.querySelector('#screen-bottom').value`),'1');checks.push('pink-bottom source mapping automatically sets own side below and persists orientation');
  await evaluate(`(async()=>{const {screenFixture}=await import('/_qa/fixture.js');window.qaSceneCanvas=document.createElement('canvas');window.qaPaint=(options={},layout={})=>{const f=screenFixture(options),tile=document.createElement('canvas');tile.width=f.width;tile.height=f.height;tile.getContext('2d').putImageData(new ImageData(f.data,f.width,f.height),0,0);qaSceneCanvas.width=layout.width??900;qaSceneCanvas.height=layout.height??800;const ctx=qaSceneCanvas.getContext('2d');ctx.fillStyle='#10120e';ctx.fillRect(0,0,qaSceneCanvas.width,qaSceneCanvas.height);ctx.drawImage(tile,layout.x??130,layout.y??80,560*(layout.sx??.8),560*(layout.sy??.85));if(layout.second)ctx.drawImage(tile,650,100,392,392);window.qaSceneStream?.getVideoTracks()[0].requestFrame?.();};qaPaint();Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async()=>{window.qaSceneStream=qaSceneCanvas.captureStream(30);setTimeout(()=>qaSceneStream.getVideoTracks()[0].requestFrame?.(),100);return qaSceneStream;}});document.querySelector('#screen-open').click();document.querySelector('#screen-connect').click();})()`);
  await until(`document.querySelector('#screen-source-canvas').width===900 && document.querySelectorAll('#screen-review-board circle').length===2`);
- await evaluate(`document.querySelector('#screen-bottom').value='0';document.querySelector('#screen-bottom').dispatchEvent(new Event('change'));document.querySelector('#screen-turn').value='1';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click();document.querySelector('#screen-auto-start').click()`);
+ await evaluate(`document.querySelector('#screen-bottom').value='0';document.querySelector('#screen-bottom').dispatchEvent(new Event('change'));document.querySelector('#screen-turn').value='1';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click()`);
  await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
  await evaluate(`qaPaint({}, {x:176.4,y:80,sx:.8,sy:.85})`);
  await evaluate(`new Promise(r=>setTimeout(r,1800))`);
@@ -164,7 +164,7 @@ try{
  await evaluate(`document.querySelector('#screen-freeze').click()`);
  await until(`document.querySelectorAll('#screen-board-candidates button').length===2`);
  assert.equal(await evaluate(`document.querySelector('#screen-apply').disabled`),true);
- await evaluate(`document.querySelector('#screen-board-candidates button').click();document.querySelector('#screen-apply').click();document.querySelector('#screen-auto-start').click()`);
+ await evaluate(`document.querySelector('#screen-board-candidates button').click();document.querySelector('#screen-apply').click()`);
  await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
  checks.push('multiple visible boards require selection and tracking retains the selected board');
  await evaluate(`document.querySelector('#screen-open').click();qaSceneCanvas.getContext('2d').fillRect(0,0,1200,850);qaSceneStream.getVideoTracks()[0].requestFrame?.()`);
@@ -174,7 +174,7 @@ try{
  checks.push('missing board blocks application and offers manual calibration instead of guessing');
  await evaluate(`qaPaint({positions:[{x:4,y:8},{x:4,y:0}],installed:[]})`);
  await until(`document.querySelector('#screen-video').videoWidth===900`);
- await evaluate(`document.querySelector('#screen-freeze').click();document.querySelector('#screen-turn').value='0';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click();document.querySelector('#screen-auto-start').click()`);
+ await evaluate(`document.querySelector('#screen-freeze').click();document.querySelector('#screen-turn').value='0';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click()`);
  await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
  await evaluate(`qaPaint({positions:[{x:4,y:5},{x:4,y:3}],installed:[]})`);
  await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===6`);
@@ -189,7 +189,7 @@ try{
  checks.push('ambiguous missed history stays blocked and diagnostic download preserves failure evidence');
  await evaluate(`document.querySelector('#screen-resync').click()`);
  await until(`document.querySelector('#screen-dialog').open && !document.querySelector('#screen-apply').disabled`);
- await evaluate(`document.querySelector('#screen-turn').value='1';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click();document.querySelector('#screen-auto-start').click()`);
+ await evaluate(`document.querySelector('#screen-turn').value='1';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click()`);
  await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).screenRebased`),true);
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).screenSegments.at(-1).records.length`),6);
@@ -201,7 +201,7 @@ try{
  await evaluate(`new Promise(r=>setTimeout(r,250))`);await evaluate(`document.querySelector('#screen-resync').click()`);
  await until(`document.querySelectorAll('#screen-wall-list button').length===20`);
  assert.deepEqual(await evaluate(`[document.querySelector('#screen-left-0').value,document.querySelector('#screen-left-1').value]`),['0','0']);
- await evaluate(`document.querySelector('#screen-turn').value='0';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click();document.querySelector('#screen-auto-start').click()`);
+ await evaluate(`document.querySelector('#screen-turn').value='0';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click()`);
  await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
  assert.equal(await evaluate(`document.querySelectorAll('#board .wall').length`),20);
  checks.push('dense connected twenty-wall video imports without duplicate walls or negative stock');
@@ -214,7 +214,7 @@ try{
  await evaluate(`(async()=>{const {paintSourceScreen}=await import('/_qa/context-fixture.js');window.qaLiveSource=document.createElement('canvas');window.qaLivePaint=options=>{paintSourceScreen(qaLiveSource,{rounded:true,muted:true,labelSize:8,size:8,...options});qaLiveStream?.getVideoTracks()[0].requestFrame?.();};window.qaLiveStream=null;qaLivePaint({bottom:1,relative:'self',plies:12});Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async()=>{window.qaLiveStream=qaLiveSource.captureStream(30);setTimeout(()=>qaLiveStream.getVideoTracks()[0].requestFrame?.(),100);return qaLiveStream;}});document.querySelector('#screen-open').click();document.querySelector('#screen-connect').click();})()`);
  await until(`document.querySelector('#screen-source-canvas').width===1000 && document.querySelector('#screen-side-result').textContent.includes('분홍') && document.querySelector('#screen-turn-result').textContent.includes('내 차례') && !document.querySelector('#screen-apply').disabled`);
  assert.equal(await evaluate(`document.querySelector('#screen-auto-side').checked && document.querySelector('#screen-auto-turn').checked && document.querySelector('#screen-bottom').disabled && document.querySelector('#screen-turn').disabled`),true);
- await evaluate(`document.querySelector('#screen-apply').click();document.querySelector('#screen-auto-start').click()`);
+ await evaluate(`document.querySelector('#screen-apply').click()`);
  await until(`!!document.querySelector('#board .recommend')`);
  const automaticPink=await evaluate(`JSON.parse(localStorage.getItem('quoridor-session'))`);assert.equal(automaticPink.side,1);assert.equal(automaticPink.startPosition,'bottom');assert.equal(automaticPink.baseState.turn,1);
  assert.deepEqual(await evaluate(`[...document.querySelectorAll('#board .pawn')].map(c=>Number(c.getAttribute('cy')))`),[191,471]);
@@ -260,7 +260,7 @@ try{
  await until(`document.querySelector('#screen-turn-result').textContent.includes('이동 점 3개') && !document.querySelector('#screen-apply').disabled`);
  assert.equal(await evaluate(`document.querySelector('#screen-turn').disabled && document.querySelector('#screen-turn').value==='0'`),true);
  await screenshot('move-dot-review.png');
- await evaluate(`document.querySelector('#screen-apply').click();document.querySelector('#screen-auto-start').click()`);
+ await evaluate(`document.querySelector('#screen-apply').click()`);
  await until(`!!document.querySelector('#board .recommend')`);
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.turn`),0);
  checks.push('dim initial three-dot hints alone enable automatic application and own-turn recommendation without captions or cards');
@@ -281,11 +281,30 @@ try{
  await evaluate(`qaLivePaint({bottom:1,relative:'self',cardRole:null,phrase:false,plies:9,positions:[{x:4,y:2},{x:4,y:6}],installed:[],dots:[{x:3,y:6,owner:1},{x:5,y:6,owner:1},{x:4,y:5,owner:1},{x:4,y:7,owner:1}],dotOpacity:.35})`);
  await evaluate(`new Promise(r=>setTimeout(r,250))`);await evaluate(`document.querySelector('#screen-resync').click()`);
  await until(`document.querySelector('#screen-turn-result').textContent.includes('분홍 이동 점 4개') && !document.querySelector('#screen-apply').disabled`);
- await evaluate(`document.querySelector('#screen-apply').click();document.querySelector('#screen-auto-start').click()`);
+ await evaluate(`document.querySelector('#screen-apply').click()`);
  await until(`!!document.querySelector('#board .recommend')`);
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).side`),1);
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.turn`),1);
  checks.push('pink hint dots automatically identify own turn after bottom-side resynchronization');
+ // Keep producing moves while checking progress: final catch-up alone is insufficient.
+ await evaluate(`qaLivePaint({bottom:0,relative:'self',cardRole:'self',phrase:true,plies:0,positions:[{x:4,y:7},{x:4,y:1}],installed:[],dots:[]})`);
+ await evaluate(`new Promise(r=>setTimeout(r,150))`);
+ await evaluate(`document.querySelector('#screen-resync').click()`);
+ await until(`!document.querySelector('#screen-apply').disabled`);
+ await evaluate(`document.querySelector('#screen-apply').click()`);
+ assert.equal(await evaluate(`document.querySelector('#screen-auto-start')===null && document.querySelector('#screen-connection').textContent.includes('활성')`),true);
+ await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
+ await evaluate(`window.qaBurst={sent:0,samples:[]};window.qaBurstTimer=setInterval(()=>{const b=qaBurst;b.sent++;const n=b.sent,positions=[{x:4+(Math.ceil(n/2)%2),y:7},{x:4+(Math.floor(n/2)%2),y:1}];qaLivePaint({bottom:0,relative:n%2?'opponent':'self',cardRole:n%2?'opponent':'self',phrase:true,plies:n,positions,installed:[],dots:[]});b.samples.push({sent:n,received:JSON.parse(localStorage.getItem('quoridor-session')).records.length});if(n===16){clearInterval(qaBurstTimer);b.done=true;}},120)`);
+ await until(`qaBurst.done===true`);
+ const burst=await evaluate(`qaBurst`);
+ assert.ok(burst.samples.some(s=>s.sent>=4&&s.sent<16&&s.received>=2),JSON.stringify(burst));
+ await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===16`);
+ checks.push('120ms continuous 16-ply stream updates the board before play stops; Apply starts monitoring without a Start button');
+ await writeFile(path.join(out,'continuous-stream.json'),JSON.stringify(burst,null,2)+'\n');
+ // Restore pink source used by the optional engine integration checks.
+ await evaluate(`qaLivePaint({bottom:1,relative:'self',cardRole:'self',plies:9,positions:[{x:4,y:2},{x:4,y:6}],installed:[],dots:[]})`);
+ await evaluate(`new Promise(r=>setTimeout(r,150));`);await evaluate(`document.querySelector('#screen-resync').click()`);
+ await until(`!document.querySelector('#screen-apply').disabled`);await evaluate(`document.querySelector('#screen-apply').click()`);
  if(pressureService){
   await evaluate(`document.querySelector('#play-engine').value='atlas-pressure';document.querySelector('#play-engine').dispatchEvent(new Event('change'))`);
   await until(`document.querySelector('#engine-status').textContent.includes('즉시 압박') && document.querySelector('#analysis').textContent.includes('immediate pressure') && !!document.querySelector('#analysis .pressure-reason')`);

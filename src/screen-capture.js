@@ -6,9 +6,9 @@ import {createSourceTemplates,readSourceContext} from './source-context.js';
 const colors=['#31d4c2','#fa7393'];
 export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChange,onUncertain,onRecovered}){
  const panel=document.createElement('section');panel.className='panel';panel.id='screen-panel';panel.hidden=true;
- panel.innerHTML='<div class="panel-title">화면 연동 <span>자동 감시</span></div><p class="watch-note">처음 배치·차례를 확인해 적용한 뒤 자동 감시를 시작하세요. 벽 미리보기가 남지 않도록 원본 보드 밖으로 커서를 옮겨 주세요.</p><button id="screen-open" class="primary">화면 연결 · 이미지 인식</button><div class="buttons"><button id="screen-disconnect" disabled>공유 중지</button></div><p id="screen-connection" class="watch-note" role="status">연결된 화면 없음</p>';
+ panel.innerHTML='<div class="panel-title">화면 연동 <span>자동 감시</span></div><p class="watch-note">처음 배치·차례를 확인해 적용하면 자동 감시가 시작됩니다. 벽 미리보기가 남지 않도록 원본 보드 밖으로 커서를 옮겨 주세요.</p><button id="screen-open" class="primary">화면 연결 · 이미지 인식</button><div class="buttons"><button id="screen-disconnect" disabled>공유 중지</button></div><p id="screen-connection" class="watch-note" role="status">연결된 화면 없음</p>';
  document.querySelector('#watch-panel').before(panel);
- const liveControls=document.createElement('div');liveControls.innerHTML='<div class="buttons"><button id="screen-auto-start" disabled>자동 감시 시작</button><button id="screen-auto-pause" disabled>일시정지</button></div><label><input id="screen-auto-hint" type="checkbox" checked> 내 차례에 최선 수 자동 분석</label><p id="screen-auto-status" class="watch-note" role="status">배치를 확인해 적용한 뒤 자동 감시를 시작하세요.</p>';panel.append(liveControls);
+ const liveControls=document.createElement('div');liveControls.innerHTML='<div class="buttons"><button id="screen-auto-pause" disabled>일시정지</button></div><label><input id="screen-auto-hint" type="checkbox" checked> 내 차례에 최선 수 자동 분석</label><p id="screen-auto-status" class="watch-note" role="status">배치를 확인해 적용하면 자동 감시가 시작됩니다.</p>';panel.append(liveControls);
  const recoveryControls=document.createElement('div');recoveryControls.innerHTML='<div class="buttons"><button id="screen-resync">현재 화면 재동기화</button><button id="screen-diagnostic">인식 진단 저장</button></div><p class="watch-note">진행을 복원하지 못하면 현재 배치·차례를 확인해 새 기준으로 적용하세요. 진단에는 최근 배치와 오류만 담고 영상은 담지 않습니다.</p>';panel.append(recoveryControls);
  const dialog=document.createElement('dialog');dialog.id='screen-dialog';dialog.className='screen-dialog';
  dialog.innerHTML=`<div class="screen-dialog-head"><div><h2>게임 화면 가져오기</h2><p>말·벽을 읽은 뒤 직접 확인해 적용하세요. 이미지는 이 브라우저에서 처리합니다.</p></div><button id="screen-close" aria-label="화면 가져오기 닫기">닫기</button></div>
@@ -26,8 +26,17 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
  $('screen-stock-reset').previousElementSibling.textContent='차례는 원본 문구·활성 카드와 수 추적으로 대조합니다. 잔여 벽은 설치된 벽 색으로 추정하므로 원본 숫자와 확인하세요.';
  const footer=document.createElement('div');footer.className='screen-dialog-foot';const footerNote=document.createElement('span');footerNote.textContent='검토 후 적용 · 차례와 잔여 벽은 원본과 대조하세요.';footer.append(footerNote,$('screen-apply'));dialog.append(footer);
  let stream=null,hasFrame=false,rect=null,drag=null,draft=null,manualStock=[false,false],visible=false,token=0,disposed=false,edited=false;
- let timer=null,calibration=null,uncertain=false,lastVideoTime=-1,lastFrameAt=0;const stable=new StableScreenBoard(3),live=document.createElement('canvas');
- let automaticGrid=false,lastGridCheck=0;
+ let timer=null,calibration=null,uncertain=false,lastVideoTime=-1,lastFrameAt=0;const stable=new StableScreenBoard(2),live=document.createElement('canvas');
+ let automaticGrid=false,lastGridCheck=0,worker=null,busy=false,generation=0;
+ function analyze(pixels){return new Promise((resolve,reject)=>{
+  worker??=new Worker(new URL('./screen-frame-worker.js',import.meta.url),{type:'module'});
+  const instance=worker,timeout=setTimeout(failed,3000);
+  function failed(){clearTimeout(timeout);instance.terminate();if(worker===instance)worker=null;reject(Error('화면 인식 작업이 중단됐습니다. 다음 프레임에서 다시 시도합니다.'));}
+  instance.onmessage=({data})=>{clearTimeout(timeout);data.error?reject(Error(data.error)):resolve(data);};instance.onerror=failed;
+  const bottom=calibration.bottom,knownWalls=(getState()?.walls??[]).map(w=>({...w,x:bottom===1?7-w.x:w.x,y:bottom===1?7-w.y:w.y}));
+  // One in-flight job; the next tick samples the latest video rather than building a stale queue.
+  instance.postMessage({pixels,rect:calibration.rect,gap:calibration.gap,knownWalls,readContext:calibration.autoSide||calibration.autoTurn,bottom:calibration.autoSide?undefined:bottom});
+ });}
  let lastDraft=null,frameKey=null,frameCount=0;const observedFrames=[],diagnostics=[];
  let templates=null,sourceMeta=null,lastContext=null;
  function context(pixels,area=rect,gap=gaps(),board){templates??=createSourceTemplates(document);return readSourceContext(pixels,area,{gap,templates,board,bottom:$('screen-auto-side').checked?undefined:Number($('screen-bottom').value)});}
@@ -73,8 +82,9 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
   if(moved){stable.reset();clearFrames();if(!uncertain){uncertain=true;onUncertain?.();}}
   calibration={...calibration,rect:found.rect,gap:found.gap,width:w,height:h,fingerprint:gridFingerprint(pixels,found)};return moved;
  }
- function tick(){
-  if(!timer||!stream||!calibration||disposed)return;
+ async function tick(){
+  if(busy)return;const mine=generation;busy=true;
+  if(!timer||!stream||!calibration||disposed){busy=false;return;}
   try{
    if(video.readyState<2||video.paused||video.currentTime===lastVideoTime){if(Date.now()-lastFrameAt>3000)reject('새 영상 프레임을 받지 못했습니다. 공유 상태를 확인하세요.');return;}
    lastVideoTime=video.currentTime;lastFrameAt=Date.now();
@@ -84,11 +94,11 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
    const pixels=live.getContext('2d').getImageData(0,0,w,h);
    let gridChecked=false;
    if(calibration.auto&&(Date.now()-lastGridCheck>=1000||w!==calibration.width||h!==calibration.height)){refreshGrid(pixels,w,h);gridChecked=true;}
-   const detected=recognizeLive(pixels);
+   const result=await analyze(pixels);if(mine!==generation)return;const detected=result.detected;
    const before=getState?.();if(!before){pause('배치를 다시 적용하세요.');return;}
    const target=observedSnapshot(detected,calibration.bottom,before.turn);let sourceTurn,expectedPlies;
    if(calibration.autoSide||calibration.autoTurn){
-    lastContext=context(pixels,calibration.rect,calibration.gap,detected);
+    lastContext=result.context;
     if(calibration.autoSide&&lastContext.bottom!==calibration.bottom)throw Error('내 진영 판독 불일치 · 출발 줄 색 변경 또는 가림을 확인하고 현재 화면 재동기화를 이용하세요.');
     if(calibration.autoTurn&&target.winner===null){if(lastContext.relative===null)throw Error(lastContext.turnReason);sourceTurn=lastContext.relative==='self'?calibration.bottom:1-calibration.bottom;target.turn=sourceTurn;}
     if(calibration.autoTurn&&lastContext.moveCount!==null&&calibration.sourcePly!==null){expectedPlies=lastContext.moveCount-calibration.sourcePly;if(expectedPlies<0||expectedPlies>6)throw Error('원본 수 번호가 추적 범위와 다릅니다. 되돌리기·새 게임·누락 진행을 재동기화하세요.');}
@@ -97,22 +107,23 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
    const key=boardKey(target)+':'+(sourceTurn??'');
    if(frameKey===key)frameCount++;else{frameKey=key;frameCount=1;}
    if(frameCount===2){observedFrames.push({time:Date.now(),board:target});while(observedFrames.length>24||observedFrames[0]?.time<Date.now()-6000)observedFrames.shift();}
-   if(!stable.observe(target,sourceTurn)){if((boardKey(before)!==boardKey(target)||sourceTurn!==undefined&&sourceTurn!==before.turn)&&!uncertain){uncertain=true;onUncertain?.();}autoStatus('배치·차례 변화 확인 중 · 동일한 화면 3회 대기');return;}
+   const actions=recoverScreenSequence(before,target,observedFrames.map(f=>f.board),{expectedTurn:sourceTurn,expectedPlies});
+   const immediate=actions.length>0&&actions.length<=2&&sourceTurn!==undefined;
+   if(!immediate&&!stable.observe(target,sourceTurn)){if((boardKey(before)!==boardKey(target)||sourceTurn!==undefined&&sourceTurn!==before.turn)&&!uncertain){uncertain=true;onUncertain?.();}autoStatus('배치·차례 변화 확인 중 · 합법 진행 확인 중 · 동일한 화면 2회 대기');return;}
    // A whole-board translation by one cell can look like two legal pawn moves.
    // Confirm geometry on this very frame before committing any changed board.
    if(calibration.auto&&!gridChecked&&boardKey(before)!==boardKey(target)){
     const moved=refreshGrid(pixels,w,h),verified=observedSnapshot(recognizeLive(pixels),calibration.bottom,before.turn);
     if(moved||boardKey(verified)!==boardKey(target)){stable.reset();autoStatus('격자 재정렬 · 배치 안정화 확인 중');return;}
    }
-   const actions=recoverScreenSequence(before,target,observedFrames.map(f=>f.board),{expectedTurn:sourceTurn,expectedPlies});
    if(actions.length){if(onSync?.(actions,before)===false)throw Error('왼쪽 배치가 변경됐습니다. 다시 확인하세요.');if(calibration.autoTurn)calibration.sourcePly=lastContext?.moveCount??null;recordDiagnostic(`${actions.length}수 합법 진행 복원`);clearFrames();uncertain=false;autoStatus(`${actions.length}수 자동 반영 · ${new Date().toLocaleTimeString()}`);}
    else {if(uncertain){uncertain=false;onRecovered?.();}autoStatus('자동 감시 중 · 원본과 일치');}
-  }catch(error){reject(error.message);}
+  }catch(error){if(mine===generation)reject(error.message);}finally{if(mine===generation)busy=false;}
  }
- function start(){if(!stream||!calibration)return;stable.reset();uncertain=true;lastVideoTime=-1;lastGridCheck=0;lastFrameAt=Date.now();timer=setInterval(tick,250);onWatchChange?.(true);autoStatus('자동 감시 시작 · 동일한 배치 3회 확인 후 반영');controls();}
+ function start(){if(!stream||!calibration)return;stable.reset();uncertain=true;lastVideoTime=-1;lastGridCheck=0;lastFrameAt=Date.now();timer=setInterval(tick,60);onWatchChange?.(true);autoStatus('자동 감시 시작 · 합법 수·차례 대조 후 연속 반영');controls();}
  const message=(text,error=false)=>{$('screen-message').textContent=text;$('screen-message').classList.toggle('screen-error',error);};
  const dirty=()=>{invalidate();draft=null;$('screen-apply').disabled=true;$('screen-review-board').innerHTML='';$('screen-wall-list').replaceChildren();$('screen-detected').textContent='';$('screen-issues').replaceChildren();onDirty();};
- function controls(){const active=!!stream;$('screen-auto-start').disabled=!active||!calibration||!!timer;$('screen-auto-pause').disabled=!timer;$('screen-disconnect').disabled=!active;$('screen-freeze').disabled=!active;$('screen-connect').disabled=!navigator.mediaDevices?.getDisplayMedia;$('screen-recognize').disabled=!hasFrame||!rect;$('screen-connection').textContent=active?timer?'공유 중 · 자동 감시 활성':'공유 중 · 자동 감시는 일시정지':hasFrame?'마지막 프레임/이미지 · 실시간 갱신 없음':'연결된 화면 없음';}
+ function controls(){const active=!!stream;$('screen-auto-pause').disabled=!active||!calibration;$('screen-auto-pause').textContent=timer?'일시정지':'감시 재개';$('screen-disconnect').disabled=!active;$('screen-freeze').disabled=!active;$('screen-connect').disabled=!navigator.mediaDevices?.getDisplayMedia;$('screen-recognize').disabled=!hasFrame||!rect;$('screen-connection').textContent=active?timer?'공유 중 · 자동 감시 활성':'공유 중 · 자동 감시는 일시정지':hasFrame?'마지막 프레임/이미지 · 실시간 갱신 없음':'연결된 화면 없음';}
  function disconnect(notify=true){pause('화면 공유 중지 · 자동 감시 종료');calibration=null;token++;const old=stream;stream=null;video.srcObject=null;video.hidden=true;old?.getTracks().forEach(t=>t.stop());controls();if(notify)onDirty();}
  function redraw(){
   if(!hasFrame)return;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(frame,0,0);
@@ -172,8 +183,8 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
  for(const t of [0,1])$(`screen-left-${t}`).oninput=()=>{manualStock[t]=true;onDirty();review();};
  $('screen-stock-reset').onclick=()=>{manualStock=[false,false];stock();onDirty();review();};
  $('screen-clear-walls').onclick=()=>{if(draft){draft.walls=[];edited=true;stock();onDirty();review();}};
- $('screen-apply').onclick=()=>{try{if(sourceErrors().length)throw Error(sourceErrors().join(' '));if(!edited&&draft?.wallIssues?.length)throw Error(draft.wallIssues.join(' '));const snapshot=checkedSnapshot(readSnapshot());pause();onApply(snapshot,Number($('screen-bottom').value));calibration={rect:{...rect},gap:gaps(),auto:automaticGrid,autoSide:$('screen-auto-side').checked,autoTurn:$('screen-auto-turn').checked,sourcePly:$('screen-auto-turn').checked?sourceMeta?.moveCount??null:null,bottom:Number($('screen-bottom').value),width:frame.width,height:frame.height,fingerprint:gridFingerprint(frame.getContext('2d').getImageData(0,0,frame.width,frame.height),{rect,gap:gaps()})};lastContext=sourceMeta;$('screen-source-state').textContent=`내 진영: ${calibration.bottom===0?'청록':'분홍'} · 아래 시작 · ${snapshot.turn===calibration.bottom?'내':'상대'} 차례${calibration.autoTurn?' · 자동':' · 수동 보정'}`;recordDiagnostic('사용자가 현재 배치·차례를 확인해 기준 상태 적용');controls();dialog.close();message('확인한 배치를 적용했습니다. 공유 중이면 자동 감시 시작을 눌러 연동하세요.');}catch(error){message(error.message,true);review();}};
- $('screen-auto-start').onclick=()=>{if(!timer)start();};$('screen-auto-pause').onclick=()=>pause();$('screen-auto-hint').onchange=()=>{stable.reset();uncertain=true;onWatchChange?.(!!timer);};
+ $('screen-apply').onclick=()=>{try{if(sourceErrors().length)throw Error(sourceErrors().join(' '));if(!edited&&draft?.wallIssues?.length)throw Error(draft.wallIssues.join(' '));const snapshot=checkedSnapshot(readSnapshot());pause();onApply(snapshot,Number($('screen-bottom').value));calibration={rect:{...rect},gap:gaps(),auto:automaticGrid,autoSide:$('screen-auto-side').checked,autoTurn:$('screen-auto-turn').checked,sourcePly:$('screen-auto-turn').checked?sourceMeta?.moveCount??null:null,bottom:Number($('screen-bottom').value),width:frame.width,height:frame.height,fingerprint:gridFingerprint(frame.getContext('2d').getImageData(0,0,frame.width,frame.height),{rect,gap:gaps()})};lastContext=sourceMeta;$('screen-source-state').textContent=`내 진영: ${calibration.bottom===0?'청록':'분홍'} · 아래 시작 · ${snapshot.turn===calibration.bottom?'내':'상대'} 차례${calibration.autoTurn?' · 자동':' · 수동 보정'}`;recordDiagnostic('사용자가 현재 배치·차례를 확인해 기준 상태 적용');controls();dialog.close();if(stream)start();message('확인한 배치를 적용했습니다. 화면 공유 중이면 자동 감시가 시작됩니다.');}catch(error){message(error.message,true);review();}};
+ $('screen-auto-pause').onclick=()=>{if(timer)pause();else start();};$('screen-auto-hint').onchange=()=>{stable.reset();uncertain=true;onWatchChange?.(!!timer);};
  // Editing an approved draft invalidates its calibration before it can be reused.
  dialog.addEventListener('input',e=>{if(e.target.id!=='screen-image-file'){invalidate();controls();}});
  dialog.addEventListener('change',()=>{invalidate();controls();});

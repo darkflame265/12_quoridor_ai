@@ -10,7 +10,7 @@ const $=s=>document.querySelector(s),colors=['#31d4c2','#fa7393'],names=['청록
 const defaultCores=Math.min(4,Math.max(1,(navigator.hardwareConcurrency||4)-2));
 let state=initial(),past=[],records=[],serial=0,busy=false,hint=null;
 let baseState=null,observedBottom=null,screenCapture=null;
-let screenReady=false;
+let screenReady=false,screenRebased=false,screenSegments=[];
 let pool=createPlayPool(defaultCores),watchPools=[null,null],ponderTimer=null;
 const watching=()=>$('#mode').value==='watch';
 const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.turn===Number($('#side').value);
@@ -83,6 +83,7 @@ function render(){
   $('#reset').disabled=screen;
   if(screen)$('#undo').disabled=true;
   if(baseState)$('#count').textContent=`가져온 배치 이후 ${records.length}수`;
+  if(baseState&&screenRebased){$('#count').textContent=`재동기화 이후 ${records.length}수 · 중간 기보 누락`;if(!records.length)$('#history').innerHTML='<p class="muted">현재 화면에서 재동기화했습니다. 복원하지 못한 중간 기보는 만들지 않습니다.</p>';}
   if(screen){
     $('#hint').disabled=busy||!!outcome||!baseState||screenCapture?.active&&!screenReady;
     $('#status').textContent=!baseState?'화면 배치 대기':outcome?`화면 배치 · ${names[outcome.winner]} 승리`:`${screenCapture?.active?'화면 자동 연동':'확인한 화면 배치'} · ${names[state.turn]} 차례${busy?' · 분석 중':screenCapture?.active&&!screenReady?' · 변화 확인 중':''}`;
@@ -134,7 +135,7 @@ $('#board').onpointermove=e=>{
 $('#board').onpointerleave=()=>{if($('#ghost'))$('#ghost').innerHTML='';};
 $('#board').onclick=e=>{if(human()&&!busy&&state.winner===null){const a=pick(e);if(a)commitMove(a);}};
 function clearAnalysis(){$('#analysis').textContent='현재 차례의 추천 수와 예상 진행을 확인하세요.';$('#depth').textContent='';hint=null;}
-function resetGame(){stop();state=initial();baseState=null;observedBottom=null;past=[];records=[];clearAnalysis();persist();render();schedule();}
+function resetGame(){stop();state=initial();baseState=null;observedBottom=null;screenRebased=false;screenSegments=[];past=[];records=[];clearAnalysis();persist();render();schedule();}
 $('#hint').onclick=()=>think();$('#reset').onclick=resetGame;
 $('#undo').onclick=()=>{stop();if(!past.length)return;do{state=past.pop();records.pop();}while($('#mode').value==='ai'&&past.length&&state.turn!==Number($('#side').value));clearAnalysis();persist();render();schedule();};
 $('#mode').onchange=()=>{stop();clearAnalysis();persist();render();schedule();if($('#mode').value==='screen')screenCapture?.open();};
@@ -150,11 +151,11 @@ $('#watch-delay').onchange=()=>{stop();persist();render();};
 $('#watch-start').onclick=()=>{stop();hint=null;watcher.start();};
 $('#watch-pause').onclick=()=>{stop();render();};
 $('#watch-step').onclick=()=>{stop();hint=null;watcher.step();};
-function sessionData(){return {version:baseState?3:2,...(baseState?{baseState,sourceBottom:observedBottom}:{}),records,mode:$('#mode').value,side:Number($('#side').value),startPosition:$('#start-position').value,time:$('#time').value,cores:$('#cores').value,engine:$('#play-engine').value,watch:{players:[watchSettings(0),watchSettings(1)],delay:Number($('#watch-delay').value)},result:watching()?watchOutcome():null};}
+function sessionData(){return {version:baseState?3:2,...(baseState?{baseState,sourceBottom:observedBottom,screenRebased,screenSegments}:{}),records,mode:$('#mode').value,side:Number($('#side').value),startPosition:$('#start-position').value,time:$('#time').value,cores:$('#cores').value,engine:$('#play-engine').value,watch:{players:[watchSettings(0),watchSettings(1)],delay:Number($('#watch-delay').value)},result:watching()?watchOutcome():null};}
 function persist(){try{localStorage.setItem('quoridor-session',JSON.stringify(sessionData()));$('#storage-note').hidden=true;}catch{$('#storage-note').hidden=false;$('#storage-note').textContent='자동 저장 공간이 부족합니다. 기보 저장을 이용해 주세요.';}}
 function selectValue(id,value){const element=$(id);if([...element.options].some(option=>option.value===String(value)))element.value=String(value);}
 function restore(data){
-  const replay=restoreObservedSession(data);stop();state=replay.state;past=replay.past;records=replay.records;baseState=replay.baseState;
+  const replay=restoreObservedSession(data);const archives=data.screenSegments??[];if(!Array.isArray(archives)||archives.length>8)throw Error('이전 화면 기보 보관 형식이 올바르지 않습니다.');const segments=archives.map(segment=>{const r=restoreObservedSession(segment);return {baseState:r.baseState,records:r.records};});stop();screenSegments=segments;state=replay.state;past=replay.past;records=replay.records;baseState=replay.baseState;screenRebased=!!baseState&&data.screenRebased===true;
   observedBottom=baseState&&[0,1].includes(data.sourceBottom)?data.sourceBottom:null;screenCapture?.setBottom(observedBottom);
   selectValue('#mode',data.mode);selectValue('#side',data.side);selectValue('#time',data.time);selectValue('#cores',data.cores);selectValue('#play-engine',data.engine??'atlas5');
   selectValue('#start-position',data.startPosition??'top');
@@ -174,7 +175,7 @@ screenCapture=mountScreenCapture({
   onWatchChange:()=>{screenReady=false;stop();clearAnalysis();render();},
   onUncertain:()=>{screenReady=false;stop();clearAnalysis();$('#analysis').textContent='원본 배치 변화 확인 중 · 인식이 안정되면 최신 배치를 분석합니다.';render();},
   onRecovered:()=>{screenReady=true;render();schedule();},
-  onApply:(snapshot,bottom)=>{stop();state=clone(snapshot);baseState=clone(snapshot);observedBottom=bottom;past=[];records=[];$('#mode').value='screen';$('#start-position').value=Number($('#side').value)===bottom?'bottom':'top';clearAnalysis();persist();render();},
+  onApply:(snapshot,bottom)=>{if(baseState&&records.length){screenSegments.push({baseState:clone(baseState),records:clone(records)});if(screenSegments.length>8)screenSegments.shift();}screenRebased=!!baseState&&(screenRebased||boardKey(state)!==boardKey(snapshot)||state.turn!==snapshot.turn);stop();state=clone(snapshot);baseState=clone(snapshot);observedBottom=bottom;past=[];records=[];$('#mode').value='screen';$('#start-position').value=Number($('#side').value)===bottom?'bottom':'top';clearAnalysis();persist();render();},
   onDirty:()=>{if($('#mode').value==='screen'){stop();clearAnalysis();$('#analysis').textContent='새로 가져온 내용은 확인 후 적용해야 반영됩니다.';render();}}
 });
 window.addEventListener('pagehide',()=>{stop();pool.dispose();disposeWatch();screenCapture?.dispose();});

@@ -1,6 +1,6 @@
 // Independent bitmap fixture: 48 px tiles, 10 px lanes; the reader is given
 // only the finished pixels and crop. Coordinates here are expected answers.
-export function screenFixture({ring=false,scale=1,bottom=0,positions,installed}={}){
+export function screenFixture({ring=false,scale=1,bottom=0,positions,installed,joinWalls=false,fragmentTiles=false}={}){
  const size=512,pad=24,width=(size+pad*2)*scale,height=width,data=new Uint8ClampedArray(width*height*4),step=58;
  const palette=[[49,212,194],[250,115,147]],p=positions??[{x:4,y:6},{x:4,y:2}],walls=installed??[{type:'wall',x:1,y:3,o:'h',owner:0},{type:'wall',x:3,y:3,o:'h',owner:0},{type:'wall',x:5,y:4,o:'v',owner:1}];
  function pixel(x,y,c){for(let yy=0;yy<scale;yy++)for(let xx=0;xx<scale;xx++){const i=((y*scale+yy)*width+x*scale+xx)*4;data.set([...c,255],i);}}
@@ -12,6 +12,8 @@ export function screenFixture({ring=false,scale=1,bottom=0,positions,installed}=
  for(const [x,y]of[[3,6],[5,6],[4,5]])disk(pad+x*step+24,pad+y*step+24,6,palette[0]);
  rect(pad+6*step,pad+1*step+50,106,6,[170,169,160]);
  for(const w of walls){const x=pad+w.x*step,y=pad+w.y*step;if(w.o==='h')rect(x,y+50,106,6,palette[w.owner]);else rect(x+50,y,6,106,palette[w.owner]);}
+ if(joinWalls)for(const w of walls)if(walls.some(a=>a.owner===w.owner&&a.o===w.o&&(w.o==='h'?a.y===w.y&&a.x===w.x+2:a.x===w.x&&a.y===w.y+2))){if(w.o==='h')rect(pad+w.x*step+106,pad+w.y*step+50,10,6,palette[w.owner]);else rect(pad+w.x*step+50,pad+w.y*step+106,6,10,palette[w.owner]);}
  for(let t=0;t<2;t++){const c=p[t];disk(pad+c.x*step+24,pad+c.y*step+24,17,palette[t]);if(ring)disk(pad+c.x*step+24,pad+c.y*step+24,14,[20,20,18]);}
+ if(fragmentTiles)for(let y=0;y<9;y++)for(let x=0;x<9;x++)rect(pad+x*step+23,pad+y*step,3,48,[17,19,15]);
  return {width,height,data,crop:{x:pad*scale,y:pad*scale,width:size*scale,height:size*scale},gap:10/58,expected:{p,walls,left:[0,1].map(t=>10-walls.filter(w=>w.owner===t).length),turn:1,winner:null}};
 }

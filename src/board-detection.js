@@ -47,3 +47,16 @@ export function trackedBoard(candidates,previous,width,height){
  const ranked=candidates.map(c=>({candidate:c,distance:Math.abs(c.rect.x-p.x*sx)/(p.width*sx)+Math.abs(c.rect.y-p.y*sy)/(p.height*sy)+Math.abs(Math.log(c.rect.width/(p.width*sx)))+Math.abs(Math.log(c.rect.height/(p.height*sy)))})).sort((a,b)=>a.distance-b.distance);
  return ranked[0]?.distance<.5&&ranked[1]?.distance-ranked[0].distance>.25?ranked[0].candidate:null;
 }
+// Evidence for retaining a previously confirmed geometry when a full scan
+// loses tile components. Sample tile corners away from pawns and wall lanes.
+export function gridFingerprint(image,geometry){
+ const {rect,gap}=geometry,gx=typeof gap==='number'?gap:gap.x,gy=typeof gap==='number'?gap:gap.y,sx=rect.width/(9-gx),sy=rect.height/(9-gy),cw=sx*(1-gx),ch=sy*(1-gy),out=[];
+ for(let y=0;y<9;y++)for(let x=0;x<9;x++)for(const [u,v] of [[.18,.18],[.82,.18],[.18,.82],[.82,.82]]){
+  const px=Math.floor(rect.x+x*sx+cw*u),py=Math.floor(rect.y+y*sy+ch*v);if(px<0||py<0||px>=image.width||py>=image.height)return null;
+  const i=(py*image.width+px)*4;out.push([image.data[i],image.data[i+1],image.data[i+2]]);
+ }return out;
+}
+export function retainedGridMatches(image,previous){
+ if(image.width!==previous.width||image.height!==previous.height||!previous.fingerprint)return false;
+ const now=gridFingerprint(image,previous);return !!now&&now.filter((p,i)=>p.every((v,t)=>Math.abs(v-previous.fingerprint[i][t])<=16)).length/now.length>=.94;
+}

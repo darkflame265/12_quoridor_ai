@@ -1,5 +1,6 @@
 // Color/geometry reader for the dark teal/pink board theme. No DOM, network,
 // text OCR, turn inference or probability claims. Every result is a draft.
+import {resolveObservedWalls} from './wall-observation.js';
 export function pieceColor(r,g,b){
  if(g>=110&&g-r>=35&&b-r>=25&&b>=g*.65&&g>=b*.85)return 0;
  if(r>=135&&r-g>=45&&r-b>=10&&b>=g*.7)return 1;
@@ -18,7 +19,7 @@ function sample(image,cx,cy,rx,ry){
   if(t>=0){counts[t]++;const b=bounds[t];b[0]=Math.min(b[0],x);b[1]=Math.min(b[1],y);b[2]=Math.max(b[2],x);b[3]=Math.max(b[3],y);}
  }return {counts,bounds,total};
 }
-export function recognizeBoard(image,rect,{gap=.16}={}){
+export function recognizeBoard(image,rect,{gap=.16,knownWalls=[]}={}){
  if(!image||!Number.isInteger(image.width)||!Number.isInteger(image.height)||!image.data||image.data.length!==image.width*image.height*4)throw Error('이미지 픽셀을 읽을 수 없습니다.');
  const grid=gridGeometry(rect,gap);
  if(rect.x<0||rect.y<0||rect.x+rect.width>image.width||rect.y+rect.height>image.height)throw Error('보드 영역이 이미지 밖에 있습니다.');
@@ -39,5 +40,6 @@ export function recognizeBoard(image,rect,{gap=.16}={}){
   if(owners.size===1)walls.push({type:'wall',x,y,o,owner:[...owners][0]});
  }
  const notes=candidates.flatMap((list,t)=>list.length===1?[]:[`${t===0?'청록':'분홍'} 말 후보 ${list.length}개: 검토 보드에서 위치를 지정하세요.`]);
- return {p:candidates.map(list=>list.length===1?list[0]:null),walls,candidates,notes};
+ const resolved=resolveObservedWalls(walls,knownWalls);
+ return {p:candidates.map(list=>list.length===1?list[0]:null),walls:resolved.walls,candidates,notes:[...notes,...resolved.issues],wallIssues:resolved.issues,rawWallCount:resolved.rawCount};
 }

@@ -3,6 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "search:independent-prepare": "node scripts/prepare-preview-independent.mjs",
+    "search:independent-run": "node scripts/run-preview-independent.mjs",
+    "search:independent-verify": "node scripts/verify-preview-independent.mjs",
+    "search:independent-diagnose": "node scripts/diagnose-independent-gaps.mjs",
     "search:reply-build": "node scripts/build-reply-verify.mjs",
     "search:reply-check": "node scripts/check-reply-verify.mjs",
     "search:reply-verify": "node scripts/verify-reply-verify.mjs",

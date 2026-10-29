@@ -1,0 +1,105 @@
+{
+  "format": "atlas-pressure-registration-v1",
+  "createdAt": "2026-10-29T05:25:10.654Z",
+  "runtime": {
+    "node": "v24.13.1",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "study": {
+    "version": "pressure-independent76-v1",
+    "seed": 76261029,
+    "familiesPerSuite": 3,
+    "budgets": [
+      40000,
+      50000,
+      60000
+    ],
+    "depths": [
+      3,
+      4
+    ],
+    "deepDepth": 5,
+    "deepFamilyIndex": 0,
+    "ms": 500,
+    "cores": 4,
+    "rounds": 3,
+    "referenceMs": 30000,
+    "criteria": {
+      "minimumImprovedFamilies": 2,
+      "allowSuiteGapRegression": false,
+      "allowFixedDepth5GapRegression": false,
+      "maximumDepthRegressionsPerBudget": 2,
+      "maximumTimedOverruns": 1,
+      "timedOverrunMs": 605
+    },
+    "decision": "Research gate only; frozen pressure candidate. No promotion without separate arena and holdout. Previous 50k failure remains recorded."
+  },
+  "corpusSha256": "68179499de51756e4d4ae8a50a0c542fcb22500dda160fb124138676e8e43da4",
+  "inventorySha256": "b8c81d6abda61d586b0ab7bf1ecc397c8201c4e656bfe170baa1516f9721d419",
+  "identity": {
+    "nativeSourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+    "sources": {
+      "rust-engine/src/lib.rs": "363cd3197f8fc1e21acb20c576d5dac3be4f741e808e9caa963f10bcd3984078",
+      "native-engine/src/lib.rs": "477ba4dfc0bc64536aa47f67ff8e00646c51066e9ad4f54ac409fcd83d24310a",
+      "native-engine/src/search.rs": "4aa7c1703c2d425bec3fe22090243649c40ad92a8a597b2be550b25dd2cfc4a7",
+      "native-engine/src/strategy.rs": "3be980d2aba7889ce5734665a6fb06a8682ef5b64667d120710ccf77e3d88cdf",
+      "native-engine/src/endgame-oracle.rs": "1b65399e328980de658eb6d5628e3fa301fa2ee85892f5dce50c002770b5856d",
+      "native-engine/src/main.rs": "85bd0779574b2331468415215e60e0f8076613367c5de1ed9d790ad4af80b8c4",
+      "native-engine/Cargo.toml": "0e2ace99f5def761ceb9e5bb79fa02e440fa03df9c956e40ad015b7fb28701c2",
+      "native-engine/Cargo.lock": "767b8a0cacf898be5d2d8a0250e18b9ded346252ddf61195adc967b03893af16",
+      "rust-toolchain.toml": "690e8b2d01e4b515848ba8c0cfcb69e54605754c53f29f95eacb61ea7b4fb3b6",
+      "search-probe-engine/src/probe.rs": "3b6cbd1de58cea02766ad798eb25bc71ed63610b1cac97d5bb7cdb6a0e7bb78f",
+      "reply-preview-engine/Cargo.toml": "7e710cc1d4cfcf8ade9f8818af3ecf708e9a30491d8b74580c153c34315792bb",
+      "reply-preview-engine/Cargo.lock": "e355222398b568c88ae43657837899131a65f5281dfd30ab0f1130704020f31c",
+      "reply-preview-engine/build.rs": "ce682c7f4baa6edbea3a77ae0d1f03ba116a877525abe783b75363f7cb1a8960",
+      "reply-preview-engine/src/main.rs": "62e479c3be8108939640b68ef433644b4ba28cac50f0fbbccf7c3846d2c7426a",
+      "route-filter-engine/src/filter.rs": "01bff0e9a9573e034b267de10a83cd8257987b07eb5045ddb7f89347bbd3a695",
+      "reply-preview-engine/src/preview.rs": "60046cf84a2618376697949b1c8dab6265eef92477482e5d644fd1e9dc1d7ba2"
+    },
+    "binarySha256": "923534746d2f27a59de84f9b0f5e37352989703be3bfb26e787098ea46c4ff39"
+  },
+  "referenceIdentity": {
+    "baselineSourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+    "sources": {
+      "rust-engine/src/lib.rs": "363cd3197f8fc1e21acb20c576d5dac3be4f741e808e9caa963f10bcd3984078",
+      "native-engine/src/lib.rs": "477ba4dfc0bc64536aa47f67ff8e00646c51066e9ad4f54ac409fcd83d24310a",
+      "native-engine/src/search.rs": "4aa7c1703c2d425bec3fe22090243649c40ad92a8a597b2be550b25dd2cfc4a7",
+      "native-engine/src/strategy.rs": "3be980d2aba7889ce5734665a6fb06a8682ef5b64667d120710ccf77e3d88cdf",
+      "native-engine/src/endgame-oracle.rs": "1b65399e328980de658eb6d5628e3fa301fa2ee85892f5dce50c002770b5856d",
+      "native-engine/src/main.rs": "85bd0779574b2331468415215e60e0f8076613367c5de1ed9d790ad4af80b8c4",
+      "native-engine/Cargo.toml": "0e2ace99f5def761ceb9e5bb79fa02e440fa03df9c956e40ad015b7fb28701c2",
+      "native-engine/Cargo.lock": "767b8a0cacf898be5d2d8a0250e18b9ded346252ddf61195adc967b03893af16",
+      "rust-toolchain.toml": "690e8b2d01e4b515848ba8c0cfcb69e54605754c53f29f95eacb61ea7b4fb3b6",
+      "speed-engine/src/ranking-paths.rs": "0b9305232a2013f98f71d9ba333337656362089c6976360127107fb5fb30cb3d",
+      "root-guard-engine/Cargo.toml": "05389f70de9a1d793bea1df363c649928d81569252e1ef5fe8f9d9194d8da521",
+      "root-guard-engine/Cargo.lock": "a4c0e86a896987bb8c9bb235f2cd163f73fda1b41c55c99a84ed375587b4c0f5",
+      "root-guard-engine/build.rs": "0b948252312963be8a1f8328484dd6fd5cdf15657baad22dc1cedfafe3960cd6",
+      "root-guard-engine/src/lib.rs": "b252dc47482505f434f4342cd95dd662519a4e4c1e01c1988b3de1aae4e5a494",
+      "root-guard-engine/src/main.rs": "9b21bec00b094dd347dd49bb481bebdc45898dc9df18ef9f8baf7aedc06af60b",
+      "root-guard-engine/src/root-policy.rs": "2cd3459a52bbe7a90673b7ea50c912f407ad96057f4c6944330da7a1f95a5586",
+      "root-guard-engine/src/bin/branches.rs": "b31a8dff6708923361a24d670f3ce919f48930edc493758606c493e3ce637108"
+    },
+    "binaryHash": "b0b914f4569b9b4029c68d492fcd7421370923a5423de9201e7c36ed8c68c660",
+    "branchBinaryHash": "2328ea1d0a3afce72202de23bca2f41f8464ce16bf46092ee852c41977390b7e"
+  },
+  "nativeBinarySha256": "62977fff79e51dcbc5e9de4f463d6db3a26b6c81ba7061e33aa5a08861db061a",
+  "sourceEncoding": "utf8-lf",
+  "sourceHashes": {
+    "evaluation/preview-independent.mjs": "d9fb80bd7865380e60ebf7a4c612768c55ff1fb5c36919bb76e5313b6e3a92a6",
+    "evaluation/preview-study-io.mjs": "76eb9ca9e9fa8c150b11ab0c017fb8e380dd67411c99cdad29b40de2398b1079",
+    "evaluation/native-policy.mjs": "fbc0767ccb0f8bfd0bc80f65544ccc887fc9b9d563473f83296b80dc81b51f4f",
+    "evaluation/reply-preview-policy.mjs": "49cbbd3e68edf2df21e5d1d1ec9f45d3f0282ea03b79083db88a776e2851e388",
+    "evaluation/root-guard-policy.mjs": "da95161e00371a46782db711e7e86d94b02e1dc98dc2f71d3155c4f22cc626eb",
+    "scripts/prepare-preview-independent.mjs": "23738e823c6fa5d662f5610521e5cc3cef2caa17421101e1a33e871426b00884",
+    "scripts/run-preview-independent.mjs": "856775e5b20c792fecd230f8cd0249812ed6e819c6c82b12ecc2cf848cc783cb",
+    "scripts/verify-preview-independent.mjs": "2245ec0bf8fbdc068f261a0d80a825e3bab6648b3dbf050d8974dc6f8ecb690d",
+    "src/engine.js": "71fbd20493619af4d064f37b61143c2dc2358528f06644a1c8da2f4e734c2a0a",
+    "src/search.js": "b0ef55353fba9e2d4ed180ba5ecbb0f22bfca45669c886384a648ecfb81d2795",
+    "src/spectator.js": "3109ffbebddd7a4abd8b57d5f4544bcd64b98e925dc1ade9a02262e94622a237",
+    "evaluation/suite.js": "b4d1f0099eafe595deed937b3fdb74924eb5326121e0e0b35663e1af195fd8cb",
+    "evaluation/wall-geometry.mjs": "33c678114583a19420fa31e822af3185db199e78d03aacc5adf667f35252dcf5",
+    "evaluation/strategy-book.mjs": "7b8294273951fb5782306c5f8c6af86f503ac0ef29d9e606da6baf115ec0f97a",
+    "server/native-process.mjs": "fa22f417773a1982a7011399fb6b44db100bb05731fa6ff144c654cd8168eb95"
+  }
+}

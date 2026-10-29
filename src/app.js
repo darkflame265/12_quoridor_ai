@@ -1,3 +1,4 @@
+import {VariableAnalysis} from './variable-analysis.js';
 import {AdaptiveEngine} from './adaptive-engine.js';
 import {orientPosition,orientAction,viewFlipped} from './view.js';
 import {initial,clone,moves,validWall,legal,apply,notation,distance} from './engine.js';
@@ -18,6 +19,8 @@ let state=initial(),past=[],records=[],serial=0,busy=false,hint=null,decisionLog
 let baseState=null,observedBottom=null,screenCapture=null;
 let screenReady=false,screenRebased=false,screenSegments=[];
 let pool=createPlayPool(defaultCores),watchPools=[null,null],ponderTimer=null;
+const variableAnalysis=new VariableAnalysis();
+const playMs=()=>$('#time').value==='variable'?500:Number($('#time').value);
 const watching=()=>$('#mode').value==='watch';
 const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.turn===Number($('#side').value);
 const flipped=()=>viewFlipped(Number($('#side').value),$('#start-position').value);
@@ -46,7 +49,7 @@ const watcher=new SpectatorRunner({
   onError:error=>{$('#analysis').textContent=error.message;},
   getDelay:()=>Number($('#watch-delay').value)
 });
-function stop(){serial++;clearTimeout(ponderTimer);busy=false;watcher.pause();pool.cancel();cancelWatch();}
+function stop(){serial++;variableAnalysis.cancel();clearTimeout(ponderTimer);busy=false;watcher.pause();pool.cancel();cancelWatch();}
 function wallSvg(w,extra=''){
   w=viewAction({...w,type:'wall'});const x=22+w.x*70,y=22+w.y*70;
   return `<rect class="wall ${extra}" x="${w.o==='h'?x-2:x+60}" y="${w.o==='h'?y+60:y-2}" width="${w.o==='h'?132:10}" height="${w.o==='h'?10:132}" rx="5" fill="${colors[w.owner??state.turn]}"/>`;
@@ -70,6 +73,7 @@ function drawBoard(){
   $('#board').innerHTML=svg+'<g id="ghost"></g></svg>';
 }
 function render(){
+  variableStatus();
   const screen=$('#mode').value==='screen';screenCapture?.setVisible(screen);
   const watch=watching(),outcome=watch?watchOutcome():state.winner!==null?{type:'win',winner:state.winner}:null;
   $('#watch-panel').hidden=!watch;$('#human-settings').hidden=watch;$('#side-label').textContent=watch?'기준 진영':'내 진영';$('#position-label').textContent=watch?'기준 진영 시작 위치':'내 시작 위치';
@@ -105,7 +109,7 @@ function writeAnalysis(r,label='추천',source=state){
   if(!r.pv?.length)return;
   if(label==='추천'&&(source.turn!==state.turn||boardKey(source)!==boardKey(state)))return;
   if(label==='추천'){
-    const settings=watching()?watchSettings(source.turn):{engine:$('#play-engine').value,ms:Number($('#time').value),cores:pool.size},enginePool=watching()?watchPool(source.turn):pool;
+    const settings=watching()?watchSettings(source.turn):{engine:$('#play-engine').value,ms:r.analysisBudgetMs??playMs(),cores:r.analysisCores??pool.size},enginePool=watching()?watchPool(source.turn):pool;
     recordDecision(decisionLog,recommendation(source,r,{...settings,ply:records.length+1,build:enginePool.native?.info?.engineInfo?.build}));
   }
   const strategyProof=r.winProof?.shortestWinProven===false;
@@ -138,11 +142,33 @@ function schedule(){
 function think(auto=false){
   stop();busy=true;hint=null;const id=serial,source=clone(state),selectedPool=watching()?watchPool(state.turn):pool;
   render();$('#analysis').textContent='가능한 이동과 벽을 분석하고 있습니다…';
-  selectedPool.search(state,{ms:watching()?watchSettings(state.turn).ms:Number($('#time').value),onProgress:r=>{if(id===serial)writeAnalysis(r);}}).then(r=>{
+  if(!auto&&!watching()&&$('#time').value==='variable'){startVariable(selectedPool,source,id);return;}
+  selectedPool.search(state,{ms:watching()?watchSettings(state.turn).ms:playMs(),onProgress:r=>{if(id===serial)writeAnalysis(r);}}).then(r=>{
     if(id!==serial)return;if(!r.pv?.length)throw Error('추천 가능한 수가 없습니다.');
     writeAnalysis({...r,done:true});busy=false;if(auto){commitMove(r.pv[0]);writeAnalysis(r,'선택',source);}else {persist();render();}
   }).catch(error=>{if(id!==serial||error.name==='AbortError')return;stop();render();$('#analysis').textContent=error.message;});
 }
+function variableStatus(){
+ const v=variableAnalysis,visible=$('#time').value==='variable'&&!watching();
+ $('#variable-controls').hidden=!visible;$('#analysis-pin').disabled=!v.displayed;
+ $('#analysis-pin').textContent=v.pinned?'추천 고정 해제':'현재 추천 고정';
+ $('#variable-status').textContent=!v.latest?(v.active?'첫 추천 준비 중 · 0.5초 목표, 완료된 깊이부터 표시':''):
+  `${v.active?'추가 계산 중 · 최대 15초':'분석 완료'} · ${v.pinned?'표시 추천 고정 · ':''}최신 ${notation(v.latest.pv[0])} · 깊이 ${v.latest.depth??0} · ${(v.latest.elapsedMs/1000).toFixed(1)}초`;
+ if(visible&&v.displayed){const context=$('#analysis .advice-context');if(context)context.textContent=`전체 ${records.length+1}수 · ${names[state.turn]} 차례 · ${v.pinned?'추천 고정 · ':''}${v.active?'추가 분석 중':'분석 완료'}`;}
+}
+function startVariable(selectedPool,source,id){
+ const cores=Math.min(selectedPool.size,Math.max(1,(navigator.hardwareConcurrency||4)-1));
+ const analysisId=globalThis.crypto.randomUUID();let published=false;
+ const current=()=>id===serial&&source.turn===state.turn&&boardKey(source)===boardKey(state);
+ recordDecision(decisionLog,{kind:'analysis-start',at:new Date().toISOString(),analysisId,position:boardKey(source),turn:source.turn,firstTargetMs:500,limitMs:15000,configuredCores:selectedPool.size,cores});
+ variableAnalysis.start(selectedPool,source,{cores,
+  onPublish:r=>{if(!current())return;const phase=published?'update':'first';published=true;busy=false;writeAnalysis({...r,analysisBudgetMs:15000,analysisCores:cores});recordDecision(decisionLog,{kind:'analysis-display',at:new Date().toISOString(),analysisId,phase,position:boardKey(source),turn:source.turn,pv:clone(r.pv),elapsedMs:r.elapsedMs,complete:r.done});persist();render();},
+  onUpdate:r=>{if(!current())return;recordDecision(decisionLog,{...recommendation(source,r,{engine:$('#play-engine').value,ms:15000,cores,ply:records.length+1,build:selectedPool.native?.info?.engineInfo?.build}),kind:'analysis-update',analysisId});},
+  onStatus:()=>{variableStatus();if(current()&&!variableAnalysis.active)persist();},
+  onError:error=>{if(!current())return;stop();hint=null;render();$('#analysis').textContent=error.message;}
+ });
+}
+$('#analysis-pin').onclick=()=>{variableAnalysis.togglePin();recordDecision(decisionLog,{kind:'recommendation-pin',at:new Date().toISOString(),position:boardKey(state),turn:state.turn,pinned:variableAnalysis.pinned});persist();};
 function pick(e){
   const r=$('#board svg').getBoundingClientRect(),x=(e.clientX-r.left)*664/r.width,y=(e.clientY-r.top)*664/r.height;
   const gx=(x-22)/70,gy=(y-22)/70,cx=Math.floor(gx),cy=Math.floor(gy),fx=gx-cx,fy=gy-cy;

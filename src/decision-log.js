@@ -9,5 +9,6 @@ export function observedAction(log,state,action,ply){
  const position=boardKey(state),advice=log.findLast(e=>e?.kind==='recommendation'&&e.position===position&&e.turn===state.turn&&e.pv?.[0]);
  const a=advice?.pv[0],matches=a?a.type===action.type&&a.x===action.x&&a.y===action.y&&(a.type!=='wall'||a.o===action.o):null;
  const earlier=log.findLast(e=>e?.kind==='recommendation'&&e.position===position&&e.turn===state.turn&&sameAction(e.pv?.[0],action));
- recordDecision(log,{kind:'action',at:new Date().toISOString(),position,turn:state.turn,ply,action:structuredClone(action),recommendationAt:advice?.at??null,matchesRecommendation:matches,earlierMatchingRecommendationAt:earlier?.at??null});
+ const latest=log.findLast(e=>e?.kind==='analysis-update'&&e.position===position&&e.turn===state.turn&&e.pv?.[0]);
+ recordDecision(log,{kind:'action',at:new Date().toISOString(),position,turn:state.turn,ply,action:structuredClone(action),recommendationAt:advice?.at??null,matchesRecommendation:matches,earlierMatchingRecommendationAt:earlier?.at??null,latestAnalysisAt:latest?.at??null,matchesLatestAnalysis:latest?sameAction(latest.pv[0],action):null});
 }

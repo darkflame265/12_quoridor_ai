@@ -16,11 +16,14 @@ const pressureService=process.env.QUORIDOR_PRESSURE_BROWSER_QA==='1'?createPress
 if(pressureService){await pressureService.client.health();await new Promise(resolve=>pressureService.server.listen(0,'127.0.0.1',resolve));}
 const tempoService=pressureService?createPressureService({tempo:true}):null;
 if(tempoService){await tempoService.client.health();await new Promise(resolve=>tempoService.server.listen(0,'127.0.0.1',resolve));}
+const goalService=pressureService?createPressureService({goal:true}):null;
+if(goalService){await goalService.client.health();await new Promise(resolve=>goalService.server.listen(0,'127.0.0.1',resolve));}
 const fixtureRoutes={'/_qa/fixture.js':'scripts/test-fixtures/screen-board.mjs','/_qa/screen-board.mjs':'scripts/test-fixtures/screen-board.mjs','/_qa/context-fixture.js':'scripts/test-fixtures/source-screen.mjs','/_qa/reader.js':'src/source-context.js','/_qa/screen-recognition.js':'src/screen-recognition.js','/_qa/wall-observation.js':'src/wall-observation.js','/_qa/move-dot-evidence.js':'src/move-dot-evidence.js','/_qa/engine.js':'src/engine.js','/_qa/observed-state.js':'src/observed-state.js'};
+fixtureRoutes['/_qa/goal-fixtures.json']='evaluation/fixtures/goal-safety-regressions.json';
 let stalePressure=false;
 const server=http.createServer(async(req,res)=>{try{const url=new URL(req.url,'http://localhost'),file=fixtureRoutes[url.pathname]?path.join(root,fixtureRoutes[url.pathname]):path.resolve(dist,'.'+(url.pathname==='/'?'/index.html':decodeURIComponent(url.pathname)));
  if(stalePressure&&url.pathname==='/api/pressure/health'){res.setHeader('Content-Type','application/json');res.end(JSON.stringify({service:'quoridor-native-v1',engineInfo:{id:'atlas-pressure',version:'0.1 experiment',build:'old'}}));return;}
- if(pressureService&&(url.pathname.startsWith('/api/pressure/')||url.pathname.startsWith('/api/tempo/'))){const selected=url.pathname.startsWith('/api/tempo/')?tempoService:pressureService;const upstream=http.request({host:'127.0.0.1',port:selected.server.address().port,path:req.url.replace(/^\/api\/(pressure|tempo)/,''),method:req.method,headers:{...req.headers,host:`127.0.0.1:${selected.server.address().port}`}},reply=>{res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);});upstream.on('error',()=>{res.writeHead(503);res.end();});res.on('close',()=>upstream.destroy());req.pipe(upstream);return;}
+ if(pressureService&&(url.pathname.startsWith('/api/pressure/')||url.pathname.startsWith('/api/tempo/')||url.pathname.startsWith('/api/goal/'))){const selected=url.pathname.startsWith('/api/goal/')?goalService:url.pathname.startsWith('/api/tempo/')?tempoService:pressureService;const upstream=http.request({host:'127.0.0.1',port:selected.server.address().port,path:req.url.replace(/^\/api\/(pressure|tempo|goal)/,''),method:req.method,headers:{...req.headers,host:`127.0.0.1:${selected.server.address().port}`}},reply=>{res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);});upstream.on('error',()=>{res.writeHead(503);res.end();});res.on('close',()=>upstream.destroy());req.pipe(upstream);return;}
  if(!file.startsWith(dist+path.sep)&&!Object.values(fixtureRoutes).some(relative=>file===path.join(root,relative))){res.writeHead(403);res.end();return;}
  const bytes=await readFile(file);res.setHeader('Content-Type',file.endsWith('.js')||file.endsWith('.mjs')?'text/javascript':file.endsWith('.css')?'text/css':file.endsWith('.html')?'text/html':file.endsWith('.wasm')?'application/wasm':'application/octet-stream');res.end(bytes);
  }catch{res.writeHead(404);res.end();}});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const url=`http://127.0.0.1:${server.address().port}/`;
@@ -332,6 +335,17 @@ try{
   await until(`document.querySelector('#engine-status').textContent.includes('0.3') && document.querySelector('#analysis').textContent.includes('wall tempo 0.3') && document.querySelector('#analysis .advice-context').textContent.includes('분석 완료')`);
   assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).decisionLog.some(e=>e.engine==='atlas-tempo' && e.complete===true && e.build?.length===12 && e.ply===3)`),true);
   checks.push('wall tempo 0.3 uses its separate service, displays the current ply and completed phase, and saves the actual build');
+  await evaluate(`(async()=>{window.qaGoalFixtures=await(await fetch('/_qa/goal-fixtures.json')).json();window.qaLoadGoal=ply=>{const f=qaGoalFixtures.find(f=>f.id.endsWith('-'+ply)),transfer=new DataTransfer();transfer.items.add(new File([JSON.stringify({version:3,baseState:f.state,records:[],mode:'screen',side:0,sourceBottom:0,startPosition:'bottom',engine:'atlas-goal',time:'500',cores:'4'})],'goal.json',{type:'application/json'}));document.querySelector('#file').files=transfer.files;document.querySelector('#file').dispatchEvent(new Event('change'));};qaLoadGoal(37)})()`);
+  await until(`document.querySelector('#play-engine').value==='atlas-goal' && document.querySelector('#mode').value==='screen'`);
+  await evaluate(`document.querySelector('#hint').click()`);
+  await until(`document.querySelector('#engine-status').textContent.includes('0.4') && document.querySelector('#analysis .analysis-warning')?.textContent.includes('골인 경로 위험') && document.querySelector('#analysis .advice-context')?.textContent.includes('분석 완료')`);
+  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).decisionLog.some(e=>e.engine==='atlas-goal' && e.goalSafety?.goalThreat && e.goalSafety.exposure[0]===1 && e.complete)`),true);
+  checks.push('goal safety 0.4 reports corridor exposure and saves the actual goal model without a false exact-win claim');
+  await evaluate(`document.querySelector('#analysis').scrollIntoView({block:'center'})`);await screenshot('goal-safety.png');
+  await evaluate(`qaLoadGoal(39)`);await until(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.left[0]===1`);await evaluate(`document.querySelector('#hint').click()`);
+  await until(`document.querySelector('#analysis .analysis-warning')?.textContent.includes('탐색에서 패배 수순')`);checks.push('selective native loss scores show a limited-search warning');
+  await evaluate(`qaLoadGoal(45)`);await until(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.left.every(n=>n===0)`);await evaluate(`document.querySelector('#hint').click()`);
+  await until(`document.querySelector('#analysis .analysis-warning')?.textContent.includes('후반 완전 해법')`);checks.push('a solved zero-wall loss is distinguished from heuristic corridor risk and selective search');
   await mkdir(path.join(root,'reports','immediate-pressure'),{recursive:true});await writeFile(path.join(root,'reports','immediate-pressure','browser.json'),JSON.stringify({engineInfo:(await(await fetch(`http://127.0.0.1:${pressureService.server.address().port}/health`)).json()).engineInfo,checks:checks.slice(-3),uncaughtErrors:errors,screenshot:'../screen-import/pressure-engine.png'},null,2)+'\n');
  }
  assert.deepEqual(errors,[]);await writeFile(path.join(out,'browser-qa.json'),JSON.stringify({browser:'isolated headless Chrome/Edge',checks,uncaughtErrors:errors,realScreenCaptureTested:false,syntheticMediaStreamTested:true,screenshots:['recognition-review.png','applied-board.png','automatic-sync.png','automatic-grid.png','recovery.png','automatic-side-turn.png','move-dot-review.png']},null,2)+'\n');console.log(JSON.stringify({checks,uncaughtErrors:errors},null,2));
@@ -339,7 +353,7 @@ try{
  if(ws?.readyState===WebSocket.OPEN){try{await send('Browser.close',{},null);}catch{}ws.close();}
  if(chrome&&chrome.exitCode===null){await new Promise(resolve=>{const timer=setTimeout(()=>{chrome.kill();resolve();},3000);chrome.once('exit',()=>{clearTimeout(timer);resolve();});});}
  server.closeAllConnections();await new Promise(resolve=>server.close(resolve));
- if(pressureService)await pressureService.close();if(tempoService)await tempoService.close();
+ if(pressureService)await pressureService.close();if(tempoService)await tempoService.close();if(goalService)await goalService.close();
  // Only remove this freshly allocated profile inside the ignored QA directory.
  if(path.dirname(profile)===temp&&temp.startsWith(path.resolve(root,'native-engine','target')+path.sep))try{await rm(profile,{recursive:true,force:true,maxRetries:10,retryDelay:100});}catch{}
 }

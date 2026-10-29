@@ -38,3 +38,9 @@ test('tempo uses its own identity, version and build contract',async()=>{
  }
  let webCalls=0;const engine=new AdaptiveEngine({engine:'atlas-tempo',webPool:{size:1,cancel(){},dispose(){},search(){webCalls++;}},nativeClient:{online:false,probe:async()=>false,cancel(){},dispose(){}}});await assert.rejects(engine.search(initial()),/실험 엔진/);assert.equal(webCalls,0);engine.dispose();
 });
+test('goal safety requires its own 0.4 identity and never falls back',async()=>{
+ for(const [id,version,ok]of [['atlas-goal','0.4 experiment',true],['atlas-tempo','0.3 experiment',false],['atlas-goal','0.3 experiment',false]]){
+  const client=new NativeClient({base:'/api/goal',expectedPressureBuild:'current',fetcher:async()=>new Response(JSON.stringify({service:'quoridor-native-v1',engineInfo:{id,version,build:'current'}}))});assert.equal(await client.probe(),ok);client.dispose();
+ }
+ const engine=new AdaptiveEngine({engine:'atlas-goal',webPool:{size:1,cancel(){},dispose(){},search(){throw Error('unexpected fallback');}},nativeClient:{online:false,probe:async()=>false,cancel(){},dispose(){}}});await assert.rejects(engine.search(initial()),/실험 엔진/);engine.dispose();
+});

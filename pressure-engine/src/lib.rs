@@ -7,5 +7,6 @@ mod core {
     include!("pressure.rs");
     include!("reserve.rs");
     include!("tempo.rs");
+    include!("goal_guard.rs");
 }
-pub use core::{NativeEngine, NativeOutput, State, explain_pressure, explain_tempo};
+pub use core::{NativeEngine, NativeOutput, State, explain_pressure, explain_tempo, explain_goal};

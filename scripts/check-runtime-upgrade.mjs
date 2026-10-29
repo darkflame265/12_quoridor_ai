@@ -21,6 +21,7 @@ try{
  const health=await(await fetch(url+'/api/pressure/health')).json();assert.match(health.engineInfo.version,/^0\.2 /);
  const wrong=await fetch(url+'/api/pressure/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:'wrong-build',expectedBuild:'obsolete'})});assert.equal(wrong.status,409);
  const tempo=await(await fetch(url+'/api/tempo/health')).json();assert.equal(tempo.engineInfo.id,'atlas-tempo');assert.match(tempo.engineInfo.version,/^0\.3 /);
+ const goal=await(await fetch(url+'/api/goal/health')).json();assert.equal(goal.engineInfo.id,'atlas-goal');assert.match(goal.engineInfo.version,/^0\.4 /);
  await mkdir('reports/runtime-upgrade',{recursive:true});await writeFile('reports/runtime-upgrade/check.json',JSON.stringify({status:'passed',legacyServerUpgraded:true,sameOriginPreserved:true,currentServerReused:true,explicitRestart:true,actualEngine:health.engineInfo},null,2)+'\n');console.log('Legacy upgrade, same origin, reuse and explicit restart passed');
 }finally{
  if(finalState)await fetch(finalState.url+'/__app/stop',{method:'POST',headers:{Authorization:`Bearer ${finalState.token}`}}).catch(()=>{});

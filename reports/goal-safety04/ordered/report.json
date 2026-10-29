@@ -1,0 +1,6618 @@
+{
+  "identity": {
+    "nativeSourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+    "sources": {
+      "rust-engine/src/lib.rs": "363cd3197f8fc1e21acb20c576d5dac3be4f741e808e9caa963f10bcd3984078",
+      "native-engine/src/lib.rs": "477ba4dfc0bc64536aa47f67ff8e00646c51066e9ad4f54ac409fcd83d24310a",
+      "native-engine/src/search.rs": "4aa7c1703c2d425bec3fe22090243649c40ad92a8a597b2be550b25dd2cfc4a7",
+      "native-engine/src/strategy.rs": "3be980d2aba7889ce5734665a6fb06a8682ef5b64667d120710ccf77e3d88cdf",
+      "native-engine/src/endgame-oracle.rs": "1b65399e328980de658eb6d5628e3fa301fa2ee85892f5dce50c002770b5856d",
+      "native-engine/src/main.rs": "85bd0779574b2331468415215e60e0f8076613367c5de1ed9d790ad4af80b8c4",
+      "native-engine/Cargo.toml": "0e2ace99f5def761ceb9e5bb79fa02e440fa03df9c956e40ad015b7fb28701c2",
+      "native-engine/Cargo.lock": "767b8a0cacf898be5d2d8a0250e18b9ded346252ddf61195adc967b03893af16",
+      "rust-toolchain.toml": "690e8b2d01e4b515848ba8c0cfcb69e54605754c53f29f95eacb61ea7b4fb3b6",
+      "pressure-engine/Cargo.toml": "c854b852b4b1999f75bd6f3879ec6ca0c7d2f14e74588d8f4a93a944737e7030",
+      "pressure-engine/Cargo.lock": "46bf54f2cdbabc18338cfb9e88bf9690c9068da6319fb104fa516e880510aa88",
+      "pressure-engine/build.rs": "f1a7faf27d5e1c2e69776659951d7b27d38ba01fa92a86db6dce556f17b8e706",
+      "pressure-engine/src/lib.rs": "6a1c3d2e4788549841b927eab0c6a9cbfb46623db3b00bff5232fc3138d2fa93",
+      "pressure-engine/src/main.rs": "4a4f97d4d1c88bd34a97ff1401058ca1fd65d1930c6d013eecca1c55f1822bb3",
+      "pressure-engine/src/pressure.rs": "e0f9e9479f073b29048dcc7c4b20d28aa5a528b3c053789992faa6dbaf87acbe",
+      "pressure-engine/src/reserve.rs": "e2f227483ae45a4b17e99641cb46724b9d8939a8d019b25f04547ffe9331d084",
+      "pressure-engine/src/tempo.rs": "08572bac36783a93cd3c894a2d9cc6290c4f1dfc6f964b48e722025f9bc56f00",
+      "pressure-engine/src/goal_guard.rs": "2ab6c146dfd6131d8211ad01af4b4b6c3ceff3d5584a172fcfd567db45ceb66a"
+    },
+    "binaryHash": "e3d42808d36b46151ec5c8b51a4b706fe9b36ff71438a6646d3ec6609ad355bd"
+  },
+  "sourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+  "defaultProfile": "candidate",
+  "status": "completed",
+  "productionEnabled": false,
+  "configuration": {
+    "rootOnly": true,
+    "maxExtension": 0,
+    "goalOrdering": true,
+    "goalEvaluation": false,
+    "preparationChange": false
+  },
+  "positions": [
+    {
+      "id": "third-loss-ply-11",
+      "diagnostics": {
+        "details": {
+          "active": false,
+          "chainNodeCap": 24,
+          "distances": [
+            5,
+            7
+          ],
+          "exposure": [
+            0,
+            0
+          ],
+          "goalThreat": false,
+          "maxExtension": 0,
+          "wallStock": [
+            8,
+            8
+          ]
+        },
+        "elapsedMs": 0.038400000000000004,
+        "exact": false,
+        "score": 192
+      },
+      "baseline": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.07959999999997,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + wall tempo 0.3 · Native Rust ×4",
+        "id": "9df4291d-ce7f-4113-832a-9ce2338f2f9d",
+        "nodes": 44639,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 4
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 4,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 0,
+          "firstContact": 1,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 2,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 4
+          }
+        ],
+        "score": 32,
+        "sharedCacheHits": 4263,
+        "workers": 4
+      },
+      "candidate": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.08609999999993,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + goal safety 0.4 · Native Rust ×4",
+        "goalSafety": {
+          "active": false,
+          "chainNodeCap": 24,
+          "distances": [
+            5,
+            7
+          ],
+          "exposure": [
+            0,
+            0
+          ],
+          "goalThreat": false,
+          "maxExtension": 0,
+          "wallStock": [
+            8,
+            8
+          ]
+        },
+        "id": "55952896-df0f-4cc2-85e4-c9895c87f073",
+        "nodes": 44430,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 4
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 4,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 0,
+          "firstContact": 1,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 2,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 4
+          }
+        ],
+        "score": 32,
+        "sharedCacheHits": 4759,
+        "workers": 4
+      }
+    },
+    {
+      "id": "third-loss-ply-15",
+      "diagnostics": {
+        "details": {
+          "active": false,
+          "chainNodeCap": 24,
+          "distances": [
+            7,
+            8
+          ],
+          "exposure": [
+            0,
+            0
+          ],
+          "goalThreat": false,
+          "maxExtension": 0,
+          "wallStock": [
+            6,
+            6
+          ]
+        },
+        "elapsedMs": 0.034799999999904685,
+        "exact": false,
+        "score": 60
+      },
+      "baseline": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.0946999999999,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + wall tempo 0.3 · Native Rust ×4",
+        "id": "ae887005-f904-4788-a48a-ef0f7528f35a",
+        "nodes": 77328,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 2
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 2,
+          "enemyDelay": 0,
+          "firstContact": 2,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 1,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 2
+          }
+        ],
+        "score": 137,
+        "sharedCacheHits": 12251,
+        "workers": 4
+      },
+      "candidate": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.0599000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + goal safety 0.4 · Native Rust ×4",
+        "goalSafety": {
+          "active": false,
+          "chainNodeCap": 24,
+          "distances": [
+            7,
+            8
+          ],
+          "exposure": [
+            0,
+            0
+          ],
+          "goalThreat": false,
+          "maxExtension": 0,
+          "wallStock": [
+            6,
+            6
+          ]
+        },
+        "id": "16b17f43-2678-4672-a9dd-8323b4b5a30b",
+        "nodes": 75400,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 2
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 2,
+          "enemyDelay": 0,
+          "firstContact": 2,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 1,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 2
+          }
+        ],
+        "score": 137,
+        "sharedCacheHits": 12054,
+        "workers": 4
+      }
+    },
+    {
+      "id": "third-loss-ply-17",
+      "diagnostics": {
+        "details": {
+          "active": false,
+          "chainNodeCap": 24,
+          "distances": [
+            7,
+            8
+          ],
+          "exposure": [
+            0,
+            0
+          ],
+          "goalThreat": false,
+          "maxExtension": 0,
+          "wallStock": [
+            5,
+            5
+          ]
+        },
+        "elapsedMs": 0.0238000000001648,
+        "exact": false,
+        "score": 60
+      },
+      "baseline": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.44500000000016,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + wall tempo 0.3 · Native Rust ×4",
+        "id": "fd7a64e5-f597-4cde-ae5e-e5f22c6cba86",
+        "nodes": 54221,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 4
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 2,
+          "enemyDelay": 0,
+          "firstContact": 2,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 1,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 1
+          }
+        ],
+        "score": -12,
+        "sharedCacheHits": 10083,
+        "workers": 4
+      },
+      "candidate": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.44620000000054,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + goal safety 0.4 · Native Rust ×4",
+        "goalSafety": {
+          "active": false,
+          "chainNodeCap": 24,
+          "distances": [
+            7,
+            8
+          ],
+          "exposure": [
+            0,
+            0
+          ],
+          "goalThreat": false,
+          "maxExtension": 0,
+          "wallStock": [
+            5,
+            5
+          ]
+        },
+        "id": "7c6b7ed7-81f4-4d12-b88f-5c611c1288b1",
+        "nodes": 55282,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 4
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 2,
+          "enemyDelay": 0,
+          "firstContact": 2,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 1,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 1
+          }
+        ],
+        "score": -12,
+        "sharedCacheHits": 12123,
+        "workers": 4
+      }
+    },
+    {
+      "id": "third-loss-ply-35",
+      "diagnostics": {
+        "details": {
+          "active": true,
+          "chainNodeCap": 24,
+          "distances": [
+            3,
+            4
+          ],
+          "exposure": [
+            1,
+            0
+          ],
+          "goalThreat": true,
+          "maxExtension": 0,
+          "wallStock": [
+            2,
+            3
+          ]
+        },
+        "elapsedMs": 0.7995999999998276,
+        "exact": false,
+        "score": 80
+      },
+      "baseline": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.10390000000007,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + wall tempo 0.3 · Native Rust ×4",
+        "id": "41a5f8ef-deed-444d-85cf-065427f88138",
+        "nodes": 52863,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 2,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "score": 203,
+        "sharedCacheHits": 18221,
+        "workers": 4
+      },
+      "candidate": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.02419999999984,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + goal safety 0.4 · Native Rust ×4",
+        "goalSafety": {
+          "active": true,
+          "chainNodeCap": 24,
+          "distances": [
+            3,
+            4
+          ],
+          "exposure": [
+            1,
+            0
+          ],
+          "goalThreat": true,
+          "maxExtension": 0,
+          "wallStock": [
+            2,
+            3
+          ]
+        },
+        "id": "61342aa8-29d6-4b2d-a91a-a44f9cab3370",
+        "nodes": 140154,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 2,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "score": 203,
+        "sharedCacheHits": 11890,
+        "workers": 4
+      }
+    },
+    {
+      "id": "third-loss-ply-37",
+      "diagnostics": {
+        "details": {
+          "active": true,
+          "chainNodeCap": 24,
+          "distances": [
+            2,
+            3
+          ],
+          "exposure": [
+            1,
+            0
+          ],
+          "goalThreat": true,
+          "maxExtension": 0,
+          "wallStock": [
+            2,
+            3
+          ]
+        },
+        "elapsedMs": 0.5625,
+        "exact": false,
+        "score": 80
+      },
+      "baseline": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 6,
+        "done": true,
+        "elapsedMs": 500.03759999999966,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + wall tempo 0.3 · Native Rust ×4",
+        "id": "c47bdd1d-effe-4b73-ac5d-31f76704de5a",
+        "nodes": 132321,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 7
+          },
+          "bias": 7,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 1,
+          "firstContact": 2,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 1,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 1
+        },
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 7
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0
+          }
+        ],
+        "score": 7,
+        "sharedCacheHits": 40952,
+        "workers": 4
+      },
+      "candidate": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 501.3645000000006,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + goal safety 0.4 · Native Rust ×4",
+        "goalSafety": {
+          "active": true,
+          "chainNodeCap": 24,
+          "distances": [
+            2,
+            3
+          ],
+          "exposure": [
+            1,
+            0
+          ],
+          "goalThreat": true,
+          "maxExtension": 0,
+          "wallStock": [
+            2,
+            3
+          ]
+        },
+        "id": "7f8c3b5e-8c4c-40b0-bb62-c7b6e7d88eb2",
+        "nodes": 70441,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "score": 132,
+        "sharedCacheHits": 27506,
+        "workers": 4
+      }
+    },
+    {
+      "id": "third-loss-ply-39",
+      "diagnostics": {
+        "details": {
+          "active": true,
+          "chainNodeCap": 24,
+          "distances": [
+            2,
+            3
+          ],
+          "exposure": [
+            1,
+            0
+          ],
+          "goalThreat": true,
+          "maxExtension": 0,
+          "wallStock": [
+            1,
+            3
+          ]
+        },
+        "elapsedMs": 0.5079999999998108,
+        "exact": false,
+        "score": 19
+      },
+      "baseline": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 10,
+        "done": true,
+        "elapsedMs": 283.27870000000075,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + wall tempo 0.3 · Native Rust ×4",
+        "id": "e615e984-7ee2-4130-a520-17165eca200b",
+        "nodes": 154584,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 7
+          }
+        ],
+        "score": -29988,
+        "sharedCacheHits": 53171,
+        "workers": 4
+      },
+      "candidate": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 10,
+        "done": true,
+        "elapsedMs": 271.27479999999923,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + goal safety 0.4 · Native Rust ×4",
+        "goalSafety": {
+          "active": true,
+          "chainNodeCap": 24,
+          "distances": [
+            2,
+            3
+          ],
+          "exposure": [
+            1,
+            0
+          ],
+          "goalThreat": true,
+          "maxExtension": 0,
+          "wallStock": [
+            1,
+            3
+          ]
+        },
+        "id": "540d0e97-10ad-4349-b50c-76ed0d411b67",
+        "nodes": 162298,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 0
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 7,
+            "y": 7
+          }
+        ],
+        "score": -29988,
+        "sharedCacheHits": 44260,
+        "workers": 4
+      }
+    },
+    {
+      "id": "third-loss-ply-45",
+      "diagnostics": {
+        "details": {
+          "active": false,
+          "chainNodeCap": 24,
+          "distances": [
+            4,
+            3
+          ],
+          "exposure": [
+            0,
+            0
+          ],
+          "goalThreat": false,
+          "maxExtension": 0,
+          "wallStock": [
+            0,
+            0
+          ]
+        },
+        "elapsedMs": 0.010600000000522414,
+        "exact": false,
+        "score": -132
+      },
+      "baseline": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 0,
+        "done": true,
+        "elapsedMs": 1.4182000000000698,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + wall tempo 0.3 · Native Rust ×4",
+        "exact": true,
+        "id": "c2acb382-4458-4534-929d-0cb9e94dd798",
+        "nodes": 12960,
+        "outcome": -1,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": -1250,
+          "nearCutEdges": 0,
+          "netGain": -1,
+          "ownDelay": 1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "score": -29994,
+        "sharedCacheHits": 0,
+        "workers": 4
+      },
+      "candidate": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 0,
+        "done": true,
+        "elapsedMs": 3.7283000000006723,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + goal safety 0.4 · Native Rust ×4",
+        "exact": true,
+        "goalSafety": {
+          "active": false,
+          "chainNodeCap": 24,
+          "distances": [
+            4,
+            3
+          ],
+          "exposure": [
+            0,
+            0
+          ],
+          "goalThreat": false,
+          "maxExtension": 0,
+          "wallStock": [
+            0,
+            0
+          ]
+        },
+        "id": "cb2d6b58-4d91-45bb-86c8-66915c799e73",
+        "nodes": 12960,
+        "outcome": -1,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": -1250,
+          "nearCutEdges": 0,
+          "netGain": -1,
+          "ownDelay": 1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "score": -29994,
+        "sharedCacheHits": 0,
+        "workers": 4
+      }
+    }
+  ],
+  "tactics": [
+    {
+      "id": "finish-0",
+      "pass": true
+    },
+    {
+      "id": "jump-0",
+      "pass": true
+    },
+    {
+      "id": "defend-0",
+      "pass": true
+    },
+    {
+      "id": "diagonal-0",
+      "pass": true
+    },
+    {
+      "id": "diagonal-finish-0",
+      "pass": true
+    },
+    {
+      "id": "defend-jump-0",
+      "pass": true
+    },
+    {
+      "id": "finish-before-defense-0",
+      "pass": true
+    },
+    {
+      "id": "no-wall-resource-0",
+      "pass": true
+    },
+    {
+      "id": "finish-1",
+      "pass": true
+    },
+    {
+      "id": "jump-1",
+      "pass": true
+    },
+    {
+      "id": "defend-1",
+      "pass": true
+    },
+    {
+      "id": "diagonal-1",
+      "pass": true
+    },
+    {
+      "id": "diagonal-finish-1",
+      "pass": true
+    },
+    {
+      "id": "defend-jump-1",
+      "pass": true
+    },
+    {
+      "id": "finish-before-defense-1",
+      "pass": true
+    },
+    {
+      "id": "no-wall-resource-1",
+      "pass": true
+    }
+  ],
+  "games": [
+    {
+      "suite": "general",
+      "index": 0,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "opening": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        }
+      ],
+      "trace": [
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "score": 0,
+          "depth": 4,
+          "elapsedMs": 518.1821
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "score": -132,
+          "depth": 4,
+          "elapsedMs": 516.1026000000002
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 2
+          },
+          "score": -19,
+          "depth": 4,
+          "elapsedMs": 500.4962999999989
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 1
+          },
+          "score": 19,
+          "depth": 3,
+          "elapsedMs": 500.5092999999997
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 1
+          },
+          "score": 8,
+          "depth": 4,
+          "elapsedMs": 500.5582000000013
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 1
+          },
+          "score": -140,
+          "depth": 4,
+          "elapsedMs": 500.71350000000166
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          },
+          "score": -69,
+          "depth": 4,
+          "elapsedMs": 500.4871000000003
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 2
+          },
+          "score": -55,
+          "depth": 4,
+          "elapsedMs": 500.6378000000004
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          "score": -92,
+          "depth": 4,
+          "elapsedMs": 500.4357
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "score": -48,
+          "depth": 4,
+          "elapsedMs": 500.7306000000008
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "score": -92,
+          "depth": 4,
+          "elapsedMs": 500.70980000000054
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 5
+          },
+          "score": 52,
+          "depth": 4,
+          "elapsedMs": 500.52939999999944
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 4
+          },
+          "score": -52,
+          "depth": 3,
+          "elapsedMs": 501.0358000000015
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 4
+          },
+          "score": 15,
+          "depth": 4,
+          "elapsedMs": 500.64010000000053
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 3
+          },
+          "score": -231,
+          "depth": 4,
+          "elapsedMs": 500.6241000000009
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 0
+          },
+          "score": 132,
+          "depth": 4,
+          "elapsedMs": 500.7160999999978
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          "score": -281,
+          "depth": 4,
+          "elapsedMs": 500.5092000000004
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "score": 85,
+          "depth": 4,
+          "elapsedMs": 500.4455999999991
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 5
+          },
+          "score": -229,
+          "depth": 4,
+          "elapsedMs": 500.6310000000012
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 0
+          },
+          "score": 89,
+          "depth": 4,
+          "elapsedMs": 502.1294000000016
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          },
+          "score": -228,
+          "depth": 5,
+          "elapsedMs": 503.3191999999981
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 4
+          },
+          "score": 368,
+          "depth": 5,
+          "elapsedMs": 500.5440000000017
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "score": -368,
+          "depth": 4,
+          "elapsedMs": 500.4418000000005
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 3
+          },
+          "score": 368,
+          "depth": 5,
+          "elapsedMs": 500.60779999999795
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 7
+          },
+          "score": -216,
+          "depth": 5,
+          "elapsedMs": 501.27449999999953
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "score": 384,
+          "depth": 5,
+          "elapsedMs": 502.2648999999983
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 7
+          },
+          "score": -75,
+          "depth": 5,
+          "elapsedMs": 501.8119999999981
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "score": 324,
+          "depth": 5,
+          "elapsedMs": 500.5581999999995
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 7
+          },
+          "score": -132,
+          "depth": 6,
+          "elapsedMs": 500.54239999999845
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "score": 0,
+          "depth": 12,
+          "elapsedMs": 500.4256999999998
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          "score": 0,
+          "depth": 11,
+          "elapsedMs": 500.38640000000305
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "score": 264,
+          "depth": 12,
+          "elapsedMs": 500.3910999999971
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 6
+          },
+          "score": -396,
+          "depth": 12,
+          "elapsedMs": 500.5836999999992
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          },
+          "score": 264,
+          "depth": 14,
+          "elapsedMs": 500.4369999999981
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          "score": -396,
+          "depth": 14,
+          "elapsedMs": 500.35719999999856
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          },
+          "score": 29973,
+          "depth": 3,
+          "elapsedMs": 125.96769999999742
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 7
+          },
+          "score": -29974,
+          "depth": 2,
+          "elapsedMs": 67.40669999999955
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 5
+          },
+          "score": 29975,
+          "depth": 1,
+          "elapsedMs": 13.08690000000206
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 8
+          },
+          "score": -29976,
+          "depth": 0,
+          "elapsedMs": 1.8361000000004424
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "score": 29977,
+          "depth": 0,
+          "elapsedMs": 3.0279000000009546
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          "score": -29978,
+          "depth": 0,
+          "elapsedMs": 0.26529999999911524
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "score": 29979,
+          "depth": 0,
+          "elapsedMs": 0.24060000000099535
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 8
+          },
+          "score": -29980,
+          "depth": 0,
+          "elapsedMs": 0.21450000000186265
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          "score": 29981,
+          "depth": 0,
+          "elapsedMs": 0.15680000000065775
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          },
+          "score": -29982,
+          "depth": 0,
+          "elapsedMs": 0.2495999999991909
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          },
+          "score": 29983,
+          "depth": 0,
+          "elapsedMs": 0.1676000000006752
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 8
+          },
+          "score": -29984,
+          "depth": 0,
+          "elapsedMs": 0.1548000000002503
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "score": 29985,
+          "depth": 0,
+          "elapsedMs": 0.1995999999999185
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 8
+          },
+          "score": -29986,
+          "depth": 0,
+          "elapsedMs": 0.21849999999903957
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "score": 29987,
+          "depth": 0,
+          "elapsedMs": 0.19210000000020955
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29988,
+          "depth": 0,
+          "elapsedMs": 0.16260000000329455
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          "score": 29989,
+          "depth": 0,
+          "elapsedMs": 0.14329999999972642
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29990,
+          "depth": 0,
+          "elapsedMs": 0.12619999999878928
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "score": 29991,
+          "depth": 0,
+          "elapsedMs": 0.16679999999905704
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29992,
+          "depth": 0,
+          "elapsedMs": 0.22280000000318978
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 5
+          },
+          "score": 29993,
+          "depth": 0,
+          "elapsedMs": 0.1529000000009546
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29994,
+          "depth": 0,
+          "elapsedMs": 0.12989999999990687
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 6
+          },
+          "score": 29995,
+          "depth": 0,
+          "elapsedMs": 0.22140000000217697
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29996,
+          "depth": 0,
+          "elapsedMs": 0.1970999999975902
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          "score": 29997,
+          "depth": 0,
+          "elapsedMs": 0.1625000000021828
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29998,
+          "depth": 0,
+          "elapsedMs": 0.14270000000033178
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          "score": 29999,
+          "depth": 1,
+          "elapsedMs": 0.14140000000043074
+        }
+      ]
+    },
+    {
+      "suite": "general",
+      "index": 0,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "opening": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        }
+      ],
+      "trace": [
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "score": 0,
+          "depth": 4,
+          "elapsedMs": 524.5073999999986
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "score": -132,
+          "depth": 4,
+          "elapsedMs": 515.7596999999987
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 2
+          },
+          "score": -19,
+          "depth": 4,
+          "elapsedMs": 500.5561999999991
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 0
+          },
+          "score": 19,
+          "depth": 3,
+          "elapsedMs": 500.7479999999996
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          },
+          "score": 15,
+          "depth": 4,
+          "elapsedMs": 500.47239999999874
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 0
+          },
+          "score": -160,
+          "depth": 4,
+          "elapsedMs": 500.4856
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 2
+          },
+          "score": 4,
+          "depth": 4,
+          "elapsedMs": 500.6775999999991
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          },
+          "score": -64,
+          "depth": 4,
+          "elapsedMs": 500.63270000000193
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 2
+          },
+          "score": -101,
+          "depth": 4,
+          "elapsedMs": 500.4539999999979
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 5
+          },
+          "score": -32,
+          "depth": 4,
+          "elapsedMs": 500.52869999999893
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 1
+          },
+          "score": -77,
+          "depth": 4,
+          "elapsedMs": 500.7781000000032
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "score": -8,
+          "depth": 4,
+          "elapsedMs": 500.45300000000134
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 1
+          },
+          "score": -107,
+          "depth": 4,
+          "elapsedMs": 500.5668000000005
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 4
+          },
+          "score": -21,
+          "depth": 4,
+          "elapsedMs": 500.7001999999993
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 6
+          },
+          "score": -99,
+          "depth": 4,
+          "elapsedMs": 500.69140000000334
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 7
+          },
+          "score": -33,
+          "depth": 4,
+          "elapsedMs": 501.3231999999989
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 6
+          },
+          "score": -28,
+          "depth": 4,
+          "elapsedMs": 501.51200000000244
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "score": -116,
+          "depth": 4,
+          "elapsedMs": 501.4513999999981
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 6
+          },
+          "score": -16,
+          "depth": 4,
+          "elapsedMs": 500.6617999999944
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          "score": 24,
+          "depth": 5,
+          "elapsedMs": 501.0225999999966
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 0
+          },
+          "score": 108,
+          "depth": 5,
+          "elapsedMs": 500.8336999999956
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          "score": 16,
+          "depth": 5,
+          "elapsedMs": 500.6160999999993
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          },
+          "score": 23,
+          "depth": 5,
+          "elapsedMs": 501.01489999999467
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          "score": 280,
+          "depth": 5,
+          "elapsedMs": 500.630799999999
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "score": -148,
+          "depth": 5,
+          "elapsedMs": 501.2335000000021
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          },
+          "score": 280,
+          "depth": 5,
+          "elapsedMs": 501.00970000000234
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          },
+          "score": -233,
+          "depth": 5,
+          "elapsedMs": 500.43620000000374
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          },
+          "score": 544,
+          "depth": 5,
+          "elapsedMs": 501.03519999999844
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "score": -412,
+          "depth": 5,
+          "elapsedMs": 502.3058000000019
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          },
+          "score": 544,
+          "depth": 5,
+          "elapsedMs": 501.6310999999987
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          },
+          "score": -497,
+          "depth": 5,
+          "elapsedMs": 500.4183000000048
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 0
+          },
+          "score": 816,
+          "depth": 5,
+          "elapsedMs": 500.6906999999992
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "score": -684,
+          "depth": 5,
+          "elapsedMs": 500.86619999999675
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 0
+          },
+          "score": 816,
+          "depth": 5,
+          "elapsedMs": 500.95880000000034
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          },
+          "score": -769,
+          "depth": 5,
+          "elapsedMs": 502.04789999999775
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 1
+          },
+          "score": 1080,
+          "depth": 5,
+          "elapsedMs": 501.33669999999984
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "score": -948,
+          "depth": 5,
+          "elapsedMs": 502.645199999999
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 2
+          },
+          "score": 1237,
+          "depth": 5,
+          "elapsedMs": 500.72929999999906
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          },
+          "score": -1161,
+          "depth": 5,
+          "elapsedMs": 500.3723000000027
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          },
+          "score": 1308,
+          "depth": 5,
+          "elapsedMs": 500.58840000000055
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 8
+          },
+          "score": -1176,
+          "depth": 5,
+          "elapsedMs": 500.49959999999555
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 7
+          },
+          "score": 1584,
+          "depth": 5,
+          "elapsedMs": 500.8626000000004
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -1848,
+          "depth": 8,
+          "elapsedMs": 500.4814999999944
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 1
+          },
+          "score": 1716,
+          "depth": 8,
+          "elapsedMs": 500.56619999999384
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 8
+          },
+          "score": -29978,
+          "depth": 2,
+          "elapsedMs": 95.89349999999831
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 0
+          },
+          "score": 29979,
+          "depth": 1,
+          "elapsedMs": 30.411599999999453
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29980,
+          "depth": 0,
+          "elapsedMs": 1.675200000005134
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 3
+          },
+          "score": 29981,
+          "depth": 0,
+          "elapsedMs": 1.4262999999991735
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29982,
+          "depth": 0,
+          "elapsedMs": 0.26009999999951106
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          "score": 29983,
+          "depth": 0,
+          "elapsedMs": 0.11599999999452848
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29984,
+          "depth": 0,
+          "elapsedMs": 0.12150000000110595
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "score": 29985,
+          "depth": 0,
+          "elapsedMs": 0.1595999999990454
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29986,
+          "depth": 0,
+          "elapsedMs": 0.10440000000380678
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "score": 29987,
+          "depth": 0,
+          "elapsedMs": 0.08569999999599531
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29988,
+          "depth": 0,
+          "elapsedMs": 0.07080000000132713
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "score": 29989,
+          "depth": 0,
+          "elapsedMs": 0.08099999999831198
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29990,
+          "depth": 0,
+          "elapsedMs": 0.13559999999415595
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "score": 29991,
+          "depth": 0,
+          "elapsedMs": 0.12120000000140863
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29992,
+          "depth": 0,
+          "elapsedMs": 0.12989999999990687
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          "score": 29993,
+          "depth": 0,
+          "elapsedMs": 0.16000000000349246
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29994,
+          "depth": 0,
+          "elapsedMs": 0.1433000000033644
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "score": 29995,
+          "depth": 0,
+          "elapsedMs": 0.14059999999881256
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29996,
+          "depth": 0,
+          "elapsedMs": 0.13069999999424908
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "score": 29997,
+          "depth": 0,
+          "elapsedMs": 0.11119999999937136
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29998,
+          "depth": 0,
+          "elapsedMs": 0.12010000000009313
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          },
+          "score": 29999,
+          "depth": 1,
+          "elapsedMs": 0.11059999999997672
+        }
+      ]
+    },
+    {
+      "suite": "general",
+      "index": 1,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "opening": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        }
+      ],
+      "trace": [
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "score": -37,
+          "depth": 4,
+          "elapsedMs": 519.5777000000016
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          "score": -121,
+          "depth": 4,
+          "elapsedMs": 522.5811000000031
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 1
+          },
+          "score": -6,
+          "depth": 4,
+          "elapsedMs": 500.4713000000047
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 6
+          },
+          "score": -92,
+          "depth": 4,
+          "elapsedMs": 501.5691000000006
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 1
+          },
+          "score": -47,
+          "depth": 4,
+          "elapsedMs": 500.53229999999894
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 6
+          },
+          "score": -70,
+          "depth": 4,
+          "elapsedMs": 500.77449999999953
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 0
+          },
+          "score": 24,
+          "depth": 4,
+          "elapsedMs": 500.4916999999987
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 7
+          },
+          "score": -221,
+          "depth": 4,
+          "elapsedMs": 500.8044000000009
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 1
+          },
+          "score": 37,
+          "depth": 4,
+          "elapsedMs": 500.4582999999984
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 7
+          },
+          "score": -217,
+          "depth": 4,
+          "elapsedMs": 500.43590000000404
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 0
+          },
+          "score": 80,
+          "depth": 4,
+          "elapsedMs": 500.508799999996
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0
+          },
+          "score": -217,
+          "depth": 4,
+          "elapsedMs": 500.52530000000115
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          },
+          "score": 85,
+          "depth": 4,
+          "elapsedMs": 503.93009999999776
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          "score": -217,
+          "depth": 4,
+          "elapsedMs": 500.6811999999991
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 8
+          },
+          "score": 85,
+          "depth": 4,
+          "elapsedMs": 503.93590000000404
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 1
+          },
+          "score": -85,
+          "depth": 5,
+          "elapsedMs": 500.71919999999955
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          },
+          "score": 85,
+          "depth": 4,
+          "elapsedMs": 502.0135999999984
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 0
+          },
+          "score": -85,
+          "depth": 5,
+          "elapsedMs": 500.54359999999724
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 8
+          },
+          "score": 85,
+          "depth": 4,
+          "elapsedMs": 503.52150000000256
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          },
+          "score": -85,
+          "depth": 5,
+          "elapsedMs": 500.37940000000526
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          "score": 85,
+          "depth": 4,
+          "elapsedMs": 502.5524000000005
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 0
+          },
+          "score": -85,
+          "depth": 5,
+          "elapsedMs": 500.33350000000064
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 8
+          },
+          "score": 85,
+          "depth": 4,
+          "elapsedMs": 502.42369999999937
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          },
+          "score": -93,
+          "depth": 5,
+          "elapsedMs": 500.95440000000235
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 8
+          },
+          "score": 93,
+          "depth": 4,
+          "elapsedMs": 503.49469999999565
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          },
+          "score": -85,
+          "depth": 5,
+          "elapsedMs": 500.40780000000086
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 7
+          },
+          "score": 85,
+          "depth": 4,
+          "elapsedMs": 505.21740000000136
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          },
+          "score": -217,
+          "depth": 4,
+          "elapsedMs": 500.4094000000041
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 6
+          },
+          "score": 16,
+          "depth": 4,
+          "elapsedMs": 500.86179999999877
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          },
+          "score": -153,
+          "depth": 4,
+          "elapsedMs": 500.4250000000029
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 6
+          },
+          "score": -8,
+          "depth": 4,
+          "elapsedMs": 500.45350000000326
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "score": -132,
+          "depth": 4,
+          "elapsedMs": 500.40499999999156
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 5
+          },
+          "score": -80,
+          "depth": 4,
+          "elapsedMs": 500.4681000000128
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 4
+          },
+          "score": -39,
+          "depth": 4,
+          "elapsedMs": 500.519100000005
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 6
+          },
+          "score": -137,
+          "depth": 4,
+          "elapsedMs": 500.50100000000384
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 5
+          },
+          "score": 16,
+          "depth": 4,
+          "elapsedMs": 500.5769
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 5
+          },
+          "score": -200,
+          "depth": 4,
+          "elapsedMs": 500.5110999999888
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 3
+          },
+          "score": 68,
+          "depth": 4,
+          "elapsedMs": 502.4823999999935
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 6
+          },
+          "score": -39,
+          "depth": 7,
+          "elapsedMs": 500.50939999999537
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 4
+          },
+          "score": 39,
+          "depth": 6,
+          "elapsedMs": 500.69790000001376
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          "score": -212,
+          "depth": 8,
+          "elapsedMs": 500.5774999999994
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          "score": 80,
+          "depth": 8,
+          "elapsedMs": 500.3249999999971
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 2
+          },
+          "score": -83,
+          "depth": 8,
+          "elapsedMs": 500.6105000000098
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "score": -44,
+          "depth": 14,
+          "elapsedMs": 500.3819000000076
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          "score": 264,
+          "depth": 15,
+          "elapsedMs": 500.44199999999546
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "score": -52,
+          "depth": 15,
+          "elapsedMs": 500.3376999999891
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          },
+          "score": 29973,
+          "depth": 13,
+          "elapsedMs": 219.59870000000228
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "score": -132,
+          "depth": 15,
+          "elapsedMs": 500.36179999999877
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "score": 264,
+          "depth": 15,
+          "elapsedMs": 500.46749999999884
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "score": -132,
+          "depth": 14,
+          "elapsedMs": 500.29189999999653
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          "score": 0,
+          "depth": 14,
+          "elapsedMs": 500.3539000000019
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "score": -132,
+          "depth": 14,
+          "elapsedMs": 500.3362000000052
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "score": 264,
+          "depth": 13,
+          "elapsedMs": 500.3767999999982
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "score": -264,
+          "depth": 12,
+          "elapsedMs": 500.2982999999949
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "score": 264,
+          "depth": 13,
+          "elapsedMs": 500.35819999998785
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "score": -29986,
+          "depth": 13,
+          "elapsedMs": 354.44490000000224
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "score": 29987,
+          "depth": 11,
+          "elapsedMs": 198.3454000000056
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "score": -29988,
+          "depth": 2,
+          "elapsedMs": 78.18289999999979
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 5
+          },
+          "score": 29989,
+          "depth": 1,
+          "elapsedMs": 27.76690000000235
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "score": -29990,
+          "depth": 0,
+          "elapsedMs": 1.419000000008964
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "score": 29991,
+          "depth": 0,
+          "elapsedMs": 1.4118000000016764
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          "score": -29992,
+          "depth": 0,
+          "elapsedMs": 0.2819000000017695
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "score": 29993,
+          "depth": 0,
+          "elapsedMs": 0.13749999999708962
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "score": -29994,
+          "depth": 0,
+          "elapsedMs": 0.08920000000216532
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "score": 29995,
+          "depth": 0,
+          "elapsedMs": 0.07889999999315478
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          },
+          "score": -29996,
+          "depth": 0,
+          "elapsedMs": 0.16330000000016298
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          },
+          "score": 29997,
+          "depth": 0,
+          "elapsedMs": 0.08250000000407454
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          "score": -29998,
+          "depth": 0,
+          "elapsedMs": 0.06930000000284053
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          },
+          "score": 29999,
+          "depth": 1,
+          "elapsedMs": 0.0712000000057742
+        }
+      ]
+    },
+    {
+      "suite": "general",
+      "index": 1,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "opening": [
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        }
+      ],
+      "trace": [
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 0
+          },
+          "score": -6,
+          "depth": 4,
+          "elapsedMs": 517.886400000003
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 0
+          },
+          "score": -118,
+          "depth": 4,
+          "elapsedMs": 517.869200000001
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 2
+          },
+          "score": -33,
+          "depth": 4,
+          "elapsedMs": 500.50990000000456
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1
+          },
+          "score": -147,
+          "depth": 4,
+          "elapsedMs": 500.8862000000081
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 2
+          },
+          "score": 15,
+          "depth": 4,
+          "elapsedMs": 500.5520000000106
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          },
+          "score": -179,
+          "depth": 4,
+          "elapsedMs": 500.58060000000114
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 1
+          },
+          "score": 20,
+          "depth": 4,
+          "elapsedMs": 500.5155999999988
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 1
+          },
+          "score": -220,
+          "depth": 4,
+          "elapsedMs": 500.43249999999534
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 5
+          },
+          "score": 8,
+          "depth": 4,
+          "elapsedMs": 500.4539999999979
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          "score": -248,
+          "depth": 4,
+          "elapsedMs": 500.49419999998645
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "score": 8,
+          "depth": 4,
+          "elapsedMs": 500.5369999999966
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          "score": -248,
+          "depth": 4,
+          "elapsedMs": 500.7100999999966
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 3
+          },
+          "score": 44,
+          "depth": 4,
+          "elapsedMs": 504.6235000000015
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0
+          },
+          "score": -44,
+          "depth": 3,
+          "elapsedMs": 501.54959999999846
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 4
+          },
+          "score": 19,
+          "depth": 4,
+          "elapsedMs": 501.6255000000092
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6
+          },
+          "score": -112,
+          "depth": 4,
+          "elapsedMs": 504.4786000000022
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          },
+          "score": -181,
+          "depth": 4,
+          "elapsedMs": 500.72239999999874
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 1
+          },
+          "score": 61,
+          "depth": 4,
+          "elapsedMs": 503.02060000000347
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 0
+          },
+          "score": -384,
+          "depth": 4,
+          "elapsedMs": 500.84490000001097
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 6
+          },
+          "score": 926,
+          "depth": 5,
+          "elapsedMs": 501.67129999998724
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 8
+          },
+          "score": -924,
+          "depth": 8,
+          "elapsedMs": 500.3657999999996
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "score": 1168,
+          "depth": 9,
+          "elapsedMs": 500.4624999999942
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          "score": -1044,
+          "depth": 9,
+          "elapsedMs": 500.3622000000032
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 5
+          },
+          "score": 1195,
+          "depth": 9,
+          "elapsedMs": 500.57940000000235
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 8
+          },
+          "score": -29970,
+          "depth": 2,
+          "elapsedMs": 81.54670000000624
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 4
+          },
+          "score": 29971,
+          "depth": 1,
+          "elapsedMs": 29.094899999996414
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          },
+          "score": -29972,
+          "depth": 0,
+          "elapsedMs": 1.8206000000063796
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "score": 29973,
+          "depth": 0,
+          "elapsedMs": 1.8870000000024447
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 8
+          },
+          "score": -29974,
+          "depth": 0,
+          "elapsedMs": 0.31260000000474975
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          },
+          "score": 29975,
+          "depth": 0,
+          "elapsedMs": 0.19889999998849817
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          },
+          "score": -29976,
+          "depth": 0,
+          "elapsedMs": 0.17320000000472646
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 2
+          },
+          "score": 29977,
+          "depth": 0,
+          "elapsedMs": 0.15829999999550637
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          "score": -29978,
+          "depth": 0,
+          "elapsedMs": 0.16849999999976717
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 3
+          },
+          "score": 29979,
+          "depth": 0,
+          "elapsedMs": 0.16170000001147855
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "score": -29980,
+          "depth": 0,
+          "elapsedMs": 0.1128000000026077
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 4
+          },
+          "score": 29981,
+          "depth": 0,
+          "elapsedMs": 0.14860000000044238
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          },
+          "score": -29982,
+          "depth": 0,
+          "elapsedMs": 0.14680000000225846
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          "score": 29983,
+          "depth": 0,
+          "elapsedMs": 0.15200000000186265
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 8
+          },
+          "score": -29984,
+          "depth": 0,
+          "elapsedMs": 0.11160000000381842
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          },
+          "score": 29985,
+          "depth": 0,
+          "elapsedMs": 0.11169999999401625
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29986,
+          "depth": 0,
+          "elapsedMs": 0.09649999999965075
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "score": 29987,
+          "depth": 0,
+          "elapsedMs": 0.09969999999157153
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29988,
+          "depth": 0,
+          "elapsedMs": 0.17710000000079162
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "score": 29989,
+          "depth": 0,
+          "elapsedMs": 0.09819999999308493
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29990,
+          "depth": 0,
+          "elapsedMs": 0.09159999999974389
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          "score": 29991,
+          "depth": 0,
+          "elapsedMs": 0.1000999999960186
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29992,
+          "depth": 0,
+          "elapsedMs": 0.0918999999994412
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "score": 29993,
+          "depth": 0,
+          "elapsedMs": 0.0906000000104541
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29994,
+          "depth": 0,
+          "elapsedMs": 0.08289999999396969
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          "score": 29995,
+          "depth": 0,
+          "elapsedMs": 0.08439999999245629
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29996,
+          "depth": 0,
+          "elapsedMs": 0.0776999999943655
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          },
+          "score": 29997,
+          "depth": 0,
+          "elapsedMs": 0.08650000000488944
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29998,
+          "depth": 0,
+          "elapsedMs": 0.1687999999994645
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 8
+          },
+          "score": 29999,
+          "depth": 1,
+          "elapsedMs": 0.10789999998814892
+        }
+      ]
+    },
+    {
+      "suite": "maze",
+      "index": 0,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "opening": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 1
+        }
+      ],
+      "trace": [
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 2
+          },
+          "score": -85,
+          "depth": 4,
+          "elapsedMs": 516.5396999999939
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0
+          },
+          "score": -47,
+          "depth": 4,
+          "elapsedMs": 516.8866999999882
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "score": -173,
+          "depth": 4,
+          "elapsedMs": 500.420100000003
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 4
+          },
+          "score": 41,
+          "depth": 4,
+          "elapsedMs": 500.4505000000063
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          "score": -244,
+          "depth": 4,
+          "elapsedMs": 500.57450000000244
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          },
+          "score": 283,
+          "depth": 4,
+          "elapsedMs": 500.5195999999996
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          },
+          "score": -287,
+          "depth": 4,
+          "elapsedMs": 500.5761000000057
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7
+          },
+          "score": 215,
+          "depth": 4,
+          "elapsedMs": 500.6011000000144
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 7
+          },
+          "score": -347,
+          "depth": 4,
+          "elapsedMs": 500.60689999999886
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 5
+          },
+          "score": 162,
+          "depth": 6,
+          "elapsedMs": 500.5066999999981
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 6
+          },
+          "score": -276,
+          "depth": 6,
+          "elapsedMs": 500.4840000000113
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          "score": 0,
+          "depth": 9,
+          "elapsedMs": 500.2844000000041
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1
+          },
+          "score": 17,
+          "depth": 10,
+          "elapsedMs": 500.37970000000496
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          },
+          "score": 0,
+          "depth": 15,
+          "elapsedMs": 500.2997000000032
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "score": 132,
+          "depth": 15,
+          "elapsedMs": 500.4006999999983
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 1
+          },
+          "score": -132,
+          "depth": 16,
+          "elapsedMs": 500.28540000000794
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 1
+          },
+          "score": 23,
+          "depth": 16,
+          "elapsedMs": 500.53579999999783
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          },
+          "score": 29965,
+          "depth": 0,
+          "elapsedMs": 1.4896000000007916
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "score": -29966,
+          "depth": 0,
+          "elapsedMs": 1.5710999999864725
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          "score": 29967,
+          "depth": 0,
+          "elapsedMs": 0.25989999999001157
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          },
+          "score": -29968,
+          "depth": 0,
+          "elapsedMs": 0.1509000000078231
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          "score": 29969,
+          "depth": 0,
+          "elapsedMs": 0.13790000000153668
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "score": -29970,
+          "depth": 0,
+          "elapsedMs": 0.14109999999345746
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "score": 29971,
+          "depth": 0,
+          "elapsedMs": 0.12360000000626314
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          "score": -29972,
+          "depth": 0,
+          "elapsedMs": 0.11089999999967404
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          "score": 29973,
+          "depth": 0,
+          "elapsedMs": 0.10050000000046566
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "score": -29974,
+          "depth": 0,
+          "elapsedMs": 0.15630000000237487
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "score": 29975,
+          "depth": 0,
+          "elapsedMs": 0.25080000000889413
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "score": -29976,
+          "depth": 0,
+          "elapsedMs": 0.30460000000311993
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "score": 29977,
+          "depth": 0,
+          "elapsedMs": 0.23389999999199063
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "score": -29978,
+          "depth": 0,
+          "elapsedMs": 0.14100000000325963
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "score": 29979,
+          "depth": 0,
+          "elapsedMs": 0.13079999999899883
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          },
+          "score": -29980,
+          "depth": 0,
+          "elapsedMs": 0.21330000000307336
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "score": 29981,
+          "depth": 0,
+          "elapsedMs": 0.16079999999783468
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 6
+          },
+          "score": -29982,
+          "depth": 0,
+          "elapsedMs": 0.1279999999969732
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "score": 29983,
+          "depth": 0,
+          "elapsedMs": 0.11119999999937136
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 7
+          },
+          "score": -29984,
+          "depth": 0,
+          "elapsedMs": 0.1068000000086613
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "score": 29985,
+          "depth": 0,
+          "elapsedMs": 0.09789999999338761
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29986,
+          "depth": 0,
+          "elapsedMs": 0.09679999999934807
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          },
+          "score": 29987,
+          "depth": 0,
+          "elapsedMs": 0.08859999998821877
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29988,
+          "depth": 0,
+          "elapsedMs": 0.09050000000570435
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 3
+          },
+          "score": 29989,
+          "depth": 0,
+          "elapsedMs": 0.08410000000731088
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29990,
+          "depth": 0,
+          "elapsedMs": 0.08879999999771826
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 4
+          },
+          "score": 29991,
+          "depth": 0,
+          "elapsedMs": 0.08930000000691507
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29992,
+          "depth": 0,
+          "elapsedMs": 0.09150000000954606
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          "score": 29993,
+          "depth": 0,
+          "elapsedMs": 0.08359999999811407
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29994,
+          "depth": 0,
+          "elapsedMs": 0.08449999999720603
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 6
+          },
+          "score": 29995,
+          "depth": 0,
+          "elapsedMs": 0.08009999999194406
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29996,
+          "depth": 0,
+          "elapsedMs": 0.08179999999993015
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 7
+          },
+          "score": 29997,
+          "depth": 0,
+          "elapsedMs": 0.08070000000589062
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29998,
+          "depth": 0,
+          "elapsedMs": 0.1068000000086613
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": 29999,
+          "depth": 1,
+          "elapsedMs": 0.08610000000044238
+        }
+      ]
+    },
+    {
+      "suite": "maze",
+      "index": 0,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "opening": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 1
+        }
+      ],
+      "trace": [
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 2
+          },
+          "score": -85,
+          "depth": 4,
+          "elapsedMs": 519.2522000000026
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0
+          },
+          "score": -47,
+          "depth": 4,
+          "elapsedMs": 517.0017999999982
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "score": -173,
+          "depth": 4,
+          "elapsedMs": 500.5097000000096
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 4
+          },
+          "score": 41,
+          "depth": 4,
+          "elapsedMs": 500.64800000000105
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          "score": -244,
+          "depth": 4,
+          "elapsedMs": 500.44490000000224
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          },
+          "score": 112,
+          "depth": 4,
+          "elapsedMs": 504.3935999999958
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          },
+          "score": -287,
+          "depth": 4,
+          "elapsedMs": 500.4235000000044
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7
+          },
+          "score": 215,
+          "depth": 4,
+          "elapsedMs": 501.5428000000102
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 7
+          },
+          "score": -144,
+          "depth": 5,
+          "elapsedMs": 503.24640000000363
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 5
+          },
+          "score": 286,
+          "depth": 5,
+          "elapsedMs": 500.5197000000044
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 6
+          },
+          "score": -276,
+          "depth": 6,
+          "elapsedMs": 501.9776000000129
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          "score": 0,
+          "depth": 9,
+          "elapsedMs": 500.5112999999983
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1
+          },
+          "score": 17,
+          "depth": 10,
+          "elapsedMs": 500.51750000000175
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          },
+          "score": 0,
+          "depth": 15,
+          "elapsedMs": 500.37339999999676
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          "score": -144,
+          "depth": 15,
+          "elapsedMs": 500.4890000000014
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 1
+          },
+          "score": -132,
+          "depth": 16,
+          "elapsedMs": 500.3764000000083
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 1
+          },
+          "score": 155,
+          "depth": 15,
+          "elapsedMs": 500.4878999999928
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          },
+          "score": 29965,
+          "depth": 0,
+          "elapsedMs": 1.510099999999511
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "score": -29966,
+          "depth": 0,
+          "elapsedMs": 1.5042000000103144
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          "score": 29967,
+          "depth": 0,
+          "elapsedMs": 0.19439999999303836
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          },
+          "score": -29968,
+          "depth": 0,
+          "elapsedMs": 0.16170000001147855
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          "score": 29969,
+          "depth": 0,
+          "elapsedMs": 0.15519999999378342
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "score": -29970,
+          "depth": 0,
+          "elapsedMs": 0.13629999999830034
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "score": 29971,
+          "depth": 0,
+          "elapsedMs": 0.15050000000337604
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          "score": -29972,
+          "depth": 0,
+          "elapsedMs": 0.1523999999917578
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          "score": 29973,
+          "depth": 0,
+          "elapsedMs": 0.11939999999594875
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "score": -29974,
+          "depth": 0,
+          "elapsedMs": 0.10929999999643769
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "score": 29975,
+          "depth": 0,
+          "elapsedMs": 0.1053000000101747
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "score": -29976,
+          "depth": 0,
+          "elapsedMs": 0.10469999999622814
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "score": 29977,
+          "depth": 0,
+          "elapsedMs": 0.10499999999592546
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "score": -29978,
+          "depth": 0,
+          "elapsedMs": 0.10070000000996515
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "score": 29979,
+          "depth": 0,
+          "elapsedMs": 0.10069999999541324
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          },
+          "score": -29980,
+          "depth": 0,
+          "elapsedMs": 0.09400000001187436
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "score": 29981,
+          "depth": 0,
+          "elapsedMs": 0.09359999999287538
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 6
+          },
+          "score": -29982,
+          "depth": 0,
+          "elapsedMs": 0.08699999999953434
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "score": 29983,
+          "depth": 0,
+          "elapsedMs": 0.08859999998821877
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 7
+          },
+          "score": -29984,
+          "depth": 0,
+          "elapsedMs": 0.08430000000225846
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "score": 29985,
+          "depth": 0,
+          "elapsedMs": 0.08420000001206063
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29986,
+          "depth": 0,
+          "elapsedMs": 0.08249999998952262
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          },
+          "score": 29987,
+          "depth": 0,
+          "elapsedMs": 0.08430000000225846
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29988,
+          "depth": 0,
+          "elapsedMs": 0.0816999999951804
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 3
+          },
+          "score": 29989,
+          "depth": 0,
+          "elapsedMs": 0.1010999999998603
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29990,
+          "depth": 0,
+          "elapsedMs": 0.0864000000001397
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 4
+          },
+          "score": 29991,
+          "depth": 0,
+          "elapsedMs": 0.09159999999974389
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29992,
+          "depth": 0,
+          "elapsedMs": 0.1717999999964377
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          "score": 29993,
+          "depth": 0,
+          "elapsedMs": 0.11350000000675209
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29994,
+          "depth": 0,
+          "elapsedMs": 0.10490000000572763
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 6
+          },
+          "score": 29995,
+          "depth": 0,
+          "elapsedMs": 0.17270000001008157
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29996,
+          "depth": 0,
+          "elapsedMs": 0.10140000001410954
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 7
+          },
+          "score": 29997,
+          "depth": 0,
+          "elapsedMs": 0.09969999999157153
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29998,
+          "depth": 0,
+          "elapsedMs": 0.10359999998763669
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": 29999,
+          "depth": 1,
+          "elapsedMs": 0.14820000001054723
+        }
+      ]
+    },
+    {
+      "suite": "maze",
+      "index": 1,
+      "candidateSide": 0,
+      "result": "loss",
+      "reason": "goal",
+      "opening": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 5
+        }
+      ],
+      "trace": [
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 0
+          },
+          "score": -1856,
+          "depth": 4,
+          "elapsedMs": 518.7269000000088
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 6
+          },
+          "score": 1732,
+          "depth": 4,
+          "elapsedMs": 515.26890000001
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7
+          },
+          "score": -1991,
+          "depth": 4,
+          "elapsedMs": 501.57510000000184
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 2
+          },
+          "score": 1859,
+          "depth": 4,
+          "elapsedMs": 503.1848000000027
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          },
+          "score": -1983,
+          "depth": 4,
+          "elapsedMs": 501.76860000001034
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 0
+          },
+          "score": 1991,
+          "depth": 5,
+          "elapsedMs": 504.5008000000089
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 6
+          },
+          "score": -1932,
+          "depth": 8,
+          "elapsedMs": 500.48399999999674
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "score": 1932,
+          "depth": 7,
+          "elapsedMs": 500.90550000000803
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 2
+          },
+          "score": -1728,
+          "depth": 7,
+          "elapsedMs": 500.5601000000024
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 1
+          },
+          "score": 1728,
+          "depth": 14,
+          "elapsedMs": 500.68619999999646
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 6
+          },
+          "score": -1788,
+          "depth": 16,
+          "elapsedMs": 500.3790000000008
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "score": 1588,
+          "depth": 16,
+          "elapsedMs": 500.3777000000118
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 7
+          },
+          "score": -1720,
+          "depth": 16,
+          "elapsedMs": 500.49009999999544
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          "score": 1720,
+          "depth": 15,
+          "elapsedMs": 500.35689999999886
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          "score": -1588,
+          "depth": 15,
+          "elapsedMs": 500.40690000000177
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "score": 1588,
+          "depth": 14,
+          "elapsedMs": 500.3329999999987
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          "score": -1588,
+          "depth": 13,
+          "elapsedMs": 500.8750999999902
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "score": 1588,
+          "depth": 14,
+          "elapsedMs": 500.39379999999073
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "score": -1716,
+          "depth": 14,
+          "elapsedMs": 500.3950000000041
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "score": 1716,
+          "depth": 13,
+          "elapsedMs": 500.293399999995
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          },
+          "score": -1584,
+          "depth": 13,
+          "elapsedMs": 500.49830000000657
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "score": 29985,
+          "depth": 14,
+          "elapsedMs": 464.59150000000955
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          },
+          "score": -29986,
+          "depth": 8,
+          "elapsedMs": 165.540599999993
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "score": 29987,
+          "depth": 11,
+          "elapsedMs": 184.11620000000403
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "score": -29988,
+          "depth": 10,
+          "elapsedMs": 177.44430000000284
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "score": 29989,
+          "depth": 9,
+          "elapsedMs": 138.6813000000111
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "score": -29990,
+          "depth": 8,
+          "elapsedMs": 137.1252000000095
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "score": 29991,
+          "depth": 7,
+          "elapsedMs": 130.2317999999941
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 6
+          },
+          "score": -29992,
+          "depth": 2,
+          "elapsedMs": 52.56110000000626
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          },
+          "score": 29993,
+          "depth": 0,
+          "elapsedMs": 1.4915000000037253
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "score": -29994,
+          "depth": 0,
+          "elapsedMs": 1.5715999999956694
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 6
+          },
+          "score": 29995,
+          "depth": 0,
+          "elapsedMs": 0.21859999999287538
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "score": -29996,
+          "depth": 0,
+          "elapsedMs": 0.17849999999452848
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 7
+          },
+          "score": 29997,
+          "depth": 0,
+          "elapsedMs": 0.16699999998672865
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          },
+          "score": -29998,
+          "depth": 0,
+          "elapsedMs": 0.2031999999890104
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": 29999,
+          "depth": 1,
+          "elapsedMs": 0.1864999999961583
+        }
+      ]
+    },
+    {
+      "suite": "maze",
+      "index": 1,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "opening": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 5
+        }
+      ],
+      "trace": [
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 0
+          },
+          "score": -1856,
+          "depth": 4,
+          "elapsedMs": 517.6671999999962
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 6
+          },
+          "score": 1732,
+          "depth": 4,
+          "elapsedMs": 515.7963000000018
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 7
+          },
+          "score": -1991,
+          "depth": 4,
+          "elapsedMs": 502.44199999999546
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 2
+          },
+          "score": 1859,
+          "depth": 4,
+          "elapsedMs": 502.66049999999814
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          },
+          "score": -1983,
+          "depth": 4,
+          "elapsedMs": 500.39949999999953
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 0
+          },
+          "score": 1991,
+          "depth": 5,
+          "elapsedMs": 501.4021999999968
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 6
+          },
+          "score": -1932,
+          "depth": 8,
+          "elapsedMs": 500.45090000001073
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "score": 1932,
+          "depth": 7,
+          "elapsedMs": 500.42119999999704
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 2
+          },
+          "score": -1848,
+          "depth": 8,
+          "elapsedMs": 500.51789999999164
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 1
+          },
+          "score": 1728,
+          "depth": 14,
+          "elapsedMs": 500.5420999999915
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 6
+          },
+          "score": -1788,
+          "depth": 16,
+          "elapsedMs": 500.4685000000027
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "score": 1588,
+          "depth": 16,
+          "elapsedMs": 500.38189999999304
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 7
+          },
+          "score": -1720,
+          "depth": 16,
+          "elapsedMs": 500.3094999999885
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          "score": 1720,
+          "depth": 15,
+          "elapsedMs": 500.3168000000005
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          "score": -1588,
+          "depth": 15,
+          "elapsedMs": 500.3732000000018
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "score": 1588,
+          "depth": 14,
+          "elapsedMs": 500.3139999999985
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          "score": -1720,
+          "depth": 14,
+          "elapsedMs": 500.4563000000053
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "score": 1588,
+          "depth": 14,
+          "elapsedMs": 500.3399999999965
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "score": -1716,
+          "depth": 14,
+          "elapsedMs": 500.4829999999929
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "score": 1848,
+          "depth": 13,
+          "elapsedMs": 500.3963000000076
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          },
+          "score": -29980,
+          "depth": 13,
+          "elapsedMs": 262.3463999999949
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "score": 29985,
+          "depth": 14,
+          "elapsedMs": 307.0112000000081
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          },
+          "score": -29986,
+          "depth": 13,
+          "elapsedMs": 278.14390000001004
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "score": 29987,
+          "depth": 11,
+          "elapsedMs": 189.27659999999742
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "score": -29988,
+          "depth": 8,
+          "elapsedMs": 148.0527000000002
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "score": 29989,
+          "depth": 9,
+          "elapsedMs": 138.95669999999518
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 5
+          },
+          "score": -29990,
+          "depth": 6,
+          "elapsedMs": 129.50229999999283
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "score": 29991,
+          "depth": 0,
+          "elapsedMs": 1.3591000000014901
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          },
+          "score": -29992,
+          "depth": 0,
+          "elapsedMs": 1.2615999999979977
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          "score": 29993,
+          "depth": 0,
+          "elapsedMs": 0.13180000000284053
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 8
+          },
+          "score": -29994,
+          "depth": 0,
+          "elapsedMs": 0.10589999999501742
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "score": 29995,
+          "depth": 0,
+          "elapsedMs": 0.10249999999359716
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "score": -29996,
+          "depth": 0,
+          "elapsedMs": 0.08729999999923166
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          },
+          "score": 29997,
+          "depth": 0,
+          "elapsedMs": 0.09100000000034925
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "score": -29998,
+          "depth": 0,
+          "elapsedMs": 0.08079999999608845
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 8
+          },
+          "score": 29999,
+          "depth": 1,
+          "elapsedMs": 0.08679999999003485
+        }
+      ]
+    }
+  ],
+  "seed": 20261101,
+  "ms": 500,
+  "cores": 4,
+  "summary": {
+    "wins": 5,
+    "losses": 3,
+    "draws": 0
+  }
+}

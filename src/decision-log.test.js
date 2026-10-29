@@ -17,3 +17,9 @@ test('changed intermediate advice remains available when the final advice differ
 test('wall advice comparison ignores JSON property order',()=>{
  const state=initial(),log=[];recordDecision(log,recommendation(state,{pv:[{o:'h',type:'wall',x:4,y:5}]}));observedAction(log,state,{type:'wall',x:4,y:5,o:'h'},1);assert.equal(log.at(-1).matchesRecommendation,true);
 });
+test('audit preserves goal safety and exact ending evidence without borrowing mutable model data',()=>{
+ const result={pv:[{type:'move',x:4,y:7}],exact:false,outcome:null,goalSafety:{goalThreat:true,exposure:[1,0],wallStock:[2,3]}};
+ const entry=recommendation(initial(),result,{engine:'atlas-goal',build:'checked'});result.goalSafety.exposure[0]=9;
+ assert.equal(entry.goalSafety.exposure[0],1);assert.equal(entry.exact,false);assert.equal(entry.outcome,null);
+ const solved=recommendation(initial(),{pv:result.pv,exact:true,outcome:-1});assert.equal(solved.exact,true);assert.equal(solved.outcome,-1);
+});

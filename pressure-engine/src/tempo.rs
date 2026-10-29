@@ -8,13 +8,16 @@ fn attack_gain(p:&mut Position,attacker:usize,until:f64,cancel:&AtomicBool)->Opt
 }
 fn tempo_penalty(p:&mut Position,a:u16,original_danger:i32,until:f64,cancel:&AtomicBool)->Option<i32>{
  let f=pressure_feature(p,a);let t=p.turn;let o=1-t;
- if a<81||p.left[t]<2||p.left[o]==0||f.enemy_delay!=0||f.own_delay!=0||f.near_cut_edges>0{return Some(0);}
- let own=p.distance(t,false);let enemy=p.distance(o,false);let u=p.make(a);
+ if a<81||p.left[t]<2||p.left[o]==0||f.enemy_delay!=0||f.own_delay!=0||f.near_cut_edges>0&&(!prep_enabled()||f.enemy_choices_after<f.enemy_choices_before){return Some(0);}
+ let own=p.distance(t,false);let enemy=p.distance(o,false);let original_map=p.goal_map(o);let u=p.make(a);let replies=p.moves(o);
  // Optimistic two-wall payback protects preparation with a plausible follow-up.
  // This is not a prediction that the opponent will stand still.
  let mut payoff=false;let mut complete=true;
  for b in 81..209 {if now()>=until||cancel.load(Ordering::Relaxed){complete=false;break;}if !p.fits(b){continue;}p.toggle(b,true);let mine=p.distance(t,false);let theirs=p.distance(o,false);p.toggle(b,false);
-  if mine<100&&theirs<100&&theirs-enemy-(mine-own)>=2{payoff=true;break;}
+  if mine<100&&theirs<100&&theirs-enemy-(mine-own)>=2{
+   if prep_enabled(){p.toggle(b,true);let after=p.goal_map(o);p.toggle(b,false);if !replies.iter().all(|&q|!goal(q as usize,o)&&after[q as usize]>=0&&after[q as usize]-original_map[q as usize]-(mine-own)as i16>=2){continue;}}
+   payoff=true;break;
+  }
  }
  let danger=if payoff||!complete{Some(original_danger)}else{attack_gain(p,o,until,cancel)};p.unmake(u);
  if !complete{return None;}

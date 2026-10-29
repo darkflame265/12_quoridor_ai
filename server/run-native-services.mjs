@@ -16,5 +16,6 @@ try{
  try{await listen(createExperimentalService(),Number(process.env.QUORIDOR_EXPERIMENTAL_PORT??4318));}catch(error){console.error(`실험 엔진 사용 불가: ${error.message}`);}
  try{try{verifyPressureBuild();}catch{const r=spawnSync(process.execPath,['scripts/build-pressure.mjs'],{stdio:'inherit',windowsHide:true});if(r.status!==0)throw Error('즉시 압박 엔진 빌드 실패');}await listen(createPressureService(),Number(process.env.QUORIDOR_PRESSURE_PORT??4319));}catch(error){console.error(`즉시 압박 엔진 사용 불가: ${error.message}`);}
  try{await listen(createPressureService({tempo:true}),Number(process.env.QUORIDOR_TEMPO_PORT??4320));}catch(error){console.error(`벽 투자 엔진 사용 불가: ${error.message}`);}
+ try{await listen(createPressureService({goal:true}),Number(process.env.QUORIDOR_GOAL_PORT??4321));}catch(error){console.error(`골인 안전 엔진 사용 불가: ${error.message}`);}
  console.log('Atlas stable and available experimental services ready.');
 }catch(error){console.error(error.message);await stop();}

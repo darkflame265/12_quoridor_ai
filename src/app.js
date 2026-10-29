@@ -7,10 +7,12 @@ import {restoreObservedSession} from './observed-state.js';
 import {boardKey} from './screen-sync.js';
 import {pressureExplanation} from './pressure-advice.js';
 import {recommendation,recordDecision,observedAction} from './decision-log.js';
+import {analysisRisk} from './analysis-risk.js';
 
 const $=s=>document.querySelector(s),colors=['#31d4c2','#fa7393'],names=['청록','분홍'];
 for(const id of ['#play-engine','#watch-engine-0','#watch-engine-1']){const option=document.createElement('option');option.value='atlas-pressure';option.textContent='Atlas 즉시 압박 0.2 · 실험 (미승격)';$(id).add(option,2);}
 for(const id of ['#play-engine','#watch-engine-0','#watch-engine-1']){const option=document.createElement('option');option.value='atlas-tempo';option.textContent='Atlas 벽 투자 0.3 · 실험 (미승격)';$(id).add(option,3);}
+for(const id of ['#play-engine','#watch-engine-0','#watch-engine-1']){const option=document.createElement('option');option.value='atlas-goal';option.textContent='Atlas 골인 안전 0.4 · 실험 (미승격)';$(id).add(option,4);}
 const defaultCores=Math.min(4,Math.max(1,(navigator.hardwareConcurrency||4)-2));
 let state=initial(),past=[],records=[],serial=0,busy=false,hint=null,decisionLog=[];
 let baseState=null,observedBottom=null,screenCapture=null;
@@ -21,7 +23,7 @@ const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.tur
 const flipped=()=>viewFlipped(Number($('#side').value),$('#start-position').value);
 const viewPosition=p=>orientPosition(p,flipped());
 const viewAction=a=>orientAction(a,flipped());
-const engineName=id=>id==='atlas3'?'Atlas 3':id==='atlas5'?'Atlas 5.3 안정':id==='atlas-tempo'?'Atlas 벽 투자 0.3 실험':id==='atlas-pressure'?'Atlas 즉시 압박 0.2 실험':id==='atlas-experiment'?'Atlas 실험 late-full':'Atlas 4 WASM';
+const engineName=id=>id==='atlas3'?'Atlas 3':id==='atlas5'?'Atlas 5.3 안정':id==='atlas-goal'?'Atlas 골인 안전 0.4 실험':id==='atlas-tempo'?'Atlas 벽 투자 0.3 실험':id==='atlas-pressure'?'Atlas 즉시 압박 0.2 실험':id==='atlas-experiment'?'Atlas 실험 late-full':'Atlas 4 WASM';
 function statusFor(selector){return (status,info)=>{
  const label=info?.engineInfo;
  if(status==='stale'){$(selector).textContent=`엔진 버전·빌드 불일치 · 실제 ${label?.version??'알 수 없음'} · ${label?.build??'빌드 확인 실패'} · 실행기를 다시 열어 갱신하세요`;return;}
@@ -110,6 +112,7 @@ function writeAnalysis(r,label='추천',source=state){
   const verdict=r.exact?(r.outcome===1?'정확한 승리':r.outcome===-1?'정확한 패배':'정확한 무승부'):'탐색 결과';
   $('#analysis').innerHTML=`<strong>${label} ${notation(recommended)}</strong><p>${r.pv.map(notation).join(' → ')}</p><small>${escapeHtml(r.engine??'AI')} · ${(r.nodes??0).toLocaleString()}개 노드 · ${verdict} · ${((r.elapsedMs??0)/1000).toFixed(1)}초</small>`;
   if(label==='추천'){const context=document.createElement('p');context.className='advice-context';context.textContent=`전체 ${records.length+1}수 · ${names[source.turn]} 차례 · ${r.done===true?'분석 완료':'계산 중 · 추천이 바뀔 수 있습니다'}`;$('#analysis').append(context);}
+  const warning=analysisRisk(r,source.turn);if(warning){const note=document.createElement('p');note.className='analysis-warning';note.setAttribute('role','status');note.textContent=warning;$('#analysis').append(note);}
   const explanation=pressureExplanation(source,recommended);if(explanation){const detail=document.createElement('p');detail.className='pressure-reason';detail.textContent=explanation;$('#analysis').append(detail);}
 }
 function applyMove(action){

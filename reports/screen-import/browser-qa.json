@@ -48,7 +48,10 @@
     "saved screen session includes actual engine build, recommendation, score, depth and search budget",
     "AI spectator step preserves pressure identity and explains the move from its pre-move position",
     "AI opponent mode commits a pressure-engine reply and retains its pre-move explanation",
-    "wall tempo 0.3 uses its separate service, displays the current ply and completed phase, and saves the actual build"
+    "wall tempo 0.3 uses its separate service, displays the current ply and completed phase, and saves the actual build",
+    "goal safety 0.4 reports corridor exposure and saves the actual goal model without a false exact-win claim",
+    "selective native loss scores show a limited-search warning",
+    "a solved zero-wall loss is distinguished from heuristic corridor risk and selective search"
   ],
   "uncaughtErrors": [],
   "realScreenCaptureTested": false,

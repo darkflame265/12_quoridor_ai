@@ -13,6 +13,12 @@ test('experimental selection fails explicitly instead of searching a different e
  native.online=true;native.search=async()=>{throw Error('engine stopped');};
  await assert.rejects(engine.search(initial()),/실험 엔진/);assert.equal(webCalls,0);engine.dispose();
 });
+test('pressure rejects old versions and different builds without sending a search',async()=>{
+ for(const info of [{version:'0.1 experiment',build:'current'},{version:'0.2 experiment',build:'old'},{build:'current'}]){
+  const urls=[],statuses=[],client=new NativeClient({base:'/api/pressure',expectedPressureBuild:'current',fetcher:async url=>{urls.push(url);return new Response(JSON.stringify({service:'quoridor-native-v1',engineInfo:{id:'atlas-pressure',...info}}));},onStatus:s=>statuses.push(s)});
+  assert.equal(await client.probe(),false);assert.equal(statuses.at(-1),'stale');await assert.rejects(client.search(initial(),{ms:500,cores:4}),/버전/);assert.deepEqual(urls,['/api/pressure/health']);client.dispose();
+ }
+});
 
 test('experimental probe uses its own endpoint and reports engine metadata',async()=>{
  const requests=[],updates=[];const info={service:'quoridor-native-v1',engineInfo:{id:'atlas-experiment',version:'5.9 experiment',variant:'late-full'}};
@@ -24,5 +30,11 @@ test('pressure selection fails explicitly and never falls back to a different en
  const engine=new AdaptiveEngine({engine:'atlas-pressure',webPool:web,nativeClient:native});await assert.rejects(engine.search(initial()),/실험 엔진/);assert.equal(webCalls,0);engine.dispose();
 });
 test('pressure probe requires the correct engine identity at its independent endpoint',async()=>{
- for(const id of ['atlas-pressure','atlas-experiment','atlas5']){const requests=[],client=new NativeClient({base:'/api/pressure',fetcher:async url=>{requests.push(url);return new Response(JSON.stringify({service:'quoridor-native-v1',engineInfo:{id}}));}});assert.equal(await client.probe(),id==='atlas-pressure');assert.deepEqual(requests,['/api/pressure/health']);client.dispose();}
+ for(const id of ['atlas-pressure','atlas-experiment','atlas5']){const requests=[],client=new NativeClient({base:'/api/pressure',fetcher:async url=>{requests.push(url);return new Response(JSON.stringify({service:'quoridor-native-v1',engineInfo:{id,version:'0.2 experiment',build:'current'}}));}});assert.equal(await client.probe(),id==='atlas-pressure');assert.deepEqual(requests,['/api/pressure/health']);client.dispose();}
+});
+test('tempo uses its own identity, version and build contract',async()=>{
+ for(const [id,version,ok]of [['atlas-tempo','0.3 experiment',true],['atlas-pressure','0.2 experiment',false],['atlas-tempo','0.2 experiment',false]]){
+  const client=new NativeClient({base:'/api/tempo',expectedPressureBuild:'current',fetcher:async()=>new Response(JSON.stringify({service:'quoridor-native-v1',engineInfo:{id,version,build:'current'}}))});assert.equal(await client.probe(),ok);client.dispose();
+ }
+ let webCalls=0;const engine=new AdaptiveEngine({engine:'atlas-tempo',webPool:{size:1,cancel(){},dispose(){},search(){webCalls++;}},nativeClient:{online:false,probe:async()=>false,cancel(){},dispose(){}}});await assert.rejects(engine.search(initial()),/실험 엔진/);assert.equal(webCalls,0);engine.dispose();
 });

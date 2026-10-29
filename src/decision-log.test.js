@@ -9,6 +9,11 @@ test('decision audit ties advice to the original position and does not invent ad
  observedAction(log,apply(state,action),{type:'move',x:4,y:1},2);assert.equal(log.at(-1).matchesRecommendation,null);
  for(let i=0;i<1100;i++)recordDecision(log,{kind:'test',i});assert.equal(log.length,1000);assert.equal(log[0].i,100);
 });
+test('changed intermediate advice remains available when the final advice differs from the action',()=>{
+ const s=initial(),a={type:'move',x:4,y:7},b={type:'move',x:3,y:8},log=[];
+ recordDecision(log,recommendation(s,{pv:[a],done:false,depth:2}));recordDecision(log,recommendation(s,{pv:[b],done:false,depth:3}));recordDecision(log,recommendation(s,{pv:[b],done:true,depth:4}));
+ assert.equal(log.length,3);observedAction(log,s,a,1);assert.equal(log.at(-1).matchesRecommendation,false);assert.ok(log.at(-1).earlierMatchingRecommendationAt);
+});
 test('wall advice comparison ignores JSON property order',()=>{
  const state=initial(),log=[];recordDecision(log,recommendation(state,{pv:[{o:'h',type:'wall',x:4,y:5}]}));observedAction(log,state,{type:'wall',x:4,y:5,o:'h'},1);assert.equal(log.at(-1).matchesRecommendation,true);
 });

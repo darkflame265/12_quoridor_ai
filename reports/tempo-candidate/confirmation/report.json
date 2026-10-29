@@ -1,0 +1,6163 @@
+{
+  "identity": {
+    "nativeSourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+    "sources": {
+      "rust-engine/src/lib.rs": "363cd3197f8fc1e21acb20c576d5dac3be4f741e808e9caa963f10bcd3984078",
+      "native-engine/src/lib.rs": "477ba4dfc0bc64536aa47f67ff8e00646c51066e9ad4f54ac409fcd83d24310a",
+      "native-engine/src/search.rs": "4aa7c1703c2d425bec3fe22090243649c40ad92a8a597b2be550b25dd2cfc4a7",
+      "native-engine/src/strategy.rs": "3be980d2aba7889ce5734665a6fb06a8682ef5b64667d120710ccf77e3d88cdf",
+      "native-engine/src/endgame-oracle.rs": "1b65399e328980de658eb6d5628e3fa301fa2ee85892f5dce50c002770b5856d",
+      "native-engine/src/main.rs": "85bd0779574b2331468415215e60e0f8076613367c5de1ed9d790ad4af80b8c4",
+      "native-engine/Cargo.toml": "0e2ace99f5def761ceb9e5bb79fa02e440fa03df9c956e40ad015b7fb28701c2",
+      "native-engine/Cargo.lock": "767b8a0cacf898be5d2d8a0250e18b9ded346252ddf61195adc967b03893af16",
+      "rust-toolchain.toml": "690e8b2d01e4b515848ba8c0cfcb69e54605754c53f29f95eacb61ea7b4fb3b6",
+      "pressure-engine/Cargo.toml": "c854b852b4b1999f75bd6f3879ec6ca0c7d2f14e74588d8f4a93a944737e7030",
+      "pressure-engine/Cargo.lock": "46bf54f2cdbabc18338cfb9e88bf9690c9068da6319fb104fa516e880510aa88",
+      "pressure-engine/build.rs": "d166e437445d2d63ddd60a2046fb94c61651f4909fc99630d4b9e6f22ce91fdf",
+      "pressure-engine/src/lib.rs": "c04aa7d67bfc5f036072483627c29eeb8a090ea68d3a00b54fc7f561450a6e04",
+      "pressure-engine/src/main.rs": "4a4f97d4d1c88bd34a97ff1401058ca1fd65d1930c6d013eecca1c55f1822bb3",
+      "pressure-engine/src/pressure.rs": "e0f9e9479f073b29048dcc7c4b20d28aa5a528b3c053789992faa6dbaf87acbe",
+      "pressure-engine/src/reserve.rs": "e2f227483ae45a4b17e99641cb46724b9d8939a8d019b25f04547ffe9331d084",
+      "pressure-engine/src/tempo.rs": "b3e336e39324046d8443b33cd7a1b1c3338a0a7c67b3bca6dcd0e3a202124e4c"
+    },
+    "binaryHash": "b8d77386e32e805755cd485f927b2e62caa80cd5bb8461afc911d4c261cc58bd"
+  },
+  "sourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+  "defaultProfile": "candidate",
+  "status": "completed",
+  "productionEnabled": false,
+  "positions": [
+    {
+      "id": "second-loss-ply-15",
+      "diagnostics": {
+        "changes": [
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 1,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 1,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 2
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 1,
+              "y": 2
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 1,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 1,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 1,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 1,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 2
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 2
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 2
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          }
+        ],
+        "elapsedMs": 8.055000000000001,
+        "enabled": true
+      },
+      "baseline": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 3,
+        "done": true,
+        "elapsedMs": 500.1349,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + immediate pressure 0.2 · Native Rust ×4",
+        "id": "f17425b5-e419-462c-aabc-9010090207f7",
+        "nodes": 67006,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": 4,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 0,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          }
+        ],
+        "score": -55,
+        "sharedCacheHits": 13611,
+        "workers": 4
+      },
+      "candidate": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 3,
+        "done": true,
+        "elapsedMs": 500.1671,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + wall tempo 0.3 · Native Rust ×4",
+        "id": "b4b11990-7f48-4c2d-8d91-800ad6c10768",
+        "nodes": 75285,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 250,
+          "nearCutEdges": 0,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 2
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6
+          }
+        ],
+        "score": -55,
+        "sharedCacheHits": 14399,
+        "workers": 4
+      }
+    },
+    {
+      "id": "second-loss-ply-17",
+      "diagnostics": {
+        "changes": [
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 2
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 1,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 1,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 2
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 2
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          }
+        ],
+        "elapsedMs": 7.385400000000118,
+        "enabled": true
+      },
+      "baseline": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.0640000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + immediate pressure 0.2 · Native Rust ×4",
+        "id": "41d15140-afee-43a1-ba8b-6cede2197d52",
+        "nodes": 67830,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          },
+          "bias": 0,
+          "connections": 1,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": 5,
+          "legacyOrderScore": 50,
+          "nearCutEdges": 0,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          }
+        ],
+        "score": -562,
+        "sharedCacheHits": 9216,
+        "workers": 4
+      },
+      "candidate": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.11659999999983,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + wall tempo 0.3 · Native Rust ×4",
+        "id": "dde1b6ed-7095-4db6-83a5-a2ace1a7daa3",
+        "nodes": 64003,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          },
+          "bias": 0,
+          "connections": 1,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": 5,
+          "legacyOrderScore": 50,
+          "nearCutEdges": 0,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          }
+        ],
+        "score": -578,
+        "sharedCacheHits": 9380,
+        "workers": 4
+      }
+    },
+    {
+      "id": "second-loss-ply-19",
+      "diagnostics": {
+        "changes": [
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 2
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 2
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 2
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 2
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 4
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          }
+        ],
+        "elapsedMs": 5.717799999999897,
+        "enabled": true
+      },
+      "baseline": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.1413,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + immediate pressure 0.2 · Native Rust ×4",
+        "id": "7648275a-8eeb-42b7-8034-f1d08f4fcfa1",
+        "nodes": 59112,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 6
+          },
+          "bias": 0,
+          "connections": 1,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 50,
+          "nearCutEdges": 0,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 4
+          }
+        ],
+        "score": -426,
+        "sharedCacheHits": 12945,
+        "workers": 4
+      },
+      "candidate": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.1562999999999,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + wall tempo 0.3 · Native Rust ×4",
+        "id": "c2ba8db0-e226-490b-ad02-4d4ba10266a2",
+        "nodes": 62061,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 1,
+          "firstContact": 4,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 0,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 3
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 6
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "score": -425,
+        "sharedCacheHits": 13045,
+        "workers": 4
+      }
+    },
+    {
+      "id": "second-loss-ply-21",
+      "diagnostics": {
+        "changes": [],
+        "elapsedMs": 1.1836999999995896,
+        "enabled": true
+      },
+      "baseline": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 501.09979999999996,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + immediate pressure 0.2 · Native Rust ×4",
+        "id": "13bc54da-e372-4cef-9a9b-19602a439b7c",
+        "nodes": 62025,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 2,
+          "firstContact": 4,
+          "legacyOrderScore": 3070,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 2
+        },
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6
+          }
+        ],
+        "score": -263,
+        "sharedCacheHits": 13510,
+        "workers": 4
+      },
+      "candidate": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.06939999999986,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + wall tempo 0.3 · Native Rust ×4",
+        "id": "900b0551-2ed7-4e45-8594-d7290abd04ef",
+        "nodes": 62472,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 2,
+          "firstContact": 4,
+          "legacyOrderScore": 3070,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 2
+        },
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6
+          }
+        ],
+        "score": -263,
+        "sharedCacheHits": 14007,
+        "workers": 4
+      }
+    },
+    {
+      "id": "second-loss-ply-29",
+      "diagnostics": {
+        "changes": [
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 1,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 1,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 1,
+              "y": 2
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 1,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 3,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 4,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 0
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 2,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 1
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 2
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 2
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 2
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 0,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 3
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 5
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 6
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 3,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 4,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 5,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 6,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 7,
+              "y": 7
+            },
+            "candidateBias": -16,
+            "oldBias": 0
+          }
+        ],
+        "elapsedMs": 3.703500000000531,
+        "enabled": true
+      },
+      "baseline": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.04940000000033,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + immediate pressure 0.2 · Native Rust ×4",
+        "id": "f2e16af7-a24f-4911-bc25-361ecd057d43",
+        "nodes": 39855,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 4
+          },
+          "bias": 0,
+          "connections": 2,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 4,
+          "firstContact": 0,
+          "legacyOrderScore": 230,
+          "nearCutEdges": 1,
+          "netGain": -1,
+          "ownDelay": 4,
+          "placementCost": 1,
+          "retainedDelay": 2
+        },
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        ],
+        "score": -136,
+        "sharedCacheHits": 12750,
+        "workers": 4
+      },
+      "candidate": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.0728000000008,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + wall tempo 0.3 · Native Rust ×4",
+        "id": "d05dc0bb-4dcd-49b0-9af0-31a6a1c466e0",
+        "nodes": 39097,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 4
+          },
+          "bias": 0,
+          "connections": 2,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 4,
+          "firstContact": 0,
+          "legacyOrderScore": 230,
+          "nearCutEdges": 1,
+          "netGain": -1,
+          "ownDelay": 4,
+          "placementCost": 1,
+          "retainedDelay": 2
+        },
+        "pv": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 4
+          },
+          {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 3
+          },
+          {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        ],
+        "score": -136,
+        "sharedCacheHits": 12227,
+        "workers": 4
+      }
+    }
+  ],
+  "tactics": [
+    {
+      "id": "finish-0",
+      "pass": true
+    },
+    {
+      "id": "jump-0",
+      "pass": true
+    },
+    {
+      "id": "defend-0",
+      "pass": true
+    },
+    {
+      "id": "diagonal-0",
+      "pass": true
+    },
+    {
+      "id": "diagonal-finish-0",
+      "pass": true
+    },
+    {
+      "id": "defend-jump-0",
+      "pass": true
+    },
+    {
+      "id": "finish-before-defense-0",
+      "pass": true
+    },
+    {
+      "id": "no-wall-resource-0",
+      "pass": true
+    },
+    {
+      "id": "finish-1",
+      "pass": true
+    },
+    {
+      "id": "jump-1",
+      "pass": true
+    },
+    {
+      "id": "defend-1",
+      "pass": true
+    },
+    {
+      "id": "diagonal-1",
+      "pass": true
+    },
+    {
+      "id": "diagonal-finish-1",
+      "pass": true
+    },
+    {
+      "id": "defend-jump-1",
+      "pass": true
+    },
+    {
+      "id": "finish-before-defense-1",
+      "pass": true
+    },
+    {
+      "id": "no-wall-resource-1",
+      "pass": true
+    }
+  ],
+  "games": [
+    {
+      "suite": "general",
+      "index": 0,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "opening": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 2
+        }
+      ],
+      "trace": [
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 6
+          },
+          "score": -132,
+          "depth": 4,
+          "elapsedMs": 521.0286000000015
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 5
+          },
+          "score": 35,
+          "depth": 4,
+          "elapsedMs": 515.9400000000005
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 2
+          },
+          "score": -20,
+          "depth": 3,
+          "elapsedMs": 500.6650000000009
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 5
+          },
+          "score": 208,
+          "depth": 4,
+          "elapsedMs": 500.66209999999955
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 1
+          },
+          "score": -181,
+          "depth": 3,
+          "elapsedMs": 500.77250000000095
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6
+          },
+          "score": 295,
+          "depth": 4,
+          "elapsedMs": 500.6394
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 6
+          },
+          "score": -396,
+          "depth": 4,
+          "elapsedMs": 500.6296000000002
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          "score": 212,
+          "depth": 4,
+          "elapsedMs": 500.72990000000027
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          "score": -272,
+          "depth": 4,
+          "elapsedMs": 500.6194000000014
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 3
+          },
+          "score": 264,
+          "depth": 3,
+          "elapsedMs": 500.77299999999923
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          "score": -92,
+          "depth": 4,
+          "elapsedMs": 500.4478999999992
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          },
+          "score": 92,
+          "depth": 3,
+          "elapsedMs": 500.63950000000114
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 8
+          },
+          "score": -28,
+          "depth": 4,
+          "elapsedMs": 500.39570000000094
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          },
+          "score": 28,
+          "depth": 3,
+          "elapsedMs": 500.51929999999993
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 1
+          },
+          "score": 52,
+          "depth": 4,
+          "elapsedMs": 500.9467000000004
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 0
+          },
+          "score": 0,
+          "depth": 3,
+          "elapsedMs": 501.1984999999986
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 0
+          },
+          "score": 221,
+          "depth": 4,
+          "elapsedMs": 500.70750000000044
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 2
+          },
+          "score": -396,
+          "depth": 4,
+          "elapsedMs": 500.72139999999854
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 2
+          },
+          "score": 264,
+          "depth": 4,
+          "elapsedMs": 501.4874999999993
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          },
+          "score": -396,
+          "depth": 4,
+          "elapsedMs": 500.5553
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 1
+          },
+          "score": 272,
+          "depth": 4,
+          "elapsedMs": 500.79139999999825
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 1
+          },
+          "score": -484,
+          "depth": 4,
+          "elapsedMs": 500.57700000000114
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          },
+          "score": 272,
+          "depth": 4,
+          "elapsedMs": 500.4442999999992
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          },
+          "score": -484,
+          "depth": 4,
+          "elapsedMs": 500.47139999999854
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "score": 272,
+          "depth": 4,
+          "elapsedMs": 500.47169999999824
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 0
+          },
+          "score": -484,
+          "depth": 4,
+          "elapsedMs": 500.39949999999953
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 2
+          },
+          "score": 272,
+          "depth": 4,
+          "elapsedMs": 500.64789999999994
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 1
+          },
+          "score": -407,
+          "depth": 4,
+          "elapsedMs": 500.65250000000015
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "score": 272,
+          "depth": 4,
+          "elapsedMs": 500.422300000002
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 5
+          },
+          "score": -445,
+          "depth": 4,
+          "elapsedMs": 501.02440000000206
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          "score": 396,
+          "depth": 8,
+          "elapsedMs": 500.58469999999943
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          },
+          "score": -373,
+          "depth": 9,
+          "elapsedMs": 500.64970000000176
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 3
+          },
+          "score": 396,
+          "depth": 10,
+          "elapsedMs": 500.6948000000011
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 0
+          },
+          "score": -29970,
+          "depth": 2,
+          "elapsedMs": 77.09270000000106
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 4
+          },
+          "score": 29971,
+          "depth": 1,
+          "elapsedMs": 29.005400000001828
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 1
+          },
+          "score": -29972,
+          "depth": 0,
+          "elapsedMs": 2.1754000000000815
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          },
+          "score": 29973,
+          "depth": 0,
+          "elapsedMs": 1.4523000000008324
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          },
+          "score": -29974,
+          "depth": 0,
+          "elapsedMs": 0.20560000000114087
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 8
+          },
+          "score": 29975,
+          "depth": 0,
+          "elapsedMs": 0.14619999999922584
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 3
+          },
+          "score": -29976,
+          "depth": 0,
+          "elapsedMs": 0.136000000002241
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 8
+          },
+          "score": 29977,
+          "depth": 0,
+          "elapsedMs": 0.12550000000192085
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          },
+          "score": -29978,
+          "depth": 0,
+          "elapsedMs": 0.1496000000006461
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          },
+          "score": 29979,
+          "depth": 0,
+          "elapsedMs": 0.12529999999969732
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          },
+          "score": -29980,
+          "depth": 0,
+          "elapsedMs": 0.20619999999689753
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "score": 29981,
+          "depth": 0,
+          "elapsedMs": 0.2173000000002503
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 5
+          },
+          "score": -29982,
+          "depth": 0,
+          "elapsedMs": 0.11529999999766005
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "score": 29983,
+          "depth": 0,
+          "elapsedMs": 0.09099999999671127
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "score": -29984,
+          "depth": 0,
+          "elapsedMs": 0.0944999999992433
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "score": 29985,
+          "depth": 0,
+          "elapsedMs": 0.0705999999991036
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          "score": -29986,
+          "depth": 0,
+          "elapsedMs": 0.06880000000091968
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "score": 29987,
+          "depth": 0,
+          "elapsedMs": 0.06970000000001164
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "score": -29988,
+          "depth": 0,
+          "elapsedMs": 0.06789999999818974
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          },
+          "score": 29989,
+          "depth": 0,
+          "elapsedMs": 0.06769999999960419
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          "score": -29990,
+          "depth": 0,
+          "elapsedMs": 0.06979999999748543
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          },
+          "score": 29991,
+          "depth": 0,
+          "elapsedMs": 0.13599999999860302
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 5
+          },
+          "score": -29992,
+          "depth": 0,
+          "elapsedMs": 0.12399999999979627
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "score": 29993,
+          "depth": 0,
+          "elapsedMs": 0.08959999999933643
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "score": -29994,
+          "depth": 0,
+          "elapsedMs": 0.07489999999961583
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          "score": 29995,
+          "depth": 0,
+          "elapsedMs": 0.15019999999640277
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          "score": -29996,
+          "depth": 0,
+          "elapsedMs": 0.08699999999953434
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          "score": 29997,
+          "depth": 0,
+          "elapsedMs": 0.07679999999891152
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "score": -29998,
+          "depth": 0,
+          "elapsedMs": 0.07189999999900465
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 0
+          },
+          "score": 29999,
+          "depth": 1,
+          "elapsedMs": 0.07330000000001746
+        }
+      ]
+    },
+    {
+      "suite": "general",
+      "index": 0,
+      "candidateSide": 1,
+      "result": "win",
+      "reason": "goal",
+      "opening": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 3,
+          "y": 2
+        }
+      ],
+      "trace": [
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 6
+          },
+          "score": -132,
+          "depth": 4,
+          "elapsedMs": 518.0427000000018
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 5
+          },
+          "score": 35,
+          "depth": 4,
+          "elapsedMs": 516.8374999999978
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7
+          },
+          "score": -12,
+          "depth": 3,
+          "elapsedMs": 500.5676999999996
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 5
+          },
+          "score": 376,
+          "depth": 4,
+          "elapsedMs": 500.4418000000005
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 7
+          },
+          "score": -366,
+          "depth": 3,
+          "elapsedMs": 500.6173000000017
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 6
+          },
+          "score": 551,
+          "depth": 4,
+          "elapsedMs": 500.6134999999995
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 7
+          },
+          "score": -660,
+          "depth": 4,
+          "elapsedMs": 500.6020000000026
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "score": 528,
+          "depth": 4,
+          "elapsedMs": 500.64380000000165
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          "score": -660,
+          "depth": 4,
+          "elapsedMs": 500.4145000000026
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "score": 528,
+          "depth": 4,
+          "elapsedMs": 500.792300000001
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 3
+          },
+          "score": -656,
+          "depth": 4,
+          "elapsedMs": 500.6686000000009
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 5
+          },
+          "score": 656,
+          "depth": 3,
+          "elapsedMs": 500.6365000000005
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 2
+          },
+          "score": -511,
+          "depth": 4,
+          "elapsedMs": 500.47520000000077
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 6
+          },
+          "score": 311,
+          "depth": 4,
+          "elapsedMs": 500.5575000000026
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 6
+          },
+          "score": -396,
+          "depth": 4,
+          "elapsedMs": 500.5561999999991
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 0
+          },
+          "score": 52,
+          "depth": 4,
+          "elapsedMs": 500.5883000000031
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 4
+          },
+          "score": -103,
+          "depth": 4,
+          "elapsedMs": 500.51490000000194
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 2
+          },
+          "score": -151,
+          "depth": 4,
+          "elapsedMs": 500.9475999999995
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 1
+          },
+          "score": -121,
+          "depth": 4,
+          "elapsedMs": 500.68710000000283
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 2
+          },
+          "score": -71,
+          "depth": 4,
+          "elapsedMs": 500.9809000000023
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 6
+          },
+          "score": 71,
+          "depth": 5,
+          "elapsedMs": 501.11359999999695
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "score": -79,
+          "depth": 6,
+          "elapsedMs": 500.5031999999992
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          "score": -53,
+          "depth": 6,
+          "elapsedMs": 500.3683000000019
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          "score": -68,
+          "depth": 6,
+          "elapsedMs": 500.3990000000049
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 8
+          },
+          "score": -64,
+          "depth": 6,
+          "elapsedMs": 500.46220000000176
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          "score": -68,
+          "depth": 6,
+          "elapsedMs": 500.43999999999505
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          "score": -64,
+          "depth": 6,
+          "elapsedMs": 501.7788999999975
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 7,
+            "y": 1
+          },
+          "score": -68,
+          "depth": 6,
+          "elapsedMs": 500.582699999999
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "score": 0,
+          "depth": 12,
+          "elapsedMs": 500.41530000000057
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          "score": 0,
+          "depth": 12,
+          "elapsedMs": 500.4343000000008
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "score": -132,
+          "depth": 12,
+          "elapsedMs": 500.67289999999775
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 1
+          },
+          "score": 12,
+          "depth": 13,
+          "elapsedMs": 500.3834000000061
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 0
+          },
+          "score": 0,
+          "depth": 11,
+          "elapsedMs": 500.6382999999987
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0
+          },
+          "score": 29977,
+          "depth": 1,
+          "elapsedMs": 27.266999999999825
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "score": -29978,
+          "depth": 0,
+          "elapsedMs": 1.6398999999946682
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          },
+          "score": 29979,
+          "depth": 0,
+          "elapsedMs": 1.3496000000013737
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          "score": -29980,
+          "depth": 0,
+          "elapsedMs": 0.16090000000258442
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "score": 29981,
+          "depth": 0,
+          "elapsedMs": 0.13070000000152504
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 8
+          },
+          "score": -29982,
+          "depth": 0,
+          "elapsedMs": 0.09130000000004657
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "score": 29983,
+          "depth": 0,
+          "elapsedMs": 0.0838000000003376
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          },
+          "score": -29984,
+          "depth": 0,
+          "elapsedMs": 0.07519999999931315
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "score": 29985,
+          "depth": 0,
+          "elapsedMs": 0.07560000000376021
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 8
+          },
+          "score": -29986,
+          "depth": 0,
+          "elapsedMs": 0.07370000000082655
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "score": 29987,
+          "depth": 0,
+          "elapsedMs": 0.07430000000022119
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          },
+          "score": -29988,
+          "depth": 0,
+          "elapsedMs": 0.08770000000367872
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "score": 29989,
+          "depth": 0,
+          "elapsedMs": 0.07990000000427244
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 8
+          },
+          "score": -29990,
+          "depth": 0,
+          "elapsedMs": 0.07180000000516884
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          "score": 29991,
+          "depth": 0,
+          "elapsedMs": 0.13249999999970896
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          },
+          "score": -29992,
+          "depth": 0,
+          "elapsedMs": 0.13880000000062864
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "score": 29993,
+          "depth": 0,
+          "elapsedMs": 0.15200000000186265
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 8
+          },
+          "score": -29994,
+          "depth": 0,
+          "elapsedMs": 0.12619999999878928
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          },
+          "score": 29995,
+          "depth": 0,
+          "elapsedMs": 0.14400000000023283
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          },
+          "score": -29996,
+          "depth": 0,
+          "elapsedMs": 0.1368000000002212
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          "score": 29997,
+          "depth": 0,
+          "elapsedMs": 0.11480000000301516
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 8
+          },
+          "score": -29998,
+          "depth": 0,
+          "elapsedMs": 0.09730000000126893
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 8
+          },
+          "score": 29999,
+          "depth": 1,
+          "elapsedMs": 0.11420000000362052
+        }
+      ]
+    },
+    {
+      "suite": "maze",
+      "index": 0,
+      "candidateSide": 0,
+      "result": "win",
+      "reason": "goal",
+      "opening": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 6
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 7,
+          "y": 4
+        }
+      ],
+      "trace": [
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1
+          },
+          "score": -60,
+          "depth": 4,
+          "elapsedMs": 520.4573999999993
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 1
+          },
+          "score": -85,
+          "depth": 4,
+          "elapsedMs": 516.1098999999958
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "score": -60,
+          "depth": 4,
+          "elapsedMs": 500.6765000000014
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          "score": -85,
+          "depth": 4,
+          "elapsedMs": 500.5416999999943
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          "score": -73,
+          "depth": 4,
+          "elapsedMs": 500.3729000000021
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          },
+          "score": -140,
+          "depth": 4,
+          "elapsedMs": 500.6614999999947
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 4
+          },
+          "score": -60,
+          "depth": 4,
+          "elapsedMs": 500.5142000000051
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 4
+          },
+          "score": -138,
+          "depth": 4,
+          "elapsedMs": 500.77930000000197
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 5
+          },
+          "score": 75,
+          "depth": 4,
+          "elapsedMs": 500.5882999999958
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "score": -207,
+          "depth": 4,
+          "elapsedMs": 500.47580000000016
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 5
+          },
+          "score": 75,
+          "depth": 4,
+          "elapsedMs": 500.6709999999948
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "score": -215,
+          "depth": 5,
+          "elapsedMs": 500.4180000000051
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "score": 215,
+          "depth": 4,
+          "elapsedMs": 500.43419999999605
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 2
+          },
+          "score": -215,
+          "depth": 5,
+          "elapsedMs": 501.32850000000326
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 3
+          },
+          "score": 264,
+          "depth": 9,
+          "elapsedMs": 500.7566000000006
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 3
+          },
+          "score": -144,
+          "depth": 10,
+          "elapsedMs": 500.77010000000155
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "score": 264,
+          "depth": 15,
+          "elapsedMs": 500.38820000000123
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "score": -660,
+          "depth": 15,
+          "elapsedMs": 500.4609999999957
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "score": -108,
+          "depth": 14,
+          "elapsedMs": 500.37629999999626
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 2
+          },
+          "score": -264,
+          "depth": 15,
+          "elapsedMs": 500.57310000000143
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "score": 29971,
+          "depth": 0,
+          "elapsedMs": 1.6005999999979394
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "score": -29972,
+          "depth": 0,
+          "elapsedMs": 1.4804999999978463
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          },
+          "score": 29973,
+          "depth": 0,
+          "elapsedMs": 0.19989999999961583
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "score": -29974,
+          "depth": 0,
+          "elapsedMs": 0.1434000000008382
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          },
+          "score": 29975,
+          "depth": 0,
+          "elapsedMs": 0.10610000000451691
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "score": -29976,
+          "depth": 0,
+          "elapsedMs": 0.09590000000025611
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          },
+          "score": 29977,
+          "depth": 0,
+          "elapsedMs": 0.19720000000233995
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "score": -29978,
+          "depth": 0,
+          "elapsedMs": 0.25089999999909196
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 3
+          },
+          "score": 29979,
+          "depth": 0,
+          "elapsedMs": 0.22179999999934807
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          },
+          "score": -29980,
+          "depth": 0,
+          "elapsedMs": 0.3162999999985914
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 2
+          },
+          "score": 29981,
+          "depth": 0,
+          "elapsedMs": 0.3032000000021071
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 3
+          },
+          "score": -29982,
+          "depth": 0,
+          "elapsedMs": 0.22379999999975553
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          },
+          "score": 29983,
+          "depth": 0,
+          "elapsedMs": 0.3183999999964726
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 4
+          },
+          "score": -29984,
+          "depth": 0,
+          "elapsedMs": 0.25059999999939464
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "score": 29985,
+          "depth": 0,
+          "elapsedMs": 0.1411999999982072
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          "score": -29986,
+          "depth": 0,
+          "elapsedMs": 0.21050000000104774
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "score": 29987,
+          "depth": 0,
+          "elapsedMs": 0.16479999999864958
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 4
+          },
+          "score": -29988,
+          "depth": 0,
+          "elapsedMs": 0.13699999999516876
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "score": 29989,
+          "depth": 0,
+          "elapsedMs": 0.18859999999403954
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          "score": -29990,
+          "depth": 0,
+          "elapsedMs": 0.12459999999555293
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          "score": 29991,
+          "depth": 0,
+          "elapsedMs": 0.13100000000122236
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 4
+          },
+          "score": -29992,
+          "depth": 0,
+          "elapsedMs": 0.11860000000160653
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "score": 29993,
+          "depth": 0,
+          "elapsedMs": 0.1157999999995809
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          "score": -29994,
+          "depth": 0,
+          "elapsedMs": 0.11680000000342261
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          },
+          "score": 29995,
+          "depth": 0,
+          "elapsedMs": 0.10920000000623986
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 4
+          },
+          "score": -29996,
+          "depth": 0,
+          "elapsedMs": 0.10250000000087311
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          "score": 29997,
+          "depth": 0,
+          "elapsedMs": 0.10659999999916181
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          "score": -29998,
+          "depth": 0,
+          "elapsedMs": 0.11220000000321306
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          },
+          "score": 29999,
+          "depth": 1,
+          "elapsedMs": 0.15190000000438886
+        }
+      ]
+    },
+    {
+      "suite": "maze",
+      "index": 0,
+      "candidateSide": 1,
+      "result": "loss",
+      "reason": "goal",
+      "opening": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "type": "wall",
+          "o": "h",
+          "x": 7,
+          "y": 6
+        },
+        {
+          "type": "wall",
+          "o": "v",
+          "x": 7,
+          "y": 4
+        }
+      ],
+      "trace": [
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1
+          },
+          "score": -60,
+          "depth": 4,
+          "elapsedMs": 517.9193000000014
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 1
+          },
+          "score": -85,
+          "depth": 4,
+          "elapsedMs": 516.0714999999982
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "score": -60,
+          "depth": 4,
+          "elapsedMs": 500.58350000000064
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          "score": -85,
+          "depth": 4,
+          "elapsedMs": 500.6805000000022
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          "score": -73,
+          "depth": 4,
+          "elapsedMs": 500.4380999999994
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          },
+          "score": -140,
+          "depth": 4,
+          "elapsedMs": 500.45000000000437
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 4
+          },
+          "score": -60,
+          "depth": 4,
+          "elapsedMs": 500.67089999999735
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 4
+          },
+          "score": -138,
+          "depth": 4,
+          "elapsedMs": 501.08110000000306
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 5
+          },
+          "score": 75,
+          "depth": 4,
+          "elapsedMs": 500.55339999999705
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "score": -207,
+          "depth": 4,
+          "elapsedMs": 502.71510000000126
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 5
+          },
+          "score": 75,
+          "depth": 4,
+          "elapsedMs": 500.75560000000405
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "score": -215,
+          "depth": 5,
+          "elapsedMs": 500.4811000000045
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "score": 215,
+          "depth": 4,
+          "elapsedMs": 500.6087999999945
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 2
+          },
+          "score": -215,
+          "depth": 5,
+          "elapsedMs": 500.6820999999982
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 3
+          },
+          "score": 264,
+          "depth": 9,
+          "elapsedMs": 500.5555999999997
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 3
+          },
+          "score": -144,
+          "depth": 10,
+          "elapsedMs": 500.52060000000347
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "score": 264,
+          "depth": 15,
+          "elapsedMs": 500.3180999999968
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "score": -264,
+          "depth": 14,
+          "elapsedMs": 500.59440000000177
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "score": -108,
+          "depth": 14,
+          "elapsedMs": 500.32560000000376
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "score": -792,
+          "depth": 15,
+          "elapsedMs": 500.4231
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "score": 528,
+          "depth": 14,
+          "elapsedMs": 500.45580000000336
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 2
+          },
+          "score": -264,
+          "depth": 15,
+          "elapsedMs": 500.8272999999972
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "score": 29969,
+          "depth": 0,
+          "elapsedMs": 2.5063000000009197
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "score": -29970,
+          "depth": 0,
+          "elapsedMs": 1.7115000000048894
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "score": 29971,
+          "depth": 0,
+          "elapsedMs": 0.1665999999968335
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "score": -29972,
+          "depth": 0,
+          "elapsedMs": 0.18029999999998836
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          },
+          "score": 29973,
+          "depth": 0,
+          "elapsedMs": 0.1393000000025495
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "score": -29974,
+          "depth": 0,
+          "elapsedMs": 0.1103000000002794
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          },
+          "score": 29975,
+          "depth": 0,
+          "elapsedMs": 0.1147999999957392
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          },
+          "score": -29976,
+          "depth": 0,
+          "elapsedMs": 0.13620000000082655
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          },
+          "score": 29977,
+          "depth": 0,
+          "elapsedMs": 0.09010000000125729
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 2
+          },
+          "score": -29978,
+          "depth": 0,
+          "elapsedMs": 0.08209999999962747
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 3
+          },
+          "score": 29979,
+          "depth": 0,
+          "elapsedMs": 0.08209999999962747
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 4
+          },
+          "score": -29980,
+          "depth": 0,
+          "elapsedMs": 0.1179000000047381
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 2
+          },
+          "score": 29981,
+          "depth": 0,
+          "elapsedMs": 0.178699999996752
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          "score": -29982,
+          "depth": 0,
+          "elapsedMs": 0.13210000000253785
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          },
+          "score": 29983,
+          "depth": 0,
+          "elapsedMs": 0.1213999999963562
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 4
+          },
+          "score": -29984,
+          "depth": 0,
+          "elapsedMs": 0.18980000000010477
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "score": 29985,
+          "depth": 0,
+          "elapsedMs": 0.18370000000140863
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          "score": -29986,
+          "depth": 0,
+          "elapsedMs": 0.1540999999997439
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "score": 29987,
+          "depth": 0,
+          "elapsedMs": 0.13850000000093132
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 4
+          },
+          "score": -29988,
+          "depth": 0,
+          "elapsedMs": 0.11459999999351567
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "score": 29989,
+          "depth": 0,
+          "elapsedMs": 0.08909999999741558
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          "score": -29990,
+          "depth": 0,
+          "elapsedMs": 0.07489999999961583
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          "score": 29991,
+          "depth": 0,
+          "elapsedMs": 0.07519999999931315
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 4
+          },
+          "score": -29992,
+          "depth": 0,
+          "elapsedMs": 0.07090000000607688
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "score": 29993,
+          "depth": 0,
+          "elapsedMs": 0.09430000000429573
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          "score": -29994,
+          "depth": 0,
+          "elapsedMs": 0.07650000000285218
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          },
+          "score": 29995,
+          "depth": 0,
+          "elapsedMs": 0.07519999999931315
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 4
+          },
+          "score": -29996,
+          "depth": 0,
+          "elapsedMs": 0.07970000000204891
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          "score": 29997,
+          "depth": 0,
+          "elapsedMs": 0.0753000000040629
+        },
+        {
+          "role": "candidate",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          "score": -29998,
+          "depth": 0,
+          "elapsedMs": 0.06940000000031432
+        },
+        {
+          "role": "baseline",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          },
+          "score": 29999,
+          "depth": 1,
+          "elapsedMs": 0.08909999999741558
+        }
+      ]
+    }
+  ],
+  "seed": 20261030,
+  "ms": 500,
+  "cores": 4,
+  "summary": {
+    "wins": 3,
+    "losses": 1,
+    "draws": 0
+  }
+}

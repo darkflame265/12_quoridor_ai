@@ -14,6 +14,7 @@ export function createNativeService({client=new NativeProcess({profile:activeNat
    if(req.method!=='POST'||!['/search','/cancel'].includes(req.url)){reply(404,{error:'Unknown endpoint'});return;}
    let body='';for await(const chunk of req){body+=chunk;if(Buffer.byteLength(body)>65536){reply(413,{error:'Request too large'});return;}}
    let data;try{data=JSON.parse(body);}catch{reply(400,{error:'Invalid JSON'});return;}
+   if(req.url==='/search'&&data.expectedBuild&&data.expectedBuild!==engineInfo.build){reply(409,{error:'Engine build does not match this app; restart the launcher'});return;}
    if(typeof data.id!=='string'||data.id.length<1||data.id.length>128){reply(400,{error:'Invalid request id'});return;}
    if(req.url==='/cancel'){if(active?.id===data.id){client.cancel(data.id);active=null;}reply(200,{cancelled:true});return;}
    if(!validState(data.state)||!Number.isFinite(data.ms)||data.ms<1||data.ms>30000||!Number.isInteger(data.cores)||data.cores<1||data.cores>4||typeof data.session!=='string'||data.session.length>128){reply(400,{error:'Invalid search request'});return;}
@@ -27,7 +28,7 @@ export function createNativeService({client=new NativeProcess({profile:activeNat
    finally{if(active===task)active=null;res.end();}
   }catch(error){if(!res.headersSent)reply(503,{error:error.message});else res.end();}
  });
- return {server,client,async close(){client.close();server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}};
+ return {server,client,engineInfo,async close(){client.close();server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}};
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  const service=createNativeService(),port=Number(process.env.QUORIDOR_NATIVE_PORT??4317);await service.client.health();await new Promise((resolve,reject)=>{service.server.once('error',reject);service.server.listen(port,'127.0.0.1',resolve);});

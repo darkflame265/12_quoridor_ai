@@ -14,9 +14,13 @@ if(!browserPath)throw Error('Set SCREEN_QA_CHROME to a Chrome/Edge executable');
 const temp=path.resolve(root,'native-engine','target',`screen-qa-${Date.now()}`),profile=path.join(temp,'profile');await mkdir(temp,{recursive:true});await mkdir(out,{recursive:true});
 const pressureService=process.env.QUORIDOR_PRESSURE_BROWSER_QA==='1'?createPressureService():null;
 if(pressureService){await pressureService.client.health();await new Promise(resolve=>pressureService.server.listen(0,'127.0.0.1',resolve));}
+const tempoService=pressureService?createPressureService({tempo:true}):null;
+if(tempoService){await tempoService.client.health();await new Promise(resolve=>tempoService.server.listen(0,'127.0.0.1',resolve));}
 const fixtureRoutes={'/_qa/fixture.js':'scripts/test-fixtures/screen-board.mjs','/_qa/screen-board.mjs':'scripts/test-fixtures/screen-board.mjs','/_qa/context-fixture.js':'scripts/test-fixtures/source-screen.mjs','/_qa/reader.js':'src/source-context.js','/_qa/screen-recognition.js':'src/screen-recognition.js','/_qa/wall-observation.js':'src/wall-observation.js','/_qa/move-dot-evidence.js':'src/move-dot-evidence.js','/_qa/engine.js':'src/engine.js','/_qa/observed-state.js':'src/observed-state.js'};
+let stalePressure=false;
 const server=http.createServer(async(req,res)=>{try{const url=new URL(req.url,'http://localhost'),file=fixtureRoutes[url.pathname]?path.join(root,fixtureRoutes[url.pathname]):path.resolve(dist,'.'+(url.pathname==='/'?'/index.html':decodeURIComponent(url.pathname)));
- if(pressureService&&url.pathname.startsWith('/api/pressure/')){const upstream=http.request({host:'127.0.0.1',port:pressureService.server.address().port,path:req.url.replace('/api/pressure',''),method:req.method,headers:{...req.headers,host:`127.0.0.1:${pressureService.server.address().port}`}},reply=>{res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);});upstream.on('error',()=>{res.writeHead(503);res.end();});res.on('close',()=>upstream.destroy());req.pipe(upstream);return;}
+ if(stalePressure&&url.pathname==='/api/pressure/health'){res.setHeader('Content-Type','application/json');res.end(JSON.stringify({service:'quoridor-native-v1',engineInfo:{id:'atlas-pressure',version:'0.1 experiment',build:'old'}}));return;}
+ if(pressureService&&(url.pathname.startsWith('/api/pressure/')||url.pathname.startsWith('/api/tempo/'))){const selected=url.pathname.startsWith('/api/tempo/')?tempoService:pressureService;const upstream=http.request({host:'127.0.0.1',port:selected.server.address().port,path:req.url.replace(/^\/api\/(pressure|tempo)/,''),method:req.method,headers:{...req.headers,host:`127.0.0.1:${selected.server.address().port}`}},reply=>{res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);});upstream.on('error',()=>{res.writeHead(503);res.end();});res.on('close',()=>upstream.destroy());req.pipe(upstream);return;}
  if(!file.startsWith(dist+path.sep)&&!Object.values(fixtureRoutes).some(relative=>file===path.join(root,relative))){res.writeHead(403);res.end();return;}
  const bytes=await readFile(file);res.setHeader('Content-Type',file.endsWith('.js')||file.endsWith('.mjs')?'text/javascript':file.endsWith('.css')?'text/css':file.endsWith('.html')?'text/html':file.endsWith('.wasm')?'application/wasm':'application/octet-stream');res.end(bytes);
  }catch{res.writeHead(404);res.end();}});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const url=`http://127.0.0.1:${server.address().port}/`;
@@ -306,6 +310,12 @@ try{
  await evaluate(`new Promise(r=>setTimeout(r,150));`);await evaluate(`document.querySelector('#screen-resync').click()`);
  await until(`!document.querySelector('#screen-apply').disabled`);await evaluate(`document.querySelector('#screen-apply').click()`);
  if(pressureService){
+  stalePressure=true;
+  await evaluate(`document.querySelector('#play-engine').value='atlas-pressure';document.querySelector('#play-engine').dispatchEvent(new Event('change'))`);
+  await until(`document.querySelector('#engine-status').textContent.includes('불일치') && document.querySelector('#analysis').textContent.includes('실제 엔진')`);
+  assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);checks.push('a real browser refuses an old pressure service instead of showing a recommendation under the new selector name');
+  stalePressure=false;
+  await evaluate(`document.querySelector('#play-engine').value='atlas3';document.querySelector('#play-engine').dispatchEvent(new Event('change'))`);
   await evaluate(`document.querySelector('#play-engine').value='atlas-pressure';document.querySelector('#play-engine').dispatchEvent(new Event('change'))`);
   await until(`document.querySelector('#engine-status').textContent.includes('즉시 압박') && document.querySelector('#analysis').textContent.includes('immediate pressure') && !!document.querySelector('#analysis .pressure-reason')`);
   assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).engine`),'atlas-pressure');checks.push('pressure engine uses its own real native service and explains the recommendation in screen mode');
@@ -318,6 +328,10 @@ try{
   await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===2 && document.querySelector('#analysis').textContent.includes('선택')`);
   assert.ok(await evaluate(`document.querySelector('#analysis .pressure-reason')?.textContent.length>0`));checks.push('AI opponent mode commits a pressure-engine reply and retains its pre-move explanation');
   await evaluate(`document.querySelector('#analysis').scrollIntoView({block:'center'})`);await screenshot('pressure-engine.png');
+  await evaluate(`document.querySelector('#mode').value='sandbox';document.querySelector('#mode').dispatchEvent(new Event('change'));document.querySelector('#play-engine').value='atlas-tempo';document.querySelector('#play-engine').dispatchEvent(new Event('change'));document.querySelector('#hint').click()`);
+  await until(`document.querySelector('#engine-status').textContent.includes('0.3') && document.querySelector('#analysis').textContent.includes('wall tempo 0.3') && document.querySelector('#analysis .advice-context').textContent.includes('분석 완료')`);
+  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).decisionLog.some(e=>e.engine==='atlas-tempo' && e.complete===true && e.build?.length===12 && e.ply===3)`),true);
+  checks.push('wall tempo 0.3 uses its separate service, displays the current ply and completed phase, and saves the actual build');
   await mkdir(path.join(root,'reports','immediate-pressure'),{recursive:true});await writeFile(path.join(root,'reports','immediate-pressure','browser.json'),JSON.stringify({engineInfo:(await(await fetch(`http://127.0.0.1:${pressureService.server.address().port}/health`)).json()).engineInfo,checks:checks.slice(-3),uncaughtErrors:errors,screenshot:'../screen-import/pressure-engine.png'},null,2)+'\n');
  }
  assert.deepEqual(errors,[]);await writeFile(path.join(out,'browser-qa.json'),JSON.stringify({browser:'isolated headless Chrome/Edge',checks,uncaughtErrors:errors,realScreenCaptureTested:false,syntheticMediaStreamTested:true,screenshots:['recognition-review.png','applied-board.png','automatic-sync.png','automatic-grid.png','recovery.png','automatic-side-turn.png','move-dot-review.png']},null,2)+'\n');console.log(JSON.stringify({checks,uncaughtErrors:errors},null,2));
@@ -325,7 +339,7 @@ try{
  if(ws?.readyState===WebSocket.OPEN){try{await send('Browser.close',{},null);}catch{}ws.close();}
  if(chrome&&chrome.exitCode===null){await new Promise(resolve=>{const timer=setTimeout(()=>{chrome.kill();resolve();},3000);chrome.once('exit',()=>{clearTimeout(timer);resolve();});});}
  server.closeAllConnections();await new Promise(resolve=>server.close(resolve));
- if(pressureService)await pressureService.close();
+ if(pressureService)await pressureService.close();if(tempoService)await tempoService.close();
  // Only remove this freshly allocated profile inside the ignored QA directory.
  if(path.dirname(profile)===temp&&temp.startsWith(path.resolve(root,'native-engine','target')+path.sep))try{await rm(profile,{recursive:true,force:true,maxRetries:10,retryDelay:100});}catch{}
 }

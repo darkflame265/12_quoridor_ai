@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "runtime:check": "node scripts/check-runtime-upgrade.mjs",
+    "tempo:evaluate": "node scripts/evaluate-tempo.mjs",
     "reserve:check": "node scripts/check-reserve.mjs",
     "pressure:build": "node scripts/build-pressure.mjs",
     "pressure:check": "node scripts/check-pressure.mjs",

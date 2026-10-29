@@ -10,6 +10,7 @@ import {recommendation,recordDecision,observedAction} from './decision-log.js';
 
 const $=s=>document.querySelector(s),colors=['#31d4c2','#fa7393'],names=['청록','분홍'];
 for(const id of ['#play-engine','#watch-engine-0','#watch-engine-1']){const option=document.createElement('option');option.value='atlas-pressure';option.textContent='Atlas 즉시 압박 0.2 · 실험 (미승격)';$(id).add(option,2);}
+for(const id of ['#play-engine','#watch-engine-0','#watch-engine-1']){const option=document.createElement('option');option.value='atlas-tempo';option.textContent='Atlas 벽 투자 0.3 · 실험 (미승격)';$(id).add(option,3);}
 const defaultCores=Math.min(4,Math.max(1,(navigator.hardwareConcurrency||4)-2));
 let state=initial(),past=[],records=[],serial=0,busy=false,hint=null,decisionLog=[];
 let baseState=null,observedBottom=null,screenCapture=null;
@@ -20,8 +21,12 @@ const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.tur
 const flipped=()=>viewFlipped(Number($('#side').value),$('#start-position').value);
 const viewPosition=p=>orientPosition(p,flipped());
 const viewAction=a=>orientAction(a,flipped());
-const engineName=id=>id==='atlas3'?'Atlas 3':id==='atlas5'?'Atlas 5.3 안정':id==='atlas-pressure'?'Atlas 즉시 압박 0.2 실험':id==='atlas-experiment'?'Atlas 실험 late-full':'Atlas 4 WASM';
-function statusFor(selector){return (status,info)=>{const label=info?.engineInfo;$(selector).textContent=status==='atlas3'?'Atlas 3 사용':status==='atlas4'?'Atlas 4 WASM 사용':status==='native'?`${label?.label??'Atlas Native'} · ${label?.version??info.engine??'Native'}${label?.variant?' · '+label.variant:''}${label?.build?' · '+label.build:''}`:status==='unavailable'?'실험 엔진 사용 불가 · 다른 엔진으로 자동 대체하지 않습니다.':'Atlas 4 WASM 사용 (Native 연결 불가)';};}
+const engineName=id=>id==='atlas3'?'Atlas 3':id==='atlas5'?'Atlas 5.3 안정':id==='atlas-tempo'?'Atlas 벽 투자 0.3 실험':id==='atlas-pressure'?'Atlas 즉시 압박 0.2 실험':id==='atlas-experiment'?'Atlas 실험 late-full':'Atlas 4 WASM';
+function statusFor(selector){return (status,info)=>{
+ const label=info?.engineInfo;
+ if(status==='stale'){$(selector).textContent=`엔진 버전·빌드 불일치 · 실제 ${label?.version??'알 수 없음'} · ${label?.build??'빌드 확인 실패'} · 실행기를 다시 열어 갱신하세요`;return;}
+ $(selector).textContent=status==='atlas3'?'Atlas 3 사용':status==='atlas4'?'Atlas 4 WASM 사용':status==='native'?`${label?.label??'Atlas Native'} · ${label?.version??info.engine??'Native'}${label?.variant?' · '+label.variant:''}${label?.build?' · '+label.build:''}`:status==='unavailable'?'실험 엔진 사용 불가 · 다른 엔진으로 자동 대체하지 않습니다.':'Atlas 4 WASM 사용 (Native 연결 불가)';
+};}
 function createPlayPool(workers){const engine=$('#play-engine').value;$('#engine-status').textContent=['atlas4','atlas3'].includes(engine)?(engine==='atlas3'?'Atlas 3':'Atlas 4 WASM')+' 사용':'선택 엔진 확인 중…';return new AdaptiveEngine({workers,engine,onStatus:statusFor('#engine-status')});}
 const escapeHtml=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function watchSettings(t){return {engine:$(`#watch-engine-${t}`).value,ms:Number($(`#watch-time-${t}`).value),cores:Number($(`#watch-cores-${t}`).value)};}
@@ -34,7 +39,7 @@ const watcher=new SpectatorRunner({
   search:(snapshot,onProgress)=>watchPool(snapshot.turn).search(snapshot,{ms:watchSettings(snapshot.turn).ms,onProgress}),
   cancelSearch:cancelWatch,
   commit:(action,result)=>{const before=clone(state);applyMove(action);writeAnalysis(result,'선택',before);},
-  onAnalysis:r=>writeAnalysis(r),
+  onAnalysis:r=>writeAnalysis({...r,done:r.done??!watcher.thinking}),
   onChange:()=>{if(watching()){busy=watcher.thinking;render();}},
   onError:error=>{$('#analysis').textContent=error.message;},
   getDelay:()=>Number($('#watch-delay').value)
@@ -96,13 +101,15 @@ function render(){
 }
 function writeAnalysis(r,label='추천',source=state){
   if(!r.pv?.length)return;
+  if(label==='추천'&&(source.turn!==state.turn||boardKey(source)!==boardKey(state)))return;
   if(label==='추천'){
     const settings=watching()?watchSettings(source.turn):{engine:$('#play-engine').value,ms:Number($('#time').value),cores:pool.size},enginePool=watching()?watchPool(source.turn):pool;
-    recordDecision(decisionLog,recommendation(source,r,{...settings,build:enginePool.native?.info?.engineInfo?.build}));
+    recordDecision(decisionLog,recommendation(source,r,{...settings,ply:records.length+1,build:enginePool.native?.info?.engineInfo?.build}));
   }
   const recommended=r.pv[0];if(label==='추천')hint=recommended;$('#depth').textContent=r.exact?'후반 완전 탐색':`깊이 ${r.depth}`;
   const verdict=r.exact?(r.outcome===1?'정확한 승리':r.outcome===-1?'정확한 패배':'정확한 무승부'):'탐색 결과';
   $('#analysis').innerHTML=`<strong>${label} ${notation(recommended)}</strong><p>${r.pv.map(notation).join(' → ')}</p><small>${escapeHtml(r.engine??'AI')} · ${(r.nodes??0).toLocaleString()}개 노드 · ${verdict} · ${((r.elapsedMs??0)/1000).toFixed(1)}초</small>`;
+  if(label==='추천'){const context=document.createElement('p');context.className='advice-context';context.textContent=`전체 ${records.length+1}수 · ${names[source.turn]} 차례 · ${r.done===true?'분석 완료':'계산 중 · 추천이 바뀔 수 있습니다'}`;$('#analysis').append(context);}
   const explanation=pressureExplanation(source,recommended);if(explanation){const detail=document.createElement('p');detail.className='pressure-reason';detail.textContent=explanation;$('#analysis').append(detail);}
 }
 function applyMove(action){
@@ -128,7 +135,7 @@ function think(auto=false){
   render();$('#analysis').textContent='가능한 이동과 벽을 분석하고 있습니다…';
   selectedPool.search(state,{ms:watching()?watchSettings(state.turn).ms:Number($('#time').value),onProgress:r=>{if(id===serial)writeAnalysis(r);}}).then(r=>{
     if(id!==serial)return;if(!r.pv?.length)throw Error('추천 가능한 수가 없습니다.');
-    writeAnalysis(r);busy=false;if(auto){commitMove(r.pv[0]);writeAnalysis(r,'선택',source);}else {persist();render();}
+    writeAnalysis({...r,done:true});busy=false;if(auto){commitMove(r.pv[0]);writeAnalysis(r,'선택',source);}else {persist();render();}
   }).catch(error=>{if(id!==serial||error.name==='AbortError')return;stop();render();$('#analysis').textContent=error.message;});
 }
 function pick(e){

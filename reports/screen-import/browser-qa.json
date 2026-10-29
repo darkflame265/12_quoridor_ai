@@ -43,10 +43,12 @@
     "valid own move dots conflicting with an opponent caption suspend state updates instead of choosing a turn",
     "pink hint dots automatically identify own turn after bottom-side resynchronization",
     "120ms continuous 16-ply stream updates the board before play stops; Apply starts monitoring without a Start button",
+    "a real browser refuses an old pressure service instead of showing a recommendation under the new selector name",
     "pressure engine uses its own real native service and explains the recommendation in screen mode",
     "saved screen session includes actual engine build, recommendation, score, depth and search budget",
     "AI spectator step preserves pressure identity and explains the move from its pre-move position",
-    "AI opponent mode commits a pressure-engine reply and retains its pre-move explanation"
+    "AI opponent mode commits a pressure-engine reply and retains its pre-move explanation",
+    "wall tempo 0.3 uses its separate service, displays the current ply and completed phase, and saves the actual build"
   ],
   "uncaughtErrors": [],
   "realScreenCaptureTested": false,

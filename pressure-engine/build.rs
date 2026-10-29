@@ -6,6 +6,10 @@ fn main(){
  // Root action utility is bounded and never alters interior static evaluation.
  // Null windows are translated by the action's utility before searching.
  for(from,to) in [
+  ("if pos.left == [0, 0] {", "if self.apply_pawn_finish(&pos,&mut out,deadline,&cancel) { return out; }\n        if pos.left == [0, 0] {"),
+  ("if !cancel.load(Ordering::Relaxed) {\n            // A directly proven", "if !cancel.load(Ordering::Relaxed) {\n            self.apply_pawn_finish(&pos,&mut out,deadline,&cancel);\n            // A directly proven"),
+  ("out.result.pv = vec![decode(action)];", "if !pawn_finish_preferred(&out,distance.saturating_add(1)) {\n                out.result.pv = vec![decode(action)];"),
+  ("out.outcome = Some(1);", "out.outcome = Some(1);\n                out.win_proof=Some(WinProof{kind:\"last-wall-ending\",guaranteed_plies:distance.saturating_add(1),shortest_win_proven:false,wall_spent:true});\n                }"),
   ("struct SharedSearch {", "struct SharedSearch {\n    goal_root_active: AtomicBool,\n    goal_frontier: AtomicU64,"),
   ("            profile: 0,", "            goal_root_active: AtomicBool::new(false),\n            goal_frontier: AtomicU64::new(0),\n            profile: 0,"),
   ("for depth in 1..=max_depth.clamp(1, 64) {", "for depth in 1..=max_depth.clamp(1, 64) {\n            self.shared.goal_frontier.store((depth+2).min(14) as u64, Ordering::Relaxed);"),
@@ -14,8 +18,8 @@ fn main(){
   ("((theirs - enemy) - (mine - own)) * 1600 - 130", "((theirs - enemy) - (mine - own)) * 1600 - 130 + if self.goal_root_active.load(Ordering::Relaxed) && enemy<=3 && theirs>enemy {1200}else{0}"),
   ("self.static_score(&mut mirror_position(p))", "self.goal_score(&mut mirror_position(p))"),
   ("self.static_score(p)", "self.goal_score(p)"),
-  ("pub struct NativeOutput {","pub struct NativeOutput {\n    #[serde(skip_serializing_if = \"Option::is_none\")]\n    pub goal_safety: Option<GoalSafety>,\n    #[serde(skip_serializing_if = \"Option::is_none\")]\n    pub pressure: Option<PressureFeatures>,"),
-  ("let mut out = NativeOutput {","let mut out = NativeOutput {\n            goal_safety: None,\n            pressure: None,"),
+  ("pub struct NativeOutput {","pub struct NativeOutput {\n    #[serde(skip_serializing_if = \"Option::is_none\")]\n    pub win_proof: Option<WinProof>,\n    #[serde(skip_serializing_if = \"Option::is_none\")]\n    pub goal_safety: Option<GoalSafety>,\n    #[serde(skip_serializing_if = \"Option::is_none\")]\n    pub pressure: Option<PressureFeatures>,"),
+  ("let mut out = NativeOutput {","let mut out = NativeOutput {\n            win_proof: None,\n            goal_safety: None,\n            pressure: None,"),
   ("if s.winner.is_some() {", "let goal_active=goal_enabled() && goal_window(&pos) && pos.distance(pos.turn,false)<=3 && pos.left[1-pos.turn]>0;\n        if self.shared.goal_root_active.swap(goal_active,Ordering::Relaxed)!=goal_active {for cache in &self.shared.moves{cache.write().unwrap().clear();}}\n        if goal_enabled() { out.goal_safety=Some(self.shared.goal_details(&mut pos)); }\n        if s.winner.is_some() {"),
   ("let root_key = pos.key();","let root_key = pos.key();\n        let base_biases = pressure_biases(&mut pos, deadline, &cancel);\n        let tempo = tempo_biases(&mut pos, base_biases, deadline, &cancel);\n        let biases = goal_biases(&mut pos, tempo, deadline, &cancel);"),
   ("let score = -value;","let score = pressure_adjust(-value, biases[first as usize], 0);"),

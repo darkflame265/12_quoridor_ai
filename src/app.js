@@ -108,10 +108,12 @@ function writeAnalysis(r,label='추천',source=state){
     const settings=watching()?watchSettings(source.turn):{engine:$('#play-engine').value,ms:Number($('#time').value),cores:pool.size},enginePool=watching()?watchPool(source.turn):pool;
     recordDecision(decisionLog,recommendation(source,r,{...settings,ply:records.length+1,build:enginePool.native?.info?.engineInfo?.build}));
   }
-  const recommended=r.pv[0];if(label==='추천')hint=recommended;$('#depth').textContent=r.exact?'후반 완전 탐색':`깊이 ${r.depth}`;
-  const verdict=r.exact?(r.outcome===1?'정확한 승리':r.outcome===-1?'정확한 패배':'정확한 무승부'):'탐색 결과';
+  const strategyProof=r.winProof?.shortestWinProven===false;
+  const recommended=r.pv[0];if(label==='추천')hint=recommended;$('#depth').textContent=strategyProof?'승리 전략 확인':r.exact?'후반 완전 탐색':`깊이 ${r.depth}`;
+  const verdict=strategyProof?'승리 전략 확인':r.exact?(r.outcome===1?'정확한 승리':r.outcome===-1?'정확한 패배':'정확한 무승부'):'탐색 결과';
   $('#analysis').innerHTML=`<strong>${label} ${notation(recommended)}</strong><p>${r.pv.map(notation).join(' → ')}</p><small>${escapeHtml(r.engine??'AI')} · ${(r.nodes??0).toLocaleString()}개 노드 · ${verdict} · ${((r.elapsedMs??0)/1000).toFixed(1)}초</small>`;
   if(label==='추천'){const context=document.createElement('p');context.className='advice-context';context.textContent=`전체 ${records.length+1}수 · ${names[source.turn]} 차례 · ${r.done===true?'분석 완료':'계산 중 · 추천이 바뀔 수 있습니다'}`;$('#analysis').append(context);}
+  if(strategyProof){const proof=document.createElement('p');proof.className='win-proof';const turns=Math.ceil(r.winProof.guaranteedPlies/2);proof.textContent=`${r.winProof.kind==='pawn-only-strategy'?'벽을 쓰지 않는 이동 승리 전략':'마지막 벽 사용 후의 승리 전략'} · 최대 내 ${turns}턴. 전체 행동 중 최단 승리 여부까지 증명한 결과는 아닙니다.`;$('#analysis').append(proof);}
   const warning=analysisRisk(r,source.turn);if(warning){const note=document.createElement('p');note.className='analysis-warning';note.setAttribute('role','status');note.textContent=warning;$('#analysis').append(note);}
   const explanation=pressureExplanation(source,recommended);if(explanation){const detail=document.createElement('p');detail.className='pressure-reason';detail.textContent=explanation;$('#analysis').append(detail);}
 }

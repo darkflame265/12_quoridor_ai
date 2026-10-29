@@ -8,5 +8,6 @@ mod core {
     include!("reserve.rs");
     include!("tempo.rs");
     include!("goal_guard.rs");
+    include!("pawn_finish.rs");
 }
 pub use core::{NativeEngine, NativeOutput, State, explain_pressure, explain_tempo, explain_goal};

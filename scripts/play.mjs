@@ -8,6 +8,8 @@ import {createNativeService} from '../server/native-service.mjs';
 import {nativeSources,digest} from '../evaluation/native-policy.mjs';
 import {createExperimentalService} from '../server/experimental-service.mjs';
 import {verifyMazeBuild} from '../evaluation/maze-candidate-policy.mjs';
+import {createPressureService} from '../server/pressure-service.mjs';
+import {verifyPressureBuild} from '../evaluation/pressure-policy.mjs';
 
 const root=fileURLToPath(new URL('../',import.meta.url));process.chdir(root);
 const args=process.argv.slice(2),folder=path.resolve(args.includes('--state-dir')?args[args.indexOf('--state-dir')+1]:'.local-app');
@@ -32,11 +34,12 @@ if(args.includes('--stop')) {
   await new Promise(r=>setTimeout(r,200));
  }
  if(!acquired)throw Error('다른 실행이 준비 중입니다. 잠시 후 다시 실행해 주세요.');
- let native=null,experimental=null,web=null,stopping=null;const token=randomUUID();
+ let native=null,experimental=null,pressure=null,web=null,stopping=null;const token=randomUUID();
  const cleanup=()=>stopping??=(async()=>{
   if(web){web.closeAllConnections();await new Promise(r=>web.close(r));}
   if(native)await native.close();
   if(experimental)await experimental.close();
+  if(pressure)await pressure.close();
   const state=await existing();if(state?.pid===process.pid)await unlink(lock).catch(()=>{});
  })();
  process.on('SIGINT',()=>cleanup().then(()=>process.exit()));process.on('SIGTERM',()=>cleanup().then(()=>process.exit()));
@@ -56,6 +59,7 @@ if(args.includes('--stop')) {
    experimental=createExperimentalService();await experimental.client.health();
    await new Promise((resolve,reject)=>{experimental.server.once('error',reject);experimental.server.listen(0,'127.0.0.1',resolve);});
   }catch(error){console.error(`실험 엔진 준비 실패: ${error.message}`);if(experimental)await experimental.close();experimental=null;}
+  try{try{verifyPressureBuild();}catch{run('scripts/build-pressure.mjs');}pressure=createPressureService();await pressure.client.health();await new Promise((resolve,reject)=>{pressure.server.once('error',reject);pressure.server.listen(0,'127.0.0.1',resolve);});}catch(error){console.error(`즉시 압박 엔진 준비 실패: ${error.message}`);if(pressure)await pressure.close();pressure=null;}
   const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.wasm':'application/wasm','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon'};
   const dist=path.join(root,'dist');
   web=http.createServer(async(req,res)=>{
@@ -67,10 +71,10 @@ if(args.includes('--stop')) {
     if(pathname==='/__app/stop'&&req.method==='POST'){res.end('ok');setTimeout(()=>cleanup().then(()=>process.exit()),50);return;}
     res.writeHead(404).end();return;
    }
-   if(pathname.startsWith('/api/native/')||pathname.startsWith('/api/experimental/')) {
-    const selected=pathname.startsWith('/api/experimental/')?experimental:native;
+   if(pathname.startsWith('/api/native/')||pathname.startsWith('/api/experimental/')||pathname.startsWith('/api/pressure/')) {
+    const selected=pathname.startsWith('/api/pressure/')?pressure:pathname.startsWith('/api/experimental/')?experimental:native;
     if(!selected){res.writeHead(503).end('Experimental engine unavailable');return;}
-    const upstream=http.request({host:'127.0.0.1',port:selected.server.address().port,path:req.url.replace(/^\/api\/(native|experimental)/,''),method:req.method,headers:{...req.headers,host:`127.0.0.1:${selected.server.address().port}`}},reply=>{res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);});
+    const upstream=http.request({host:'127.0.0.1',port:selected.server.address().port,path:req.url.replace(/^\/api\/(native|experimental|pressure)/,''),method:req.method,headers:{...req.headers,host:`127.0.0.1:${selected.server.address().port}`}},reply=>{res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);});
     upstream.on('error',()=>{if(!res.headersSent)res.writeHead(503);res.end();});res.on('close',()=>upstream.destroy());req.pipe(upstream);return;
    }
    if(!['GET','HEAD'].includes(req.method)){res.writeHead(405).end();return;}

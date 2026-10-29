@@ -1,0 +1,2045 @@
+{
+  "identity": {
+    "nativeSourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+    "sources": {
+      "rust-engine/src/lib.rs": "363cd3197f8fc1e21acb20c576d5dac3be4f741e808e9caa963f10bcd3984078",
+      "native-engine/src/lib.rs": "477ba4dfc0bc64536aa47f67ff8e00646c51066e9ad4f54ac409fcd83d24310a",
+      "native-engine/src/search.rs": "4aa7c1703c2d425bec3fe22090243649c40ad92a8a597b2be550b25dd2cfc4a7",
+      "native-engine/src/strategy.rs": "3be980d2aba7889ce5734665a6fb06a8682ef5b64667d120710ccf77e3d88cdf",
+      "native-engine/src/endgame-oracle.rs": "1b65399e328980de658eb6d5628e3fa301fa2ee85892f5dce50c002770b5856d",
+      "native-engine/src/main.rs": "85bd0779574b2331468415215e60e0f8076613367c5de1ed9d790ad4af80b8c4",
+      "native-engine/Cargo.toml": "0e2ace99f5def761ceb9e5bb79fa02e440fa03df9c956e40ad015b7fb28701c2",
+      "native-engine/Cargo.lock": "767b8a0cacf898be5d2d8a0250e18b9ded346252ddf61195adc967b03893af16",
+      "rust-toolchain.toml": "690e8b2d01e4b515848ba8c0cfcb69e54605754c53f29f95eacb61ea7b4fb3b6",
+      "pressure-engine/Cargo.toml": "c854b852b4b1999f75bd6f3879ec6ca0c7d2f14e74588d8f4a93a944737e7030",
+      "pressure-engine/Cargo.lock": "46bf54f2cdbabc18338cfb9e88bf9690c9068da6319fb104fa516e880510aa88",
+      "pressure-engine/build.rs": "fd4218b97bde800b173ee773968c1a9b8a23fc4abb3fa03310f099edad10b5a0",
+      "pressure-engine/src/lib.rs": "ad8e34540d36edaf0dbcfa3d592a250420ff87ef6b38318b124a33ab731733d1",
+      "pressure-engine/src/main.rs": "4a4f97d4d1c88bd34a97ff1401058ca1fd65d1930c6d013eecca1c55f1822bb3",
+      "pressure-engine/src/pressure.rs": "e0f9e9479f073b29048dcc7c4b20d28aa5a528b3c053789992faa6dbaf87acbe"
+    },
+    "binaryHash": "e7a9ab8016f7d1a13ab8e2df5158ed0956eadac4cbeda2c2c1d9ce7fdee00ade"
+  },
+  "sourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+  "defaultProfile": "candidate",
+  "parity": [
+    {
+      "id": "initial",
+      "depth": 3,
+      "score": 132,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        }
+      ],
+      "nodesOriginal": 1562,
+      "nodesControl": 1562
+    },
+    {
+      "id": "provided-board-transcribed",
+      "depth": 3,
+      "score": 916,
+      "pv": [
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 6,
+          "y": 6
+        }
+      ],
+      "nodesOriginal": 3473,
+      "nodesControl": 3473
+    },
+    {
+      "id": "finish-0",
+      "depth": 1,
+      "score": 29999,
+      "pv": [
+        {
+          "type": "move",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "nodesOriginal": 1,
+      "nodesControl": 1
+    },
+    {
+      "id": "jump-0",
+      "depth": 1,
+      "score": 29999,
+      "pv": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 0
+        }
+      ],
+      "nodesOriginal": 1,
+      "nodesControl": 1
+    },
+    {
+      "id": "defend-0",
+      "depth": 3,
+      "score": -501,
+      "pv": [
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 6
+        }
+      ],
+      "nodesOriginal": 1036,
+      "nodesControl": 1036
+    },
+    {
+      "id": "diagonal-0",
+      "depth": 3,
+      "score": 697,
+      "pv": [
+        {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "o": "h",
+          "type": "wall",
+          "x": 3,
+          "y": 1
+        }
+      ],
+      "nodesOriginal": 2268,
+      "nodesControl": 2268
+    }
+  ],
+  "metricChecks": 743,
+  "tactics": [
+    {
+      "id": "finish-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "jump-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 0
+      }
+    },
+    {
+      "id": "defend-0",
+      "pass": true,
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 4,
+        "y": 7
+      }
+    },
+    {
+      "id": "diagonal-0",
+      "pass": true,
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "diagonal-finish-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 0
+      }
+    },
+    {
+      "id": "defend-jump-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "finish-before-defense-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "no-wall-resource-0",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      }
+    },
+    {
+      "id": "finish-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      }
+    },
+    {
+      "id": "jump-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 8
+      }
+    },
+    {
+      "id": "defend-1",
+      "pass": true,
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 3,
+        "y": 0
+      }
+    },
+    {
+      "id": "diagonal-1",
+      "pass": true,
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "id": "diagonal-finish-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 8
+      }
+    },
+    {
+      "id": "defend-jump-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      }
+    },
+    {
+      "id": "finish-before-defense-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      }
+    },
+    {
+      "id": "no-wall-resource-1",
+      "pass": true,
+      "action": {
+        "type": "move",
+        "x": 7,
+        "y": 4
+      }
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "initial",
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 8
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "walls": [],
+        "left": [
+          10,
+          10
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "stable": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.0261,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "e7c96dab-d743-485d-9cdf-3a88df0b4503",
+        "nodes": 61070,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "score": 132,
+        "sharedCacheHits": 22580,
+        "workers": 4
+      },
+      "pressure": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.4578,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + immediate pressure 0.1 · Native Rust ×4",
+        "id": "f18864d3-719f-450f-b95c-243bf6e60171",
+        "nodes": 59456,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "score": 132,
+        "sharedCacheHits": 21954,
+        "workers": 4
+      },
+      "alternatives": [
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 8
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 250,
+          "nearCutEdges": 0,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 8
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 250,
+          "nearCutEdges": 0,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 0
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 0,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 0
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 0,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 0,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 0
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 1,
+          "firstContact": 0,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 1,
+          "netGain": -1,
+          "ownDelay": 1,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 0
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 1,
+          "firstContact": 0,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 1,
+          "netGain": -1,
+          "ownDelay": 1,
+          "placementCost": 1,
+          "retainedDelay": 0
+        }
+      ]
+    },
+    {
+      "id": "provided-board-transcribed",
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 2,
+            "y": 2
+          }
+        ],
+        "turn": 0,
+        "winner": null,
+        "left": [
+          3,
+          6
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          }
+        ]
+      },
+      "stable": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.0464999999997,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "edee571b-a199-45ab-9dbf-2fa7e5977e4c",
+        "nodes": 56457,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 4
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 4
+          }
+        ],
+        "score": 640,
+        "sharedCacheHits": 8869,
+        "workers": 4
+      },
+      "pressure": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.1707000000001,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + immediate pressure 0.1 · Native Rust ×4",
+        "id": "027b7951-ad0c-4812-b5d4-f0ce05dd2e30",
+        "nodes": 58380,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 6
+          },
+          "bias": 0,
+          "connections": 1,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 2,
+          "firstContact": 10,
+          "legacyOrderScore": 3250,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 2
+        },
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 6
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 2,
+            "y": 4
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 4
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 4
+          }
+        ],
+        "score": 640,
+        "sharedCacheHits": 8406,
+        "workers": 4
+      },
+      "alternatives": [
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 3
+          },
+          "bias": 12,
+          "connections": 1,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 2,
+          "firstContact": 1,
+          "legacyOrderScore": 3250,
+          "nearCutEdges": 1,
+          "netGain": 1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 3
+          },
+          "bias": 12,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 2,
+          "firstContact": 1,
+          "legacyOrderScore": 3070,
+          "nearCutEdges": 1,
+          "netGain": 1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 1,
+            "y": 4
+          },
+          "bias": 7,
+          "connections": 2,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 2,
+          "firstContact": 2,
+          "legacyOrderScore": 3430,
+          "nearCutEdges": 1,
+          "netGain": 1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 6
+          },
+          "bias": 0,
+          "connections": 1,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 2,
+          "firstContact": 10,
+          "legacyOrderScore": 3250,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 2
+        },
+        {
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 4
+          },
+          "bias": 0,
+          "connections": 1,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 2,
+          "firstContact": 3,
+          "legacyOrderScore": 3250,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 7
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 1,
+          "firstContact": 11,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 0,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 1
+        }
+      ]
+    },
+    {
+      "id": "finish-0",
+      "state": {
+        "p": [
+          {
+            "x": 0,
+            "y": 1
+          },
+          {
+            "x": 8,
+            "y": 5
+          }
+        ],
+        "walls": [],
+        "left": [
+          10,
+          10
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "stable": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 1,
+        "done": true,
+        "elapsedMs": 0.0039999999999054126,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "4bfb7337-0b0f-4b4d-8236-16139e82ea77",
+        "nodes": 1,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "score": 29999,
+        "sharedCacheHits": 0,
+        "workers": 4
+      },
+      "pressure": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 1,
+        "done": true,
+        "elapsedMs": 0.025899999999637657,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + immediate pressure 0.1 · Native Rust ×4",
+        "id": "7efa4176-4f25-4bf8-90f3-c4f69aca0eae",
+        "nodes": 1,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 0
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "score": 29999,
+        "sharedCacheHits": 0,
+        "workers": 4
+      },
+      "alternatives": [
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 5
+          },
+          "bias": 19,
+          "connections": 0,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 2,
+          "firstContact": 0,
+          "legacyOrderScore": 3070,
+          "nearCutEdges": 1,
+          "netGain": 1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 1
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 6
+          },
+          "bias": 14,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 2,
+          "firstContact": 1,
+          "legacyOrderScore": 3070,
+          "nearCutEdges": 1,
+          "netGain": 1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 1
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 7
+          },
+          "bias": 9,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 2,
+          "firstContact": 2,
+          "legacyOrderScore": 3070,
+          "nearCutEdges": 1,
+          "netGain": 1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 1
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 0
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 1
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 250,
+          "nearCutEdges": 0,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": -1250,
+          "nearCutEdges": 0,
+          "netGain": -1,
+          "ownDelay": 1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 0
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 0,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 0,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        }
+      ]
+    },
+    {
+      "id": "jump-0",
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 2
+          },
+          {
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "walls": [],
+        "left": [
+          10,
+          10
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "stable": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 1,
+        "done": true,
+        "elapsedMs": 0.003499999999803549,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "929e84fe-2b1d-43da-9618-81688ae06a05",
+        "nodes": 1,
+        "partitioned": false,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "score": 29999,
+        "sharedCacheHits": 0,
+        "workers": 4
+      },
+      "pressure": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 1,
+        "done": true,
+        "elapsedMs": 0.06669999999985521,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + immediate pressure 0.1 · Native Rust ×4",
+        "id": "66e10094-0a24-4b0f-b5e4-6f98d32cf45b",
+        "nodes": 1,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 5,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 3250,
+          "nearCutEdges": 0,
+          "netGain": 2,
+          "ownDelay": -2,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "score": 29999,
+        "sharedCacheHits": 0,
+        "workers": 4
+      },
+      "alternatives": [
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 2
+          },
+          "bias": 10,
+          "connections": 0,
+          "enemyChoicesAfter": 5,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 1,
+          "firstContact": 1,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 1,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 2
+          },
+          "bias": 10,
+          "connections": 0,
+          "enemyChoicesAfter": 5,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 1,
+          "firstContact": 1,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 1,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 3
+          },
+          "bias": 5,
+          "connections": 0,
+          "enemyChoicesAfter": 4,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 1,
+          "firstContact": 2,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 1,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 3
+          },
+          "bias": 5,
+          "connections": 0,
+          "enemyChoicesAfter": 4,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 1,
+          "firstContact": 2,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 1,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 5,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 3250,
+          "nearCutEdges": 0,
+          "netGain": 2,
+          "ownDelay": -2,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 4,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 250,
+          "nearCutEdges": 0,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 4,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 250,
+          "nearCutEdges": 0,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 4
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 4,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 1,
+          "firstContact": 3,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 0,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        }
+      ]
+    },
+    {
+      "id": "defend-0",
+      "state": {
+        "p": [
+          {
+            "x": 0,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 7
+          }
+        ],
+        "walls": [],
+        "left": [
+          10,
+          10
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "stable": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.0242999999996,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "15510ba3-0c79-4c03-848c-15f91ae561da",
+        "nodes": 53771,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 4
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 6
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 5
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "score": -762,
+        "sharedCacheHits": 6320,
+        "workers": 4
+      },
+      "pressure": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 5,
+        "done": true,
+        "elapsedMs": 500.0527000000002,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + immediate pressure 0.1 · Native Rust ×4",
+        "id": "55d94d5e-0f4b-4a93-9776-5a513f7fcad9",
+        "nodes": 54726,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7
+          },
+          "bias": 15,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 1,
+          "firstContact": 0,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 1,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 4
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 6
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 0,
+            "y": 5
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "score": -747,
+        "sharedCacheHits": 5568,
+        "workers": 4
+      },
+      "alternatives": [
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 7
+          },
+          "bias": 15,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 1,
+          "firstContact": 0,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 1,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 7
+          },
+          "bias": 15,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 1,
+          "firstContact": 0,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 1,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 4,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 5
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 4,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 250,
+          "nearCutEdges": 0,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 6
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 4,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": -1250,
+          "nearCutEdges": 0,
+          "netGain": -1,
+          "ownDelay": 1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 1,
+            "y": 0
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 4,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 0,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 4,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 0,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 0
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 4,
+          "enemyChoicesBefore": 4,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": -130,
+          "nearCutEdges": 0,
+          "netGain": -1,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        }
+      ]
+    },
+    {
+      "id": "diagonal-0",
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 2
+          },
+          {
+            "x": 4,
+            "y": 1
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          }
+        ],
+        "left": [
+          10,
+          9
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "stable": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.05389999999943,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 · Native Rust ×4",
+        "id": "942a1de1-dc46-44fe-8841-e70b0e67653a",
+        "nodes": 179087,
+        "partitioned": false,
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 2
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "score": 536,
+        "sharedCacheHits": 7039,
+        "workers": 4
+      },
+      "pressure": {
+        "backend": "native",
+        "cancelled": false,
+        "depth": 4,
+        "done": true,
+        "elapsedMs": 500.13549999999987,
+        "endgameHits": 0,
+        "endgameSolves": 0,
+        "engine": "Atlas 5.3 + immediate pressure 0.1 · Native Rust ×4",
+        "id": "abb5133f-8fc3-4f7c-b141-531ef4aaa8b5",
+        "nodes": 196588,
+        "partitioned": false,
+        "pressure": {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 2
+          },
+          "bias": 10,
+          "connections": 0,
+          "enemyChoicesAfter": 4,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 1,
+          "firstContact": 1,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 1,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        "pv": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 2
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 2
+          },
+          {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        ],
+        "score": 546,
+        "sharedCacheHits": 6401,
+        "workers": 4
+      },
+      "alternatives": [
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 1
+          },
+          "bias": 15,
+          "connections": 0,
+          "enemyChoicesAfter": 2,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 1,
+          "firstContact": 0,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 1,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 2
+          },
+          "bias": 10,
+          "connections": 0,
+          "enemyChoicesAfter": 4,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 1,
+          "firstContact": 1,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 1,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 2
+          },
+          "bias": 10,
+          "connections": 0,
+          "enemyChoicesAfter": 4,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 1,
+          "firstContact": 1,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 1,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 3
+          },
+          "bias": 5,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 1,
+          "firstContact": 2,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 1,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 4,
+            "y": 3
+          },
+          "bias": 5,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 1,
+          "firstContact": 2,
+          "legacyOrderScore": 1470,
+          "nearCutEdges": 1,
+          "netGain": 0,
+          "ownDelay": 0,
+          "placementCost": 1,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 3250,
+          "nearCutEdges": 0,
+          "netGain": 2,
+          "ownDelay": -2,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          "bias": 0,
+          "connections": 0,
+          "enemyChoicesAfter": 3,
+          "enemyChoicesBefore": 3,
+          "enemyDelay": 0,
+          "firstContact": null,
+          "legacyOrderScore": 1750,
+          "nearCutEdges": 0,
+          "netGain": 1,
+          "ownDelay": -1,
+          "placementCost": 0,
+          "retainedDelay": 0
+        }
+      ]
+    }
+  ],
+  "productionPromoted": false,
+  "cancelAndReuse": true,
+  "status": "passed"
+}

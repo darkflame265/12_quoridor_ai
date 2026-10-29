@@ -6,13 +6,17 @@ import path from 'node:path';
 import {readFile,writeFile,mkdir,access,rm} from 'node:fs/promises';
 import {spawn,execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
+import {createPressureService} from '../server/pressure-service.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url)),dist=path.join(root,'dist'),out=path.join(root,'reports','screen-import');
 execFileSync(process.execPath,[path.join(root,'node_modules','vite','bin','vite.js'),'build'],{cwd:root,stdio:'inherit',windowsHide:true});
 let browserPath;for(const candidate of [process.env.SCREEN_QA_CHROME,'C:/Program Files/Google/Chrome/Application/chrome.exe','C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe','/usr/bin/chromium','/usr/bin/google-chrome'].filter(Boolean)){try{await access(candidate);browserPath=candidate;break;}catch{}}
 if(!browserPath)throw Error('Set SCREEN_QA_CHROME to a Chrome/Edge executable');
 const temp=path.resolve(root,'native-engine','target',`screen-qa-${Date.now()}`),profile=path.join(temp,'profile');await mkdir(temp,{recursive:true});await mkdir(out,{recursive:true});
+const pressureService=process.env.QUORIDOR_PRESSURE_BROWSER_QA==='1'?createPressureService():null;
+if(pressureService){await pressureService.client.health();await new Promise(resolve=>pressureService.server.listen(0,'127.0.0.1',resolve));}
 const fixtureRoutes={'/_qa/fixture.js':'scripts/test-fixtures/screen-board.mjs','/_qa/screen-board.mjs':'scripts/test-fixtures/screen-board.mjs','/_qa/context-fixture.js':'scripts/test-fixtures/source-screen.mjs','/_qa/reader.js':'src/source-context.js','/_qa/screen-recognition.js':'src/screen-recognition.js','/_qa/wall-observation.js':'src/wall-observation.js','/_qa/move-dot-evidence.js':'src/move-dot-evidence.js','/_qa/engine.js':'src/engine.js','/_qa/observed-state.js':'src/observed-state.js'};
 const server=http.createServer(async(req,res)=>{try{const url=new URL(req.url,'http://localhost'),file=fixtureRoutes[url.pathname]?path.join(root,fixtureRoutes[url.pathname]):path.resolve(dist,'.'+(url.pathname==='/'?'/index.html':decodeURIComponent(url.pathname)));
+ if(pressureService&&url.pathname.startsWith('/api/pressure/')){const upstream=http.request({host:'127.0.0.1',port:pressureService.server.address().port,path:req.url.replace('/api/pressure',''),method:req.method,headers:{...req.headers,host:`127.0.0.1:${pressureService.server.address().port}`}},reply=>{res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);});upstream.on('error',()=>{res.writeHead(503);res.end();});res.on('close',()=>upstream.destroy());req.pipe(upstream);return;}
  if(!file.startsWith(dist+path.sep)&&!Object.values(fixtureRoutes).some(relative=>file===path.join(root,relative))){res.writeHead(403);res.end();return;}
  const bytes=await readFile(file);res.setHeader('Content-Type',file.endsWith('.js')||file.endsWith('.mjs')?'text/javascript':file.endsWith('.css')?'text/css':file.endsWith('.html')?'text/html':file.endsWith('.wasm')?'application/wasm':'application/octet-stream');res.end(bytes);
  }catch{res.writeHead(404);res.end();}});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const url=`http://127.0.0.1:${server.address().port}/`;
@@ -282,11 +286,25 @@ try{
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).side`),1);
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.turn`),1);
  checks.push('pink hint dots automatically identify own turn after bottom-side resynchronization');
+ if(pressureService){
+  await evaluate(`document.querySelector('#play-engine').value='atlas-pressure';document.querySelector('#play-engine').dispatchEvent(new Event('change'))`);
+  await until(`document.querySelector('#engine-status').textContent.includes('즉시 압박') && document.querySelector('#analysis').textContent.includes('immediate pressure') && !!document.querySelector('#analysis .pressure-reason')`);
+  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).engine`),'atlas-pressure');checks.push('pressure engine uses its own real native service and explains the recommendation in screen mode');
+  await evaluate(`document.querySelector('#mode').value='watch';document.querySelector('#mode').dispatchEvent(new Event('change'));document.querySelector('#watch-engine-1').value='atlas-pressure';document.querySelector('#watch-engine-1').dispatchEvent(new Event('change'));document.querySelector('#watch-step').click()`);
+  await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===1 && document.querySelector('#analysis').textContent.includes('immediate pressure')`);
+  assert.ok(await evaluate(`document.querySelector('#analysis .pressure-reason')?.textContent.length>0`));checks.push('AI spectator step preserves pressure identity and explains the move from its pre-move position');
+  await evaluate(`document.querySelector('#mode').value='ai';document.querySelector('#mode').dispatchEvent(new Event('change'))`);
+  await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===2 && document.querySelector('#analysis').textContent.includes('선택')`);
+  assert.ok(await evaluate(`document.querySelector('#analysis .pressure-reason')?.textContent.length>0`));checks.push('AI opponent mode commits a pressure-engine reply and retains its pre-move explanation');
+  await evaluate(`document.querySelector('#analysis').scrollIntoView({block:'center'})`);await screenshot('pressure-engine.png');
+  await mkdir(path.join(root,'reports','immediate-pressure'),{recursive:true});await writeFile(path.join(root,'reports','immediate-pressure','browser.json'),JSON.stringify({engineInfo:(await(await fetch(`http://127.0.0.1:${pressureService.server.address().port}/health`)).json()).engineInfo,checks:checks.slice(-3),uncaughtErrors:errors,screenshot:'../screen-import/pressure-engine.png'},null,2)+'\n');
+ }
  assert.deepEqual(errors,[]);await writeFile(path.join(out,'browser-qa.json'),JSON.stringify({browser:'isolated headless Chrome/Edge',checks,uncaughtErrors:errors,realScreenCaptureTested:false,syntheticMediaStreamTested:true,screenshots:['recognition-review.png','applied-board.png','automatic-sync.png','automatic-grid.png','recovery.png','automatic-side-turn.png','move-dot-review.png']},null,2)+'\n');console.log(JSON.stringify({checks,uncaughtErrors:errors},null,2));
 }catch(error){try{await screenshot('failure.png');console.error(await evaluate(`JSON.stringify({message:document.querySelector('#screen-message')?.textContent,calls:window.qaCalls,videoReady:document.querySelector('#screen-video')?.readyState,connection:document.querySelector('#screen-connection')?.textContent,mode:document.querySelector('#mode')?.value})`));}catch{}throw error;}finally{
  if(ws?.readyState===WebSocket.OPEN){try{await send('Browser.close',{},null);}catch{}ws.close();}
  if(chrome&&chrome.exitCode===null){await new Promise(resolve=>{const timer=setTimeout(()=>{chrome.kill();resolve();},3000);chrome.once('exit',()=>{clearTimeout(timer);resolve();});});}
  server.closeAllConnections();await new Promise(resolve=>server.close(resolve));
+ if(pressureService)await pressureService.close();
  // Only remove this freshly allocated profile inside the ignored QA directory.
  if(path.dirname(profile)===temp&&temp.startsWith(path.resolve(root,'native-engine','target')+path.sep))try{await rm(profile,{recursive:true,force:true,maxRetries:10,retryDelay:100});}catch{}
 }

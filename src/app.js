@@ -5,8 +5,10 @@ import {SpectatorRunner,observationOutcome} from './spectator.js';
 import {mountScreenCapture} from './screen-capture.js';
 import {restoreObservedSession} from './observed-state.js';
 import {boardKey} from './screen-sync.js';
+import {pressureExplanation} from './pressure-advice.js';
 
 const $=s=>document.querySelector(s),colors=['#31d4c2','#fa7393'],names=['청록','분홍'];
+for(const id of ['#play-engine','#watch-engine-0','#watch-engine-1']){const option=document.createElement('option');option.value='atlas-pressure';option.textContent='Atlas 즉시 압박 0.1 · 실험 (미승격)';$(id).add(option,2);}
 const defaultCores=Math.min(4,Math.max(1,(navigator.hardwareConcurrency||4)-2));
 let state=initial(),past=[],records=[],serial=0,busy=false,hint=null;
 let baseState=null,observedBottom=null,screenCapture=null;
@@ -17,7 +19,7 @@ const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.tur
 const flipped=()=>viewFlipped(Number($('#side').value),$('#start-position').value);
 const viewPosition=p=>orientPosition(p,flipped());
 const viewAction=a=>orientAction(a,flipped());
-const engineName=id=>id==='atlas3'?'Atlas 3':id==='atlas5'?'Atlas 5.3 안정':id==='atlas-experiment'?'Atlas 실험 late-full':'Atlas 4 WASM';
+const engineName=id=>id==='atlas3'?'Atlas 3':id==='atlas5'?'Atlas 5.3 안정':id==='atlas-pressure'?'Atlas 즉시 압박 0.1 실험':id==='atlas-experiment'?'Atlas 실험 late-full':'Atlas 4 WASM';
 function statusFor(selector){return (status,info)=>{const label=info?.engineInfo;$(selector).textContent=status==='atlas3'?'Atlas 3 사용':status==='atlas4'?'Atlas 4 WASM 사용':status==='native'?`${label?.label??'Atlas Native'} · ${label?.version??info.engine??'Native'}${label?.variant?' · '+label.variant:''}${label?.build?' · '+label.build:''}`:status==='unavailable'?'실험 엔진 사용 불가 · 다른 엔진으로 자동 대체하지 않습니다.':'Atlas 4 WASM 사용 (Native 연결 불가)';};}
 function createPlayPool(workers){const engine=$('#play-engine').value;$('#engine-status').textContent=['atlas4','atlas3'].includes(engine)?(engine==='atlas3'?'Atlas 3':'Atlas 4 WASM')+' 사용':'선택 엔진 확인 중…';return new AdaptiveEngine({workers,engine,onStatus:statusFor('#engine-status')});}
 const escapeHtml=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -30,7 +32,7 @@ const watcher=new SpectatorRunner({
   getState:()=>state,getOutcome:watchOutcome,
   search:(snapshot,onProgress)=>watchPool(snapshot.turn).search(snapshot,{ms:watchSettings(snapshot.turn).ms,onProgress}),
   cancelSearch:cancelWatch,
-  commit:(action,result)=>{applyMove(action);writeAnalysis(result,'선택');},
+  commit:(action,result)=>{const before=clone(state);applyMove(action);writeAnalysis(result,'선택',before);},
   onAnalysis:r=>writeAnalysis(r),
   onChange:()=>{if(watching()){busy=watcher.thinking;render();}},
   onError:error=>{$('#analysis').textContent=error.message;},
@@ -91,11 +93,12 @@ function render(){
     $('#instruction').textContent=!baseState?'화면을 가져와 검토·적용하면 이 보드가 바뀝니다':screenCapture?.active?'자동 감시 중 · 안정된 합법 수를 반영하고 내 차례에 추천합니다':'자동 감시는 일시정지 상태입니다 · 화면 공유 후 자동 감시 시작을 누르세요';
   }
 }
-function writeAnalysis(r,label='추천'){
+function writeAnalysis(r,label='추천',source=state){
   if(!r.pv?.length)return;
   const recommended=r.pv[0];if(label==='추천')hint=recommended;$('#depth').textContent=r.exact?'후반 완전 탐색':`깊이 ${r.depth}`;
   const verdict=r.exact?(r.outcome===1?'정확한 승리':r.outcome===-1?'정확한 패배':'정확한 무승부'):'탐색 결과';
   $('#analysis').innerHTML=`<strong>${label} ${notation(recommended)}</strong><p>${r.pv.map(notation).join(' → ')}</p><small>${escapeHtml(r.engine??'AI')} · ${(r.nodes??0).toLocaleString()}개 노드 · ${verdict} · ${((r.elapsedMs??0)/1000).toFixed(1)}초</small>`;
+  const explanation=pressureExplanation(source,recommended);if(explanation){const detail=document.createElement('p');detail.className='pressure-reason';detail.textContent=explanation;$('#analysis').append(detail);}
 }
 function applyMove(action){
   if(!legal(state,action))throw Error('불가능한 수입니다.');
@@ -115,11 +118,11 @@ function schedule(){
   }
 }
 function think(auto=false){
-  stop();busy=true;hint=null;const id=serial,selectedPool=watching()?watchPool(state.turn):pool;
+  stop();busy=true;hint=null;const id=serial,source=clone(state),selectedPool=watching()?watchPool(state.turn):pool;
   render();$('#analysis').textContent='가능한 이동과 벽을 분석하고 있습니다…';
   selectedPool.search(state,{ms:watching()?watchSettings(state.turn).ms:Number($('#time').value),onProgress:r=>{if(id===serial)writeAnalysis(r);}}).then(r=>{
     if(id!==serial)return;if(!r.pv?.length)throw Error('추천 가능한 수가 없습니다.');
-    writeAnalysis(r);busy=false;if(auto){commitMove(r.pv[0]);writeAnalysis(r,'선택');}else render();
+    writeAnalysis(r);busy=false;if(auto){commitMove(r.pv[0]);writeAnalysis(r,'선택',source);}else render();
   }).catch(error=>{if(id!==serial||error.name==='AbortError')return;stop();render();$('#analysis').textContent=error.message;});
 }
 function pick(e){

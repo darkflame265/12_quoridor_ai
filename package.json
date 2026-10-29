@@ -3,6 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "pressure:build": "node scripts/build-pressure.mjs",
+    "pressure:check": "node scripts/check-pressure.mjs",
+    "pressure:evaluate": "node scripts/evaluate-pressure.mjs",
+    "pressure:verify": "node scripts/verify-pressure.mjs",
+    "pressure:qa": "node scripts/check-pressure-browser.mjs",
     "screen:qa": "node scripts/check-screen-browser.mjs",
     "search:independent-prepare": "node scripts/prepare-preview-independent.mjs",
     "search:independent-run": "node scripts/run-preview-independent.mjs",

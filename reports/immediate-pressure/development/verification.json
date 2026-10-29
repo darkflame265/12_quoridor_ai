@@ -1,0 +1,94 @@
+{
+  "status": "verified",
+  "reportSha256": "d1af7b01bce15c72877758bd914c32b3b79aac05020972fbc4e35da5348aa26e",
+  "identity": {
+    "nativeSourceHash": "be6af5d57cc5068c54d8c7eb8e3ef5d18d2e906617ecc6b947f3df60751a52e4",
+    "sources": {
+      "rust-engine/src/lib.rs": "363cd3197f8fc1e21acb20c576d5dac3be4f741e808e9caa963f10bcd3984078",
+      "native-engine/src/lib.rs": "477ba4dfc0bc64536aa47f67ff8e00646c51066e9ad4f54ac409fcd83d24310a",
+      "native-engine/src/search.rs": "4aa7c1703c2d425bec3fe22090243649c40ad92a8a597b2be550b25dd2cfc4a7",
+      "native-engine/src/strategy.rs": "3be980d2aba7889ce5734665a6fb06a8682ef5b64667d120710ccf77e3d88cdf",
+      "native-engine/src/endgame-oracle.rs": "1b65399e328980de658eb6d5628e3fa301fa2ee85892f5dce50c002770b5856d",
+      "native-engine/src/main.rs": "85bd0779574b2331468415215e60e0f8076613367c5de1ed9d790ad4af80b8c4",
+      "native-engine/Cargo.toml": "0e2ace99f5def761ceb9e5bb79fa02e440fa03df9c956e40ad015b7fb28701c2",
+      "native-engine/Cargo.lock": "767b8a0cacf898be5d2d8a0250e18b9ded346252ddf61195adc967b03893af16",
+      "rust-toolchain.toml": "690e8b2d01e4b515848ba8c0cfcb69e54605754c53f29f95eacb61ea7b4fb3b6",
+      "pressure-engine/Cargo.toml": "c854b852b4b1999f75bd6f3879ec6ca0c7d2f14e74588d8f4a93a944737e7030",
+      "pressure-engine/Cargo.lock": "46bf54f2cdbabc18338cfb9e88bf9690c9068da6319fb104fa516e880510aa88",
+      "pressure-engine/build.rs": "fd4218b97bde800b173ee773968c1a9b8a23fc4abb3fa03310f099edad10b5a0",
+      "pressure-engine/src/lib.rs": "ad8e34540d36edaf0dbcfa3d592a250420ff87ef6b38318b124a33ab731733d1",
+      "pressure-engine/src/main.rs": "4a4f97d4d1c88bd34a97ff1401058ca1fd65d1930c6d013eecca1c55f1822bb3",
+      "pressure-engine/src/pressure.rs": "e0f9e9479f073b29048dcc7c4b20d28aa5a528b3c053789992faa6dbaf87acbe"
+    },
+    "binaryHash": "e7a9ab8016f7d1a13ab8e2df5158ed0956eadac4cbeda2c2c1d9ce7fdee00ade"
+  },
+  "files": [
+    {
+      "file": "reports\\immediate-pressure\\development\\games\\general-0-side0.json",
+      "sha256": "017fbdb0c36862b1afc592613313ddfeee64a234f94b8d274177c03e142e7cf8"
+    },
+    {
+      "file": "reports\\immediate-pressure\\development\\games\\general-0-side1.json",
+      "sha256": "67090e04daece9ab49ff3fe7c4a87d34935763322725780d95f1cbb52af02093"
+    },
+    {
+      "file": "reports\\immediate-pressure\\development\\games\\general-1-side0.json",
+      "sha256": "becb95f8ba3f0f35dbfb1f1aeb0141b68ce0e79f4a13eaa20a6ade36c9f0eaf3"
+    },
+    {
+      "file": "reports\\immediate-pressure\\development\\games\\general-1-side1.json",
+      "sha256": "d67800f9de3b71f4d86695c345c6c5009ecd07f0c57571d65f90bc5b1129c2cd"
+    },
+    {
+      "file": "reports\\immediate-pressure\\development\\games\\maze-0-side0.json",
+      "sha256": "1df42927a06e18d083f9d2278920280b7de493c09ef48a4a5cae2971817fabb2"
+    },
+    {
+      "file": "reports\\immediate-pressure\\development\\games\\maze-0-side1.json",
+      "sha256": "f86094f8bd89248b8c404b930a9a6d3a91e6c66f428b5237739d714a57b5db38"
+    },
+    {
+      "file": "reports\\immediate-pressure\\development\\games\\maze-1-side0.json",
+      "sha256": "de0bbc7d8e463be867fd7b3262089dc77597ceb50115806e8e3e8af3be3acc84"
+    },
+    {
+      "file": "reports\\immediate-pressure\\development\\games\\maze-1-side1.json",
+      "sha256": "7e300f8ca0affa78aab4010b4c39c3f9283d9a46834ae80c033f0d6434057fcb"
+    }
+  ],
+  "actions": 512,
+  "metrics": {
+    "candidate": {
+      "walls": 57,
+      "nearWalls": 21,
+      "negativeImmediateNet": 14,
+      "totalDelay": 107
+    },
+    "stable": {
+      "walls": 55,
+      "nearWalls": 14,
+      "negativeImmediateNet": 14,
+      "totalDelay": 101
+    }
+  },
+  "summary": {
+    "wins": 4,
+    "losses": 3,
+    "draws": 1,
+    "bySuite": {
+      "general": {
+        "wins": 2,
+        "losses": 1,
+        "draws": 1
+      },
+      "maze": {
+        "wins": 2,
+        "losses": 2,
+        "draws": 0
+      }
+    }
+  },
+  "defaultProfile": "candidate",
+  "productionPromoted": false,
+  "caveat": "Small development sample; no independent holdout and no claim of increased playing strength."
+}

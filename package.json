@@ -3,6 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "search:filter-build": "node scripts/build-route-filter.mjs",
+    "search:filter-check": "node scripts/check-route-filter.mjs",
+    "search:filter-verify": "node scripts/verify-route-filter.mjs",
+    "search:filter-ranks": "node scripts/audit-route-ranks.mjs",
     "search:boundary-build": "node scripts/build-boundary-order.mjs",
     "search:boundary-check": "node scripts/check-boundary-order.mjs",
     "search:boundary-verify": "node scripts/verify-boundary-order.mjs",

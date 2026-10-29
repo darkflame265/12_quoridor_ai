@@ -11,7 +11,7 @@ execFileSync(process.execPath,[path.join(root,'node_modules','vite','bin','vite.
 let browserPath;for(const candidate of [process.env.SCREEN_QA_CHROME,'C:/Program Files/Google/Chrome/Application/chrome.exe','C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe','/usr/bin/chromium','/usr/bin/google-chrome'].filter(Boolean)){try{await access(candidate);browserPath=candidate;break;}catch{}}
 if(!browserPath)throw Error('Set SCREEN_QA_CHROME to a Chrome/Edge executable');
 const temp=path.resolve(root,'native-engine','target',`screen-qa-${Date.now()}`),profile=path.join(temp,'profile');await mkdir(temp,{recursive:true});await mkdir(out,{recursive:true});
-const fixtureRoutes={'/_qa/fixture.js':'scripts/test-fixtures/screen-board.mjs','/_qa/screen-board.mjs':'scripts/test-fixtures/screen-board.mjs','/_qa/context-fixture.js':'scripts/test-fixtures/source-screen.mjs','/_qa/reader.js':'src/source-context.js','/_qa/screen-recognition.js':'src/screen-recognition.js','/_qa/wall-observation.js':'src/wall-observation.js'};
+const fixtureRoutes={'/_qa/fixture.js':'scripts/test-fixtures/screen-board.mjs','/_qa/screen-board.mjs':'scripts/test-fixtures/screen-board.mjs','/_qa/context-fixture.js':'scripts/test-fixtures/source-screen.mjs','/_qa/reader.js':'src/source-context.js','/_qa/screen-recognition.js':'src/screen-recognition.js','/_qa/wall-observation.js':'src/wall-observation.js','/_qa/move-dot-evidence.js':'src/move-dot-evidence.js','/_qa/engine.js':'src/engine.js','/_qa/observed-state.js':'src/observed-state.js'};
 const server=http.createServer(async(req,res)=>{try{const url=new URL(req.url,'http://localhost'),file=fixtureRoutes[url.pathname]?path.join(root,fixtureRoutes[url.pathname]):path.resolve(dist,'.'+(url.pathname==='/'?'/index.html':decodeURIComponent(url.pathname)));
  if(!file.startsWith(dist+path.sep)&&!Object.values(fixtureRoutes).some(relative=>file===path.join(root,relative))){res.writeHead(403);res.end();return;}
  const bytes=await readFile(file);res.setHeader('Content-Type',file.endsWith('.js')||file.endsWith('.mjs')?'text/javascript':file.endsWith('.css')?'text/css':file.endsWith('.html')?'text/html':file.endsWith('.wasm')?'application/wasm':'application/octet-stream');res.end(bytes);
@@ -251,7 +251,38 @@ try{
  assert.equal(await evaluate(`document.querySelector('#screen-apply').disabled`),false);
  await evaluate(`document.querySelector('#screen-apply').click()`);
  checks.push('unreadable initial turn blocks automatic application, records diagnosis and allows explicit manual correction');
- assert.deepEqual(errors,[]);await writeFile(path.join(out,'browser-qa.json'),JSON.stringify({browser:'isolated headless Chrome/Edge',checks,uncaughtErrors:errors,realScreenCaptureTested:false,syntheticMediaStreamTested:true,screenshots:['recognition-review.png','applied-board.png','automatic-sync.png','automatic-grid.png','recovery.png','automatic-side-turn.png']},null,2)+'\n');console.log(JSON.stringify({checks,uncaughtErrors:errors},null,2));
+ await evaluate(`window.qaInitialDots=[{x:3,y:8,owner:0},{x:5,y:8,owner:0},{x:4,y:7,owner:0}];qaLivePaint({bottom:0,relative:'self',cardRole:null,phrase:false,plies:0,positions:[{x:4,y:8},{x:4,y:0}],installed:[],dots:qaInitialDots,dotOpacity:.35})`);
+ await evaluate(`new Promise(r=>setTimeout(r,250))`);await evaluate(`document.querySelector('#screen-resync').click();document.querySelector('#screen-auto-turn').checked=true;document.querySelector('#screen-auto-turn').dispatchEvent(new Event('change'))`);
+ await until(`document.querySelector('#screen-turn-result').textContent.includes('이동 점 3개') && !document.querySelector('#screen-apply').disabled`);
+ assert.equal(await evaluate(`document.querySelector('#screen-turn').disabled && document.querySelector('#screen-turn').value==='0'`),true);
+ await screenshot('move-dot-review.png');
+ await evaluate(`document.querySelector('#screen-apply').click();document.querySelector('#screen-auto-start').click()`);
+ await until(`!!document.querySelector('#board .recommend')`);
+ assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.turn`),0);
+ checks.push('dim initial three-dot hints alone enable automatic application and own-turn recommendation without captions or cards');
+ await evaluate(`qaLivePaint({bottom:0,relative:'self',cardRole:null,phrase:false,plies:0,positions:[{x:4,y:8},{x:4,y:0}],installed:[],dots:[]})`);
+ await until(`document.querySelector('#screen-auto-status').textContent.includes('판독 실패')`);
+ assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),0);
+ checks.push('disappearing hint dots do not imply opponent turn and clear stale recommendations');
+ await evaluate(`qaLivePaint({bottom:0,relative:'opponent',cardRole:'opponent',phrase:false,plies:1,positions:[{x:4,y:7},{x:4,y:0}],installed:[],dots:[]})`);
+ await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===1`);
+ assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);
+ await evaluate(`window.qaFourDots=[{x:4,y:6,owner:0},{x:3,y:7,owner:0},{x:5,y:7,owner:0},{x:4,y:8,owner:0}];qaLivePaint({bottom:0,relative:'self',cardRole:null,phrase:false,plies:2,positions:[{x:4,y:7},{x:4,y:1}],installed:[],dots:qaFourDots,dotOpacity:.35})`);
+ await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===2`);await until(`!!document.querySelector('#board .recommend')`);
+ checks.push('card fallback and four-dot evidence resume legal synchronization and refresh recommendation on own turn');
+ await evaluate(`qaLivePaint({bottom:0,relative:'opponent',cardRole:'opponent',phrase:true,plies:2,positions:[{x:4,y:7},{x:4,y:1}],installed:[],dots:qaFourDots})`);
+ await until(`document.querySelector('#screen-auto-status').textContent.includes('충돌')`);
+ assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),2);
+ checks.push('valid own move dots conflicting with an opponent caption suspend state updates instead of choosing a turn');
+ await evaluate(`qaLivePaint({bottom:1,relative:'self',cardRole:null,phrase:false,plies:9,positions:[{x:4,y:2},{x:4,y:6}],installed:[],dots:[{x:3,y:6,owner:1},{x:5,y:6,owner:1},{x:4,y:5,owner:1},{x:4,y:7,owner:1}],dotOpacity:.35})`);
+ await evaluate(`new Promise(r=>setTimeout(r,250))`);await evaluate(`document.querySelector('#screen-resync').click()`);
+ await until(`document.querySelector('#screen-turn-result').textContent.includes('분홍 이동 점 4개') && !document.querySelector('#screen-apply').disabled`);
+ await evaluate(`document.querySelector('#screen-apply').click();document.querySelector('#screen-auto-start').click()`);
+ await until(`!!document.querySelector('#board .recommend')`);
+ assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).side`),1);
+ assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.turn`),1);
+ checks.push('pink hint dots automatically identify own turn after bottom-side resynchronization');
+ assert.deepEqual(errors,[]);await writeFile(path.join(out,'browser-qa.json'),JSON.stringify({browser:'isolated headless Chrome/Edge',checks,uncaughtErrors:errors,realScreenCaptureTested:false,syntheticMediaStreamTested:true,screenshots:['recognition-review.png','applied-board.png','automatic-sync.png','automatic-grid.png','recovery.png','automatic-side-turn.png','move-dot-review.png']},null,2)+'\n');console.log(JSON.stringify({checks,uncaughtErrors:errors},null,2));
 }catch(error){try{await screenshot('failure.png');console.error(await evaluate(`JSON.stringify({message:document.querySelector('#screen-message')?.textContent,calls:window.qaCalls,videoReady:document.querySelector('#screen-video')?.readyState,connection:document.querySelector('#screen-connection')?.textContent,mode:document.querySelector('#mode')?.value})`));}catch{}throw error;}finally{
  if(ws?.readyState===WebSocket.OPEN){try{await send('Browser.close',{},null);}catch{}ws.close();}
  if(chrome&&chrome.exitCode===null){await new Promise(resolve=>{const timer=setTimeout(()=>{chrome.kill();resolve();},3000);chrome.once('exit',()=>{clearTimeout(timer);resolve();});});}

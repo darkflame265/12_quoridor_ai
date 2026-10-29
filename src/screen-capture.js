@@ -30,10 +30,10 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
  let automaticGrid=false,lastGridCheck=0;
  let lastDraft=null,frameKey=null,frameCount=0;const observedFrames=[],diagnostics=[];
  let templates=null,sourceMeta=null,lastContext=null;
- function context(pixels,area=rect,gap=gaps()){templates??=createSourceTemplates(document);return readSourceContext(pixels,area,{gap,templates});}
+ function context(pixels,area=rect,gap=gaps(),board){templates??=createSourceTemplates(document);return readSourceContext(pixels,area,{gap,templates,board,bottom:$('screen-auto-side').checked?undefined:Number($('screen-bottom').value)});}
  function sourceErrors(){const issues=[],winner=draft?snapshotFromDraft(draft,{bottom:Number($('screen-bottom').value),turn:0}).winner:null;if($('screen-auto-side').checked&&sourceMeta?.bottom==null)issues.push('아래 출발 줄 색을 읽지 못했습니다. 전체 보드를 공유하거나 수동 보정하세요.');if($('screen-auto-turn').checked&&sourceMeta?.relative==null&&winner===null)issues.push(sourceMeta?.turnReason??'원본 차례를 읽지 못했습니다. 차례 표시까지 공유하거나 수동 보정하세요.');return issues;}
  function updateContext(){
-  if(hasFrame&&rect){sourceMeta=context(frame.getContext('2d').getImageData(0,0,frame.width,frame.height));lastContext=sourceMeta;if(draft)lastDraft=draft;}
+  if(hasFrame&&rect){sourceMeta=context(frame.getContext('2d').getImageData(0,0,frame.width,frame.height),rect,gaps(),draft??undefined);lastContext=sourceMeta;if(draft)lastDraft=draft;}
   const autoSide=$('screen-auto-side').checked,autoTurn=$('screen-auto-turn').checked;
   if(autoSide&&sourceMeta?.bottom!=null)$('screen-bottom').value=String(sourceMeta.bottom);
   const bottom=Number($('screen-bottom').value);
@@ -88,7 +88,7 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
    const before=getState?.();if(!before){pause('배치를 다시 적용하세요.');return;}
    const target=observedSnapshot(detected,calibration.bottom,before.turn);let sourceTurn,expectedPlies;
    if(calibration.autoSide||calibration.autoTurn){
-    lastContext=context(pixels,calibration.rect,calibration.gap);
+    lastContext=context(pixels,calibration.rect,calibration.gap,detected);
     if(calibration.autoSide&&lastContext.bottom!==calibration.bottom)throw Error('내 진영 판독 불일치 · 출발 줄 색 변경 또는 가림을 확인하고 현재 화면 재동기화를 이용하세요.');
     if(calibration.autoTurn&&target.winner===null){if(lastContext.relative===null)throw Error(lastContext.turnReason);sourceTurn=lastContext.relative==='self'?calibration.bottom:1-calibration.bottom;target.turn=sourceTurn;}
     if(calibration.autoTurn&&lastContext.moveCount!==null&&calibration.sourcePly!==null){expectedPlies=lastContext.moveCount-calibration.sourcePly;if(expectedPlies<0||expectedPlies>6)throw Error('원본 수 번호가 추적 범위와 다릅니다. 되돌리기·새 게임·누락 진행을 재동기화하세요.');}

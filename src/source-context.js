@@ -1,4 +1,5 @@
-import {gridGeometry,pieceColor} from './screen-recognition.js';
+import {gridGeometry,pieceColor,recognizeBoard} from './screen-recognition.js';
+import {inferMoveDotTurn} from './move-dot-evidence.js';
 const names=['청록','분홍'];
 export function readStartingColor(image,rect,gap=.16){
  const grid=gridGeometry(rect,gap);
@@ -68,12 +69,15 @@ function activeCardRoles(image,rect,rows,templates,diagnostic=[]){
   if(kinds.size===1)roles.push([...kinds][0]);
  }return roles;
 }
-export function readSourceContext(image,rect,{gap=.16,templates={}}={}){
- const side=readStartingColor(image,rect,gap),rows=textRows(image,rect),matches=matchSourcePhrases(rows,templates,['YOURTURN','OPPONENTSTURN']),cardCandidates=[],cards=activeCardRoles(image,rect,rows,templates,cardCandidates),roles=new Set([...matches.map(m=>m.text==='YOURTURN'?'self':'opponent'),...cards]);
+export function readSourceContext(image,rect,{gap=.16,templates={},board,bottom}={}){
+ const side=readStartingColor(image,rect,gap),effectiveBottom=bottom??side.bottom,dotEvidence=inferMoveDotTurn(board??recognizeBoard(image,rect,{gap}),effectiveBottom),rows=textRows(image,rect),matches=matchSourcePhrases(rows,templates,['YOURTURN','OPPONENTSTURN']),cardCandidates=[],cards=activeCardRoles(image,rect,rows,templates,cardCandidates),roles=new Set([...matches.map(m=>m.text==='YOURTURN'?'self':'opponent'),...cards]);
+ if(dotEvidence.conflict){roles.add('self');roles.add('opponent');}
+ else if(dotEvidence.turn!==null&&effectiveBottom!==null&&effectiveBottom!==undefined)roles.add(dotEvidence.turn===effectiveBottom?'self':'opponent');
  const relative=roles.size===1?[...roles][0]:null;
  const headers=wordHeaders(image,rows,templates,'MOVES');let moveCount=null,moveEvidence=[];
  if(headers.length){const header=headers[0],row=rows.find(r=>r.some(g=>g===header.glyphs[0])),digits=row.filter(g=>g.x>header.x+header.width+header.height&&g.x<rect.x+rect.width*1.85);
   if(digits.length>0&&digits.length<=3){const values=digits.map(g=>[...'0123456789'].map(c=>({c,score:cost(g,c,templates)})).sort((a,b)=>a.score-b.score));moveEvidence=values.map(v=>v.slice(0,2));if(values.every(v=>v[0].score<.16&&v[1].score-v[0].score>.015))moveCount=Number(values.map(v=>v[0].c).join(''));}
  }
- return {...side,relative,turn:relative!==null&&side.bottom!==null?(relative==='self'?side.bottom:1-side.bottom):null,moveCount,moveEvidence,diagnostic:{textRowCount:rows.length,cardCandidates,moveHeaders:headers.map(({x,y,score})=>({x,y,score}))},turnReason:roles.size>1?'차례 문구·활성 카드가 서로 충돌합니다.':relative===null?'차례 표시 판독 실패 · 카드가 포함된 공유인지 확인하고, 글씨가 작거나 테두리가 희미하면 확대 또는 수동 보정하세요.':`${relative==='self'?'내':'상대'} 차례 · ${matches.length?'원본 문구':'활성 카드'} 판독`,evidence:[...matches.map(({text,score,x,y})=>({text,score,x,y})),...cards.map(role=>({card:role}))]};
+ const dotRole=dotEvidence.turn!==null&&effectiveBottom!=null?(dotEvidence.turn===effectiveBottom?'self':'opponent'):null;
+ return {...side,relative,turn:relative!==null&&effectiveBottom!=null?(relative==='self'?effectiveBottom:1-effectiveBottom):null,moveCount,moveEvidence,dotEvidence,diagnostic:{textRowCount:rows.length,cardCandidates,dotChecks:dotEvidence.checks,moveHeaders:headers.map(({x,y,score})=>({x,y,score}))},turnReason:roles.size>1?'이동 점・차례 문구·활성 카드의 근거가 서로 충돌합니다.':relative===null?'차례 표시 판독 실패 · 합법 이동 점 또는 원본 문구·카드를 확인하고 필요하면 수동 보정하세요.':`${relative==='self'?'내':'상대'} 차례 · ${dotRole===relative?dotEvidence.reason:matches.length?'원본 문구 판독':'활성 카드 판독'}`,evidence:[...matches.map(({text,score,x,y})=>({text,score,x,y})),...cards.map(role=>({card:role})),...(dotEvidence.turn===null?[]:[{moveDots:dotEvidence.turn,count:dotEvidence.dots.filter(d=>d.owner===dotEvidence.turn).length,exact:true}])]};
 }

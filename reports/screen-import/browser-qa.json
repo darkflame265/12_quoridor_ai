@@ -36,7 +36,12 @@
     "contradictory source turn never silently rewrites tracked state or produces a stale recommendation",
     "conflicting source caption and active-card evidence suspend automatic analysis",
     "new bottom color requires resynchronization and then automatically updates own side while keeping it below",
-    "unreadable initial turn blocks automatic application, records diagnosis and allows explicit manual correction"
+    "unreadable initial turn blocks automatic application, records diagnosis and allows explicit manual correction",
+    "dim initial three-dot hints alone enable automatic application and own-turn recommendation without captions or cards",
+    "disappearing hint dots do not imply opponent turn and clear stale recommendations",
+    "card fallback and four-dot evidence resume legal synchronization and refresh recommendation on own turn",
+    "valid own move dots conflicting with an opponent caption suspend state updates instead of choosing a turn",
+    "pink hint dots automatically identify own turn after bottom-side resynchronization"
   ],
   "uncaughtErrors": [],
   "realScreenCaptureTested": false,
@@ -47,6 +52,7 @@
     "automatic-sync.png",
     "automatic-grid.png",
     "recovery.png",
-    "automatic-side-turn.png"
+    "automatic-side-turn.png",
+    "move-dot-review.png"
   ]
 }

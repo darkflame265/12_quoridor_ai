@@ -19,6 +19,24 @@ function sample(image,cx,cy,rx,ry){
   if(t>=0){counts[t]++;const b=bounds[t];b[0]=Math.min(b[0],x);b[1]=Math.min(b[1],y);b[2]=Math.max(b[2],x);b[3]=Math.max(b[3],y);}
  }return {counts,bounds,total};
 }
+// Hints may be much dimmer than pawns, especially on a tinted goal row.
+// Compare against the local tile background and require a centered small disk.
+export function readMoveDots(image,rect,{gap=.16,pawns=[]}={}){
+ const grid=gridGeometry(rect,gap),dots=[];
+ for(let y=0;y<9;y++)for(let x=0;x<9;x++){
+  if(pawns.some(p=>p&&p.x===x&&p.y===y))continue;
+  const cell=grid.cell(x,y),center=grid.center(x,y),background=[0,0,0];
+  for(const [u,v]of[[.18,.18],[.82,.18],[.18,.82],[.82,.82]]){const i=(Math.floor(cell.y+cell.height*v)*image.width+Math.floor(cell.x+cell.width*u))*4;for(let t=0;t<3;t++)background[t]+=image.data[i+t]/4;}
+  const stats=[0,1].map(()=>({count:0,left:Infinity,right:-Infinity,top:Infinity,bottom:-Infinity}));
+  for(let py=Math.max(0,Math.floor(center.y-cell.height*.34));py<=Math.min(image.height-1,Math.ceil(center.y+cell.height*.34));py++)for(let px=Math.max(0,Math.floor(center.x-cell.width*.34));px<=Math.min(image.width-1,Math.ceil(center.x+cell.width*.34));px++){
+   const i=(py*image.width+px)*4,r=image.data[i],g=image.data[i+1],b=image.data[i+2];if(image.data[i+3]<128)continue;
+   const owner=g>=60&&g-r>=18&&b-r>=14&&b>=g*.65&&Math.max(g-background[1],b-background[2])>=16?0:r>=75&&r-g>=25&&r-b>=10&&r-background[0]>=18?1:-1;
+   if(owner<0)continue;const s=stats[owner];s.count++;s.left=Math.min(s.left,px);s.right=Math.max(s.right,px);s.top=Math.min(s.top,py);s.bottom=Math.max(s.bottom,py);
+  }
+  for(const owner of [0,1]){const s=stats[owner],w=s.right-s.left+1,h=s.bottom-s.top+1;if(s.count>=4&&w>=grid.sx*.07&&h>=grid.sy*.07&&w<=grid.sx*.34&&h<=grid.sy*.34&&w/h>=.65&&w/h<=1.5&&s.count/(w*h)>=.5&&s.count/(w*h)<=.9&&Math.abs((s.left+s.right)/2-center.x)<grid.sx*.1&&Math.abs((s.top+s.bottom)/2-center.y)<grid.sy*.1)dots.push({x,y,owner});}
+ }
+ return dots;
+}
 export function recognizeBoard(image,rect,{gap=.16,knownWalls=[]}={}){
  if(!image||!Number.isInteger(image.width)||!Number.isInteger(image.height)||!image.data||image.data.length!==image.width*image.height*4)throw Error('이미지 픽셀을 읽을 수 없습니다.');
  const grid=gridGeometry(rect,gap);
@@ -41,5 +59,6 @@ export function recognizeBoard(image,rect,{gap=.16,knownWalls=[]}={}){
  }
  const notes=candidates.flatMap((list,t)=>list.length===1?[]:[`${t===0?'청록':'분홍'} 말 후보 ${list.length}개: 검토 보드에서 위치를 지정하세요.`]);
  const resolved=resolveObservedWalls(walls,knownWalls);
- return {p:candidates.map(list=>list.length===1?list[0]:null),walls:resolved.walls,candidates,notes:[...notes,...resolved.issues],wallIssues:resolved.issues,rawWallCount:resolved.rawCount};
+ const p=candidates.map(list=>list.length===1?list[0]:null),dots=readMoveDots(image,rect,{gap,pawns:candidates.flat()});
+ return {p,dots,walls:resolved.walls,candidates,notes:[...notes,...resolved.issues],wallIssues:resolved.issues,rawWallCount:resolved.rawCount};
 }

@@ -57,17 +57,17 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
  function observedSnapshot(d,bottom,turn){lastDraft=d;if(d.wallIssues?.length)throw Error(`벽 후보 충돌 · ${d.wallIssues.join(' ')}`);const s=snapshotFromDraft(d,{bottom,turn});const counts=[0,1].map(t=>d.walls.filter(w=>w.owner===t).length);if(counts.some(n=>n>10))throw Error(`벽 과다 검출 · 청록 ${counts[0]}개 / 분홍 ${counts[1]}개 (각 최대 10개)`);return checkedSnapshot(s);}
  function recognizeLive(pixels){const before=getState?.(),bottom=calibration.bottom,knownWalls=(before?.walls??[]).map(w=>({...w,x:bottom===1?7-w.x:w.x,y:bottom===1?7-w.y:w.y}));return recognizeBoard(pixels,calibration.rect,{gap:calibration.gap,knownWalls});}
  const gaps=()=>({x:Number($('screen-gap').value)/100,y:Number($('screen-gap-y').value)/100});
- function boardCandidates(pixels){return detectBoards(pixels).filter(candidate=>recognizeBoard(pixels,candidate.rect,{gap:candidate.gap}).p.every(Boolean));}
+ function boardCandidates(pixels){return detectBoards(pixels);}
  function selectBoard(candidate,pixels){
   dirty();rect={...candidate.rect};automaticGrid=true;$('screen-gap').value=(candidate.gap.x*100).toFixed(2);$('screen-gap-y').value=(candidate.gap.y*100).toFixed(2);
   draft=recognizeBoard(pixels,rect,{gap:gaps()});manualStock=[false,false];edited=false;updateContext();stock();review();redraw();controls();$('screen-grid-status').textContent=`격자 자동 정렬 완료 · ${candidate.cells}/81칸 확인`;
-  message('보드와 가로·세로 간격을 자동으로 찾았습니다. 말·벽·진영·차례를 확인하고 적용하세요.');
+  message(draft.notes.length?`격자를 찾았습니다. ${draft.notes.join(' ')} 말·벽·진영·차례를 확인하고 보정하세요.`:'보드와 가로·세로 간격을 자동으로 찾았습니다. 말·벽·진영·차례를 확인하고 적용하세요.',draft.notes.length>0);
  }
  function findBoard(){
   if(!hasFrame)return;dirty();rect=null;automaticGrid=false;$('screen-board-candidates').replaceChildren();
   try{const pixels=frame.getContext('2d').getImageData(0,0,frame.width,frame.height),candidates=boardCandidates(pixels);
    if(candidates.length===1)selectBoard(candidates[0],pixels);
-   else{redraw();controls();const text=candidates.length?'여러 보드를 찾았습니다. 사용할 보드를 선택하세요.':'보드를 확정하지 못했습니다. 전체 9×9 보드가 보이게 하거나 직접 영역을 드래그하세요.';$('screen-grid-status').textContent=text;message(text,true);
+   else{redraw();controls();const text=candidates.length?'여러 격자를 찾았습니다. 사용할 보드를 선택하세요.':'9×9 격자를 찾지 못했습니다. 전체 보드가 보이게 하거나 직접 영역을 드래그하세요.';$('screen-grid-status').textContent=text;message(text,true);
     candidates.forEach((candidate,i)=>{const button=document.createElement('button');button.textContent=`보드 ${i+1} · 위치 ${Math.round(candidate.rect.x)}, ${Math.round(candidate.rect.y)}`;button.onclick=()=>{selectBoard(candidate,pixels);$('screen-board-candidates').replaceChildren();};$('screen-board-candidates').append(button);});}
   }catch(error){message(error.message,true);}
  }

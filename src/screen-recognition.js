@@ -37,6 +37,22 @@ export function readMoveDots(image,rect,{gap=.16,pawns=[]}={}){
  }
  return dots;
 }
+// Prefer the outermost colored contour over a multicolored avatar center.
+// Small move dots and straight wall strips cannot surround the cell center.
+function contourOwner(image,center,cw,ch){
+ const votes=[0,0];
+ for(let i=0;i<24;i++){
+  const angle=i*Math.PI/12;
+  for(let radius=.42;radius>=.26;radius-=.01){
+   const x=Math.round(center.x+Math.cos(angle)*cw*radius),y=Math.round(center.y+Math.sin(angle)*ch*radius);
+   if(x<0||y<0||x>=image.width||y>=image.height)continue;
+   const k=(y*image.width+x)*4;
+   const owner=image.data[k+3]<128?-1:pieceColor(image.data[k],image.data[k+1],image.data[k+2]);
+   if(owner>=0){votes[owner]++;break;}
+  }
+ }
+ return votes[0]>=18?0:votes[1]>=18?1:-1;
+}
 export function recognizeBoard(image,rect,{gap=.16,knownWalls=[]}={}){
  if(!image||!Number.isInteger(image.width)||!Number.isInteger(image.height)||!image.data||image.data.length!==image.width*image.height*4)throw Error('이미지 픽셀을 읽을 수 없습니다.');
  const grid=gridGeometry(rect,gap);
@@ -44,7 +60,9 @@ export function recognizeBoard(image,rect,{gap=.16,knownWalls=[]}={}){
  const candidates=[[],[]],walls=[];
  for(let y=0;y<9;y++)for(let x=0;x<9;x++){
   const c=grid.center(x,y),s=sample(image,c.x,c.y,grid.cw*.4,grid.ch*.4);
-  for(const t of [0,1]){const b=s.bounds[t];if(s.counts[t]>=s.total*.08&&b[2]-b[0]>=grid.sx*.42&&b[3]-b[1]>=grid.sy*.42)candidates[t].push({x,y});}
+  const outline=contourOwner(image,c,grid.cw,grid.ch);
+  if(outline>=0)candidates[outline].push({x,y});
+  else for(const t of [0,1]){const b=s.bounds[t];if(s.counts[t]>=s.total*.08&&b[2]-b[0]>=grid.sx*.42&&b[3]-b[1]>=grid.sy*.42)candidates[t].push({x,y});}
  }
  for(let y=0;y<8;y++)for(let x=0;x<8;x++)for(const o of ['h','v']){
   const c=grid.joint(x,y),first=grid.center(x,y),second=grid.center(x+1,y+1);

@@ -1,0 +1,153 @@
+{
+  "updates": [
+    {
+      "action": "e5",
+      "depth": 1,
+      "score": 177,
+      "ms": 5.9018
+    },
+    {
+      "action": "e5",
+      "depth": 2,
+      "score": 83,
+      "ms": 24.365299999999998
+    },
+    {
+      "action": "e5",
+      "depth": 3,
+      "score": 242,
+      "ms": 67.9279
+    },
+    {
+      "action": "f7─",
+      "depth": 4,
+      "score": 72,
+      "ms": 1000.7078000000001
+    },
+    {
+      "action": "e8│",
+      "depth": 5,
+      "score": 305,
+      "ms": 9967.990800000001
+    }
+  ],
+  "result": {
+    "backend": "native",
+    "cancelled": false,
+    "connectionRisk": {
+      "active": true,
+      "complete": true,
+      "defenseReview": false,
+      "distances": [
+        7,
+        7
+      ],
+      "elapsedMs": 1.8396999999999997,
+      "estimate": 0,
+      "examinedActions": 6,
+      "firstCandidates": 2,
+      "geometryBuilds": 673,
+      "geometryHits": 1663,
+      "initialEstimate": 0,
+      "opponentStock": 8,
+      "replyLimit": 3,
+      "selected": {
+        "action": {
+          "o": "v",
+          "type": "wall",
+          "x": 4,
+          "y": 1
+        },
+        "risk": 0
+      }
+    },
+    "depth": 5,
+    "done": true,
+    "elapsedMs": 15000.216100000001,
+    "endgameHits": 0,
+    "endgameSolves": 0,
+    "engine": "Atlas 5.3 + goal safety 0.4 · Native Rust ×1",
+    "goalSafety": {
+      "active": false,
+      "chainNodeCap": 24,
+      "distances": [
+        7,
+        7
+      ],
+      "exposure": [
+        0,
+        0
+      ],
+      "goalThreat": false,
+      "maxExtension": 0,
+      "wallStock": [
+        9,
+        8
+      ]
+    },
+    "id": "ed3fc46f-8fc9-40e7-9daf-8f2789a60652",
+    "nodes": 360856,
+    "partitioned": false,
+    "pressure": {
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 4,
+        "y": 1
+      },
+      "bias": 15,
+      "connections": 1,
+      "enemyChoicesAfter": 1,
+      "enemyChoicesBefore": 2,
+      "enemyDelay": 1,
+      "firstContact": 0,
+      "legacyOrderScore": 1650,
+      "nearCutEdges": 1,
+      "netGain": 0,
+      "ownDelay": 0,
+      "placementCost": 1,
+      "retainedDelay": 0
+    },
+    "pv": [
+      {
+        "o": "v",
+        "type": "wall",
+        "x": 4,
+        "y": 1
+      }
+    ],
+    "reserveDefense": {
+      "active": false,
+      "baselineRisk": 0,
+      "complete": true,
+      "penalizedActions": 0,
+      "selected": null,
+      "stock": [
+        9,
+        8
+      ],
+      "threatsConsidered": 0
+    },
+    "score": 305,
+    "sharedCacheHits": 58420,
+    "threatDefense": {
+      "active": false,
+      "complete": true,
+      "continuation": null,
+      "continuationReviewed": false,
+      "elapsedMs": 0.00509999999999966,
+      "examinedActions": 0,
+      "initialRisk": 0,
+      "selected": null
+    },
+    "weakWallConsumption": {
+      "active": true,
+      "bestMoveProgress": 1,
+      "complete": true,
+      "penalizedActions": 115,
+      "selected": null,
+      "wallStreak": 0
+    },
+    "workers": 1
+  }
+}

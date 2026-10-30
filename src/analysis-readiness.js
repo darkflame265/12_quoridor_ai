@@ -9,7 +9,7 @@ export function analysisReadiness(v,{suppressed=false}={}){
  if(!v.active)return {level:'done',label:'분석 종료',reason:defense?.active&&(!defense.complete||!defense.selected)?'일부 위험 비교가 남은 상태에서 계산이 종료됐습니다.':r?.adaptiveStop?.heuristic?'추천 안정 추정으로 종료했습니다.':budgetReason(v.reason)||'현재 결과로 판단하세요.'};
  if(v.changedAt&&performance.now()-v.changedAt<2000)return {level:'wait',label:'대기 권장',reason:'추천이 방금 바뀌었습니다. 새 추천을 확인하세요.'};
  const stable=recommendationStable(v.history??[],r);
- const incomplete=r?.analysisBudget?.reason==='incomplete'||(defense?.active?(!defense.complete||!defense.selected):r?.connectionRisk?.complete===false||r?.connectionRisk?.active&&!r.connectionRisk.selected)||r?.reserveDefense?.complete===false||r?.weakWallConsumption?.complete===false;
+ const incomplete=r?.analysisBudget?.reason==='horizon'||r?.analysisBudget?.reason==='incomplete'||(defense?.active?(!defense.complete||!defense.selected):r?.connectionRisk?.complete===false||r?.connectionRisk?.active&&!r.connectionRisk.selected)||r?.reserveDefense?.complete===false||r?.weakWallConsumption?.complete===false;
  if(v.elapsedMs>=2000&&stable&&!incomplete)return {level:'ready',label:'지금 착수 가능',reason:'최근 세 깊이에서 추천이 안정적입니다. 판세의 유불리와는 별도입니다.'};
  if(!incomplete&&v.elapsedMs>=5000&&v.lastUpdateAt&&performance.now()-v.lastUpdateAt>=3000&&(v.history??[]).length>=3)return {level:'low',label:'추가 대기 실익 낮음 · 추정',reason:'최근 완료된 비교 결과가 없습니다. 계산은 최대 예산까지 계속합니다.'};
  return {level:'wait',label:'대기 권장',reason:`${budgetReason(v.reason)||'후보 비교 중'} · 다음 완료 깊이에서 다시 판단합니다.`};

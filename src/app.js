@@ -169,8 +169,17 @@ function think(auto=false,reason='manual-analysis'){
 function variableStatus(){
  const v=variableAnalysis,visible=$('#time').value==='variable'&&!watching();
  const suppressed=screenSuppressed(),waiting=analysisReadiness(v,{suppressed});
+ const updateTitles=()=>{for(const id of ['wait-label','wait-reason','wait-timing','advice-change','position-verdict']){const element=$('#'+id);element.title=element.textContent;}};
+ $('#wait-advice').hidden=false;
+ if(!visible||!v.active&&!v.displayed){
+  $('#wait-advice').dataset.level=suppressed||busy?'wait':'done';
+  const label=state.winner!==null?'대국 종료':suppressed?'화면 재확인 중':watching()?(watcher.thinking?'AI 대국 계산 중':watcher.running?'AI 대국 진행 중':'AI 대국 대기'):busy?'분석 중':$('#mode').value==='screen'&&!baseState?'화면 연결 대기':'분석 대기';
+  if($('#wait-label').textContent!==label)$('#wait-label').textContent=label;
+  $('#wait-reason').textContent=suppressed?'배치를 확인한 뒤 추천을 표시합니다.':watching()?'대국 진행과 선택한 수는 우측 분석 패널에서 확인하세요.':!visible?'고정 시간 분석 결과는 우측 분석 패널에서 확인하세요.':'화면 배치를 확인하거나 최선 수 분석을 시작하세요.';
+  $('#wait-timing').textContent='';$('#advice-change').hidden=true;$('#advice-change').textContent='';$('#position-verdict').textContent=state.winner!==null?`판세: ${names[state.winner]} 승리`:'판세: 분석 대기';
+  $('#variable-controls').hidden=!visible;$('#analysis-pin').disabled=true;$('#analysis-pin').textContent='현재 추천 고정';$('#variable-status').textContent='';updateTitles();return;
+ }
  if(!suppressed&&v.displayed&&activeAnalysis)activeAnalysis.lastVisibleWaiting=waiting;
- $('#wait-advice').hidden=!visible||!v.active&&!v.displayed;
  $('#wait-advice').dataset.level=waiting.level;if($('#wait-label').textContent!==waiting.label)$('#wait-label').textContent=waiting.label;$('#wait-reason').textContent=waiting.reason;
  const now=performance.now(),elapsed=v.elapsedMs/1000;
  $('#wait-timing').textContent=`분석 경과 ${elapsed.toFixed(1)}초${v.active?` · 최대 잔여 ${Math.max(0,15-elapsed).toFixed(1)}초`:' · 계산 종료'}${v.lastUpdateAt?` · 마지막 결과 ${(now-v.lastUpdateAt)/1000<1?'방금':`${((now-v.lastUpdateAt)/1000).toFixed(1)}초 전`}`:''}${v.active&&v.latest?` · 깊이 ${v.latest.depth} 완료, 다음 깊이 비교 중`:''}${v.active?` · ${Math.max(1,3-Math.floor(elapsed)%3)}초 이내 대기 가치 재확인`:''}`;
@@ -179,6 +188,7 @@ function variableStatus(){
  $('#advice-change').textContent=pinnedDifferent?`고정 추천 ${notation(v.displayed.pv[0])} / 최신 계산 ${notation(v.latest.pv[0])}`:v.previousAction&&v.displayed?`추천 변경: ${notation(v.previousAction)} → ${notation(v.displayed.pv[0])}`:'';
  const r=v.latest;
  $('#position-verdict').textContent=suppressed?'':!r?'판세 분석 준비 중':r.exact&&r.outcome===1?'판세: 승리 전략 확인':r.raceAssessment?.pawnOnlyOutcome===-1?'판세: 말 이동 경주에서 열세 · 벽 전략까지 포함한 패배 확정은 아닙니다.':r.score<=-29000?'판세: 현재 탐색상 패배 예상':r.threatDefense?.selected?.risk>=2?`판세: 상대 후속 공격에 경로가 취약할 수 있습니다 · 위험 추정 ${r.threatDefense.selected.risk}`:r.score<-120?'판세: 현재 평가상 불리':r.score>120?'판세: 현재 평가상 유리 · 승률 보장은 아닙니다.':'판세: 평가 차이가 작습니다.';
+ updateTitles();
  $('#variable-controls').hidden=!visible;$('#analysis-pin').disabled=!v.displayed;
  if(suppressed){$('#analysis-pin').disabled=true;$('#variable-status').textContent='원본 배치 재확인 중 · 추천 표시 보류';return;}
  $('#analysis-pin').textContent=v.pinned?'추천 고정 해제':'현재 추천 고정';

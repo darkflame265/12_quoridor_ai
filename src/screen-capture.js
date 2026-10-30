@@ -12,6 +12,7 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
  const liveControls=document.createElement('div');liveControls.innerHTML='<div class="buttons"><button id="screen-auto-pause" disabled>일시정지</button></div><label><input id="screen-auto-hint" type="checkbox" checked> 내 차례에 최선 수 자동 분석</label><p id="screen-auto-status" class="watch-note" role="status">배치를 확인해 적용하면 자동 감시가 시작됩니다.</p>';panel.append(liveControls);
  const recoveryControls=document.createElement('div');recoveryControls.innerHTML='<button id="screen-resync">현재 화면 재동기화</button>';
  const compactActions=panel.querySelector('.screen-compact-actions'),pauseButton=liveControls.querySelector('#screen-auto-pause');pauseButton.parentElement.remove();compactActions.append(pauseButton,recoveryControls.firstElementChild);
+ const wallzButton=document.createElement('button');wallzButton.id='screen-wallz';wallzButton.className='primary';wallzButton.textContent='Wallz 연결';wallzButton.title='Wallz 탭 선택 후 자동 판독·적용';compactActions.prepend(wallzButton);
  const dialog=document.createElement('dialog');dialog.id='screen-dialog';dialog.className='screen-dialog';
  dialog.innerHTML=`<div class="screen-dialog-head"><div><h2>게임 화면 가져오기</h2><p>말·벽을 읽은 뒤 직접 확인해 적용하세요. 이미지는 이 브라우저에서 처리합니다.</p></div><button id="screen-close" aria-label="화면 가져오기 닫기">닫기</button></div>
  <div class="screen-workspace"><section class="screen-source"><div class="screen-actions"><button id="screen-connect">오른쪽 게임 화면 연결</button><button id="screen-image">이미지 가져오기</button><button id="screen-freeze" disabled>현재 프레임 고정</button><input id="screen-image-file" type="file" accept="image/png,image/jpeg,image/webp" hidden></div><p class="screen-help">공유할 게임 탭/창을 선택하세요. 마우스를 원본 보드 밖으로 옮겨 벽 미리보기를 지운 뒤 프레임을 고정하세요.</p><video id="screen-video" muted autoplay playsinline hidden></video><div id="screen-empty" class="screen-empty">화면을 연결하거나 PNG·JPG·WebP를 가져오세요.</div><canvas id="screen-source-canvas" hidden aria-label="원본 이미지: 9×9 칸의 바깥 모서리를 드래그해 보드 영역 선택"></canvas><p class="screen-help">숫자·글자·테두리를 제외하고, 첫 칸 왼쪽 위부터 마지막 칸 오른쪽 아래까지 드래그하세요.</p><label>칸 사이 간격 (%)<input id="screen-gap" type="number" min="6" max="30" step="1" value="16"></label><button id="screen-recognize" class="primary" disabled>선택 영역 인식</button><p id="screen-message" role="status" aria-live="polite" class="screen-help">먼저 화면이나 이미지를 준비하세요.</p></section>
@@ -137,16 +138,22 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
   frame.width=w;frame.height=h;frame.getContext('2d').drawImage(source,0,0,w,h);canvas.width=w;canvas.height=h;hasFrame=true;canvas.hidden=false;$('screen-empty').hidden=true;dirty();redraw();controls();findBoard();
  }
  function freeze(){if(!stream||video.readyState<2)throw Error('연결된 화면을 아직 읽을 수 없습니다.');setFrame(video,video.videoWidth,video.videoHeight,true);}
- async function connect(){
+ async function connect({automatic=false}={}){
   const mine=++token;let next=null;dirty();message('공유할 게임 탭 또는 창을 선택하세요.');
   try{
    if(!navigator.mediaDevices?.getDisplayMedia)throw Error('화면 공유를 사용할 수 없습니다. 이미지 가져오기를 이용하세요.');
-   next=await navigator.mediaDevices.getDisplayMedia({video:true,audio:false});
+   next=await navigator.mediaDevices.getDisplayMedia(automatic?{video:{displaySurface:'browser'},audio:false,selfBrowserSurface:'exclude',surfaceSwitching:'include'}:{video:true,audio:false});
    if(disposed||mine!==token){next.getTracks().forEach(t=>t.stop());return;}
    const old=stream;stream=next;old?.getTracks().forEach(t=>t.stop());video.srcObject=next;video.hidden=false;controls();
    next.getVideoTracks()[0].addEventListener('ended',()=>{if(stream===next){disconnect();message('화면 공유가 종료됐습니다. 마지막 프레임은 다시 검토할 수 있습니다.');}});
    await video.play();if(disposed||mine!==token||stream!==next)return;rect=null;freeze();
-  }catch(error){if(next&&stream!==next)next.getTracks().forEach(t=>t.stop());if(mine===token)message(error.name==='NotAllowedError'?'화면 공유가 취소됐거나 허용되지 않았습니다. 다시 연결하거나 이미지를 가져오세요.':error.message,true);controls();}
+   if(automatic){applyDraft(true);autoStatus('Wallz 연결 완료 · 자동 감시 시작');}
+  }catch(error){
+   if(next&&stream!==next)next.getTracks().forEach(t=>t.stop());
+   if(mine===token){const text=error.name==='NotAllowedError'?'화면 공유가 취소됐거나 허용되지 않았습니다. 다시 연결하거나 이미지를 가져오세요.':error.message;message(text,true);
+    if(automatic){autoStatus(text);if(error.name!=='NotAllowedError'){if(!dialog.open)dialog.showModal();review();message(`자동 적용 보류 · ${text}`,true);}}
+   }controls();
+  }
  }
  async function imageFile(file){
   if(!file)return;if(!['image/png','image/jpeg','image/webp'].includes(file.type)||file.size>32*1024*1024){message('32MB 이하 PNG·JPG·WebP 파일을 선택하세요.',true);return;}
@@ -202,11 +209,18 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
  $('screen-review-board').addEventListener('click',()=>{invalidate();controls();});$('screen-wall-list').addEventListener('click',()=>{invalidate();controls();});$('screen-clear-walls').addEventListener('click',()=>{invalidate();controls();});$('screen-stock-reset').addEventListener('click',()=>{invalidate();controls();});
  function openDialog(){if(timer){pause('배치 검토를 위해 일시정지했습니다. 검토·적용 후 감시를 다시 시작하세요.');try{freeze();}catch(error){message(error.message,true);}}if(!dialog.open)dialog.showModal();controls();}
  $('screen-open').onclick=openDialog;$('screen-close').onclick=()=>dialog.close();$('screen-connect').onclick=()=>connect();$('screen-freeze').onclick=()=>{try{freeze();}catch(e){message(e.message,true);}};
- $('screen-resync').onclick=()=>{
+ function resync(){
   $('screen-resync').disabled=true;pause('현재 화면 재동기화 · 판독 중');
   try{if(!stream)throw Error('공유 중인 화면이 없습니다. 화면을 연결해 주세요.');freeze();applyDraft(true);autoStatus('재동기화 자동 적용 완료 · 자동 감시 재개');}
   catch(error){if(!dialog.open)dialog.showModal();controls();review();message(`자동 적용 보류 · ${error.message} 현재 배치·차례를 확인해 적용해 주세요.`,true);}
   finally{$('screen-resync').disabled=false;}
+ }
+ $('screen-resync').onclick=resync;
+ wallzButton.onclick=async()=>{
+  if(wallzButton.disabled)return;wallzButton.disabled=true;
+  $('screen-auto-side').checked=true;$('screen-auto-turn').checked=true;
+  try{if(stream)resync();else{autoStatus('Wallz 탭을 선택해 주세요. 선택 후 자동으로 판독합니다.');await connect({automatic:true});}}
+  finally{wallzButton.disabled=false;}
  };
  $('screen-disconnect').onclick=()=>disconnect();$('screen-image').onclick=()=>$('screen-image-file').click();$('screen-image-file').onchange=e=>{imageFile(e.target.files[0]);e.target.value='';};updateContext();controls();
  return {get active(){return !!timer;},get autoHint(){return $('screen-auto-hint').checked;},open:openDialog,setBottom(bottom){invalidate();if([0,1].includes(bottom)){$('screen-bottom').value=String(bottom);review();}},setVisible(next){if(visible===next)return;visible=next;panel.hidden=!next;if(!next){if(dialog.open)dialog.close();disconnect(false);}},dispose(){disposed=true;disconnect(false);dialog.remove();panel.remove();}};

@@ -1,0 +1,12 @@
+{
+  "browser": "isolated headless Chrome/Edge",
+  "checks": [
+    "cancelled picker leaves the button reusable without opening a review dialog",
+    "one Wallz click requests tab sharing and automatically recognizes, applies, and starts monitoring",
+    "connected Wallz button reuses the existing stream and resumes monitoring without another picker",
+    "uncertain first connection opens correction instead of applying an unreadable turn"
+  ],
+  "uncaughtErrors": [],
+  "realScreenCaptureTested": false,
+  "syntheticMediaStreamTested": true
+}

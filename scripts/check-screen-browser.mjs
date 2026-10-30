@@ -7,7 +7,7 @@ import {readFile,writeFile,mkdir,access,rm} from 'node:fs/promises';
 import {spawn,execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {createPressureService} from '../server/pressure-service.mjs';
-const root=fileURLToPath(new URL('../',import.meta.url)),dist=path.join(root,'dist'),out=path.join(root,'reports',process.env.SCREEN_COMPACT_QA==='1'?'compact-panels':process.env.SCREEN_RESYNC_QA==='1'?'screen-resync':'screen-import');
+const root=fileURLToPath(new URL('../',import.meta.url)),dist=path.join(root,'dist'),out=path.join(root,'reports',process.env.SCREEN_WALLZ_QA==='1'?'wallz-connect':process.env.SCREEN_COMPACT_QA==='1'?'compact-panels':process.env.SCREEN_RESYNC_QA==='1'?'screen-resync':'screen-import');
 execFileSync(process.execPath,[path.join(root,'node_modules','vite','bin','vite.js'),'build'],{cwd:root,stdio:'inherit',windowsHide:true});
 let browserPath;for(const candidate of [process.env.SCREEN_QA_CHROME,'C:/Program Files/Google/Chrome/Application/chrome.exe','C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe','/usr/bin/chromium','/usr/bin/google-chrome'].filter(Boolean)){try{await access(candidate);browserPath=candidate;break;}catch{}}
 if(!browserPath)throw Error('Set SCREEN_QA_CHROME to a Chrome/Edge executable');
@@ -46,7 +46,24 @@ try{
  await send('Browser.setDownloadBehavior',{behavior:'deny'},null);
  await send('Page.addScriptToEvaluateOnNewDocument',{source:`if(!localStorage.getItem('quoridor-session'))localStorage.setItem('quoridor-session',JSON.stringify({version:2,records:[],mode:'sandbox',side:0,startPosition:'bottom',time:'500',cores:'1',engine:'${process.env.SCREEN_COMPACT_QA==='1'?'atlas-goal':'atlas3'}'}));`});
  await send('Page.navigate',{url});await until(`!!document.querySelector('#screen-open')`);
- if(process.env.SCREEN_COMPACT_QA==='1'){
+ if(process.env.SCREEN_WALLZ_QA==='1'){
+  await evaluate(`document.querySelector('#mode').value='screen';document.querySelector('#mode').dispatchEvent(new Event('change'));document.querySelector('#screen-close').click();document.querySelector('#screen-auto-hint').checked=false;Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async()=>{throw new DOMException('cancelled','NotAllowedError')}});document.querySelector('#screen-wallz').click()`);
+  await until(`!document.querySelector('#screen-wallz').disabled`);
+  assert.equal(await evaluate(`document.querySelector('#screen-dialog').open`),false);
+  assert.equal(await evaluate(`document.querySelector('#screen-auto-status').textContent.includes('취소')`),true);
+  checks.push('cancelled picker leaves the button reusable without opening a review dialog');
+  await evaluate(`(async()=>{const {paintSourceScreen}=await import('/_qa/context-fixture.js');window.qaLiveSource=document.createElement('canvas');window.qaLiveStream=null;window.qaPickCount=0;window.qaLivePaint=options=>{paintSourceScreen(qaLiveSource,{rounded:true,muted:true,labelSize:8,size:8,...options});qaLiveStream?.getVideoTracks()[0].requestFrame?.();};qaLivePaint({bottom:0,relative:'opponent',plies:12});Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async options=>{qaPickCount++;window.qaPickOptions=options;qaLiveStream=qaLiveSource.captureStream(30);return qaLiveStream;}});document.querySelector('#screen-wallz').click();})()`);
+  await until(`document.querySelector('#screen-connection').textContent.includes('활성') && !document.querySelector('#screen-dialog').open`);
+  assert.equal(await evaluate(`qaPickCount`),1);assert.equal(await evaluate(`qaPickOptions.video.displaySurface`),'browser');
+  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.turn`),1);
+  checks.push('one Wallz click requests tab sharing and automatically recognizes, applies, and starts monitoring');
+  await evaluate(`document.querySelector('#screen-auto-pause').click();document.querySelector('#screen-wallz').click()`);
+  await until(`document.querySelector('#screen-connection').textContent.includes('활성')`);assert.equal(await evaluate(`qaPickCount`),1);
+  checks.push('connected Wallz button reuses the existing stream and resumes monitoring without another picker');
+  await evaluate(`document.querySelector('#screen-disconnect').click();qaLivePaint({bottom:0,relative:'self',cardRole:null,phrase:false,plies:0});document.querySelector('#screen-wallz').click()`);
+  await until(`document.querySelector('#screen-dialog').open && document.querySelector('#screen-apply').disabled && !document.querySelector('#screen-wallz').disabled`);
+  checks.push('uncertain first connection opens correction instead of applying an unreadable turn');
+ }else if(process.env.SCREEN_COMPACT_QA==='1'){
   await evaluate(`document.querySelector('#mode').value='screen';document.querySelector('#mode').dispatchEvent(new Event('change'));document.querySelector('#screen-close').click();scrollTo(0,0)`);
   for(const width of [1440,950,390]){
    await send('Emulation.setDeviceMetricsOverride',{width,height:1100,deviceScaleFactor:1,mobile:false});

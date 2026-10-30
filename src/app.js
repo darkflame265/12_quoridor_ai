@@ -23,6 +23,8 @@ let screenReady=false,screenRebased=false,screenSegments=[];
 let uncertaintyTimer=null,heldAnalysis=null,activeAnalysis=null,lastAnalysisTrace=null,lastShownAdvice=null;
 let pool=createPlayPool(defaultCores),watchPools=[null,null],ponderTimer=null;
 const variableAnalysis=new VariableAnalysis();
+// Only observed positions from this game; imported snapshots invent no history.
+const searchSnapshot=s=>({...s,recentPawnSquares:past.filter(p=>p.turn===s.turn).slice(-4).map(p=>p.p[s.turn].y*9+p.p[s.turn].x)});
 const playMs=()=>$('#time').value==='variable'?500:Number($('#time').value);
 const watching=()=>$('#mode').value==='watch';
 const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.turn===Number($('#side').value);
@@ -46,7 +48,7 @@ const observedWallStreak=turn=>wallStreak(records,turn,baseState?.turn??0);
 const watchOutcome=()=>observationOutcome(state,past);
 const watcher=new SpectatorRunner({
   getState:()=>state,getOutcome:watchOutcome,
-  search:(snapshot,onProgress)=>watchPool(snapshot.turn).search(snapshot,{ms:watchSettings(snapshot.turn).ms,wallStreak:observedWallStreak(snapshot.turn),defenseReply:expectedDefense(snapshot,watchSettings(snapshot.turn).engine),onProgress}),
+  search:(snapshot,onProgress)=>watchPool(snapshot.turn).search(searchSnapshot(snapshot),{ms:watchSettings(snapshot.turn).ms,wallStreak:observedWallStreak(snapshot.turn),defenseReply:expectedDefense(snapshot,watchSettings(snapshot.turn).engine),onProgress}),
   cancelSearch:cancelWatch,
   commit:(action,result)=>{const before=clone(state);applyMove(action);writeAnalysis(result,'선택',before);},
   onAnalysis:r=>writeAnalysis({...r,done:r.done??!watcher.thinking}),
@@ -161,7 +163,7 @@ function think(auto=false,reason='manual-analysis'){
   stop(reason);busy=true;hint=null;const id=serial,source=clone(state),selectedPool=watching()?watchPool(state.turn):pool;
   render();$('#analysis').textContent='가능한 이동과 벽을 분석하고 있습니다…';
   if(!auto&&!watching()&&$('#time').value==='variable'){startVariable(selectedPool,source,id);return;}
-  selectedPool.search(state,{defenseReply:expectedDefense(state,$('#play-engine').value),wallStreak:observedWallStreak(state.turn),ms:watching()?watchSettings(state.turn).ms:playMs(),onProgress:r=>{if(id===serial)writeAnalysis(r);}}).then(r=>{
+  selectedPool.search(searchSnapshot(state),{defenseReply:expectedDefense(state,$('#play-engine').value),wallStreak:observedWallStreak(state.turn),ms:watching()?watchSettings(state.turn).ms:playMs(),onProgress:r=>{if(id===serial)writeAnalysis(r);}}).then(r=>{
     if(id!==serial)return;if(!r.pv?.length)throw Error('추천 가능한 수가 없습니다.');
     writeAnalysis({...r,done:true});busy=false;if(auto){commitMove(r.pv[0]);writeAnalysis(r,'선택',source);}else {persist();render();}
   }).catch(error=>{if(id!==serial||error.name==='AbortError')return;stop();render();$('#analysis').textContent=error.message;});
@@ -202,7 +204,7 @@ function startVariable(selectedPool,source,id){
  activeAnalysis={analysisId,position:boardKey(source),turn:source.turn,engine:$('#play-engine').value};lastAnalysisTrace=null;
  const current=()=>id===serial&&source.turn===state.turn&&boardKey(source)===boardKey(state);
  recordDecision(decisionLog,{kind:'analysis-start',at:new Date().toISOString(),analysisId,position:boardKey(source),turn:source.turn,firstTargetMs:500,limitMs:15000,configuredCores:selectedPool.size,cores});
- variableAnalysis.start(selectedPool,source,{cores,defenseReply:expectedDefense(source,$('#play-engine').value),wallStreak:observedWallStreak(source.turn),
+ variableAnalysis.start(selectedPool,searchSnapshot(source),{cores,defenseReply:expectedDefense(source,$('#play-engine').value),wallStreak:observedWallStreak(source.turn),
   onPublish:r=>{
    if(!current()||screenSuppressed())return;const position=boardKey(source),engine=$('#play-engine').value;
    if(lastShownAdvice&&lastShownAdvice.position===position&&lastShownAdvice.turn===source.turn&&lastShownAdvice.engine===engine&&notation(lastShownAdvice.action)!==notation(r.pv[0])){

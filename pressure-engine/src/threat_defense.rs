@@ -115,6 +115,16 @@ fn defense_line(p:&Position,target:usize,probe:&mut ChainProbe,until:f64,cancel:
  }
  Some(worst)
 }
+// Keep a selective risk correction below one pawn-distance unit even when
+// comparing the most favored and most penalized candidates (96 < 120).
+// The actual search still decides whether a retreat is necessary.
+fn defense_adjustment(initial:i32,risk:i32,routes:i32,forward:i32)->i32{
+ match std::env::var("QUORIDOR_DEFENSE_BIAS").as_deref(){
+  Ok("off")=>0,
+  Ok("legacy")=>((initial-risk)*120+(routes-forward)*12).clamp(-240,240),
+  _=>((initial-risk)*24+(routes-forward)*6).clamp(-48,48),
+ }
+}
 fn threat_defense_biases(p:&Position,base:[i32;209],deadline:f64,cancel:&AtomicBool,preferred:Option<u16>)->([i32;209],ThreatDefense){
  let started=now();let mut details=ThreatDefense{active:goal_enabled()&&p.left[1-p.turn]>0&&p.walls.count_ones()>=4,complete:true,initial_risk:0,examined_actions:0,elapsed_ms:0.,selected:None,continuation:None,continuation_reviewed:false,choices:vec![]};
  let mut run=||->Option<[i32;209]>{
@@ -136,9 +146,8 @@ fn threat_defense_biases(p:&Position,base:[i32;209],deadline:f64,cancel:&AtomicB
   actions.sort_unstable();actions.dedup();let forward=forward_choices(p,t,&mut probe).min(2)as i32;let mut out=base;
   for a in actions{
    let mut q=p.clone();q.make(a);let line=defense_line(&q,t,&mut probe,until,cancel)?;let routes=forward_choices(&q,t,&mut probe);
-   // Use the same distance unit as the underlying evaluation. The cap prevents
-   // a selective four-ply estimate from overwhelming a large strategic score.
-   let adjustment=((baseline.risk-line.risk)*120+(routes.min(2)as i32-forward)*12).clamp(-240,240);
+   // Risk is an auxiliary signal, not a replacement for arrival progress.
+   let adjustment=defense_adjustment(baseline.risk,line.risk,routes.min(2)as i32,forward);
    out[a as usize]+=adjustment;details.choices.push(DefenseChoice{action:decode(a),risk:line.risk,delay:line.delay,forward_choices:routes,adjustment,line});
   }
   Some(out)
@@ -166,5 +175,56 @@ mod selected_review_tests{
   assert_eq!(details.choices.len(),count+1);
   details.review_selected(&state,Some(&action),now()+2000.,&cancel);
   assert_eq!(details.choices.len(),count+1);
+ }
+}
+
+#[cfg(test)]mod defense_bias_tests{
+ use super::*;
+ #[test]fn selective_risk_cannot_outweigh_a_pawn_step(){
+  std::env::remove_var("QUORIDOR_DEFENSE_BIAS");
+  for initial in 0..=8 {for risk in 0..=8 {for routes in 0..=2 {
+   assert!(defense_adjustment(initial,risk,routes,2).abs()<=48);
+  }}}
+  assert!(defense_adjustment(5,3,2,2)-defense_adjustment(5,7,2,2)<120);
+  assert!(defense_adjustment(5,3,2,2)>0);
+  assert!(defense_adjustment(5,7,2,2)<0);
+ }
+}
+
+impl NativeEngine{
+ pub fn set_recent_pawns(&mut self,value:&serde_json::Value){
+  let mut recent=self.shared.root_recent_pawns.lock().unwrap();recent.clear();
+  if let Some(rows)=value.as_array(){recent.extend(rows.iter().rev().take(4).filter_map(|v|v.as_u64()).filter(|&n|n<81).map(|n|n as usize));}
+ }
+ fn progress_biases(&self,p:&Position,mut biases:[i32;209])->[i32;209]{
+  if !goal_enabled(){return biases;}
+  let recent=self.shared.root_recent_pawns.lock().unwrap();
+  let root=p.clone();let before=root.distance(p.turn,false);
+  for a in p.moves(p.turn){
+   let visits=recent.iter().filter(|&&n|n==a as usize).count();
+   if visits==0||goal(a as usize,p.turn){continue;}
+   let mut q=p.clone();q.make(a);let after=q.distance(p.turn,false);
+   // A bounded cost for revisiting without progress. Tactical search and mate
+   // scores can override it; legal retreats are never removed from the tree.
+   if after>=before{biases[a as usize]-=(visits.min(2)as i32)*96;}
+  }
+  biases
+ }
+}
+
+#[cfg(test)]mod progress_bias_tests{
+ use super::*;
+ #[test]fn history_only_penalizes_nonprogress_and_resets(){
+  std::env::set_var("QUORIDOR_GOAL_MODE","on");
+  let state:State=serde_json::from_value(serde_json::json!({"p":[{"x":4,"y":5},{"x":5,"y":0}],"turn":1,"left":[10,10],"winner":null,"walls":[]})).unwrap();
+  let p=Position::from_state(&state).unwrap();let mut engine=NativeEngine::with_profile(1);
+  engine.set_recent_pawns(&serde_json::json!([4,14]));
+  let bias=engine.progress_biases(&p,[0;209]);
+  assert_eq!(bias[4],-96); // e9 revisits without progress
+  assert_eq!(bias[14],0); // f8 advances even if visited before
+  engine.set_recent_pawns(&serde_json::Value::Null);
+  assert!(engine.progress_biases(&p,[0;209]).iter().all(|&n|n==0));
+  assert_eq!(pressure_adjust(WIN-1,-192,0),WIN-1);
+  assert_eq!(pressure_adjust(-WIN+1,-192,0),-WIN+1);
  }
 }

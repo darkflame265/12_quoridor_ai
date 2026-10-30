@@ -36,6 +36,25 @@ pub struct ThreatDefense{
  selected:Option<DefenseChoice>,continuation:Option<Action>,continuation_reviewed:bool,#[serde(skip)]choices:Vec<DefenseChoice>,
 }
 impl ThreatDefense{
+ // Review a newly selected root without changing the utility used by the
+ // completed search. Changing that utility here would invalidate its score.
+ fn review_selected(&mut self,state:&State,action:Option<&Action>,deadline:f64,cancel:&AtomicBool){
+  self.select(action);
+  if !self.active||!self.complete||self.selected.is_some()||self.elapsed_ms>=220.{return;}
+  let Some(action)=action else{return;};let a=action_code(action);
+  let Ok(mut p)=Position::from_state(state)else{return;};
+  if !p.actions().contains(&a){return;}
+  let started=now();let until=(started+30.).min(deadline);
+  if until<=started||cancel.load(Ordering::Relaxed){return;}
+  let mut probe=ChainProbe::new(true);let mut q=p.clone();q.make(a);
+  if let Some(line)=defense_line(&q,p.turn,&mut probe,until,cancel){
+   let routes=forward_choices(&q,p.turn,&mut probe);
+   self.choices.push(DefenseChoice{action:decode(a),risk:line.risk,delay:line.delay,forward_choices:routes,adjustment:0,line});
+   self.examined_actions=self.choices.len();self.select(Some(action));
+  }
+  self.elapsed_ms+=now()-started;
+ }
+
  fn select(&mut self,action:Option<&Action>){self.selected=action.and_then(|a|self.choices.iter().find(|c|action_code(&c.action)==action_code(a)).cloned());}
  fn protect(&self,a:u16)->bool{self.complete&&self.choices.iter().any(|c|action_code(&c.action)==a&&(self.initial_risk>=2||c.risk>=2||c.risk<self.initial_risk||self.continuation.as_ref().is_some_and(|r|action_code(r)==a)))}
 }
@@ -126,4 +145,26 @@ fn threat_defense_biases(p:&Position,base:[i32;209],deadline:f64,cancel:&AtomicB
  };
  let result=run();details.elapsed_ms=now()-started;
  if let Some(out)=result{details.examined_actions=details.choices.len();details.continuation_reviewed=details.continuation.as_ref().is_some_and(|a|details.choices.iter().any(|c|action_code(&c.action)==action_code(a)));(out,details)}else{details.complete=false;details.choices.clear();(base,details)}
+}
+#[cfg(test)]
+mod selected_review_tests{
+ use super::*;
+ #[test]
+ fn new_root_is_reviewed_without_repricing_completed_search(){
+  std::env::set_var("QUORIDOR_GOAL_MODE","on");
+  let state:State=serde_json::from_value(serde_json::json!({"p":[{"x":4,"y":5},{"x":4,"y":3}],"turn":1,"left":[8,8],"winner":null,"walls":[{"x":0,"y":0,"o":"h","owner":0},{"x":2,"y":0,"o":"h","owner":1},{"x":0,"y":7,"o":"h","owner":0},{"x":2,"y":7,"o":"h","owner":1}]})).unwrap();
+  let cancel=AtomicBool::new(false);let p=Position::from_state(&state).unwrap();
+  let (_,mut details)=threat_defense_biases(&p,[0;209],now()+2000.,&cancel,None);
+  assert!(details.active&&details.complete);
+  let mut root=p.clone();let a=root.actions().into_iter().find(|a|!details.choices.iter().any(|c|action_code(&c.action)==*a)).unwrap();
+  let action=decode(a);let count=details.choices.len();
+  details.review_selected(&state,Some(&action),now()-1.,&cancel);
+  assert!(details.selected.is_none());assert_eq!(details.choices.len(),count);
+  details.review_selected(&state,Some(&action),now()+2000.,&cancel);
+  let selected=details.selected.as_ref().expect("new recommendation must be reviewed");
+  assert_eq!(action_code(&selected.action),a);assert_eq!(selected.adjustment,0);
+  assert_eq!(details.choices.len(),count+1);
+  details.review_selected(&state,Some(&action),now()+2000.,&cancel);
+  assert_eq!(details.choices.len(),count+1);
+ }
 }

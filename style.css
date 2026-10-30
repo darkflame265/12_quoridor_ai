@@ -21,3 +21,5 @@
 #history>div.latest{background:#c0d28b0b;border-radius:5px}
 .analysis-warning{padding:10px 12px;border-left:3px solid #fa7393;background:#fa739310;color:#ffb4c6;font-size:.85rem;line-height:1.6}
 @media(max-width:720px){.arena{position:static}#watch-panel{grid-column:1/-1}.watch-player label{display:flex;justify-content:space-between;align-items:center;gap:8px}.watch-player select{width:68%;margin:0}.watch-player{padding:12px}.watch-controls{grid-template-columns:1fr 1fr 1fr}.watch-controls #watch-step{grid-column:auto}}
+
+.wait-advice{border:1px solid #d6b966;border-radius:14px;padding:14px 18px;margin:0 0 16px;background:#252519;color:#ecd99a}.wait-advice p{margin:6px 0;line-height:1.5}.wait-advice small{display:block;color:#c4c4b7;line-height:1.5}.wait-advice[data-level="ready"]{border-color:#31d4c2;color:#72e4d6;background:#132c27}.wait-advice[data-level="done"],.wait-advice[data-level="low"]{border-color:#71766c;color:#d0d5c9;background:#20251d}#advice-change{font-weight:700;color:#ffcf77}#position-verdict{font-size:13px;color:#d2d0c3}

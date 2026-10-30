@@ -19,6 +19,8 @@ impl NativeEngine {
         if cancel.load(Ordering::Relaxed){return false;}
         let Some(table)=self.endgames.get(&p.walls)else{return false;};
         let (value,distance,action)=table.lookup(p);
+        let race=inspect_race(p,value,distance,deadline,cancel);
+        if out.race_assessment.as_ref().map_or(true,|old|!old.wall_probe_complete||race.wall_probe_complete){out.race_assessment=Some(race);}
         // The opponent has no walls, so a pawn-only winning strategy remains
         // legal in the original game. Draw/loss in this restricted game says
         // nothing conclusive about the value of our retained walls.

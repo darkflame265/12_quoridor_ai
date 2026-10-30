@@ -1,4 +1,5 @@
 import {budgetReason} from './analysis-budget.js';
+import {analysisReadiness} from './analysis-readiness.js';
 import {wallStreak} from './wall-streak.js';
 import {normalizeSessionSettings} from './session-settings.js';
 import {VariableAnalysis} from './variable-analysis.js';
@@ -18,6 +19,7 @@ const defaultCores=Math.min(4,Math.max(1,(navigator.hardwareConcurrency||4)-2));
 let state=initial(),past=[],records=[],serial=0,busy=false,hint=null,decisionLog=[];
 let baseState=null,observedBottom=null,screenCapture=null;
 let screenReady=false,screenRebased=false,screenSegments=[];
+let uncertaintyTimer=null,heldAnalysis=null,activeAnalysis=null,lastAnalysisTrace=null,lastShownAdvice=null;
 let pool=createPlayPool(defaultCores),watchPools=[null,null],ponderTimer=null;
 const variableAnalysis=new VariableAnalysis();
 const playMs=()=>$('#time').value==='variable'?500:Number($('#time').value);
@@ -50,7 +52,13 @@ const watcher=new SpectatorRunner({
   onError:error=>{$('#analysis').textContent=error.message;},
   getDelay:()=>Number($('#watch-delay').value)
 });
-function stop(){serial++;variableAnalysis.cancel();clearTimeout(ponderTimer);busy=false;watcher.pause();pool.cancel();cancelWatch();}
+function analysisTrace(){return activeAnalysis?{...activeAnalysis,activeElapsedMs:variableAnalysis.elapsedMs,depth:variableAnalysis.latest?.depth??null,waiting:analysisReadiness(variableAnalysis,{suppressed:screenSuppressed()}),changedAt:variableAnalysis.changedAt?new Date(Date.now()-(performance.now()-variableAnalysis.changedAt)).toISOString():null}:lastAnalysisTrace;}
+function stop(reason='control-change'){
+ lastAnalysisTrace=analysisTrace();
+ if(activeAnalysis&&variableAnalysis.active)recordDecision(decisionLog,{kind:'analysis-cancel',at:new Date().toISOString(),...lastAnalysisTrace,reason});
+ activeAnalysis=null;clearTimeout(uncertaintyTimer);heldAnalysis=null;serial++;variableAnalysis.cancel();clearTimeout(ponderTimer);busy=false;watcher.pause();pool.cancel();cancelWatch();
+}
+const screenSuppressed=()=>$('#mode').value==='screen'&&screenCapture?.active&&!screenReady;
 function wallSvg(w,extra=''){
   w=viewAction({...w,type:'wall'});const x=22+w.x*70,y=22+w.y*70;
   return `<rect class="wall ${extra}" x="${w.o==='h'?x-2:x+60}" y="${w.o==='h'?y+60:y-2}" width="${w.o==='h'?132:10}" height="${w.o==='h'?10:132}" rx="5" fill="${colors[w.owner??state.turn]}"/>`;
@@ -127,13 +135,14 @@ function writeAnalysis(r,label='추천',source=state){
 }
 function applyMove(action){
   if(!legal(state,action))throw Error('불가능한 수입니다.');
-  observedAction(decisionLog,state,action,records.length+1);
+  const trace=analysisTrace();observedAction(decisionLog,state,action,records.length+1,trace?.position===boardKey(state)&&trace.turn===state.turn?trace:null);
+  lastAnalysisTrace=null;
   past.push(clone(state));records.push(clone(action));state=apply(state,action);hint=null;busy=false;persist();render();
 }
 function commitMove(action){if(!legal(state,action))return;stop();applyMove(action);schedule();}
 function schedule(){
   if($('#mode').value==='screen'){
-    if(screenReady&&screenCapture?.active&&screenCapture.autoHint&&baseState&&state.winner===null&&state.turn===Number($('#side').value))think();
+    if(screenReady&&screenCapture?.active&&screenCapture.autoHint&&baseState&&state.winner===null&&state.turn===Number($('#side').value))think(false,'screen-auto');
     return;
   }
   if(watching()||state.winner!==null)return;
@@ -143,8 +152,8 @@ function schedule(){
     ponderTimer=setTimeout(()=>{if(!busy&&!watching())pool.search(snapshot,{ms:pool.ponderMs,ponder:true}).catch(()=>{});},200);
   }
 }
-function think(auto=false){
-  stop();busy=true;hint=null;const id=serial,source=clone(state),selectedPool=watching()?watchPool(state.turn):pool;
+function think(auto=false,reason='manual-analysis'){
+  stop(reason);busy=true;hint=null;const id=serial,source=clone(state),selectedPool=watching()?watchPool(state.turn):pool;
   render();$('#analysis').textContent='가능한 이동과 벽을 분석하고 있습니다…';
   if(!auto&&!watching()&&$('#time').value==='variable'){startVariable(selectedPool,source,id);return;}
   selectedPool.search(state,{wallStreak:observedWallStreak(state.turn),ms:watching()?watchSettings(state.turn).ms:playMs(),onProgress:r=>{if(id===serial)writeAnalysis(r);}}).then(r=>{
@@ -154,7 +163,19 @@ function think(auto=false){
 }
 function variableStatus(){
  const v=variableAnalysis,visible=$('#time').value==='variable'&&!watching();
+ const suppressed=screenSuppressed(),waiting=analysisReadiness(v,{suppressed});
+ if(!suppressed&&v.displayed&&activeAnalysis)activeAnalysis.lastVisibleWaiting=waiting;
+ $('#wait-advice').hidden=!visible||!v.active&&!v.displayed;
+ $('#wait-advice').dataset.level=waiting.level;if($('#wait-label').textContent!==waiting.label)$('#wait-label').textContent=waiting.label;$('#wait-reason').textContent=waiting.reason;
+ const now=performance.now(),elapsed=v.elapsedMs/1000;
+ $('#wait-timing').textContent=`분석 경과 ${elapsed.toFixed(1)}초${v.active?` · 최대 잔여 ${Math.max(0,15-elapsed).toFixed(1)}초`:' · 계산 종료'}${v.lastUpdateAt?` · 마지막 결과 ${(now-v.lastUpdateAt)/1000<1?'방금':`${((now-v.lastUpdateAt)/1000).toFixed(1)}초 전`}`:''}${v.active&&v.latest?` · 깊이 ${v.latest.depth} 완료, 다음 깊이 비교 중`:''}${v.active?` · ${Math.max(1,3-Math.floor(elapsed)%3)}초 이내 대기 가치 재확인`:''}`;
+ const pinnedDifferent=v.pinned&&v.displayed&&v.latest&&notation(v.displayed.pv[0])!==notation(v.latest.pv[0]);
+ $('#advice-change').hidden=suppressed||!pinnedDifferent&&(!v.previousAction||!v.changedAt||now-v.changedAt>5000);
+ $('#advice-change').textContent=pinnedDifferent?`고정 추천 ${notation(v.displayed.pv[0])} / 최신 계산 ${notation(v.latest.pv[0])}`:v.previousAction&&v.displayed?`추천 변경: ${notation(v.previousAction)} → ${notation(v.displayed.pv[0])}`:'';
+ const r=v.latest;
+ $('#position-verdict').textContent=suppressed?'':!r?'판세 분석 준비 중':r.exact&&r.outcome===1?'판세: 승리 전략 확인':r.raceAssessment?.pawnOnlyOutcome===-1?'판세: 말 이동 경주에서 열세 · 벽 전략까지 포함한 패배 확정은 아닙니다.':r.score<=-29000?'판세: 현재 탐색상 패배 예상':r.score<-120?'판세: 현재 평가상 불리':r.score>120?'판세: 현재 평가상 유리 · 승률 보장은 아닙니다.':'판세: 평가 차이가 작습니다.';
  $('#variable-controls').hidden=!visible;$('#analysis-pin').disabled=!v.displayed;
+ if(suppressed){$('#analysis-pin').disabled=true;$('#variable-status').textContent='원본 배치 재확인 중 · 추천 표시 보류';return;}
  $('#analysis-pin').textContent=v.pinned?'추천 고정 해제':'현재 추천 고정';
  $('#variable-status').textContent=!v.latest?(v.active?'첫 추천 준비 중 · 0.5초 목표, 완료된 깊이부터 표시':''):
   `${v.active?(v.phase==='quick'?'빠른 추천':v.reason==='connection'||v.reason==='reserve'||v.reason==='goal'?'위험 상황 추가 분석 · 최대 15초':'추가 분석 · 최대 15초'):v.latest.adaptiveStop?.heuristic?'추천 안정 추정 · 분석 종료':'분석 종료'} · ${budgetReason(v.reason)} · ${v.pinned?'표시 추천 고정 · ':''}최신 ${notation(v.latest.pv[0])} · 깊이 ${v.latest.depth??0} · ${((v.latest.adaptiveStop?.elapsedMs??v.latest.elapsedMs)/1000).toFixed(1)}초`;
@@ -163,10 +184,19 @@ function variableStatus(){
 function startVariable(selectedPool,source,id){
  const cores=Math.min(selectedPool.size,Math.max(1,(navigator.hardwareConcurrency||4)-1));
  const analysisId=globalThis.crypto.randomUUID();let published=false;
+ activeAnalysis={analysisId,position:boardKey(source),turn:source.turn,engine:$('#play-engine').value};lastAnalysisTrace=null;
  const current=()=>id===serial&&source.turn===state.turn&&boardKey(source)===boardKey(state);
  recordDecision(decisionLog,{kind:'analysis-start',at:new Date().toISOString(),analysisId,position:boardKey(source),turn:source.turn,firstTargetMs:500,limitMs:15000,configuredCores:selectedPool.size,cores});
  variableAnalysis.start(selectedPool,source,{cores,wallStreak:observedWallStreak(source.turn),
-  onPublish:r=>{if(!current())return;const phase=published?'update':'first';published=true;busy=false;writeAnalysis({...r,analysisBudgetMs:15000,analysisCores:cores});recordDecision(decisionLog,{kind:'analysis-display',at:new Date().toISOString(),analysisId,phase,position:boardKey(source),turn:source.turn,pv:clone(r.pv),elapsedMs:r.elapsedMs,complete:r.done});persist();render();},
+  onPublish:r=>{
+   if(!current()||screenSuppressed())return;const position=boardKey(source),engine=$('#play-engine').value;
+   if(lastShownAdvice&&lastShownAdvice.position===position&&lastShownAdvice.turn===source.turn&&lastShownAdvice.engine===engine&&notation(lastShownAdvice.action)!==notation(r.pv[0])){
+    variableAnalysis.previousAction=lastShownAdvice.action;variableAnalysis.changedAt=performance.now();
+    recordDecision(decisionLog,{kind:'recommendation-change',at:new Date().toISOString(),analysisId,position,turn:source.turn,from:clone(lastShownAdvice.action),to:clone(r.pv[0])});
+   }
+   lastShownAdvice={position,turn:source.turn,engine,action:clone(r.pv[0])};
+   const phase=published?'update':'first';published=true;busy=false;writeAnalysis({...r,analysisBudgetMs:15000,analysisCores:cores});recordDecision(decisionLog,{kind:'analysis-display',at:new Date().toISOString(),analysisId,phase,position,turn:source.turn,pv:clone(r.pv),elapsedMs:r.elapsedMs,activeElapsedMs:variableAnalysis.elapsedMs,waiting:analysisReadiness(variableAnalysis),complete:r.done});persist();render();
+  },
   onUpdate:r=>{if(!current())return;recordDecision(decisionLog,{...recommendation(source,r,{engine:$('#play-engine').value,ms:15000,cores,ply:records.length+1,build:selectedPool.native?.info?.engineInfo?.build}),kind:'analysis-update',analysisId});},
   onStatus:()=>{variableStatus();if(current()&&!variableAnalysis.active)persist();},
   onError:error=>{if(!current())return;stop();hint=null;render();$('#analysis').textContent=error.message;}
@@ -187,7 +217,7 @@ $('#board').onpointermove=e=>{
 $('#board').onpointerleave=()=>{if($('#ghost'))$('#ghost').innerHTML='';};
 $('#board').onclick=e=>{if(human()&&!busy&&state.winner===null){const a=pick(e);if(a)commitMove(a);}};
 function clearAnalysis(){$('#analysis').textContent='현재 차례의 추천 수와 예상 진행을 확인하세요.';$('#depth').textContent='';hint=null;}
-function resetGame(){stop();state=initial();baseState=null;observedBottom=null;screenRebased=false;screenSegments=[];decisionLog=[];past=[];records=[];clearAnalysis();persist();render();schedule();}
+function resetGame(){stop();lastShownAdvice=null;lastAnalysisTrace=null;state=initial();baseState=null;observedBottom=null;screenRebased=false;screenSegments=[];decisionLog=[];past=[];records=[];clearAnalysis();persist();render();schedule();}
 $('#hint').onclick=()=>think();$('#reset').onclick=resetGame;
 $('#undo').onclick=()=>{stop();if(!past.length)return;do{state=past.pop();records.pop();}while($('#mode').value==='ai'&&past.length&&state.turn!==Number($('#side').value));clearAnalysis();persist();render();schedule();};
 $('#mode').onchange=()=>{stop();clearAnalysis();persist();render();schedule();if($('#mode').value==='screen')screenCapture?.open();};
@@ -207,8 +237,8 @@ function sessionData(){return {settingsRevision:1,version:baseState?3:2,...(base
 function persist(){try{localStorage.setItem('quoridor-session',JSON.stringify(sessionData()));$('#storage-note').hidden=true;}catch{$('#storage-note').hidden=false;$('#storage-note').textContent='자동 저장 공간이 부족합니다. 기보 저장을 이용해 주세요.';}}
 function selectValue(id,value){const element=$(id);if([...element.options].some(option=>option.value===String(value)))element.value=String(value);}
 function restore(data,{startup=false}={}){
-  data=normalizeSessionSettings(data,{startup});
-  const replay=restoreObservedSession(data);const archives=data.screenSegments??[];if(!Array.isArray(archives)||archives.length>8)throw Error('이전 화면 기보 보관 형식이 올바르지 않습니다.');const segments=archives.map(segment=>{const r=restoreObservedSession(segment);return {baseState:r.baseState,records:r.records,decisionLog:Array.isArray(segment.decisionLog)?segment.decisionLog.slice(-1000):[]};});stop();decisionLog=Array.isArray(data.decisionLog)?data.decisionLog.slice(-1000):[];screenSegments=segments;state=replay.state;past=replay.past;records=replay.records;baseState=replay.baseState;screenRebased=!!baseState&&data.screenRebased===true;
+  data=normalizeSessionSettings(data,{startup});lastShownAdvice=null;
+  const replay=restoreObservedSession(data);const archives=data.screenSegments??[];if(!Array.isArray(archives)||archives.length>8)throw Error('이전 화면 기보 보관 형식이 올바르지 않습니다.');const segments=archives.map(segment=>{const r=restoreObservedSession(segment);return {baseState:r.baseState,records:r.records,decisionLog:Array.isArray(segment.decisionLog)?segment.decisionLog.slice(-1000):[]};});stop();lastAnalysisTrace=null;decisionLog=Array.isArray(data.decisionLog)?data.decisionLog.slice(-1000):[];screenSegments=segments;state=replay.state;past=replay.past;records=replay.records;baseState=replay.baseState;screenRebased=!!baseState&&data.screenRebased===true;
   observedBottom=baseState&&[0,1].includes(data.sourceBottom)?data.sourceBottom:null;screenCapture?.setBottom(observedBottom);
   selectValue('#mode',data.mode);selectValue('#side',data.side);selectValue('#time',data.time);selectValue('#cores',data.cores);selectValue('#play-engine',data.engine);
   $('#engine-import-note').hidden=!data.unsupportedEngine;$('#engine-import-note').textContent=data.unsupportedEngine?`기보의 원본 엔진 ${data.unsupportedEngine}은 선택 목록에서 제외됐습니다. 기록은 유지하고 새 분석에는 Atlas 0.4를 사용합니다.`:'';
@@ -225,12 +255,26 @@ screenCapture=mountScreenCapture({
   getState:()=>$('#mode').value==='screen'&&baseState?clone(state):null,
   onSync:(actions,before)=>{
     if($('#mode').value!=='screen'||state.turn!==before.turn||boardKey(state)!==boardKey(before))return false;
-    stop();clearAnalysis();for(const action of actions)applyMove(action);screenReady=true;render();schedule();return true;
+    stop('screen-position-changed');clearAnalysis();for(const action of actions)applyMove(action);screenReady=true;render();schedule();return true;
   },
-  onWatchChange:()=>{screenReady=false;stop();clearAnalysis();render();},
-  onUncertain:()=>{screenReady=false;stop();clearAnalysis();$('#analysis').textContent='원본 배치 변화 확인 중 · 인식이 안정되면 최신 배치를 분석합니다.';render();},
-  onRecovered:()=>{screenReady=true;render();schedule();},
-  onApply:(snapshot,bottom)=>{if(baseState&&records.length){screenSegments.push({baseState:clone(baseState),records:clone(records),decisionLog:clone(decisionLog)});if(screenSegments.length>8)screenSegments.shift();}screenRebased=!!baseState&&(screenRebased||boardKey(state)!==boardKey(snapshot)||state.turn!==snapshot.turn);stop();state=clone(snapshot);baseState=clone(snapshot);decisionLog=[];observedBottom=bottom;past=[];records=[];$('#mode').value='screen';$('#side').value=String(bottom);$('#start-position').value='bottom';clearAnalysis();persist();render();},
+  onWatchChange:()=>{screenReady=false;stop('screen-watch-change');clearAnalysis();render();},
+  onUncertain:()=>{
+   screenReady=false;clearTimeout(uncertaintyTimer);
+   if($('#time').value==='variable'&&activeAnalysis&&(variableAnalysis.active||variableAnalysis.displayed)){
+    heldAnalysis={...activeAnalysis,serial};recordDecision(decisionLog,{kind:'analysis-suspend-display',at:new Date().toISOString(),...analysisTrace(),reason:'screen-uncertain'});
+    uncertaintyTimer=setTimeout(()=>{if(!screenReady){stop('screen-uncertain-timeout');clearAnalysis();render();}},300);
+   }else stop('screen-uncertain');
+   clearAnalysis();$('#analysis').textContent='원본 배치 변화 확인 중 · 확인 전에는 추천을 표시하지 않습니다.';render();
+  },
+  onRecovered:()=>{
+   clearTimeout(uncertaintyTimer);screenReady=true;const held=heldAnalysis;heldAnalysis=null;
+   if(held&&held.serial===serial&&held.position===boardKey(state)&&held.turn===state.turn&&held.engine===$('#play-engine').value){
+    recordDecision(decisionLog,{kind:'analysis-resume-display',at:new Date().toISOString(),...analysisTrace(),reason:'same-position-confirmed'});
+    if(variableAnalysis.displayed)variableAnalysis.publish();render();return;
+   }
+   render();schedule();
+  },
+  onApply:(snapshot,bottom)=>{lastShownAdvice=null;if(baseState&&records.length){screenSegments.push({baseState:clone(baseState),records:clone(records),decisionLog:clone(decisionLog)});if(screenSegments.length>8)screenSegments.shift();}screenRebased=!!baseState&&(screenRebased||boardKey(state)!==boardKey(snapshot)||state.turn!==snapshot.turn);stop();lastAnalysisTrace=null;state=clone(snapshot);baseState=clone(snapshot);decisionLog=[];observedBottom=bottom;past=[];records=[];$('#mode').value='screen';$('#side').value=String(bottom);$('#start-position').value='bottom';clearAnalysis();persist();render();},
   onDirty:()=>{if($('#mode').value==='screen'){stop();clearAnalysis();$('#analysis').textContent='새로 가져온 내용은 확인 후 적용해야 반영됩니다.';render();}}
 });
 window.addEventListener('pagehide',()=>{stop();pool.dispose();disposeWatch();screenCapture?.dispose();});

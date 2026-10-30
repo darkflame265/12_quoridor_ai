@@ -1,0 +1,368 @@
+{
+  "target": 0,
+  "input": "game8-record.json",
+  "method": "Target has zero walls. Immediate replies are followed by exact fixed-maze play. The separate one-wall retrograde oracle allows the enemy at most one wall at ANY future turn. Either target loss is a sound full-game loss witness; neither target win is a full-game win proof when the enemy has more walls.",
+  "results": [
+    {
+      "ply": 37,
+      "rows": [
+        {
+          "action": "b4─",
+          "rawAction": {
+            "type": "wall",
+            "x": 1,
+            "y": 5,
+            "o": "h"
+          },
+          "actual": true,
+          "opponentReplies": 83,
+          "losingReplies": 0,
+          "lossProven": false,
+          "certificate": null,
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": 1
+        }
+      ]
+    },
+    {
+      "ply": 39,
+      "rows": [
+        {
+          "action": "c5",
+          "rawAction": {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          "actual": false,
+          "opponentReplies": 83,
+          "losingReplies": 0,
+          "lossProven": false,
+          "certificate": null,
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": 1
+        },
+        {
+          "action": "d4",
+          "rawAction": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "actual": true,
+          "opponentReplies": 83,
+          "losingReplies": 0,
+          "lossProven": false,
+          "certificate": null,
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": 1
+        },
+        {
+          "action": "b4",
+          "rawAction": {
+            "type": "move",
+            "x": 1,
+            "y": 5
+          },
+          "actual": false,
+          "opponentReplies": 83,
+          "losingReplies": 0,
+          "lossProven": false,
+          "certificate": null,
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": 1
+        }
+      ]
+    },
+    {
+      "ply": 41,
+      "rows": [
+        {
+          "action": "d5",
+          "rawAction": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          "actual": false,
+          "opponentReplies": 83,
+          "losingReplies": 0,
+          "lossProven": false,
+          "certificate": null,
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": 1
+        },
+        {
+          "action": "e4",
+          "rawAction": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          "actual": true,
+          "opponentReplies": 83,
+          "losingReplies": 0,
+          "lossProven": false,
+          "certificate": null,
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": -1
+        },
+        {
+          "action": "c4",
+          "rawAction": {
+            "type": "move",
+            "x": 2,
+            "y": 5
+          },
+          "actual": false,
+          "opponentReplies": 83,
+          "losingReplies": 0,
+          "lossProven": false,
+          "certificate": null,
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": 1
+        }
+      ]
+    },
+    {
+      "ply": 47,
+      "rows": [
+        {
+          "action": "d6",
+          "rawAction": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "actual": false,
+          "opponentReplies": 84,
+          "losingReplies": 0,
+          "lossProven": false,
+          "certificate": null,
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": -1
+        },
+        {
+          "action": "e5",
+          "rawAction": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "actual": false,
+          "opponentReplies": 84,
+          "losingReplies": 0,
+          "lossProven": false,
+          "certificate": null,
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": -1
+        },
+        {
+          "action": "d4",
+          "rawAction": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "actual": false,
+          "opponentReplies": 84,
+          "losingReplies": 0,
+          "lossProven": false,
+          "certificate": null,
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": -1
+        },
+        {
+          "action": "c5",
+          "rawAction": {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          "actual": true,
+          "opponentReplies": 84,
+          "losingReplies": 0,
+          "lossProven": false,
+          "certificate": null,
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": -1
+        }
+      ]
+    },
+    {
+      "ply": 49,
+      "rows": [
+        {
+          "action": "c6",
+          "rawAction": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "actual": false,
+          "opponentReplies": 85,
+          "losingReplies": 0,
+          "lossProven": false,
+          "certificate": null,
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": -1
+        },
+        {
+          "action": "d5",
+          "rawAction": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          "actual": true,
+          "opponentReplies": 85,
+          "losingReplies": 0,
+          "lossProven": false,
+          "certificate": null,
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": -1
+        },
+        {
+          "action": "c4",
+          "rawAction": {
+            "type": "move",
+            "x": 2,
+            "y": 5
+          },
+          "actual": false,
+          "opponentReplies": 85,
+          "losingReplies": 0,
+          "lossProven": false,
+          "certificate": null,
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": -1
+        },
+        {
+          "action": "b5",
+          "rawAction": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "actual": false,
+          "opponentReplies": 85,
+          "losingReplies": 0,
+          "lossProven": false,
+          "certificate": null,
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": -1
+        }
+      ]
+    },
+    {
+      "ply": 51,
+      "rows": [
+        {
+          "action": "d6",
+          "rawAction": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "actual": false,
+          "opponentReplies": 87,
+          "losingReplies": 2,
+          "lossProven": true,
+          "certificate": {
+            "reply": "c8─",
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 1,
+              "o": "h"
+            },
+            "targetOutcome": -1,
+            "plies": 12,
+            "targetMove": {
+              "type": "move",
+              "x": 3,
+              "y": 4
+            }
+          },
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": -1
+        },
+        {
+          "action": "e5",
+          "rawAction": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "actual": false,
+          "opponentReplies": 87,
+          "losingReplies": 5,
+          "lossProven": true,
+          "certificate": {
+            "reply": "c9─",
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 0,
+              "o": "h"
+            },
+            "targetOutcome": -1,
+            "plies": 12,
+            "targetMove": {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            }
+          },
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": -1
+        },
+        {
+          "action": "d4",
+          "rawAction": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "actual": true,
+          "opponentReplies": 87,
+          "losingReplies": 6,
+          "lossProven": true,
+          "certificate": {
+            "reply": "c9─",
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 0,
+              "o": "h"
+            },
+            "targetOutcome": -1,
+            "plies": 12,
+            "targetMove": {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            }
+          },
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": -1
+        },
+        {
+          "action": "b5",
+          "rawAction": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "actual": false,
+          "opponentReplies": 87,
+          "losingReplies": 0,
+          "lossProven": false,
+          "certificate": null,
+          "noFurtherWallOutcomeForTarget": 1,
+          "oneWallAtAnyTurnOutcomeForTarget": -1
+        }
+      ]
+    }
+  ]
+}

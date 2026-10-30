@@ -1,0 +1,50 @@
+{
+  "build": "e463687b829d",
+  "conditions": "New process per branch, one worker, maximum depth4 and2500ms foreground. Warm branch uses ScreenPonder at maximum depth4. Compare only matching completed depths. This is a small controlled experiment, not a strength gate.",
+  "results": [
+    {
+      "ply": 41,
+      "warm": false,
+      "seedMatched": false,
+      "seedDepth": null,
+      "completedDepth": 4,
+      "requestedDepth": 4,
+      "action": "e4",
+      "score": 101,
+      "ms": 371.4846
+    },
+    {
+      "ply": 41,
+      "warm": true,
+      "seedMatched": false,
+      "seedDepth": null,
+      "completedDepth": 4,
+      "requestedDepth": 4,
+      "action": "e4",
+      "score": 101,
+      "ms": 263.58770000000004
+    },
+    {
+      "ply": 49,
+      "warm": false,
+      "seedMatched": false,
+      "seedDepth": null,
+      "completedDepth": 4,
+      "requestedDepth": 4,
+      "action": "d5",
+      "score": -546,
+      "ms": 477.9322
+    },
+    {
+      "ply": 49,
+      "warm": true,
+      "seedMatched": false,
+      "seedDepth": null,
+      "completedDepth": 4,
+      "requestedDepth": 4,
+      "action": "d5",
+      "score": -546,
+      "ms": 344.9804999999999
+    }
+  ]
+}

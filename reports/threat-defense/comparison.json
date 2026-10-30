@@ -1,0 +1,2082 @@
+{
+  "build": "df806dad9b23",
+  "note": "Three cold-process comparisons and continuation handoff, not strength verification.",
+  "rows": [
+    {
+      "id": "game4-ply-13",
+      "ply": 13,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 4
+          },
+          {
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          }
+        ],
+        "left": [
+          8,
+          6
+        ],
+        "turn": 0,
+        "winner": null,
+        "wallStreak": 1
+      },
+      "played": {
+        "type": "move",
+        "x": 4,
+        "y": 5
+      },
+      "defenseReply": null,
+      "runs": [
+        {
+          "version": "previous",
+          "ms": 500,
+          "action": "e4",
+          "legal": true,
+          "score": -71,
+          "depth": 4,
+          "elapsedMs": 500.1481,
+          "pv": [
+            "e4",
+            "c5│",
+            "h6─",
+            "c3│"
+          ]
+        },
+        {
+          "version": "current",
+          "ms": 500,
+          "action": "e4",
+          "legal": true,
+          "score": -23,
+          "depth": 4,
+          "elapsedMs": 500.9623,
+          "defense": {
+            "active": true,
+            "complete": true,
+            "continuation": null,
+            "continuationReviewed": false,
+            "elapsedMs": 42.7461,
+            "examinedActions": 13,
+            "initialRisk": 6,
+            "selected": {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              "adjustment": 240,
+              "delay": 5,
+              "forwardChoices": 2,
+              "line": {
+                "attack": {
+                  "o": "v",
+                  "type": "wall",
+                  "x": 2,
+                  "y": 4
+                },
+                "delay": 5,
+                "followUp": {
+                  "o": "v",
+                  "type": "wall",
+                  "x": 2,
+                  "y": 6
+                },
+                "reply": {
+                  "type": "move",
+                  "x": 4,
+                  "y": 6
+                },
+                "risk": 4
+              },
+              "risk": 4
+            }
+          },
+          "pv": [
+            "e4",
+            "c5│",
+            "h6─",
+            "c3│"
+          ]
+        },
+        {
+          "version": "current-deeper",
+          "ms": 2000,
+          "action": "e4",
+          "legal": true,
+          "score": 109,
+          "depth": 5,
+          "elapsedMs": 2000.0758,
+          "defense": {
+            "active": true,
+            "complete": true,
+            "continuation": null,
+            "continuationReviewed": false,
+            "elapsedMs": 44.6392,
+            "examinedActions": 13,
+            "initialRisk": 6,
+            "selected": {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              "adjustment": 240,
+              "delay": 5,
+              "forwardChoices": 2,
+              "line": {
+                "attack": {
+                  "o": "v",
+                  "type": "wall",
+                  "x": 2,
+                  "y": 4
+                },
+                "delay": 5,
+                "followUp": {
+                  "o": "v",
+                  "type": "wall",
+                  "x": 2,
+                  "y": 6
+                },
+                "reply": {
+                  "type": "move",
+                  "x": 4,
+                  "y": 6
+                },
+                "risk": 4
+              },
+              "risk": 4
+            }
+          },
+          "pv": [
+            "e4",
+            "c5│",
+            "h6─",
+            "c3│",
+            "e3"
+          ]
+        }
+      ],
+      "diagnostic": {
+        "adjustments": [
+          [
+            31,
+            12
+          ],
+          [
+            49,
+            240
+          ],
+          [
+            115,
+            120
+          ],
+          [
+            154,
+            120
+          ],
+          [
+            162,
+            120
+          ]
+        ],
+        "candidates": [
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 3
+            },
+            "adjustment": 12,
+            "delay": 7,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 4
+              },
+              "delay": 7,
+              "followUp": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 4
+              },
+              "risk": 6
+            },
+            "risk": 6
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 4
+            },
+            "adjustment": 0,
+            "delay": 7,
+            "forwardChoices": 1,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 4
+              },
+              "delay": 7,
+              "followUp": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "reply": {
+                "type": "move",
+                "x": 3,
+                "y": 5
+              },
+              "risk": 6
+            },
+            "risk": 6
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 4
+            },
+            "adjustment": 0,
+            "delay": 7,
+            "forwardChoices": 1,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 4
+              },
+              "delay": 7,
+              "followUp": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "reply": {
+                "type": "move",
+                "x": 5,
+                "y": 5
+              },
+              "risk": 6
+            },
+            "risk": 6
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            "adjustment": 240,
+            "delay": 5,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 4
+              },
+              "delay": 5,
+              "followUp": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 4
+            },
+            "risk": 4
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            "adjustment": 0,
+            "delay": 7,
+            "forwardChoices": 1,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 4
+              },
+              "delay": 7,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 2
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              "risk": 6
+            },
+            "risk": 6
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 2
+            },
+            "adjustment": 0,
+            "delay": 7,
+            "forwardChoices": 1,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 4
+              },
+              "delay": 7,
+              "followUp": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              "risk": 6
+            },
+            "risk": 6
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 3
+            },
+            "adjustment": 0,
+            "delay": 7,
+            "forwardChoices": 1,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 4
+              },
+              "delay": 7,
+              "followUp": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              "risk": 6
+            },
+            "risk": 6
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 3
+            },
+            "adjustment": 0,
+            "delay": 7,
+            "forwardChoices": 1,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 4
+              },
+              "delay": 7,
+              "followUp": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              "risk": 6
+            },
+            "risk": 6
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 3
+            },
+            "adjustment": 0,
+            "delay": 7,
+            "forwardChoices": 1,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 4
+              },
+              "delay": 7,
+              "followUp": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              "risk": 6
+            },
+            "risk": 6
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 4
+            },
+            "adjustment": 120,
+            "delay": 6,
+            "forwardChoices": 1,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 3
+              },
+              "delay": 6,
+              "followUp": {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              "risk": 5
+            },
+            "risk": 5
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 1
+            },
+            "adjustment": 120,
+            "delay": 6,
+            "forwardChoices": 1,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 4
+              },
+              "delay": 6,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 2
+              },
+              "reply": {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "risk": 5
+            },
+            "risk": 5
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 2
+            },
+            "adjustment": 120,
+            "delay": 6,
+            "forwardChoices": 1,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 4
+              },
+              "delay": 6,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "reply": {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "risk": 5
+            },
+            "risk": 5
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 3
+            },
+            "adjustment": 0,
+            "delay": 7,
+            "forwardChoices": 1,
+            "line": {
+              "attack": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 2
+              },
+              "delay": 7,
+              "followUp": {
+                "o": "v",
+                "type": "wall",
+                "x": 1,
+                "y": 5
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              "risk": 6
+            },
+            "risk": 6
+          }
+        ],
+        "details": {
+          "active": true,
+          "complete": true,
+          "continuation": null,
+          "continuationReviewed": false,
+          "elapsedMs": 40.57900000000001,
+          "examinedActions": 13,
+          "initialRisk": 6,
+          "selected": null
+        },
+        "proof": false
+      }
+    },
+    {
+      "id": "game4-ply-15",
+      "ply": 15,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          }
+        ],
+        "left": [
+          8,
+          5
+        ],
+        "turn": 0,
+        "winner": null,
+        "wallStreak": 0
+      },
+      "played": {
+        "type": "wall",
+        "x": 7,
+        "y": 3,
+        "o": "h"
+      },
+      "defenseReply": {
+        "type": "move",
+        "x": 4,
+        "y": 6
+      },
+      "runs": [
+        {
+          "version": "previous",
+          "ms": 500,
+          "action": "h6─",
+          "legal": true,
+          "score": -325,
+          "depth": 4,
+          "elapsedMs": 500.82210000000003,
+          "pv": [
+            "h6─"
+          ]
+        },
+        {
+          "version": "current",
+          "ms": 500,
+          "action": "e3",
+          "legal": true,
+          "score": -361,
+          "depth": 4,
+          "elapsedMs": 500.36750000000006,
+          "defense": {
+            "active": true,
+            "complete": true,
+            "continuation": {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            },
+            "continuationReviewed": true,
+            "elapsedMs": 37.6485,
+            "examinedActions": 13,
+            "initialRisk": 4,
+            "selected": {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "adjustment": -12,
+              "delay": 5,
+              "forwardChoices": 1,
+              "line": {
+                "attack": {
+                  "o": "v",
+                  "type": "wall",
+                  "x": 2,
+                  "y": 6
+                },
+                "delay": 5,
+                "followUp": {
+                  "o": "h",
+                  "type": "wall",
+                  "x": 1,
+                  "y": 1
+                },
+                "reply": {
+                  "type": "move",
+                  "x": 4,
+                  "y": 7
+                },
+                "risk": 4
+              },
+              "risk": 4
+            }
+          },
+          "pv": [
+            "e3",
+            "c3│",
+            "h6─",
+            "b4─"
+          ]
+        },
+        {
+          "version": "current-deeper",
+          "ms": 2000,
+          "action": "h6─",
+          "legal": true,
+          "score": -190,
+          "depth": 5,
+          "elapsedMs": 2000.0855,
+          "defense": {
+            "active": true,
+            "complete": true,
+            "continuation": {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            },
+            "continuationReviewed": true,
+            "elapsedMs": 36.261700000000005,
+            "examinedActions": 13,
+            "initialRisk": 4,
+            "selected": {
+              "action": {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3
+              },
+              "adjustment": 0,
+              "delay": 5,
+              "forwardChoices": 2,
+              "line": {
+                "attack": {
+                  "o": "v",
+                  "type": "wall",
+                  "x": 2,
+                  "y": 6
+                },
+                "delay": 5,
+                "followUp": {
+                  "o": "h",
+                  "type": "wall",
+                  "x": 1,
+                  "y": 1
+                },
+                "reply": {
+                  "type": "move",
+                  "x": 4,
+                  "y": 6
+                },
+                "risk": 4
+              },
+              "risk": 4
+            }
+          },
+          "pv": [
+            "h6─",
+            "c3│",
+            "f6─",
+            "b4─",
+            "d5─"
+          ]
+        }
+      ],
+      "diagnostic": {
+        "adjustments": [
+          [
+            48,
+            -240
+          ],
+          [
+            58,
+            -12
+          ],
+          [
+            89,
+            -240
+          ],
+          [
+            97,
+            -240
+          ],
+          [
+            105,
+            -240
+          ],
+          [
+            131,
+            240
+          ]
+        ],
+        "candidates": [
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            },
+            "adjustment": 0,
+            "delay": 5,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "delay": 5,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              "risk": 4
+            },
+            "risk": 4
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 5
+            },
+            "adjustment": -240,
+            "delay": 7,
+            "forwardChoices": 1,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "delay": 7,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              "risk": 6
+            },
+            "risk": 6
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 5
+            },
+            "adjustment": 0,
+            "delay": 5,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "delay": 5,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "reply": {
+                "type": "move",
+                "x": 5,
+                "y": 6
+              },
+              "risk": 4
+            },
+            "risk": 4
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            },
+            "adjustment": -12,
+            "delay": 5,
+            "forwardChoices": 1,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "delay": 5,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              "risk": 4
+            },
+            "risk": 4
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            "adjustment": -240,
+            "delay": 7,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "delay": 7,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 2
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 6
+            },
+            "risk": 6
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 2
+            },
+            "adjustment": -240,
+            "delay": 7,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "delay": 7,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 3
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 6
+            },
+            "risk": 6
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 3
+            },
+            "adjustment": -240,
+            "delay": 7,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "delay": 7,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 4
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 6
+            },
+            "risk": 6
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 6,
+              "y": 3
+            },
+            "adjustment": 0,
+            "delay": 5,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "delay": 5,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 4
+            },
+            "risk": 4
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 7,
+              "y": 3
+            },
+            "adjustment": 0,
+            "delay": 5,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "delay": 5,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 4
+            },
+            "risk": 4
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 2,
+              "y": 6
+            },
+            "adjustment": 240,
+            "delay": 3,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "delay": 3,
+              "followUp": {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 6
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 2
+            },
+            "risk": 2
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 1
+            },
+            "adjustment": 0,
+            "delay": 5,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "delay": 5,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 2
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 4
+            },
+            "risk": 4
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 2
+            },
+            "adjustment": 0,
+            "delay": 5,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "delay": 5,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 4
+            },
+            "risk": 4
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 3
+            },
+            "adjustment": 0,
+            "delay": 5,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "v",
+                "type": "wall",
+                "x": 2,
+                "y": 6
+              },
+              "delay": 5,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 4
+            },
+            "risk": 4
+          }
+        ],
+        "details": {
+          "active": true,
+          "complete": true,
+          "continuation": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "continuationReviewed": true,
+          "elapsedMs": 37.762,
+          "examinedActions": 13,
+          "initialRisk": 4,
+          "selected": null
+        },
+        "proof": false
+      }
+    },
+    {
+      "id": "game4-ply-17",
+      "ply": 17,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          }
+        ],
+        "left": [
+          7,
+          4
+        ],
+        "turn": 0,
+        "winner": null,
+        "wallStreak": 1
+      },
+      "played": {
+        "type": "wall",
+        "x": 5,
+        "y": 3,
+        "o": "h"
+      },
+      "defenseReply": null,
+      "runs": [
+        {
+          "version": "previous",
+          "ms": 500,
+          "action": "f6─",
+          "legal": true,
+          "score": -400,
+          "depth": 4,
+          "elapsedMs": 500.1774000000001,
+          "pv": [
+            "f6─",
+            "b2─",
+            "e3",
+            "a3─"
+          ]
+        },
+        {
+          "version": "current",
+          "ms": 500,
+          "action": "f6─",
+          "legal": true,
+          "score": -400,
+          "depth": 4,
+          "elapsedMs": 500.64110000000005,
+          "defense": {
+            "active": true,
+            "complete": true,
+            "continuation": null,
+            "continuationReviewed": false,
+            "elapsedMs": 40.0564,
+            "examinedActions": 14,
+            "initialRisk": 2,
+            "selected": {
+              "action": {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 3
+              },
+              "adjustment": 0,
+              "delay": 3,
+              "forwardChoices": 2,
+              "line": {
+                "attack": {
+                  "o": "h",
+                  "type": "wall",
+                  "x": 1,
+                  "y": 1
+                },
+                "delay": 3,
+                "followUp": {
+                  "o": "h",
+                  "type": "wall",
+                  "x": 0,
+                  "y": 0
+                },
+                "reply": {
+                  "type": "move",
+                  "x": 4,
+                  "y": 6
+                },
+                "risk": 2
+              },
+              "risk": 2
+            }
+          },
+          "pv": [
+            "f6─",
+            "b2─",
+            "e3",
+            "a3─"
+          ]
+        },
+        {
+          "version": "current-deeper",
+          "ms": 2000,
+          "action": "f6─",
+          "legal": true,
+          "score": -260,
+          "depth": 5,
+          "elapsedMs": 2000.3331000000003,
+          "defense": {
+            "active": true,
+            "complete": true,
+            "continuation": null,
+            "continuationReviewed": false,
+            "elapsedMs": 38.538,
+            "examinedActions": 14,
+            "initialRisk": 2,
+            "selected": {
+              "action": {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 3
+              },
+              "adjustment": 0,
+              "delay": 3,
+              "forwardChoices": 2,
+              "line": {
+                "attack": {
+                  "o": "h",
+                  "type": "wall",
+                  "x": 1,
+                  "y": 1
+                },
+                "delay": 3,
+                "followUp": {
+                  "o": "h",
+                  "type": "wall",
+                  "x": 0,
+                  "y": 0
+                },
+                "reply": {
+                  "type": "move",
+                  "x": 4,
+                  "y": 6
+                },
+                "risk": 2
+              },
+              "risk": 2
+            }
+          },
+          "pv": [
+            "f6─"
+          ]
+        }
+      ],
+      "diagnostic": {
+        "adjustments": [
+          [
+            48,
+            -240
+          ],
+          [
+            89,
+            -240
+          ],
+          [
+            97,
+            -240
+          ],
+          [
+            105,
+            -240
+          ],
+          [
+            113,
+            -240
+          ]
+        ],
+        "candidates": [
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            },
+            "adjustment": 0,
+            "delay": 3,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "delay": 3,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 0
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              "risk": 2
+            },
+            "risk": 2
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 5
+            },
+            "adjustment": -240,
+            "delay": 7,
+            "forwardChoices": 1,
+            "line": {
+              "attack": {
+                "o": "h",
+                "type": "wall",
+                "x": 3,
+                "y": 5
+              },
+              "delay": 7,
+              "followUp": {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 5
+              },
+              "risk": 6
+            },
+            "risk": 6
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 5
+            },
+            "adjustment": 0,
+            "delay": 3,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 3
+              },
+              "delay": 3,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2
+              },
+              "reply": {
+                "type": "move",
+                "x": 5,
+                "y": 6
+              },
+              "risk": 2
+            },
+            "risk": 2
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            },
+            "adjustment": 0,
+            "delay": 3,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "delay": 3,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 0
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 7
+              },
+              "risk": 2
+            },
+            "risk": 2
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 1
+            },
+            "adjustment": -240,
+            "delay": 5,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 2
+              },
+              "delay": 5,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 3,
+                "y": 6
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 4
+            },
+            "risk": 4
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 2
+            },
+            "adjustment": -240,
+            "delay": 5,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 3
+              },
+              "delay": 5,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 4
+            },
+            "risk": 4
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 3
+            },
+            "adjustment": -240,
+            "delay": 5,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 4
+              },
+              "delay": 5,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 4
+            },
+            "risk": 4
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 3
+            },
+            "adjustment": 0,
+            "delay": 3,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "delay": 3,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 0
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 2
+            },
+            "risk": 2
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 0,
+              "y": 4
+            },
+            "adjustment": -240,
+            "delay": 5,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 5
+              },
+              "delay": 5,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 4
+            },
+            "risk": 4
+          },
+          {
+            "action": {
+              "o": "h",
+              "type": "wall",
+              "x": 5,
+              "y": 4
+            },
+            "adjustment": 0,
+            "delay": 3,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "delay": 3,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 0
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 2
+            },
+            "risk": 2
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 1
+            },
+            "adjustment": 0,
+            "delay": 3,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 2
+              },
+              "delay": 3,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 3,
+                "y": 6
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 2
+            },
+            "risk": 2
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 2
+            },
+            "adjustment": 0,
+            "delay": 3,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "delay": 3,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 0
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 2
+            },
+            "risk": 2
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 3
+            },
+            "adjustment": 0,
+            "delay": 3,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "delay": 3,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 0
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 2
+            },
+            "risk": 2
+          },
+          {
+            "action": {
+              "o": "v",
+              "type": "wall",
+              "x": 1,
+              "y": 4
+            },
+            "adjustment": 0,
+            "delay": 3,
+            "forwardChoices": 2,
+            "line": {
+              "attack": {
+                "o": "h",
+                "type": "wall",
+                "x": 1,
+                "y": 1
+              },
+              "delay": 3,
+              "followUp": {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 0
+              },
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 6
+              },
+              "risk": 2
+            },
+            "risk": 2
+          }
+        ],
+        "details": {
+          "active": true,
+          "complete": true,
+          "continuation": null,
+          "continuationReviewed": false,
+          "elapsedMs": 38.483000000000004,
+          "examinedActions": 14,
+          "initialRisk": 2,
+          "selected": null
+        },
+        "proof": false
+      }
+    }
+  ]
+}

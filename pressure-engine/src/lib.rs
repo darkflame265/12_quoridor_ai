@@ -10,9 +10,10 @@ mod core {
     include!("weak_wall.rs");
     include!("connection_probe.rs");
     include!("connection_risk.rs");
+    include!("threat_defense.rs");
     include!("tempo.rs");
     include!("goal_guard.rs");
     include!("pawn_finish.rs");
     include!("race_assessment.rs");
 }
-pub use core::{NativeEngine, NativeOutput, State, explain_pressure, explain_tempo, explain_goal, explain_connection};
+pub use core::{NativeEngine, NativeOutput, State, explain_pressure, explain_tempo, explain_goal, explain_connection, explain_defense};

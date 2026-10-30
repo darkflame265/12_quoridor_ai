@@ -1,3 +1,4 @@
+import {defenseContinuation} from './defense-continuation.js';
 import {budgetReason} from './analysis-budget.js';
 import {analysisReadiness} from './analysis-readiness.js';
 import {wallStreak} from './wall-streak.js';
@@ -40,11 +41,12 @@ function watchSettings(t){return {engine:$(`#watch-engine-${t}`).value,ms:Number
 function watchPool(t){const config=watchSettings(t);if(!watchPools[t]){$(`#watch-engine-status-${t}`).textContent=['atlas3','atlas4'].includes(config.engine)?engineName(config.engine)+' 사용':'선택 엔진 확인 중…';watchPools[t]=new AdaptiveEngine({workers:config.cores,engine:config.engine,onStatus:statusFor(`#watch-engine-status-${t}`)});}return watchPools[t];}
 function cancelWatch(){for(const p of watchPools)p?.cancel();}
 function disposeWatch(){for(const p of watchPools)p?.dispose();watchPools=[null,null];for(const t of [0,1])$(`#watch-engine-status-${t}`).textContent='선택한 엔진은 계산할 때 확인합니다.';}
+const expectedDefense=(source,engine)=>defenseContinuation(source,records,past,decisionLog,engine);
 const observedWallStreak=turn=>wallStreak(records,turn,baseState?.turn??0);
 const watchOutcome=()=>observationOutcome(state,past);
 const watcher=new SpectatorRunner({
   getState:()=>state,getOutcome:watchOutcome,
-  search:(snapshot,onProgress)=>watchPool(snapshot.turn).search(snapshot,{ms:watchSettings(snapshot.turn).ms,wallStreak:observedWallStreak(snapshot.turn),onProgress}),
+  search:(snapshot,onProgress)=>watchPool(snapshot.turn).search(snapshot,{ms:watchSettings(snapshot.turn).ms,wallStreak:observedWallStreak(snapshot.turn),defenseReply:expectedDefense(snapshot,watchSettings(snapshot.turn).engine),onProgress}),
   cancelSearch:cancelWatch,
   commit:(action,result)=>{const before=clone(state);applyMove(action);writeAnalysis(result,'선택',before);},
   onAnalysis:r=>writeAnalysis({...r,done:r.done??!watcher.thinking}),
@@ -131,7 +133,10 @@ function writeAnalysis(r,label='추천',source=state){
   const explanation=pressureExplanation(source,recommended);if(explanation){const detail=document.createElement('p');detail.className='pressure-reason';detail.textContent=explanation;$('#analysis').append(detail);}
   if(r.reserveDefense?.active){const reserve=r.reserveDefense,note=document.createElement('p');note.className='pressure-reason';note.textContent=reserve.complete?`방어벽 보존 평가 · 내 벽 ${reserve.stock[source.turn]}개 / 상대 ${reserve.stock[1-source.turn]}개 · 단일 벽 위협 ${reserve.baselineRisk}칸 상당. 제한된 후보 평가이며 승패 증명은 아닙니다.`:'방어벽 보존 평가의 시간 예산을 넘겨 부분 결과는 적용하지 않았습니다.';$('#analysis').append(note);}
   if(r.weakWallConsumption?.active){const weak=r.weakWallConsumption,note=document.createElement('p');note.className='pressure-reason';note.textContent=weak.complete?`벽 소비 비교 · 관측된 연속 설치 ${weak.wallStreak}회 · 전진 가능한 이동과 비교해 약한 벽 ${weak.penalizedActions}개에 비용 반영${weak.selected?` · 선택 벽 비용 ${weak.selected.penalty}점`:''}`:'벽 소비 비교 시간 초과 · 부분 비용은 적용하지 않았습니다.';$('#analysis').append(note);}
-  if(r.connectionRisk?.active){const risk=r.connectionRisk,note=document.createElement('p');note.className='pressure-reason';note.textContent=risk.complete?`연결 벽 위험 추정 ${risk.estimate}${risk.defenseReview?` · 방어 대응 추가 검토 ${risk.initialEstimate}→${risk.estimate}`:''} · 첫 벽 → 내 합법 대응 → 연결 벽을 제한 탐색${risk.selected?` · 추천 후 추정 ${risk.selected.risk}`:''}. 생략된 공격·방어가 있어 안전·승패 증명이 아닙니다.`:'연결 벽 평가 시간 초과 · 부분 점수는 적용하지 않고 추가 분석을 유지합니다.';$('#analysis').append(note);}
+  if(r.connectionRisk?.active&&!(r.threatDefense?.active&&r.threatDefense.complete)){const risk=r.connectionRisk,note=document.createElement('p');note.className='pressure-reason';note.textContent=risk.complete?`연결 벽 위험 추정 ${risk.estimate}${risk.defenseReview?` · 방어 대응 추가 검토 ${risk.initialEstimate}→${risk.estimate}`:''} · 첫 벽 → 내 합법 대응 → 연결 벽을 제한 탐색${risk.selected?` · 추천 후 추정 ${risk.selected.risk}`:''}. 생략된 공격·방어가 있어 안전·승패 증명이 아닙니다.`:'연결 벽 평가 시간 초과 · 부분 점수는 적용하지 않고 추가 분석을 유지합니다.';$('#analysis').append(note);}
+  if(r.threatDefense?.active){const defense=r.threatDefense,note=document.createElement('p');note.className='pressure-reason';const selected=defense.selected;
+   const line=selected?.line;note.textContent=!defense.complete?'공격·방어 응수 비교 시간 초과 · 부분 보정은 적용하지 않았습니다.':!selected?'현재 추천은 추가 위험 검토 후보 밖입니다. 충분히 검토됐다고 표시하지 않습니다.':`후속 공격·방어 비교 · 추천 후 위험 추정 ${selected.risk} · 후속 경로 증가 ${selected.delay}칸${line.attack?` · 상대 ${notation(line.attack)}`:''}${line.reply?` → 내 대응 ${notation(line.reply)}`:''}${line.followUp?` → 상대 ${notation(line.followUp)}`:''}${defense.continuationReviewed?` · 이전 대응안 ${notation(defense.continuation)}도 재비교했습니다.`:''} · 제한된 후보의 평가입니다.`;$('#analysis').append(note);
+  }
 }
 function applyMove(action){
   if(!legal(state,action))throw Error('불가능한 수입니다.');
@@ -156,7 +161,7 @@ function think(auto=false,reason='manual-analysis'){
   stop(reason);busy=true;hint=null;const id=serial,source=clone(state),selectedPool=watching()?watchPool(state.turn):pool;
   render();$('#analysis').textContent='가능한 이동과 벽을 분석하고 있습니다…';
   if(!auto&&!watching()&&$('#time').value==='variable'){startVariable(selectedPool,source,id);return;}
-  selectedPool.search(state,{wallStreak:observedWallStreak(state.turn),ms:watching()?watchSettings(state.turn).ms:playMs(),onProgress:r=>{if(id===serial)writeAnalysis(r);}}).then(r=>{
+  selectedPool.search(state,{defenseReply:expectedDefense(state,$('#play-engine').value),wallStreak:observedWallStreak(state.turn),ms:watching()?watchSettings(state.turn).ms:playMs(),onProgress:r=>{if(id===serial)writeAnalysis(r);}}).then(r=>{
     if(id!==serial)return;if(!r.pv?.length)throw Error('추천 가능한 수가 없습니다.');
     writeAnalysis({...r,done:true});busy=false;if(auto){commitMove(r.pv[0]);writeAnalysis(r,'선택',source);}else {persist();render();}
   }).catch(error=>{if(id!==serial||error.name==='AbortError')return;stop();render();$('#analysis').textContent=error.message;});
@@ -173,12 +178,12 @@ function variableStatus(){
  $('#advice-change').hidden=suppressed||!pinnedDifferent&&(!v.previousAction||!v.changedAt||now-v.changedAt>5000);
  $('#advice-change').textContent=pinnedDifferent?`고정 추천 ${notation(v.displayed.pv[0])} / 최신 계산 ${notation(v.latest.pv[0])}`:v.previousAction&&v.displayed?`추천 변경: ${notation(v.previousAction)} → ${notation(v.displayed.pv[0])}`:'';
  const r=v.latest;
- $('#position-verdict').textContent=suppressed?'':!r?'판세 분석 준비 중':r.exact&&r.outcome===1?'판세: 승리 전략 확인':r.raceAssessment?.pawnOnlyOutcome===-1?'판세: 말 이동 경주에서 열세 · 벽 전략까지 포함한 패배 확정은 아닙니다.':r.score<=-29000?'판세: 현재 탐색상 패배 예상':r.score<-120?'판세: 현재 평가상 불리':r.score>120?'판세: 현재 평가상 유리 · 승률 보장은 아닙니다.':'판세: 평가 차이가 작습니다.';
+ $('#position-verdict').textContent=suppressed?'':!r?'판세 분석 준비 중':r.exact&&r.outcome===1?'판세: 승리 전략 확인':r.raceAssessment?.pawnOnlyOutcome===-1?'판세: 말 이동 경주에서 열세 · 벽 전략까지 포함한 패배 확정은 아닙니다.':r.score<=-29000?'판세: 현재 탐색상 패배 예상':r.threatDefense?.selected?.risk>=2?`판세: 상대 후속 공격에 경로가 취약할 수 있습니다 · 위험 추정 ${r.threatDefense.selected.risk}`:r.score<-120?'판세: 현재 평가상 불리':r.score>120?'판세: 현재 평가상 유리 · 승률 보장은 아닙니다.':'판세: 평가 차이가 작습니다.';
  $('#variable-controls').hidden=!visible;$('#analysis-pin').disabled=!v.displayed;
  if(suppressed){$('#analysis-pin').disabled=true;$('#variable-status').textContent='원본 배치 재확인 중 · 추천 표시 보류';return;}
  $('#analysis-pin').textContent=v.pinned?'추천 고정 해제':'현재 추천 고정';
  $('#variable-status').textContent=!v.latest?(v.active?'첫 추천 준비 중 · 0.5초 목표, 완료된 깊이부터 표시':''):
-  `${v.active?(v.phase==='quick'?'빠른 추천':v.reason==='connection'||v.reason==='reserve'||v.reason==='goal'?'위험 상황 추가 분석 · 최대 15초':'추가 분석 · 최대 15초'):v.latest.adaptiveStop?.heuristic?'추천 안정 추정 · 분석 종료':'분석 종료'} · ${budgetReason(v.reason)} · ${v.pinned?'표시 추천 고정 · ':''}최신 ${notation(v.latest.pv[0])} · 깊이 ${v.latest.depth??0} · ${((v.latest.adaptiveStop?.elapsedMs??v.latest.elapsedMs)/1000).toFixed(1)}초`;
+  `${v.active?(v.phase==='quick'?'빠른 추천':v.reason==='defense'||v.reason==='connection'||v.reason==='reserve'||v.reason==='goal'?'위험 상황 추가 분석 · 최대 15초':'추가 분석 · 최대 15초'):v.latest.adaptiveStop?.heuristic?'추천 안정 추정 · 분석 종료':'분석 종료'} · ${budgetReason(v.reason)} · ${v.pinned?'표시 추천 고정 · ':''}최신 ${notation(v.latest.pv[0])} · 깊이 ${v.latest.depth??0} · ${((v.latest.adaptiveStop?.elapsedMs??v.latest.elapsedMs)/1000).toFixed(1)}초`;
  if(visible&&v.displayed){const context=$('#analysis .advice-context');if(context)context.textContent=`전체 ${records.length+1}수 · ${names[state.turn]} 차례 · ${v.pinned?'추천 고정 · ':''}${v.active?'추가 분석 중':'분석 완료'}`;}
 }
 function startVariable(selectedPool,source,id){
@@ -187,7 +192,7 @@ function startVariable(selectedPool,source,id){
  activeAnalysis={analysisId,position:boardKey(source),turn:source.turn,engine:$('#play-engine').value};lastAnalysisTrace=null;
  const current=()=>id===serial&&source.turn===state.turn&&boardKey(source)===boardKey(state);
  recordDecision(decisionLog,{kind:'analysis-start',at:new Date().toISOString(),analysisId,position:boardKey(source),turn:source.turn,firstTargetMs:500,limitMs:15000,configuredCores:selectedPool.size,cores});
- variableAnalysis.start(selectedPool,source,{cores,wallStreak:observedWallStreak(source.turn),
+ variableAnalysis.start(selectedPool,source,{cores,defenseReply:expectedDefense(source,$('#play-engine').value),wallStreak:observedWallStreak(source.turn),
   onPublish:r=>{
    if(!current()||screenSuppressed())return;const position=boardKey(source),engine=$('#play-engine').value;
    if(lastShownAdvice&&lastShownAdvice.position===position&&lastShownAdvice.turn===source.turn&&lastShownAdvice.engine===engine&&notation(lastShownAdvice.action)!==notation(r.pv[0])){

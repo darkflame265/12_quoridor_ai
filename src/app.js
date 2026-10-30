@@ -2,7 +2,7 @@ import {defenseContinuation} from './defense-continuation.js';
 import {ScreenPonder} from './screen-ponder.js';
 import {progressSnapshot,progressReview} from './progress-review.js';
 import {budgetReason} from './analysis-budget.js';
-import {analysisReadiness} from './analysis-readiness.js';
+import {analysisReadiness,analysisTiming,positionVerdict} from './analysis-readiness.js';
 import {wallStreak,wallRun} from './wall-streak.js';
 import {normalizeSessionSettings} from './session-settings.js';
 import {VariableAnalysis} from './variable-analysis.js';
@@ -211,13 +211,13 @@ function variableStatus(){
  }
  if(!suppressed&&v.displayed&&activeAnalysis)activeAnalysis.lastVisibleWaiting=waiting;
  $('#wait-advice').dataset.level=waiting.level;if($('#wait-label').textContent!==waiting.label)$('#wait-label').textContent=waiting.label;$('#wait-reason').textContent=waiting.reason;
- const now=performance.now(),elapsed=v.elapsedMs/1000;
- $('#wait-timing').textContent=`분석 경과 ${elapsed.toFixed(1)}초${v.active?` · 최대 잔여 ${Math.max(0,15-elapsed).toFixed(1)}초`:' · 계산 종료'}${v.lastUpdateAt?` · 마지막 결과 ${(now-v.lastUpdateAt)/1000<1?'방금':`${((now-v.lastUpdateAt)/1000).toFixed(1)}초 전`}`:''}${v.active&&v.latest?` · 깊이 ${v.latest.depth} 완료, 다음 깊이 비교 중`:''}${v.active?` · ${Math.max(1,3-Math.floor(elapsed)%3)}초 이내 대기 가치 재확인`:''}`;
+ const now=performance.now();
+ $('#wait-timing').textContent=analysisTiming(v,now);
  const pinnedDifferent=v.pinned&&v.displayed&&v.latest&&notation(v.displayed.pv[0])!==notation(v.latest.pv[0]);
  $('#advice-change').hidden=suppressed||!pinnedDifferent&&(!v.previousAction||!v.changedAt||now-v.changedAt>5000);
  $('#advice-change').textContent=pinnedDifferent?`고정 추천 ${notation(v.displayed.pv[0])} / 최신 계산 ${notation(v.latest.pv[0])}`:v.previousAction&&v.displayed?`추천 변경: ${notation(v.previousAction)} → ${notation(v.displayed.pv[0])}`:'';
  const r=v.latest;
- $('#position-verdict').textContent=suppressed?'':!r?'판세 분석 준비 중':r.exact&&r.outcome===1?'판세: 승리 전략 확인':r.raceAssessment?.pawnOnlyOutcome===-1?'판세: 말 이동 경주에서 열세 · 벽 전략까지 포함한 패배 확정은 아닙니다.':r.score<=-29000?'판세: 현재 탐색상 패배 예상':r.threatDefense?.selected?.risk>=2?`판세: 상대 후속 공격에 경로가 취약할 수 있습니다 · 위험 추정 ${r.threatDefense.selected.risk}`:r.score<-120?'판세: 현재 평가상 불리':r.score>120?'판세: 현재 평가상 유리 · 승률 보장은 아닙니다.':'판세: 평가 차이가 작습니다.';
+ $('#position-verdict').textContent=suppressed?'':positionVerdict(r,pinnedDifferent);
  updateTitles();
  $('#variable-controls').hidden=!visible;$('#analysis-pin').disabled=!v.displayed;
  if(suppressed){$('#analysis-pin').disabled=true;$('#variable-status').textContent='원본 배치 재확인 중 · 추천 표시 보류';return;}

@@ -1,16 +1,39 @@
-import {recommendationStable,budgetReason} from './analysis-budget.js';
+import {recommendationStable,budgetReason,analysisConcerns} from './analysis-budget.js';
 export function analysisReadiness(v,{suppressed=false}={}){
- const r=v.latest;
+ const r=v.latest??v.displayed;
  if(suppressed)return {level:'wait',label:'화면 재확인 중',reason:'배치가 확인될 때까지 추천을 숨깁니다.'};
  if(!v.displayed)return {level:'wait',label:'첫 추천 준비 중',reason:'0.5초 목표 · 완료된 탐색 결과를 기다립니다.'};
  const shown=v.displayed.pv[0],newest=r?.pv?.[0];
- if(v.pinned&&newest&&(shown.type!==newest.type||shown.x!==newest.x||shown.y!==newest.y||shown.type==='wall'&&shown.o!==newest.o))return {level:'wait',label:'고정 추천과 최신 결과가 다릅니다',reason:'현재 고정한 수와 백그라운드의 새 추천을 비교하세요.'};
- const defense=r?.threatDefense;
- if(!v.active)return {level:'done',label:'분석 종료',reason:defense?.active&&(!defense.complete||!defense.selected)?'일부 위험 비교가 남은 상태에서 계산이 종료됐습니다.':r?.adaptiveStop?.heuristic?'추천 안정 추정으로 종료했습니다.':budgetReason(v.reason)||'현재 결과로 판단하세요.'};
- if(v.changedAt&&performance.now()-v.changedAt<2000)return {level:'wait',label:'대기 권장',reason:'추천이 방금 바뀌었습니다. 새 추천을 확인하세요.'};
- const stable=recommendationStable(v.history??[],r);
- const incomplete=r?.progressReview?.active||r?.analysisBudget?.reason==='horizon'||r?.analysisBudget?.reason==='incomplete'||(defense?.active?(!defense.complete||!defense.selected):r?.connectionRisk?.complete===false||r?.connectionRisk?.active&&!r.connectionRisk.selected)||r?.reserveDefense?.complete===false||r?.weakWallConsumption?.complete===false;
- if(v.elapsedMs>=2000&&stable&&!incomplete)return {level:'ready',label:'지금 착수 가능',reason:'최근 세 깊이에서 추천이 안정적입니다. 판세의 유불리와는 별도입니다.'};
- if(!incomplete&&v.elapsedMs>=5000&&v.lastUpdateAt&&performance.now()-v.lastUpdateAt>=3000&&(v.history??[]).length>=3)return {level:'low',label:'추가 대기 실익 낮음 · 추정',reason:'최근 완료된 비교 결과가 없습니다. 계산은 최대 예산까지 계속합니다.'};
- return {level:'wait',label:'대기 권장',reason:`${budgetReason(v.reason)||'후보 비교 중'} · 다음 완료 깊이에서 다시 판단합니다.`};
+ if(v.pinned&&newest&&(shown.type!==newest.type||shown.x!==newest.x||shown.y!==newest.y||shown.type==='wall'&&shown.o!==newest.o))return {level:'wait',label:'고정 추천과 최신 결과가 다릅니다',reason:'현재 고정한 수와 새 추천을 비교하세요.'};
+ const concerns=analysisConcerns(v.state,r,v.wallStreak),review=concerns.map(budgetReason).join(' · ');
+ if(!v.active){
+  if(r?.exact===true)return {level:'done',label:'정확 종반 계산 완료',reason:({1:'현재 배치의 승리',0:'현재 배치의 무승부','-1':'현재 배치의 패배'})[r.outcome]??'정확 계산 결과를 확인하세요.'};
+  if(concerns.length)return {level:'done',label:'계산 종료 · 검토 사항 남음',reason:`${review}. 계산 종료가 위험 해소를 뜻하지는 않습니다.`};
+  return {level:'done',label:'계산 종료 · 결과는 추정',reason:r?.adaptiveStop?.heuristic?'추천 안정 추정으로 계산을 줄였습니다. 최선 수나 안전을 증명한 결과는 아닙니다.':'이번 엔진 계산이 끝났습니다. 최선 수나 안전을 증명한 결과는 아닙니다.'};
+ }
+ if(v.changedAt&&performance.now()-v.changedAt<2000)return {level:'wait',label:'대기 권장 · 추천 변경',reason:`새 추천을 확인하세요.${review?' '+review:''}`};
+ if(concerns.length)return {level:'wait',label:'대기 권장 · 추가 검토 중',reason:review};
+ if(v.elapsedMs>=2000&&recommendationStable(v.history??[],r))return {level:'ready',label:'추천 잠정 안정 · 계산 중',reason:'최근 세 깊이에서 추천이 같았습니다. 착수 안전이나 추가 계산의 실익을 보장하지 않습니다.'};
+ if(v.lastUpdateAt&&performance.now()-v.lastUpdateAt>=3000)return {level:'wait',label:'다음 완료 결과 대기 중',reason:'새 완료 결과가 아직 없습니다. 더 좋은 수가 나올 가능성은 판단할 수 없습니다.'};
+ return {level:'wait',label:'후보 비교 중',reason:budgetReason(v.reason)||'완료된 다음 비교 결과를 기다립니다.'};
 }
+export function analysisTiming(v,now=performance.now()){
+ const elapsed=Math.max(0,v.elapsedMs??0)/1000,parts=[`분석 경과 ${elapsed.toFixed(1)}초`];
+ parts.push(v.active?`계산 예산 잔여 ${Math.max(0,(v.limitMs??15000)/1000-elapsed).toFixed(1)}초`:'계산 종료');
+ if(v.lastUpdateAt!=null)parts.push(`마지막 완료 결과 ${Math.max(0,(now-v.lastUpdateAt)/1000).toFixed(1)}초 전`);
+ if(v.latest?.depth!=null)parts.push(`완료 깊이 ${v.latest.depth}${v.latest.ponderReused?' · 사전 계산 재사용':''}`);
+ if(v.active)parts.push('다음 결과 완료 시점은 미정');
+ return parts.join(' · ');
+}
+function verdict(r){
+ if(!r)return '판세 분석 준비 중';
+ if(r.exact===true)return `판세: 정확 종반 판정 · ${({1:'승리',0:'무승부','-1':'패배'})[r.outcome]??'결과 확인 필요'}`;
+ if(r.winProof?.shortestWinProven===false)return '판세: 승리 전략 확인 · 최단 수순 보장은 아님';
+ if(r.raceAssessment?.pawnOnlyOutcome===-1)return '판세: 말 이동 경주에서 열세 · 벽 전략까지 포함한 패배 확정은 아닙니다.';
+ if(r.score<=-29000)return '판세: 현재 탐색은 패배 수순 예상';
+ if(r.score>=29000)return '판세: 현재 탐색은 승리 수순 예상';
+ if(r.progressReview?.active)return '판세: 왕복·후퇴 의심 · 전진 대안 비교 필요';
+ if(r.threatDefense?.selected?.risk>=2)return `판세: 상대 연속 공격에 경로가 취약할 수 있습니다 · 위험 추정 ${r.threatDefense.selected.risk}`;
+ return r.score<-120?'판세: 현재 평가상 불리':r.score>120?'판세: 현재 평가상 유리 · 승률 보장은 아닙니다.':'판세: 평가 차이가 작습니다.';
+}
+export function positionVerdict(r,pinnedDifferent=false){return (pinnedDifferent?'최신 계산 기준 · ':'')+verdict(r);}

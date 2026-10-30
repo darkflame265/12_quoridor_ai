@@ -146,6 +146,7 @@ function writeAnalysis(r,label='추천',source=state){
   }
   const strategyProof=r.winProof?.shortestWinProven===false;
   const recommended=r.pv[0];if(label==='추천')hint=recommended;$('#depth').textContent=strategyProof?'승리 전략 확인':r.exact?'후반 완전 탐색':`깊이 ${r.depth}`;
+  $('#analysis-choice').textContent=`${label} ${notation(recommended)}`;
   const verdict=strategyProof?'승리 전략 확인':r.exact?(r.outcome===1?'정확한 승리':r.outcome===-1?'정확한 패배':'정확한 무승부'):'탐색 결과';
   $('#analysis').innerHTML=`<strong>${label} ${notation(recommended)}</strong><p>${r.pv.map(notation).join(' → ')}</p><small>${escapeHtml(r.engine??'AI')} · ${(r.nodes??0).toLocaleString()}개 노드 · ${verdict} · ${((r.elapsedMs??0)/1000).toFixed(1)}초</small>`;
   if(label==='추천'){const context=document.createElement('p');context.className='advice-context';context.textContent=`전체 ${records.length+1}수 · ${names[source.turn]} 차례 · ${r.done===true?'분석 완료':'계산 중 · 추천이 바뀔 수 있습니다'}`;$('#analysis').append(context);}
@@ -165,7 +166,7 @@ function applyMove(action){
   if(!legal(state,action))throw Error('불가능한 수입니다.');
   const trace=analysisTrace();observedAction(decisionLog,state,action,records.length+1,trace?.position===boardKey(state)&&trace.turn===state.turn?trace:null);
   lastAnalysisTrace=null;
-  past.push(clone(state));records.push(clone(action));state=apply(state,action);hint=null;busy=false;persist();render();
+  past.push(clone(state));records.push(clone(action));state=apply(state,action);hint=null;$('#analysis-choice').textContent='추천 대기';busy=false;persist();render();
 }
 function commitMove(action){if(!legal(state,action))return;stop();applyMove(action);schedule();}
 function schedule(){
@@ -189,7 +190,7 @@ function schedule(){
   }
 }
 function think(auto=false,reason='manual-analysis'){
-  stop(reason);busy=true;hint=null;const id=serial,source=clone(state),selectedPool=watching()?watchPool(state.turn):pool;
+  stop(reason);busy=true;clearAnalysis();const id=serial,source=clone(state),selectedPool=watching()?watchPool(state.turn):pool;
   render();$('#analysis').textContent='가능한 이동과 벽을 분석하고 있습니다…';
   if(!auto&&!watching()&&$('#time').value==='variable'){startVariable(selectedPool,source,id);return;}
   selectedPool.search(searchSnapshot(state),{defenseReply:expectedDefense(state,$('#play-engine').value),wallStreak:observedWallStreak(state.turn),ms:watching()?watchSettings(state.turn).ms:playMs(),onProgress:r=>{if(id===serial)writeAnalysis(r);}}).then(r=>{
@@ -206,7 +207,7 @@ function variableStatus(){
   $('#wait-advice').dataset.level=suppressed||busy?'wait':'done';
   const label=state.winner!==null?'대국 종료':suppressed?'화면 재확인 중':watching()?(watcher.thinking?'AI 대국 계산 중':watcher.running?'AI 대국 진행 중':'AI 대국 대기'):busy?'분석 중':$('#mode').value==='screen'&&!baseState?'화면 연결 대기':'분석 대기';
   if($('#wait-label').textContent!==label)$('#wait-label').textContent=label;
-  $('#wait-reason').textContent=suppressed?'배치를 확인한 뒤 추천을 표시합니다.':watching()?'대국 진행과 선택한 수는 우측 분석 패널에서 확인하세요.':!visible?'고정 시간 분석 결과는 우측 분석 패널에서 확인하세요.':'화면 배치를 확인하거나 최선 수 분석을 시작하세요.';
+  $('#wait-reason').textContent=suppressed?'배치를 확인한 뒤 추천을 표시합니다.':watching()?'대국 진행과 선택한 수를 아래에서 확인하세요.':!visible?'분석 결과와 예상 진행을 아래에서 확인하세요.':'화면 배치를 확인하거나 최선 수 분석을 시작하세요.';
   $('#wait-timing').textContent='';$('#advice-change').hidden=true;$('#advice-change').textContent='';$('#position-verdict').textContent=state.winner!==null?`판세: ${names[state.winner]} 승리`:'판세: 분석 대기';
   $('#variable-controls').hidden=!visible;$('#analysis-pin').disabled=true;$('#analysis-pin').textContent='현재 추천 고정';$('#variable-status').textContent='';updateTitles();return;
  }
@@ -264,7 +265,7 @@ $('#board').onpointermove=e=>{
 };
 $('#board').onpointerleave=()=>{if($('#ghost'))$('#ghost').innerHTML='';};
 $('#board').onclick=e=>{if(human()&&!busy&&state.winner===null){const a=pick(e);if(a)commitMove(a);}};
-function clearAnalysis(){$('#analysis').textContent='현재 차례의 추천 수와 예상 진행을 확인하세요.';$('#depth').textContent='';hint=null;}
+function clearAnalysis(){$('#analysis').textContent='현재 차례의 추천 수와 예상 진행을 확인하세요.';$('#analysis-choice').textContent='추천 대기';$('#depth').textContent='';$('.analysis-scroll').scrollTop=0;hint=null;}
 function resetGame(){stop();lastShownAdvice=null;lastAnalysisTrace=null;state=initial();baseState=null;observedBottom=null;screenRebased=false;screenSegments=[];decisionLog=[];past=[];records=[];clearAnalysis();persist();render();schedule();}
 $('#hint').onclick=()=>think();$('#reset').onclick=resetGame;
 $('#undo').onclick=()=>{stop();if(!past.length)return;do{state=past.pop();records.pop();}while($('#mode').value==='ai'&&past.length&&state.turn!==Number($('#side').value));clearAnalysis();persist();render();schedule();};

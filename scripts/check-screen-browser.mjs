@@ -7,12 +7,12 @@ import {readFile,writeFile,mkdir,access,rm} from 'node:fs/promises';
 import {spawn,execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {createPressureService} from '../server/pressure-service.mjs';
-const root=fileURLToPath(new URL('../',import.meta.url)),dist=path.join(root,'dist'),out=path.join(root,'reports',process.env.SCREEN_WALLZ_QA==='1'?'wallz-connect':process.env.SCREEN_COMPACT_QA==='1'?'compact-panels':process.env.SCREEN_RESYNC_QA==='1'?'screen-resync':'screen-import');
+const root=fileURLToPath(new URL('../',import.meta.url)),dist=path.join(root,'dist'),out=path.join(root,'reports',process.env.SCREEN_ANALYSIS_PANEL_QA==='1'?'analysis-panel':process.env.SCREEN_WALLZ_QA==='1'?'wallz-connect':process.env.SCREEN_COMPACT_QA==='1'?'compact-panels':process.env.SCREEN_RESYNC_QA==='1'?'screen-resync':'screen-import');
 execFileSync(process.execPath,[path.join(root,'node_modules','vite','bin','vite.js'),'build'],{cwd:root,stdio:'inherit',windowsHide:true});
 let browserPath;for(const candidate of [process.env.SCREEN_QA_CHROME,'C:/Program Files/Google/Chrome/Application/chrome.exe','C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe','/usr/bin/chromium','/usr/bin/google-chrome'].filter(Boolean)){try{await access(candidate);browserPath=candidate;break;}catch{}}
 if(!browserPath)throw Error('Set SCREEN_QA_CHROME to a Chrome/Edge executable');
 const temp=path.resolve(root,'native-engine','target',`screen-qa-${Date.now()}`),profile=path.join(temp,'profile');await mkdir(temp,{recursive:true});await mkdir(out,{recursive:true});
-const pressureService=process.env.QUORIDOR_PRESSURE_BROWSER_QA==='1'||process.env.SCREEN_COMPACT_QA==='1'?createPressureService():null;
+const pressureService=process.env.QUORIDOR_PRESSURE_BROWSER_QA==='1'||process.env.SCREEN_COMPACT_QA==='1'||process.env.SCREEN_ANALYSIS_PANEL_QA==='1'?createPressureService():null;
 if(pressureService){await pressureService.client.health();await new Promise(resolve=>pressureService.server.listen(0,'127.0.0.1',resolve));}
 const tempoService=pressureService?createPressureService({tempo:true}):null;
 if(tempoService){await tempoService.client.health();await new Promise(resolve=>tempoService.server.listen(0,'127.0.0.1',resolve));}
@@ -44,9 +44,23 @@ try{
  const target=await send('Target.createTarget',{url:'about:blank'},null);session=(await send('Target.attachToTarget',{targetId:target.targetId,flatten:true},null)).sessionId;
  await send('Page.enable');await send('Runtime.enable');await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1100,deviceScaleFactor:1,mobile:false});
  await send('Browser.setDownloadBehavior',{behavior:'deny'},null);
- await send('Page.addScriptToEvaluateOnNewDocument',{source:`if(!localStorage.getItem('quoridor-session'))localStorage.setItem('quoridor-session',JSON.stringify({version:2,records:[],mode:'sandbox',side:0,startPosition:'bottom',time:'500',cores:'1',engine:'${process.env.SCREEN_COMPACT_QA==='1'?'atlas-goal':'atlas3'}'}));`});
+ await send('Page.addScriptToEvaluateOnNewDocument',{source:`if(!localStorage.getItem('quoridor-session'))localStorage.setItem('quoridor-session',JSON.stringify({version:2,records:[],mode:'sandbox',side:0,startPosition:'bottom',time:'${process.env.SCREEN_ANALYSIS_PANEL_QA==='1'?'variable':'500'}',cores:'1',engine:'${process.env.SCREEN_COMPACT_QA==='1'||process.env.SCREEN_ANALYSIS_PANEL_QA==='1'?'atlas-goal':'atlas3'}'}));`});
  await send('Page.navigate',{url});await until(`!!document.querySelector('#screen-open')`);
- if(process.env.SCREEN_WALLZ_QA==='1'){
+ if(process.env.SCREEN_ANALYSIS_PANEL_QA==='1'){
+  await evaluate(`document.querySelector('#mode').value='sandbox';document.querySelector('#mode').dispatchEvent(new Event('change'))`);
+  assert.equal(await evaluate(`!!document.querySelector('aside #analysis')`),false);
+  assert.equal(await evaluate(`document.querySelectorAll('#hint').length`),1);
+  await evaluate(`document.fonts.ready.then(()=>true)`);
+  await evaluate(`window.qaBoardTop=document.querySelector('#board').getBoundingClientRect().top;document.querySelector('#hint').click()`);
+  await until(`document.querySelector('#analysis-choice').textContent.startsWith('추천 ') && !!document.querySelector('#board .recommend')`);
+  assert.deepEqual(await evaluate(`({before:qaBoardTop,after:document.querySelector('#board').getBoundingClientRect().top})`),await evaluate(`({before:qaBoardTop,after:qaBoardTop})`));
+  checks.push('live native variable recommendation and board highlight render in the new panel without moving the board');
+  for(const width of [1440,950,390]){
+   await send('Emulation.setDeviceMetricsOverride',{width,height:1100,deviceScaleFactor:1,mobile:false});
+   const layout=await evaluate(`(()=>{const board=document.querySelector('#board'),panel=document.querySelector('#wait-advice'),scroll=document.querySelector('.analysis-scroll'),choice=document.querySelector('#analysis-choice');scrollTo(0,0);const before=board.getBoundingClientRect().top;document.querySelector('#analysis').textContent='긴 분석 결과와 위험 안내 '.repeat(800);document.querySelector('#wait-reason').textContent='화면 재확인 중 '.repeat(30);const after=board.getBoundingClientRect().top;scroll.scrollTop=200;return {before,after,height:panel.getBoundingClientRect().height,internalScroll:scroll.scrollHeight>scroll.clientHeight,choiceVisible:choice.getBoundingClientRect().top>=panel.getBoundingClientRect().top&&choice.getBoundingClientRect().bottom<=panel.getBoundingClientRect().bottom,overflow:document.documentElement.scrollWidth>innerWidth}})()`);
+   assert.equal(layout.before,layout.after);assert.equal(layout.height,width<=720?264:208);assert.equal(layout.internalScroll,true);assert.equal(layout.choiceVisible,true);assert.equal(layout.overflow,false);checks.push({width,...layout});await screenshot(`analysis-${width}.png`);
+  }
+ }else if(process.env.SCREEN_WALLZ_QA==='1'){
   await evaluate(`document.querySelector('#mode').value='screen';document.querySelector('#mode').dispatchEvent(new Event('change'));document.querySelector('#screen-close').click();document.querySelector('#screen-auto-hint').checked=false;Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async()=>{throw new DOMException('cancelled','NotAllowedError')}});document.querySelector('#screen-wallz').click()`);
   await until(`!document.querySelector('#screen-wallz').disabled`);
   assert.equal(await evaluate(`document.querySelector('#screen-dialog').open`),false);

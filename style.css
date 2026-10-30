@@ -60,3 +60,22 @@ aside #history>div{padding:5px 0}
 #screen-panel .watch-note{font-size:10px;overflow-wrap:anywhere}
 @media(max-width:720px){aside{gap:10px}aside .panel{margin:0}#screen-panel{grid-column:1/-1}}
 @media(max-width:440px){aside{grid-template-columns:minmax(0,1fr)}#players{flex-wrap:wrap}aside .panel{grid-column:1/-1}}
+
+/* Reuse the status slot without changing the board's vertical anchor. */
+.analysis-panel{grid-template-rows:30px 20px 22px minmax(0,1fr);row-gap:6px}
+.analysis-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0;font-size:12px;font-weight:600;white-space:nowrap}
+.analysis-heading>div{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.analysis-heading #depth{font-size:10px;color:#aeb6a4;margin-left:8px}
+.analysis-heading #hint{width:auto;flex-shrink:0;padding:5px 10px;font-size:11px;line-height:18px}
+.analysis-panel #wait-label{grid-row:auto;font-size:12px;line-height:20px}
+.analysis-panel #analysis-choice{font-size:16px;color:#c7dcb5;line-height:22px;white-space:nowrap;text-overflow:ellipsis}
+.analysis-panel .analysis-scroll{min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:#65765a transparent;overflow-wrap:anywhere;padding-right:6px;font-size:11px;line-height:1.5}
+.analysis-panel .analysis-scroll:focus-visible{outline:1px solid #b7d5a1;outline-offset:-1px}
+.analysis-panel #wait-reason,.analysis-panel #wait-timing,.analysis-panel #position-verdict,.analysis-panel #advice-change{display:block;grid-row:auto;overflow:visible;-webkit-line-clamp:unset;line-height:1.5;white-space:normal;margin:0 0 4px;font-size:11px}
+.analysis-panel #wait-timing{font-size:10px}
+.analysis-panel #analysis{margin-top:6px;line-height:1.6}
+.analysis-panel #analysis>strong:first-child{display:none}
+.analysis-panel #analysis p{margin:4px 0}
+.analysis-panel .watch-note{font-size:10px;line-height:1.5;margin:4px 0}
+.analysis-panel .analysis-warning{font-size:11px;padding:6px 8px}
+@media(max-width:720px){.analysis-panel{grid-template-rows:30px 20px 22px minmax(0,1fr)}}

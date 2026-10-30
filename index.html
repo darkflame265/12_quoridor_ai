@@ -13,7 +13,16 @@
   <section class="layout">
     <div class="arena">
       <div class="board-heading"><span id="status">당신의 차례</span><span>9 × 9 · CLASSIC</span></div>
-      <div id="wait-advice" class="wait-advice" data-level="done" role="region" aria-label="분석 대기 안내"><strong id="wait-label" role="status" aria-live="polite">분석 대기</strong><p id="wait-reason">배치를 확인한 뒤 분석을 시작하세요.</p><small id="wait-timing" aria-live="off"></small><p id="advice-change" hidden></p><p id="position-verdict">판세: 분석 대기</p></div>
+      <section id="wait-advice" class="wait-advice analysis-panel" data-level="done" aria-label="포지션 분석">
+        <div class="analysis-heading"><div>포지션 분석 <span id="depth"></span></div><button id="hint" class="primary">✦ 최선 수 분석</button></div>
+        <strong id="wait-label" role="status" aria-live="polite">분석 대기</strong>
+        <strong id="analysis-choice" aria-live="polite">추천 대기</strong>
+        <div class="analysis-scroll" tabindex="0" role="region" aria-label="분석 상세 · 스크롤">
+          <p id="wait-reason">배치를 확인한 뒤 분석을 시작하세요.</p><small id="wait-timing" aria-live="off"></small><p id="advice-change" hidden></p><p id="position-verdict">판세: 분석 대기</p>
+          <div id="variable-controls" hidden><button id="analysis-pin" hidden disabled>추천 자동 고정</button><p id="variable-status" class="watch-note" role="status"></p></div>
+          <div id="analysis" class="muted">현재 차례의 추천 수와 예상 진행을 확인하세요.</div>
+        </div>
+      </section>
       <div id="board"></div>
       <p id="instruction" class="instruction">점을 클릭해 이동 · 칸 사이에 커서를 대고 클릭해 벽 설치</p>
       <div id="result" class="result" role="status" hidden></div>
@@ -56,7 +65,6 @@
         <div class="watch-controls"><button id="watch-start" class="primary">▶ 시작 / 계속</button><button id="watch-pause">Ⅱ 일시정지</button><button id="watch-step">한 수 진행 →</button></div>
         <p class="watch-note">Atlas 0.4 최신과 5.3 안정 엔진을 비교할 수 있습니다. 설정을 변경하면 일시정지합니다.</p>
       </section>
-      <section class="panel"><div class="panel-title">포지션 분석 <span id="depth"></span></div><button id="hint" class="primary">✦ 최선 수 분석</button><div id="variable-controls" hidden><button id="analysis-pin" hidden disabled>추천 자동 고정</button><p id="variable-status" class="watch-note" role="status"></p></div><div id="analysis" class="muted">현재 차례의 추천 수와 예상 진행을 확인하세요.</div></section>
       <section class="panel"><div class="panel-title">기보 <span id="count">0 수</span></div><div id="history"></div><div class="buttons"><button id="save">저장</button><button id="load">불러오기</button><input id="file" type="file" accept=".json" hidden></div><p id="storage-note" class="watch-note" hidden></p></section>
     </aside>
   </section>

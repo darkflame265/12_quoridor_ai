@@ -1,4 +1,5 @@
 import {analysisBudget} from './analysis-budget.js';
+import {progressReview} from './progress-review.js';
 const sameAction=(a,b)=>a.type===b.type&&a.x===b.x&&a.y===b.y&&(a.type!=='wall'||a.o===b.o);
 // A single search keeps its tree/cache alive; only completed iterations are published.
 export class VariableAnalysis {
@@ -27,7 +28,7 @@ export class VariableAnalysis {
    if(settled||generation!==this.generation||!result.pv?.length)return;
    if(!done&&this.latest&&(result.depth??0)<(this.latest.depth??0))return;
    if(done&&this.latest&&(result.depth??0)<(this.latest.depth??0))result=this.latest;
-   this.latest={...result,done,elapsedMs:performance.now()-start};
+   this.latest={...result,progressReview:progressReview(state,result.pv[0]),done,elapsedMs:performance.now()-start};
    this.lastUpdateAt=performance.now();
    if(!history.length||(result.depth??0)>history.at(-1).depth){history.push(this.latest);if(history.length>3)history.shift();}
    const decision=analysisBudget(state,this.latest,history,performance.now()-start,wallStreak);this.phase=done?'complete':decision.phase;this.reason=done?'engine-complete':decision.reason;

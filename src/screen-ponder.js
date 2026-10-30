@@ -1,7 +1,7 @@
 import {apply,legal,moves,distance} from './engine.js';
 import {boardKey} from './screen-sync.js';
 
-export const ponderKey=(s,o)=>JSON.stringify([boardKey(s),s.turn,s.winner,s.recentPawnSquares??[],o.wallStreak??0,o.defenseReply??null]);
+export const ponderKey=(s,o)=>JSON.stringify([boardKey(s),s.turn,s.winner,s.recentPawnSquares??[],s.ownTurnHistory??[],o.wallStreak??0,o.defenseReply??null]);
 function nearbyBlock(state){
  if(!state.left[state.turn])return null;
  const target=1-state.turn,p=state.p[target],before=distance(state,target),own=distance(state,state.turn),rows=[];

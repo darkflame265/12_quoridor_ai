@@ -18,6 +18,7 @@ await prepared;ponder.stop();await job;
 const hit=ponder.take(engine,child,options);assert.equal(hit.depth,6);assert.equal(hit.ponderReused,true);assert.ok(cancelled);
 assert.equal(ponder.take(engine,{...child,turn:1},options),null);
 assert.equal(ponder.take(engine,{...child,recentPawnSquares:[0]},options),null);
+assert.equal(ponder.take(engine,{...child,ownTurnHistory:[{square:4}]},options),null);
 assert.equal(ponder.take(engine,child,{...options,wallStreak:1}),null);
 assert.equal(ponder.take(engine,child,{...options,defenseReply:{type:'move',x:3,y:7}}),null);
 assert.equal(ponder.take({...engine},child,options),null);

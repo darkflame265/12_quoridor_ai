@@ -1,5 +1,6 @@
 import {defenseContinuation} from './defense-continuation.js';
 import {ScreenPonder} from './screen-ponder.js';
+import {progressSnapshot,progressReview} from './progress-review.js';
 import {budgetReason} from './analysis-budget.js';
 import {analysisReadiness} from './analysis-readiness.js';
 import {wallStreak} from './wall-streak.js';
@@ -27,8 +28,14 @@ const variableAnalysis=new VariableAnalysis();
 const screenPonder=new ScreenPonder();
 function ponderStatus(status){const note=$('#screen-ponder-status');if(note)note.textContent=({thinking:'상대 차례 · 1개 계산 작업으로 응수 사전 계산 중',idle:'사전 계산 대기 · 확인된 배치가 일치할 때만 재사용',unavailable:'사전 계산 중단 · 내 차례 분석은 정상 진행',reused:'사전 계산 결과 재사용 · 현재 차례 추가 분석 중'})[status]??'';}
 // Only observed positions from this game; imported snapshots invent no history.
-const searchSnapshot=s=>({...s,recentPawnSquares:past.filter(p=>p.turn===s.turn).slice(-4).map(p=>p.p[s.turn].y*9+p.p[s.turn].x)});
+const searchSnapshot=s=>({...progressSnapshot(s,past),recentPawnSquares:past.filter(p=>p.turn===s.turn).slice(-4).map(p=>p.p[s.turn].y*9+p.p[s.turn].x)});
 const playMs=()=>$('#time').value==='variable'?500:Number($('#time').value);
+function appendProgressReview(review){
+ if(!review?.active)return;
+ const note=document.createElement('p');note.className='pressure-reason';
+ note.textContent=`경로 재검토 · 최근 ${review.windowTurns}차례 · 내 거리 ${review.before}→${review.after}칸 · 같은 미로의 최저 ${review.bestDistance}칸 · 상대 ${review.opponentProgress}칸 전진${review.cycleTurns?` · ${review.cycleTurns}차례 전 위치로 복귀`:''}. 필요한 방어 후퇴일 수도 있어 합법 수를 금지하지 않고 추가 비교합니다.`;
+ $('#analysis').append(note);
+}
 const watching=()=>$('#mode').value==='watch';
 const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.turn===Number($('#side').value);
 const flipped=()=>viewFlipped(Number($('#side').value),$('#start-position').value);
@@ -124,6 +131,7 @@ function render(){
 }
 function writeAnalysis(r,label='추천',source=state){
   if(!r.pv?.length)return;
+  r={...r,progressReview:r.progressReview??progressReview(searchSnapshot(source),r.pv[0])};
   if(label==='추천'&&(source.turn!==state.turn||boardKey(source)!==boardKey(state)))return;
   if(label==='추천'){
     const settings=watching()?watchSettings(source.turn):{engine:$('#play-engine').value,ms:r.analysisBudgetMs??playMs(),cores:r.analysisCores??pool.size},enginePool=watching()?watchPool(source.turn):pool;
@@ -136,6 +144,7 @@ function writeAnalysis(r,label='추천',source=state){
   if(label==='추천'){const context=document.createElement('p');context.className='advice-context';context.textContent=`전체 ${records.length+1}수 · ${names[source.turn]} 차례 · ${r.done===true?'분석 완료':'계산 중 · 추천이 바뀔 수 있습니다'}`;$('#analysis').append(context);}
   if(strategyProof){const proof=document.createElement('p');proof.className='win-proof';const turns=Math.ceil(r.winProof.guaranteedPlies/2);proof.textContent=`${r.winProof.kind==='pawn-only-strategy'?'벽을 쓰지 않는 이동 승리 전략':'마지막 벽 사용 후의 승리 전략'} · 최대 내 ${turns}턴. 전체 행동 중 최단 승리 여부까지 증명한 결과는 아닙니다.`;$('#analysis').append(proof);}
   const warning=analysisRisk(r,source.turn);if(warning){const note=document.createElement('p');note.className='analysis-warning';note.setAttribute('role','status');note.textContent=warning;$('#analysis').append(note);}
+  appendProgressReview(r.progressReview);
   const explanation=pressureExplanation(source,recommended);if(explanation){const detail=document.createElement('p');detail.className='pressure-reason';detail.textContent=explanation;$('#analysis').append(detail);}
   if(r.reserveDefense?.active){const reserve=r.reserveDefense,note=document.createElement('p');note.className='pressure-reason';note.textContent=reserve.complete?`방어벽 보존 평가 · 내 벽 ${reserve.stock[source.turn]}개 / 상대 ${reserve.stock[1-source.turn]}개 · 단일 벽 위협 ${reserve.baselineRisk}칸 상당. 제한된 후보 평가이며 승패 증명은 아닙니다.`:'방어벽 보존 평가의 시간 예산을 넘겨 부분 결과는 적용하지 않았습니다.';$('#analysis').append(note);}
   if(r.weakWallConsumption?.active){const weak=r.weakWallConsumption,note=document.createElement('p');note.className='pressure-reason';note.textContent=weak.complete?`벽 소비 비교 · 관측된 연속 설치 ${weak.wallStreak}회 · 전진 가능한 이동과 비교해 약한 벽 ${weak.penalizedActions}개에 비용 반영${weak.selected?` · 선택 벽 비용 ${weak.selected.penalty}점`:''}`:'벽 소비 비교 시간 초과 · 부분 비용은 적용하지 않았습니다.';$('#analysis').append(note);}

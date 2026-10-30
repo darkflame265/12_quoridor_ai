@@ -19,20 +19,17 @@
       <div id="result" class="result" role="status" hidden></div>
     </div>
     <aside>
-      <div class="intro"><span class="eyebrow">THINK AHEAD.</span><h1>한 수 너머를<br>바라보세요.</h1><p>직접 플레이하고, 두 AI의 선택을 따라가세요.</p></div>
       <div id="players"></div>
-      <section class="panel">
+      <section class="panel play-settings">
         <div class="panel-title">플레이 설정</div>
         <label>모드<select id="mode"><option value="ai">AI 대전</option><option value="sandbox">양쪽 직접 조작</option><option value="watch">AI vs AI 관전</option><option value="screen" selected>화면 연동 · 자동 감시</option></select></label>
         <label><span id="side-label">내 진영</span><select id="side"><option value="0">청록 · 선공</option><option value="1">분홍 · 후공</option></select></label>
         <label><span id="position-label">내 시작 위치</span><select id="start-position"><option value="top">위쪽</option><option value="bottom">아래쪽</option></select></label>
         <div id="human-settings">
           <label>사용 엔진<select id="play-engine"><option value="atlas-goal" selected>Atlas 0.4 · 최신</option><option value="atlas5">Atlas 5.3 · 안정</option></select></label>
-          <p id="engine-status" class="watch-note" role="status">엔진 확인 중…</p>
-          <p class="watch-note">0.4는 최신 실험 엔진입니다. 5.3 대비 실력 향상이 검증된 버전은 아닙니다.</p>
+          <p id="engine-status" class="watch-note" role="status" hidden></p>
           <p id="engine-import-note" class="watch-note" role="status" hidden></p>
           <label>AI 생각 시간<select id="time"><option value="500">빠르게 · 0.5초</option><option value="variable" selected>가변 · 0.5~2초 · 추천 확정</option><option value="2000">표준 · 2초</option><option value="5000">깊게 · 5초</option><option value="15000">정밀 · 15초</option><option value="30000">최대 · 30초</option></select></label>
-          <p class="watch-note">가변은 0.5초부터 안정성을 확인하고 최대 2초 안에 추천을 한 번 확정합니다. 비교 중인 후보는 숨기고, 표시한 추천은 해당 배치에서 유지합니다. 정확한 종반 결과는 일찍 표시할 수 있습니다. AI 자동 착수는 0.5초, 관전은 각 진영의 설정을 사용합니다.</p>
           <label>계산 코어<select id="cores"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option></select></label>
         </div>
         <div class="buttons"><button id="undo">↶ 무르기</button><button id="reset">새 게임</button></div>

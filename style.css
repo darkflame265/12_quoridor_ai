@@ -37,3 +37,25 @@
 @media(max-width:720px){.wait-advice{height:264px;min-height:264px;max-height:264px;grid-template-rows:22px 60px 54px 28px 54px}#wait-reason{line-height:20px}#wait-timing,#position-verdict{line-height:18px}#advice-change{line-height:28px}#wait-reason,#wait-timing,#position-verdict{-webkit-line-clamp:3}}
 
 .board-heading{height:18px;align-items:center;gap:12px}.board-heading span:first-child{min-width:0;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.board-heading span:last-child{flex-shrink:0;white-space:nowrap}
+
+/* Compact controls leave more room for analysis and game history. */
+aside{min-width:0}
+aside .panel{padding:12px;margin-top:10px}
+aside .panel-title{margin-bottom:8px}
+aside label{margin:7px 0;gap:6px}
+aside select{min-width:0;padding:5px;max-width:100%}
+aside button{min-width:0;padding:7px 8px;line-height:1.4;overflow-wrap:anywhere}
+aside .buttons{margin-top:8px;gap:6px}
+aside .watch-note{margin-top:6px;line-height:1.5}
+aside .watch-note:empty{display:none}
+aside .player{padding:10px;margin:6px 0}
+aside #analysis{margin-top:8px}
+aside #history>div{padding:5px 0}
+.play-settings label{min-height:29px}
+#screen-panel .screen-compact-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+#screen-panel .screen-compact-actions button{width:100%;min-height:34px;font-size:10px}
+#screen-panel label{justify-content:flex-start;gap:7px;margin:8px 0 4px;font-size:10px}
+#screen-panel input[type=checkbox]{margin:0;flex-shrink:0}
+#screen-panel .watch-note{font-size:10px;overflow-wrap:anywhere}
+@media(max-width:720px){aside{gap:10px}aside .panel{margin:0}#screen-panel{grid-column:1/-1}}
+@media(max-width:440px){aside{grid-template-columns:minmax(0,1fr)}#players{flex-wrap:wrap}aside .panel{grid-column:1/-1}}

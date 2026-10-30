@@ -50,10 +50,11 @@ const viewAction=a=>orientAction(a,flipped());
 const engineName=id=>id==='atlas5'?'Atlas 5.3 · 안정':'Atlas 0.4 · 최신';
 function statusFor(selector){return (status,info)=>{
  const label=info?.engineInfo;
+ if(selector==='#engine-status')$(selector).hidden=!['stale','unavailable','wasm'].includes(status);
  if(status==='stale'){$(selector).textContent=`엔진 버전·빌드 불일치 · 실제 ${label?.version??'알 수 없음'} · ${label?.build??'빌드 확인 실패'} · 실행기를 다시 열어 갱신하세요`;return;}
  $(selector).textContent=status==='atlas3'?'Atlas 3 사용':status==='atlas4'?'Atlas 4 WASM 사용':status==='native'?`${label?.label??'Atlas Native'} · ${label?.version??info.engine??'Native'}${label?.variant?' · '+label.variant:''}${label?.build?' · '+label.build:''}`:status==='unavailable'?'실험 엔진 사용 불가 · 다른 엔진으로 자동 대체하지 않습니다.':'Atlas 4 WASM 사용 (Native 연결 불가)';
 };}
-function createPlayPool(workers){const engine=$('#play-engine').value;$('#engine-status').textContent=['atlas4','atlas3'].includes(engine)?(engine==='atlas3'?'Atlas 3':'Atlas 4 WASM')+' 사용':'선택 엔진 확인 중…';return new AdaptiveEngine({workers,engine,onStatus:statusFor('#engine-status')});}
+function createPlayPool(workers){const engine=$('#play-engine').value;$('#engine-status').hidden=true;return new AdaptiveEngine({workers,engine,onStatus:statusFor('#engine-status')});}
 const escapeHtml=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function watchSettings(t){return {engine:$(`#watch-engine-${t}`).value,ms:Number($(`#watch-time-${t}`).value),cores:Number($(`#watch-cores-${t}`).value)};}
 function watchPool(t){const config=watchSettings(t);if(!watchPools[t]){$(`#watch-engine-status-${t}`).textContent=['atlas3','atlas4'].includes(config.engine)?engineName(config.engine)+' 사용':'선택 엔진 확인 중…';watchPools[t]=new AdaptiveEngine({workers:config.cores,engine:config.engine,onStatus:statusFor(`#watch-engine-status-${t}`)});}return watchPools[t];}

@@ -7,12 +7,12 @@ import {readFile,writeFile,mkdir,access,rm} from 'node:fs/promises';
 import {spawn,execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {createPressureService} from '../server/pressure-service.mjs';
-const root=fileURLToPath(new URL('../',import.meta.url)),dist=path.join(root,'dist'),out=path.join(root,'reports',process.env.SCREEN_RESYNC_QA==='1'?'screen-resync':'screen-import');
+const root=fileURLToPath(new URL('../',import.meta.url)),dist=path.join(root,'dist'),out=path.join(root,'reports',process.env.SCREEN_COMPACT_QA==='1'?'compact-panels':process.env.SCREEN_RESYNC_QA==='1'?'screen-resync':'screen-import');
 execFileSync(process.execPath,[path.join(root,'node_modules','vite','bin','vite.js'),'build'],{cwd:root,stdio:'inherit',windowsHide:true});
 let browserPath;for(const candidate of [process.env.SCREEN_QA_CHROME,'C:/Program Files/Google/Chrome/Application/chrome.exe','C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe','/usr/bin/chromium','/usr/bin/google-chrome'].filter(Boolean)){try{await access(candidate);browserPath=candidate;break;}catch{}}
 if(!browserPath)throw Error('Set SCREEN_QA_CHROME to a Chrome/Edge executable');
 const temp=path.resolve(root,'native-engine','target',`screen-qa-${Date.now()}`),profile=path.join(temp,'profile');await mkdir(temp,{recursive:true});await mkdir(out,{recursive:true});
-const pressureService=process.env.QUORIDOR_PRESSURE_BROWSER_QA==='1'?createPressureService():null;
+const pressureService=process.env.QUORIDOR_PRESSURE_BROWSER_QA==='1'||process.env.SCREEN_COMPACT_QA==='1'?createPressureService():null;
 if(pressureService){await pressureService.client.health();await new Promise(resolve=>pressureService.server.listen(0,'127.0.0.1',resolve));}
 const tempoService=pressureService?createPressureService({tempo:true}):null;
 if(tempoService){await tempoService.client.health();await new Promise(resolve=>tempoService.server.listen(0,'127.0.0.1',resolve));}
@@ -44,9 +44,17 @@ try{
  const target=await send('Target.createTarget',{url:'about:blank'},null);session=(await send('Target.attachToTarget',{targetId:target.targetId,flatten:true},null)).sessionId;
  await send('Page.enable');await send('Runtime.enable');await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1100,deviceScaleFactor:1,mobile:false});
  await send('Browser.setDownloadBehavior',{behavior:'deny'},null);
- await send('Page.addScriptToEvaluateOnNewDocument',{source:`if(!localStorage.getItem('quoridor-session'))localStorage.setItem('quoridor-session',JSON.stringify({version:2,records:[],mode:'sandbox',side:0,startPosition:'bottom',time:'500',cores:'1',engine:'atlas3'}));`});
+ await send('Page.addScriptToEvaluateOnNewDocument',{source:`if(!localStorage.getItem('quoridor-session'))localStorage.setItem('quoridor-session',JSON.stringify({version:2,records:[],mode:'sandbox',side:0,startPosition:'bottom',time:'500',cores:'1',engine:'${process.env.SCREEN_COMPACT_QA==='1'?'atlas-goal':'atlas3'}'}));`});
  await send('Page.navigate',{url});await until(`!!document.querySelector('#screen-open')`);
- if(process.env.SCREEN_RESYNC_QA==='1'){
+ if(process.env.SCREEN_COMPACT_QA==='1'){
+  await evaluate(`document.querySelector('#mode').value='screen';document.querySelector('#mode').dispatchEvent(new Event('change'));document.querySelector('#screen-close').click();scrollTo(0,0)`);
+  for(const width of [1440,950,390]){
+   await send('Emulation.setDeviceMetricsOverride',{width,height:1100,deviceScaleFactor:1,mobile:false});
+   const layout=await evaluate(`(()=>{const box=id=>document.querySelector(id).getBoundingClientRect(),buttons=['#screen-open','#screen-disconnect','#screen-auto-pause','#screen-resync'].map(box);return {intro:!!document.querySelector('.intro'),diagnostic:!!document.querySelector('#screen-diagnostic'),settings:box('.play-settings').height,screen:box('#screen-panel').height,paired:Math.abs(buttons[0].top-buttons[1].top)<1&&Math.abs(buttons[2].top-buttons[3].top)<1,overflow:document.documentElement.scrollWidth>innerWidth,controlsFit:buttons.every(b=>b.left>=0&&b.right<=innerWidth),normalEngineHidden:document.querySelector('#engine-status').hidden}})()`);
+   assert.equal(layout.intro,false,JSON.stringify(layout));assert.equal(layout.diagnostic,false,JSON.stringify(layout));assert.equal(layout.paired,true,JSON.stringify(layout));assert.equal(layout.overflow,false,JSON.stringify(layout));assert.equal(layout.controlsFit,true,JSON.stringify(layout));assert.equal(layout.normalEngineHidden,true,JSON.stringify(layout));assert(layout.settings<350,JSON.stringify(layout));assert(layout.screen<300,JSON.stringify(layout));
+   checks.push({width,...layout});await screenshot(`compact-${width}.png`);
+  }
+ }else if(process.env.SCREEN_RESYNC_QA==='1'){
   await evaluate(`(async()=>{const {paintSourceScreen}=await import('/_qa/context-fixture.js');window.qaLiveSource=document.createElement('canvas');window.qaLiveStream=null;window.qaLivePaint=options=>{paintSourceScreen(qaLiveSource,{rounded:true,muted:true,labelSize:8,size:8,...options});qaLiveStream?.getVideoTracks()[0].requestFrame?.();};qaLivePaint({bottom:0,relative:'opponent',plies:12});Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async()=>{qaLiveStream=qaLiveSource.captureStream(30);return qaLiveStream;}});document.querySelector('#mode').value='screen';document.querySelector('#mode').dispatchEvent(new Event('change'));document.querySelector('#screen-auto-hint').checked=false;document.querySelector('#screen-open').click();document.querySelector('#screen-connect').click();})()`);
   await until(`!document.querySelector('#screen-apply').disabled`);
   assert.equal(await evaluate(`document.querySelector('#screen-dialog').open`),true);
@@ -214,9 +222,7 @@ try{
  await until(`document.querySelector('#screen-auto-status').textContent.includes('여러 개')`);
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),6);
  assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);
- const diagnostic=await evaluate(`(async()=>{const original=URL.createObjectURL;URL.createObjectURL=blob=>{window.qaDiagnostic=blob;return original.call(URL,blob);};document.querySelector('#screen-diagnostic').click();URL.createObjectURL=original;return JSON.parse(await qaDiagnostic.text());})()`);
- assert.ok(diagnostic.events.some(e=>e.reason.includes('여러 개')));assert.equal(diagnostic.lastGood.p[0].y,5);assert.ok(diagnostic.events.every(e=>!('image' in e)));
- checks.push('ambiguous missed history stays blocked and diagnostic download preserves failure evidence');
+ checks.push('ambiguous missed history stays blocked without applying an uncertain board');
  await evaluate(`document.querySelector('#screen-resync').click()`);
  await until(`document.querySelector('#screen-dialog').open && !document.querySelector('#screen-apply').disabled`);
  await evaluate(`document.querySelector('#screen-turn').value='1';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click()`);
@@ -236,7 +242,6 @@ try{
  assert.equal(await evaluate(`document.querySelectorAll('#board .wall').length`),20);
  checks.push('dense connected twenty-wall video imports without duplicate walls or negative stock');
  await evaluate(`qaPaint({installed:qaDense,joinWalls:true,fragmentTiles:true})`);await evaluate(`new Promise(r=>setTimeout(r,1800))`);
- const retained=await evaluate(`(async()=>{const original=URL.createObjectURL;URL.createObjectURL=blob=>{window.qaDiagnostic=blob;return original.call(URL,blob);};document.querySelector('#screen-diagnostic').click();URL.createObjectURL=original;return JSON.parse(await qaDiagnostic.text());})()`);
  assert.ok(retained.events.some(e=>e.reason.includes('기존 격자')));assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),0);
  checks.push('failed full-grid detection retains confirmed geometry when corner evidence still matches');
  await send('Page.reload');await until(`document.querySelector('#count')?.textContent.includes('중간 기보 누락')`);
@@ -278,12 +283,10 @@ try{
  await evaluate(`qaLivePaint({bottom:0,relative:'self',cardRole:null,phrase:false,plies:0})`);await evaluate(`new Promise(r=>setTimeout(r,200))`);
  await evaluate(`document.querySelector('#screen-resync').click()`);
  await until(`document.querySelector('#screen-turn-result').textContent.includes('판독 실패') && document.querySelector('#screen-apply').disabled`);
- const initialDiagnostic=await evaluate(`(async()=>{const original=URL.createObjectURL;URL.createObjectURL=blob=>{window.qaDiagnostic=blob;return original.call(URL,blob);};document.querySelector('#screen-diagnostic').click();URL.createObjectURL=original;return JSON.parse(await qaDiagnostic.text());})()`);
- assert.ok(initialDiagnostic.events.some(e=>e.reason.includes('초기 진영')&&e.context?.diagnostic));
  await evaluate(`document.querySelector('#screen-auto-turn').click();document.querySelector('#screen-manual-context').open=true;document.querySelector('#screen-turn').value='0';document.querySelector('#screen-turn').dispatchEvent(new Event('change'))`);
  assert.equal(await evaluate(`document.querySelector('#screen-apply').disabled`),false);
  await evaluate(`document.querySelector('#screen-apply').click()`);
- checks.push('unreadable initial turn blocks automatic application, records diagnosis and allows explicit manual correction');
+ checks.push('unreadable initial turn blocks automatic application and allows explicit manual correction');
  await evaluate(`window.qaInitialDots=[{x:3,y:8,owner:0},{x:5,y:8,owner:0},{x:4,y:7,owner:0}];qaLivePaint({bottom:0,relative:'self',cardRole:null,phrase:false,plies:0,positions:[{x:4,y:8},{x:4,y:0}],installed:[],dots:qaInitialDots,dotOpacity:.35})`);
  await evaluate(`new Promise(r=>setTimeout(r,250))`);await evaluate(`document.querySelector('#screen-resync').click();document.querySelector('#screen-auto-turn').checked=true;document.querySelector('#screen-auto-turn').dispatchEvent(new Event('change'))`);
  await until(`document.querySelector('#screen-turn-result').textContent.includes('이동 점 3개') && !document.querySelector('#screen-apply').disabled`);

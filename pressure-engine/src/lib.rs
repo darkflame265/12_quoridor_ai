@@ -7,6 +7,7 @@ mod core {
     include!("pressure.rs");
     include!("reserve.rs");
     include!("defense_reserve.rs");
+    include!("weak_wall.rs");
     include!("tempo.rs");
     include!("goal_guard.rs");
     include!("pawn_finish.rs");

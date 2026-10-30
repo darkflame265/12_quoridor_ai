@@ -1,3 +1,4 @@
+import {wallStreak} from './wall-streak.js';
 import {normalizeSessionSettings} from './session-settings.js';
 import {VariableAnalysis} from './variable-analysis.js';
 import {AdaptiveEngine} from './adaptive-engine.js';
@@ -36,10 +37,11 @@ function watchSettings(t){return {engine:$(`#watch-engine-${t}`).value,ms:Number
 function watchPool(t){const config=watchSettings(t);if(!watchPools[t]){$(`#watch-engine-status-${t}`).textContent=['atlas3','atlas4'].includes(config.engine)?engineName(config.engine)+' 사용':'선택 엔진 확인 중…';watchPools[t]=new AdaptiveEngine({workers:config.cores,engine:config.engine,onStatus:statusFor(`#watch-engine-status-${t}`)});}return watchPools[t];}
 function cancelWatch(){for(const p of watchPools)p?.cancel();}
 function disposeWatch(){for(const p of watchPools)p?.dispose();watchPools=[null,null];for(const t of [0,1])$(`#watch-engine-status-${t}`).textContent='선택한 엔진은 계산할 때 확인합니다.';}
+const observedWallStreak=turn=>wallStreak(records,turn,baseState?.turn??0);
 const watchOutcome=()=>observationOutcome(state,past);
 const watcher=new SpectatorRunner({
   getState:()=>state,getOutcome:watchOutcome,
-  search:(snapshot,onProgress)=>watchPool(snapshot.turn).search(snapshot,{ms:watchSettings(snapshot.turn).ms,onProgress}),
+  search:(snapshot,onProgress)=>watchPool(snapshot.turn).search(snapshot,{ms:watchSettings(snapshot.turn).ms,wallStreak:observedWallStreak(snapshot.turn),onProgress}),
   cancelSearch:cancelWatch,
   commit:(action,result)=>{const before=clone(state);applyMove(action);writeAnalysis(result,'선택',before);},
   onAnalysis:r=>writeAnalysis({...r,done:r.done??!watcher.thinking}),
@@ -119,6 +121,7 @@ function writeAnalysis(r,label='추천',source=state){
   const warning=analysisRisk(r,source.turn);if(warning){const note=document.createElement('p');note.className='analysis-warning';note.setAttribute('role','status');note.textContent=warning;$('#analysis').append(note);}
   const explanation=pressureExplanation(source,recommended);if(explanation){const detail=document.createElement('p');detail.className='pressure-reason';detail.textContent=explanation;$('#analysis').append(detail);}
   if(r.reserveDefense?.active){const reserve=r.reserveDefense,note=document.createElement('p');note.className='pressure-reason';note.textContent=reserve.complete?`방어벽 보존 평가 · 내 벽 ${reserve.stock[source.turn]}개 / 상대 ${reserve.stock[1-source.turn]}개 · 단일 벽 위협 ${reserve.baselineRisk}칸 상당. 제한된 후보 평가이며 승패 증명은 아닙니다.`:'방어벽 보존 평가의 시간 예산을 넘겨 부분 결과는 적용하지 않았습니다.';$('#analysis').append(note);}
+  if(r.weakWallConsumption?.active){const weak=r.weakWallConsumption,note=document.createElement('p');note.className='pressure-reason';note.textContent=weak.complete?`벽 소비 비교 · 관측된 연속 설치 ${weak.wallStreak}회 · 전진 가능한 이동과 비교해 약한 벽 ${weak.penalizedActions}개에 비용 반영${weak.selected?` · 선택 벽 비용 ${weak.selected.penalty}점`:''}`:'벽 소비 비교 시간 초과 · 부분 비용은 적용하지 않았습니다.';$('#analysis').append(note);}
 }
 function applyMove(action){
   if(!legal(state,action))throw Error('불가능한 수입니다.');
@@ -142,7 +145,7 @@ function think(auto=false){
   stop();busy=true;hint=null;const id=serial,source=clone(state),selectedPool=watching()?watchPool(state.turn):pool;
   render();$('#analysis').textContent='가능한 이동과 벽을 분석하고 있습니다…';
   if(!auto&&!watching()&&$('#time').value==='variable'){startVariable(selectedPool,source,id);return;}
-  selectedPool.search(state,{ms:watching()?watchSettings(state.turn).ms:playMs(),onProgress:r=>{if(id===serial)writeAnalysis(r);}}).then(r=>{
+  selectedPool.search(state,{wallStreak:observedWallStreak(state.turn),ms:watching()?watchSettings(state.turn).ms:playMs(),onProgress:r=>{if(id===serial)writeAnalysis(r);}}).then(r=>{
     if(id!==serial)return;if(!r.pv?.length)throw Error('추천 가능한 수가 없습니다.');
     writeAnalysis({...r,done:true});busy=false;if(auto){commitMove(r.pv[0]);writeAnalysis(r,'선택',source);}else {persist();render();}
   }).catch(error=>{if(id!==serial||error.name==='AbortError')return;stop();render();$('#analysis').textContent=error.message;});
@@ -160,7 +163,7 @@ function startVariable(selectedPool,source,id){
  const analysisId=globalThis.crypto.randomUUID();let published=false;
  const current=()=>id===serial&&source.turn===state.turn&&boardKey(source)===boardKey(state);
  recordDecision(decisionLog,{kind:'analysis-start',at:new Date().toISOString(),analysisId,position:boardKey(source),turn:source.turn,firstTargetMs:500,limitMs:15000,configuredCores:selectedPool.size,cores});
- variableAnalysis.start(selectedPool,source,{cores,
+ variableAnalysis.start(selectedPool,source,{cores,wallStreak:observedWallStreak(source.turn),
   onPublish:r=>{if(!current())return;const phase=published?'update':'first';published=true;busy=false;writeAnalysis({...r,analysisBudgetMs:15000,analysisCores:cores});recordDecision(decisionLog,{kind:'analysis-display',at:new Date().toISOString(),analysisId,phase,position:boardKey(source),turn:source.turn,pv:clone(r.pv),elapsedMs:r.elapsedMs,complete:r.done});persist();render();},
   onUpdate:r=>{if(!current())return;recordDecision(decisionLog,{...recommendation(source,r,{engine:$('#play-engine').value,ms:15000,cores,ply:records.length+1,build:selectedPool.native?.info?.engineInfo?.build}),kind:'analysis-update',analysisId});},
   onStatus:()=>{variableStatus();if(current()&&!variableAnalysis.active)persist();},

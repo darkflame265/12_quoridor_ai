@@ -6,10 +6,10 @@ export class AdaptiveEngine{
  get ponderMs(){return this.native?.online?1500:250;}
  cancel(){this.generation++;this.job=null;this.native?.cancel();this.web.cancel();}
  dispose(){this.cancel();this.native?.dispose();this.web.dispose();}
- async search(state,{ms=500,onProgress=()=>{},ponder=false,cores=this.size}={}){this.cancel();const generation=this.generation,start=performance.now();this.job={generation};const guarded=r=>{if(generation===this.generation)onProgress(r);};
+ async search(state,{ms=500,onProgress=()=>{},ponder=false,cores=this.size,wallStreak=0}={}){this.cancel();const generation=this.generation,start=performance.now();this.job={generation};const guarded=r=>{if(generation===this.generation)onProgress(r);};
   try{if(this.native&&(this.native.online||await this.native.probe())){
     if(generation!==this.generation)throw Object.assign(Error('Calculation cancelled'),{name:'AbortError'});
-    try{const r=await this.native.search(state,{ms:Math.max(1,ms-(performance.now()-start)),cores:Math.max(1,Math.min(this.size,cores)),onProgress:guarded});if(generation!==this.generation)throw Object.assign(Error('Calculation cancelled'),{name:'AbortError'});return {...r,elapsedMs:performance.now()-start};}
+    try{const r=await this.native.search(state,{ms:Math.max(1,ms-(performance.now()-start)),cores:Math.max(1,Math.min(this.size,cores)),onProgress:guarded,wallStreak});if(generation!==this.generation)throw Object.assign(Error('Calculation cancelled'),{name:'AbortError'});return {...r,elapsedMs:performance.now()-start};}
     catch(error){if(generation!==this.generation)throw error;this.native.online=false;this.native.checked=Date.now();}
    }
    if(generation!==this.generation)throw Object.assign(Error('Calculation cancelled'),{name:'AbortError'});

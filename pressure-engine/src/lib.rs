@@ -6,6 +6,7 @@ mod core {
     include!(concat!(env!("CARGO_MANIFEST_DIR"), "/../native-engine/src/endgame-oracle.rs"));
     include!("pressure.rs");
     include!("reserve.rs");
+    include!("defense_reserve.rs");
     include!("tempo.rs");
     include!("goal_guard.rs");
     include!("pawn_finish.rs");

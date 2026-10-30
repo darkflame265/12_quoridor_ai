@@ -118,6 +118,7 @@ function writeAnalysis(r,label='추천',source=state){
   if(strategyProof){const proof=document.createElement('p');proof.className='win-proof';const turns=Math.ceil(r.winProof.guaranteedPlies/2);proof.textContent=`${r.winProof.kind==='pawn-only-strategy'?'벽을 쓰지 않는 이동 승리 전략':'마지막 벽 사용 후의 승리 전략'} · 최대 내 ${turns}턴. 전체 행동 중 최단 승리 여부까지 증명한 결과는 아닙니다.`;$('#analysis').append(proof);}
   const warning=analysisRisk(r,source.turn);if(warning){const note=document.createElement('p');note.className='analysis-warning';note.setAttribute('role','status');note.textContent=warning;$('#analysis').append(note);}
   const explanation=pressureExplanation(source,recommended);if(explanation){const detail=document.createElement('p');detail.className='pressure-reason';detail.textContent=explanation;$('#analysis').append(detail);}
+  if(r.reserveDefense?.active){const reserve=r.reserveDefense,note=document.createElement('p');note.className='pressure-reason';note.textContent=reserve.complete?`방어벽 보존 평가 · 내 벽 ${reserve.stock[source.turn]}개 / 상대 ${reserve.stock[1-source.turn]}개 · 단일 벽 위협 ${reserve.baselineRisk}칸 상당. 제한된 후보 평가이며 승패 증명은 아닙니다.`:'방어벽 보존 평가의 시간 예산을 넘겨 부분 결과는 적용하지 않았습니다.';$('#analysis').append(note);}
 }
 function applyMove(action){
   if(!legal(state,action))throw Error('불가능한 수입니다.');

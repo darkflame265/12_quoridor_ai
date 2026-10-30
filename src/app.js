@@ -1,3 +1,4 @@
+import {normalizeSessionSettings} from './session-settings.js';
 import {VariableAnalysis} from './variable-analysis.js';
 import {AdaptiveEngine} from './adaptive-engine.js';
 import {orientPosition,orientAction,viewFlipped} from './view.js';
@@ -11,9 +12,6 @@ import {recommendation,recordDecision,observedAction} from './decision-log.js';
 import {analysisRisk} from './analysis-risk.js';
 
 const $=s=>document.querySelector(s),colors=['#31d4c2','#fa7393'],names=['청록','분홍'];
-for(const id of ['#play-engine','#watch-engine-0','#watch-engine-1']){const option=document.createElement('option');option.value='atlas-pressure';option.textContent='Atlas 즉시 압박 0.2 · 실험 (미승격)';$(id).add(option,2);}
-for(const id of ['#play-engine','#watch-engine-0','#watch-engine-1']){const option=document.createElement('option');option.value='atlas-tempo';option.textContent='Atlas 벽 투자 0.3 · 실험 (미승격)';$(id).add(option,3);}
-for(const id of ['#play-engine','#watch-engine-0','#watch-engine-1']){const option=document.createElement('option');option.value='atlas-goal';option.textContent='Atlas 골인 안전 0.4 · 실험 (미승격)';$(id).add(option,4);}
 const defaultCores=Math.min(4,Math.max(1,(navigator.hardwareConcurrency||4)-2));
 let state=initial(),past=[],records=[],serial=0,busy=false,hint=null,decisionLog=[];
 let baseState=null,observedBottom=null,screenCapture=null;
@@ -26,7 +24,7 @@ const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.tur
 const flipped=()=>viewFlipped(Number($('#side').value),$('#start-position').value);
 const viewPosition=p=>orientPosition(p,flipped());
 const viewAction=a=>orientAction(a,flipped());
-const engineName=id=>id==='atlas3'?'Atlas 3':id==='atlas5'?'Atlas 5.3 안정':id==='atlas-goal'?'Atlas 골인 안전 0.4 실험':id==='atlas-tempo'?'Atlas 벽 투자 0.3 실험':id==='atlas-pressure'?'Atlas 즉시 압박 0.2 실험':id==='atlas-experiment'?'Atlas 실험 late-full':'Atlas 4 WASM';
+const engineName=id=>id==='atlas5'?'Atlas 5.3 · 안정':'Atlas 0.4 · 최신';
 function statusFor(selector){return (status,info)=>{
  const label=info?.engineInfo;
  if(status==='stale'){$(selector).textContent=`엔진 버전·빌드 불일치 · 실제 ${label?.version??'알 수 없음'} · ${label?.build??'빌드 확인 실패'} · 실행기를 다시 열어 갱신하세요`;return;}
@@ -199,13 +197,15 @@ $('#watch-delay').onchange=()=>{stop();persist();render();};
 $('#watch-start').onclick=()=>{stop();hint=null;watcher.start();};
 $('#watch-pause').onclick=()=>{stop();render();};
 $('#watch-step').onclick=()=>{stop();hint=null;watcher.step();};
-function sessionData(){return {version:baseState?3:2,...(baseState?{baseState,sourceBottom:observedBottom,screenRebased,screenSegments}:{}),records,decisionLog,mode:$('#mode').value,side:Number($('#side').value),startPosition:$('#start-position').value,time:$('#time').value,cores:$('#cores').value,engine:$('#play-engine').value,watch:{players:[watchSettings(0),watchSettings(1)],delay:Number($('#watch-delay').value)},result:watching()?watchOutcome():null};}
+function sessionData(){return {settingsRevision:1,version:baseState?3:2,...(baseState?{baseState,sourceBottom:observedBottom,screenRebased,screenSegments}:{}),records,decisionLog,mode:$('#mode').value,side:Number($('#side').value),startPosition:$('#start-position').value,time:$('#time').value,cores:$('#cores').value,engine:$('#play-engine').value,watch:{players:[watchSettings(0),watchSettings(1)],delay:Number($('#watch-delay').value)},result:watching()?watchOutcome():null};}
 function persist(){try{localStorage.setItem('quoridor-session',JSON.stringify(sessionData()));$('#storage-note').hidden=true;}catch{$('#storage-note').hidden=false;$('#storage-note').textContent='자동 저장 공간이 부족합니다. 기보 저장을 이용해 주세요.';}}
 function selectValue(id,value){const element=$(id);if([...element.options].some(option=>option.value===String(value)))element.value=String(value);}
-function restore(data){
+function restore(data,{startup=false}={}){
+  data=normalizeSessionSettings(data,{startup});
   const replay=restoreObservedSession(data);const archives=data.screenSegments??[];if(!Array.isArray(archives)||archives.length>8)throw Error('이전 화면 기보 보관 형식이 올바르지 않습니다.');const segments=archives.map(segment=>{const r=restoreObservedSession(segment);return {baseState:r.baseState,records:r.records,decisionLog:Array.isArray(segment.decisionLog)?segment.decisionLog.slice(-1000):[]};});stop();decisionLog=Array.isArray(data.decisionLog)?data.decisionLog.slice(-1000):[];screenSegments=segments;state=replay.state;past=replay.past;records=replay.records;baseState=replay.baseState;screenRebased=!!baseState&&data.screenRebased===true;
   observedBottom=baseState&&[0,1].includes(data.sourceBottom)?data.sourceBottom:null;screenCapture?.setBottom(observedBottom);
-  selectValue('#mode',data.mode);selectValue('#side',data.side);selectValue('#time',data.time);selectValue('#cores',data.cores);selectValue('#play-engine',data.engine??'atlas5');
+  selectValue('#mode',data.mode);selectValue('#side',data.side);selectValue('#time',data.time);selectValue('#cores',data.cores);selectValue('#play-engine',data.engine);
+  $('#engine-import-note').hidden=!data.unsupportedEngine;$('#engine-import-note').textContent=data.unsupportedEngine?`기보의 원본 엔진 ${data.unsupportedEngine}은 선택 목록에서 제외됐습니다. 기록은 유지하고 새 분석에는 Atlas 0.4를 사용합니다.`:'';
   selectValue('#start-position',data.startPosition??'top');
   if($('#mode').value==='screen'&&observedBottom!==null){$('#side').value=String(observedBottom);$('#start-position').value='bottom';}
   if($('#play-engine').value==='atlas3')$('#cores').value='1';$('#cores').disabled=$('#play-engine').value==='atlas3';
@@ -228,4 +228,4 @@ screenCapture=mountScreenCapture({
   onDirty:()=>{if($('#mode').value==='screen'){stop();clearAnalysis();$('#analysis').textContent='새로 가져온 내용은 확인 후 적용해야 반영됩니다.';render();}}
 });
 window.addEventListener('pagehide',()=>{stop();pool.dispose();disposeWatch();screenCapture?.dispose();});
-try{const saved=localStorage.getItem('quoridor-session');if(saved)restore(JSON.parse(saved));else render();}catch{render();}
+try{const saved=localStorage.getItem('quoridor-session');if(saved)restore(JSON.parse(saved),{startup:true});else {persist();render();}}catch{render();}

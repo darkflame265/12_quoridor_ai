@@ -6,8 +6,6 @@ import path from 'node:path';
 import {randomUUID} from 'node:crypto';
 import {createNativeService} from '../server/native-service.mjs';
 import {nativeSources,digest} from '../evaluation/native-policy.mjs';
-import {createExperimentalService} from '../server/experimental-service.mjs';
-import {verifyMazeBuild} from '../evaluation/maze-candidate-policy.mjs';
 import {createPressureService} from '../server/pressure-service.mjs';
 import {verifyPressureBuild} from '../evaluation/pressure-policy.mjs';
 import {runtimeFingerprint} from './runtime-identity.mjs';
@@ -43,13 +41,10 @@ if(args.includes('--stop')) {
   await new Promise(r=>setTimeout(r,200));
  }
  if(!acquired)throw Error('다른 실행이 준비 중입니다. 잠시 후 다시 실행해 주세요.');
- let native=null,experimental=null,pressure=null,tempo=null,goal=null,web=null,stopping=null;const token=randomUUID();
+ let native=null,goal=null,web=null,stopping=null;const token=randomUUID();
  const cleanup=()=>stopping??=(async()=>{
   if(web){web.closeAllConnections();await new Promise(r=>web.close(r));}
   if(native)await native.close();
-  if(experimental)await experimental.close();
-  if(pressure)await pressure.close();
-  if(tempo)await tempo.close();
   if(goal)await goal.close();
   const state=await existing();if(state?.pid===process.pid)await unlink(lock).catch(()=>{});
  })();
@@ -65,12 +60,7 @@ if(args.includes('--stop')) {
   if(!ready)run('scripts/build-native.mjs');
   native=createNativeService();await native.client.health();
   await new Promise((resolve,reject)=>{native.server.once('error',reject);native.server.listen(0,'127.0.0.1',resolve);});
-  try{try{verifyMazeBuild();}catch{run('scripts/build-maze.mjs');}
-   experimental=createExperimentalService();await experimental.client.health();
-   await new Promise((resolve,reject)=>{experimental.server.once('error',reject);experimental.server.listen(0,'127.0.0.1',resolve);});
-  }catch(error){console.error(`실험 엔진 준비 실패: ${error.message}`);if(experimental)await experimental.close();experimental=null;}
-  try{try{verifyPressureBuild();}catch{run('scripts/build-pressure.mjs');}pressure=createPressureService();await pressure.client.health();await new Promise((resolve,reject)=>{pressure.server.once('error',reject);pressure.server.listen(0,'127.0.0.1',resolve);});}catch(error){console.error(`즉시 압박 엔진 준비 실패: ${error.message}`);if(pressure)await pressure.close();pressure=null;}
-  try{tempo=createPressureService({tempo:true});await tempo.client.health();await new Promise((resolve,reject)=>{tempo.server.once('error',reject);tempo.server.listen(0,'127.0.0.1',resolve);});}catch(error){console.error(`벽 투자 실험 엔진 준비 실패: ${error.message}`);if(tempo)await tempo.close();tempo=null;}
+  try{verifyPressureBuild();}catch{run('scripts/build-pressure.mjs');}
   try{goal=createPressureService({goal:true});await goal.client.health();await new Promise((resolve,reject)=>{goal.server.once('error',reject);goal.server.listen(0,'127.0.0.1',resolve);});}catch(error){console.error(`골인 안전 실험 엔진 준비 실패: ${error.message}`);if(goal)await goal.close();goal=null;}
   // Compile the browser contract after its engine build has been verified.
   if(!args.includes('--no-build'))run('node_modules/vite/bin/vite.js',['build']);
@@ -86,10 +76,10 @@ if(args.includes('--stop')) {
     if(pathname==='/__app/stop'&&req.method==='POST'){res.end('ok');setTimeout(()=>cleanup().then(()=>process.exit()),50);return;}
     res.writeHead(404).end();return;
    }
-   if(pathname.startsWith('/api/native/')||pathname.startsWith('/api/experimental/')||pathname.startsWith('/api/pressure/')||pathname.startsWith('/api/tempo/')||pathname.startsWith('/api/goal/')) {
-    const selected=pathname.startsWith('/api/goal/')?goal:pathname.startsWith('/api/tempo/')?tempo:pathname.startsWith('/api/pressure/')?pressure:pathname.startsWith('/api/experimental/')?experimental:native;
+   if(pathname.startsWith('/api/native/')||pathname.startsWith('/api/goal/')) {
+    const selected=pathname.startsWith('/api/goal/')?goal:native;
     if(!selected){res.writeHead(503).end('Experimental engine unavailable');return;}
-    const upstream=http.request({host:'127.0.0.1',port:selected.server.address().port,path:req.url.replace(/^\/api\/(native|experimental|pressure|tempo|goal)/,''),method:req.method,headers:{...req.headers,host:`127.0.0.1:${selected.server.address().port}`}},reply=>{res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);});
+    const upstream=http.request({host:'127.0.0.1',port:selected.server.address().port,path:req.url.replace(/^\/api\/(native|goal)/,''),method:req.method,headers:{...req.headers,host:`127.0.0.1:${selected.server.address().port}`}},reply=>{res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);});
     upstream.on('error',()=>{if(!res.headersSent)res.writeHead(503);res.end();});res.on('close',()=>upstream.destroy());req.pipe(upstream);return;
    }
    if(!['GET','HEAD'].includes(req.method)){res.writeHead(405).end();return;}

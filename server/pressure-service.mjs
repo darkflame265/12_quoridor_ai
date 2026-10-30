@@ -1,5 +1,5 @@
 import {createNativeService} from './native-service.mjs';
 import {NativeProcess} from './native-process.mjs';
 import {pressureExecutable,verifyPressureBuild} from '../evaluation/pressure-policy.mjs';
-const goalVariant='연결 벽 위험·반복 벽 소비·방어벽 보존 평가';
+const goalVariant='준비 벽·원거리 방어 재검토 / 연결 공격 평가';
 export function createPressureService({tempo=false,goal=false}={}){const identity=verifyPressureBuild();return createNativeService({client:new NativeProcess({executable:pressureExecutable,profile:'candidate',env:{QUORIDOR_PRESSURE_MODE:'on',QUORIDOR_TEMPO_MODE:tempo||goal?'on':'off',QUORIDOR_GOAL_MODE:goal?'on':'off',QUORIDOR_GOAL_EVAL_MODE:'off',QUORIDOR_PREP_MODE:'off',QUORIDOR_GOAL_DEEP_MODE:'off'}}),engineInfo:{id:goal?'atlas-goal':tempo?'atlas-tempo':'atlas-pressure',label:goal?'Atlas 골인 안전':tempo?'Atlas 벽 투자':'Atlas 즉시 압박',version:goal?'0.4 실험':tempo?'0.3 실험':'0.2 실험',variant:goal?goalVariant:tempo?'준비 벽 비용·후속 연결·방어 효과 평가':'5.3 + 가까운 길목·보유 벽 실효성 평가',build:identity.binaryHash.slice(0,12),promoted:false}});}

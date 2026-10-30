@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "connection:audit": "node scripts/audit-connection-risk.mjs",
     "goal:check": "node scripts/check-goal.mjs",
     "goal:evaluate": "node scripts/evaluate-goal.mjs",
     "runtime:check": "node scripts/check-runtime-upgrade.mjs",

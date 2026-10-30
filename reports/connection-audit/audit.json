@@ -1,0 +1,1754 @@
+{
+  "source": "C:\\Users\\ter24\\Downloads\\quoridor-game (3).json",
+  "build": "7068d4259e95",
+  "warning": "Selective scope sensitivity and local timings; not proof of risk or strength.",
+  "rows": [
+    {
+      "ply": 1,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 8
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          }
+        ],
+        "left": [
+          9,
+          10
+        ],
+        "turn": 1,
+        "winner": null,
+        "wallStreak": 0
+      },
+      "scopes": {
+        "normal": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.38269999999999993,
+          "medianBuilds": 253,
+          "medianHits": 118
+        },
+        "attacks": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.5248999999999997,
+          "medianBuilds": 379,
+          "medianHits": 255
+        },
+        "defenses": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.6641000000000004,
+          "medianBuilds": 495,
+          "medianHits": 158
+        },
+        "both": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 1.0599000000000007,
+          "medianBuilds": 895,
+          "medianHits": 354
+        },
+        "uncached": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.2956000000000003,
+          "medianBuilds": 371,
+          "medianHits": 0
+        }
+      },
+      "rootRuns": {
+        "uncached": {
+          "complete": true,
+          "medianMs": 1.9968000000000075,
+          "estimate": 0,
+          "adjustments": [],
+          "geometryBuilds": 2217,
+          "geometryHits": 0
+        },
+        "cached": {
+          "complete": true,
+          "medianMs": 1.417100000000005,
+          "estimate": 0,
+          "adjustments": [],
+          "geometryBuilds": 926,
+          "geometryHits": 1291
+        }
+      },
+      "attackSensitive": false,
+      "defenseSensitive": false,
+      "cacheEquivalent": true,
+      "recommendation": "e8",
+      "legal": true,
+      "depth": 4,
+      "risk": {
+        "active": true,
+        "complete": true,
+        "defenseReview": false,
+        "distances": [
+          8,
+          8
+        ],
+        "elapsedMs": 1.4444,
+        "estimate": 0,
+        "examinedActions": 5,
+        "firstCandidates": 2,
+        "geometryBuilds": 920,
+        "geometryHits": 1309,
+        "initialEstimate": 0,
+        "opponentStock": 9,
+        "replyLimit": 3,
+        "selected": {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          "risk": 0
+        }
+      }
+    },
+    {
+      "ply": 19,
+      "state": {
+        "p": [
+          {
+            "x": 3,
+            "y": 6
+          },
+          {
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          }
+        ],
+        "left": [
+          9,
+          3
+        ],
+        "turn": 1,
+        "winner": null,
+        "wallStreak": 7
+      },
+      "scopes": {
+        "normal": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.3040999999999485,
+          "medianBuilds": 188,
+          "medianHits": 102
+        },
+        "attacks": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.5768000000000484,
+          "medianBuilds": 293,
+          "medianHits": 263
+        },
+        "defenses": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.41069999999990614,
+          "medianBuilds": 380,
+          "medianHits": 138
+        },
+        "both": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.9149999999999636,
+          "medianBuilds": 676,
+          "medianHits": 346
+        },
+        "uncached": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.2576999999999998,
+          "medianBuilds": 290,
+          "medianHits": 0
+        }
+      },
+      "rootRuns": {
+        "uncached": {
+          "complete": true,
+          "medianMs": 2.100599999999986,
+          "estimate": 0,
+          "adjustments": [
+            [
+              31,
+              -48
+            ]
+          ],
+          "geometryBuilds": 2238,
+          "geometryHits": 0
+        },
+        "cached": {
+          "complete": true,
+          "medianMs": 1.262499999999818,
+          "estimate": 0,
+          "adjustments": [
+            [
+              31,
+              -48
+            ]
+          ],
+          "geometryBuilds": 757,
+          "geometryHits": 1481
+        }
+      },
+      "attackSensitive": false,
+      "defenseSensitive": false,
+      "cacheEquivalent": true,
+      "recommendation": "f7",
+      "legal": true,
+      "depth": 4,
+      "risk": {
+        "active": true,
+        "complete": true,
+        "defenseReview": false,
+        "distances": [
+          14,
+          8
+        ],
+        "elapsedMs": 1.4541999999999007,
+        "estimate": 0,
+        "examinedActions": 6,
+        "firstCandidates": 2,
+        "geometryBuilds": 757,
+        "geometryHits": 1481,
+        "initialEstimate": 0,
+        "opponentStock": 9,
+        "replyLimit": 3,
+        "selected": {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "risk": 0
+        }
+      }
+    },
+    {
+      "ply": 25,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 7
+          },
+          {
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          }
+        ],
+        "left": [
+          8,
+          0
+        ],
+        "turn": 1,
+        "winner": null,
+        "wallStreak": 10
+      },
+      "scopes": {
+        "normal": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.10069999999996071,
+          "medianBuilds": 101,
+          "medianHits": 8
+        },
+        "attacks": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.13859999999976935,
+          "medianBuilds": 112,
+          "medianHits": 13
+        },
+        "defenses": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.08339999999998327,
+          "medianBuilds": 101,
+          "medianHits": 8
+        },
+        "both": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.10359999999991487,
+          "medianBuilds": 112,
+          "medianHits": 13
+        },
+        "uncached": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.0887000000000171,
+          "medianBuilds": 109,
+          "medianHits": 0
+        }
+      },
+      "rootRuns": {
+        "uncached": {
+          "complete": true,
+          "medianMs": 0.5651000000000295,
+          "estimate": 0,
+          "adjustments": [],
+          "geometryBuilds": 675,
+          "geometryHits": 0
+        },
+        "cached": {
+          "complete": true,
+          "medianMs": 0.4356000000000222,
+          "estimate": 0,
+          "adjustments": [],
+          "geometryBuilds": 381,
+          "geometryHits": 294
+        }
+      },
+      "attackSensitive": false,
+      "defenseSensitive": false,
+      "cacheEquivalent": true,
+      "recommendation": "e6",
+      "legal": true,
+      "depth": 4,
+      "risk": {
+        "active": true,
+        "complete": true,
+        "defenseReview": false,
+        "distances": [
+          15,
+          8
+        ],
+        "elapsedMs": 0.4298999999998614,
+        "estimate": 0,
+        "examinedActions": 3,
+        "firstCandidates": 2,
+        "geometryBuilds": 381,
+        "geometryHits": 294,
+        "initialEstimate": 0,
+        "opponentStock": 8,
+        "replyLimit": 3,
+        "selected": {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "risk": 0
+        }
+      }
+    },
+    {
+      "ply": 31,
+      "state": {
+        "p": [
+          {
+            "x": 6,
+            "y": 8
+          },
+          {
+            "x": 5,
+            "y": 4
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          }
+        ],
+        "left": [
+          8,
+          0
+        ],
+        "turn": 1,
+        "winner": null,
+        "wallStreak": 0
+      },
+      "scopes": {
+        "normal": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.15869999999995343,
+          "medianBuilds": 103,
+          "medianHits": 52
+        },
+        "attacks": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.2742000000000644,
+          "medianBuilds": 115,
+          "medianHits": 120
+        },
+        "defenses": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.13229999999975917,
+          "medianBuilds": 103,
+          "medianHits": 52
+        },
+        "both": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.1714999999999236,
+          "medianBuilds": 115,
+          "medianHits": 120
+        },
+        "uncached": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.13439999999991414,
+          "medianBuilds": 155,
+          "medianHits": 0
+        }
+      },
+      "rootRuns": {
+        "uncached": {
+          "complete": true,
+          "medianMs": 1.0549000000000888,
+          "estimate": 0,
+          "adjustments": [
+            [
+              32,
+              -48
+            ],
+            [
+              50,
+              -192
+            ]
+          ],
+          "geometryBuilds": 1283,
+          "geometryHits": 0
+        },
+        "cached": {
+          "complete": true,
+          "medianMs": 0.6868999999996959,
+          "estimate": 0,
+          "adjustments": [
+            [
+              32,
+              -48
+            ],
+            [
+              50,
+              -192
+            ]
+          ],
+          "geometryBuilds": 414,
+          "geometryHits": 869
+        }
+      },
+      "attackSensitive": false,
+      "defenseSensitive": false,
+      "cacheEquivalent": true,
+      "recommendation": "g5",
+      "legal": true,
+      "depth": 4,
+      "risk": {
+        "active": true,
+        "complete": true,
+        "defenseReview": false,
+        "distances": [
+          12,
+          5
+        ],
+        "elapsedMs": 0.7541000000003351,
+        "estimate": 0,
+        "examinedActions": 6,
+        "firstCandidates": 2,
+        "geometryBuilds": 414,
+        "geometryHits": 869,
+        "initialEstimate": 0,
+        "opponentStock": 8,
+        "replyLimit": 3,
+        "selected": {
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "risk": 0
+        }
+      }
+    },
+    {
+      "ply": 39,
+      "state": {
+        "p": [
+          {
+            "x": 6,
+            "y": 5
+          },
+          {
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          }
+        ],
+        "left": [
+          7,
+          0
+        ],
+        "turn": 1,
+        "winner": null,
+        "wallStreak": 0
+      },
+      "scopes": {
+        "normal": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.13079999999990832,
+          "medianBuilds": 97,
+          "medianHits": 55
+        },
+        "attacks": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.25369999999975335,
+          "medianBuilds": 103,
+          "medianHits": 97
+        },
+        "defenses": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.16150000000016007,
+          "medianBuilds": 97,
+          "medianHits": 55
+        },
+        "both": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.21259999999983847,
+          "medianBuilds": 103,
+          "medianHits": 97
+        },
+        "uncached": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.12809999999990396,
+          "medianBuilds": 152,
+          "medianHits": 0
+        }
+      },
+      "rootRuns": {
+        "uncached": {
+          "complete": true,
+          "medianMs": 1.2418999999995322,
+          "estimate": 0,
+          "adjustments": [
+            [
+              44,
+              -192
+            ],
+            [
+              52,
+              -48
+            ]
+          ],
+          "geometryBuilds": 1193,
+          "geometryHits": 0
+        },
+        "cached": {
+          "complete": true,
+          "medianMs": 0.7265000000006694,
+          "estimate": 0,
+          "adjustments": [
+            [
+              44,
+              -192
+            ],
+            [
+              52,
+              -48
+            ]
+          ],
+          "geometryBuilds": 348,
+          "geometryHits": 845
+        }
+      },
+      "attackSensitive": false,
+      "defenseSensitive": false,
+      "cacheEquivalent": true,
+      "recommendation": "h6",
+      "legal": true,
+      "depth": 5,
+      "risk": {
+        "active": true,
+        "complete": true,
+        "defenseReview": false,
+        "distances": [
+          9,
+          4
+        ],
+        "elapsedMs": 0.8393000000000939,
+        "estimate": 0,
+        "examinedActions": 6,
+        "firstCandidates": 2,
+        "geometryBuilds": 348,
+        "geometryHits": 845,
+        "initialEstimate": 0,
+        "opponentStock": 7,
+        "replyLimit": 3,
+        "selected": {
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          },
+          "risk": 0
+        }
+      }
+    },
+    {
+      "ply": 45,
+      "state": {
+        "p": [
+          {
+            "x": 5,
+            "y": 4
+          },
+          {
+            "x": 7,
+            "y": 3
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          6,
+          0
+        ],
+        "turn": 1,
+        "winner": null,
+        "wallStreak": 0
+      },
+      "scopes": {
+        "normal": {
+          "complete": true,
+          "estimates": [
+            2,
+            2,
+            2
+          ],
+          "medianMs": 0.12649999999985084,
+          "medianBuilds": 98,
+          "medianHits": 41
+        },
+        "attacks": {
+          "complete": true,
+          "estimates": [
+            2,
+            2,
+            2
+          ],
+          "medianMs": 0.17859999999973297,
+          "medianBuilds": 106,
+          "medianHits": 90
+        },
+        "defenses": {
+          "complete": true,
+          "estimates": [
+            2,
+            2,
+            2
+          ],
+          "medianMs": 0.1103000000002794,
+          "medianBuilds": 98,
+          "medianHits": 41
+        },
+        "both": {
+          "complete": true,
+          "estimates": [
+            2,
+            2,
+            2
+          ],
+          "medianMs": 0.13970000000017535,
+          "medianBuilds": 106,
+          "medianHits": 90
+        },
+        "uncached": {
+          "complete": true,
+          "estimates": [
+            2,
+            2,
+            2
+          ],
+          "medianMs": 0.11169999999947322,
+          "medianBuilds": 139,
+          "medianHits": 0
+        }
+      },
+      "rootRuns": {
+        "uncached": {
+          "complete": true,
+          "medianMs": 1.082600000000184,
+          "estimate": 2,
+          "adjustments": [
+            [
+              33,
+              96
+            ]
+          ],
+          "geometryBuilds": 1108,
+          "geometryHits": 0
+        },
+        "cached": {
+          "complete": true,
+          "medianMs": 0.711399999999685,
+          "estimate": 2,
+          "adjustments": [
+            [
+              33,
+              96
+            ]
+          ],
+          "geometryBuilds": 402,
+          "geometryHits": 706
+        }
+      },
+      "attackSensitive": false,
+      "defenseSensitive": false,
+      "cacheEquivalent": true,
+      "recommendation": "g6",
+      "legal": true,
+      "depth": 5,
+      "risk": {
+        "active": true,
+        "complete": true,
+        "defenseReview": false,
+        "distances": [
+          7,
+          6
+        ],
+        "elapsedMs": 0.818000000000211,
+        "estimate": 2,
+        "examinedActions": 5,
+        "firstCandidates": 2,
+        "geometryBuilds": 402,
+        "geometryHits": 706,
+        "initialEstimate": 2,
+        "opponentStock": 6,
+        "replyLimit": 3,
+        "selected": {
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "risk": 0
+        }
+      }
+    },
+    {
+      "ply": 51,
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 4
+          },
+          {
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          6,
+          0
+        ],
+        "turn": 1,
+        "winner": null,
+        "wallStreak": 0
+      },
+      "scopes": {
+        "normal": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.13799999999991996,
+          "medianBuilds": 95,
+          "medianHits": 41
+        },
+        "attacks": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.15599999999994907,
+          "medianBuilds": 100,
+          "medianHits": 62
+        },
+        "defenses": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.0957999999995991,
+          "medianBuilds": 95,
+          "medianHits": 41
+        },
+        "both": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.16990000000032524,
+          "medianBuilds": 100,
+          "medianHits": 62
+        },
+        "uncached": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.16379999999935535,
+          "medianBuilds": 136,
+          "medianHits": 0
+        }
+      },
+      "rootRuns": {
+        "uncached": {
+          "complete": true,
+          "medianMs": 0.8831000000004678,
+          "estimate": 0,
+          "adjustments": [
+            [
+              52,
+              -48
+            ]
+          ],
+          "geometryBuilds": 1048,
+          "geometryHits": 0
+        },
+        "cached": {
+          "complete": true,
+          "medianMs": 0.6342999999997119,
+          "estimate": 0,
+          "adjustments": [
+            [
+              52,
+              -48
+            ]
+          ],
+          "geometryBuilds": 392,
+          "geometryHits": 656
+        }
+      },
+      "attackSensitive": false,
+      "defenseSensitive": false,
+      "cacheEquivalent": true,
+      "recommendation": "i5",
+      "legal": true,
+      "depth": 4,
+      "risk": {
+        "active": true,
+        "complete": true,
+        "defenseReview": false,
+        "distances": [
+          4,
+          4
+        ],
+        "elapsedMs": 0.6307999999999083,
+        "estimate": 0,
+        "examinedActions": 5,
+        "firstCandidates": 2,
+        "geometryBuilds": 392,
+        "geometryHits": 656,
+        "initialEstimate": 0,
+        "opponentStock": 6,
+        "replyLimit": 3,
+        "selected": {
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 4
+          },
+          "risk": 0
+        }
+      }
+    },
+    {
+      "ply": 59,
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 1
+          },
+          {
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          5,
+          0
+        ],
+        "turn": 1,
+        "winner": null,
+        "wallStreak": 0
+      },
+      "scopes": {
+        "normal": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.11940000000004147,
+          "medianBuilds": 87,
+          "medianHits": 33
+        },
+        "attacks": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.14649999999983265,
+          "medianBuilds": 97,
+          "medianHits": 74
+        },
+        "defenses": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.09340000000020154,
+          "medianBuilds": 87,
+          "medianHits": 33
+        },
+        "both": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.1479999999996835,
+          "medianBuilds": 97,
+          "medianHits": 74
+        },
+        "uncached": {
+          "complete": true,
+          "estimates": [
+            0,
+            0,
+            0
+          ],
+          "medianMs": 0.09679999999980282,
+          "medianBuilds": 120,
+          "medianHits": 0
+        }
+      },
+      "rootRuns": {
+        "uncached": {
+          "complete": true,
+          "medianMs": 0.7119000000002416,
+          "estimate": 0,
+          "adjustments": [
+            [
+              44,
+              -96
+            ]
+          ],
+          "geometryBuilds": 876,
+          "geometryHits": 0
+        },
+        "cached": {
+          "complete": true,
+          "medianMs": 0.5313000000001011,
+          "estimate": 0,
+          "adjustments": [
+            [
+              44,
+              -96
+            ]
+          ],
+          "geometryBuilds": 300,
+          "geometryHits": 576
+        }
+      },
+      "attackSensitive": false,
+      "defenseSensitive": false,
+      "cacheEquivalent": true,
+      "recommendation": "g5",
+      "legal": true,
+      "depth": 1,
+      "risk": {
+        "active": true,
+        "complete": true,
+        "defenseReview": false,
+        "distances": [
+          1,
+          5
+        ],
+        "elapsedMs": 0.5628000000001521,
+        "estimate": 0,
+        "examinedActions": 5,
+        "firstCandidates": 2,
+        "geometryBuilds": 300,
+        "geometryHits": 576,
+        "initialEstimate": 0,
+        "opponentStock": 5,
+        "replyLimit": 3,
+        "selected": {
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "risk": 0
+        }
+      }
+    }
+  ]
+}

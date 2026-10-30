@@ -2,14 +2,14 @@ import {recommendationStable,budgetReason,analysisConcerns} from './analysis-bud
 export function analysisReadiness(v,{suppressed=false}={}){
  const r=v.latest??v.displayed;
  if(suppressed)return {level:'wait',label:'화면 재확인 중',reason:'배치가 확인될 때까지 추천을 숨깁니다.'};
- if(!v.displayed)return {level:'wait',label:'첫 추천 준비 중',reason:'0.5초 목표 · 완료된 탐색 결과를 기다립니다.'};
+ if(!v.displayed)return {level:'wait',label:'후보 비교 중 · 최대 2초',reason:'0.5초부터 안정성을 확인하고, 확정한 추천만 표시합니다.'};
  const shown=v.displayed.pv[0],newest=r?.pv?.[0];
  if(v.pinned&&newest&&(shown.type!==newest.type||shown.x!==newest.x||shown.y!==newest.y||shown.type==='wall'&&shown.o!==newest.o))return {level:'wait',label:'고정 추천과 최신 결과가 다릅니다',reason:'현재 고정한 수와 새 추천을 비교하세요.'};
  const concerns=analysisConcerns(v.state,r,v.wallStreak),review=concerns.map(budgetReason).join(' · ');
  if(!v.active){
   if(r?.exact===true)return {level:'done',label:'정확 종반 계산 완료',reason:({1:'현재 배치의 승리',0:'현재 배치의 무승부','-1':'현재 배치의 패배'})[r.outcome]??'정확 계산 결과를 확인하세요.'};
   if(concerns.length)return {level:'done',label:'계산 종료 · 검토 사항 남음',reason:`${review}. 계산 종료가 위험 해소를 뜻하지는 않습니다.`};
-  return {level:'done',label:'계산 종료 · 결과는 추정',reason:r?.adaptiveStop?.heuristic?'추천 안정 추정으로 계산을 줄였습니다. 최선 수나 안전을 증명한 결과는 아닙니다.':'이번 엔진 계산이 끝났습니다. 최선 수나 안전을 증명한 결과는 아닙니다.'};
+  return {level:'done',label:'추천 확정 · 결과는 추정',reason:r?.adaptiveStop?.reason==='time-limit'?'2초 계산을 마쳤습니다. 해당 배치에서는 이 추천을 유지합니다.':r?.adaptiveStop?.reason==='stable'?'여러 완료 깊이에서 추천이 안정돼 확정했습니다.':'엔진 계산을 마치고 추천을 확정했습니다.'};
  }
  if(v.changedAt&&performance.now()-v.changedAt<2000)return {level:'wait',label:'대기 권장 · 추천 변경',reason:`새 추천을 확인하세요.${review?' '+review:''}`};
  if(concerns.length)return {level:'wait',label:'대기 권장 · 추가 검토 중',reason:review};
@@ -19,7 +19,7 @@ export function analysisReadiness(v,{suppressed=false}={}){
 }
 export function analysisTiming(v,now=performance.now()){
  const elapsed=Math.max(0,v.elapsedMs??0)/1000,parts=[`분석 경과 ${elapsed.toFixed(1)}초`];
- parts.push(v.active?`계산 예산 잔여 ${Math.max(0,(v.limitMs??15000)/1000-elapsed).toFixed(1)}초`:'계산 종료');
+ parts.push(v.active?`계산 예산 잔여 ${Math.max(0,(v.limitMs??2000)/1000-elapsed).toFixed(1)}초`:'계산 종료');
  if(v.lastUpdateAt!=null)parts.push(`마지막 완료 결과 ${Math.max(0,(now-v.lastUpdateAt)/1000).toFixed(1)}초 전`);
  if(v.latest?.depth!=null)parts.push(`완료 깊이 ${v.latest.depth}${v.latest.ponderReused?' · 사전 계산 재사용':''}`);
  if(v.active)parts.push('다음 결과 완료 시점은 미정');

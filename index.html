@@ -31,8 +31,8 @@
           <p id="engine-status" class="watch-note" role="status">엔진 확인 중…</p>
           <p class="watch-note">0.4는 최신 실험 엔진입니다. 5.3 대비 실력 향상이 검증된 버전은 아닙니다.</p>
           <p id="engine-import-note" class="watch-note" role="status" hidden></p>
-          <label>AI 생각 시간<select id="time"><option value="500">빠르게 · 0.5초</option><option value="variable" selected>가변 · 0.5초부터 최대 15초</option><option value="2000">표준 · 2초</option><option value="5000">깊게 · 5초</option><option value="15000">정밀 · 15초</option><option value="30000">최대 · 30초</option></select></label>
-          <p class="watch-note">가변은 0.5초 첫 추천을 목표로 갱신하며, 위험하면 최대 15초까지 분석합니다. 추천이 안정적이면 최소 2초 이후 조기 종료할 수 있습니다. AI 자동 착수는 0.5초, 관전은 각 진영의 설정을 사용합니다.</p>
+          <label>AI 생각 시간<select id="time"><option value="500">빠르게 · 0.5초</option><option value="variable" selected>가변 · 0.5~2초 · 추천 확정</option><option value="2000">표준 · 2초</option><option value="5000">깊게 · 5초</option><option value="15000">정밀 · 15초</option><option value="30000">최대 · 30초</option></select></label>
+          <p class="watch-note">가변은 0.5초부터 안정성을 확인하고 최대 2초 안에 추천을 한 번 확정합니다. 비교 중인 후보는 숨기고, 표시한 추천은 해당 배치에서 유지합니다. 정확한 종반 결과는 일찍 표시할 수 있습니다. AI 자동 착수는 0.5초, 관전은 각 진영의 설정을 사용합니다.</p>
           <label>계산 코어<select id="cores"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option></select></label>
         </div>
         <div class="buttons"><button id="undo">↶ 무르기</button><button id="reset">새 게임</button></div>
@@ -59,7 +59,7 @@
         <div class="watch-controls"><button id="watch-start" class="primary">▶ 시작 / 계속</button><button id="watch-pause">Ⅱ 일시정지</button><button id="watch-step">한 수 진행 →</button></div>
         <p class="watch-note">Atlas 0.4 최신과 5.3 안정 엔진을 비교할 수 있습니다. 설정을 변경하면 일시정지합니다.</p>
       </section>
-      <section class="panel"><div class="panel-title">포지션 분석 <span id="depth"></span></div><button id="hint" class="primary">✦ 최선 수 분석</button><div id="variable-controls" hidden><button id="analysis-pin" disabled>현재 추천 고정</button><p id="variable-status" class="watch-note" role="status"></p></div><div id="analysis" class="muted">현재 차례의 추천 수와 예상 진행을 확인하세요.</div></section>
+      <section class="panel"><div class="panel-title">포지션 분석 <span id="depth"></span></div><button id="hint" class="primary">✦ 최선 수 분석</button><div id="variable-controls" hidden><button id="analysis-pin" hidden disabled>추천 자동 고정</button><p id="variable-status" class="watch-note" role="status"></p></div><div id="analysis" class="muted">현재 차례의 추천 수와 예상 진행을 확인하세요.</div></section>
       <section class="panel"><div class="panel-title">기보 <span id="count">0 수</span></div><div id="history"></div><div class="buttons"><button id="save">저장</button><button id="load">불러오기</button><input id="file" type="file" accept=".json" hidden></div><p id="storage-note" class="watch-note" hidden></p></section>
     </aside>
   </section>

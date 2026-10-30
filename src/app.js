@@ -216,14 +216,14 @@ function variableStatus(){
  const pinnedDifferent=v.pinned&&v.displayed&&v.latest&&notation(v.displayed.pv[0])!==notation(v.latest.pv[0]);
  $('#advice-change').hidden=suppressed||!pinnedDifferent&&(!v.previousAction||!v.changedAt||now-v.changedAt>5000);
  $('#advice-change').textContent=pinnedDifferent?`고정 추천 ${notation(v.displayed.pv[0])} / 최신 계산 ${notation(v.latest.pv[0])}`:v.previousAction&&v.displayed?`추천 변경: ${notation(v.previousAction)} → ${notation(v.displayed.pv[0])}`:'';
- const r=v.latest;
+ const r=v.displayed;
  $('#position-verdict').textContent=suppressed?'':positionVerdict(r,pinnedDifferent);
  updateTitles();
- $('#variable-controls').hidden=!visible;$('#analysis-pin').disabled=!v.displayed;
+ $('#variable-controls').hidden=!visible;$('#analysis-pin').disabled=true;
  if(suppressed){$('#analysis-pin').disabled=true;$('#variable-status').textContent='원본 배치 재확인 중 · 추천 표시 보류';return;}
- $('#analysis-pin').textContent=v.pinned?'추천 고정 해제':'현재 추천 고정';
- $('#variable-status').textContent=!v.latest?(v.active?'첫 추천 준비 중 · 0.5초 목표, 완료된 깊이부터 표시':''):
-  `${v.active?(v.phase==='quick'?'빠른 추천':v.reason==='defense'||v.reason==='connection'||v.reason==='reserve'||v.reason==='goal'?'위험 상황 추가 분석 · 최대 15초':'추가 분석 · 최대 15초'):v.latest.adaptiveStop?.heuristic?'추천 안정 추정 · 분석 종료':'분석 종료'} · ${budgetReason(v.reason)} · ${v.pinned?'표시 추천 고정 · ':''}최신 ${notation(v.latest.pv[0])} · 깊이 ${v.latest.depth??0} · ${((v.latest.adaptiveStop?.elapsedMs??v.latest.elapsedMs)/1000).toFixed(1)}초`;
+ $('#analysis-pin').textContent='추천 자동 고정';
+ $('#variable-status').textContent=!v.displayed?(v.active?'후보 비교 중 · 최대 2초 후 추천 확정':''):
+  `추천 확정 · ${budgetReason(v.reason)} · ${notation(v.displayed.pv[0])} · 깊이 ${v.displayed.depth??0} · ${(v.elapsedMs/1000).toFixed(1)}초`;
  if(visible&&v.displayed){const context=$('#analysis .advice-context');if(context)context.textContent=`전체 ${records.length+1}수 · ${names[state.turn]} 차례 · ${v.pinned?'추천 고정 · ':''}${v.active?'추가 분석 중':'분석 완료'}`;}
 }
 function startVariable(selectedPool,source,id){
@@ -231,7 +231,7 @@ function startVariable(selectedPool,source,id){
  const analysisId=globalThis.crypto.randomUUID();let published=false;
  activeAnalysis={analysisId,position:boardKey(source),turn:source.turn,engine:$('#play-engine').value};lastAnalysisTrace=null;
  const current=()=>id===serial&&source.turn===state.turn&&boardKey(source)===boardKey(state);
- recordDecision(decisionLog,{kind:'analysis-start',at:new Date().toISOString(),analysisId,position:boardKey(source),turn:source.turn,firstTargetMs:500,limitMs:15000,configuredCores:selectedPool.size,cores});
+ recordDecision(decisionLog,{kind:'analysis-start',at:new Date().toISOString(),analysisId,position:boardKey(source),turn:source.turn,firstTargetMs:500,limitMs:2000,configuredCores:selectedPool.size,cores});
  const prepared=searchSnapshot(source),defenseReply=expectedDefense(source,$('#play-engine').value),wallStreak=observedWallStreak(source.turn);
  const initialResult=screenPonder.take(selectedPool,prepared,{defenseReply,wallStreak});if(initialResult)ponderStatus('reused');
  variableAnalysis.start(selectedPool,prepared,{cores,defenseReply,wallStreak,initialResult,
@@ -242,9 +242,9 @@ function startVariable(selectedPool,source,id){
     recordDecision(decisionLog,{kind:'recommendation-change',at:new Date().toISOString(),analysisId,position,turn:source.turn,from:clone(lastShownAdvice.action),to:clone(r.pv[0])});
    }
    lastShownAdvice={position,turn:source.turn,engine,action:clone(r.pv[0])};
-   const phase=published?'update':'first';published=true;busy=false;writeAnalysis({...r,analysisBudgetMs:15000,analysisCores:cores});recordDecision(decisionLog,{kind:'analysis-display',at:new Date().toISOString(),analysisId,phase,position,turn:source.turn,pv:clone(r.pv),elapsedMs:r.elapsedMs,activeElapsedMs:variableAnalysis.elapsedMs,waiting:analysisReadiness(variableAnalysis),complete:r.done});persist();render();
+   const phase=published?'update':'first';published=true;busy=false;writeAnalysis({...r,analysisBudgetMs:2000,analysisCores:cores});recordDecision(decisionLog,{kind:'analysis-display',at:new Date().toISOString(),analysisId,phase,position,turn:source.turn,pv:clone(r.pv),elapsedMs:r.elapsedMs,activeElapsedMs:variableAnalysis.elapsedMs,waiting:analysisReadiness(variableAnalysis),complete:r.done});persist();render();
   },
-  onUpdate:r=>{if(!current())return;recordDecision(decisionLog,{...recommendation(source,r,{engine:$('#play-engine').value,ms:15000,cores,ply:records.length+1,build:selectedPool.native?.info?.engineInfo?.build}),kind:'analysis-update',analysisId,ponderReused:!!r.ponderReused,ponderMs:r.ponderMs??0});},
+  onUpdate:r=>{if(!current())return;recordDecision(decisionLog,{...recommendation(source,r,{engine:$('#play-engine').value,ms:2000,cores,ply:records.length+1,build:selectedPool.native?.info?.engineInfo?.build}),kind:'analysis-update',analysisId,ponderReused:!!r.ponderReused,ponderMs:r.ponderMs??0});},
   onStatus:()=>{variableStatus();if(current()&&!variableAnalysis.active)persist();},
   onError:error=>{if(!current())return;stop();hint=null;render();$('#analysis').textContent=error.message;}
  });

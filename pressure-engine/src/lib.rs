@@ -11,6 +11,7 @@ mod core {
     include!("connection_probe.rs");
     include!("connection_risk.rs");
     include!("threat_defense.rs");
+    include!("tie_break.rs");
     include!("tempo.rs");
     include!("goal_guard.rs");
     include!("pawn_finish.rs");

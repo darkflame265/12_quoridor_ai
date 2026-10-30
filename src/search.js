@@ -26,7 +26,13 @@ export function solveEndgame(state,check=()=>{}){
    if(outcome[child]===-1){outcome[parent]=1;distance[parent]=distance[child]+1;best[parent]=move;queue.push(parent);}
    else {degree[parent]--;if(distance[child]+1>=maxLoss[parent]){maxLoss[parent]=distance[child]+1;best[parent]=move;}if(!degree[parent]){outcome[parent]=-1;distance[parent]=maxLoss[parent];queue.push(parent);}}
  }}
- return {states:81*80*2,lookup(a,b,t){const k=key(a,b,t);let move=best[k];if(!outcome[k]){p.p=[a,b];p.turn=t;move=p.pawnMoves().find(m=>outcome[t===0?key(m,b,1):key(a,m,0)]===0)??-1;}return {outcome:outcome[k],distance:distance[k],move};}};
+ const goalMaps=[0,1].map(t=>{p.routeInfo(t);return Int16Array.from(p.dist);});
+ return {states:81*80*2,lookup(a,b,t){
+  const k=key(a,b,t);let move=best[k];p.p=[a,b];p.turn=t;
+  const equivalent=p.pawnMoves().filter(m=>{const child=t===0?key(m,b,1):key(a,m,0);return outcome[child]===-outcome[k]&&(!outcome[k]||distance[child]+1===distance[k]);});
+  if(equivalent.length){const map=goalMaps[t];equivalent.sort((a,b)=>map[a]-map[b]||a-b);move=equivalent[0];}
+  return {outcome:outcome[k],distance:distance[k],move};
+ }};
 }
 
 export class Position {

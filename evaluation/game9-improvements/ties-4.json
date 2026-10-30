@@ -1,0 +1,91 @@
+{
+  "beforeBuild": "5792574660dd",
+  "afterBuild": "f9009af67673",
+  "conditions": "Fresh process per version and case, 4 workers, max depth14 /3000ms; compare score and exact outcome before/after.",
+  "rows": [
+    {
+      "ply": 53,
+      "pair": [
+        {
+          "variant": "before",
+          "action": "a6",
+          "score": -29988,
+          "exact": false,
+          "outcome": null,
+          "depth": 10
+        },
+        {
+          "variant": "after",
+          "action": "a6",
+          "score": -29988,
+          "exact": false,
+          "outcome": null,
+          "depth": 10
+        }
+      ]
+    },
+    {
+      "ply": 57,
+      "pair": [
+        {
+          "variant": "before",
+          "action": "a6",
+          "score": -29992,
+          "exact": true,
+          "outcome": -1,
+          "depth": 0
+        },
+        {
+          "variant": "after",
+          "action": "a6",
+          "score": -29992,
+          "exact": true,
+          "outcome": -1,
+          "depth": 0
+        }
+      ]
+    },
+    {
+      "ply": 59,
+      "pair": [
+        {
+          "variant": "before",
+          "action": "a5",
+          "score": -29994,
+          "exact": true,
+          "outcome": -1,
+          "depth": 0
+        },
+        {
+          "variant": "after",
+          "action": "a7",
+          "score": -29994,
+          "exact": true,
+          "outcome": -1,
+          "depth": 0
+        }
+      ]
+    },
+    {
+      "ply": 61,
+      "pair": [
+        {
+          "variant": "before",
+          "action": "a4",
+          "score": -29996,
+          "exact": true,
+          "outcome": -1,
+          "depth": 0
+        },
+        {
+          "variant": "after",
+          "action": "a6",
+          "score": -29996,
+          "exact": true,
+          "outcome": -1,
+          "depth": 0
+        }
+      ]
+    }
+  ]
+}

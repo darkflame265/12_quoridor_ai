@@ -69,7 +69,8 @@ fn focused_defense(p:&Position,base:[i32;209],deadline:f64,cancel:&AtomicBool)->
  for a in 81..209{
   if expired(){return(base,None);}if !p.fits(a){continue;}
   let mut hit=p.clone();hit.turn=o;hit.make(a);let d=probe.distances(&hit,t);
-  if d[0]<100&&d[1]<100&&d[0]-before[0]>=3{attacks.push((a,d[0]-before[0]-(d[1]-before[1])));}
+  let minimum=if before[0].min(before[1])<=4{1}else{3};
+  if d[0]<100&&d[1]<100&&d[0]-before[0]>=minimum{attacks.push((a,d[0]-before[0]-(d[1]-before[1])));}
  }
  attacks.sort_by(|a,b|b.1.cmp(&a.1).then(a.0.cmp(&b.0)));attacks.truncate(2);
  if attacks.is_empty(){return(base,None);}

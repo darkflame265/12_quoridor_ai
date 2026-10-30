@@ -1,0 +1,278 @@
+{
+  "beforeBuild": "703b597e46fa",
+  "afterBuild": "6057e3e03c19",
+  "conditions": "Fresh process for every variant and position; 4 workers, 2000ms /depth12 maximum. Different completed depths are reported, not treated as equal-depth proof. Forced first-action replies: fresh process, 4 workers, depth4 /2000ms, no invented opponent history. No complete game or winning strategy verification.",
+  "rows": [
+    {
+      "ply": 22,
+      "recordedAction": "b9─",
+      "pair": [
+        {
+          "variant": "before",
+          "action": "b9─",
+          "score": 210,
+          "depth": 5,
+          "elapsedMs": 2000.3041,
+          "nodes": 405120,
+          "wallUtility": null,
+          "pv": [
+            "b9─",
+            "a3─",
+            "c5",
+            "c3─",
+            "b5"
+          ]
+        },
+        {
+          "variant": "after",
+          "action": "c5",
+          "score": 41,
+          "depth": 5,
+          "elapsedMs": 2000.0694,
+          "nodes": 135598,
+          "wallUtility": {
+            "active": true,
+            "attackGain": [
+              2,
+              2
+            ],
+            "defenseValue": [
+              80,
+              80
+            ],
+            "effectiveValue": [
+              280,
+              324
+            ]
+          },
+          "pv": [
+            "c5",
+            "a5│",
+            "b5",
+            "a3─",
+            "b6"
+          ]
+        }
+      ]
+    },
+    {
+      "ply": 32,
+      "recordedAction": "b4",
+      "pair": [
+        {
+          "variant": "before",
+          "action": "b4",
+          "score": 24,
+          "depth": 6,
+          "elapsedMs": 2000.0349,
+          "nodes": 280459,
+          "wallUtility": null,
+          "pv": [
+            "b4",
+            "d3─",
+            "c4",
+            "f3─"
+          ]
+        },
+        {
+          "variant": "after",
+          "action": "b4",
+          "score": -26,
+          "depth": 6,
+          "elapsedMs": 2000.8613,
+          "nodes": 312810,
+          "wallUtility": {
+            "active": true,
+            "attackGain": [
+              1,
+              0
+            ],
+            "defenseValue": [
+              0,
+              40
+            ],
+            "effectiveValue": [
+              90,
+              40
+            ]
+          },
+          "pv": [
+            "b4",
+            "a7",
+            "c4",
+            "b7",
+            "d4",
+            "c7"
+          ]
+        }
+      ]
+    },
+    {
+      "ply": 38,
+      "recordedAction": "e4",
+      "pair": [
+        {
+          "variant": "before",
+          "action": "e4",
+          "score": 156,
+          "depth": 5,
+          "elapsedMs": 2001.4771,
+          "nodes": 1347289,
+          "wallUtility": null,
+          "pv": [
+            "e4",
+            "d3─",
+            "e3",
+            "f3─",
+            "d3"
+          ]
+        },
+        {
+          "variant": "after",
+          "action": "e4",
+          "score": -108,
+          "depth": 6,
+          "elapsedMs": 2000.0278,
+          "nodes": 2076181,
+          "wallUtility": {
+            "active": true,
+            "attackGain": [
+              1,
+              0
+            ],
+            "defenseValue": [
+              0,
+              40
+            ],
+            "effectiveValue": [
+              90,
+              40
+            ]
+          },
+          "pv": [
+            "e4"
+          ]
+        }
+      ]
+    },
+    {
+      "ply": 40,
+      "recordedAction": "e3",
+      "pair": [
+        {
+          "variant": "before",
+          "action": "e3",
+          "score": 9,
+          "depth": 5,
+          "elapsedMs": 2001.8912,
+          "nodes": 631452,
+          "wallUtility": null,
+          "pv": [
+            "e3",
+            "d3─",
+            "f3"
+          ]
+        },
+        {
+          "variant": "after",
+          "action": "e3",
+          "score": -123,
+          "depth": 6,
+          "elapsedMs": 2000.074,
+          "nodes": 1831547,
+          "wallUtility": {
+            "active": true,
+            "attackGain": [
+              1,
+              0
+            ],
+            "defenseValue": [
+              0,
+              40
+            ],
+            "effectiveValue": [
+              90,
+              40
+            ]
+          },
+          "pv": [
+            "e3"
+          ]
+        }
+      ]
+    },
+    {
+      "ply": 42,
+      "recordedAction": "d3",
+      "pair": [
+        {
+          "variant": "before",
+          "action": "d3",
+          "score": -29992,
+          "depth": 6,
+          "elapsedMs": 1855.1863,
+          "nodes": 4695774,
+          "wallUtility": null,
+          "pv": [
+            "d3",
+            "c3─",
+            "c3",
+            "b8",
+            "b3"
+          ]
+        },
+        {
+          "variant": "after",
+          "action": "d3",
+          "score": -29992,
+          "depth": 6,
+          "elapsedMs": 1888.3423,
+          "nodes": 5413077,
+          "wallUtility": {
+            "active": true,
+            "attackGain": [
+              1,
+              0
+            ],
+            "defenseValue": [
+              0,
+              40
+            ],
+            "effectiveValue": [
+              60,
+              40
+            ]
+          },
+          "pv": [
+            "d3",
+            "c3─"
+          ]
+        }
+      ]
+    }
+  ],
+  "replies": [
+    {
+      "first": "b9─",
+      "depth": 4,
+      "scoreForUser": -76,
+      "reply": [
+        "a3─",
+        "c5",
+        "c3─",
+        "b5"
+      ]
+    },
+    {
+      "first": "c5",
+      "depth": 4,
+      "scoreForUser": -21,
+      "reply": [
+        "a3─",
+        "b5",
+        "a5│",
+        "b6"
+      ]
+    }
+  ]
+}

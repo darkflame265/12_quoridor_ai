@@ -3,8 +3,8 @@ fn main(){
  let root=PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap());
  let source=root.join("../native-engine/src/search.rs");println!("cargo:rerun-if-changed={}",source.display());
  let mut s=fs::read_to_string(source).unwrap().replace("\r\n","\n");
- // Root action utility is bounded and never alters interior static evaluation.
- // Null windows are translated by the action's utility before searching.
+ // Root utility translates null windows; leaf wall utility and bounded arrival
+ // continuations are separately evaluated inside the candidate engine.
  for(from,to) in [
   ("if pos.left == [0, 0] {", "if self.apply_pawn_finish(&pos,&mut out,deadline,&cancel) { return out; }\n        if pos.left == [0, 0] {"),
   ("if !cancel.load(Ordering::Relaxed) {\n            // A directly proven", "if !cancel.load(Ordering::Relaxed) {\n            self.apply_pawn_finish(&pos,&mut out,deadline,&cancel);\n            // A directly proven"),
@@ -18,6 +18,7 @@ fn main(){
   ("((theirs - enemy) - (mine - own)) * 1600 - 130", "((theirs - enemy) - (mine - own)) * 1600 - 130 + if self.goal_root_active.load(Ordering::Relaxed) && enemy<=3 && theirs>enemy {1200}else{0}"),
   ("self.static_score(&mut mirror_position(p))", "self.goal_score(&mut mirror_position(p))"),
   ("self.static_score(p)", "self.goal_score(p)"),
+  ("return Ok(self.shared.evaluate(p));", "if arrival_window(p){return self.arrival_frontier(p,3,&mut 6,path);}\n                return Ok(self.shared.evaluate(p));"),
   ("pub struct NativeOutput {","pub struct NativeOutput {\n    #[serde(skip_serializing_if = \"Option::is_none\")]\n    pub reserve_defense: Option<ReserveDefense>,\n    #[serde(skip_serializing_if = \"Option::is_none\")]\n    pub weak_wall_consumption: Option<WeakWallConsumption>,\n    #[serde(skip_serializing_if = \"Option::is_none\")]\n    pub connection_risk: Option<ConnectionRisk>,\n    #[serde(skip_serializing_if = \"Option::is_none\")]\n    pub threat_defense: Option<ThreatDefense>,\n    #[serde(skip_serializing_if = \"Option::is_none\")]\n    pub race_assessment: Option<RaceAssessment>,\n    #[serde(skip_serializing_if = \"Option::is_none\")]\n    pub win_proof: Option<WinProof>,\n    #[serde(skip_serializing_if = \"Option::is_none\")]\n    pub goal_safety: Option<GoalSafety>,\n    #[serde(skip_serializing_if = \"Option::is_none\")]\n    pub pressure: Option<PressureFeatures>,"),
   ("let mut out = NativeOutput {","let mut out = NativeOutput {\n            reserve_defense: None,\n            weak_wall_consumption: None,\n            connection_risk: None,\n            threat_defense: None,\n            race_assessment: None,\n            win_proof: None,\n            goal_safety: None,\n            pressure: None,"),
   ("if s.winner.is_some() {", "let goal_active=goal_enabled() && goal_window(&pos) && pos.distance(pos.turn,false)<=3 && pos.left[1-pos.turn]>0;\n        if self.shared.goal_root_active.swap(goal_active,Ordering::Relaxed)!=goal_active {for cache in &self.shared.moves{cache.write().unwrap().clear();}}\n        if goal_enabled() { out.goal_safety=Some(self.shared.goal_details(&mut pos)); }\n        if s.winner.is_some() {"),

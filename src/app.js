@@ -1,4 +1,5 @@
 import {defenseContinuation} from './defense-continuation.js';
+import {ScreenPonder} from './screen-ponder.js';
 import {budgetReason} from './analysis-budget.js';
 import {analysisReadiness} from './analysis-readiness.js';
 import {wallStreak} from './wall-streak.js';
@@ -23,6 +24,8 @@ let screenReady=false,screenRebased=false,screenSegments=[];
 let uncertaintyTimer=null,heldAnalysis=null,activeAnalysis=null,lastAnalysisTrace=null,lastShownAdvice=null;
 let pool=createPlayPool(defaultCores),watchPools=[null,null],ponderTimer=null;
 const variableAnalysis=new VariableAnalysis();
+const screenPonder=new ScreenPonder();
+function ponderStatus(status){const note=$('#screen-ponder-status');if(note)note.textContent=({thinking:'상대 차례 · 1개 계산 작업으로 응수 사전 계산 중',idle:'사전 계산 대기 · 확인된 배치가 일치할 때만 재사용',unavailable:'사전 계산 중단 · 내 차례 분석은 정상 진행',reused:'사전 계산 결과 재사용 · 현재 차례 추가 분석 중'})[status]??'';}
 // Only observed positions from this game; imported snapshots invent no history.
 const searchSnapshot=s=>({...s,recentPawnSquares:past.filter(p=>p.turn===s.turn).slice(-4).map(p=>p.p[s.turn].y*9+p.p[s.turn].x)});
 const playMs=()=>$('#time').value==='variable'?500:Number($('#time').value);
@@ -58,6 +61,7 @@ const watcher=new SpectatorRunner({
 });
 function analysisTrace(){return activeAnalysis?{...activeAnalysis,activeElapsedMs:variableAnalysis.elapsedMs,depth:variableAnalysis.latest?.depth??null,waiting:analysisReadiness(variableAnalysis,{suppressed:screenSuppressed()}),changedAt:variableAnalysis.changedAt?new Date(Date.now()-(performance.now()-variableAnalysis.changedAt)).toISOString():null}:lastAnalysisTrace;}
 function stop(reason='control-change'){
+ screenPonder.stop({clear:!['screen-position-changed','screen-auto','screen-uncertain','screen-uncertain-timeout'].includes(reason)});ponderStatus('idle');
  lastAnalysisTrace=analysisTrace();
  if(activeAnalysis&&variableAnalysis.active)recordDecision(decisionLog,{kind:'analysis-cancel',at:new Date().toISOString(),...lastAnalysisTrace,reason});
  activeAnalysis=null;clearTimeout(uncertaintyTimer);heldAnalysis=null;serial++;variableAnalysis.cancel();clearTimeout(ponderTimer);busy=false;watcher.pause();pool.cancel();cancelWatch();
@@ -150,6 +154,14 @@ function commitMove(action){if(!legal(state,action))return;stop();applyMove(acti
 function schedule(){
   if($('#mode').value==='screen'){
     if(screenReady&&screenCapture?.active&&screenCapture.autoHint&&baseState&&state.winner===null&&state.turn===Number($('#side').value))think(false,'screen-auto');
+    else if(screenReady&&screenCapture?.active&&screenCapture.autoHint&&baseState&&state.winner===null&&state.turn!==Number($('#side').value)&&['atlas5','atlas-goal'].includes($('#play-engine').value)){
+     const source=clone(state),engine=$('#play-engine').value,selectedPool=pool;
+     screenPonder.start(selectedPool,searchSnapshot(source),{
+      valid:()=>screenReady&&screenCapture?.active&&screenCapture.autoHint&&$('#mode').value==='screen'&&$('#play-engine').value===engine&&pool===selectedPool&&state.turn===source.turn&&boardKey(state)===boardKey(source),
+      prepare:(child,action)=>({state:searchSnapshot(child),options:{wallStreak:observedWallStreak(child.turn),defenseReply:defenseContinuation(child,[...records,action],[...past,source],decisionLog,engine)}}),
+      onStatus:ponderStatus
+     });
+    }
     return;
   }
   if(watching()||state.winner!==null)return;
@@ -204,7 +216,9 @@ function startVariable(selectedPool,source,id){
  activeAnalysis={analysisId,position:boardKey(source),turn:source.turn,engine:$('#play-engine').value};lastAnalysisTrace=null;
  const current=()=>id===serial&&source.turn===state.turn&&boardKey(source)===boardKey(state);
  recordDecision(decisionLog,{kind:'analysis-start',at:new Date().toISOString(),analysisId,position:boardKey(source),turn:source.turn,firstTargetMs:500,limitMs:15000,configuredCores:selectedPool.size,cores});
- variableAnalysis.start(selectedPool,searchSnapshot(source),{cores,defenseReply:expectedDefense(source,$('#play-engine').value),wallStreak:observedWallStreak(source.turn),
+ const prepared=searchSnapshot(source),defenseReply=expectedDefense(source,$('#play-engine').value),wallStreak=observedWallStreak(source.turn);
+ const initialResult=screenPonder.take(selectedPool,prepared,{defenseReply,wallStreak});if(initialResult)ponderStatus('reused');
+ variableAnalysis.start(selectedPool,prepared,{cores,defenseReply,wallStreak,initialResult,
   onPublish:r=>{
    if(!current()||screenSuppressed())return;const position=boardKey(source),engine=$('#play-engine').value;
    if(lastShownAdvice&&lastShownAdvice.position===position&&lastShownAdvice.turn===source.turn&&lastShownAdvice.engine===engine&&notation(lastShownAdvice.action)!==notation(r.pv[0])){
@@ -214,7 +228,7 @@ function startVariable(selectedPool,source,id){
    lastShownAdvice={position,turn:source.turn,engine,action:clone(r.pv[0])};
    const phase=published?'update':'first';published=true;busy=false;writeAnalysis({...r,analysisBudgetMs:15000,analysisCores:cores});recordDecision(decisionLog,{kind:'analysis-display',at:new Date().toISOString(),analysisId,phase,position,turn:source.turn,pv:clone(r.pv),elapsedMs:r.elapsedMs,activeElapsedMs:variableAnalysis.elapsedMs,waiting:analysisReadiness(variableAnalysis),complete:r.done});persist();render();
   },
-  onUpdate:r=>{if(!current())return;recordDecision(decisionLog,{...recommendation(source,r,{engine:$('#play-engine').value,ms:15000,cores,ply:records.length+1,build:selectedPool.native?.info?.engineInfo?.build}),kind:'analysis-update',analysisId});},
+  onUpdate:r=>{if(!current())return;recordDecision(decisionLog,{...recommendation(source,r,{engine:$('#play-engine').value,ms:15000,cores,ply:records.length+1,build:selectedPool.native?.info?.engineInfo?.build}),kind:'analysis-update',analysisId,ponderReused:!!r.ponderReused,ponderMs:r.ponderMs??0});},
   onStatus:()=>{variableStatus();if(current()&&!variableAnalysis.active)persist();},
   onError:error=>{if(!current())return;stop();hint=null;render();$('#analysis').textContent=error.message;}
  });
@@ -294,5 +308,6 @@ screenCapture=mountScreenCapture({
   onApply:(snapshot,bottom)=>{lastShownAdvice=null;if(baseState&&records.length){screenSegments.push({baseState:clone(baseState),records:clone(records),decisionLog:clone(decisionLog)});if(screenSegments.length>8)screenSegments.shift();}screenRebased=!!baseState&&(screenRebased||boardKey(state)!==boardKey(snapshot)||state.turn!==snapshot.turn);stop();lastAnalysisTrace=null;state=clone(snapshot);baseState=clone(snapshot);decisionLog=[];observedBottom=bottom;past=[];records=[];$('#mode').value='screen';$('#side').value=String(bottom);$('#start-position').value='bottom';clearAnalysis();persist();render();},
   onDirty:()=>{if($('#mode').value==='screen'){stop();clearAnalysis();$('#analysis').textContent='새로 가져온 내용은 확인 후 적용해야 반영됩니다.';render();}}
 });
+const ponderNote=document.createElement('p');ponderNote.id='screen-ponder-status';ponderNote.className='watch-note';ponderNote.setAttribute('role','status');$('#screen-panel').append(ponderNote);ponderStatus('idle');
 window.addEventListener('pagehide',()=>{stop();pool.dispose();disposeWatch();screenCapture?.dispose();});
 try{const saved=localStorage.getItem('quoridor-session');if(saved)restore(JSON.parse(saved),{startup:true});else {persist();render();}}catch{render();}

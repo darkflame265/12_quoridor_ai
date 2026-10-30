@@ -5,7 +5,7 @@ export class VariableAnalysis {
  constructor(){this.generation=0;this.active=false;this.pinned=false;}
  get elapsedMs(){return this.active?performance.now()-this.startedAt:this.finishedMs??0;}
  cancel(){this.generation++;clearTimeout(this.timer);clearTimeout(this.budgetTimer);clearInterval(this.pulse);this.active=false;this.pinned=false;this.latest=null;this.displayed=null;this.phase='quick';this.reason=null;this.finishedMs=0;this.history=[];this.changedAt=null;this.previousAction=null;this.lastUpdateAt=null;this.onStatus?.();}
- async start(engine,state,{cores,wallStreak=0,defenseReply=null,onPublish,onUpdate,onStatus,onError}){
+ async start(engine,state,{cores,wallStreak=0,defenseReply=null,initialResult=null,onPublish,onUpdate,onStatus,onError}){
   this.cancel();const generation=this.generation;this.active=true;this.onStatus=onStatus;
   const start=performance.now();this.startedAt=start;let ready=false,settled=false;const history=this.history;
   const publish=()=>{if(this.latest&&!this.pinned){const old=this.displayed?.pv?.[0],next=this.latest.pv[0];if(old&&!sameAction(old,next)){this.previousAction=old;this.changedAt=performance.now();}this.displayed=this.latest;onPublish(this.latest);}onStatus();};
@@ -26,6 +26,7 @@ export class VariableAnalysis {
   const accept=(result,done=false)=>{
    if(settled||generation!==this.generation||!result.pv?.length)return;
    if(!done&&this.latest&&(result.depth??0)<(this.latest.depth??0))return;
+   if(done&&this.latest&&(result.depth??0)<(this.latest.depth??0))result=this.latest;
    this.latest={...result,done,elapsedMs:performance.now()-start};
    this.lastUpdateAt=performance.now();
    if(!history.length||(result.depth??0)>history.at(-1).depth){history.push(this.latest);if(history.length>3)history.shift();}
@@ -35,6 +36,7 @@ export class VariableAnalysis {
    if(ready||done)publish();
    if(!done)finishEarly();
   };
+  if(initialResult?.pv?.length){ready=true;accept(initialResult);if(settled)return;}
   try{const result=await engine.search(state,{ms:15000,cores,wallStreak,defenseReply,onProgress:r=>accept(r)});
    if(settled||generation!==this.generation)return;this.finishedMs=performance.now()-start;this.active=false;clearTimeout(this.timer);clearTimeout(this.budgetTimer);clearInterval(this.pulse);accept(result,true);
   }catch(error){if(settled||generation!==this.generation)return;this.finishedMs=performance.now()-start;this.active=false;clearTimeout(this.timer);clearTimeout(this.budgetTimer);clearInterval(this.pulse);onStatus();if(error.name!=='AbortError')onError(error);}

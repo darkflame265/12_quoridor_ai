@@ -19,6 +19,7 @@ const hit=ponder.take(engine,child,options);assert.equal(hit.depth,6);assert.equ
 assert.equal(ponder.take(engine,{...child,turn:1},options),null);
 assert.equal(ponder.take(engine,{...child,recentPawnSquares:[0]},options),null);
 assert.equal(ponder.take(engine,{...child,ownTurnHistory:[{square:4}]},options),null);
+assert.equal(ponder.take(engine,{...child,wallRun:[{type:'wall',x:1,y:1,o:'h',moveProgress:1}]},options),null);
 assert.equal(ponder.take(engine,child,{...options,wallStreak:1}),null);
 assert.equal(ponder.take(engine,child,{...options,defenseReply:{type:'move',x:3,y:7}}),null);
 assert.equal(ponder.take({...engine},child,options),null);

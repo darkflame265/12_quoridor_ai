@@ -7,7 +7,7 @@ import {readFile,writeFile,mkdir,access,rm} from 'node:fs/promises';
 import {spawn,execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {createPressureService} from '../server/pressure-service.mjs';
-const root=fileURLToPath(new URL('../',import.meta.url)),dist=path.join(root,'dist'),out=path.join(root,'reports','screen-import');
+const root=fileURLToPath(new URL('../',import.meta.url)),dist=path.join(root,'dist'),out=path.join(root,'reports',process.env.SCREEN_RESYNC_QA==='1'?'screen-resync':'screen-import');
 execFileSync(process.execPath,[path.join(root,'node_modules','vite','bin','vite.js'),'build'],{cwd:root,stdio:'inherit',windowsHide:true});
 let browserPath;for(const candidate of [process.env.SCREEN_QA_CHROME,'C:/Program Files/Google/Chrome/Application/chrome.exe','C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe','/usr/bin/chromium','/usr/bin/google-chrome'].filter(Boolean)){try{await access(candidate);browserPath=candidate;break;}catch{}}
 if(!browserPath)throw Error('Set SCREEN_QA_CHROME to a Chrome/Edge executable');
@@ -46,6 +46,29 @@ try{
  await send('Browser.setDownloadBehavior',{behavior:'deny'},null);
  await send('Page.addScriptToEvaluateOnNewDocument',{source:`if(!localStorage.getItem('quoridor-session'))localStorage.setItem('quoridor-session',JSON.stringify({version:2,records:[],mode:'sandbox',side:0,startPosition:'bottom',time:'500',cores:'1',engine:'atlas3'}));`});
  await send('Page.navigate',{url});await until(`!!document.querySelector('#screen-open')`);
+ if(process.env.SCREEN_RESYNC_QA==='1'){
+  await evaluate(`(async()=>{const {paintSourceScreen}=await import('/_qa/context-fixture.js');window.qaLiveSource=document.createElement('canvas');window.qaLiveStream=null;window.qaLivePaint=options=>{paintSourceScreen(qaLiveSource,{rounded:true,muted:true,labelSize:8,size:8,...options});qaLiveStream?.getVideoTracks()[0].requestFrame?.();};qaLivePaint({bottom:0,relative:'opponent',plies:12});Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async()=>{qaLiveStream=qaLiveSource.captureStream(30);return qaLiveStream;}});document.querySelector('#mode').value='screen';document.querySelector('#mode').dispatchEvent(new Event('change'));document.querySelector('#screen-auto-hint').checked=false;document.querySelector('#screen-open').click();document.querySelector('#screen-connect').click();})()`);
+  await until(`!document.querySelector('#screen-apply').disabled`);
+  assert.equal(await evaluate(`document.querySelector('#screen-dialog').open`),true);
+  await evaluate(`document.querySelector('#screen-apply').click()`);
+  await until(`document.querySelector('#screen-connection').textContent.includes('활성')`);
+  checks.push('initial connection still requires explicit confirmation');
+  await evaluate(`qaLivePaint({bottom:1,relative:'self',plies:0})`);
+  await until(`document.querySelector('#screen-auto-status').textContent.includes('내 진영 판독 불일치')`);
+  await evaluate(`document.querySelector('#screen-resync').click()`);
+  await until(`!document.querySelector('#screen-dialog').open && document.querySelector('#screen-connection').textContent.includes('활성') && JSON.parse(localStorage.getItem('quoridor-session')).side===1`);
+  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.turn`),1);
+  checks.push('valid fresh resync applies side and turn automatically, closes the dialog, and resumes monitoring');
+  await evaluate(`document.querySelector('#screen-auto-pause').click();document.querySelector('#screen-resync').click()`);
+  await until(`!document.querySelector('#screen-dialog').open && document.querySelector('#screen-connection').textContent.includes('활성')`);
+  checks.push('resync also resumes a deliberately paused monitor');
+  await evaluate(`qaLivePaint({bottom:1,relative:'self',cardRole:null,phrase:false,plies:0});new Promise(r=>setTimeout(r,250))`);
+  await evaluate(`document.querySelector('#screen-resync').click()`);
+  await until(`document.querySelector('#screen-dialog').open && document.querySelector('#screen-apply').disabled`);
+  assert.equal(await evaluate(`document.querySelector('#screen-connection').textContent.includes('일시정지')`),true);
+  assert.equal(await evaluate(`document.querySelector('#screen-resync').disabled`),false);
+  checks.push('uncertain turn keeps monitoring paused and opens correction rather than auto-applying');
+ }else{
  const sourceReads=await evaluate(`(async()=>{const {paintSourceScreen}=await import('/_qa/context-fixture.js'),reader=await import('/_qa/reader.js');window.qaContextCanvas=document.createElement('canvas');window.qaSourceTemplates=reader.createSourceTemplates(document);window.qaPaintContext=options=>paintSourceScreen(qaContextCanvas,options);const results=[];for(const bottom of [0,1])for(const relative of ['self','opponent'])for(const font of ['Arial','Segoe UI']){const g=qaPaintContext({bottom,relative,font});const r=reader.readSourceContext(qaContextCanvas.getContext('2d').getImageData(0,0,1000,760),g.rect,{gap:g.gap,templates:qaSourceTemplates});results.push({bottom,relative,font,gotBottom:r.bottom,gotTurn:r.turn,moveCount:r.moveCount,moveEvidence:r.moveEvidence,evidence:r.evidence});}return results;})()`);
  for(const result of sourceReads){assert.equal(result.gotBottom,result.bottom);assert.equal(result.gotTurn,result.relative==='self'?result.bottom:1-result.bottom,JSON.stringify(result));assert.equal(result.moveCount,12,JSON.stringify(result));}
  checks.push('source captions and active player cards identify either turn for both bottom colors across fonts');
@@ -248,11 +271,10 @@ try{
  await until(`document.querySelector('#screen-auto-status').textContent.includes('내 진영 판독 불일치')`);
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).side`),1);
  await evaluate(`document.querySelector('#screen-resync').click()`);
- await until(`document.querySelector('#screen-side-result').textContent.includes('청록') && !document.querySelector('#screen-apply').disabled`);
- await evaluate(`document.querySelector('#screen-apply').click()`);
+ await until(`!document.querySelector('#screen-dialog').open && document.querySelector('#screen-connection').textContent.includes('활성') && JSON.parse(localStorage.getItem('quoridor-session')).side===0`);
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).side`),0);
  assert.equal(await evaluate(`document.querySelector('#start-position').value`),'bottom');
- checks.push('new bottom color requires resynchronization and then automatically updates own side while keeping it below');
+ checks.push('valid resynchronization automatically applies without opening the dialog and resumes monitoring with the new bottom side');
  await evaluate(`qaLivePaint({bottom:0,relative:'self',cardRole:null,phrase:false,plies:0})`);await evaluate(`new Promise(r=>setTimeout(r,200))`);
  await evaluate(`document.querySelector('#screen-resync').click()`);
  await until(`document.querySelector('#screen-turn-result').textContent.includes('판독 실패') && document.querySelector('#screen-apply').disabled`);
@@ -348,7 +370,8 @@ try{
   await until(`document.querySelector('#analysis .analysis-warning')?.textContent.includes('후반 완전 해법')`);checks.push('a solved zero-wall loss is distinguished from heuristic corridor risk and selective search');
   await mkdir(path.join(root,'reports','immediate-pressure'),{recursive:true});await writeFile(path.join(root,'reports','immediate-pressure','browser.json'),JSON.stringify({engineInfo:(await(await fetch(`http://127.0.0.1:${pressureService.server.address().port}/health`)).json()).engineInfo,checks:checks.slice(-3),uncaughtErrors:errors,screenshot:'../screen-import/pressure-engine.png'},null,2)+'\n');
  }
- assert.deepEqual(errors,[]);await writeFile(path.join(out,'browser-qa.json'),JSON.stringify({browser:'isolated headless Chrome/Edge',checks,uncaughtErrors:errors,realScreenCaptureTested:false,syntheticMediaStreamTested:true,screenshots:['recognition-review.png','applied-board.png','automatic-sync.png','automatic-grid.png','recovery.png','automatic-side-turn.png','move-dot-review.png']},null,2)+'\n');console.log(JSON.stringify({checks,uncaughtErrors:errors},null,2));
+ }
+ assert.deepEqual(errors,[]);await writeFile(path.join(out,'browser-qa.json'),JSON.stringify({browser:'isolated headless Chrome/Edge',checks,uncaughtErrors:errors,realScreenCaptureTested:false,syntheticMediaStreamTested:true},null,2)+'\n');console.log(JSON.stringify({checks,uncaughtErrors:errors},null,2));
 }catch(error){try{await screenshot('failure.png');console.error(await evaluate(`JSON.stringify({message:document.querySelector('#screen-message')?.textContent,calls:window.qaCalls,videoReady:document.querySelector('#screen-video')?.readyState,connection:document.querySelector('#screen-connection')?.textContent,mode:document.querySelector('#mode')?.value})`));}catch{}throw error;}finally{
  if(ws?.readyState===WebSocket.OPEN){try{await send('Browser.close',{},null);}catch{}ws.close();}
  if(chrome&&chrome.exitCode===null){await new Promise(resolve=>{const timer=setTimeout(()=>{chrome.kill();resolve();},3000);chrome.once('exit',()=>{clearTimeout(timer);resolve();});});}

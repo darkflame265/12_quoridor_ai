@@ -1,0 +1,81 @@
+{
+  "build": "703b597e46fa",
+  "conditions": "Fresh process per position; one worker; depth5 /1800ms. PreviousPlayed is the recorded move, not a controlled old-build result. Selective heuristic, not a winning proof.",
+  "rows": [
+    {
+      "ply": 15,
+      "previousPlayed": "a7│",
+      "action": "a7│",
+      "depth": 5,
+      "score": -291,
+      "focused": {
+        "attacks": [
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 2
+          }
+        ],
+        "bestMoveMargin": 168,
+        "complete": true,
+        "maxPenalty": 240,
+        "penalizedActions": 102
+      },
+      "weak": {
+        "action": {
+          "o": "v",
+          "type": "wall",
+          "x": 0,
+          "y": 2
+        },
+        "defensiveException": false,
+        "enemyDelay": 0,
+        "opportunityProgress": 2,
+        "ownDelay": 0,
+        "penalty": 96,
+        "reservePenalty": 0,
+        "retainedSequenceDelay": 0,
+        "sequenceOwnDelay": 0,
+        "sequencePenalty": 32
+      }
+    },
+    {
+      "ply": 17,
+      "previousPlayed": "c2─",
+      "action": "e5",
+      "depth": 5,
+      "score": -742,
+      "focused": null,
+      "weak": null
+    },
+    {
+      "ply": 19,
+      "previousPlayed": "a2─",
+      "action": "e5",
+      "depth": 5,
+      "score": -805,
+      "focused": {
+        "attacks": [
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 5
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "bestMoveMargin": 768,
+        "complete": true,
+        "maxPenalty": 240,
+        "penalizedActions": 82
+      },
+      "weak": null
+    }
+  ]
+}

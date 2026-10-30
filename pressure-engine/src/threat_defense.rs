@@ -33,7 +33,70 @@ pub struct DefenseChoice{
 #[serde(rename_all="camelCase")]
 pub struct ThreatDefense{
  active:bool,complete:bool,initial_risk:i32,examined_actions:usize,elapsed_ms:f64,
- selected:Option<DefenseChoice>,continuation:Option<Action>,continuation_reviewed:bool,#[serde(skip)]choices:Vec<DefenseChoice>,
+ selected:Option<DefenseChoice>,continuation:Option<Action>,continuation_reviewed:bool,focused:Option<FocusedDefense>,#[serde(skip)]choices:Vec<DefenseChoice>,
+}
+#[derive(Clone,Serialize)]
+#[serde(rename_all="camelCase")]
+struct FocusedDefense{complete:bool,attacks:Vec<Action>,best_move_margin:i32,penalized_actions:usize,max_penalty:i32}
+#[cfg(test)]mod focused_game10_tests{
+ use super::*;
+ #[test]fn large_detour_prices_all_roots_and_keeps_pawn_reference(){
+  let rows:serde_json::Value=serde_json::from_str(include_str!("../test-data/defense-game10.json")).unwrap();
+  let c=&rows[2];let state:State=serde_json::from_value(c["state"].clone()).unwrap();let p=Position::from_state(&state).unwrap();let key=p.key();let cancel=AtomicBool::new(false);
+  let (cost,details)=focused_defense(&p,[0;209],now()+2000.,&cancel);
+  let details=details.expect("game10 large detour must complete in release build");
+  assert!(details.attacks.iter().any(|a|action_code(a)==parse_defense_reply(&serde_json::json!({"type":"wall","x":4,"y":5,"o":"v"})).unwrap()));
+  assert!(details.penalized_actions>0);
+  assert!(p.moves(p.turn).iter().any(|&a|cost[a as usize]==0));assert!(cost.iter().all(|&v|(-240..=0).contains(&v)));assert!(p.key()==key);
+  cancel.store(true,Ordering::Relaxed);let (out,details)=focused_defense(&p,[7;209],now()+2000.,&cancel);assert!(details.is_none());assert!(out.iter().all(|&v|v==7));
+ }
+ #[test]fn selective_defense_does_not_erase_wall_consumption(){
+  let previous=std::env::var("QUORIDOR_GOAL_MODE").ok();std::env::set_var("QUORIDOR_GOAL_MODE","on");
+  let rows:serde_json::Value=serde_json::from_str(include_str!("../test-data/defense-game10.json")).unwrap();
+  for i in [0,2]{let c=&rows[i];let state:State=serde_json::from_value(c["state"].clone()).unwrap();let mut p=Position::from_state(&state).unwrap();let cancel=AtomicBool::new(false);let mut engine=NativeEngine::with_profile(2);engine.set_wall_run(&c["state"]);let run=engine.shared.root_wall_run.lock().unwrap().clone();
+   let (_,reserve)=defense_reserve_biases(&mut p,[0;209],now()+2000.,&cancel);let (_,mut details)=weak_wall_biases(&mut p,[0;209],&reserve,&run,run.len(),now()+2000.,&cancel);details.select(Some(&decode(parse_defense_reply(&c["action"]).unwrap())));let selected=details.selected.unwrap();assert!(!selected.defensive_exception);assert!(selected.penalty>0);assert!(selected.sequence_penalty>0);
+  }
+  if let Some(value)=previous{std::env::set_var("QUORIDOR_GOAL_MODE",value);}else{std::env::remove_var("QUORIDOR_GOAL_MODE");}
+ }
+}
+// Compare every legal root against the same large immediate attacks, including
+// the opponent simply advancing. Each branch permits our best legal response.
+// Commit no partial costs if time runs out; scores remain selective, not proofs.
+fn focused_defense(p:&Position,base:[i32;209],deadline:f64,cancel:&AtomicBool)->([i32;209],Option<FocusedDefense>){
+ let t=p.turn;let o=1-t;let mut probe=ChainProbe::new(true);let before=probe.distances(p,t);
+ let until=(now()+80.).min(deadline);let expired=||cancel.load(Ordering::Relaxed)||now()>=until;
+ let mut attacks=vec![];
+ for a in 81..209{
+  if expired(){return(base,None);}if !p.fits(a){continue;}
+  let mut hit=p.clone();hit.turn=o;hit.make(a);let d=probe.distances(&hit,t);
+  if d[0]<100&&d[1]<100&&d[0]-before[0]>=3{attacks.push((a,d[0]-before[0]-(d[1]-before[1])));}
+ }
+ attacks.sort_by(|a,b|b.1.cmp(&a.1).then(a.0.cmp(&b.0)));attacks.truncate(2);
+ if attacks.is_empty(){return(base,None);}
+ let mut root=p.clone();let mut rows=vec![];
+ for a in root.actions(){
+  let mut child=p.clone();child.make(a);if child.terminal(){continue;}
+  let legal_attacks=child.actions();let options:Vec<_>=legal_attacks.into_iter().filter(|&b|b<81||attacks.iter().any(|r|r.0==b)).collect();
+  let mut worst=-10000;
+  for b in options{
+   if expired(){return(base,None);}
+   let mut hit=child.clone();hit.make(b);let mut best=10000;
+   if hit.terminal(){worst=10000;break;}
+   // All responses, including counterwalls, compete on the same arrival scale.
+   for reply in hit.actions(){
+    if expired(){return(base,None);}
+    let mut end=hit.clone();end.make(reply);let d=probe.distances(&end,t);
+    let margin=if end.terminal(){-10000}else{(d[0]-d[1])*120+(end.left[o]as i32-end.left[t]as i32)*24};
+    best=best.min(margin);
+   }
+   worst=worst.max(best);
+  }
+  rows.push((a,worst));
+ }
+ let Some(best_move)=rows.iter().filter(|r|r.0<81).map(|r|r.1).min()else{return(base,None);};
+ let mut out=base;let mut count=0;let mut maximum=0;
+ for (a,margin) in rows{let penalty=((margin-best_move).max(0)/2).min(240);out[a as usize]-=penalty;if penalty>0{count+=1;}maximum=maximum.max(penalty);}
+ (out,Some(FocusedDefense{complete:true,attacks:attacks.iter().map(|r|decode(r.0)).collect(),best_move_margin:best_move,penalized_actions:count,max_penalty:maximum}))
 }
 impl ThreatDefense{
  // Review a newly selected root without changing the utility used by the
@@ -144,7 +207,7 @@ fn defense_adjustment(initial:i32,risk:i32,routes:i32,forward:i32)->i32{
  }
 }
 fn threat_defense_biases(p:&Position,base:[i32;209],deadline:f64,cancel:&AtomicBool,preferred:Option<u16>)->([i32;209],ThreatDefense){
- let started=now();let mut details=ThreatDefense{active:goal_enabled()&&p.left[1-p.turn]>0&&p.walls.count_ones()>=4,complete:true,initial_risk:0,examined_actions:0,elapsed_ms:0.,selected:None,continuation:None,continuation_reviewed:false,choices:vec![]};
+ let started=now();let mut details=ThreatDefense{active:goal_enabled()&&p.left[1-p.turn]>0&&p.walls.count_ones()>=4,complete:true,initial_risk:0,examined_actions:0,elapsed_ms:0.,selected:None,continuation:None,continuation_reviewed:false,focused:None,choices:vec![]};
  let mut run=||->Option<[i32;209]>{
   if !details.active{return Some(base);}
   let t=p.turn;let cap=if deadline-now()>1500.{120.}else{80.};let until=(now()+cap).min(now()+(deadline-now()).max(0.)*0.20);let mut probe=ChainProbe::new(true);
@@ -193,7 +256,8 @@ fn threat_defense_biases(p:&Position,base:[i32;209],deadline:f64,cancel:&AtomicB
   Some(out)
  };
  let result=run();details.elapsed_ms=now()-started;
- if let Some(out)=result{details.examined_actions=details.choices.len();details.continuation_reviewed=details.continuation.as_ref().is_some_and(|a|details.choices.iter().any(|c|action_code(&c.action)==action_code(a)));(out,details)}else{details.complete=false;details.choices.clear();(base,details)}
+ let (focused_base,focused)=if details.active{focused_defense(p,result.unwrap_or(base),deadline,cancel)}else{(base,None)};details.focused=focused;details.elapsed_ms=now()-started;
+ if result.is_some(){details.examined_actions=details.choices.len();details.continuation_reviewed=details.continuation.as_ref().is_some_and(|a|details.choices.iter().any(|c|action_code(&c.action)==action_code(a)));(focused_base,details)}else{details.complete=false;details.choices.clear();(focused_base,details)}
 }
 #[cfg(test)]
 mod selected_review_tests{

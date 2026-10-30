@@ -77,8 +77,6 @@ fn weak_wall_biases(p:&mut Position,base:[i32;209],reserve:&ReserveDefense,run:&
  details.best_move_progress=best;if best<=0{return (base,details);}
  let until=(now()+30.).min(now()+(deadline-now()).max(0.)*0.08);
  let expired=||cancel.load(Ordering::Relaxed)||now()>=until;
- let mut attack=None;let mut risk=0;
- if p.left[o]>0{for b in 81..209{if expired(){details.complete=false;return (base,details);}if let Some(gain)=reserve_attack(p,b,t){if gain>risk{risk=gain;attack=Some(b);}}}}
  let mut out=base;
  // Remove only the observed consecutive own walls; retain the current pawn
  // positions and every opposing wall for a common geometry comparison.
@@ -88,11 +86,7 @@ fn weak_wall_biases(p:&mut Position,base:[i32;209],reserve:&ReserveDefense,run:&
  for a in p.actions(){
   if a<81{continue;}if expired(){details.complete=false;details.costs.clear();return (base,details);}
   let f=pressure_feature(p,a);
-  // Preserve walls that alleviate a measured immediate attack. Missing threat
-  // candidates never constitute a safety or winning certificate.
-  let mut defensive=reserve.active&&reserve.complete&&reserve.baseline_risk>0&&!reserve.costs.iter().any(|c|action_code(&c.action)==a);
   let mut child=p.clone();child.make(a);
-  if let Some(b)=attack{if reserve_attack(&mut child,b,t).unwrap_or(0)<risk{defensive=true;}}
   let old_penalty=if f.enemy_delay<=1&&f.enemy_choices_after>=f.enemy_choices_before{24+16*streak.min(4)as i32+if f.enemy_delay<=0{24}else{0}+12*f.own_delay.max(0).min(2)}else{0};
   let sequence_own_delay=(child.distance(t,false)-bare_own).max(0);
   let mut retained=child.distance(o,false)-bare.distance(o,false);
@@ -103,12 +97,14 @@ fn weak_wall_biases(p:&mut Position,base:[i32;209],reserve:&ReserveDefense,run:&
   }
   let sequence_penalty=sequence_cost(retained,sequence_own_delay,opportunity,removed+1);
   // Existing measured reserve costs already price this wall; do not add the
-  // same stock cost twice. Mandatory/measured defensive walls remain exempt.
+  // same stock cost twice. Mandatory goal blocks returned before this scan.
   let already_priced=reserve.costs.iter().any(|c|action_code(&c.action)==a&&c.penalty>0);
   let remaining=p.left[t]-1;
   let reserve_penalty=if p.left[o]>remaining&&remaining<=2&&!already_priced{(3-remaining)as i32*12}else{0};
-  let penalty=if defensive{0}else{(old_penalty+sequence_penalty+reserve_penalty).min(160)};
-  out[a as usize]-=penalty;details.costs.push(WeakWallCost{action:decode(a),penalty,enemy_delay:f.enemy_delay,own_delay:f.own_delay,sequence_penalty:if defensive{0}else{sequence_penalty},reserve_penalty:if defensive{0}else{reserve_penalty},retained_sequence_delay:retained,sequence_own_delay,opportunity_progress:opportunity,defensive_exception:defensive});
+  // A selective risk improvement is not proof that spending a turn is free.
+  // Only the mandatory goal-block case above bypasses consumption pricing.
+  let penalty=(old_penalty+sequence_penalty+reserve_penalty).min(160);
+  out[a as usize]-=penalty;details.costs.push(WeakWallCost{action:decode(a),penalty,enemy_delay:f.enemy_delay,own_delay:f.own_delay,sequence_penalty,reserve_penalty,retained_sequence_delay:retained,sequence_own_delay,opportunity_progress:opportunity,defensive_exception:false});
  }
  details.penalized_actions=details.costs.iter().filter(|c|c.penalty>0).count();(out,details)
 }

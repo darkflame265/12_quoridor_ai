@@ -1,23 +1,39 @@
+import {analysisBudget} from './analysis-budget.js';
 // A single search keeps its tree/cache alive; only completed iterations are published.
 export class VariableAnalysis {
  constructor(){this.generation=0;this.active=false;this.pinned=false;}
- cancel(){this.generation++;clearTimeout(this.timer);this.active=false;this.pinned=false;this.latest=null;this.displayed=null;this.onStatus?.();}
+ cancel(){this.generation++;clearTimeout(this.timer);clearTimeout(this.budgetTimer);this.active=false;this.pinned=false;this.latest=null;this.displayed=null;this.phase='quick';this.reason=null;this.onStatus?.();}
  async start(engine,state,{cores,wallStreak=0,onPublish,onUpdate,onStatus,onError}){
   this.cancel();const generation=this.generation;this.active=true;this.onStatus=onStatus;
-  const start=performance.now();let ready=false;
+  const start=performance.now();let ready=false,settled=false;const history=[];
   const publish=()=>{if(this.latest&&!this.pinned){this.displayed=this.latest;onPublish(this.latest);}onStatus();};
   this.publish=publish;
   this.timer=setTimeout(()=>{if(generation!==this.generation)return;ready=true;publish();},500);
   onStatus();
+  const finishEarly=()=>{
+   if(settled||generation!==this.generation||!this.latest)return;
+   const elapsed=performance.now()-start,decision=analysisBudget(state,this.latest,history,elapsed,wallStreak);
+   this.phase=decision.phase;this.reason=decision.reason;onStatus();
+   if(!decision.stop)return;
+   settled=true;this.active=false;clearTimeout(this.timer);clearTimeout(this.budgetTimer);
+   this.latest={...this.latest,done:true,analysisBudget:decision,adaptiveStop:{reason:decision.reason,elapsedMs:elapsed,heuristic:decision.reason!=='exact'}};
+   onUpdate(this.latest);publish();engine.cancel();
+  };
+  this.budgetTimer=setTimeout(finishEarly,2000);
   const accept=(result,done=false)=>{
-   if(generation!==this.generation||!result.pv?.length)return;
+   if(settled||generation!==this.generation||!result.pv?.length)return;
    if(!done&&this.latest&&(result.depth??0)<(this.latest.depth??0))return;
-   this.latest={...result,done,elapsedMs:performance.now()-start};onUpdate(this.latest);
+   this.latest={...result,done,elapsedMs:performance.now()-start};
+   if(!history.length||(result.depth??0)>history.at(-1).depth){history.push(this.latest);if(history.length>3)history.shift();}
+   const decision=analysisBudget(state,this.latest,history,performance.now()-start,wallStreak);this.phase=done?'complete':decision.phase;this.reason=done?'engine-complete':decision.reason;
+   this.latest.analysisBudget={...decision,phase:this.phase,reason:this.reason};
+   onUpdate(this.latest);
    if(ready||done)publish();
+   if(!done)finishEarly();
   };
   try{const result=await engine.search(state,{ms:15000,cores,wallStreak,onProgress:r=>accept(r)});
-   if(generation!==this.generation)return;this.active=false;clearTimeout(this.timer);accept(result,true);
-  }catch(error){if(generation!==this.generation)return;this.active=false;clearTimeout(this.timer);onStatus();if(error.name!=='AbortError')onError(error);}
+   if(settled||generation!==this.generation)return;this.active=false;clearTimeout(this.timer);clearTimeout(this.budgetTimer);accept(result,true);
+  }catch(error){if(settled||generation!==this.generation)return;this.active=false;clearTimeout(this.timer);clearTimeout(this.budgetTimer);onStatus();if(error.name!=='AbortError')onError(error);}
  }
  togglePin(){if(!this.displayed)return;this.pinned=!this.pinned;if(!this.pinned)this.publish();else this.onStatus();}
 }

@@ -1,3 +1,4 @@
+import {budgetReason} from './analysis-budget.js';
 import {wallStreak} from './wall-streak.js';
 import {normalizeSessionSettings} from './session-settings.js';
 import {VariableAnalysis} from './variable-analysis.js';
@@ -122,6 +123,7 @@ function writeAnalysis(r,label='추천',source=state){
   const explanation=pressureExplanation(source,recommended);if(explanation){const detail=document.createElement('p');detail.className='pressure-reason';detail.textContent=explanation;$('#analysis').append(detail);}
   if(r.reserveDefense?.active){const reserve=r.reserveDefense,note=document.createElement('p');note.className='pressure-reason';note.textContent=reserve.complete?`방어벽 보존 평가 · 내 벽 ${reserve.stock[source.turn]}개 / 상대 ${reserve.stock[1-source.turn]}개 · 단일 벽 위협 ${reserve.baselineRisk}칸 상당. 제한된 후보 평가이며 승패 증명은 아닙니다.`:'방어벽 보존 평가의 시간 예산을 넘겨 부분 결과는 적용하지 않았습니다.';$('#analysis').append(note);}
   if(r.weakWallConsumption?.active){const weak=r.weakWallConsumption,note=document.createElement('p');note.className='pressure-reason';note.textContent=weak.complete?`벽 소비 비교 · 관측된 연속 설치 ${weak.wallStreak}회 · 전진 가능한 이동과 비교해 약한 벽 ${weak.penalizedActions}개에 비용 반영${weak.selected?` · 선택 벽 비용 ${weak.selected.penalty}점`:''}`:'벽 소비 비교 시간 초과 · 부분 비용은 적용하지 않았습니다.';$('#analysis').append(note);}
+  if(r.connectionRisk?.active){const risk=r.connectionRisk,note=document.createElement('p');note.className='pressure-reason';note.textContent=risk.complete?`연결 벽 위험 추정 ${risk.estimate} · 첫 벽 → 내 합법 대응 → 연결 벽을 제한 탐색${risk.selected?` · 추천 후 추정 ${risk.selected.risk}`:''}. 생략된 공격·방어가 있어 안전·승패 증명이 아닙니다.`:'연결 벽 평가 시간 초과 · 부분 점수는 적용하지 않고 추가 분석을 유지합니다.';$('#analysis').append(note);}
 }
 function applyMove(action){
   if(!legal(state,action))throw Error('불가능한 수입니다.');
@@ -155,7 +157,7 @@ function variableStatus(){
  $('#variable-controls').hidden=!visible;$('#analysis-pin').disabled=!v.displayed;
  $('#analysis-pin').textContent=v.pinned?'추천 고정 해제':'현재 추천 고정';
  $('#variable-status').textContent=!v.latest?(v.active?'첫 추천 준비 중 · 0.5초 목표, 완료된 깊이부터 표시':''):
-  `${v.active?'추가 계산 중 · 최대 15초':'분석 완료'} · ${v.pinned?'표시 추천 고정 · ':''}최신 ${notation(v.latest.pv[0])} · 깊이 ${v.latest.depth??0} · ${(v.latest.elapsedMs/1000).toFixed(1)}초`;
+  `${v.active?(v.phase==='quick'?'빠른 추천':v.reason==='connection'||v.reason==='reserve'||v.reason==='goal'?'위험 상황 추가 분석 · 최대 15초':'추가 분석 · 최대 15초'):v.latest.adaptiveStop?.heuristic?'추천 안정 추정 · 분석 종료':'분석 종료'} · ${budgetReason(v.reason)} · ${v.pinned?'표시 추천 고정 · ':''}최신 ${notation(v.latest.pv[0])} · 깊이 ${v.latest.depth??0} · ${((v.latest.adaptiveStop?.elapsedMs??v.latest.elapsedMs)/1000).toFixed(1)}초`;
  if(visible&&v.displayed){const context=$('#analysis .advice-context');if(context)context.textContent=`전체 ${records.length+1}수 · ${names[state.turn]} 차례 · ${v.pinned?'추천 고정 · ':''}${v.active?'추가 분석 중':'분석 완료'}`;}
 }
 function startVariable(selectedPool,source,id){

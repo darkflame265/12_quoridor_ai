@@ -31,7 +31,7 @@
           <p class="watch-note">0.4는 최신 실험 엔진입니다. 5.3 대비 실력 향상이 검증된 버전은 아닙니다.</p>
           <p id="engine-import-note" class="watch-note" role="status" hidden></p>
           <label>AI 생각 시간<select id="time"><option value="500">빠르게 · 0.5초</option><option value="variable" selected>가변 · 0.5초부터 최대 15초</option><option value="2000">표준 · 2초</option><option value="5000">깊게 · 5초</option><option value="15000">정밀 · 15초</option><option value="30000">최대 · 30초</option></select></label>
-          <p class="watch-note">가변은 수동·화면 분석에서 추천을 계속 갱신합니다. AI 자동 착수는 0.5초, 관전은 각 진영의 설정을 사용합니다.</p>
+          <p class="watch-note">가변은 0.5초 첫 추천을 목표로 갱신하며, 위험하면 최대 15초까지 분석합니다. 추천이 안정적이면 최소 2초 이후 조기 종료할 수 있습니다. AI 자동 착수는 0.5초, 관전은 각 진영의 설정을 사용합니다.</p>
           <label>계산 코어<select id="cores"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option></select></label>
         </div>
         <div class="buttons"><button id="undo">↶ 무르기</button><button id="reset">새 게임</button></div>

@@ -1,0 +1,412 @@
+{
+  "build": "e2c07e442c13",
+  "note": "Targeted analysis, not match verification.",
+  "rows": [
+    {
+      "ply": 0,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 8
+          },
+          {
+            "x": 4,
+            "y": 0
+          }
+        ],
+        "walls": [],
+        "left": [
+          10,
+          10
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "notation": "e2",
+      "legal": true,
+      "depth": 5,
+      "elapsedMs": 500.68379999999996,
+      "connectionRisk": {
+        "active": true,
+        "complete": true,
+        "distances": [
+          8,
+          8
+        ],
+        "estimate": 0,
+        "examinedActions": 5,
+        "firstCandidates": 0,
+        "opponentStock": 10,
+        "replyLimit": 3,
+        "selected": {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "risk": 0
+        }
+      }
+    },
+    {
+      "ply": 19,
+      "state": {
+        "p": [
+          {
+            "x": 3,
+            "y": 6
+          },
+          {
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          }
+        ],
+        "left": [
+          9,
+          3
+        ],
+        "turn": 1,
+        "winner": null,
+        "wallStreak": 7
+      },
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 2
+      },
+      "notation": "f7",
+      "legal": true,
+      "depth": 4,
+      "elapsedMs": 500.1093000000001,
+      "connectionRisk": {
+        "active": true,
+        "complete": true,
+        "distances": [
+          14,
+          8
+        ],
+        "estimate": 0,
+        "examinedActions": 6,
+        "firstCandidates": 2,
+        "opponentStock": 9,
+        "replyLimit": 3,
+        "selected": {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "risk": 0
+        }
+      }
+    },
+    {
+      "ply": 21,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 6
+          },
+          {
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          }
+        ],
+        "left": [
+          9,
+          2
+        ],
+        "turn": 1,
+        "winner": null,
+        "wallStreak": 8
+      },
+      "action": {
+        "o": "h",
+        "type": "wall",
+        "x": 3,
+        "y": 1
+      },
+      "notation": "d8─",
+      "legal": true,
+      "depth": 4,
+      "elapsedMs": 500.1637,
+      "connectionRisk": {
+        "active": true,
+        "complete": true,
+        "distances": [
+          14,
+          8
+        ],
+        "estimate": 0,
+        "examinedActions": 6,
+        "firstCandidates": 2,
+        "opponentStock": 9,
+        "replyLimit": 3,
+        "selected": {
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 3,
+            "y": 1
+          },
+          "risk": 0
+        }
+      }
+    },
+    {
+      "ply": 23,
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 6
+          },
+          {
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v",
+            "owner": 0
+          }
+        ],
+        "left": [
+          8,
+          1
+        ],
+        "turn": 1,
+        "winner": null,
+        "wallStreak": 9
+      },
+      "action": {
+        "o": "v",
+        "type": "wall",
+        "x": 3,
+        "y": 2
+      },
+      "notation": "d7│",
+      "legal": true,
+      "depth": 4,
+      "elapsedMs": 500.2351,
+      "connectionRisk": {
+        "active": true,
+        "complete": true,
+        "distances": [
+          16,
+          8
+        ],
+        "estimate": 4,
+        "examinedActions": 4,
+        "firstCandidates": 2,
+        "opponentStock": 8,
+        "replyLimit": 3,
+        "selected": null
+      }
+    }
+  ]
+}

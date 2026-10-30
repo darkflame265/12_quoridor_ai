@@ -11,6 +11,7 @@ import {verifyPressureBuild} from '../evaluation/pressure-policy.mjs';
 import {runtimeFingerprint} from './runtime-identity.mjs';
 
 const root=fileURLToPath(new URL('../',import.meta.url));process.chdir(root);
+const playPort=12324,playUrl=`http://127.0.0.1:${playPort}`;
 const args=process.argv.slice(2),folder=path.resolve(args.includes('--state-dir')?args[args.indexOf('--state-dir')+1]:'.local-app');
 const lock=path.join(folder,'running.json');await mkdir(folder,{recursive:true});
 async function request(state,stop=false){return fetch(`${state.url}/__app/${stop?'stop':'health'}`,{method:stop?'POST':'GET',headers:{Authorization:`Bearer ${state.token}`},signal:AbortSignal.timeout(1500)});}
@@ -21,7 +22,7 @@ if(args.includes('--stop')) {
  try{const r=await request(state,true);if(!r.ok)throw Error('종료 요청이 거절됐습니다.');console.log('쿼리도 앱을 종료했습니다.');}
  catch(e){console.error(`앱 종료 실패: ${e.message}`);process.exitCode=1;}
 }else {
- let acquired=false,preferredPort=0;
+ let acquired=false;
  for(let attempt=0;attempt<50;attempt++) {
   try{const f=await open(lock,'wx');await f.writeFile(JSON.stringify({pid:process.pid}));await f.close();acquired=true;break;}
   catch(e){if(e.code!=='EEXIST')throw e;}
@@ -29,9 +30,8 @@ if(args.includes('--stop')) {
   if(!state){try{if(Date.now()-(await stat(lock)).mtimeMs>30000){await unlink(lock);continue;}}catch{}}
   if(state?.url){try{const r=await request(state),health=r.ok?await r.json():null;if(health?.service==='quoridor-play-v1'){
    const current=await runtimeFingerprint(root);
-   if(!args.includes('--restart')&&health.fingerprint===current){browser(state.url);console.log('최신 쿼리도 화면을 열었습니다.');process.exit(0);}
+   if(!args.includes('--restart')&&state.url===playUrl&&health.fingerprint===current){browser(playUrl);console.log(`최신 쿼리도 화면을 열었습니다: ${playUrl}`);process.exit(0);}
    console.log('이전 실행을 종료하고 변경된 앱·엔진을 준비합니다. 기보는 브라우저에 유지됩니다.');
-   const previousUrl=new URL(state.url);if(previousUrl.hostname==='127.0.0.1')preferredPort=Number(previousUrl.port);
    const stopped=await request(state,true);if(!stopped.ok)throw Error('기존 앱 종료 실패');
    const until=Date.now()+10000;while(Date.now()<until){const latest=await existing();if(!latest||latest.pid!==state.pid)break;await new Promise(r=>setTimeout(r,100));}
    continue;
@@ -50,6 +50,10 @@ if(args.includes('--stop')) {
  })();
  process.on('SIGINT',()=>cleanup().then(()=>process.exit()));process.on('SIGTERM',()=>cleanup().then(()=>process.exit()));
  try {
+  // Reserve the public address before expensive builds. Never silently move
+  // to another port or terminate an unrelated process occupying this one.
+  web=http.createServer((req,res)=>{res.writeHead(503,{'Retry-After':'2'});res.end('Quoridor is starting. Please refresh shortly.');});
+  await new Promise((resolve,reject)=>{web.once('error',reject);web.listen(playPort,'127.0.0.1',resolve);});
   const run=(file,parameters=[])=>{const r=spawnSync(process.execPath,[file,...parameters],{stdio:'inherit',windowsHide:true});if(r.status!==0)throw Error(`준비 실패: ${file}`);};
   // Build the browser bundle, not a development server. Reuse a native build
   // only when its full source manifest still matches this checkout.
@@ -67,7 +71,8 @@ if(args.includes('--stop')) {
   const fingerprint=await runtimeFingerprint(root);
   const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.wasm':'application/wasm','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon'};
   const dist=path.join(root,'dist');
-  web=http.createServer(async(req,res)=>{
+  web.removeAllListeners('request');
+  web.on('request',async(req,res)=>{
    if(!/^127\.0\.0\.1:\d+$/.test(req.headers.host??'')){res.writeHead(403).end();return;}
    const pathname=new URL(req.url,'http://localhost').pathname;
    if(pathname.startsWith('/__app/')) {
@@ -89,8 +94,9 @@ if(args.includes('--stop')) {
     const bytes=await readFile(file);res.setHeader('Content-Type',types[path.extname(file)]??'application/octet-stream');res.setHeader('Cache-Control','no-store');res.end(req.method==='HEAD'?undefined:bytes);
    }catch{res.writeHead(404).end();}
   });
-  await new Promise((resolve,reject)=>{web.once('error',reject);web.listen(preferredPort,'127.0.0.1',resolve);});
-  const url=`http://127.0.0.1:${web.address().port}`;
-  await writeFile(lock,JSON.stringify({pid:process.pid,url,token}));console.log(`쿼리도 준비 완료: ${url}`);browser(url);
- }catch(e){await cleanup();console.error(e.stack);process.exitCode=1;}
+  const state={pid:process.pid,url:playUrl,token};
+  const health=await request(state);const page=await fetch(playUrl,{signal:AbortSignal.timeout(2000)});
+  if(!health.ok||(await health.json()).fingerprint!==fingerprint||!page.ok)throw Error('고정 주소의 최신 앱 응답을 확인하지 못했습니다.');
+  await writeFile(lock,JSON.stringify(state));console.log(`쿼리도 준비 완료: ${playUrl}`);browser(playUrl);
+ }catch(e){await cleanup();console.error(e.code==='EADDRINUSE'?`포트 ${playPort}를 다른 프로그램이 사용하고 있습니다. 해당 프로그램을 종료한 뒤 쿼리도를 다시 실행하세요. 접속 주소는 ${playUrl}/로 유지됩니다.`:e.stack);process.exitCode=1;}
 }

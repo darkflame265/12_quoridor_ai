@@ -9,6 +9,7 @@ import {nativeSources,digest} from '../evaluation/native-policy.mjs';
 import {createPressureService} from '../server/pressure-service.mjs';
 import {verifyPressureBuild} from '../evaluation/pressure-policy.mjs';
 import {runtimeFingerprint} from './runtime-identity.mjs';
+import {leaseOwner,removeUnchangedLease} from './play-lock.mjs';
 
 const root=fileURLToPath(new URL('../',import.meta.url));process.chdir(root);
 const playPort=12324,playUrl=`http://127.0.0.1:${playPort}`;
@@ -22,9 +23,11 @@ if(args.includes('--stop')) {
  try{const r=await request(state,true);if(!r.ok)throw Error('종료 요청이 거절됐습니다.');console.log('쿼리도 앱을 종료했습니다.');}
  catch(e){console.error(`앱 종료 실패: ${e.message}`);process.exitCode=1;}
 }else {
- let acquired=false;
- for(let attempt=0;attempt<50;attempt++) {
-  try{const f=await open(lock,'wx');await f.writeFile(JSON.stringify({pid:process.pid}));await f.close();acquired=true;break;}
+ let acquired=false,waiting=false;const waitUntil=Date.now()+120000;
+ const lease={pid:process.pid,phase:'starting',processStartedAt:Math.round(Date.now()-process.uptime()*1000),createdAt:Date.now()};
+ let inspected=null,inspectedAt=0,owner='unknown';
+ while(Date.now()<waitUntil) {
+  try{const f=await open(lock,'wx');await f.writeFile(JSON.stringify(lease));await f.close();acquired=true;break;}
   catch(e){if(e.code!=='EEXIST')throw e;}
   const state=await existing();
   if(!state){try{if(Date.now()-(await stat(lock)).mtimeMs>30000){await unlink(lock);continue;}}catch{}}
@@ -36,11 +39,12 @@ if(args.includes('--stop')) {
    const until=Date.now()+10000;while(Date.now()<until){const latest=await existing();if(!latest||latest.pid!==state.pid)break;await new Promise(r=>setTimeout(r,100));}
    continue;
   }}catch(error){if(error.message==='기존 앱 종료 실패')throw error;}}
-  if(state?.pid){let alive=true;try{process.kill(state.pid,0);}catch(e){if(e.code==='ESRCH')alive=false;}
-   if(!alive){await unlink(lock).catch(()=>{});continue;}}
+  if(state?.pid){const signature=JSON.stringify(state);if(signature!==inspected||Date.now()-inspectedAt>1500){owner=await leaseOwner(state,{root});inspected=signature;inspectedAt=Date.now();}
+   if(owner==='dead'||owner==='mismatch'){if(await removeUnchangedLease(lock,state))console.log('종료된 실행의 잠금을 자동 정리했습니다.');continue;}}
+  if(!waiting){console.log('다른 실행이 준비 중입니다. 준비가 끝나면 기존 화면으로 연결합니다.');waiting=true;}
   await new Promise(r=>setTimeout(r,200));
  }
- if(!acquired)throw Error('다른 실행이 준비 중입니다. 잠시 후 다시 실행해 주세요.');
+ if(!acquired){console.error('쿼리도 실행 준비를 2분 동안 확인하지 못했습니다. 기존 실행의 준비 로그와 포트 12324 상태를 확인해 주세요.');process.exit(1);}
  let native=null,goal=null,web=null,stopping=null;const token=randomUUID();
  const cleanup=()=>stopping??=(async()=>{
   if(web){web.closeAllConnections();await new Promise(r=>web.close(r));}
@@ -94,7 +98,7 @@ if(args.includes('--stop')) {
     const bytes=await readFile(file);res.setHeader('Content-Type',types[path.extname(file)]??'application/octet-stream');res.setHeader('Cache-Control','no-store');res.end(req.method==='HEAD'?undefined:bytes);
    }catch{res.writeHead(404).end();}
   });
-  const state={pid:process.pid,url:playUrl,token};
+  const state={...lease,phase:'ready',url:playUrl,token};
   const health=await request(state);const page=await fetch(playUrl,{signal:AbortSignal.timeout(2000)});
   if(!health.ok||(await health.json()).fingerprint!==fingerprint||!page.ok)throw Error('고정 주소의 최신 앱 응답을 확인하지 못했습니다.');
   await writeFile(lock,JSON.stringify(state));console.log(`쿼리도 준비 완료: ${playUrl}`);browser(playUrl);

@@ -39,7 +39,7 @@ impl Atlas6 {
   let ranked=self.ordered(p,tt);
   if ranked.len()<=limit{return ranked;}
   let t=p.turn;let enemy=1-t;
-  let current=p.distance(t,false);
+  let before=(p.distance(t,false),p.distance(enemy,false));
   let mut forcing=Vec::new();
   for &a in &ranked{
    if a<81{
@@ -52,7 +52,7 @@ impl Atlas6 {
    let own_dist=p.distance(t,false);
    p.unmake(u);
    // Blocks that materially damage the opponent's race are protected.
-   if enemy_dist-own_dist>=2{forcing.push(a);}
+   if (enemy_dist-before.1)-(own_dist-before.0)>=2{forcing.push(a);}
   }
   let mut out:Vec<u16>=ranked.iter().take(limit).copied().collect();
   for a in forcing.into_iter().take(6){if !out.contains(&a){out.push(a);}}
@@ -66,21 +66,30 @@ impl Atlas6 {
     if stopped{out.push(a);}
    }
   }
-  let _=current;
+
   out
  } fn search_node(&mut self,p:&mut Position,depth:i32,mut alpha:i32,beta:i32,ply:i32)->Result<i32,()>{
   self.nodes+=1;if self.nodes&31==0&&!self.check(){return Err(());}
   if p.terminal(){return Ok(-29000+ply);}
-  if depth<=0{return Ok(Self::evaluate(p));}
+  if depth<=0{ if p.moves(p.turn).into_iter().any(|a|goal(a as usize,p.turn)){return Ok(28999-ply);} return Ok(Self::evaluate(p)); }
   let key=p.key();let cached=self.table.get(&key).copied();
   if let Some(e)=cached{if e.depth>=depth{if e.flag==0||e.flag==1&&e.score<=alpha||e.flag==2&&e.score>=beta{return Ok(e.score);}}}
   let original=alpha;let mut best=-32000;let mut best_move=0;
   let actions=self.tactical_candidates(p,cached.map(|e|e.best),if depth>=3{14}else{20});
-  for a in actions{
+  for (i,a) in actions.into_iter().enumerate(){
    let u=p.make(a);
-   let value=self.search_node(p,depth-1,-beta,-alpha,ply+1);
+   // PVS: establish the first principal variation with a full window;
+   // probe siblings with a narrow window and re-search only on improvement.
+   let value=if i==0 || alpha<=-31000 {
+    self.search_node(p,depth-1,-beta,-alpha,ply+1).map(|v|-v)
+   }else{
+    match self.search_node(p,depth-1,-alpha-1,-alpha,ply+1){
+     Ok(v) if -v>alpha && -v<beta => self.search_node(p,depth-1,-beta,-alpha,ply+1).map(|v|-v),
+     other=>other.map(|v|-v),
+    }
+   };
    p.unmake(u);
-   let score=-value?;
+   let score=value?;
    if score>best{best=score;best_move=a;}
    alpha=alpha.max(score);if alpha>=beta{break;}
   }

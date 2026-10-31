@@ -55,7 +55,7 @@ impl Atlas6 {
    if (enemy_dist-before.1)-(own_dist-before.0)>=2{forcing.push(a);}
   }
   let mut out:Vec<u16>=ranked.iter().take(limit).copied().collect();
-  for a in forcing.into_iter().take(6){if !out.contains(&a){out.push(a);}}
+  for a in forcing{if !out.contains(&a){out.push(a);}}
   // Protect every legal wall that stops a one-step goal by the opponent.
   if p.distance(enemy,false)<=1 && p.left[t]>0{
    for &a in &ranked{
@@ -68,10 +68,49 @@ impl Atlas6 {
   }
 
   out
+ } // A bounded tactical continuation prevents the search horizon from
+ // silently ending in the middle of a forcing wall exchange.
+ fn tactical_leaf(&mut self,p:&mut Position,mut alpha:i32,beta:i32,ply:i32,remaining:i32)->Result<i32,()>{
+  self.nodes+=1;
+  if self.nodes&31==0&&!self.check(){return Err(());}
+  if p.terminal(){return Ok(-29000+ply);}
+  if p.moves(p.turn).into_iter().any(|a|goal(a as usize,p.turn)){return Ok(28999-ply);}
+  let stand=Self::evaluate(p);
+  if remaining<=0 || p.left[p.turn]==0 || p.distance(1-p.turn,false)>3{return Ok(stand);}
+  let t=p.turn;let o=1-t;
+  let own=p.distance(t,false);let enemy=p.distance(o,false);
+  // Only search forcing continuations. Do not assume a quiet evaluation
+  // is safe while the other pawn is one move from its goal.
+  let urgent=enemy<=1;
+  let mut candidates=Vec::new();
+  for a in p.actions(){
+   if a<81{continue;}
+   let u=p.make(a);
+   let own_after=p.distance(t,false);let enemy_after=p.distance(o,false);
+   p.unmake(u);
+   let swing=(enemy_after-enemy)-(own_after-own);
+   if swing>=2 || urgent && enemy_after>enemy{
+    candidates.push((a,swing));
+   }
+  }
+  if candidates.is_empty(){return Ok(stand);}
+  candidates.sort_unstable_by(|a,b|b.1.cmp(&a.1));
+  // Stand pat is only safe when there is no immediate opponent goal threat.
+  let mut best=if urgent{-32000}else{stand};
+  if !urgent{alpha=alpha.max(stand);if alpha>=beta{return Ok(alpha);}}
+  for (a,_) in candidates.into_iter().take(if urgent{12}else{4}){
+   let u=p.make(a);
+   let r=self.tactical_leaf(p,-beta,-alpha,ply+1,remaining-1);
+   p.unmake(u);
+   let score=-r?;
+   best=best.max(score);alpha=alpha.max(score);
+   if alpha>=beta{break;}
+  }
+  Ok(best)
  } fn search_node(&mut self,p:&mut Position,depth:i32,mut alpha:i32,beta:i32,ply:i32)->Result<i32,()>{
   self.nodes+=1;if self.nodes&31==0&&!self.check(){return Err(());}
   if p.terminal(){return Ok(-29000+ply);}
-  if depth<=0{ if p.moves(p.turn).into_iter().any(|a|goal(a as usize,p.turn)){return Ok(28999-ply);} return Ok(Self::evaluate(p)); }
+  if depth<=0{return self.tactical_leaf(p,alpha,beta,ply,2);}
   let key=p.key();let cached=self.table.get(&key).copied();
   if let Some(e)=cached{if e.depth>=depth{if e.flag==0||e.flag==1&&e.score<=alpha||e.flag==2&&e.score>=beta{return Ok(e.score);}}}
   let original=alpha;let mut best=-32000;let mut best_move=0;

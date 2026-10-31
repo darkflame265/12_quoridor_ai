@@ -48,7 +48,7 @@ const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.tur
 const flipped=()=>viewFlipped(Number($('#side').value),$('#start-position').value);
 const viewPosition=p=>orientPosition(p,flipped());
 const viewAction=a=>orientAction(a,flipped());
-const engineName=id=>id==='atlas5'?'Atlas 5.3 · 안정':'Atlas 0.4 · 최신';
+const engineName=id=>id==='atlas6'?'Atlas 6 · 실험':id==='atlas5'?'Atlas 5.3 · 안정':'Atlas 0.4 · 최신';
 function statusFor(selector){return (status,info)=>{
  const label=info?.engineInfo;
  if(selector==='#engine-status')$(selector).hidden=!['stale','unavailable','wasm'].includes(status);
@@ -173,7 +173,7 @@ function commitMove(action){if(!legal(state,action))return;stop();applyMove(acti
 function schedule(){
   if($('#mode').value==='screen'){
     if(screenReady&&screenCapture?.active&&screenCapture.autoHint&&baseState&&state.winner===null&&state.turn===Number($('#side').value))think(false,'screen-auto');
-    else if(screenReady&&screenCapture?.active&&screenCapture.autoHint&&baseState&&state.winner===null&&state.turn!==Number($('#side').value)&&['atlas5','atlas-goal'].includes($('#play-engine').value)){
+    else if(screenReady&&screenCapture?.active&&screenCapture.autoHint&&baseState&&state.winner===null&&state.turn!==Number($('#side').value)&&['atlas5','atlas-goal','atlas6'].includes($('#play-engine').value)){
      const source=clone(state),engine=$('#play-engine').value,selectedPool=pool;
      screenPonder.start(selectedPool,searchSnapshot(source),{
       valid:()=>screenReady&&screenCapture?.active&&screenCapture.autoHint&&$('#mode').value==='screen'&&$('#play-engine').value===engine&&pool===selectedPool&&state.turn===source.turn&&boardKey(state)===boardKey(source),

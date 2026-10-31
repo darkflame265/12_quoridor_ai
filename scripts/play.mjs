@@ -7,6 +7,7 @@ import {randomUUID} from 'node:crypto';
 import {createNativeService} from '../server/native-service.mjs';
 import {nativeSources,digest} from '../evaluation/native-policy.mjs';
 import {createPressureService} from '../server/pressure-service.mjs';
+import {watchPressure} from './pressure-hot-reload.mjs';
 import {verifyPressureBuild} from '../evaluation/pressure-policy.mjs';
 import {runtimeFingerprint} from './runtime-identity.mjs';
 import {leaseOwner,removeUnchangedLease} from './play-lock.mjs';
@@ -45,8 +46,9 @@ if(args.includes('--stop')) {
   await new Promise(r=>setTimeout(r,200));
  }
  if(!acquired){console.error('쿼리도 실행 준비를 2분 동안 확인하지 못했습니다. 기존 실행의 준비 로그와 포트 12324 상태를 확인해 주세요.');process.exit(1);}
- let native=null,goal=null,web=null,stopping=null;const token=randomUUID();
+ let native=null,goal=null,web=null,watcher=null,stopping=null;const token=randomUUID();
  const cleanup=()=>stopping??=(async()=>{
+  watcher?.close();
   if(web){web.closeAllConnections();await new Promise(r=>web.close(r));}
   if(native)await native.close();
   if(goal)await goal.close();
@@ -70,6 +72,17 @@ if(args.includes('--stop')) {
   await new Promise((resolve,reject)=>{native.server.once('error',reject);native.server.listen(0,'127.0.0.1',resolve);});
   try{verifyPressureBuild();}catch{run('scripts/build-pressure.mjs');}
   try{goal=createPressureService({goal:true});await goal.client.health();await new Promise((resolve,reject)=>{goal.server.once('error',reject);goal.server.listen(0,'127.0.0.1',resolve);});}catch(error){console.error(`골인 안전 실험 엔진 준비 실패: ${error.message}`);if(goal)await goal.close();goal=null;}
+  // Keep the public server alive while a new goal engine builds in isolation.
+  // Never interrupt an active native search; new requests switch after it drains.
+  watcher=watchPressure({root,folder,getCurrent:()=>goal,
+   replace:async(next,isClosed)=>{
+    while(!isClosed()&&goal?.client.pending.size>0)await new Promise(r=>setTimeout(r,100));
+    if(isClosed())return;
+    const previous=goal;goal=next;
+    if(previous)await previous.close();
+   },
+   onStatus:(status,error)=>console.log('[goal hot reload]',status,error?.message??'')
+  });
   // Compile the browser contract after its engine build has been verified.
   if(!args.includes('--no-build'))run('node_modules/vite/bin/vite.js',['build']);
   const fingerprint=await runtimeFingerprint(root);

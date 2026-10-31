@@ -76,7 +76,7 @@ impl Atlas6 {
   if p.terminal(){return Ok(-29000+ply);}
   if p.moves(p.turn).into_iter().any(|a|goal(a as usize,p.turn)){return Ok(28999-ply);}
   let stand=Self::evaluate(p);
-  if remaining<=0 || p.left[p.turn]==0 || p.distance(1-p.turn,false)>3{return Ok(stand);}
+  if remaining<=0 || p.distance(1-p.turn,false)>2{return Ok(stand);}
   let t=p.turn;let o=1-t;
   let own=p.distance(t,false);let enemy=p.distance(o,false);
   // Only search forcing continuations. Do not assume a quiet evaluation
@@ -84,7 +84,7 @@ impl Atlas6 {
   let urgent=enemy<=1;
   let mut candidates=Vec::new();
   for a in p.actions(){
-   if a<81{continue;}
+   if a<81{if urgent{candidates.push((a,-1));}continue;}
    let u=p.make(a);
    let own_after=p.distance(t,false);let enemy_after=p.distance(o,false);
    p.unmake(u);
@@ -98,7 +98,7 @@ impl Atlas6 {
   // Stand pat is only safe when there is no immediate opponent goal threat.
   let mut best=if urgent{-32000}else{stand};
   if !urgent{alpha=alpha.max(stand);if alpha>=beta{return Ok(alpha);}}
-  for (a,_) in candidates.into_iter().take(if urgent{20}else{4}){
+  for (a,_) in candidates.into_iter().take(if urgent{12}else{3}){
    let u=p.make(a);
    let r=self.tactical_leaf(p,-beta,-alpha,ply+1,remaining-1);
    p.unmake(u);
@@ -110,7 +110,7 @@ impl Atlas6 {
  } fn search_node(&mut self,p:&mut Position,depth:i32,mut alpha:i32,beta:i32,ply:i32)->Result<i32,()>{
   self.nodes+=1;if self.nodes&31==0&&!self.check(){return Err(());}
   if p.terminal(){return Ok(-29000+ply);}
-  if depth<=0{return self.tactical_leaf(p,alpha,beta,ply,2);}
+  if depth<=0{return self.tactical_leaf(p,alpha,beta,ply,4);}
   let key=p.key();let cached=self.table.get(&key).copied();
   if let Some(e)=cached{if e.depth>=depth{if e.flag==0||e.flag==1&&e.score<=alpha||e.flag==2&&e.score>=beta{return Ok(e.score);}}}
   let original=alpha;let mut best=-32000;let mut best_move=0;

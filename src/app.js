@@ -1,5 +1,6 @@
 import {defenseContinuation} from './defense-continuation.js';
 import {ScreenPonder} from './screen-ponder.js';
+import {preferCompletedSearch} from './fixed-result.js';
 import {progressSnapshot,progressReview} from './progress-review.js';
 import {budgetReason} from './analysis-budget.js';
 import {analysisReadiness,analysisTiming,positionVerdict} from './analysis-readiness.js';
@@ -193,9 +194,11 @@ function think(auto=false,reason='manual-analysis'){
   stop(reason);busy=true;clearAnalysis();const id=serial,source=clone(state),selectedPool=watching()?watchPool(state.turn):pool;
   render();$('#analysis').textContent='가능한 이동과 벽을 분석하고 있습니다…';
   if(!auto&&!watching()&&$('#time').value==='variable'){startVariable(selectedPool,source,id);return;}
-  selectedPool.search(searchSnapshot(state),{defenseReply:expectedDefense(state,$('#play-engine').value),wallStreak:observedWallStreak(state.turn),ms:watching()?watchSettings(state.turn).ms:playMs(),onProgress:r=>{if(id===serial)writeAnalysis(r);}}).then(r=>{
+  const prepared=searchSnapshot(state),defenseReply=expectedDefense(state,$('#play-engine').value),wallStreak=observedWallStreak(state.turn);
+  const pondered=!watching()?screenPonder.take(selectedPool,prepared,{defenseReply,wallStreak}):null;
+  selectedPool.search(prepared,{defenseReply:expectedDefense(state,$('#play-engine').value),wallStreak:observedWallStreak(state.turn),ms:watching()?watchSettings(state.turn).ms:playMs(),onProgress:()=>{}}).then(r=>{
     if(id!==serial)return;if(!r.pv?.length)throw Error('추천 가능한 수가 없습니다.');
-    writeAnalysis({...r,done:true});busy=false;if(auto){commitMove(r.pv[0]);writeAnalysis(r,'선택',source);}else {persist();render();}
+    r=preferCompletedSearch(r,pondered);writeAnalysis({...r,done:true});busy=false;if(auto){commitMove(r.pv[0]);writeAnalysis(r,'선택',source);}else {persist();render();}
   }).catch(error=>{if(id!==serial||error.name==='AbortError')return;stop();render();$('#analysis').textContent=error.message;});
 }
 function variableStatus(){

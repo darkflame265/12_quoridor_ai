@@ -21,7 +21,7 @@ export class ScreenPonder {
  stop({clear=false}={}){this.generation++;if(this.running){this.engine?.cancel();this.running=false;}this.position=null;if(clear){this.cache.clear();this.engine=null;}}
  take(engine,state,options){
   const entry=this.cache.get(ponderKey(state,options));
-  if(!entry||entry.engine!==engine||entry.build!==engine.native?.info?.engineInfo?.build||Date.now()-entry.at>60000||!legal(state,entry.result.pv[0]))return null;
+  if(!entry||!entry.complete||entry.engine!==engine||entry.build!==engine.native?.info?.engineInfo?.build||Date.now()-entry.at>60000||!legal(state,entry.result.pv[0]))return null;
   return {...structuredClone(entry.result),done:false,ponderReused:true,ponderMs:entry.computeMs};
  }
  async start(engine,state,{prepare,valid,onStatus=()=>{}}){
@@ -40,14 +40,14 @@ export class ScreenPonder {
     if(!current()||performance.now()-started>=15000)return;
     const child=apply(state,action);if(child.winner!==null)continue;
     const prepared=prepare(child,action),key=ponderKey(prepared.state,prepared.options),computeStart=performance.now();
-    const save=result=>{
+    const save=(result,complete=false)=>{
      if(!current()||!result.pv?.length||!legal(child,result.pv[0]))return;
      const old=this.cache.get(key);if(old?.engine===engine&&(old.result.depth??0)>(result.depth??0))return;
-     this.cache.set(key,{engine,build:engine.native?.info?.engineInfo?.build,at:Date.now(),result:structuredClone(result),computeMs:performance.now()-computeStart});
+     this.cache.set(key,{engine,build:engine.native?.info?.engineInfo?.build,at:Date.now(),result:structuredClone(result),computeMs:performance.now()-computeStart,complete});
      if(this.cache.size>6)this.cache.delete(this.cache.keys().next().value);
     };
     const result=await engine.search(prepared.state,{...prepared.options,ms:Math.min(ms,15000-(performance.now()-started)),cores:1,ponder:true,onProgress:save});
-    save(result);
+    save(result,true);
    }
   }catch(error){if(current()&&error.name!=='AbortError')onStatus('unavailable');}
   finally{if(generation===this.generation){this.running=false;onStatus('idle');}}

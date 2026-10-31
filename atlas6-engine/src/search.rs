@@ -33,14 +33,49 @@ impl Atlas6 {
   list.sort_unstable_by(|a,b|b.1.cmp(&a.1).then(a.0.cmp(&b.0)));
   list.into_iter().map(|x|x.0).collect()
  }
- fn search_node(&mut self,p:&mut Position,depth:i32,mut alpha:i32,beta:i32,ply:i32)->Result<i32,()>{
+ // Keep forced goal blocks and high-impact path cuts even when their
+ // immediate ordering score is low. Every retained wall remains legal.
+ fn tactical_candidates(&mut self,p:&mut Position,tt:Option<u16>,limit:usize)->Vec<u16>{
+  let ranked=self.ordered(p,tt);
+  if ranked.len()<=limit{return ranked;}
+  let t=p.turn;let enemy=1-t;
+  let current=p.distance(t,false);
+  let mut forcing=Vec::new();
+  for &a in &ranked{
+   if a<81{
+    let u=p.make(a);let win=p.terminal();p.unmake(u);
+    if win{forcing.push(a);}
+    continue;
+   }
+   let u=p.make(a);
+   let enemy_dist=p.distance(enemy,false);
+   let own_dist=p.distance(t,false);
+   p.unmake(u);
+   // Blocks that materially damage the opponent's race are protected.
+   if enemy_dist-own_dist>=2{forcing.push(a);}
+  }
+  let mut out:Vec<u16>=ranked.iter().take(limit).copied().collect();
+  for a in forcing.into_iter().take(6){if !out.contains(&a){out.push(a);}}
+  // Protect every legal wall that stops a one-step goal by the opponent.
+  if p.distance(enemy,false)<=1 && p.left[t]>0{
+   for &a in &ranked{
+    if a<81 || out.contains(&a){continue;}
+    let u=p.make(a);
+    let stopped=p.distance(enemy,false)>1;
+    p.unmake(u);
+    if stopped{out.push(a);}
+   }
+  }
+  let _=current;
+  out
+ } fn search_node(&mut self,p:&mut Position,depth:i32,mut alpha:i32,beta:i32,ply:i32)->Result<i32,()>{
   self.nodes+=1;if self.nodes&31==0&&!self.check(){return Err(());}
   if p.terminal(){return Ok(-29000+ply);}
   if depth<=0{return Ok(Self::evaluate(p));}
   let key=p.key();let cached=self.table.get(&key).copied();
   if let Some(e)=cached{if e.depth>=depth{if e.flag==0||e.flag==1&&e.score<=alpha||e.flag==2&&e.score>=beta{return Ok(e.score);}}}
   let original=alpha;let mut best=-32000;let mut best_move=0;
-  let actions=self.ordered(p,cached.map(|e|e.best)); let actions:Vec<u16>=actions.into_iter().take(if depth>=3{14}else{20}).collect();
+  let actions=self.tactical_candidates(p,cached.map(|e|e.best),if depth>=3{14}else{20});
   for a in actions{
    let u=p.make(a);
    let value=self.search_node(p,depth-1,-beta,-alpha,ply+1);
@@ -60,7 +95,7 @@ impl Atlas6 {
   let mut p=Position::from_state(state)?;
   let mut result=SearchResult{pv:vec![],score:0,depth:0,nodes:0,elapsed_ms:0.,engine:"Atlas 6 · Independent Alpha-Beta".into(),done:true};
   if p.terminal(){return Ok(result);}
-  let mut roots=self.ordered(&mut p,None); roots.truncate(24);
+  let mut roots=self.tactical_candidates(&mut p,None,24);
   if roots.is_empty(){return Ok(result);}
   result.pv=vec![decode(roots[0])];
   for depth in 1..=48{

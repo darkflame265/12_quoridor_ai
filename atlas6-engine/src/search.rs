@@ -98,7 +98,7 @@ impl Atlas6 {
   // Stand pat is only safe when there is no immediate opponent goal threat.
   let mut best=if urgent{-32000}else{stand};
   if !urgent{alpha=alpha.max(stand);if alpha>=beta{return Ok(alpha);}}
-  for (a,_) in candidates.into_iter().take(if urgent{12}else{4}){
+  for (a,_) in candidates.into_iter().take(if urgent{20}else{4}){
    let u=p.make(a);
    let r=self.tactical_leaf(p,-beta,-alpha,ply+1,remaining-1);
    p.unmake(u);
@@ -167,7 +167,23 @@ impl Atlas6 {
 #[cfg(test)]
 mod atlas6_tests{
  use super::*;
- #[test]fn legal_opening(){let s=serde_json::from_str::<State>(r#"{"p":[{"x":4,"y":8},{"x":4,"y":0}],"walls":[],"left":[10,10],"turn":0,"winner":null}"#).unwrap();
+ #[test]fn preserves_every_one_step_goal_block(){
+  let s=serde_json::from_str::<State>(r#"{"p":[{"x":4,"y":8},{"x":4,"y":7}],"walls":[],"left":[10,10],"turn":0,"winner":null}"#).unwrap();
+  let mut p=Position::from_state(&s).unwrap();
+  let mut e=Atlas6::new();
+  let all=p.actions();
+  let mut defenses=Vec::new();
+  for a in all{
+   if a<81{continue;}
+   let u=p.make(a);
+   let blocks=p.distance(1,false)>1;
+   p.unmake(u);
+   if blocks{defenses.push(a);}
+  }
+  assert!(!defenses.is_empty());
+  let selected=e.tactical_candidates(&mut p,None,1);
+  for a in defenses{assert!(selected.contains(&a),"missing legal immediate goal defense: {a}");}
+ } #[test]fn legal_opening(){let s=serde_json::from_str::<State>(r#"{"p":[{"x":4,"y":8},{"x":4,"y":0}],"walls":[],"left":[10,10],"turn":0,"winner":null}"#).unwrap();
  let mut e=Atlas6::new();let r=e.search(&s,100.,1,Arc::new(AtomicBool::new(false))).unwrap();
  assert!(!r.pv.is_empty());assert!(r.depth>=1);assert!(r.elapsed_ms<350.);
  }

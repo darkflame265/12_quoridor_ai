@@ -1,10 +1,10 @@
-﻿import {NativeProcess,nativeExecutable} from '../server/native-process.mjs';
+import {NativeProcess,nativeExecutable} from '../server/native-process.mjs';
 import {readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {initial,apply,legal} from '../src/engine.js';
 const atlas6=fileURLToPath(new URL('../atlas6-engine/target/release/quoridor-atlas6.exe',import.meta.url));
 const opening=JSON.parse(readFileSync('reports/game12-loss/trace.json','utf8')).rows[8].state;
-const ms=Number(process.argv[2]??500),maxPlies=Number(process.argv[3]??36);
+const ms=Number(process.argv[2]??500),maxPlies=Number(process.argv[3]??200);
 const results=[];
 for(const atlasSide of [0,1]){
  const six=new NativeProcess({executable:atlas6}),five=new NativeProcess({executable:nativeExecutable,profile:'candidate'});

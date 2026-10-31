@@ -5,7 +5,7 @@ use std::sync::Arc;
 #[serde(rename_all="camelCase")]
 pub struct SearchResult {
     pub pv:Vec<Action>,pub score:i32,pub depth:usize,pub nodes:u64,
-    pub elapsed_ms:f64,pub engine:String,pub done:bool,
+    pub elapsed_ms:f64,pub engine:String,pub done:bool,pub exact:bool,
 }
 #[derive(Clone,Copy)]
 struct CacheEntry{depth:i32,score:i32,best:u16,flag:u8}
@@ -121,10 +121,18 @@ impl FixedMaze {
     }
 }
 
-pub struct Atlas6{table:HashMap<Key,CacheEntry>,oracle:HashMap<u128,FixedMaze>,nodes:u64,deadline:Instant,cancel:Arc<AtomicBool>}
+pub struct Atlas6{table:HashMap<Key,CacheEntry>,oracle:HashMap<u128,FixedMaze>,one_wall:HashMap<(u128,u8),OneWallMaze>,nodes:u64,deadline:Instant,cancel:Arc<AtomicBool>}
 impl Atlas6 {
- pub fn new()->Self{Self{table:HashMap::new(),oracle:HashMap::new(),nodes:0,deadline:Instant::now(),cancel:Arc::new(AtomicBool::new(false))}}
+ pub fn new()->Self{Self{table:HashMap::new(),oracle:HashMap::new(),one_wall:HashMap::new(),nodes:0,deadline:Instant::now(),cancel:Arc::new(AtomicBool::new(false))}}
  fn check(&self)->bool{!self.cancel.load(Ordering::Relaxed)&&Instant::now()<self.deadline}
+ // Mate scores depend on root ply. Normalize before writing a transposition
+ // and restore relative distance when the same position is reached later.
+ fn encode_tt(score:i32,ply:i32)->i32{
+  if score>28000{score+ply}else if score< -28000{score-ply}else{score}
+ }
+ fn decode_tt(score:i32,ply:i32)->i32{
+  if score>28000{score-ply}else if score< -28000{score+ply}else{score}
+ }
  fn evaluate(p:&mut Position)->i32{
   if p.terminal(){return -29000;}
   let t=p.turn;let o=1-t;
@@ -226,6 +234,7 @@ impl Atlas6 {
   if !urgent{alpha=alpha.max(stand);if alpha>=beta{return Ok(alpha);}}
   let mut selected:Vec<u16>=candidates.iter().take(if urgent{12}else{2}).map(|(a,_)|*a).collect();
   if urgent{for &(a,_) in &candidates{if a<81 && !selected.contains(&a){selected.push(a);}}}
+
   for a in selected{
    let u=p.make(a);
    let r=self.tactical_leaf(p,-beta,-alpha,ply+1,remaining-1);
@@ -241,7 +250,7 @@ impl Atlas6 {
   if let Some(score)=self.exact_endgame(p,ply){return Ok(score);}
   if depth<=0{return self.tactical_leaf(p,alpha,beta,ply,4);}
   let key=p.key();let cached=self.table.get(&key).copied();
-  if let Some(e)=cached{if e.depth>=depth{if e.flag==0||e.flag==1&&e.score<=alpha||e.flag==2&&e.score>=beta{return Ok(e.score);}}}
+  if let Some(e)=cached{if e.depth>=depth{let score=Self::decode_tt(e.score,ply);if e.flag==0||e.flag==1&&score<=alpha||e.flag==2&&score>=beta{return Ok(score);}}}
   let original=alpha;let mut best=-32000;let mut best_move=0;
   let actions=self.tactical_candidates(p,cached.map(|e|e.best),if depth>=3{14}else{20});
   for (i,a) in actions.into_iter().enumerate(){
@@ -263,14 +272,14 @@ impl Atlas6 {
   }
   if best==-32000{return Ok(Self::evaluate(p));}
   if self.table.len()>400_000{self.table.clear();}
-  self.table.insert(key,CacheEntry{depth,score:best,best:best_move,flag:if best<=original{1}else if best>=beta{2}else{0}});
+  self.table.insert(key,CacheEntry{depth,score:Self::encode_tt(best,ply),best:best_move,flag:if best<=original{1}else if best>=beta{2}else{0}});
   Ok(best)
  }
- pub fn search(&mut self,state:&State,ms:f64,_cores:usize,cancel:Arc<AtomicBool>)->Result<SearchResult,String>{
+ pub fn search(&mut self,state:&State,ms:f64,cores:usize,cancel:Arc<AtomicBool>)->Result<SearchResult,String>{
   let start=Instant::now();self.deadline=start+Duration::from_secs_f64((ms.clamp(1.,30000.)-12.).max(1.)/1000.);
   self.cancel=cancel;self.nodes=0;
   let mut p=Position::from_state(state)?;
-  let mut result=SearchResult{pv:vec![],score:0,depth:0,nodes:0,elapsed_ms:0.,engine:"Atlas 6 · Independent Alpha-Beta".into(),done:true};
+  let mut result=SearchResult{pv:vec![],score:0,depth:0,nodes:0,elapsed_ms:0.,engine:"Atlas 6 · Independent Alpha-Beta".into(),done:true,exact:false};
   if p.terminal(){return Ok(result);}
   // Exact retrograde win/loss/draw oracle when neither player has a wall.
   // Cache by fixed maze geometry; never use an incomplete table.
@@ -284,7 +293,7 @@ impl Atlas6 {
    if let Some(table)=self.oracle.get(&p.walls){
     let (value,distance,action)=table.lookup(&p);
     if action!=u16::MAX {
-     result.pv=vec![decode(action)];
+     result.exact=true;result.pv=vec![decode(action)];
      result.score=value as i32*(29000-distance as i32);
      result.depth=distance as usize;
      result.elapsed_ms=start.elapsed().as_secs_f64()*1000.;
@@ -292,24 +301,76 @@ impl Atlas6 {
     }
    }
   }
-  let mut roots=self.tactical_candidates(&mut p,None,24);
+  // Optional exact one-wall table. A strict sub-budget leaves time for
+  // ordinary search whenever retrograde analysis is too expensive.
+  if p.left[0]+p.left[1]==1 && ms>=150. {
+   let owner=if p.left[0]==1{0u8}else{1u8};
+   let key=(p.walls,owner);
+   if !self.one_wall.contains_key(&key){
+    let remaining=self.deadline.saturating_duration_since(Instant::now());
+    let allocated=Duration::from_secs_f64((ms*0.35).min(remaining.as_secs_f64()*1000.*0.55)/1000.);
+    let probe_deadline=Instant::now()+allocated;
+    if let Ok(table)=OneWallMaze::solve(&p,probe_deadline,&self.cancel){
+     if self.one_wall.len()>=8{self.one_wall.clear();}
+     self.one_wall.insert(key,table);
+    }
+   }
+   if let Some(table)=self.one_wall.get(&key){
+    let (value,distance,action)=table.lookup(&p);
+    if action!=u16::MAX{
+     result.exact=true;result.pv=vec![decode(action)];
+     result.score=value as i32*(29000-distance as i32);
+     result.depth=distance as usize;
+     result.elapsed_ms=start.elapsed().as_secs_f64()*1000.;
+     return Ok(result);
+    }
+   }
+  }  let mut roots=self.tactical_candidates(&mut p,None,24);
   if roots.is_empty(){return Ok(result);}
   result.pv=vec![decode(roots[0])];
+  let worker_count=cores.clamp(1,4);
+  let mut workers:Vec<Atlas6>=(0..worker_count).map(|_|{let mut w=Atlas6::new();w.deadline=self.deadline;w.cancel=self.cancel.clone();w}).collect();
   for depth in 1..=48{
    if !self.check(){break;}
    let mut best=-32000;let mut chosen=roots[0];let mut complete=true;
-   for &a in &roots{
-    let u=p.make(a);
-    let r=self.search_node(&mut p,depth-1,-32000,32000,1);
-    p.unmake(u);
-    match r{Ok(score)=>{let score=-score;if score>best{best=score;chosen=a;}},Err(())=>{complete=false;break;}}
+   if worker_count>1 && depth>=3 && roots.len()>=4 {
+    let next=std::sync::atomic::AtomicUsize::new(0);
+    let scores=std::sync::Mutex::new(vec![None;roots.len()]);
+    std::thread::scope(|scope|{
+     for worker in &mut workers{
+      let positions=&p;let roots=&roots;let next=&next;let scores=&scores;
+      scope.spawn(move||{
+       while worker.check(){
+        let i=next.fetch_add(1,Ordering::Relaxed);
+        if i>=roots.len(){break;}
+        let mut child=positions.clone();
+        child.make(roots[i]);
+        let r=worker.search_node(&mut child,depth-1,-32000,32000,1).map(|x|-x);
+        scores.lock().unwrap()[i]=Some(r);
+       }
+      });
+     }
+    });
+    for (i,r) in scores.lock().unwrap().iter().enumerate(){
+     match r{
+      Some(Ok(score))=>{if *score>best{best=*score;chosen=roots[i];}},
+      _=>{complete=false;break;}
+     }
+    }
+   }else{
+    for &a in &roots{
+     let u=p.make(a);
+     let r=self.search_node(&mut p,depth-1,-32000,32000,1);
+     p.unmake(u);
+     match r{Ok(score)=>{let score=-score;if score>best{best=score;chosen=a;}},Err(())=>{complete=false;break;}}
+    }
    }
    if !complete{break;}
    result.score=best;result.depth=depth as usize;result.pv=vec![decode(chosen)];
    roots.retain(|&a|a!=chosen);roots.insert(0,chosen);
    if best>28000{break;}
   }
-  result.nodes=self.nodes;result.elapsed_ms=start.elapsed().as_secs_f64()*1000.;
+  result.nodes=self.nodes+workers.iter().map(|w|w.nodes).sum::<u64>();result.elapsed_ms=start.elapsed().as_secs_f64()*1000.;
   Ok(result)
  }
 }
@@ -341,6 +402,25 @@ mod atlas6_tests{
   assert!(result.pv.len()==1);
   assert_eq!(result.pv[0].x,4);
   assert_eq!(result.pv[0].y,0);
+ } #[test]fn transposition_mate_distance_is_root_independent(){
+  for ply in [1,3,11]{
+   for score in [28995,-28995,0,170,-220]{
+    assert_eq!(Atlas6::decode_tt(Atlas6::encode_tt(score,ply),ply),score);
+   }
+  }
+  assert_eq!(Atlas6::decode_tt(Atlas6::encode_tt(28995,3),7),28991);
+ } #[test]fn search_finds_forced_goal_and_defensive_wall(){
+  let win=serde_json::from_str::<State>(r#"{"p":[{"x":4,"y":1},{"x":4,"y":7}],"walls":[],"left":[1,1],"turn":0,"winner":null}"#).unwrap();
+  let mut ai=Atlas6::new();
+  let r=ai.search(&win,200.,4,Arc::new(AtomicBool::new(false))).unwrap();
+  assert_eq!((r.pv[0].x,r.pv[0].y),(4,0),"missed a goal in one");
+  let threatened=serde_json::from_str::<State>(r#"{"p":[{"x":0,"y":8},{"x":4,"y":7}],"walls":[],"left":[10,10],"turn":0,"winner":null}"#).unwrap();
+  let mut ai=Atlas6::new();
+  let r=ai.search(&threatened,350.,4,Arc::new(AtomicBool::new(false))).unwrap();
+  let mut p=Position::from_state(&threatened).unwrap();
+  let chosen=p.actions().into_iter().find(|&a|{let decoded=decode(a);decoded.kind==r.pv[0].kind && decoded.x==r.pv[0].x && decoded.y==r.pv[0].y && decoded.o==r.pv[0].o}).expect("selected move not legal");
+  p.make(chosen);
+  assert!(!p.moves(1).iter().any(|&a|goal(a as usize,1)),"failed to stop opponent's one-move goal");
  } #[test]fn legal_opening(){let s=serde_json::from_str::<State>(r#"{"p":[{"x":4,"y":8},{"x":4,"y":0}],"walls":[],"left":[10,10],"turn":0,"winner":null}"#).unwrap();
  let mut e=Atlas6::new();let r=e.search(&s,100.,1,Arc::new(AtomicBool::new(false))).unwrap();
  assert!(!r.pv.is_empty());assert!(r.depth>=1);assert!(r.elapsed_ms<350.);

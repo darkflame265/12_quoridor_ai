@@ -1,0 +1,42 @@
+﻿# Atlas 6 실력 개선 및 검증 기록 (2026-11-01)
+
+최종 목표는 사람과 기존 AI에 대한 실제 승률 향상이다. 모든 대국에서의 승리를 보장하지 않는다.
+
+## 이번 구현
+- 1·2·4코어 루트 병렬 탐색. 워커별 전용 Transposition Table.
+- Transposition Table의 승패까지 남은 수 정규화.
+- 벽이 **0개**인 상태에 이어 **총 1개** 남은 상태도 역산으로 승/패/무를 정확히 판단한다.
+  - 총 1개 남았을 때 제한 시간의 35% 이내에서 완성 가능하면 결과를 사용.
+  - 증명이 완료되지 않으면 기존 반복 심화 탐색으로 전환. 부분 표 사용 금지.
+- 강제 골인과 상대 즉시 골인 차단에 대한 전술 정답 검사.
+- 역사적 패배 배치 13개와 시드 기반 합법 배치 87개, 총 100개 시작 배치.
+- 최대 200수 대국 평가기, 선후공 페어링, 빌드/배치 SHA-256 및 종료 사유 기록, 안전 저장/재개.
+- 200판 이상·다양한 시작점·실제 승률·시간 준수를 모두 요구하는 별도 승격 게이트.
+
+## 검증된 것과 검증되지 않은 것
+- 500ms, 7배치 평균 완료 깊이: 1코어 4.43 / 2코어 4.57 / 4코어 5.29 (벽 연장 실험 전 측정).
+- 총 1개 벽 종반 예제 약 100ms 내 정확한 결과; 수평 반사 및 벽 0개 자식과 승패 일치.
+- 소규모 4코어 대국: Atlas 5.3 상대 1승 3패, Atlas 0.4 상대 4승 (특정 2개 배치). 통계적 승률 증거가 아님.
+- 연결벽 전술을 무조건 6수 연장하는 시도는 4코어 평균 깊이를 5.29에서 4.43으로 떨어뜨려 철회.
+- 마지막 벽 가치 가중치 실험은 이전 버전과 2승 2패라 채택하지 않음.
+
+## 실행법
+```powershell
+node scripts/build-atlas6.mjs
+node --test scripts/check-atlas6-game12.test.mjs scripts/check-atlas6-losses.test.mjs scripts/check-atlas6-endgame.test.mjs scripts/atlas6-release-gate.test.mjs
+node scripts/benchmark-atlas6.mjs 500 7
+node scripts/tournament-atlas6.mjs --games 200 --ms 500 --opponent atlas53 --out reports/atlas6-tournament/atlas53-200.json
+node scripts/tournament-atlas6.mjs --games 200 --ms 500 --opponent atlas04 --out reports/atlas6-tournament/atlas04-200.json
+# 중단 후 동일 조건일 때 --resume 추가
+node evaluation/atlas6-release-gate.mjs reports/atlas6-tournament/atlas53-200.json
+```
+
+## 남은 핵심 작업
+1. **2개 벽 종반의 정확한 승패 증명**: 가능한 벽 배치 경우가 늘어나므로 추가 탐색표·시간 제어가 필요하다.
+2. **중반 연속벽 전술용 증명/회귀 테스트**: 광범위한 연장은 계산력을 크게 떨어뜨린다. 실제 강제 대응만 늘려야 한다.
+3. **500ms 기준 200판씩 완료한 Atlas 5.3/0.4 평가**: 소규모·반복 대국만으로 실력 상승 판단 불가.
+4. **평가 함수 후보의 실전 A/B 게이트**: 점수 가중치만 바꿔도 과적합·실력 저하가 발생한다.
+5. **원본 소스 변경 후 Atlas 6 서비스 핫스왑과 취소 검증**: 실행 중 빌드와 중단이 제대로 적용되어야 한다.
+6. **독립 인간 플레이어 대전 및 다양한 전략 검증**: 강한 기존 AI에 대한 결과만으로 인간을 상대로 항상 이긴다고 판단할 수 없다.
+
+Atlas 6 기본 엔진 승격은 별도 대국 검증을 통과할 때까지 보류한다.

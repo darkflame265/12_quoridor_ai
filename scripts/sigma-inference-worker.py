@@ -159,21 +159,50 @@ def choose(s,allowed,history=None):
      if g[p[1]][p[0]]<best_dist:fresh.append(c)
     if fresh:close=fresh
     dbg['afterFilter']=[to_action(s,c.action) for c in close[:5]]
-  winning=[c for c in close if to_action(s,c.action)['type']=='move' and to_action(s,c.action)['y']==(0 if s['turn']==0 else 8)]
-  if winning:selected=winning[0].action
-  elif danger and close:
-   # Do not blindly replace a well-searched PUCT leader just to avoid a
-   # recurring square. A candidate must have enough search evidence AND
-   # similar estimated win value from the same root's perspective.
-   leader=choices[0]
-   best_q=-leader.q_value
-   viable=[c for c in close if c.visit_count>=max(5,leader.visit_count*0.40) and (-c.q_value)>=best_q-0.10]
-   selected=(viable[0] if viable else leader).action
-   dbg['safeReplacement']={'chosen':to_action(s,selected),'bestValue':best_q,'qualified':len(viable),'keptLeader':not viable}
-  elif len(close)>1 and ply<44:
-   temp=0.65 if ply<20 else 0.35
-   selected=RNG.choices(close,weights=[max(1,c.visit_count)**(1/temp) for c in close],k=1)[0].action
-  else:selected=close[0].action
+  # Exact legal immediate goal takes priority over stochastic selection or
+  # cycle-prevention candidate filters. Evaluate ALL legal pawn moves.
+  forced_goals=[a for a in actions if isinstance(a,PawnAction) and
+    to_action(s,a)['type']=='move' and to_action(s,a)['y']==(0 if s['turn']==0 else 8)
+    and json.dumps(to_action(s,a),sort_keys=True,separators=(',',':')) in allowed]
+  if forced_goals:
+   selected=forced_goals[0]
+   dbg['terminalOverride']='immediate-legal-goal'
+  else:
+   # Exact one-reply tactical guard near the finish: never knowingly give
+   # the opponent a one-move goal if another explored move prevents it.
+   # This guard does not consume extra MCTS simulations.
+   other=1-s['turn']
+   otherpos=state.player1pos if other==0 else state.player2pos
+   if (other==0 and otherpos[1]>=7) or (other==1 and otherpos[1]<=1):
+    safe=[]
+    for c in choices:
+     after=state.next(c.action)
+     if after.winner()!=0:continue
+     unsafe=any(isinstance(reply,PawnAction) and after.next(reply).winner()!=0 for reply in after.get_legal_actions() if isinstance(reply,PawnAction))
+     if not unsafe:safe.append(c)
+    if safe:
+     choices=safe
+     selected=safe[0].action
+     close=[c for c in close if c in safe] or [safe[0]]
+     dbg['terminalOverride']='one-reply-safety'
+
+  if not forced_goals and dbg.get('terminalOverride')!='one-reply-safety':
+   winning=[c for c in close if to_action(s,c.action)['type']=='move' and to_action(s,c.action)['y']==(0 if s['turn']==0 else 8)]
+
+   if winning:selected=winning[0].action
+   elif danger and close:
+    # Do not blindly replace a well-searched PUCT leader just to avoid a
+    # recurring square. A candidate must have enough search evidence AND
+    # similar estimated win value from the same root's perspective.
+    leader=choices[0]
+    best_q=-leader.q_value
+    viable=[c for c in close if c.visit_count>=max(5,leader.visit_count*0.40) and (-c.q_value)>=best_q-0.10]
+    selected=(viable[0] if viable else leader).action
+    dbg['safeReplacement']={'chosen':to_action(s,selected),'bestValue':best_q,'qualified':len(viable),'keptLeader':not viable}
+   elif len(close)>1 and ply<44:
+    temp=0.65 if ply<20 else 0.35
+    selected=RNG.choices(close,weights=[max(1,c.visit_count)**(1/temp) for c in close],k=1)[0].action
+   else:selected=close[0].action
 
  result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE,'simulations':sims if MODE=='puct' else 0,'reusedTree':VARIANT=='sigma2' and SIGMA2_REUSE}
  if DIAGNOSTICS:

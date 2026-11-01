@@ -52,7 +52,18 @@ try{
    if(s.winner!==null)reason='goal';
   }
   const hash=createHash('sha256').update(JSON.stringify(trace.map(x=>x.action))).digest('hex');
-  report.completed.push({index:i,winner:s.winner,winnerVariant:s.winner===null?null:compare?((s.winner+i)%2===0?'sigma1':'sigma2'):'sigma1',reason,plies:trace.length,hash,cachedMoves,trace});
+  // Cutoff is not a Quoridor draw. Record loops to diagnose failing finishers.
+  const fullPositionKeys=new Set(),pawnVisits=new Map();let revisitedPositions=0;
+  for(const step of trace){
+   const state=step.state;
+   const key=JSON.stringify([state.p,state.walls,state.left,state.turn]);
+   if(fullPositionKeys.has(key))revisitedPositions++;
+   fullPositionKeys.add(key);
+   const pawnKey=step.side+':'+state.p[step.side].x+','+state.p[step.side].y;
+   pawnVisits.set(pawnKey,(pawnVisits.get(pawnKey)||0)+1);
+  }
+  const cutoff=s.winner===null?{kind:'simulation-limit',notDraw:true,limit:200,fullPositionRevisits:revisitedPositions,uniqueFullPositions:fullPositionKeys.size,finalDistances:[distance(s,0),distance(s,1)]}:null;
+  report.completed.push({index:i,winner:s.winner,winnerVariant:s.winner===null?null:compare?((s.winner+i)%2===0?'sigma1':'sigma2'):'sigma1',reason,plies:trace.length,hash,cachedMoves,cutoff,trace});
   const tmp=out+'.tmp';writeFileSync(tmp,JSON.stringify(report)+'\n');renameSync(tmp,out);
   console.log(i+1+'/'+games,'winner',s.winner,'plies',trace.length,'unique',new Set(report.completed.map(g=>g.hash)).size);
  }

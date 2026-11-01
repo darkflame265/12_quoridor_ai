@@ -1,0 +1,37 @@
+{
+  "candidate": "Sigma PUCT",
+  "opponent": "Atlas 5.3",
+  "fixtureIds": [
+    "seed-20261101-064",
+    "seed-20261101-065"
+  ],
+  "pairedSides": true,
+  "exploratory": true,
+  "results": {
+    "puct20": {
+      "games": 4,
+      "wins": 2,
+      "losses": 2,
+      "undecided": 0,
+      "maxSigmaMs": 64.53759999931208,
+      "seed64SigmaFirst": "loss"
+    },
+    "puct50": {
+      "games": 4,
+      "wins": 3,
+      "losses": 1,
+      "undecided": 0,
+      "maxSigmaMs": 210.32729999933508,
+      "seed64SigmaFirst": "loss"
+    },
+    "puct100": {
+      "games": 4,
+      "wins": 3,
+      "losses": 1,
+      "undecided": 0,
+      "maxSigmaMs": 284.6739999986312,
+      "seed64SigmaFirst": "loss"
+    }
+  },
+  "note": "Small matched-fixture comparison; does not establish population win rate. Original 50 simulations result drawn from 20-game evaluation."
+}

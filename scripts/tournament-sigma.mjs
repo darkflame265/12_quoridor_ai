@@ -1,6 +1,6 @@
 import {spawn} from 'node:child_process';
 import readline from 'node:readline';
-import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
+import {readFileSync,writeFileSync,mkdirSync,existsSync,renameSync} from 'node:fs';
 import {NativeProcess,nativeExecutable} from '../server/native-process.mjs';
 import {pressureExecutable} from '../evaluation/pressure-policy.mjs';
 import {legal,apply,moves,validWall} from '../src/engine.js';
@@ -11,6 +11,7 @@ if(!Number.isInteger(games)||games<2||games>2000||!Number.isInteger(startPair)||
 const opponent=opt('--opponent','atlas53');
 if(!['atlas53','atlas04'].includes(opponent))throw Error('Unknown opponent');
 const captureLosses=process.argv.includes('--capture-losses');
+const resume=process.argv.includes('--resume');
 const reportFile=opt('--out',`reports/atlas6-reborn/sigma-${mode}-${sims}sim-vs-${opponent}-start${startPair}-${games}.json`);
 const py=spawn('python',['-u','scripts/sigma-inference-worker.py'],{stdio:['pipe','pipe','inherit'],windowsHide:true,env:{...process.env,SIGMA_MODE:mode,SIGMA_SIMS:String(sims)}});
 let seq=0;const pending=new Map();
@@ -18,11 +19,17 @@ let readyResolve;const ready=new Promise(resolve=>readyResolve=resolve);
 readline.createInterface({input:py.stdout}).on('line',line=>{let x;try{x=JSON.parse(line);}catch{return;}if(x.ready){readyResolve();return;}const t=pending.get(x.id);if(t){pending.delete(x.id);if(x.error)t.reject(Error(x.error));else t.resolve(x);}});
 const allLegal=state=>{const out=moves(state);if(state.left[state.turn]>0)for(let y=0;y<8;y++)for(let x=0;x<8;x++)for(const o of ['h','v']){const a={type:'wall',x,y,o};if(validWall(state,a))out.push(a);}return out.map(a=>JSON.stringify(Object.fromEntries(Object.entries(a).sort(([a],[b])=>a.localeCompare(b)))));};
 const query=state=>new Promise((resolve,reject)=>{const id=String(++seq);const timer=setTimeout(()=>{pending.delete(id);reject(Error('Sigma hard deadline 500ms exceeded'));},500);pending.set(id,{resolve:v=>{clearTimeout(timer);resolve(v)},reject:e=>{clearTimeout(timer);reject(e)}});py.stdin.write(JSON.stringify({id,state,allowed:allLegal(state)})+'\n');});
-const r={candidate:'Sigma PUCT '+sims,opponent:opponent==='atlas04'?'Atlas 0.4':'Atlas 5.3',sims,startPair,requested:games,games:[],wins:0,losses:0,undecided:0,forfeits:0,overruns:0};
+let r={candidate:'Sigma PUCT '+sims,opponent:opponent==='atlas04'?'Atlas 0.4':'Atlas 5.3',sims,startPair,requested:games,games:[],wins:0,losses:0,undecided:0,forfeits:0,overruns:0};
 mkdirSync('reports/atlas6-reborn',{recursive:true});
+if(resume&&existsSync(reportFile)){
+ const previous=JSON.parse(readFileSync(reportFile,'utf8'));
+ if(previous.candidate!==r.candidate||previous.opponent!==r.opponent||previous.sims!==sims||previous.startPair!==startPair||previous.requested!==games||previous.games.length>games)throw Error('Resume report configuration mismatch');
+ r=previous;
+}
+const save=()=>{const tmp=reportFile+'.tmp';writeFileSync(tmp,JSON.stringify(r,null,2)+'\n');renameSync(tmp,reportFile);};
 try{
 await ready;
-for(let i=0;i<games;i++){
+for(let i=r.games.length;i<games;i++){
  const sigmaSide=i%2,fixture=fixtures[startPair+Math.floor(i/2)];
  let s=structuredClone(fixture.state),reason='ply-cap',forfeit=false,maxSigmaMs=0;
  const trace=[];
@@ -43,7 +50,7 @@ for(let i=0;i<games;i++){
  r[verdict==='win'?'wins':verdict==='loss'?'losses':'undecided']++;
  if(forfeit)r.forfeits++;
  r.games.push({fixture:fixture.id,sigmaSide,verdict,reason,maxSigmaMs,...(captureLosses&&verdict!=='win'?{opening:fixture.state,trace,finalState:s}:{})});
- writeFileSync(reportFile,JSON.stringify(r,null,2)+'\n');
+ save();
  console.log(i+1+'/'+games,verdict,'overall',r.wins+'W',r.losses+'L', 'maxSigmaMs',maxSigmaMs.toFixed(1));
 }
 }finally{py.kill();}

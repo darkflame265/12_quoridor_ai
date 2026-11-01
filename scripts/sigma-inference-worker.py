@@ -9,6 +9,7 @@ MODEL=ROOT/'models/best.onnx'
 SESSION=ort.InferenceSession(str(MODEL),providers=['CPUExecutionProvider'])
 PERM=vert_policy_permutation(9)
 MODE=os.getenv("SIGMA_MODE","policy")
+DIAGNOSTICS=os.getenv('SIGMA_DIAGNOSTICS')=='1'
 if MODE=="puct":
  from mcts import MCTSAgent
  def evaluator(state,actions):
@@ -35,6 +36,7 @@ def choose(s,allowed):
  ranked=sorted(((float(scores[PERM[action_to_index(a,9)]] if s['turn'] else scores[action_to_index(a,9)]),a) for a in actions if json.dumps(to_action(s,a),sort_keys=True,separators=(',',':')) in allowed),key=lambda x:x[0],reverse=True)
  if not ranked: raise ValueError('No Sigma action matched authoritative legal action set')
  selected=ranked[0][1]
+ root=None
  if MODE=='puct':
   agent=MCTSAgent(evaluator=evaluator,num_simulations=int(os.getenv('SIGMA_SIMS','20')),c_puct=1.2,training=False)
   root=agent.search(state)
@@ -42,7 +44,11 @@ def choose(s,allowed):
   for child in children:
    if json.dumps(to_action(s,child.action),sort_keys=True,separators=(',',':')) in allowed:
     selected=child.action;break
- return {'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE}
+ result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE}
+ if DIAGNOSTICS:
+  visits={json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')):c.visit_count for c in root.children} if root else {}
+  result['diagnostics']={'topCandidates':[{'action':to_action(s,a),'policyLogit':score,'visits':visits.get(json.dumps(to_action(s,a),sort_keys=True,separators=(',',':')),0)} for score,a in ranked[:8]],'rootValue':float(value[0][0])}
+ return result
 print(json.dumps({"ready":True}),flush=True)
 for line in sys.stdin:
  try:

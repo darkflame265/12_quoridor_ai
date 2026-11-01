@@ -48,7 +48,7 @@ const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.tur
 const flipped=()=>viewFlipped(Number($('#side').value),$('#start-position').value);
 const viewPosition=p=>orientPosition(p,flipped());
 const viewAction=a=>orientAction(a,flipped());
-const engineName=id=>id==='sigma'?'Atlas 6 · 실험':id==='atlas5'?'Atlas 5.3 · 안정':'Atlas 0.4 · 최신';
+const engineName=id=>id==='sigma'?'Sigma 1':id==='atlas5'?'Atlas 5.3 ? ??':'Atlas 0.4 ? ??';
 function statusFor(selector){return (status,info)=>{
  const label=info?.engineInfo;
  if(selector==='#engine-status')$(selector).hidden=!['stale','unavailable','wasm'].includes(status);

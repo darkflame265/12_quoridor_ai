@@ -8,6 +8,10 @@ import path from 'node:path';
 import {apply,legal} from '../src/engine.js';
 
 const atlas=fileURLToPath(new URL('../atlas6-reborn-engine/target/release/quoridor-atlas6-reborn.exe',import.meta.url));
+// Fail fast if profile routing changes; labels alone are not proof of engine identity.
+const route=readSync(new URL('../atlas6-reborn-engine/src/main.rs',import.meta.url),'utf8');
+const nativeRoute=readSync(new URL('../native-engine/src/main.rs',import.meta.url),'utf8');
+if(!/"reborn"\s*=>\s*2/.test(route)||!/"candidate"\s*=>\s*2/.test(nativeRoute))throw Error('Actual 5.3 profile routing mismatch');
 const args=process.argv.slice(2);
 const opt=(k,d)=>{const i=args.indexOf(k);return i<0?d:args[i+1];};
 const games=Number(opt('--games','200')),ms=Number(opt('--ms','500'));

@@ -67,3 +67,8 @@
 - Original 5.3 and Reborn agreed on all 10 tested start-position moves and depths, with 13 Rust tests passing.
 - Real Atlas5.3 baseline tournament on 5 paired openings 080-084, 500ms/4cores: Reborn 6 wins 4 losses and no overrun. Since both engines use the same policy, this is a noisy equivalence baseline, NOT an algorithmic improvement.
 - No proven strength improvement has been implemented in this correction. The next independent experiment must use the actual 5.3 candidate build as control, a separate unchanged baseline binary, identical paired starts, and held-out evaluation.
+
+## 2026-11-01 rejected root-LMR experiment
+- Tested removing root late-move reductions against actual Atlas5.3 candidate on paired openings 080-083 at 500ms/4cores: 4W 4L, all four wins as side 0 and all four losses as side 1; no confirmed advantage. Reverted the experimental search change.
+- Added fail-fast source profile checks in the tournament runner to detect mapping errors before future labeled matches.
+- No AI strength improvement demonstrated. Need larger held-out paired A/B, opening-balance audit, independent mistake proofs, then targeted engine changes.

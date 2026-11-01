@@ -25,3 +25,10 @@ F. **Release:** 15-game gate after each code change, independent 200+ games and 
 ## Current status
 
 Research and initial source acquisition only. No independent MCTS engine, verified Sigma weights, new 15-game contender benchmark, 200-game result, human-play win rate or 80% result exist yet. The existing original-equivalence Reborn stays in place; do not promote an untested replacement.
+
+## 2026-11-01 actual external MCTS integration and screening
+- Vendor MIT-licensed gorisanson JS browser engine under vendor/gorisanson-quoridor-ai with copyright/license intact. scripts/external-mcts-bridge.mjs reconstructs game state and uses original MCTS search through isolated Node vm; the adapter checks each selected action against our authoritative game rules.
+- scripts/test-external-mcts-bridge.mjs passed pawn/wall legal-move checks for 100 existing fixture states. In an earlier experiment with strict wall replay and 30 simulations, illegal move and reconstruction failures occurred. Those matches are INVALID as strength comparison (0/15 including forfeits). Corrected replay for final test; 100-simulation experiment has ZERO forfeits.
+- scripts/tournament-external-mcts-vs53.mjs ran exactly 15 games on paired openings 085-092 against true native profile candidate (5.3), at opponent 500ms/4 cores. External MCTS with 100 simulations: **0W/15L = 0.0%**, zero illegal-move forfeits, zero reported over-budget moves; observed external per-move maximum across games 101.4ms. Same reference openings old Reborn clone 7W/8L = 46.7%.
+- This experiment is intentionally NOT a fair 500ms CPU-budget comparison; it screens a small-budget JS MCTS. A 500ms hard-deadline, sufficiently many simulations, broader legality tests and deeper tactical/endgame logic are prerequisites to evaluating a serious challenger. Baseline Reborn remains unchanged; no 80% claim.
+- SigmaQuoridor model archive acquisition timed out; no neural inference, training, 200-game validation or human playtests completed.

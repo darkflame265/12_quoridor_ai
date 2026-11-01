@@ -9,8 +9,8 @@ if(!Number.isInteger(games)||games<1||games>500||!Number.isFinite(exploration)||
 const out=option('--out','reports/sigma-selfplay/sigma1-vs-sigma1.json');
 const compare=process.argv.includes('--compare');
 const sigma2Sims=Number(option('--sigma2-sims',200)),sigma2Reuse=process.argv.includes('--sigma2-reuse');
-if(!Number.isInteger(sigma2Sims)||sigma2Sims<1||sigma2Sims>5000)throw Error('Invalid Sigma2 sims');
-const version=compare?'sigma1-vs-sigma2-experimental-v1':'sigma1-puct50-selfplay-v1';
+if(!Number.isInteger(sigma2Sims)||sigma2Sims<1||sigma2Sims>200)throw Error('Invalid Sigma2 sims');
+const version=compare?'sigma1-vs-sigma2-capped200-v2':'sigma1-puct50-selfplay-v1';
 const processes=[0,1].map(side=>{
  const child=spawn('python',['-u','scripts/sigma-inference-worker.py'],{stdio:['pipe','pipe','inherit'],windowsHide:true,env:{...process.env,SIGMA_MODE:'puct',SIGMA_SIMS:'50',SIGMA_DIAGNOSTICS:'1',SIGMA_EXPLORATION:String(exploration),SIGMA_SEED:String(seed+side*1000003),SIGMA_VARIANT:compare?(side===0?'sigma1':'sigma2'):'sigma1',SIGMA2_SIMS:String(sigma2Sims),SIGMA2_REUSE:sigma2Reuse?'1':'0'}});
  const pending=new Map();
@@ -28,12 +28,23 @@ if(process.argv.includes('--resume')&&existsSync(out)){
  if(prev.version!==version||prev.modelHash!==modelHash||prev.gamesRequested!==games||prev.exploration!==exploration||prev.seed!==seed||prev.compare!==compare||prev.sigma2Sims!==sigma2Sims||prev.sigma2Reuse!==sigma2Reuse||prev.completed.length>games)throw Error('Selfplay resume settings mismatch');
  report=prev;
 }
+const memo=new Map();
+const canMemo=compare&&exploration===0&&!sigma2Reuse;
+const keyOf=(workerIndex,state)=>JSON.stringify([workerIndex,state.p,state.walls,state.left,state.turn]);
+if(canMemo)for(const game of report.completed)for(const turn of game.trace){
+ const workerIndex=(turn.side+game.index)%2;
+ memo.set(keyOf(workerIndex,turn.state),{pv:[turn.action],value:turn.value,elapsedMs:turn.elapsedMs,diagnostics:turn.diagnostics,cached:true});
+}
 try{
  await Promise.all(processes.map(p=>p.ready));
  for(let i=report.completed.length;i<games;i++){
-  let s=initial();const trace=[];let reason='ply-cap';const history=[];
+  let s=initial();const trace=[];let reason='ply-cap';const history=[];let cachedMoves=0;
   for(let ply=0;ply<200&&s.winner===null;ply++){
-   const side=s.turn,workerIndex=compare?(side+i)%2:side,choice=await processes[workerIndex].move(s,String(i)+'-'+String(ply),actionsOf(s),history.slice(-32));
+   const side=s.turn,workerIndex=compare?(side+i)%2:side;
+   const key=keyOf(workerIndex,s);
+   const choice=(canMemo&&memo.get(key))||await processes[workerIndex].move(s,String(i)+'-'+String(ply),actionsOf(s),history.slice(-32));
+   if(canMemo&&!choice.cached)memo.set(key,choice);
+   if(choice.cached)cachedMoves++;
    const action=choice.pv?.[0];if(!action||!legal(s,action))throw Error('Illegal Sigma action');
    const next=apply(s,action);history.push({side,position:{...s.p[side]}});
    trace.push({ply,side,state:s,action,value:choice.value,elapsedMs:choice.elapsedMs,diagnostics:choice.diagnostics,pathBefore:[distance(s,0),distance(s,1)],pathAfter:[distance(next,0),distance(next,1)]});
@@ -41,7 +52,7 @@ try{
    if(s.winner!==null)reason='goal';
   }
   const hash=createHash('sha256').update(JSON.stringify(trace.map(x=>x.action))).digest('hex');
-  report.completed.push({index:i,winner:s.winner,winnerVariant:s.winner===null?null:compare?((s.winner+i)%2===0?'sigma1':'sigma2'):'sigma1',reason,plies:trace.length,hash,trace});
+  report.completed.push({index:i,winner:s.winner,winnerVariant:s.winner===null?null:compare?((s.winner+i)%2===0?'sigma1':'sigma2'):'sigma1',reason,plies:trace.length,hash,cachedMoves,trace});
   const tmp=out+'.tmp';writeFileSync(tmp,JSON.stringify(report)+'\n');renameSync(tmp,out);
   console.log(i+1+'/'+games,'winner',s.winner,'plies',trace.length,'unique',new Set(report.completed.map(g=>g.hash)).size);
  }

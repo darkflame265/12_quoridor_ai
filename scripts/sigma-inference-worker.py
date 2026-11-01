@@ -15,6 +15,7 @@ VARIANT=os.getenv('SIGMA_VARIANT','sigma1')
 import random
 RNG=random.Random(int(os.getenv('SIGMA_SEED','0')))
 SIGMA2_SIMS=int(os.getenv('SIGMA2_SIMS','200'))
+if not 1 <= SIGMA2_SIMS <= 200:raise ValueError('Sigma2 PUCT simulations must be between 1 and 200')
 SIGMA2_REUSE=os.getenv('SIGMA2_REUSE','0')=='1'
 PERSISTENT_AGENT=None
 if MODE=="puct":

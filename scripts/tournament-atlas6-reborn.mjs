@@ -14,6 +14,7 @@ const games=Number(opt('--games','200')),ms=Number(opt('--ms','500'));
 const opponent=opt('--opponent','atlas53'),cores=Number(opt('--cores','4'));
 const split=opt('--split','all'),resume=args.includes('--resume');
 const captureLosses=args.includes('--capture-losses');
+const captureAll=args.includes('--capture-all');
 const startPair=Number(opt('--start-pair','0'));
 const out=opt('--out','reports/atlas6-reborn/report-'+opponent+'.json');
 if(!Number.isInteger(games)||games<2||games>2000||games%2||
@@ -66,7 +67,7 @@ for(let i=report.finished;i<games;i++){
    const elapsed=performance.now()-start;
    if(elapsed>ms+25 || response.elapsedMs>ms+10)overruns++;
    if(!response.pv?.length||!legal(state,response.pv[0]))throw Error('Illegal move: '+fixture.id+' ply '+ply);
-   if(captureLosses)trace.push({ply,side:state.turn,role:state.turn===atlasSide?'atlas6':opponent,state:structuredClone(state),action:response.pv[0],depth:response.depth,nodes:response.nodes,score:response.score,exact:response.exact,elapsedMs:response.elapsedMs});
+   if(captureLosses||captureAll)trace.push({ply,side:state.turn,role:state.turn===atlasSide?'atlas6':opponent,state:structuredClone(state),action:response.pv[0],depth:response.depth,nodes:response.nodes,score:response.score,exact:response.exact,elapsedMs:response.elapsedMs});
    state=apply(state,response.pv[0]);plies++;
    if(state.winner!==null)reason='goal';
   }
@@ -74,7 +75,7 @@ for(let i=report.finished;i<games;i++){
   report[verdict==='win'?'wins':verdict==='loss'?'losses':verdict==='draw'?'draws':'undecided']++;
   report.results.push({fixture:fixture.id,atlasSide,verdict,winner:state.winner,reason,plies,overruns});
   report.moves+=plies;report.overruns+=overruns;report.finished++;
-  if(captureLosses&&verdict==='loss'){const directory=path.join(path.dirname(out),path.basename(out,path.extname(out))+'-loss-traces');await mkdir(directory,{recursive:true});await writeFile(path.join(directory,String(i).padStart(4,'0')+'-'+fixture.id+'.json'),JSON.stringify({fixture:fixture.id,atlasSide,reason,plies,trace,finalState:state},null,2)+'\n');}
+  if(captureAll||captureLosses&&verdict==='loss'){const directory=path.join(path.dirname(out),path.basename(out,path.extname(out))+'-traces');await mkdir(directory,{recursive:true});await writeFile(path.join(directory,String(i).padStart(4,'0')+'-'+fixture.id+'.json'),JSON.stringify({fixture:fixture.id,atlasSide,verdict,reason,plies,trace,finalState:state,engineBuild:identity.engineBuild,opponentBuild:identity.opponentBuild},null,2)+'\n');}
   validateBinaries();
   await save();
   console.log(i+1+'/'+games,fixture.id,'side',atlasSide,verdict,plies,reason);

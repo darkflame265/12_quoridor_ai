@@ -1,0 +1,83 @@
+{
+  "source": "reports/sigma-selfplay/sigma2-200-compare2.json",
+  "version": "sigma1-vs-sigma2-experimental-v1",
+  "requested": 2,
+  "completed": 2,
+  "uniqueGames": 2,
+  "duplicates": 0,
+  "winners": {
+    "side0": 1,
+    "side1": 0,
+    "undecided": 1
+  },
+  "winnerVariants": {
+    "sigma1": 0,
+    "sigma2": 1
+  },
+  "averagePlies": 125.5,
+  "wallsUsed": [
+    15,
+    11
+  ],
+  "wallImpact": {
+    "positive": 8,
+    "neutral": 17,
+    "negative": 1
+  },
+  "tacticalPositions": 74,
+  "selectedWithoutMostVisits": 2,
+  "opponentOneMoveFromGoal": 1,
+  "hotspots": [
+    {
+      "game": 1,
+      "ply": 49,
+      "side": 1,
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 0
+      },
+      "opponentDistance": 1,
+      "candidateMoves": [
+        {
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 0
+          },
+          "policyLogit": 0.9989687204360962,
+          "visits": 10
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          },
+          "policyLogit": 0.7131744623184204,
+          "visits": 8
+        },
+        {
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h"
+          },
+          "policyLogit": 0.2250199317932129,
+          "visits": 5
+        },
+        {
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "o": "h"
+          },
+          "policyLogit": 0,
+          "visits": 4
+        }
+      ]
+    }
+  ]
+}

@@ -14,6 +14,9 @@ EXPLORATION=float(os.getenv('SIGMA_EXPLORATION','0'))
 VARIANT=os.getenv('SIGMA_VARIANT','sigma1')
 import random
 RNG=random.Random(int(os.getenv('SIGMA_SEED','0')))
+SIGMA2_SIMS=int(os.getenv('SIGMA2_SIMS','200'))
+SIGMA2_REUSE=os.getenv('SIGMA2_REUSE','0')=='1'
+PERSISTENT_AGENT=None
 if MODE=="puct":
  from mcts import MCTSAgent
  def evaluator(state,actions):
@@ -42,7 +45,12 @@ def choose(s,allowed,history=None):
  selected=ranked[0][1]
  root=None
  if MODE=='puct':
-  agent=MCTSAgent(evaluator=evaluator,num_simulations=int(os.getenv('SIGMA_SIMS','20')),c_puct=1.2,training=False)
+  global PERSISTENT_AGENT
+  sims=SIGMA2_SIMS if VARIANT=='sigma2' else int(os.getenv('SIGMA_SIMS','20'))
+  if VARIANT=='sigma2' and SIGMA2_REUSE:
+   if PERSISTENT_AGENT is None:PERSISTENT_AGENT=MCTSAgent(evaluator=evaluator,num_simulations=sims,c_puct=1.2,training=False)
+   agent=PERSISTENT_AGENT
+  else:agent=MCTSAgent(evaluator=evaluator,num_simulations=sims,c_puct=1.2,training=False)
   root=agent.search(state)
   children=sorted(root.children,key=lambda child:child.visit_count,reverse=True)
   choices=[c for c in children if json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')) in allowed]
@@ -51,66 +59,9 @@ def choose(s,allowed,history=None):
    if EXPLORATION>0 and RNG.random()<EXPLORATION:
     pool=choices[:min(4,len(choices))]
     selected=RNG.choices([c.action for c in pool],weights=[max(1,c.visit_count) for c in pool])[0]
- if VARIANT=='sigma2':
-  # Tactical safety: take an immediate legal goal, otherwise avoid a
-  # zero-impact wall when a visited pawn move makes real path progress.
-  goal=0 if s['turn']==0 else 8
-  win=[a for _,a in ranked if to_action(s,a)['type']=='move' and to_action(s,a)['y']==goal]
-  if win:
-   selected=win[0]
-  elif MODE=='puct' and root is not None:
-   # Sigma 2 only: use Sigma's complete legal pawn generation (including
-   # jumps and diagonal contact) to evaluate a forced opponent goal.
-   # Evaluate all root actions, then preserve PUCT visit ordering among safe
-   # replies. This avoids relying on vertical-step-only heuristics.
-   def pawn_at_goal_after(next_state,action):
-    if not isinstance(action,PawnAction):return False
-    resulting=next_state.next(action)
-    if next_state.is_player1_turn():
-     return resulting.player1pos[1]==8
-    return resulting.player2pos[1]==0
-   def gives_opponent_goal(root_action):
-    after=state.next(root_action)
-    return any(pawn_at_goal_after(after,reply) for reply in after.get_legal_actions() if isinstance(reply,PawnAction))
-   selected_child=next((c for c in choices if c.action==selected),None)
-   if selected_child is not None and gives_opponent_goal(selected):
-    safe_children=[c for c in choices if not gives_opponent_goal(c.action)]
-    if safe_children:
-     selected=max(safe_children,key=lambda c:c.visit_count).action
-   proposed=to_action(s,selected)
-   if proposed['type']=='wall':
-    from collections import deque
-    def pathlen(player,additional=None):
-     walls=s['walls']+([additional] if additional else [])
-     p=s['p'][player];target=0 if player==0 else 8
-     q=deque([(p['x'],p['y'],0)]);seen={(p['x'],p['y'])}
-     while q:
-      x,y,d=q.popleft()
-      if y==target:return d
-      for dx,dy in ((0,1),(0,-1),(1,0),(-1,0)):
-       nx,ny=x+dx,y+dy
-       if not (0<=nx<9 and 0<=ny<9) or (nx,ny) in seen:continue
-       blocked=any((w['o']=='h' and x==nx and min(y,ny)==w['y'] and x in (w['x'],w['x']+1)) or (w['o']=='v' and y==ny and min(x,nx)==w['x'] and y in (w['y'],w['y']+1)) for w in walls)
-       if not blocked:seen.add((nx,ny));q.append((nx,ny,d+1))
-     return 100
-    own=s['turn'];opp=1-own
-    baseOwn=pathlen(own);baseOpp=pathlen(opp)
-    wallImpact=(pathlen(opp,proposed)-baseOpp)-(pathlen(own,proposed)-baseOwn)
-    if wallImpact<=0:
-     visited=sorted(root.children,key=lambda c:c.visit_count,reverse=True)
-     for child in visited:
-      candidate=to_action(s,child.action)
-      if candidate['type']!='move':continue
-      if json.dumps(candidate,sort_keys=True,separators=(',',':')) not in allowed:continue
-      nextState=dict(s,p=[dict(p) for p in s['p']]);nextState['p'][own]=dict(x=candidate['x'],y=candidate['y'])
-      # Prefer moving only if it strictly reduces the shortest route,
-      # and PUCT actually visited the alternative.
-      sSaved=s;s=nextState
-      after=pathlen(own)
-      s=sSaved
-      if after<baseOwn and child.visit_count>=2:
-       selected=child.action;break
- result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE}
+ # Sigma 2 uses the same neural model and PUCT with more simulations;
+ # no unverified tactical action overrides.
+ result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE,'simulations':sims if MODE=='puct' else 0,'reusedTree':VARIANT=='sigma2' and SIGMA2_REUSE}
  if DIAGNOSTICS:
   visits={json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')):c.visit_count for c in root.children} if root else {}
   result['diagnostics']={'topCandidates':[{'action':to_action(s,a),'policyLogit':score,'visits':visits.get(json.dumps(to_action(s,a),sort_keys=True,separators=(',',':')),0)} for score,a in ranked[:8]],'rootValue':float(value[0][0])}

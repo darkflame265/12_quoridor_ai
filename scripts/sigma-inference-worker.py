@@ -60,8 +60,31 @@ def choose(s,allowed,history=None):
    if EXPLORATION>0 and RNG.random()<EXPLORATION:
     pool=choices[:min(4,len(choices))]
     selected=RNG.choices([c.action for c in pool],weights=[max(1,c.visit_count) for c in pool])[0]
- # Sigma 2 uses the same neural model and PUCT with more simulations;
- # no unverified tactical action overrides.
+ if VARIANT=='sigma2' and MODE=='puct' and choices:
+  # Choose only similarly visited candidates and discourage exact full-state loops.
+  ply=int(s.get('ply',0))
+  close=[c for c in choices if c.visit_count>=max(3,choices[0].visit_count*0.72)]
+  if not close:close=[choices[0]]
+  if history:
+   def state_key(v):
+    return (tuple((p['x'],p['y']) for p in v['p']),tuple(sorted((w['x'],w['y'],w['o']) for w in v['walls'])),tuple(v['left']),v['turn'])
+   repeats={state_key(h['state']) for h in history if 'state' in h}
+   fresh=[]
+   for c in close:
+    a=to_action(s,c.action)
+    nxt={'p':[dict(p) for p in s['p']],'walls':list(s['walls']),'left':list(s['left']),'turn':1-s['turn']}
+    if a['type']=='move':nxt['p'][s['turn']]={'x':a['x'],'y':a['y']}
+    else:
+     nxt['walls'].append(a);nxt['left'][s['turn']]-=1
+    if state_key(nxt) not in repeats:fresh.append(c)
+   if fresh:close=fresh
+  winning=[c for c in close if to_action(s,c.action)['type']=='move' and to_action(s,c.action)['y']==(0 if s['turn']==0 else 8)]
+  if winning:selected=winning[0].action
+  elif len(close)>1 and ply<44:
+   temp=0.65 if ply<20 else 0.35
+   selected=RNG.choices(close,weights=[max(1,c.visit_count)**(1/temp) for c in close],k=1)[0].action
+  else:selected=close[0].action
+
  result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE,'simulations':sims if MODE=='puct' else 0,'reusedTree':VARIANT=='sigma2' and SIGMA2_REUSE}
  if DIAGNOSTICS:
   visits={json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')):c.visit_count for c in root.children} if root else {}

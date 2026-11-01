@@ -29,7 +29,7 @@ if(process.argv.includes('--resume')&&existsSync(out)){
  report=prev;
 }
 const memo=new Map();
-const canMemo=compare&&exploration===0&&!sigma2Reuse;
+const canMemo=false; // Sigma2 samples competitive candidates, so avoid memoized replays.
 const keyOf=(workerIndex,state)=>JSON.stringify([workerIndex,state.p,state.walls,state.left,state.turn]);
 if(canMemo)for(const game of report.completed)for(const turn of game.trace){
  const workerIndex=(turn.side+game.index)%2;
@@ -42,11 +42,11 @@ try{
   for(let ply=0;ply<200&&s.winner===null;ply++){
    const side=s.turn,workerIndex=compare?(side+i)%2:side;
    const key=keyOf(workerIndex,s);
-   const choice=(canMemo&&memo.get(key))||await processes[workerIndex].move(s,String(i)+'-'+String(ply),actionsOf(s),history.slice(-32));
+   const choice=(canMemo&&memo.get(key))||await processes[workerIndex].move({...s,ply},String(i)+'-'+String(ply),actionsOf(s),history.slice(-48));
    if(canMemo&&!choice.cached)memo.set(key,choice);
    if(choice.cached)cachedMoves++;
    const action=choice.pv?.[0];if(!action||!legal(s,action))throw Error('Illegal Sigma action');
-   const next=apply(s,action);history.push({side,position:{...s.p[side]}});
+   const next=apply(s,action);history.push({side,position:{...s.p[side]},state:s});
    trace.push({ply,side,state:s,action,value:choice.value,elapsedMs:choice.elapsedMs,diagnostics:choice.diagnostics,pathBefore:[distance(s,0),distance(s,1)],pathAfter:[distance(next,0),distance(next,1)]});
    s=next;
    if(s.winner!==null)reason='goal';

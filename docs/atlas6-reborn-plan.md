@@ -83,3 +83,9 @@
 - Baseline 7W/8L (46.7%) -> trial 6W/9L (40.0%), delta -6.7pp. 9 losing game traces saved locally. Results changed in five corresponding starts; not evidence of causal blunders by itself.
 - Rejected and reverted experiment. 15 games are for rapid regression screening, NOT statistically conclusive strength proof.
 - Still required: first causal blunder with alternate rollout, independent wall tactics, 0-2-wall endgame proof, evaluation A/B, 200 held-out paired games, human opponents, CPU/server timing.
+
+## 2026-11-01 loss audit and worker efficiency
+- scripts/audit-atlas6-reborn-losses.mjs audited nine trace files from the REJECTED tactical-protection experiment (not the unchanged current baseline): 19 wall placements without immediate net path advantage, 101 exact oracle returns, zero missing root diagnostics. These are heuristics, not proven losing moves.
+- scripts/benchmark-atlas6-reborn-cores.mjs compared 1/2/4 cores at four opening states, 500ms: mean depths 3.50/3.75/3.75; mean nodes 21797/27977/34282. Same selected action per state across all three core settings. This is a tiny benchmark and does not prove more efficient play.
+- No new engine search change was accepted. Current standard Atlas5.3 head-to-head remains 7W/8L, 46.7% (15 games); this is NOT a fresh matchup.
+- Further steps require actual baseline losses with trace capture, independent tactical counterfactuals and exact endgame verification, controlled evaluation improvements, and 15-game plus 200-game paired comparisons. Human opponent tests require real human game records.

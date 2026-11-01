@@ -11,7 +11,7 @@ const allowed=state=>{
  return actions.map(a=>JSON.stringify(Object.fromEntries(Object.entries(a).sort(([a],[b])=>a.localeCompare(b)))));
 };
 export class SigmaProcess {
- constructor(){this.profile='sigma-puct50';this.child=null;this.pending=new Map();this.ready=null;}
+ constructor(){this.profile='sigma1';this.child=null;this.pending=new Map();this.ready=null;}
  ensure(){
   if(this.child)return this.ready;
   const child=spawn('python',['-u','scripts/sigma-inference-worker.py'],{env:{...process.env,SIGMA_MODE:'puct',SIGMA_SIMS:'50'},stdio:['pipe','pipe','pipe'],windowsHide:true});
@@ -35,7 +35,7 @@ export class SigmaProcess {
   });
   return this.ready;
  }
- async health(){await this.ensure();return {engine:'sigma-puct50',ready:true};}
+ async health(){await this.ensure();return {engine:'sigma1',ready:true};}
  async search(state,{id=randomUUID(),onProgress=()=>{}}={}){
   await this.ensure();
   return new Promise((resolve,reject)=>{

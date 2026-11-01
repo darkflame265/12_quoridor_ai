@@ -52,28 +52,46 @@ def choose(s,allowed,history=None):
     pool=choices[:min(4,len(choices))]
     selected=RNG.choices([c.action for c in pool],weights=[max(1,c.visit_count) for c in pool])[0]
  if VARIANT=='sigma2':
-  # Keep the original network and PUCT 50 policy as the baseline.
-  # Only use move repetition avoidance for a recent backtracking loop.
+  # Tactical safety: take an immediate legal goal, otherwise avoid a
+  # zero-impact wall when a visited pawn move makes real path progress.
   goal=0 if s['turn']==0 else 8
   win=[a for _,a in ranked if to_action(s,a)['type']=='move' and to_action(s,a)['y']==goal]
   if win:
    selected=win[0]
-  elif MODE=='puct' and root is not None and history:
-   recent=[(h['position']['x'],h['position']['y']) for h in history[-24:] if h['side']==s['turn']]
-   current=s['p'][s['turn']]
-   previous=(current['x'],current['y'])
+  elif MODE=='puct' and root is not None:
    proposed=to_action(s,selected)
-   if proposed['type']=='move' and (proposed['x'],proposed['y']) in recent[-6:]:
-    alternatives=[]
-    for c in sorted(root.children,key=lambda child:child.visit_count,reverse=True):
-     a=to_action(s,c.action)
-     if json.dumps(a,sort_keys=True,separators=(',',':')) not in allowed:continue
-     if a['type']=='move' and (a['x'],a['y']) not in recent[-6:]:
-      progress=abs(previous[1]-goal)-abs(a['y']-goal)
-      alternatives.append((progress,c.visit_count,c.action))
-    if alternatives:
-     alternatives.sort(key=lambda t:(t[0],t[1]),reverse=True)
-     selected=alternatives[0][2]
+   if proposed['type']=='wall':
+    from collections import deque
+    def pathlen(player,additional=None):
+     walls=s['walls']+([additional] if additional else [])
+     p=s['p'][player];target=0 if player==0 else 8
+     q=deque([(p['x'],p['y'],0)]);seen={(p['x'],p['y'])}
+     while q:
+      x,y,d=q.popleft()
+      if y==target:return d
+      for dx,dy in ((0,1),(0,-1),(1,0),(-1,0)):
+       nx,ny=x+dx,y+dy
+       if not (0<=nx<9 and 0<=ny<9) or (nx,ny) in seen:continue
+       blocked=any((w['o']=='h' and x==nx and min(y,ny)==w['y'] and x in (w['x'],w['x']+1)) or (w['o']=='v' and y==ny and min(x,nx)==w['x'] and y in (w['y'],w['y']+1)) for w in walls)
+       if not blocked:seen.add((nx,ny));q.append((nx,ny,d+1))
+     return 100
+    own=s['turn'];opp=1-own
+    baseOwn=pathlen(own);baseOpp=pathlen(opp)
+    wallImpact=(pathlen(opp,proposed)-baseOpp)-(pathlen(own,proposed)-baseOwn)
+    if wallImpact<=0:
+     visited=sorted(root.children,key=lambda c:c.visit_count,reverse=True)
+     for child in visited:
+      candidate=to_action(s,child.action)
+      if candidate['type']!='move':continue
+      if json.dumps(candidate,sort_keys=True,separators=(',',':')) not in allowed:continue
+      nextState=dict(s,p=[dict(p) for p in s['p']]);nextState['p'][own]=dict(x=candidate['x'],y=candidate['y'])
+      # Prefer moving only if it strictly reduces the shortest route,
+      # and PUCT actually visited the alternative.
+      sSaved=s;s=nextState
+      after=pathlen(own)
+      s=sSaved
+      if after<baseOwn and child.visit_count>=2:
+       selected=child.action;break
  result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE}
  if DIAGNOSTICS:
   visits={json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')):c.visit_count for c in root.children} if root else {}

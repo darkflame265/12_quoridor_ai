@@ -1,0 +1,1137 @@
+{
+  "source": "uploaded quoridor-game (13).json main 41-action segment",
+  "count": 41,
+  "replayed": 41,
+  "firstInvalid": null,
+  "final": {
+    "p": [
+      {
+        "x": 1,
+        "y": 3
+      },
+      {
+        "x": 1,
+        "y": 7
+      }
+    ],
+    "walls": [
+      {
+        "type": "wall",
+        "o": "h",
+        "x": 0,
+        "y": 6,
+        "owner": 0
+      },
+      {
+        "type": "wall",
+        "o": "h",
+        "x": 4,
+        "y": 2,
+        "owner": 1
+      },
+      {
+        "type": "wall",
+        "o": "h",
+        "x": 2,
+        "y": 6,
+        "owner": 0
+      },
+      {
+        "type": "wall",
+        "o": "v",
+        "x": 4,
+        "y": 6,
+        "owner": 1
+      },
+      {
+        "type": "wall",
+        "o": "v",
+        "x": 4,
+        "y": 3,
+        "owner": 0
+      },
+      {
+        "type": "wall",
+        "o": "v",
+        "x": 3,
+        "y": 3,
+        "owner": 1
+      },
+      {
+        "type": "wall",
+        "o": "h",
+        "x": 2,
+        "y": 4,
+        "owner": 1
+      },
+      {
+        "type": "wall",
+        "o": "v",
+        "x": 3,
+        "y": 5,
+        "owner": 0
+      },
+      {
+        "type": "wall",
+        "o": "h",
+        "x": 5,
+        "y": 4,
+        "owner": 1
+      },
+      {
+        "type": "wall",
+        "o": "v",
+        "x": 5,
+        "y": 5,
+        "owner": 1
+      },
+      {
+        "type": "wall",
+        "o": "h",
+        "x": 1,
+        "y": 3,
+        "owner": 1
+      },
+      {
+        "type": "wall",
+        "o": "h",
+        "x": 4,
+        "y": 7,
+        "owner": 0
+      },
+      {
+        "type": "wall",
+        "o": "h",
+        "x": 0,
+        "y": 2,
+        "owner": 1
+      },
+      {
+        "type": "wall",
+        "o": "h",
+        "x": 6,
+        "y": 7,
+        "owner": 0
+      },
+      {
+        "type": "wall",
+        "o": "v",
+        "x": 5,
+        "y": 7,
+        "owner": 1
+      },
+      {
+        "type": "wall",
+        "o": "h",
+        "x": 2,
+        "y": 7,
+        "owner": 0
+      },
+      {
+        "type": "wall",
+        "o": "v",
+        "x": 2,
+        "y": 3,
+        "owner": 1
+      }
+    ],
+    "left": [
+      3,
+      0
+    ],
+    "turn": 1,
+    "winner": null
+  },
+  "decisions": [
+    {
+      "ply": 1,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "before": [
+        8,
+        8
+      ],
+      "after": [
+        7,
+        8
+      ],
+      "remainingWalls": [
+        10,
+        10
+      ]
+    },
+    {
+      "ply": 2,
+      "side": 1,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 1
+      },
+      "before": [
+        7,
+        8
+      ],
+      "after": [
+        7,
+        7
+      ],
+      "remainingWalls": [
+        10,
+        10
+      ]
+    },
+    {
+      "ply": 3,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 6
+      },
+      "before": [
+        7,
+        7
+      ],
+      "after": [
+        6,
+        7
+      ],
+      "remainingWalls": [
+        10,
+        10
+      ]
+    },
+    {
+      "ply": 4,
+      "side": 1,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 2
+      },
+      "before": [
+        6,
+        7
+      ],
+      "after": [
+        6,
+        6
+      ],
+      "remainingWalls": [
+        10,
+        10
+      ]
+    },
+    {
+      "ply": 5,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 5
+      },
+      "before": [
+        6,
+        6
+      ],
+      "after": [
+        5,
+        6
+      ],
+      "remainingWalls": [
+        10,
+        10
+      ]
+    },
+    {
+      "ply": 6,
+      "side": 1,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      },
+      "before": [
+        5,
+        6
+      ],
+      "after": [
+        5,
+        5
+      ],
+      "remainingWalls": [
+        10,
+        10
+      ]
+    },
+    {
+      "ply": 7,
+      "side": 0,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 0,
+        "y": 6
+      },
+      "before": [
+        5,
+        5
+      ],
+      "after": [
+        5,
+        5
+      ],
+      "remainingWalls": [
+        9,
+        10
+      ]
+    },
+    {
+      "ply": 8,
+      "side": 1,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 4,
+        "y": 2
+      },
+      "before": [
+        5,
+        5
+      ],
+      "after": [
+        6,
+        5
+      ],
+      "remainingWalls": [
+        9,
+        9
+      ]
+    },
+    {
+      "ply": 9,
+      "side": 0,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 2,
+        "y": 6
+      },
+      "before": [
+        6,
+        5
+      ],
+      "after": [
+        6,
+        5
+      ],
+      "remainingWalls": [
+        8,
+        9
+      ]
+    },
+    {
+      "ply": 10,
+      "side": 1,
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 4,
+        "y": 6
+      },
+      "before": [
+        6,
+        5
+      ],
+      "after": [
+        6,
+        5
+      ],
+      "remainingWalls": [
+        8,
+        8
+      ]
+    },
+    {
+      "ply": 11,
+      "side": 0,
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 4,
+        "y": 3
+      },
+      "before": [
+        6,
+        5
+      ],
+      "after": [
+        6,
+        5
+      ],
+      "remainingWalls": [
+        7,
+        8
+      ]
+    },
+    {
+      "ply": 12,
+      "side": 1,
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 3,
+        "y": 3
+      },
+      "before": [
+        6,
+        5
+      ],
+      "after": [
+        6,
+        5
+      ],
+      "remainingWalls": [
+        7,
+        7
+      ]
+    },
+    {
+      "ply": 13,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 5
+      },
+      "before": [
+        6,
+        5
+      ],
+      "after": [
+        5,
+        5
+      ],
+      "remainingWalls": [
+        7,
+        7
+      ]
+    },
+    {
+      "ply": 14,
+      "side": 1,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 2,
+        "y": 4
+      },
+      "before": [
+        5,
+        5
+      ],
+      "after": [
+        7,
+        5
+      ],
+      "remainingWalls": [
+        7,
+        6
+      ]
+    },
+    {
+      "ply": 15,
+      "side": 0,
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 3,
+        "y": 5
+      },
+      "before": [
+        7,
+        5
+      ],
+      "after": [
+        7,
+        5
+      ],
+      "remainingWalls": [
+        6,
+        6
+      ]
+    },
+    {
+      "ply": 16,
+      "side": 1,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 5,
+        "y": 4
+      },
+      "before": [
+        7,
+        5
+      ],
+      "after": [
+        7,
+        5
+      ],
+      "remainingWalls": [
+        6,
+        5
+      ]
+    },
+    {
+      "ply": 17,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 5
+      },
+      "before": [
+        7,
+        5
+      ],
+      "after": [
+        6,
+        5
+      ],
+      "remainingWalls": [
+        6,
+        5
+      ]
+    },
+    {
+      "ply": 18,
+      "side": 1,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 4
+      },
+      "before": [
+        6,
+        5
+      ],
+      "after": [
+        6,
+        4
+      ],
+      "remainingWalls": [
+        6,
+        5
+      ]
+    },
+    {
+      "ply": 19,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 5
+      },
+      "before": [
+        6,
+        4
+      ],
+      "after": [
+        5,
+        4
+      ],
+      "remainingWalls": [
+        6,
+        5
+      ]
+    },
+    {
+      "ply": 20,
+      "side": 1,
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 5,
+        "y": 5
+      },
+      "before": [
+        5,
+        4
+      ],
+      "after": [
+        5,
+        4
+      ],
+      "remainingWalls": [
+        6,
+        4
+      ]
+    },
+    {
+      "ply": 21,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "before": [
+        5,
+        4
+      ],
+      "after": [
+        4,
+        4
+      ],
+      "remainingWalls": [
+        6,
+        4
+      ]
+    },
+    {
+      "ply": 22,
+      "side": 1,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 1,
+        "y": 3
+      },
+      "before": [
+        4,
+        4
+      ],
+      "after": [
+        5,
+        4
+      ],
+      "remainingWalls": [
+        6,
+        3
+      ]
+    },
+    {
+      "ply": 23,
+      "side": 0,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 4,
+        "y": 7
+      },
+      "before": [
+        5,
+        4
+      ],
+      "after": [
+        5,
+        5
+      ],
+      "remainingWalls": [
+        5,
+        3
+      ]
+    },
+    {
+      "ply": 24,
+      "side": 1,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 5
+      },
+      "before": [
+        5,
+        5
+      ],
+      "after": [
+        5,
+        4
+      ],
+      "remainingWalls": [
+        5,
+        3
+      ]
+    },
+    {
+      "ply": 25,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 4
+      },
+      "before": [
+        5,
+        4
+      ],
+      "after": [
+        4,
+        4
+      ],
+      "remainingWalls": [
+        5,
+        3
+      ]
+    },
+    {
+      "ply": 26,
+      "side": 1,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 0,
+        "y": 2
+      },
+      "before": [
+        4,
+        4
+      ],
+      "after": [
+        6,
+        4
+      ],
+      "remainingWalls": [
+        5,
+        2
+      ]
+    },
+    {
+      "ply": 27,
+      "side": 0,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 6,
+        "y": 7
+      },
+      "before": [
+        6,
+        4
+      ],
+      "after": [
+        6,
+        4
+      ],
+      "remainingWalls": [
+        4,
+        2
+      ]
+    },
+    {
+      "ply": 28,
+      "side": 1,
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 5,
+        "y": 7
+      },
+      "before": [
+        6,
+        4
+      ],
+      "after": [
+        6,
+        4
+      ],
+      "remainingWalls": [
+        4,
+        1
+      ]
+    },
+    {
+      "ply": 29,
+      "side": 0,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 2,
+        "y": 7
+      },
+      "before": [
+        6,
+        4
+      ],
+      "after": [
+        6,
+        6
+      ],
+      "remainingWalls": [
+        3,
+        1
+      ]
+    },
+    {
+      "ply": 30,
+      "side": 1,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 6
+      },
+      "before": [
+        6,
+        6
+      ],
+      "after": [
+        6,
+        5
+      ],
+      "remainingWalls": [
+        3,
+        1
+      ]
+    },
+    {
+      "ply": 31,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "before": [
+        6,
+        5
+      ],
+      "after": [
+        6,
+        5
+      ],
+      "remainingWalls": [
+        3,
+        1
+      ]
+    },
+    {
+      "ply": 32,
+      "side": 1,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "before": [
+        6,
+        5
+      ],
+      "after": [
+        6,
+        4
+      ],
+      "remainingWalls": [
+        3,
+        1
+      ]
+    },
+    {
+      "ply": 33,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 4
+      },
+      "before": [
+        6,
+        4
+      ],
+      "after": [
+        5,
+        4
+      ],
+      "remainingWalls": [
+        3,
+        1
+      ]
+    },
+    {
+      "ply": 34,
+      "side": 1,
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 2,
+        "y": 3
+      },
+      "before": [
+        5,
+        4
+      ],
+      "after": [
+        8,
+        4
+      ],
+      "remainingWalls": [
+        3,
+        0
+      ]
+    },
+    {
+      "ply": 35,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "before": [
+        8,
+        4
+      ],
+      "after": [
+        7,
+        4
+      ],
+      "remainingWalls": [
+        3,
+        0
+      ]
+    },
+    {
+      "ply": 36,
+      "side": 1,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 7
+      },
+      "before": [
+        7,
+        4
+      ],
+      "after": [
+        7,
+        3
+      ],
+      "remainingWalls": [
+        3,
+        0
+      ]
+    },
+    {
+      "ply": 37,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 4
+      },
+      "before": [
+        7,
+        3
+      ],
+      "after": [
+        6,
+        3
+      ],
+      "remainingWalls": [
+        3,
+        0
+      ]
+    },
+    {
+      "ply": 38,
+      "side": 1,
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 7
+      },
+      "before": [
+        6,
+        3
+      ],
+      "after": [
+        6,
+        2
+      ],
+      "remainingWalls": [
+        3,
+        0
+      ]
+    },
+    {
+      "ply": 39,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 0,
+        "y": 3
+      },
+      "before": [
+        6,
+        2
+      ],
+      "after": [
+        5,
+        2
+      ],
+      "remainingWalls": [
+        3,
+        0
+      ]
+    },
+    {
+      "ply": 40,
+      "side": 1,
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 7
+      },
+      "before": [
+        5,
+        2
+      ],
+      "after": [
+        5,
+        1
+      ],
+      "remainingWalls": [
+        3,
+        0
+      ]
+    },
+    {
+      "ply": 41,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 3
+      },
+      "before": [
+        5,
+        1
+      ],
+      "after": [
+        4,
+        1
+      ],
+      "remainingWalls": [
+        3,
+        0
+      ]
+    }
+  ],
+  "criticalWalls": [
+    {
+      "ply": 7,
+      "side": 0,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 0,
+        "y": 6
+      },
+      "before": [
+        5,
+        5
+      ],
+      "after": [
+        5,
+        5
+      ],
+      "remainingWalls": [
+        9,
+        10
+      ]
+    },
+    {
+      "ply": 9,
+      "side": 0,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 2,
+        "y": 6
+      },
+      "before": [
+        6,
+        5
+      ],
+      "after": [
+        6,
+        5
+      ],
+      "remainingWalls": [
+        8,
+        9
+      ]
+    },
+    {
+      "ply": 11,
+      "side": 0,
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 4,
+        "y": 3
+      },
+      "before": [
+        6,
+        5
+      ],
+      "after": [
+        6,
+        5
+      ],
+      "remainingWalls": [
+        7,
+        8
+      ]
+    },
+    {
+      "ply": 15,
+      "side": 0,
+      "action": {
+        "type": "wall",
+        "o": "v",
+        "x": 3,
+        "y": 5
+      },
+      "before": [
+        7,
+        5
+      ],
+      "after": [
+        7,
+        5
+      ],
+      "remainingWalls": [
+        6,
+        6
+      ]
+    },
+    {
+      "ply": 27,
+      "side": 0,
+      "action": {
+        "type": "wall",
+        "o": "h",
+        "x": 6,
+        "y": 7
+      },
+      "before": [
+        6,
+        4
+      ],
+      "after": [
+        6,
+        4
+      ],
+      "remainingWalls": [
+        4,
+        2
+      ]
+    }
+  ]
+}

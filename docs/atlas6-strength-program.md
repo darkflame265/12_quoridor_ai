@@ -127,3 +127,13 @@ Additional: root candidate score traces, CPU saturation and cancellation load te
 - Experiment summaries, fixture and binary SHA-256: evaluation/atlas6-experiment-rejections-20261101.json. A/B results do not prove general performance differences with small sample sizes.
 - One-wall oracle can legitimately decline to prove within its 500ms search sub-budget under CPU contention; proof test now requests a larger budget, and the 500ms test independently asserts legal move and elapsed time. The engine is not asserted to always complete exact proof at 500ms.
 - No actual human competition or 200-game per opponent result was completed. Atlas 6 remains experimental.
+
+
+## 2026-11-01 independent cross-engine and one-wall oracle verification
+- Atlas6 vs Atlas5.3 at 500ms, 4 cores, 20 paired games from held-out balanced openings 040-049: 4 wins, 16 losses, no timing overruns.
+- Atlas6 vs Atlas0.4 on exactly those openings: 8 wins, 11 losses, one undecided threefold repetition, no timing overruns. An undecided game is neither a win nor an automatically established draw.
+- Portable report with both engine binary hashes and fixture hashes: evaluation/atlas6-independent-strength-20261101.json.
+- New scripts/atlas6-cross-engine-review.mjs compares the moves recommended by Atlas6 and Atlas5.3 at historical loss states. They disagree at plies 1, 11, 15 of one Game11 trace; disagreement alone does not establish first losing mistake.
+- Added exhaustive pawn-transition consistency check for synthetic one-wall retrograde fixture: all nonterminal pawn configurations check that a chosen pawn move is legal, has correct WDL, and consistent DTM. Rust unit test passes.
+- Full two-wall game-state retrograde solving, opponent-forcing wall sequences, and human results remain incomplete. Full 200 games per engine have not been completed. Atlas6 remains experimental and not promoted.
+- Additional needed work: game-rule-backed threefold repetition handling, opponent-independent counterfactual evaluation, long-run server/client latency and sustained concurrency, new independent opening seeds to guard against cohort overfitting.

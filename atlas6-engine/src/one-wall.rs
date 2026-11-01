@@ -127,3 +127,39 @@ impl OneWallMaze {
         (self.outcome[id],self.distance[id],self.best[id])
     }
 }
+
+#[cfg(test)]
+mod one_wall_verification {
+ use super::*;
+ use std::sync::atomic::AtomicBool;
+ #[test]
+ fn exact_oracle_pawn_move_consistency(){
+  let fixtures:Vec<serde_json::Value>=serde_json::from_str(include_str!("../../evaluation/atlas6-endgame-fixtures.json")).unwrap();
+  let state:State=serde_json::from_value(fixtures[0]["state"].clone()).unwrap();
+  let mut p=Position::from_state(&state).unwrap();
+  let oracle=OneWallMaze::solve(&p,Instant::now()+std::time::Duration::from_secs(5),&AtomicBool::new(false)).expect("oracle");
+  for a in 0..81{
+   for b in 0..81{
+    if a==b||goal(a,0)||goal(b,1){continue;}
+    for turn in 0..2{
+     p.p=[a,b];p.turn=turn;
+     let id=FixedMaze::index(a,b,turn);
+     let (value,d,chosen)=oracle.lookup(&p);
+     let moves=p.moves(turn);
+     let child_values:Vec<_>=moves.iter().map(|&m|{
+      let child=if turn==0{FixedMaze::index(m as usize,b,1)}else{FixedMaze::index(a,m as usize,0)};
+      (m,oracle.outcome[child],oracle.distance[child])
+     }).collect();
+     if value<0{
+      assert!(child_values.iter().all(|(_,v,_)|*v==1),"loss must have no nonwinning pawn child id {id}");
+     }
+     if chosen<81{
+      let child=child_values.iter().find(|(m,_,_)|*m==chosen).expect("best pawn legal");
+      assert_eq!(child.1,-value,"selected pawn must preserve optimal outcome id {id}");
+      if value!=0{assert_eq!(d,child.2+1,"selected pawn must have consistent DTM id {id}");}
+     }
+    }
+   }
+  }
+ }
+}

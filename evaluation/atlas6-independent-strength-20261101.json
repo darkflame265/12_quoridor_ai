@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-01",
+  "status": "not_promoted",
+  "fixtures": "evaluation/atlas6-balanced-openings.json",
+  "description": "Previously unused 10 balanced openings; paired sides, 20 games per opponent",
+  "results": {
+    "atlas53": {
+      "finished": 20,
+      "wins": 4,
+      "losses": 16,
+      "draws": 0,
+      "undecided": 0,
+      "moves": 1218,
+      "overruns": 0,
+      "engineBuild": "acd7070ac601d783ed69b58a48ef0c38a231290e411c27ee73cea45e614bcf5c",
+      "opponentBuild": "62977fff79e51dcbc5e9de4f463d6db3a26b6c81ba7061e33aa5a08861db061a",
+      "fixtureHash": "c8935cd6d647fa3bf2b10ef55e7857a05091b8fb8c08e58089f5ff7cb2901a9f",
+      "fixtureFilePath": "evaluation/atlas6-balanced-openings.json",
+      "startPair": 40,
+      "ms": 500,
+      "cores": 4
+    },
+    "atlas04": {
+      "finished": 20,
+      "wins": 8,
+      "losses": 11,
+      "draws": 0,
+      "undecided": 1,
+      "moves": 1187,
+      "overruns": 0,
+      "engineBuild": "acd7070ac601d783ed69b58a48ef0c38a231290e411c27ee73cea45e614bcf5c",
+      "opponentBuild": "3681be525f287c7346ba25b6de5f068fdc8d60c4a60811634f98933b600fc439",
+      "fixtureHash": "c8935cd6d647fa3bf2b10ef55e7857a05091b8fb8c08e58089f5ff7cb2901a9f",
+      "fixtureFilePath": "evaluation/atlas6-balanced-openings.json",
+      "startPair": 40,
+      "ms": 500,
+      "cores": 4
+    }
+  },
+  "limitations": [
+    "20 games per opponent, fewer than the 200-game release threshold",
+    "Opening goal-distance parity does not prove equal strategic position",
+    "One Atlas0.4 match was unresolved due to threefold repetition",
+    "No human playtest and no fully exact two-wall endgame"
+  ],
+  "conclusion": "No measured strength superiority over Atlas5.3"
+}

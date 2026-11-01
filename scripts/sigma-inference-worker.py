@@ -181,6 +181,3 @@ for line in sys.stdin:
   traceback.print_exc(file=sys.stderr)
   r={'id':v.get('id') if 'v' in locals() else None,'done':True,'error':str(e)}
  print(json.dumps(r),flush=True)
-
-
-

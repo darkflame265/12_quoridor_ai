@@ -60,3 +60,10 @@
 - Smoke with identical position at 500ms/4 cores: diagnostics off depth 4, 30857 nodes, 500.035ms, no root list; on depth 4, 29979 nodes, 500.007ms, 119 root candidates. This is a single sample, not a benchmark proving speedup.
 - New balanced fixtures 074-075, alternating sides, diagnostics off, vs Atlas5.3 baseline: 0 wins/4 losses, 0 overrun. No strength claim; Reborn remains experimental.
 - Missing core objectives: proven first mistakes via independent branch analysis, tactical forcing wall algorithm, exact two-wall and borrowed endgames, statistically convincing 200+ paired games, independent A/B evaluation function, real human playtests. Additional work: production latency and repetition rules.
+
+## CRITICAL correction: opponent identity audit, 2026-11-01
+- Atlas5.3 is native-engine profile candidate (2), not baseline (0, Atlas5). Reborn previously mapped to tactical (4, Atlas5.2), not 5.3. All prior Reborn files labeled vs Atlas5.3 were mislabeled and must NOT be used in promotion or superiority comparisons. Historical files are retained for audit only.
+- Fixed tournament, referee and counterfactual profiles; Reborn now maps to candidate search policy 2. Tournament schema v2 includes explicit profile identities to prevent mixing with old results.
+- Original 5.3 and Reborn agreed on all 10 tested start-position moves and depths, with 13 Rust tests passing.
+- Real Atlas5.3 baseline tournament on 5 paired openings 080-084, 500ms/4cores: Reborn 6 wins 4 losses and no overrun. Since both engines use the same policy, this is a noisy equivalence baseline, NOT an algorithmic improvement.
+- No proven strength improvement has been implemented in this correction. The next independent experiment must use the actual 5.3 candidate build as control, a separate unchanged baseline binary, identical paired starts, and held-out evaluation.

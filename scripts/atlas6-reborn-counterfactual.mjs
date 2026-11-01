@@ -18,7 +18,7 @@ for(let trial=0;trial<repetitions;trial++)for(const variant of trial%2===0?['ori
  const action=variant==='original'?prior.action:candidate.refereeAction;
  if(!legal(prior.state,action))throw Error('illegal alternative');
  const a=new NativeProcess({executable:reborn,profile:'reborn'});
- const b=new NativeProcess({executable:nativeExecutable,profile:'baseline'});
+ const b=new NativeProcess({executable:nativeExecutable,profile:'candidate'});
  let state=apply(prior.state,action),moves=1,reason='ply-cap';
  try{
   await Promise.all([a.health(),b.health()]);

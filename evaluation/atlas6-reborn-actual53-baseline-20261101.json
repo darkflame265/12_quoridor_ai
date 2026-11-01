@@ -1,0 +1,25 @@
+{
+  "status": "baseline_corrected_not_promoted",
+  "rebornProfile": "reborn (maps to profile 2, identical policy to Atlas5.3 candidate)",
+  "opponentProfile": "candidate (profile 2)",
+  "source": "reports/atlas6-reborn/real53-baseline-10.json",
+  "engineBuild": "be92cedfcb87ce49a8a06534b3b8de370faf5bc2672318f3df7850f6a9f96202",
+  "opponentBuild": "62977fff79e51dcbc5e9de4f463d6db3a26b6c81ba7061e33aa5a08861db061a",
+  "fixtureHash": "c8935cd6d647fa3bf2b10ef55e7857a05091b8fb8c08e58089f5ff7cb2901a9f",
+  "fixtures": "evaluation/atlas6-balanced-openings.json",
+  "startPair": 80,
+  "games": 10,
+  "wins": 6,
+  "losses": 4,
+  "undecided": 0,
+  "overruns": 0,
+  "priorRebornReportsInvalidForAtlas53": true,
+  "reason": "Old tournament scripts routed atlas53 to baseline profile 0 (Atlas5) and Reborn to tactical profile 4 (Atlas5.2), so old results are not vs 5.3. Corrected results compare identical 5.3 search policies and cannot establish an improvement.",
+  "remaining": [
+    "Prove causal tactical mistakes",
+    "Implement and A/B test search/evaluation improvement",
+    "Wall zero/one/two endgame migration and proof",
+    "200 paired games vs actual Atlas5.3 with independent holdout",
+    "Human competition and operational latency"
+  ]
+}

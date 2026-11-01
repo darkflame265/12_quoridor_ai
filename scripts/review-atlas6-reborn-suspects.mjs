@@ -4,7 +4,7 @@ import {legal} from '../src/engine.js';
 const file=process.argv[2];
 const data=JSON.parse(readFileSync(file,'utf8'));
 const suspects=data.trace.filter(x=>x.role==='atlas6'&&x.action.type==='wall').slice(0,6);
-const referee=new NativeProcess({executable:nativeExecutable,profile:'baseline'});
+const referee=new NativeProcess({executable:nativeExecutable,profile:'candidate'});
 const results=[];
 try{
  await referee.health();

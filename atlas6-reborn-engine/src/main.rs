@@ -35,7 +35,7 @@ fn main() {
                         "candidate" => 2,
                         "combined" => 3,
                         "tactical" => 4,
-                        "reborn" => 4,
+                        "reborn" => 2,
                         _ => 0,
                     };
                     let engine = &mut engines[index];

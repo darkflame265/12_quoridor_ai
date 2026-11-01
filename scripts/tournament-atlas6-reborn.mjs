@@ -28,20 +28,20 @@ const fixtures=split==='all'?allFixtures:allFixtures.filter((_,i)=>split==='vali
 if(!Number.isInteger(startPair)||startPair<0||startPair>=fixtures.length)throw Error('Invalid --start-pair');
 const binary=opponent==='atlas6base'?path.resolve(opt('--opponent-bin','.local-app/atlas6-before-stock.exe')):opponent==='atlas04'?pressureExecutable:nativeExecutable;
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
-const identity={opponent,engineBuild:sha(readSync(atlas)),opponentBuild:sha(readSync(binary)),
+const identity={candidateProfile:'reborn',opponentProfile:'candidate',opponent,engineBuild:sha(readSync(atlas)),opponentBuild:sha(readSync(binary)),
  fixtureHash:sha(fixtureFile),fixtureFilePath,ms,cores,maxPlies:200,split,startPair,gamesRequested:games};
 const env=opponent==='atlas04'?{QUORIDOR_PRESSURE_MODE:'on',
  QUORIDOR_TEMPO_MODE:'on',QUORIDOR_GOAL_MODE:'on',
  QUORIDOR_GOAL_EVAL_MODE:'off',QUORIDOR_PREP_MODE:'off',
  QUORIDOR_GOAL_DEEP_MODE:'off'}:undefined;
-const fresh=()=>({schema:'atlas6-reborn-tournament-v1',...identity,startedAt:new Date().toISOString(),
+const fresh=()=>({schema:'atlas6-reborn-tournament-v2',...identity,startedAt:new Date().toISOString(),
  finished:0,wins:0,losses:0,draws:0,undecided:0,moves:0,overruns:0,results:[]});
 let report=fresh();
 await mkdir(path.dirname(out),{recursive:true});
 if(resume&&existsSync(out)){
  report=JSON.parse(await readFile(out,'utf8'));
  for(const [key,value] of Object.entries(identity))if(report[key]!==value)throw Error('Resume mismatch: '+key);
- if(report.schema!=='atlas6-reborn-tournament-v1'||report.finished!==report.results.length)throw Error('Incompatible or corrupt resume report');
+ if(report.schema!=='atlas6-reborn-tournament-v2'||report.finished!==report.results.length)throw Error('Incompatible or corrupt resume report');
 }
 const save=async()=>{const tmp=out+'.tmp';await writeFile(tmp,JSON.stringify(report,null,2)+'\n');await rename(tmp,out);};
 const validateBinaries=()=>{
@@ -52,7 +52,7 @@ for(let i=report.finished;i<games;i++){
  validateBinaries();
  const fixture=fixtures[(startPair+Math.floor(i/2))%fixtures.length],atlasSide=i%2;
  const a=new NativeProcess({executable:atlas,profile:'reborn'});
- const b=new NativeProcess({executable:binary,profile:opponent==='atlas53'?'baseline':'candidate',env});
+ const b=new NativeProcess({executable:binary,profile:'candidate',env});
  let state=structuredClone(fixture.state),reason='ply-cap',plies=0,overruns=0;
  const trace=[];
  const seen=new Map();

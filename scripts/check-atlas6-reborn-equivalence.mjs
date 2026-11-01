@@ -5,8 +5,8 @@ import {legal} from '../src/engine.js';
 import {createHash} from 'node:crypto';
 const reborn=fileURLToPath(new URL('../atlas6-reborn-engine/target/release/quoridor-atlas6-reborn.exe',import.meta.url));
 const fixtures=JSON.parse(readFileSync('evaluation/atlas6-balanced-openings.json','utf8'));
-const original=new NativeProcess({executable:nativeExecutable,profile:'baseline'});
-const clone=new NativeProcess({executable:reborn,profile:'baseline'});
+const original=new NativeProcess({executable:nativeExecutable,profile:'candidate'});
+const clone=new NativeProcess({executable:reborn,profile:'reborn'});
 const rows=[];
 try{
  await Promise.all([original.health(),clone.health()]);
@@ -18,4 +18,4 @@ try{
  }
 }finally{original.close();clone.close();}
 const hash=p=>createHash('sha256').update(readFileSync(p)).digest('hex');
-writeFileSync('evaluation/atlas6-reborn-equivalence-20261101.json',JSON.stringify({sameSource:true,originalBuild:hash(nativeExecutable),rebornBuild:hash(reborn),ms:500,cores:4,rows},null,2)+'\n');
+writeFileSync('evaluation/atlas6-reborn-actual53-equivalence-20261101.json',JSON.stringify({sameSource:true,originalBuild:hash(nativeExecutable),rebornBuild:hash(reborn),ms:500,cores:4,rows},null,2)+'\n');

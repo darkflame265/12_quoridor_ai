@@ -44,6 +44,7 @@ fn main() {
                         v["ms"].as_f64().unwrap_or(500.),
                         v["cores"].as_u64().unwrap_or(4) as usize,
                         v["maxDepth"].as_u64().unwrap_or(40) as usize,
+                        v["diagnostics"].as_bool().unwrap_or(false),
                         cancel,
                         |r| {
                             let mut data = serde_json::to_value(r).unwrap();

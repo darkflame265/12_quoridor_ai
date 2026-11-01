@@ -63,7 +63,7 @@ for(let i=report.finished;i<games;i++){
    const repeated=seen.get(key)??0;seen.set(key,repeated+1);
    if(repeated>=2){reason='threefold-repetition';break;}
    const engine=state.turn===atlasSide?a:b,start=performance.now();
-   const response=await engine.search(state,{ms,cores});
+   const response=await engine.search(state,{ms,cores,diagnostics:captureAll||captureLosses});
    const elapsed=performance.now()-start;
    if(elapsed>ms+25 || response.elapsedMs>ms+10)overruns++;
    if(!response.pv?.length||!legal(state,response.pv[0]))throw Error('Illegal move: '+fixture.id+' ply '+ply);

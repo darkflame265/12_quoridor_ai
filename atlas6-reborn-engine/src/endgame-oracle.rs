@@ -122,7 +122,7 @@ mod oracle_tests {
         )
         .unwrap();
         let mut engine = NativeEngine::default();
-        let r = engine.search(&s, 2000., 2, 1, Arc::new(AtomicBool::new(false)), |_| {});
+        let r = engine.search(&s, 2000., 2, 1, false, Arc::new(AtomicBool::new(false)), |_| {});
         assert_eq!(r.result.depth, 1);
         assert!(r.endgame_solves > 0);
         assert!(r.result.score > WIN - 100);

@@ -637,6 +637,7 @@ impl NativeEngine {
         ms: f64,
         cores: usize,
         max_depth: usize,
+        capture_diagnostics: bool,
         cancel: Arc<AtomicBool>,
         mut progress: impl FnMut(&NativeOutput),
     ) -> NativeOutput {
@@ -770,8 +771,8 @@ impl NativeEngine {
             };
             let score = -value;
             let alpha = AtomicI32::new(score);
-            let diagnostics = Mutex::new(vec![None; roots.len()]);
-            diagnostics.lock().unwrap()[0] = Some(score);
+            let diagnostics = Mutex::new(if capture_diagnostics { vec![None; roots.len()] } else { Vec::new() });
+            if capture_diagnostics { diagnostics.lock().unwrap()[0] = Some(score); }
             let next = AtomicUsize::new(1);
             let completed = AtomicUsize::new(1);
             let best = Mutex::new((first, score));
@@ -838,7 +839,7 @@ impl NativeEngine {
                             let Ok(score) = result else {
                                 break;
                             };
-                            diagnostics.lock().unwrap()[i] = Some(score);
+                            if capture_diagnostics { diagnostics.lock().unwrap()[i] = Some(score); }
                             {
                                 let mut record = best.lock().unwrap();
                                 if score > record.1 {
@@ -855,12 +856,14 @@ impl NativeEngine {
                 break;
             }
             let (a, score) = *best.lock().unwrap();
-            out.root_diagnostics = Some(RootDiagnostics {
-                depth,
-                ordered_actions: roots.iter().copied().map(decode).collect(),
-                scores: diagnostics.into_inner().unwrap(),
-                note: "PVS scout scores are bounds unless re-searched; not independent exact evaluations",
-            });
+            if capture_diagnostics {
+                out.root_diagnostics = Some(RootDiagnostics {
+                    depth,
+                    ordered_actions: roots.iter().copied().map(decode).collect(),
+                    scores: diagnostics.into_inner().unwrap(),
+                    note: "PVS scout scores are bounds unless re-searched; not independent exact evaluations",
+                });
+            }
             self.shared.store(
                 root_key,
                 Entry {
@@ -928,7 +931,7 @@ mod native_tests {
     fn returns_legal_and_shared_work() {
         let s = initial();
         let mut engine = NativeEngine::default();
-        let r = engine.search(&s, 2000., 4, 3, Arc::new(AtomicBool::new(false)), |_| {});
+        let r = engine.search(&s, 2000., 4, 3, false, Arc::new(AtomicBool::new(false)), |_| {});
         assert_eq!(r.result.depth, 3);
         assert!(r.shared_cache_hits > 0);
         let a = &r.result.pv[0];
@@ -978,9 +981,9 @@ mod native_tests {
     fn cancelled_search_does_not_corrupt_following_search() {
         let mut e = NativeEngine::default();
         let s = initial();
-        let r = e.search(&s, 500., 4, 40, Arc::new(AtomicBool::new(true)), |_| {});
+        let r = e.search(&s, 500., 4, 40, false, Arc::new(AtomicBool::new(true)), |_| {});
         assert!(r.cancelled);
-        let r = e.search(&s, 2000., 2, 3, Arc::new(AtomicBool::new(false)), |_| {});
+        let r = e.search(&s, 2000., 2, 3, false, Arc::new(AtomicBool::new(false)), |_| {});
         assert_eq!(r.result.depth, 3);
     }
     #[test]

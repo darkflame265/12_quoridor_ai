@@ -18,7 +18,7 @@ export class NativeProcess{
   return new Promise((resolve,reject)=>{const timer=setTimeout(()=>this.cancel(id,Error('Native response timeout')),timeoutMs);this.pending.set(id,{resolve,reject,onProgress,timer});try{this.send({...value,id});}catch(error){clearTimeout(timer);this.pending.delete(id);reject(error);}});
  }
  health(){return this.request({op:'health'},{timeoutMs:5000});}
- search(state,{id=randomUUID(),ms=500,cores=4,maxDepth=40,onProgress=()=>{}}={}){return this.request({op:'search',id,state,ms,cores,maxDepth,profile:this.profile},{onProgress,timeoutMs:Math.min(30000,Math.max(1,ms))+2000});}
+ search(state,{id=randomUUID(),ms=500,cores=4,maxDepth=40,diagnostics=false,onProgress=()=>{}}={}){return this.request({op:'search',id,state,ms,cores,maxDepth,diagnostics,profile:this.profile},{onProgress,timeoutMs:Math.min(30000,Math.max(1,ms))+2000});}
  cancel(id,error=Object.assign(Error('Calculation cancelled'),{name:'AbortError'})){const p=this.pending.get(id);if(p){this.pending.delete(id);clearTimeout(p.timer);p.reject(error);}if(this.child)this.send({op:'cancel',id});}
  close(){this.closed=true;const child=this.child;this.child=null;child?.kill();for(const p of this.pending.values()){clearTimeout(p.timer);p.reject(Object.assign(Error('Native process closed'),{name:'AbortError'}));}this.pending.clear();}
 }

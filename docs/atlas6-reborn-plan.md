@@ -54,3 +54,9 @@
 - Tournament capture-all stores these fields. scripts/analyze-atlas6-reborn-roots.mjs summarizes root candidate coverage, and differentiates exact endgame shortcuts from missing data.
 - Four holdout games against 5.3 at 500ms/4 cores: 2W 2L, zero overrun. Not strength proof.
 - Remaining work: independent causal proof, forcing wall tactics, 2-wall exact solver, 200+ paired games, human playtests, server latency.
+
+## 2026-11-01 diagnostic overhead isolation
+- Reborn search accepts an explicit diagnostics boolean. Normal searches default to false and omit root scoring arrays and per-candidate mutex writes; capture-all tournament passes true. The original 5.3 implementation remains untouched.
+- Smoke with identical position at 500ms/4 cores: diagnostics off depth 4, 30857 nodes, 500.035ms, no root list; on depth 4, 29979 nodes, 500.007ms, 119 root candidates. This is a single sample, not a benchmark proving speedup.
+- New balanced fixtures 074-075, alternating sides, diagnostics off, vs Atlas5.3 baseline: 0 wins/4 losses, 0 overrun. No strength claim; Reborn remains experimental.
+- Missing core objectives: proven first mistakes via independent branch analysis, tactical forcing wall algorithm, exact two-wall and borrowed endgames, statistically convincing 200+ paired games, independent A/B evaluation function, real human playtests. Additional work: production latency and repetition rules.

@@ -40,3 +40,11 @@
 - On historical loss seed-20261101-060, ply 3, both the original wall and the alternative led to a Reborn win in one replay each. Therefore that original move is NOT established as the losing mistake.
 - A single continuation does not prove best play, general superiority, or causation. Search under a hard clock may vary between runs.
 - Future work: repeated paired rollouts across seeds, root candidate scores, independent oracle where possible, two-wall proof, 200-match independent strength validation, human tests, and concurrent service latency.
+
+
+## 2026-11-01 repeated causal replay and repeatability
+- scripts/atlas6-reborn-counterfactual.mjs now accepts a fifth argument (number of trials, 1-100), alternates original/referee branch order, and tallies wins/losses/undecided independently. A per-branch trial result is NOT proof of an optimal move.
+- scripts/atlas6-reborn-rollout-summary.mjs prints decisive win rate plus Wilson 95% confidence intervals. The intervals exclude undecided games, which are always separately reported.
+- At synthetic seed-20261101-060, ply 3, four 500ms continuations per alternative under a 70-ply cap: original 3W/1L/0 undecided; Atlas5.3 suggested alternative 1W/1L/2 undecided. These are too few, and too many are truncated, to justify changing the engine.
+- scripts/check-atlas6-reborn-repeatability.mjs runs eight fresh 500ms searches on the same state and records chosen actions/depth/evaluation: all eight chose the same wall (3,3,v), depth 3, score -26. This does not prove deterministic future play across different positions.
+- No candidate engine change was accepted. All six broader priorities remain open (causal mistake proof, forcing wall sequences, exact 2-wall solve and endgame transfer, 200+ paired games, independent A/B and evaluation improvements, and human testing). Operational followups: 500ms service wall-clock, replay reproducibility across different CPUs, and official repetition rules.

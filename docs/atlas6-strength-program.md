@@ -109,3 +109,21 @@ Additional: root candidate score traces, CPU saturation and cancellation load te
 - Four concurrent local Atlas6 clients (500ms each, 4 cores each): internal engine elapsed 489-498ms, end-to-end client wall clock 519-555ms. All returned legal moves. 500ms engine budget is not the same as 500ms user-visible latency.
 - Load smoke script: node scripts/atlas6-load-smoke.mjs
 - Strength baseline remains unpromoted. A successful 0/1-wall proof does not establish a two-wall proof or win rate against strong humans.
+
+
+## 2026-11-01 follow-up: rejected root candidate experiments
+- Isolated immediate goal shortcut, 8-game balanced A/B versus an older Atlas6: 2W-6L, no overrun; rejected as strength not confirmed, although winning-in-one selection remains covered by existing search/tests.
+- Keep only the highest ranked pawn move while retaining limited wall candidates: 8 games versus a build-matched saved baseline 5W-3L, different holdout 8 games 4W-4L. Neither is compelling.
+- Against target Atlas5.3 in 8 balanced games, highest pawn candidate experiment: 2W-6L and 2 recorded timing overruns. Rejected and restored source to prior main implementation.
+- Results and SHA-256 identities: evaluation/atlas6-experiment-rejections-20261101.json
+- Retain previous verified 0/1-wall oracle, parallel search, cancellation and balanced tournament tooling. No claim of improved strength this iteration.
+- Incomplete priorities: first provable mistake labeling against an external oracle, forcing wall sequences, 2-wall full proof, 200 games per engine, statistically robust independent evaluation function A/B, actual human games.
+- Additional work: 500ms client-visible latency not guaranteed under load; 4-client smoke previously exceeded 500ms end-to-end.
+
+
+## 2026-11-01 follow-up experiment review (reproducible)
+- Standalone root immediate-win shortcut, 8-game A/B against an older Atlas 6 build: 2W/6L; rejected (not evidence that the proven move is wrong, only no measured strength gain).
+- Preserve only one highest-ranked pawn move during candidate pruning, versus same baseline on two separate balanced cohorts: 5W/3L and 4W/4L. Against Atlas 5.3: 2W/6L and two time overruns. Rejected; original search code restored.
+- Experiment summaries, fixture and binary SHA-256: evaluation/atlas6-experiment-rejections-20261101.json. A/B results do not prove general performance differences with small sample sizes.
+- One-wall oracle can legitimately decline to prove within its 500ms search sub-budget under CPU contention; proof test now requests a larger budget, and the 500ms test independently asserts legal move and elapsed time. The engine is not asserted to always complete exact proof at 500ms.
+- No actual human competition or 200-game per opponent result was completed. Atlas 6 remains experimental.

@@ -26,7 +26,8 @@ export function assessAtlas6(report,{opponent=report.opponent}={}){
   validResults:games.every(g=>['win','loss','draw'].includes(g.verdict)&&
     Number.isInteger(g.plies)&&g.plies>=0&&g.plies<=200&&
     ['goal','ply-cap','threefold-repetition'].includes(g.reason)),
-  consistentTotals:report.wins+report.losses+report.draws===total,
+  consistentTotals:report.wins+report.losses+report.draws+(report.undecided??0)===total,
+  allDecisive: (report.undecided??0)===0,
   fairTime:report.ms===500&&report.cores===4&&report.maxPlies===200,
   timeoutRate:report.moves>0&&report.overruns/report.moves<0.01,
   targetScore:weighted>=(target??1),

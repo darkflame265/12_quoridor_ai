@@ -179,6 +179,15 @@ impl Atlas6 {
   let mut out:Vec<u16>=ranked.iter().take(limit).copied().collect();
   for a in forcing{if !out.contains(&a){out.push(a);}}
   // Protect every legal wall that stops a one-step goal by the opponent.
+  if p.moves(enemy).into_iter().any(|a|goal(a as usize,enemy)){
+   for &a in &ranked{
+    if a>=81 || out.contains(&a){continue;}
+    let u=p.make(a);
+    let stopped=!p.moves(enemy).into_iter().any(|m|goal(m as usize,enemy));
+    p.unmake(u);
+    if stopped{out.push(a);}
+   }
+  }
   if p.distance(enemy,false)<=1 && p.left[t]>0{
    for &a in &ranked{
     if a<81 || out.contains(&a){continue;}
@@ -203,12 +212,24 @@ impl Atlas6 {
   }
   let (value,distance,_)=self.oracle.get(&p.walls)?.lookup(p);
   Some(value as i32*(29000-distance as i32-ply))
- } fn tactical_leaf(&mut self,p:&mut Position,mut alpha:i32,beta:i32,ply:i32,remaining:i32)->Result<i32,()>{
+ } fn immediately_lost(p:&mut Position)->bool{
+  let enemy=1-p.turn;
+  if p.distance(enemy,false)>1||!p.moves(enemy).into_iter().any(|a|goal(a as usize,enemy)){return false;}
+  for a in p.actions(){
+   let u=p.make(a);
+   let safe=p.terminal()||!p.moves(p.turn).into_iter().any(|m|goal(m as usize,p.turn));
+   p.unmake(u);
+   if safe{return false;}
+  }
+  true
+ }
+ fn tactical_leaf(&mut self,p:&mut Position,mut alpha:i32,beta:i32,ply:i32,remaining:i32)->Result<i32,()>{
   self.nodes+=1;
   if self.nodes&31==0&&!self.check(){return Err(());}
   if p.terminal(){return Ok(-29000+ply);}
   if let Some(score)=self.exact_endgame(p,ply){return Ok(score);}
   if p.moves(p.turn).into_iter().any(|a|goal(a as usize,p.turn)){return Ok(28999-ply);}
+  if Self::immediately_lost(p){return Ok(-29000+ply+2);}
   let stand=Self::evaluate(p);
   if remaining<=0 || p.distance(1-p.turn,false)>3{return Ok(stand);}
   let t=p.turn;let o=1-t;
@@ -216,6 +237,8 @@ impl Atlas6 {
   // Only search forcing continuations. Do not assume a quiet evaluation
   // is safe while the other pawn is one move from its goal.
   let urgent=enemy<=1;
+  // A legal goal next turn is a concrete threat, not a heuristic penalty.
+  let forced_goal=p.moves(o).into_iter().any(|a|goal(a as usize,o));
   let mut candidates=Vec::new();
   for a in p.actions(){
    if a<81{if urgent{candidates.push((a,-1));}continue;}
@@ -237,12 +260,17 @@ impl Atlas6 {
 
   for a in selected{
    let u=p.make(a);
+   if forced_goal && p.moves(p.turn).into_iter().any(|m|goal(m as usize,p.turn)){
+    p.unmake(u);
+    continue;
+   }
    let r=self.tactical_leaf(p,-beta,-alpha,ply+1,remaining-1);
    p.unmake(u);
    let score=-r?;
    best=best.max(score);alpha=alpha.max(score);
    if alpha>=beta{break;}
   }
+  if forced_goal && best==-32000{return Ok(-29000+ply+2);}
   Ok(best)
  } fn search_node(&mut self,p:&mut Position,depth:i32,mut alpha:i32,beta:i32,ply:i32)->Result<i32,()>{
   self.nodes+=1;if self.nodes&31==0&&!self.check(){return Err(());}
@@ -421,7 +449,17 @@ mod atlas6_tests{
   let chosen=p.actions().into_iter().find(|&a|{let decoded=decode(a);decoded.kind==r.pv[0].kind && decoded.x==r.pv[0].x && decoded.y==r.pv[0].y && decoded.o==r.pv[0].o}).expect("selected move not legal");
   p.make(chosen);
   assert!(!p.moves(1).iter().any(|&a|goal(a as usize,1)),"failed to stop opponent's one-move goal");
- } #[test]fn legal_opening(){let s=serde_json::from_str::<State>(r#"{"p":[{"x":4,"y":8},{"x":4,"y":0}],"walls":[],"left":[10,10],"turn":0,"winner":null}"#).unwrap();
+ } #[test]fn tactical_leaf_recognizes_unblockable_opponent_goal(){
+  let s=serde_json::from_str::<State>(r#"{"p":[{"x":0,"y":8},{"x":4,"y":7}],"walls":[],"left":[0,1],"turn":0,"winner":null}"#).unwrap();
+  let mut p=Position::from_state(&s).unwrap();
+  let mut e=Atlas6::new();
+  e.deadline=Instant::now()+Duration::from_secs(1);
+  for remaining in [0,2]{
+   let score=e.tactical_leaf(&mut p,-32000,32000,1,remaining).unwrap();
+   assert!(score < -28000,"opponent's forced goal must be scored as a loss even at horizon {remaining}, not {score}");
+  }
+ }
+ #[test]fn legal_opening(){let s=serde_json::from_str::<State>(r#"{"p":[{"x":4,"y":8},{"x":4,"y":0}],"walls":[],"left":[10,10],"turn":0,"winner":null}"#).unwrap();
  let mut e=Atlas6::new();let r=e.search(&s,100.,1,Arc::new(AtomicBool::new(false))).unwrap();
  assert!(!r.pv.is_empty());assert!(r.depth>=1);assert!(r.elapsed_ms<350.);
  }

@@ -20,4 +20,5 @@ test('Atlas 6 release gate demands build identity and representative coverage',(
  assert.equal(assessAtlas6(report).eligible,true);
  assert.equal(assessAtlas6({...report,overruns:200}).eligible,false);
  assert.equal(assessAtlas6({...report,engineBuild:null}).eligible,false);
+ assert.equal(assessAtlas6({...report,undecided:1,draws:0,losses:49}).eligible,false);
 });

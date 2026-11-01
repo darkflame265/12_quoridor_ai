@@ -13,6 +13,7 @@ const opt=(k,d)=>{const i=args.indexOf(k);return i<0?d:args[i+1];};
 const games=Number(opt('--games','200')),ms=Number(opt('--ms','500'));
 const opponent=opt('--opponent','atlas53'),cores=Number(opt('--cores','4'));
 const split=opt('--split','all'),resume=args.includes('--resume');
+const captureLosses=args.includes('--capture-losses');
 const out=opt('--out','reports/atlas6-tournament/report-'+opponent+'.json');
 if(!Number.isInteger(games)||games<2||games>2000||games%2||
   !Number.isFinite(ms)||ms<1||ms>30000||![1,2,4].includes(cores)||
@@ -29,14 +30,14 @@ const env=opponent==='atlas04'?{QUORIDOR_PRESSURE_MODE:'on',
  QUORIDOR_TEMPO_MODE:'on',QUORIDOR_GOAL_MODE:'on',
  QUORIDOR_GOAL_EVAL_MODE:'off',QUORIDOR_PREP_MODE:'off',
  QUORIDOR_GOAL_DEEP_MODE:'off'}:undefined;
-const fresh=()=>({schema:'atlas6-tournament-v2',...identity,startedAt:new Date().toISOString(),
- finished:0,wins:0,losses:0,draws:0,moves:0,overruns:0,results:[]});
+const fresh=()=>({schema:'atlas6-tournament-v3',...identity,startedAt:new Date().toISOString(),
+ finished:0,wins:0,losses:0,draws:0,undecided:0,moves:0,overruns:0,results:[]});
 let report=fresh();
 await mkdir(path.dirname(out),{recursive:true});
 if(resume&&existsSync(out)){
  report=JSON.parse(await readFile(out,'utf8'));
  for(const [key,value] of Object.entries(identity))if(report[key]!==value)throw Error('Resume mismatch: '+key);
- if(report.finished!==report.results.length)throw Error('Corrupt resume report');
+ if(report.schema!=='atlas6-tournament-v3'||report.finished!==report.results.length)throw Error('Incompatible or corrupt resume report');
 }
 const save=async()=>{const tmp=out+'.tmp';await writeFile(tmp,JSON.stringify(report,null,2)+'\n');await rename(tmp,out);};
 for(let i=report.finished;i<games;i++){
@@ -44,6 +45,7 @@ for(let i=report.finished;i<games;i++){
  const a=new NativeProcess({executable:atlas,profile:'baseline'});
  const b=new NativeProcess({executable:binary,profile:'candidate',env});
  let state=structuredClone(fixture.state),reason='ply-cap',plies=0,overruns=0;
+ const trace=[];
  const seen=new Map();
  try{
   await Promise.all([a.health(),b.health()]);
@@ -56,15 +58,17 @@ for(let i=report.finished;i<games;i++){
    const elapsed=performance.now()-start;
    if(elapsed>ms+25 || response.elapsedMs>ms+10)overruns++;
    if(!response.pv?.length||!legal(state,response.pv[0]))throw Error('Illegal move: '+fixture.id+' ply '+ply);
+   if(captureLosses)trace.push({ply,side:state.turn,role:state.turn===atlasSide?'atlas6':opponent,state:structuredClone(state),action:response.pv[0],depth:response.depth,nodes:response.nodes,score:response.score,exact:response.exact,elapsedMs:response.elapsedMs});
    state=apply(state,response.pv[0]);plies++;
    if(state.winner!==null)reason='goal';
   }
-  const verdict=state.winner===null?'draw':state.winner===atlasSide?'win':'loss';
-  report[verdict==='win'?'wins':verdict==='loss'?'losses':'draws']++;
+  const verdict=state.winner===null?'undecided':state.winner===atlasSide?'win':'loss';
+  report[verdict==='win'?'wins':verdict==='loss'?'losses':verdict==='draw'?'draws':'undecided']++;
   report.results.push({fixture:fixture.id,atlasSide,verdict,winner:state.winner,reason,plies,overruns});
   report.moves+=plies;report.overruns+=overruns;report.finished++;
+  if(captureLosses&&verdict==='loss'){const directory=path.join(path.dirname(out),path.basename(out,path.extname(out))+'-loss-traces');await mkdir(directory,{recursive:true});await writeFile(path.join(directory,String(i).padStart(4,'0')+'-'+fixture.id+'.json'),JSON.stringify({fixture:fixture.id,atlasSide,reason,plies,trace,finalState:state},null,2)+'\n');}
   await save();
   console.log(i+1+'/'+games,fixture.id,'side',atlasSide,verdict,plies,reason);
  }finally{await a.close();await b.close();}
 }
-console.log(JSON.stringify({finished:report.finished,wins:report.wins,losses:report.losses,draws:report.draws,overruns:report.overruns,moves:report.moves}));
+console.log(JSON.stringify({finished:report.finished,wins:report.wins,losses:report.losses,draws:report.draws,undecided:report.undecided,overruns:report.overruns,moves:report.moves}));

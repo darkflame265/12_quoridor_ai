@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-01",
+  "status": "experimental_not_promoted",
+  "suites": [
+    {
+      "opponent": "atlas53",
+      "gamesRequested": 20,
+      "finished": 20,
+      "wins": 8,
+      "losses": 12,
+      "draws": 0,
+      "undecided": 0,
+      "moves": 696,
+      "overruns": 0,
+      "engineBuild": "9064ac7a9188b1b424c0a0a89ec2c59f51c654cad52b6b71a4e5774b00cdfa0e",
+      "opponentBuild": "62977fff79e51dcbc5e9de4f463d6db3a26b6c81ba7061e33aa5a08861db061a",
+      "fixtureHash": "3ad15956a8156483040b5e657fd0054ffdfc0393aa0cc98968e0151e7c8cb86f",
+      "ms": 500,
+      "cores": 4,
+      "maxPlies": 200
+    },
+    {
+      "opponent": "atlas04",
+      "gamesRequested": 20,
+      "finished": 20,
+      "wins": 10,
+      "losses": 10,
+      "draws": 0,
+      "undecided": 0,
+      "moves": 666,
+      "overruns": 0,
+      "engineBuild": "9064ac7a9188b1b424c0a0a89ec2c59f51c654cad52b6b71a4e5774b00cdfa0e",
+      "opponentBuild": "3681be525f287c7346ba25b6de5f068fdc8d60c4a60811634f98933b600fc439",
+      "fixtureHash": "3ad15956a8156483040b5e657fd0054ffdfc0393aa0cc98968e0151e7c8cb86f",
+      "ms": 500,
+      "cores": 4,
+      "maxPlies": 200
+    }
+  ],
+  "limitations": [
+    "40 games only, not 200 per opponent",
+    "Historical and generated midgame openings, not humans",
+    "No statistically decisive evidence of superiority",
+    "Endgame and cancellation fixed; two-wall perfect play not implemented"
+  ]
+}

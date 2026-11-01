@@ -2,10 +2,10 @@ import json,sys,time,os
 from pathlib import Path
 import numpy as np
 import onnxruntime as ort
-ROOT=Path(__file__).resolve().parent.parent/'.external/quoridor-research/SigmaQuoridor-acquired'
+ROOT=Path(__file__).resolve().parent.parent/'vendor/sigma-quoridor'
 sys.path.insert(0,str(ROOT))
 from game import State,WallAction,PawnAction,action_to_index,vert_policy_permutation
-MODEL=ROOT/'docs/models_9x9/best.onnx'
+MODEL=ROOT/'models/best.onnx'
 SESSION=ort.InferenceSession(str(MODEL),providers=['CPUExecutionProvider'])
 PERM=vert_policy_permutation(9)
 MODE=os.getenv("SIGMA_MODE","policy")
@@ -43,6 +43,7 @@ def choose(s,allowed):
    if json.dumps(to_action(s,child.action),sort_keys=True,separators=(',',':')) in allowed:
     selected=child.action;break
  return {'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE}
+print(json.dumps({"ready":True}),flush=True)
 for line in sys.stdin:
  try:
   v=json.loads(line);r=choose(v['state'],set(v['allowed']));r['id']=v.get('id');r['done']=True

@@ -29,7 +29,7 @@ if(process.argv.includes('--resume')&&existsSync(out)){
  report=prev;
 }
 const memo=new Map();
-const canMemo=false; // Sigma2 samples competitive candidates, so avoid memoized replays.
+const canMemo=false; // History-aware search and sampling must not replay cached recommendations.
 const keyOf=(workerIndex,state)=>JSON.stringify([workerIndex,state.p,state.walls,state.left,state.turn]);
 if(canMemo)for(const game of report.completed)for(const turn of game.trace){
  const workerIndex=(turn.side+game.index)%2;

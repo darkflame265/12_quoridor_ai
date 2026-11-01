@@ -1,0 +1,1109 @@
+{
+  "scope": "single-ply alternatives and opponent one-ply geometric reply, not proof of optimal play",
+  "analysis": [
+    {
+      "ply": 7,
+      "position": {
+        "p": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "walls": [],
+        "left": [
+          10,
+          10
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "actual": {
+        "action": {
+          "type": "wall",
+          "x": 0,
+          "y": 6,
+          "o": "h"
+        },
+        "metric": {
+          "own": 5,
+          "opponent": 5,
+          "walls": [
+            9,
+            10
+          ],
+          "winner": null
+        },
+        "reply": {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "delta": 1,
+          "metric": {
+            "own": 5,
+            "opponent": 4,
+            "walls": [
+              9,
+              10
+            ],
+            "winner": null
+          }
+        },
+        "immediateThreat": true
+      },
+      "alternatives": [
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "metric": {
+            "own": 4,
+            "opponent": 5,
+            "walls": [
+              10,
+              10
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            "delta": 1,
+            "metric": {
+              "own": 4,
+              "opponent": 3,
+              "walls": [
+                10,
+                10
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "metric": {
+            "own": 5,
+            "opponent": 5,
+            "walls": [
+              10,
+              10
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            },
+            "delta": 1,
+            "metric": {
+              "own": 5,
+              "opponent": 4,
+              "walls": [
+                10,
+                10
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "metric": {
+            "own": 5,
+            "opponent": 5,
+            "walls": [
+              10,
+              10
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            },
+            "delta": 1,
+            "metric": {
+              "own": 5,
+              "opponent": 4,
+              "walls": [
+                10,
+                10
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "metric": {
+            "own": 6,
+            "opponent": 5,
+            "walls": [
+              10,
+              10
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            },
+            "delta": 2,
+            "metric": {
+              "own": 6,
+              "opponent": 4,
+              "walls": [
+                10,
+                10
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        }
+      ],
+      "legalCandidates": 132
+    },
+    {
+      "ply": 9,
+      "position": {
+        "p": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 2,
+            "owner": 1
+          }
+        ],
+        "left": [
+          9,
+          9
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "actual": {
+        "action": {
+          "type": "wall",
+          "x": 2,
+          "y": 6,
+          "o": "h"
+        },
+        "metric": {
+          "own": 6,
+          "opponent": 5,
+          "walls": [
+            8,
+            9
+          ],
+          "winner": null
+        },
+        "reply": {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "delta": 2,
+          "metric": {
+            "own": 6,
+            "opponent": 4,
+            "walls": [
+              8,
+              9
+            ],
+            "winner": null
+          }
+        },
+        "immediateThreat": true
+      },
+      "alternatives": [
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "metric": {
+            "own": 5,
+            "opponent": 5,
+            "walls": [
+              9,
+              9
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            "delta": 2,
+            "metric": {
+              "own": 5,
+              "opponent": 3,
+              "walls": [
+                9,
+                9
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "metric": {
+            "own": 6,
+            "opponent": 5,
+            "walls": [
+              9,
+              9
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            },
+            "delta": 2,
+            "metric": {
+              "own": 6,
+              "opponent": 4,
+              "walls": [
+                9,
+                9
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "metric": {
+            "own": 5,
+            "opponent": 5,
+            "walls": [
+              9,
+              9
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 2,
+              "o": "h"
+            },
+            "delta": 2,
+            "metric": {
+              "own": 7,
+              "opponent": 5,
+              "walls": [
+                9,
+                8
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "metric": {
+            "own": 7,
+            "opponent": 5,
+            "walls": [
+              9,
+              9
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            },
+            "delta": 3,
+            "metric": {
+              "own": 7,
+              "opponent": 4,
+              "walls": [
+                9,
+                9
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        }
+      ],
+      "legalCandidates": 125
+    },
+    {
+      "ply": 11,
+      "position": {
+        "p": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 6,
+            "owner": 1
+          }
+        ],
+        "left": [
+          8,
+          8
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "actual": {
+        "action": {
+          "type": "wall",
+          "x": 4,
+          "y": 3,
+          "o": "v"
+        },
+        "metric": {
+          "own": 6,
+          "opponent": 5,
+          "walls": [
+            7,
+            8
+          ],
+          "winner": null
+        },
+        "reply": {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "delta": 2,
+          "metric": {
+            "own": 6,
+            "opponent": 4,
+            "walls": [
+              7,
+              8
+            ],
+            "winner": null
+          }
+        },
+        "immediateThreat": true
+      },
+      "alternatives": [
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "metric": {
+            "own": 5,
+            "opponent": 5,
+            "walls": [
+              8,
+              8
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            "delta": 2,
+            "metric": {
+              "own": 5,
+              "opponent": 3,
+              "walls": [
+                8,
+                8
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "metric": {
+            "own": 6,
+            "opponent": 5,
+            "walls": [
+              8,
+              8
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            },
+            "delta": 2,
+            "metric": {
+              "own": 6,
+              "opponent": 4,
+              "walls": [
+                8,
+                8
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "metric": {
+            "own": 5,
+            "opponent": 5,
+            "walls": [
+              8,
+              8
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 2,
+              "o": "h"
+            },
+            "delta": 2,
+            "metric": {
+              "own": 7,
+              "opponent": 5,
+              "walls": [
+                8,
+                7
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "metric": {
+            "own": 7,
+            "opponent": 5,
+            "walls": [
+              8,
+              8
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            },
+            "delta": 3,
+            "metric": {
+              "own": 7,
+              "opponent": 4,
+              "walls": [
+                8,
+                8
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        }
+      ],
+      "legalCandidates": 118
+    },
+    {
+      "ply": 15,
+      "position": {
+        "p": [
+          {
+            "x": 3,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 4,
+            "owner": 1
+          }
+        ],
+        "left": [
+          7,
+          6
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "actual": {
+        "action": {
+          "type": "wall",
+          "x": 3,
+          "y": 5,
+          "o": "v"
+        },
+        "metric": {
+          "own": 7,
+          "opponent": 5,
+          "walls": [
+            6,
+            6
+          ],
+          "winner": null
+        },
+        "reply": {
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 4,
+            "o": "v"
+          },
+          "delta": 4,
+          "metric": {
+            "own": 9,
+            "opponent": 5,
+            "walls": [
+              6,
+              5
+            ],
+            "winner": null
+          }
+        },
+        "immediateThreat": true
+      },
+      "alternatives": [
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          "metric": {
+            "own": 7,
+            "opponent": 5,
+            "walls": [
+              7,
+              6
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            },
+            "delta": 3,
+            "metric": {
+              "own": 7,
+              "opponent": 4,
+              "walls": [
+                7,
+                6
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          },
+          "metric": {
+            "own": 8,
+            "opponent": 5,
+            "walls": [
+              7,
+              6
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            },
+            "delta": 4,
+            "metric": {
+              "own": 8,
+              "opponent": 4,
+              "walls": [
+                7,
+                6
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 5
+          },
+          "metric": {
+            "own": 6,
+            "opponent": 5,
+            "walls": [
+              7,
+              6
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "wall",
+              "x": 0,
+              "y": 4,
+              "o": "h"
+            },
+            "delta": 4,
+            "metric": {
+              "own": 9,
+              "opponent": 5,
+              "walls": [
+                7,
+                5
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        }
+      ],
+      "legalCandidates": 105
+    },
+    {
+      "ply": 27,
+      "position": {
+        "p": [
+          {
+            "x": 0,
+            "y": 4
+          },
+          {
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 6,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 4,
+            "y": 3,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 2,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 3,
+            "y": 5,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 5,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "v",
+            "x": 5,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 1,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 4,
+            "y": 7,
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "o": "h",
+            "x": 0,
+            "y": 2,
+            "owner": 1
+          }
+        ],
+        "left": [
+          5,
+          2
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "actual": {
+        "action": {
+          "type": "wall",
+          "x": 6,
+          "y": 7,
+          "o": "h"
+        },
+        "metric": {
+          "own": 6,
+          "opponent": 4,
+          "walls": [
+            4,
+            2
+          ],
+          "winner": null
+        },
+        "reply": {
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v"
+          },
+          "delta": 5,
+          "metric": {
+            "own": 9,
+            "opponent": 4,
+            "walls": [
+              4,
+              1
+            ],
+            "winner": null
+          }
+        },
+        "immediateThreat": true
+      },
+      "alternatives": [
+        {
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "metric": {
+            "own": 6,
+            "opponent": 4,
+            "walls": [
+              5,
+              2
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            },
+            "delta": 3,
+            "metric": {
+              "own": 6,
+              "opponent": 3,
+              "walls": [
+                5,
+                2
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          },
+          "metric": {
+            "own": 7,
+            "opponent": 4,
+            "walls": [
+              5,
+              2
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            },
+            "delta": 4,
+            "metric": {
+              "own": 7,
+              "opponent": 3,
+              "walls": [
+                5,
+                2
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 3
+          },
+          "metric": {
+            "own": 5,
+            "opponent": 4,
+            "walls": [
+              5,
+              2
+            ],
+            "winner": null
+          },
+          "reply": {
+            "action": {
+              "type": "wall",
+              "x": 0,
+              "y": 3,
+              "o": "v"
+            },
+            "delta": 6,
+            "metric": {
+              "own": 10,
+              "opponent": 4,
+              "walls": [
+                5,
+                1
+              ],
+              "winner": null
+            }
+          },
+          "immediateThreat": true
+        }
+      ],
+      "legalCandidates": 84
+    }
+  ]
+}

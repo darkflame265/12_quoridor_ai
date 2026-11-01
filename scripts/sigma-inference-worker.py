@@ -59,6 +59,25 @@ def choose(s,allowed,history=None):
   if win:
    selected=win[0]
   elif MODE=='puct' and root is not None:
+   # A no-wall opponent on the penultimate row with an open next square
+   # has an immediate winning move. Compare legal defensive walls first.
+   # This does not modify Sigma1 and does not impose a 500ms move deadline.
+   opp=1-s['turn']
+   enemy=s['p'][opp]
+   target=0 if opp==0 else 8
+   if s['left'][s['turn']]>0 and abs(enemy['y']-target)==1:
+    from collections import deque
+    def opponent_can_goal(walls):
+     y=enemy['y'];gy=target;x=enemy['x']
+     if any(w['o']=='h' and w['y']==min(y,gy) and x in (w['x'],w['x']+1) for w in walls):return False
+     own=s['p'][s['turn']]
+     return not (own['x']==x and own['y']==gy)
+    if opponent_can_goal(s['walls']):
+     for child in sorted(root.children,key=lambda c:c.visit_count,reverse=True):
+      action=to_action(s,child.action)
+      if action['type']=='wall' and json.dumps(action,sort_keys=True,separators=(',',':')) in allowed and not opponent_can_goal(s['walls']+[action]):
+       selected=child.action
+       break
    proposed=to_action(s,selected)
    if proposed['type']=='wall':
     from collections import deque

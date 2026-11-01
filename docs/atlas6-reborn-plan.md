@@ -72,3 +72,8 @@
 - Tested removing root late-move reductions against actual Atlas5.3 candidate on paired openings 080-083 at 500ms/4cores: 4W 4L, all four wins as side 0 and all four losses as side 1; no confirmed advantage. Reverted the experimental search change.
 - Added fail-fast source profile checks in the tournament runner to detect mapping errors before future labeled matches.
 - No AI strength improvement demonstrated. Need larger held-out paired A/B, opening-balance audit, independent mistake proofs, then targeted engine changes.
+
+## Standard strength report: 15 games vs actual Atlas 5.3
+- Every future search change should report wins/losses/undecided and win percentage after exactly 15 games at 500ms/4 cores vs actual Atlas5.3 candidate, with fixed openings and alternating colors.
+- With 15 games, sides are unbalanced by one; 15-game percentages are provisional and a regression is a rollback trigger, not statistical proof.
+- For true promotion, also use larger balanced paired holdout (at least 200 games).

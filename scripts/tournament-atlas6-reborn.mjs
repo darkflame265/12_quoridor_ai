@@ -21,7 +21,7 @@ const captureLosses=args.includes('--capture-losses');
 const captureAll=args.includes('--capture-all');
 const startPair=Number(opt('--start-pair','0'));
 const out=opt('--out','reports/atlas6-reborn/report-'+opponent+'.json');
-if(!Number.isInteger(games)||games<2||games>2000||games%2||
+if(!Number.isInteger(games)||games<2||games>2000||
   !Number.isFinite(ms)||ms<1||ms>30000||![1,2,4].includes(cores)||
   !['atlas53','atlas04','atlas6base'].includes(opponent)||!['all','validation','holdout'].includes(split))
   throw Error('Invalid tournament options');

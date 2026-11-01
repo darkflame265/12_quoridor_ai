@@ -26,6 +26,26 @@ if MODE=="puct":
   if state.depth%2:idx=[int(PERM[i]) for i in idx]
   q=z[idx].astype(np.float64);q=np.exp(q-np.max(q));q=q/max(np.sum(q),1e-10)
   return q.tolist(),float(v[0][0])
+if MODE=='puct':
+ class Sigma2LoopAwareMCTS(MCTSAgent):
+  # Treat repeated full positions inside a simulated principal line as a
+  # drawn continuation. Counts against the same 200-simulation budget.
+  def _run_simulation(self,root):
+   node=root
+   seen=set()
+   while True:
+    node.ensure_state()
+    key=node.state._position_key()
+    if key in seen:
+     self._backup(node,0.0)
+     return
+    seen.add(key)
+    if not node.is_expanded or node.state.is_finished():break
+    node=node.best_child(self.c_puct,self.fpu_reduction)
+   if node.state.is_finished():value=self._terminal_value(node.state)
+   else:value=self._expand(node)
+   self._backup(node,value)
+
 def state_of(s):
  state=State(boardsize=9,depth=s['turn'],player1pos=(s['p'][0]['x'],8-s['p'][0]['y']),player2pos=(s['p'][1]['x'],8-s['p'][1]['y']),walls_p1=s['left'][0],walls_p2=s['left'][1],walls_initial=10)
  for w in s['walls']:
@@ -49,9 +69,9 @@ def choose(s,allowed,history=None):
   global PERSISTENT_AGENT
   sims=SIGMA2_SIMS if VARIANT=='sigma2' else int(os.getenv('SIGMA_SIMS','20'))
   if VARIANT=='sigma2' and SIGMA2_REUSE:
-   if PERSISTENT_AGENT is None:PERSISTENT_AGENT=MCTSAgent(evaluator=evaluator,num_simulations=sims,c_puct=1.2,training=False)
+   if PERSISTENT_AGENT is None:PERSISTENT_AGENT=Sigma2LoopAwareMCTS(evaluator=evaluator,num_simulations=sims,c_puct=1.2,training=False)
    agent=PERSISTENT_AGENT
-  else:agent=MCTSAgent(evaluator=evaluator,num_simulations=sims,c_puct=1.2,training=False)
+  else:agent=(Sigma2LoopAwareMCTS if VARIANT=='sigma2' else MCTSAgent)(evaluator=evaluator,num_simulations=sims,c_puct=1.2,training=False)
   root=agent.search(state)
   children=sorted(root.children,key=lambda child:child.visit_count,reverse=True)
   choices=[c for c in children if json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')) in allowed]

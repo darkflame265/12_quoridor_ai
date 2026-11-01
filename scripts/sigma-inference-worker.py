@@ -59,25 +59,24 @@ def choose(s,allowed,history=None):
   if win:
    selected=win[0]
   elif MODE=='puct' and root is not None:
-   # A no-wall opponent on the penultimate row with an open next square
-   # has an immediate winning move. Compare legal defensive walls first.
-   # This does not modify Sigma1 and does not impose a 500ms move deadline.
-   opp=1-s['turn']
-   enemy=s['p'][opp]
-   target=0 if opp==0 else 8
-   if s['left'][s['turn']]>0 and abs(enemy['y']-target)==1:
-    from collections import deque
-    def opponent_can_goal(walls):
-     y=enemy['y'];gy=target;x=enemy['x']
-     if any(w['o']=='h' and w['y']==min(y,gy) and x in (w['x'],w['x']+1) for w in walls):return False
-     own=s['p'][s['turn']]
-     return not (own['x']==x and own['y']==gy)
-    if opponent_can_goal(s['walls']):
-     for child in sorted(root.children,key=lambda c:c.visit_count,reverse=True):
-      action=to_action(s,child.action)
-      if action['type']=='wall' and json.dumps(action,sort_keys=True,separators=(',',':')) in allowed and not opponent_can_goal(s['walls']+[action]):
-       selected=child.action
-       break
+   # Sigma 2 only: use Sigma's complete legal pawn generation (including
+   # jumps and diagonal contact) to evaluate a forced opponent goal.
+   # Evaluate all root actions, then preserve PUCT visit ordering among safe
+   # replies. This avoids relying on vertical-step-only heuristics.
+   def pawn_at_goal_after(next_state,action):
+    if not isinstance(action,PawnAction):return False
+    resulting=next_state.next(action)
+    if next_state.is_player1_turn():
+     return resulting.player1pos[1]==8
+    return resulting.player2pos[1]==0
+   def gives_opponent_goal(root_action):
+    after=state.next(root_action)
+    return any(pawn_at_goal_after(after,reply) for reply in after.get_legal_actions() if isinstance(reply,PawnAction))
+   selected_child=next((c for c in choices if c.action==selected),None)
+   if selected_child is not None and gives_opponent_goal(selected):
+    safe_children=[c for c in choices if not gives_opponent_goal(c.action)]
+    if safe_children:
+     selected=max(safe_children,key=lambda c:c.visit_count).action
    proposed=to_action(s,selected)
    if proposed['type']=='wall':
     from collections import deque

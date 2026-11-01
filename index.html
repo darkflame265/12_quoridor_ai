@@ -35,7 +35,7 @@
         <label><span id="side-label">내 진영</span><select id="side"><option value="0">청록 · 선공</option><option value="1">분홍 · 후공</option></select></label>
         <label><span id="position-label">내 시작 위치</span><select id="start-position"><option value="top">위쪽</option><option value="bottom">아래쪽</option></select></label>
         <div id="human-settings">
-          <label>사용 엔진<select id="play-engine"><option value="atlas6">Atlas 6 · 실험 (검증 전)</option><option value="atlas-goal" selected>Atlas 0.4 · 최신</option><option value="atlas5">Atlas 5.3 · 안정</option></select></label>
+          <label>사용 엔진<select id="play-engine"><option value="sigma">Sigma PUCT 50</option><option value="atlas-goal" selected>Atlas 0.4 · 최신</option><option value="atlas5">Atlas 5.3 · 안정</option></select></label>
           <p id="engine-status" class="watch-note" role="status" hidden></p>
           <p id="engine-import-note" class="watch-note" role="status" hidden></p>
           <label>AI 생각 시간<select id="time"><option value="500">빠르게 · 0.5초</option><option value="variable" selected>가변 · 0.5~2초 · 추천 확정</option><option value="2000">표준 · 2초</option><option value="5000">깊게 · 5초</option><option value="15000">정밀 · 15초</option><option value="30000">최대 · 30초</option></select></label>
@@ -48,14 +48,14 @@
         <div class="watch-configs">
           <div class="watch-player" style="--accent:#31d4c2">
             <h2><i></i>청록 · 선공</h2>
-            <label>엔진<select id="watch-engine-0" aria-label="청록 엔진"><option value="atlas6">Atlas 6 · 실험 (검증 전)</option><option value="atlas-goal" selected>Atlas 0.4 · 최신</option><option value="atlas5">Atlas 5.3 · 안정</option></select></label>
+            <label>엔진<select id="watch-engine-0" aria-label="청록 엔진"><option value="sigma">Sigma PUCT 50</option><option value="atlas-goal" selected>Atlas 0.4 · 최신</option><option value="atlas5">Atlas 5.3 · 안정</option></select></label>
             <p id="watch-engine-status-0" class="watch-note" role="status">선택한 엔진은 계산할 때 확인합니다.</p>
             <label>생각 시간<select id="watch-time-0" aria-label="청록 생각 시간"><option value="100">0.1초</option><option value="250">0.25초</option><option value="500" selected>0.5초</option><option value="1000">1초</option><option value="2000">2초</option><option value="5000">5초</option><option value="15000">15초</option><option value="30000">30초</option></select></label>
             <label>코어<select id="watch-cores-0" aria-label="청록 계산 코어"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option></select></label>
           </div>
           <div class="watch-player" style="--accent:#fa7393">
             <h2><i></i>분홍 · 후공</h2>
-            <label>엔진<select id="watch-engine-1" aria-label="분홍 엔진"><option value="atlas6">Atlas 6 · 실험 (검증 전)</option><option value="atlas-goal">Atlas 0.4 · 최신</option><option value="atlas5" selected>Atlas 5.3 · 안정</option></select></label>
+            <label>엔진<select id="watch-engine-1" aria-label="분홍 엔진"><option value="sigma">Sigma PUCT 50</option><option value="atlas-goal">Atlas 0.4 · 최신</option><option value="atlas5" selected>Atlas 5.3 · 안정</option></select></label>
             <p id="watch-engine-status-1" class="watch-note" role="status">선택한 엔진은 계산할 때 확인합니다.</p>
             <label>생각 시간<select id="watch-time-1" aria-label="분홍 생각 시간"><option value="100">0.1초</option><option value="250">0.25초</option><option value="500" selected>0.5초</option><option value="1000">1초</option><option value="2000">2초</option><option value="5000">5초</option><option value="15000">15초</option><option value="30000">30초</option></select></label>
             <label>코어<select id="watch-cores-1" aria-label="분홍 계산 코어"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option></select></label>

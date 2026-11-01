@@ -47,13 +47,14 @@ if(args.includes('--stop')) {
   await new Promise(r=>setTimeout(r,200));
  }
  if(!acquired){console.error('쿼리도 실행 준비를 2분 동안 확인하지 못했습니다. 기존 실행의 준비 로그와 포트 12324 상태를 확인해 주세요.');process.exit(1);}
- let native=null,goal=null,sigma=null,web=null,watcher=null,stopping=null;const token=randomUUID();
+ let native=null,goal=null,sigma=null,sigma2=null,web=null,watcher=null,stopping=null;const token=randomUUID();
  const cleanup=()=>stopping??=(async()=>{
   watcher?.close();
   if(web){web.closeAllConnections();await new Promise(r=>web.close(r));}
   if(native)await native.close();
   if(goal)await goal.close();
   if(sigma)await sigma.close();
+  if(sigma2)await sigma2.close();
   const state=await existing();if(state?.pid===process.pid)await unlink(lock).catch(()=>{});
  })();
  process.on('SIGINT',()=>cleanup().then(()=>process.exit()));process.on('SIGTERM',()=>cleanup().then(()=>process.exit()));
@@ -87,6 +88,8 @@ if(args.includes('--stop')) {
   });
   sigma=createSigmaService();await sigma.client.health();
   await new Promise((resolve,reject)=>{sigma.server.once('error',reject);sigma.server.listen(0,'127.0.0.1',resolve);});
+  sigma2=createSigmaService('sigma2');await sigma2.client.health();
+  await new Promise((resolve,reject)=>{sigma2.server.once('error',reject);sigma2.server.listen(0,'127.0.0.1',resolve);});
   // Compile the browser contract after its engine build has been verified.
   if(!args.includes('--no-build'))run('node_modules/vite/bin/vite.js',['build']);
   const fingerprint=await runtimeFingerprint(root);
@@ -102,10 +105,10 @@ if(args.includes('--stop')) {
     if(pathname==='/__app/stop'&&req.method==='POST'){res.end('ok');setTimeout(()=>cleanup().then(()=>process.exit()),50);return;}
     res.writeHead(404).end();return;
    }
-   if(pathname.startsWith('/api/native/')||pathname.startsWith('/api/goal/')||pathname.startsWith('/api/sigma/')) {
-    const selected=pathname.startsWith('/api/sigma/')?sigma:pathname.startsWith('/api/goal/')?goal:native;
+   if(pathname.startsWith('/api/native/')||pathname.startsWith('/api/goal/')||pathname.startsWith('/api/sigma/')||pathname.startsWith('/api/sigma2/')) {
+    const selected=pathname.startsWith('/api/sigma2/')?sigma2:pathname.startsWith('/api/sigma/')?sigma:pathname.startsWith('/api/goal/')?goal:native;
     if(!selected){res.writeHead(503).end('Experimental engine unavailable');return;}
-    const upstream=http.request({host:'127.0.0.1',port:selected.server.address().port,path:req.url.replace(/^\/api\/(native|goal|sigma)/,''),method:req.method,headers:{...req.headers,host:`127.0.0.1:${selected.server.address().port}`}},reply=>{res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);});
+    const upstream=http.request({host:'127.0.0.1',port:selected.server.address().port,path:req.url.replace(/^\/api\/(native|goal|sigma2|sigma)/,''),method:req.method,headers:{...req.headers,host:`127.0.0.1:${selected.server.address().port}`}},reply=>{res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);});
     upstream.on('error',()=>{if(!res.headersSent)res.writeHead(503);res.end();});res.on('close',()=>upstream.destroy());req.pipe(upstream);return;
    }
    if(!['GET','HEAD'].includes(req.method)){res.writeHead(405).end();return;}

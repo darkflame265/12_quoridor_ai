@@ -1,10 +1,10 @@
-export const supportedEngines=['sigma','atlas-goal','atlas5'];
+export const supportedEngines=['sigma','sigma2','atlas-goal','atlas5'];
 export function normalizeSessionSettings(data,{startup=false}={}){
  const migrate=startup&&data.settingsRevision!==1;
  const engine=supportedEngines.includes(data.engine)?data.engine:'sigma';
  return {...data,settingsRevision:1,
   unsupportedEngine:data.engine&&!supportedEngines.includes(data.engine)?data.engine:null,
-  engine:startup?'sigma':engine,
+  engine:startup&&engine!=='sigma2'?'sigma':engine,
   time:migrate?'variable':data.time??'variable',mode:migrate?'screen':data.mode??'screen',
   watch:{...data.watch,players:[0,1].map(t=>{
    const player=data.watch?.players?.[t]??{};

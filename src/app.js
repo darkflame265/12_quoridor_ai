@@ -29,7 +29,7 @@ const variableAnalysis=new VariableAnalysis();
 const screenPonder=new ScreenPonder();
 function ponderStatus(status){const note=$('#screen-ponder-status');if(note)note.textContent=({thinking:'상대 차례 · 1개 계산 작업으로 응수 사전 계산 중',idle:'사전 계산 대기 · 확인된 배치가 일치할 때만 재사용',unavailable:'사전 계산 중단 · 내 차례 분석은 정상 진행',reused:'사전 계산 결과 재사용 · 현재 차례 추가 분석 중'})[status]??'';}
 // Only observed positions from this game; imported snapshots invent no history.
-const searchSnapshot=s=>({...progressSnapshot(s,past),wallRun:wallRun(records,past,s.turn,baseState?.turn??0),recentPawnSquares:past.filter(p=>p.turn===s.turn).slice(-4).map(p=>p.p[s.turn].y*9+p.p[s.turn].x)});
+const searchSnapshot=s=>({...progressSnapshot(s,past),historyStates:past.slice(-48).map(h=>({p:h.p,walls:h.walls,left:h.left,turn:h.turn,winner:h.winner})),wallRun:wallRun(records,past,s.turn,baseState?.turn??0),recentPawnSquares:past.filter(p=>p.turn===s.turn).slice(-4).map(p=>p.p[s.turn].y*9+p.p[s.turn].x)});
 const playMs=()=>$('#time').value==='variable'?500:Number($('#time').value);
 function appendProgressReview(review){
  if(!review?.active)return;
@@ -48,7 +48,7 @@ const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.tur
 const flipped=()=>viewFlipped(Number($('#side').value),$('#start-position').value);
 const viewPosition=p=>orientPosition(p,flipped());
 const viewAction=a=>orientAction(a,flipped());
-const engineName=id=>id==='sigma'?'Sigma 1':id==='atlas5'?'Atlas 5.3 \u00b7 \uC548\uC815':'Atlas 0.4 \u00b7 \uCD5C\uC2E0';
+const engineName=id=>id==='sigma2'?'Sigma 2':id==='sigma'?'Sigma 1':id==='atlas5'?'Atlas 5.3 \u00b7 \uC548\uC815':'Atlas 0.4 \u00b7 \uCD5C\uC2E0';
 function statusFor(selector){return (status,info)=>{
  const label=info?.engineInfo;
  if(selector==='#engine-status')$(selector).hidden=!['stale','unavailable','wasm'].includes(status);

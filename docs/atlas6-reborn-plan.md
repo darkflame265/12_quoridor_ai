@@ -77,3 +77,9 @@
 - Every future search change should report wins/losses/undecided and win percentage after exactly 15 games at 500ms/4 cores vs actual Atlas5.3 candidate, with fixed openings and alternating colors.
 - With 15 games, sides are unbalanced by one; 15-game percentages are provisional and a regression is a rollback trigger, not statistical proof.
 - For true promotion, also use larger balanced paired holdout (at least 200 games).
+
+## 2026-11-01: tactical pruning protection rejected after standard 15 games
+- Experiment: include 5.3 profile 2 in urgent goal-defense and high-impact wall critical move protection (previously profiles 3 and 4 only). Reborn vs actual Atlas5.3 candidate, identical fixtures 085-092, 500ms/4cores.
+- Baseline 7W/8L (46.7%) -> trial 6W/9L (40.0%), delta -6.7pp. 9 losing game traces saved locally. Results changed in five corresponding starts; not evidence of causal blunders by itself.
+- Rejected and reverted experiment. 15 games are for rapid regression screening, NOT statistically conclusive strength proof.
+- Still required: first causal blunder with alternate rollout, independent wall tactics, 0-2-wall endgame proof, evaluation A/B, 200 held-out paired games, human opponents, CPU/server timing.

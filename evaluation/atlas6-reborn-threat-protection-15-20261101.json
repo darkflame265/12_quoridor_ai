@@ -1,0 +1,50 @@
+{
+  "experiment": "protect high-impact walls and imminent goal responses during pruning",
+  "baseline": {
+    "wins": 7,
+    "losses": 8,
+    "rate": 0.4666666666666667
+  },
+  "experimentResult": {
+    "wins": 6,
+    "losses": 9,
+    "rate": 0.4
+  },
+  "deltaPercentagePoints": -6.666666666666667,
+  "sameFixtures": true,
+  "sameOpponent": true,
+  "changedOutcomes": [
+    {
+      "fixture": "seed-20261101-085",
+      "side": 0,
+      "before": "win",
+      "after": "loss"
+    },
+    {
+      "fixture": "seed-20261101-085",
+      "side": 1,
+      "before": "loss",
+      "after": "win"
+    },
+    {
+      "fixture": "seed-20261101-087",
+      "side": 0,
+      "before": "loss",
+      "after": "win"
+    },
+    {
+      "fixture": "seed-20261101-087",
+      "side": 1,
+      "before": "win",
+      "after": "loss"
+    },
+    {
+      "fixture": "seed-20261101-088",
+      "side": 1,
+      "before": "win",
+      "after": "loss"
+    }
+  ],
+  "decision": "rejected; revert search change; 15 games too small to prove harm",
+  "traceDirectory": "reports/atlas6-reborn/protected-threats-standard15-traces"
+}

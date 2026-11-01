@@ -67,7 +67,7 @@ for(let i=report.finished;i<games;i++){
    const elapsed=performance.now()-start;
    if(elapsed>ms+25 || response.elapsedMs>ms+10)overruns++;
    if(!response.pv?.length||!legal(state,response.pv[0]))throw Error('Illegal move: '+fixture.id+' ply '+ply);
-   if(captureLosses||captureAll)trace.push({ply,side:state.turn,role:state.turn===atlasSide?'atlas6':opponent,state:structuredClone(state),action:response.pv[0],depth:response.depth,nodes:response.nodes,score:response.score,exact:response.exact,elapsedMs:response.elapsedMs});
+   if(captureLosses||captureAll)trace.push({ply,side:state.turn,role:state.turn===atlasSide?'atlas6':opponent,state:structuredClone(state),action:response.pv[0],depth:response.depth,nodes:response.nodes,score:response.score,exact:response.exact,rootDiagnostics:response.rootDiagnostics,elapsedMs:response.elapsedMs});
    state=apply(state,response.pv[0]);plies++;
    if(state.winner!==null)reason='goal';
   }

@@ -573,6 +573,16 @@ pub struct NativeOutput {
     pub exact: Option<bool>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub outcome: Option<i8>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub root_diagnostics: Option<RootDiagnostics>,
+}
+#[derive(Serialize, Clone)]
+#[serde(rename_all = "camelCase")]
+pub struct RootDiagnostics {
+    pub depth: usize,
+    pub ordered_actions: Vec<Action>,
+    pub scores: Vec<Option<i32>>,
+    pub note: &'static str,
 }
 pub struct NativeEngine {
     shared: Arc<SharedSearch>,
@@ -680,6 +690,7 @@ impl NativeEngine {
             backend: "native",
             exact: None,
             outcome: None,
+            root_diagnostics: None,
         };
         let mut pos = match Position::from_state(s) {
             Ok(p) => p,
@@ -759,6 +770,8 @@ impl NativeEngine {
             };
             let score = -value;
             let alpha = AtomicI32::new(score);
+            let diagnostics = Mutex::new(vec![None; roots.len()]);
+            diagnostics.lock().unwrap()[0] = Some(score);
             let next = AtomicUsize::new(1);
             let completed = AtomicUsize::new(1);
             let best = Mutex::new((first, score));
@@ -769,6 +782,7 @@ impl NativeEngine {
                     let next = &next;
                     let completed = &completed;
                     let best = &best;
+                    let diagnostics = &diagnostics;
                     let pos = &pos;
                     scope.spawn(move || {
                         let mut searcher = worker.lock().unwrap();
@@ -824,6 +838,7 @@ impl NativeEngine {
                             let Ok(score) = result else {
                                 break;
                             };
+                            diagnostics.lock().unwrap()[i] = Some(score);
                             {
                                 let mut record = best.lock().unwrap();
                                 if score > record.1 {
@@ -840,6 +855,12 @@ impl NativeEngine {
                 break;
             }
             let (a, score) = *best.lock().unwrap();
+            out.root_diagnostics = Some(RootDiagnostics {
+                depth,
+                ordered_actions: roots.iter().copied().map(decode).collect(),
+                scores: diagnostics.into_inner().unwrap(),
+                note: "PVS scout scores are bounds unless re-searched; not independent exact evaluations",
+            });
             self.shared.store(
                 root_key,
                 Entry {

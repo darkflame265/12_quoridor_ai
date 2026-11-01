@@ -48,3 +48,9 @@
 - At synthetic seed-20261101-060, ply 3, four 500ms continuations per alternative under a 70-ply cap: original 3W/1L/0 undecided; Atlas5.3 suggested alternative 1W/1L/2 undecided. These are too few, and too many are truncated, to justify changing the engine.
 - scripts/check-atlas6-reborn-repeatability.mjs runs eight fresh 500ms searches on the same state and records chosen actions/depth/evaluation: all eight chose the same wall (3,3,v), depth 3, score -26. This does not prove deterministic future play across different positions.
 - No candidate engine change was accepted. All six broader priorities remain open (causal mistake proof, forcing wall sequences, exact 2-wall solve and endgame transfer, 200+ paired games, independent A/B and evaluation improvements, and human testing). Operational followups: 500ms service wall-clock, replay reproducibility across different CPUs, and official repetition rules.
+
+## Root diagnostics, 2026-11-01
+- New rootDiagnostics in Reborn native output stores ordered actions and PVS scout score bounds from the last fully completed depth, which are not all exact minimax scores.
+- Tournament capture-all stores these fields. scripts/analyze-atlas6-reborn-roots.mjs summarizes root candidate coverage, and differentiates exact endgame shortcuts from missing data.
+- Four holdout games against 5.3 at 500ms/4 cores: 2W 2L, zero overrun. Not strength proof.
+- Remaining work: independent causal proof, forcing wall tactics, 2-wall exact solver, 200+ paired games, human playtests, server latency.

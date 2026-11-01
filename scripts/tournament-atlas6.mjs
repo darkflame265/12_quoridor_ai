@@ -43,7 +43,12 @@ if(resume&&existsSync(out)){
  if(report.schema!=='atlas6-tournament-v3'||report.finished!==report.results.length)throw Error('Incompatible or corrupt resume report');
 }
 const save=async()=>{const tmp=out+'.tmp';await writeFile(tmp,JSON.stringify(report,null,2)+'\n');await rename(tmp,out);};
+const validateBinaries=()=>{
+ if(sha(readSync(atlas))!==identity.engineBuild)throw Error('Atlas6 binary changed during the tournament');
+ if(sha(readSync(binary))!==identity.opponentBuild)throw Error('Opponent binary changed during the tournament');
+};
 for(let i=report.finished;i<games;i++){
+ validateBinaries();
  const fixture=fixtures[(startPair+Math.floor(i/2))%fixtures.length],atlasSide=i%2;
  const a=new NativeProcess({executable:atlas,profile:'baseline'});
  const b=new NativeProcess({executable:binary,profile:'candidate',env});
@@ -70,6 +75,7 @@ for(let i=report.finished;i<games;i++){
   report.results.push({fixture:fixture.id,atlasSide,verdict,winner:state.winner,reason,plies,overruns});
   report.moves+=plies;report.overruns+=overruns;report.finished++;
   if(captureLosses&&verdict==='loss'){const directory=path.join(path.dirname(out),path.basename(out,path.extname(out))+'-loss-traces');await mkdir(directory,{recursive:true});await writeFile(path.join(directory,String(i).padStart(4,'0')+'-'+fixture.id+'.json'),JSON.stringify({fixture:fixture.id,atlasSide,reason,plies,trace,finalState:state},null,2)+'\n');}
+  validateBinaries();
   await save();
   console.log(i+1+'/'+games,fixture.id,'side',atlasSide,verdict,plies,reason);
  }finally{await a.close();await b.close();}

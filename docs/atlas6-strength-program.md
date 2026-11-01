@@ -100,3 +100,12 @@ Still necessary for the strength goal:
 5. Apply evaluation improvements only after verified A/B uplift in independent matches.
 6. Recruit actual human players and collect paired playtest results.
 Additional: root candidate score traces, CPU saturation and cancellation load tests, threefold-repetition rule integration, hot-swap correctness, portability across CPU architectures.
+
+
+## 2026-11-01 Root tactics A/B and runtime integrity
+- Root-search experiment: force immediate own goal and filter out moves that fail to stop opponent's immediate goal. Rust tests and 500ms legality tests passed. But 8 matches on balanced openings against a saved older Atlas6 executable ended 1 win, 7 losses and one timing overrun. **Rejected and reverted.**
+- Do not infer a strong AI from tactical invariants alone; independent head-to-head results take priority.
+- Tournament runner now re-hashes both engine binaries before and after every match, and aborts if either changes. This prevents mixed-build match reports.
+- Four concurrent local Atlas6 clients (500ms each, 4 cores each): internal engine elapsed 489-498ms, end-to-end client wall clock 519-555ms. All returned legal moves. 500ms engine budget is not the same as 500ms user-visible latency.
+- Load smoke script: node scripts/atlas6-load-smoke.mjs
+- Strength baseline remains unpromoted. A successful 0/1-wall proof does not establish a two-wall proof or win rate against strong humans.

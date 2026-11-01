@@ -1,0 +1,27 @@
+{
+  "candidate": "SigmaQuoridor best.onnx + MCTSAgent PUCT",
+  "simulationsPerMove": 20,
+  "opponent": "Atlas5.3 candidate",
+  "games": 15,
+  "wins": 12,
+  "losses": 2,
+  "undecided": 1,
+  "winPercentage": 80.0,
+  "forfeits": 0,
+  "overruns": 0,
+  "baselinePolicyOnly": {
+    "wins": 10,
+    "losses": 5,
+    "winPercentage": 66.67
+  },
+  "sameFixtures": "evaluation/atlas6-balanced-openings.json, starts 085 through 092",
+  "modelSHA256": "d790dac68389f7602ff8a887a2385417d3c925fe22da7164c86e9226f943908d",
+  "sourceReport": "reports/atlas6-reborn/sigma-onnx-puct-vs53-15.json",
+  "limitations": [
+    "15 games only; opening/seat bias remains",
+    "One undecided game at max 200 plies counted as non-win",
+    "Opponent 500ms/4 cores, PUCT has fixed 20 simulations not equal computation",
+    "Official Reborn not replaced",
+    "Need fresh holdout >=200 games and rule equivalence checks"
+  ]
+}

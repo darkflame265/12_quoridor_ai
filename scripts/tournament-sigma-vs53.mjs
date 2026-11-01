@@ -4,13 +4,13 @@ import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {NativeProcess,nativeExecutable} from '../server/native-process.mjs';
 import {legal,apply,moves,validWall} from '../src/engine.js';
 const fixtures=JSON.parse(readFileSync('evaluation/atlas6-balanced-openings.json','utf8'));
-const games=15,reportFile='reports/atlas6-reborn/sigma-onnx-policy-vs53-15.json';
-const py=spawn('python',['-u','scripts/sigma-inference-worker.py'],{stdio:['pipe','pipe','inherit'],windowsHide:true});
+const games=15,mode=process.argv[2]||'policy',reportFile='reports/atlas6-reborn/sigma-onnx-'+mode+'-vs53-15.json';
+const py=spawn('python',['-u','scripts/sigma-inference-worker.py'],{stdio:['pipe','pipe','inherit'],windowsHide:true,env:{...process.env,SIGMA_MODE:mode,SIGMA_SIMS:'20'}});
 let seq=0;const pending=new Map();
 readline.createInterface({input:py.stdout}).on('line',line=>{let x;try{x=JSON.parse(line);}catch{return;}const t=pending.get(x.id);if(t){pending.delete(x.id);if(x.error)t.reject(Error(x.error));else t.resolve(x);}});
 const allLegal=state=>{const out=moves(state);if(state.left[state.turn]>0)for(let y=0;y<8;y++)for(let x=0;x<8;x++)for(const o of ['h','v']){const a={type:'wall',x,y,o};if(validWall(state,a))out.push(a);}return out.map(a=>JSON.stringify(Object.fromEntries(Object.entries(a).sort(([a],[b])=>a.localeCompare(b)))));};
 const query=state=>new Promise((resolve,reject)=>{const id=String(++seq);pending.set(id,{resolve,reject});py.stdin.write(JSON.stringify({id,state,allowed:allLegal(state)})+'\n');});
-const r={candidate:'SigmaQuoridor 9x9 best.onnx policy-only (no MCTS)',opponent:'Atlas5.3 candidate',games:[],wins:0,losses:0,undecided:0,forfeits:0,overruns:0};
+const r={candidate:'SigmaQuoridor 9x9 best.onnx mode='+mode,opponent:'Atlas5.3 candidate',games:[],wins:0,losses:0,undecided:0,forfeits:0,overruns:0};
 mkdirSync('reports/atlas6-reborn',{recursive:true});
 try{
 for(let i=0;i<games;i++){

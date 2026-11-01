@@ -38,3 +38,8 @@ Research and initial source acquisition only. No independent MCTS engine, verifi
 - Built `scripts/sigma-inference-worker.py` for origin/turn/wall coordinate conversion; authoritative Atlas legal actions are sent from `scripts/tournament-sigma-vs53.mjs` to reject mismatch.
 - Against actual Atlas 5.3 `candidate` over fixed 15 starts (085-092), 500ms/4core for opponent, Sigma policy-only 10W/5L = **66.7%**, 0 forfeits, 0 Sigma time overruns. This is an initial screening, not an equal-compute comparison and not a measured >=80% promotion.
 - Do not replace default Reborn yet. Required: more randomized position agreement checks, persistent model acquisition/packaging, 500ms MCTS/PUCT hybrid, fresh 15 and independent >=200 balanced games, human game tests.
+
+## 2026-11-01 Sigma PUCT milestone (screening only)
+- Added switch `SIGMA_MODE=puct` to `scripts/sigma-inference-worker.py`, using upstream Sigma `MCTSAgent`, policy softmax priors, value output, and 20 simulations, with authoritative Atlas legal-action filtering on the selected root action. Candidate runs via `node scripts/tournament-sigma-vs53.mjs puct`.
+- Actual Atlas5.3 candidate, fixed openings 085-092, 500ms/4 cores opponent: **12W, 2L, 1 undecided / 15, win percentage 80.0%**; 0 illegal-action forfeits and 0 Sigma 500ms overruns. Comparison baseline policy-only 10W/5L = 66.7%.
+- This is NOT statistical proof of true >=80% win rate. Candidate MCTS runs 20 simulations instead of fully equalized compute and there is a 200-ply undecided game. Future priority: random held-out and paired 200+ games, full legal move set comparison, repetition handling, 500ms hard deadline / action fallback, deployable model packaging, human games. Existing Reborn remains unchanged.

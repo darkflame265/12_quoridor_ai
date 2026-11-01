@@ -81,3 +81,22 @@ node --test --test-concurrency=1 scripts/check-atlas6-game12.test.mjs scripts/ch
 - ?? ???? ?? ? ??? ??? ??? ???? ?? ?? ??? ?? ????.
 - ?? ??? ??? ??: ?? ??? ?? ??? ?? ????(?? ? ??/?? ?? ?? ???/?? ?)? ??? ??? holdout ???? ??.
 - ? 2? ??? ?? ??, 500ms ?? ? 200?, ?? ?? ???? ??? ?? ???? ???. ? ??? ???? ?? ?? ??? AI? ???? ???.
+
+
+## Expanded independent opening evaluation (2026-11-01)
+- Counterfactual analysis tool: scripts/atlas6-counterfactual.mjs; a 2000ms search changed selected moves at Game11 plies 9 and 15 versus 500ms, but those changes are NOT proven stronger.
+- Old generated 20-game cohort (10 openings, swapped seats) against Atlas 5.3: 5 wins, 15 losses. Some starting positions produce one-ply finishes; the cohort is biased.
+- New balanced generator scripts/generate-atlas6-balanced-openings.mjs produces 100 nonterminal legal states in evaluation/atlas6-balanced-openings.json: goal-route distances >=4 each and gap <=3.
+- New balanced cohort of 10 games (five openings, swapped seats) against Atlas 5.3: 4 wins, 6 losses, no overrun. Insufficient sample for a strength claim.
+- Tournament accepts --fixtures and --start-pair and records fixture identity; release gate explicitly requires the balanced cohort.
+- Match reports remain untracked in reports/atlas6-tournament/. Portable aggregate: evaluation/atlas6-expanded-evaluation-20261101.json.
+- Goal-distance balance does not prove strategic equality; position selection bias may remain.
+
+Still necessary for the strength goal:
+1. Identify and prove first decisive errors in losing games using independent rollouts.
+2. Add forcing wall sequences and path robustness without expensive unconditional extensions.
+3. Add a bounded, proof-safe 2-wall endgame algorithm; existing complete solver covers 0/1 wall.
+4. Evaluate 200 matches per opponent using balanced and independent holdout cohorts.
+5. Apply evaluation improvements only after verified A/B uplift in independent matches.
+6. Recruit actual human players and collect paired playtest results.
+Additional: root candidate score traces, CPU saturation and cancellation load tests, threefold-repetition rule integration, hot-swap correctness, portability across CPU architectures.

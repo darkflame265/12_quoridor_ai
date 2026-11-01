@@ -1,4 +1,4 @@
-﻿import {readFileSync} from 'node:fs';
+import {readFileSync} from 'node:fs';
 import {pathToFileURL} from 'node:url';
 
 export function assessAtlas6(report,{opponent=report.opponent}={}){
@@ -21,6 +21,7 @@ export function assessAtlas6(report,{opponent=report.opponent}={}){
   supportedOpponent:target!==undefined,
   enoughGames:total>=200,
   distinctOpenings:pairs.size>=90,
+  balancedCohort:report.fixtureFilePath==='evaluation/atlas6-balanced-openings.json',
   balancedSides:balanced,
   finalized:report.finished===total && report.gamesRequested===total,
   validResults:games.every(g=>['win','loss','draw'].includes(g.verdict)&&

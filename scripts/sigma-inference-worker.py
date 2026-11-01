@@ -161,7 +161,15 @@ def choose(s,allowed,history=None):
     dbg['afterFilter']=[to_action(s,c.action) for c in close[:5]]
   winning=[c for c in close if to_action(s,c.action)['type']=='move' and to_action(s,c.action)['y']==(0 if s['turn']==0 else 8)]
   if winning:selected=winning[0].action
-  elif danger and close:selected=close[0].action
+  elif danger and close:
+   # Do not blindly replace a well-searched PUCT leader just to avoid a
+   # recurring square. A candidate must have enough search evidence AND
+   # similar estimated win value from the same root's perspective.
+   leader=choices[0]
+   best_q=-leader.q_value
+   viable=[c for c in close if c.visit_count>=max(5,leader.visit_count*0.40) and (-c.q_value)>=best_q-0.10]
+   selected=(viable[0] if viable else leader).action
+   dbg['safeReplacement']={'chosen':to_action(s,selected),'bestValue':best_q,'qualified':len(viable),'keptLeader':not viable}
   elif len(close)>1 and ply<44:
    temp=0.65 if ply<20 else 0.35
    selected=RNG.choices(close,weights=[max(1,c.visit_count)**(1/temp) for c in close],k=1)[0].action

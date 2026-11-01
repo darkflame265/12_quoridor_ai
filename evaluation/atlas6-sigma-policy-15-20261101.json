@@ -1,0 +1,21 @@
+{
+  "candidate": "SigmaQuoridor 9x9 best.onnx policy only",
+  "opponent": "native Atlas5.3 candidate",
+  "gameCount": 15,
+  "wins": 10,
+  "losses": 5,
+  "undecided": 0,
+  "forfeits": 0,
+  "overruns": 0,
+  "rate": 66.67,
+  "baselineRate": 46.67,
+  "fixtureStart": 85,
+  "modelSHA256": "d790dac68389f7602ff8a887a2385417d3c925fe22da7164c86e9226f943908d",
+  "report": "reports/atlas6-reborn/sigma-onnx-policy-vs53-15.json",
+  "caveats": [
+    "15 games not statistical proof of improvement",
+    "policy only; no MCTS",
+    "model and source are under untracked .external path and must be acquired on every deployment",
+    "only 15 battle states evaluated; broader randomized legality and rule equivalence tests needed"
+  ]
+}

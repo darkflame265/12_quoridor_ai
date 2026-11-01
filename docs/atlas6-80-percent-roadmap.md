@@ -32,3 +32,9 @@ Research and initial source acquisition only. No independent MCTS engine, verifi
 - scripts/tournament-external-mcts-vs53.mjs ran exactly 15 games on paired openings 085-092 against true native profile candidate (5.3), at opponent 500ms/4 cores. External MCTS with 100 simulations: **0W/15L = 0.0%**, zero illegal-move forfeits, zero reported over-budget moves; observed external per-move maximum across games 101.4ms. Same reference openings old Reborn clone 7W/8L = 46.7%.
 - This experiment is intentionally NOT a fair 500ms CPU-budget comparison; it screens a small-budget JS MCTS. A 500ms hard-deadline, sufficiently many simulations, broader legality tests and deeper tactical/endgame logic are prerequisites to evaluating a serious challenger. Baseline Reborn remains unchanged; no 80% claim.
 - SigmaQuoridor model archive acquisition timed out; no neural inference, training, 200-game validation or human playtests completed.
+
+## 2026-11-01 SigmaQuoridor ONNX policy-only first match
+- Downloaded Sigma 9x9 best.onnx (11,663,428 bytes) and core Python/C++ sources to local `.external/quoridor-research/SigmaQuoridor-acquired`. ONNX CPU load and inference passed. Model SHA is recorded in `evaluation/atlas6-sigma-policy-15-20261101.json`.
+- Built `scripts/sigma-inference-worker.py` for origin/turn/wall coordinate conversion; authoritative Atlas legal actions are sent from `scripts/tournament-sigma-vs53.mjs` to reject mismatch.
+- Against actual Atlas 5.3 `candidate` over fixed 15 starts (085-092), 500ms/4core for opponent, Sigma policy-only 10W/5L = **66.7%**, 0 forfeits, 0 Sigma time overruns. This is an initial screening, not an equal-compute comparison and not a measured >=80% promotion.
+- Do not replace default Reborn yet. Required: more randomized position agreement checks, persistent model acquisition/packaging, 500ms MCTS/PUCT hybrid, fresh 15 and independent >=200 balanced games, human game tests.

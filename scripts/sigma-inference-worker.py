@@ -31,7 +31,7 @@ def state_of(s):
 def to_action(s,a):
  if isinstance(a,WallAction):return dict(type='wall',x=a.x,y=7-a.y,o=a.orientation)
  p=s['p'][s['turn']];return dict(type='move',x=p['x']+a.direction[0],y=p['y']-a.direction[1])
-def choose(s,allowed):
+def choose(s,allowed,history=None):
  start=time.perf_counter();state=state_of(s)
  actions=state.get_legal_actions()
  if not actions:raise ValueError('No legal actions')
@@ -52,49 +52,28 @@ def choose(s,allowed):
     pool=choices[:min(4,len(choices))]
     selected=RNG.choices([c.action for c in pool],weights=[max(1,c.visit_count) for c in pool])[0]
  if VARIANT=='sigma2':
-  # Check the immediate forced goal before any neural selection.
-  # Never replace a winning move with a wall or a quiet pawn move.
-  winning=[]
-  for _,a in ranked:
-   move=to_action(s,a)
-   if move['type']=='move' and move['y']==(0 if s['turn']==0 else 8):
-    winning.append(a)
-  if winning:
-   selected=winning[0]
-  elif len(ranked)>1:
-   # An opponent one step from goal requires immediate path denial.
-   # This is a tactical filter, not a heuristic for routine positions.
-   from game import State as SigmaState
-   opponent=1-s['turn']
-   goal=8 if opponent==1 else 0
-   enemy=s['p'][opponent]
-   if abs(enemy['y']-goal)==1:
-    defensive=[]
-    for _,a in ranked:
-     converted=to_action(s,a)
-     if converted['type']!='wall':continue
-     try:
-      # Test the candidate wall geometrically after JS legality validation.
-      # This only concerns a one-turn goal threat.
-      from collections import deque
-      walls=[{'x':w['x'],'y':w['y'],'o':w['o']} for w in s['walls']]+[converted]
-      def blocked(u,v):
-       return any((w['o']=='h' and u[0]==v[0] and min(u[1],v[1])==w['y'] and (u[0]==w['x'] or u[0]==w['x']+1)) or (w['o']=='v' and u[1]==v[1] and min(u[0],v[0])==w['x'] and (u[1]==w['y'] or u[1]==w['y']+1)) for w in walls)
-      queue=deque([(enemy['x'],enemy['y'],0)]);seen={(enemy['x'],enemy['y'])}
-      path=99
-      while queue:
-       x,y,d=queue.popleft()
-       if y==goal:path=d;break
-       for dx,dy in ((0,1),(0,-1),(1,0),(-1,0)):
-        nx,ny=x+dx,y+dy
-        if 0<=nx<9 and 0<=ny<9 and (nx,ny) not in seen and not blocked((x,y),(nx,ny)):
-         seen.add((nx,ny));queue.append((nx,ny,d+1))
-      if path>1:defensive.append(a)
-     except Exception:
-      pass
-    if defensive:
-     visitrank={json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')):c.visit_count for c in root.children} if root else {}
-     selected=max(defensive,key=lambda a:visitrank.get(json.dumps(to_action(s,a),sort_keys=True,separators=(',',':')),0))
+  # Keep the original network and PUCT 50 policy as the baseline.
+  # Only use move repetition avoidance for a recent backtracking loop.
+  goal=0 if s['turn']==0 else 8
+  win=[a for _,a in ranked if to_action(s,a)['type']=='move' and to_action(s,a)['y']==goal]
+  if win:
+   selected=win[0]
+  elif MODE=='puct' and root is not None and history:
+   recent=[(h['position']['x'],h['position']['y']) for h in history[-24:] if h['side']==s['turn']]
+   current=s['p'][s['turn']]
+   previous=(current['x'],current['y'])
+   proposed=to_action(s,selected)
+   if proposed['type']=='move' and (proposed['x'],proposed['y']) in recent[-6:]:
+    alternatives=[]
+    for c in sorted(root.children,key=lambda child:child.visit_count,reverse=True):
+     a=to_action(s,c.action)
+     if json.dumps(a,sort_keys=True,separators=(',',':')) not in allowed:continue
+     if a['type']=='move' and (a['x'],a['y']) not in recent[-6:]:
+      progress=abs(previous[1]-goal)-abs(a['y']-goal)
+      alternatives.append((progress,c.visit_count,c.action))
+    if alternatives:
+     alternatives.sort(key=lambda t:(t[0],t[1]),reverse=True)
+     selected=alternatives[0][2]
  result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE}
  if DIAGNOSTICS:
   visits={json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')):c.visit_count for c in root.children} if root else {}
@@ -103,6 +82,6 @@ def choose(s,allowed):
 print(json.dumps({"ready":True}),flush=True)
 for line in sys.stdin:
  try:
-  v=json.loads(line);r=choose(v['state'],set(v['allowed']));r['id']=v.get('id');r['done']=True
+  v=json.loads(line);r=choose(v['state'],set(v['allowed']),v.get('history',[]));r['id']=v.get('id');r['done']=True
  except Exception as e:r={'id':v.get('id') if 'v' in locals() else None,'done':True,'error':str(e)}
  print(json.dumps(r),flush=True)

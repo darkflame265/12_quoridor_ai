@@ -23,3 +23,11 @@ Comparison command: node scripts/tournament-sigma-selfplay.mjs --compare --games
 Analysis command: node scripts/analyze-sigma-selfplay.mjs reports/sigma-selfplay/sigma1-vs-sigma1.json evaluation/sigma1-selfplay-10-summary.json
 
 The resume option requires the same version, model hash, target game count, exploration and seed. Different game counts use separate output files.
+
+
+## Follow-up: 200-ply repetition investigation (2026-11-01)
+- Both previous Sigma1-vs-Sigma2 candidate games reached 200 plies with **174 repeated full board positions** per game; a single position appeared **45 times**. The repeated games shared one action-sequence hash.
+- An experimental Sigma2-only recent-pawn-location filter was tested. It does not change Sigma1 or the public server.
+- In a four-game alternating-side test with no exploration, the revised Sigma2 lost **0?4** against Sigma1. Two distinct full game hashes, no undecided games, average length 59.5 plies.
+- **Rejected for promotion.** Eliminating a cycle alone does not establish stronger play; the avoidance rule can discard high-value PUCT moves.
+- Next: examine repeated-game transition graphs and evaluate moves using deeper tactical continuation or value estimates before accepting a loop avoidance override. Keep Sigma1 default and protect the unchanged ONNX model.

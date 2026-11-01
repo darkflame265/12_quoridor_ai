@@ -15,7 +15,7 @@ const processes=[0,1].map(side=>{
  let readyResolve;const ready=new Promise(r=>readyResolve=r);
  readline.createInterface({input:child.stdout}).on('line',line=>{let r;try{r=JSON.parse(line);}catch{return;}if(r.ready)return readyResolve();const job=pending.get(r.id);if(job){pending.delete(r.id);clearTimeout(job.timer);r.error?job.reject(Error(r.error)):job.resolve(r);}});
  child.on('exit',code=>{for(const job of pending.values()){clearTimeout(job.timer);job.reject(Error('worker exited '+code));}pending.clear();});
- return {child,ready,pending,async move(state,id,allowed){return new Promise((resolve,reject)=>{const timer=setTimeout(()=>{pending.delete(id);reject(Error('worker watchdog 30s'));},30000);pending.set(id,{resolve,reject,timer});child.stdin.write(JSON.stringify({id,state,allowed})+'\n');});}};
+ return {child,ready,pending,async move(state,id,allowed,history=[]){return new Promise((resolve,reject)=>{const timer=setTimeout(()=>{pending.delete(id);reject(Error('worker watchdog 30s'));},30000);pending.set(id,{resolve,reject,timer});child.stdin.write(JSON.stringify({id,state,allowed,history})+'\n');});}};
 });
 const actionsOf=s=>{const a=moves(s);if(s.left[s.turn])for(let y=0;y<8;y++)for(let x=0;x<8;x++)for(const o of ['h','v']){const w={type:'wall',x,y,o};if(validWall(s,w))a.push(w);}return a.map(x=>JSON.stringify(Object.fromEntries(Object.entries(x).sort(([a],[b])=>a.localeCompare(b)))));};
 const modelHash=createHash('sha256').update(readFileSync('vendor/sigma-quoridor/models/best.onnx')).digest('hex');
@@ -29,11 +29,11 @@ if(process.argv.includes('--resume')&&existsSync(out)){
 try{
  await Promise.all(processes.map(p=>p.ready));
  for(let i=report.completed.length;i<games;i++){
-  let s=initial();const trace=[];let reason='ply-cap';
+  let s=initial();const trace=[];let reason='ply-cap';const history=[];
   for(let ply=0;ply<200&&s.winner===null;ply++){
-   const side=s.turn,workerIndex=compare?(side+i)%2:side,choice=await processes[workerIndex].move(s,String(i)+'-'+String(ply),actionsOf(s));
+   const side=s.turn,workerIndex=compare?(side+i)%2:side,choice=await processes[workerIndex].move(s,String(i)+'-'+String(ply),actionsOf(s),history.slice(-32));
    const action=choice.pv?.[0];if(!action||!legal(s,action))throw Error('Illegal Sigma action');
-   const next=apply(s,action);
+   const next=apply(s,action);history.push({side,position:{...s.p[side]}});
    trace.push({ply,side,state:s,action,value:choice.value,elapsedMs:choice.elapsedMs,diagnostics:choice.diagnostics,pathBefore:[distance(s,0),distance(s,1)],pathAfter:[distance(next,0),distance(next,1)]});
    s=next;
    if(s.winner!==null)reason='goal';

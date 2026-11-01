@@ -79,3 +79,6 @@ aside #history>div{padding:5px 0}
 .analysis-panel .watch-note{font-size:10px;line-height:1.5;margin:4px 0}
 .analysis-panel .analysis-warning{font-size:11px;padding:6px 8px}
 @media(max-width:720px){.analysis-panel{grid-template-rows:30px 20px 22px minmax(0,1fr)}}
+
+/* Board-first layout: analysis follows the board on all screen sizes. */
+.arena > #wait-advice{margin-top:16px}

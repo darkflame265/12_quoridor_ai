@@ -13,6 +13,7 @@
   <section class="layout">
     <div class="arena">
       <div class="board-heading"><span id="status">당신의 차례</span><span>9 × 9 · CLASSIC</span></div>
+      <div id="board"></div>
       <section id="wait-advice" class="wait-advice analysis-panel" data-level="done" aria-label="포지션 분석">
         <div class="analysis-heading"><div>포지션 분석 <span id="depth"></span></div><button id="hint" class="primary">✦ 최선 수 분석</button></div>
         <strong id="wait-label" role="status" aria-live="polite">분석 대기</strong>
@@ -23,7 +24,6 @@
           <div id="analysis" class="muted">현재 차례의 추천 수와 예상 진행을 확인하세요.</div>
         </div>
       </section>
-      <div id="board"></div>
       <p id="instruction" class="instruction">점을 클릭해 이동 · 칸 사이에 커서를 대고 클릭해 벽 설치</p>
       <div id="result" class="result" role="status" hidden></div>
     </div>

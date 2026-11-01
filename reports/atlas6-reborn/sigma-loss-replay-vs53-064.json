@@ -1,0 +1,6349 @@
+{
+  "candidate": "Sigma PUCT 50",
+  "opponent": "Atlas 5.3",
+  "sims": 50,
+  "startPair": 64,
+  "requested": 2,
+  "games": [
+    {
+      "fixture": "seed-20261101-064",
+      "sigmaSide": 0,
+      "verdict": "loss",
+      "reason": "goal",
+      "maxSigmaMs": 129.19690000126138,
+      "opening": {
+        "p": [
+          {
+            "x": 5,
+            "y": 6
+          },
+          {
+            "x": 2,
+            "y": 4
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          7,
+          9
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "trace": [
+        {
+          "ply": 0,
+          "side": 1,
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 3
+          },
+          "elapsedMs": 500.07390000000004,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 6
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              }
+            ],
+            "left": [
+              7,
+              9
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 1,
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 3,
+            "o": "v"
+          },
+          "elapsedMs": 121.70580000019982,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 6
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              }
+            ],
+            "left": [
+              7,
+              8
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 2,
+          "side": 1,
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 2
+          },
+          "elapsedMs": 500.0171,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 6
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              }
+            ],
+            "left": [
+              6,
+              8
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 3,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "elapsedMs": 123.0461999984982,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 6
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              7
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 4,
+          "side": 1,
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 4
+          },
+          "elapsedMs": 500.0298,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 5
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              7
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 5,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          "elapsedMs": 116.98919999980717,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 5
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              6
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 6,
+          "side": 1,
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6
+          },
+          "elapsedMs": 500.4370000000001,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 6
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              6
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 7,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          },
+          "elapsedMs": 115.46029999954044,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 6
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              5
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 8,
+          "side": 1,
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 7
+          },
+          "elapsedMs": 500.0264000000002,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 7
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              5
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 9,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          },
+          "elapsedMs": 115.32809999698657,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 7
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              4
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 10,
+          "side": 1,
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 6
+          },
+          "elapsedMs": 500.0210000000002,
+          "position": {
+            "p": [
+              {
+                "x": 6,
+                "y": 7
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              4
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 11,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          },
+          "elapsedMs": 129.19690000126138,
+          "position": {
+            "p": [
+              {
+                "x": 6,
+                "y": 7
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              3
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 12,
+          "side": 1,
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 5
+          },
+          "elapsedMs": 500.0140999999994,
+          "position": {
+            "p": [
+              {
+                "x": 6,
+                "y": 6
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              3
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 13,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          "elapsedMs": 119.84650000158581,
+          "position": {
+            "p": [
+              {
+                "x": 6,
+                "y": 6
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              2
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 14,
+          "side": 1,
+          "action": {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 2
+          },
+          "elapsedMs": 500.3298999999997,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 6
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              2
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 15,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "elapsedMs": 111.35199999989709,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 6
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              1
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 16,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          "elapsedMs": 500.0081,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 5
+              },
+              {
+                "x": 2,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              1
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 17,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          },
+          "elapsedMs": 108.01619999983814,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 5
+              },
+              {
+                "x": 3,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              1
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 18,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "elapsedMs": 500.0155999999997,
+          "position": {
+            "p": [
+              {
+                "x": 6,
+                "y": 5
+              },
+              {
+                "x": 3,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              1
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 19,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          },
+          "elapsedMs": 112.72359999929904,
+          "position": {
+            "p": [
+              {
+                "x": 6,
+                "y": 5
+              },
+              {
+                "x": 4,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              1
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 20,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          "elapsedMs": 500.02110000000084,
+          "position": {
+            "p": [
+              {
+                "x": 7,
+                "y": 5
+              },
+              {
+                "x": 4,
+                "y": 4
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              1
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 21,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          "elapsedMs": 110.15330000009271,
+          "position": {
+            "p": [
+              {
+                "x": 7,
+                "y": 5
+              },
+              {
+                "x": 4,
+                "y": 5
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              1
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 22,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "elapsedMs": 500.0039000000006,
+          "position": {
+            "p": [
+              {
+                "x": 8,
+                "y": 5
+              },
+              {
+                "x": 4,
+                "y": 5
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              1
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 23,
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "o": "h"
+          },
+          "elapsedMs": 114.56579999867245,
+          "position": {
+            "p": [
+              {
+                "x": 8,
+                "y": 5
+              },
+              {
+                "x": 4,
+                "y": 6
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              }
+            ],
+            "left": [
+              6,
+              1
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 24,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          },
+          "elapsedMs": 500.02550000000065,
+          "position": {
+            "p": [
+              {
+                "x": 8,
+                "y": 5
+              },
+              {
+                "x": 4,
+                "y": 6
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              }
+            ],
+            "left": [
+              5,
+              1
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 25,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 6
+          },
+          "elapsedMs": 118.21919999783859,
+          "position": {
+            "p": [
+              {
+                "x": 8,
+                "y": 5
+              },
+              {
+                "x": 3,
+                "y": 6
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              }
+            ],
+            "left": [
+              5,
+              1
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 26,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          "elapsedMs": 500.02260000000115,
+          "position": {
+            "p": [
+              {
+                "x": 8,
+                "y": 6
+              },
+              {
+                "x": 3,
+                "y": 6
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              }
+            ],
+            "left": [
+              5,
+              1
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 27,
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "v"
+          },
+          "elapsedMs": 103.87740000078338,
+          "position": {
+            "p": [
+              {
+                "x": 8,
+                "y": 6
+              },
+              {
+                "x": 3,
+                "y": 7
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              }
+            ],
+            "left": [
+              5,
+              1
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 28,
+          "side": 1,
+          "action": {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 5
+          },
+          "elapsedMs": 500.0061000000005,
+          "position": {
+            "p": [
+              {
+                "x": 8,
+                "y": 6
+              },
+              {
+                "x": 3,
+                "y": 7
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              }
+            ],
+            "left": [
+              4,
+              1
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 29,
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 4,
+            "o": "v"
+          },
+          "elapsedMs": 103.69839999839314,
+          "position": {
+            "p": [
+              {
+                "x": 8,
+                "y": 6
+              },
+              {
+                "x": 3,
+                "y": 7
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              }
+            ],
+            "left": [
+              4,
+              0
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 30,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          },
+          "elapsedMs": 500.02400000000125,
+          "position": {
+            "p": [
+              {
+                "x": 8,
+                "y": 6
+              },
+              {
+                "x": 3,
+                "y": 7
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              }
+            ],
+            "left": [
+              3,
+              0
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 31,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 7
+          },
+          "elapsedMs": 100.98659999857773,
+          "position": {
+            "p": [
+              {
+                "x": 8,
+                "y": 6
+              },
+              {
+                "x": 3,
+                "y": 6
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              }
+            ],
+            "left": [
+              3,
+              0
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 32,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "elapsedMs": 500.0016999999989,
+          "position": {
+            "p": [
+              {
+                "x": 8,
+                "y": 7
+              },
+              {
+                "x": 3,
+                "y": 6
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              }
+            ],
+            "left": [
+              3,
+              0
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 33,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 8
+          },
+          "elapsedMs": 89.8148999986006,
+          "position": {
+            "p": [
+              {
+                "x": 8,
+                "y": 7
+              },
+              {
+                "x": 3,
+                "y": 5
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              }
+            ],
+            "left": [
+              3,
+              0
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 34,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 5
+          },
+          "elapsedMs": 500.0033999999996,
+          "position": {
+            "p": [
+              {
+                "x": 8,
+                "y": 8
+              },
+              {
+                "x": 3,
+                "y": 5
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              }
+            ],
+            "left": [
+              3,
+              0
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 35,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          },
+          "elapsedMs": 99.43469999780064,
+          "position": {
+            "p": [
+              {
+                "x": 8,
+                "y": 8
+              },
+              {
+                "x": 2,
+                "y": 5
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              }
+            ],
+            "left": [
+              3,
+              0
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 36,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 6
+          },
+          "elapsedMs": 500.0025999999998,
+          "position": {
+            "p": [
+              {
+                "x": 7,
+                "y": 8
+              },
+              {
+                "x": 2,
+                "y": 5
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              }
+            ],
+            "left": [
+              3,
+              0
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 37,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 8
+          },
+          "elapsedMs": 106.37099999803468,
+          "position": {
+            "p": [
+              {
+                "x": 7,
+                "y": 8
+              },
+              {
+                "x": 2,
+                "y": 6
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              }
+            ],
+            "left": [
+              3,
+              0
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 38,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 6
+          },
+          "elapsedMs": 500.0016999999971,
+          "position": {
+            "p": [
+              {
+                "x": 6,
+                "y": 8
+              },
+              {
+                "x": 2,
+                "y": 6
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              }
+            ],
+            "left": [
+              3,
+              0
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 39,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 8
+          },
+          "elapsedMs": 102.09759999997914,
+          "position": {
+            "p": [
+              {
+                "x": 6,
+                "y": 8
+              },
+              {
+                "x": 1,
+                "y": 6
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              }
+            ],
+            "left": [
+              3,
+              0
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 40,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 6
+          },
+          "elapsedMs": 68.4332000000013,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 8
+              },
+              {
+                "x": 1,
+                "y": 6
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              }
+            ],
+            "left": [
+              3,
+              0
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 41,
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "o": "h"
+          },
+          "elapsedMs": 95.29199999815319,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 8
+              },
+              {
+                "x": 0,
+                "y": 6
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              }
+            ],
+            "left": [
+              3,
+              0
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 42,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 7
+          },
+          "elapsedMs": 27.52089999999953,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 8
+              },
+              {
+                "x": 0,
+                "y": 6
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              }
+            ],
+            "left": [
+              2,
+              0
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 43,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          },
+          "elapsedMs": 90.0394000018423,
+          "position": {
+            "p": [
+              {
+                "x": 5,
+                "y": 8
+              },
+              {
+                "x": 0,
+                "y": 7
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              }
+            ],
+            "left": [
+              2,
+              0
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 44,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 7
+          },
+          "elapsedMs": 3.210799999998926,
+          "position": {
+            "p": [
+              {
+                "x": 4,
+                "y": 8
+              },
+              {
+                "x": 0,
+                "y": 7
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              }
+            ],
+            "left": [
+              2,
+              0
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 45,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 8
+          },
+          "elapsedMs": 89.09489999859943,
+          "position": {
+            "p": [
+              {
+                "x": 4,
+                "y": 8
+              },
+              {
+                "x": 1,
+                "y": 7
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              }
+            ],
+            "left": [
+              2,
+              0
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 46,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          "elapsedMs": 0.342000000000553,
+          "position": {
+            "p": [
+              {
+                "x": 3,
+                "y": 8
+              },
+              {
+                "x": 1,
+                "y": 7
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              }
+            ],
+            "left": [
+              2,
+              0
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        },
+        {
+          "ply": 47,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          "elapsedMs": 35.89300000021467,
+          "position": {
+            "p": [
+              {
+                "x": 3,
+                "y": 8
+              },
+              {
+                "x": 2,
+                "y": 7
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              }
+            ],
+            "left": [
+              2,
+              0
+            ],
+            "turn": 0,
+            "winner": null
+          }
+        },
+        {
+          "ply": 48,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 8
+          },
+          "elapsedMs": 0.004799999998795101,
+          "position": {
+            "p": [
+              {
+                "x": 2,
+                "y": 8
+              },
+              {
+                "x": 2,
+                "y": 7
+              }
+            ],
+            "walls": [
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 3,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 4,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h",
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 6,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 1,
+                "y": 3,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 4,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 4,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 5,
+                "y": 7,
+                "owner": 1
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 6,
+                "y": 6,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 6,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "o": "h",
+                "type": "wall",
+                "x": 2,
+                "y": 2,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 3,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 2,
+                "y": 6,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "o": "v",
+                "type": "wall",
+                "x": 3,
+                "y": 5,
+                "owner": 1
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 4,
+                "o": "v",
+                "owner": 0
+              },
+              {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h",
+                "owner": 0
+              }
+            ],
+            "left": [
+              2,
+              0
+            ],
+            "turn": 1,
+            "winner": null
+          }
+        }
+      ],
+      "finalState": {
+        "p": [
+          {
+            "x": 2,
+            "y": 8
+          },
+          {
+            "x": 1,
+            "y": 8
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "owner": 1
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 6,
+            "y": 6,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 6,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "o": "h",
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "o": "v",
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 4,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          2,
+          0
+        ],
+        "turn": 0,
+        "winner": 1
+      }
+    },
+    {
+      "fixture": "seed-20261101-064",
+      "sigmaSide": 1,
+      "verdict": "win",
+      "reason": "goal",
+      "maxSigmaMs": 121.34879999939585
+    }
+  ],
+  "wins": 1,
+  "losses": 1,
+  "undecided": 0,
+  "forfeits": 0,
+  "overruns": 0
+}

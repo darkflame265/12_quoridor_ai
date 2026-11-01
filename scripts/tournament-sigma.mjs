@@ -10,6 +10,7 @@ const games=Number(opt('--games',15)),startPair=Number(opt('--start-pair',85)),s
 if(!Number.isInteger(games)||games<2||games>2000||!Number.isInteger(startPair)||startPair<0||startPair+Math.ceil(games/2)>fixtures.length||![20,50,100].includes(sims))throw Error('Invalid comparison args');
 const opponent=opt('--opponent','atlas53');
 if(!['atlas53','atlas04'].includes(opponent))throw Error('Unknown opponent');
+const captureLosses=process.argv.includes('--capture-losses');
 const reportFile=opt('--out',`reports/atlas6-reborn/sigma-${mode}-${sims}sim-vs-${opponent}-start${startPair}-${games}.json`);
 const py=spawn('python',['-u','scripts/sigma-inference-worker.py'],{stdio:['pipe','pipe','inherit'],windowsHide:true,env:{...process.env,SIGMA_MODE:mode,SIGMA_SIMS:String(sims)}});
 let seq=0;const pending=new Map();
@@ -24,6 +25,7 @@ await ready;
 for(let i=0;i<games;i++){
  const sigmaSide=i%2,fixture=fixtures[startPair+Math.floor(i/2)];
  let s=structuredClone(fixture.state),reason='ply-cap',forfeit=false,maxSigmaMs=0;
+ const trace=[];
  const other=new NativeProcess({executable:opponent==='atlas04'?pressureExecutable:nativeExecutable,profile:'candidate',env:opponent==='atlas04'?{QUORIDOR_PRESSURE_MODE:'on',QUORIDOR_TEMPO_MODE:'on',QUORIDOR_GOAL_MODE:'on',QUORIDOR_GOAL_EVAL_MODE:'off',QUORIDOR_PREP_MODE:'off',QUORIDOR_GOAL_DEEP_MODE:'off'}:undefined});
  try{
  await other.health();
@@ -33,13 +35,14 @@ for(let i=0;i<games;i++){
   catch(e){if(s.turn!==sigmaSide)throw e;if(e.message.includes('hard deadline'))r.overruns++;forfeit=true;reason=e.message.includes('hard deadline')?'deadline':'adapter-error';console.log('FORFEIT',i,ply,e.message);break;}
   if(s.turn===sigmaSide){maxSigmaMs=Math.max(maxSigmaMs,choice.elapsedMs);if(choice.elapsedMs>500)r.overruns++;}
   if(!choice.pv?.[0]||!legal(s,choice.pv[0])){if(s.turn!==sigmaSide)throw Error(opponent+' illegal action');forfeit=true;reason='illegal-action';console.log('FORFEIT',i,ply,JSON.stringify(choice.pv));break;}
+  if(captureLosses)trace.push({ply,side:s.turn,action:choice.pv[0],elapsedMs:choice.elapsedMs??null,position:s});
   s=apply(s,choice.pv[0]);if(s.winner!==null)reason='goal';
  }
  }finally{await other.close();}
  const verdict=forfeit?'loss':s.winner===null?'undecided':s.winner===sigmaSide?'win':'loss';
  r[verdict==='win'?'wins':verdict==='loss'?'losses':'undecided']++;
  if(forfeit)r.forfeits++;
- r.games.push({fixture:fixture.id,sigmaSide,verdict,reason,maxSigmaMs});
+ r.games.push({fixture:fixture.id,sigmaSide,verdict,reason,maxSigmaMs,...(captureLosses&&verdict!=='win'?{opening:fixture.state,trace,finalState:s}:{})});
  writeFileSync(reportFile,JSON.stringify(r,null,2)+'\n');
  console.log(i+1+'/'+games,verdict,'overall',r.wins+'W',r.losses+'L', 'maxSigmaMs',maxSigmaMs.toFixed(1));
 }

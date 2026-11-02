@@ -21,6 +21,7 @@ SIGMA2_REUSE=os.getenv('SIGMA2_REUSE','0')=='1'
 # continuations and matched-pair tournament evidence support them.
 SIGMA2_ONE_REPLY_OVERRIDE=os.getenv('SIGMA2_ONE_REPLY_OVERRIDE','0')=='1'
 SIGMA2_PREVENTIVE_WALL_OVERRIDE=os.getenv('SIGMA2_PREVENTIVE_WALL_OVERRIDE','0')=='1'
+SIGMA2_PRECOMMIT_RETREAT=os.getenv('SIGMA2_PRECOMMIT_RETREAT','0')=='1'
 PERSISTENT_AGENT=None
 if MODE=="puct":
  from mcts import MCTSAgent
@@ -305,6 +306,38 @@ def choose(s,allowed,history=None):
     selected=RNG.choices(close,weights=[max(1,c.visit_count)**(1/temp) for c in close],k=1)[0].action
    else:selected=close[0].action
 
+ # Pre-commit path-regression validation. Past loop screening was based on
+ # stale historic distance grids from earlier wall layouts. Evaluate each
+ # prospective action against the CURRENT board, BEFORE the first retreat,
+ # and only switch when a searched, value-comparable non-regressing option
+ # exists. Do not forbid defensive retreats when no such option exists.
+ if VARIANT=='sigma2' and MODE=='puct' and SIGMA2_PRECOMMIT_RETREAT and dbg.get('terminalOverride') is None and choices:
+  own=s['turn']
+  current_pos=state.player1pos if own==0 else state.player2pos
+  current_grid=state.p1_dist if own==0 else state.p2_dist
+  current_distance=current_grid[current_pos[1]][current_pos[0]]
+  def next_path_cost(c):
+   future=state.next(c.action)
+   pos=future.player1pos if own==0 else future.player2pos
+   grid=future.p1_dist if own==0 else future.p2_dist
+   return grid[pos[1]][pos[0]]
+  current=next((c for c in choices if c.action==selected),None)
+  if current is not None and isinstance(current.action,PawnAction):
+   cost=next_path_cost(current)
+   if cost>current_distance:
+    leader=choices[0]
+    comparable=[c for c in choices[:16]
+        if c.visit_count>=max(4,leader.visit_count*0.25)
+        and -c.q_value>=-leader.q_value-0.12]
+    better=[c for c in comparable if next_path_cost(c)<=current_distance]
+    if better:
+     better.sort(key=lambda c:(next_path_cost(c),-c.visit_count))
+     replacement=better[0]
+     if replacement.action!=selected:
+      dbg['preCommitRetreat']={'rejected':to_action(s,selected),'chosen':to_action(s,replacement.action),
+       'distanceBefore':current_distance,'distanceRejected':cost,
+       'distanceChosen':next_path_cost(replacement)}
+      selected=replacement.action
  # PREVENTIVE progress guard: before playing, screen strongly searched
  # candidate moves against plausible opponent pawn advances.  A move is
  # considered at risk only if it creates no immediate distance progress AND

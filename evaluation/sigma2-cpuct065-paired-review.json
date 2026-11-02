@@ -1,0 +1,454 @@
+{
+  "method": "Same Sigma1 opponent, same seed and seat for each 12-game pair, Sigma2 c_puct 0.8 vs 0.65",
+  "comparison": [
+    {
+      "seed": 20261213,
+      "baseline": {
+        "wins": 10,
+        "losses": 2,
+        "cutoffs": 0,
+        "revisits": 0,
+        "averagePlies": 67.5,
+        "uniqueGames": 12,
+        "details": [
+          {
+            "index": 0,
+            "sigma2side": 1,
+            "outcome": "sigma1",
+            "plies": 87,
+            "revisits": 0,
+            "hash": "238a02aea9d46b496e02d501ad7c28ec40d052d9e4aceaecc850bbdd47683e40"
+          },
+          {
+            "index": 1,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 47,
+            "revisits": 0,
+            "hash": "1e9c02aaccf5002c9c138aa48a92e0dfc41769d36fa0ba86d983ad6926e34688"
+          },
+          {
+            "index": 2,
+            "sigma2side": 1,
+            "outcome": "sigma1",
+            "plies": 87,
+            "revisits": 0,
+            "hash": "9d16103c11db07061b739208b7785a55647cdb21b8063b448e1437acf712cccb"
+          },
+          {
+            "index": 3,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 57,
+            "revisits": 0,
+            "hash": "05e5917afd184a60e8bb1e17d2802af5a74b74c2eed00988e4ad75f142e484fb"
+          },
+          {
+            "index": 4,
+            "sigma2side": 1,
+            "outcome": "sigma2",
+            "plies": 62,
+            "revisits": 0,
+            "hash": "bdf84467bdb345243a43c7f7de1dd4423c9c1293bce09b5a0357ad1ff08774b8"
+          },
+          {
+            "index": 5,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 57,
+            "revisits": 0,
+            "hash": "33359e2e2c4fddf31c9c65696335d55ec85d7d0a570bb0b706e4f33f049994c2"
+          },
+          {
+            "index": 6,
+            "sigma2side": 1,
+            "outcome": "sigma2",
+            "plies": 96,
+            "revisits": 0,
+            "hash": "910f60333f90157ab6fffb55a06ef905586dbd94a99bbcd067045cacffda2abd"
+          },
+          {
+            "index": 7,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 65,
+            "revisits": 0,
+            "hash": "e02ee7b9bf3eb405f89fe27bd14ef154d3a03154fb545a5798de1e043b27b2a5"
+          },
+          {
+            "index": 8,
+            "sigma2side": 1,
+            "outcome": "sigma2",
+            "plies": 68,
+            "revisits": 0,
+            "hash": "cf997f5cde5b83f78daa3ce2fa7b419cdd296f47611eafbca62b5b771e3c8206"
+          },
+          {
+            "index": 9,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 55,
+            "revisits": 0,
+            "hash": "570df2be515671f09161930d97cb2c1dc311077385d9305db545df1a0c2acc77"
+          },
+          {
+            "index": 10,
+            "sigma2side": 1,
+            "outcome": "sigma2",
+            "plies": 86,
+            "revisits": 0,
+            "hash": "dbbcc7aee69e3b6b935251987d49d027e91bba4dfd8b39a9a2bb156c682017ff"
+          },
+          {
+            "index": 11,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 43,
+            "revisits": 0,
+            "hash": "18e659aafbc89abae23586fd14276f8d6349b168e2df25d19a351816e805562b"
+          }
+        ]
+      },
+      "trial": {
+        "wins": 11,
+        "losses": 1,
+        "cutoffs": 0,
+        "revisits": 20,
+        "averagePlies": 67.58,
+        "uniqueGames": 11,
+        "details": [
+          {
+            "index": 0,
+            "sigma2side": 1,
+            "outcome": "sigma2",
+            "plies": 100,
+            "revisits": 20,
+            "hash": "dc84dea4b70fe761166a4a678465a5a4f337fe2cb1a4be768045883411759455"
+          },
+          {
+            "index": 1,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 45,
+            "revisits": 0,
+            "hash": "e5bfc5930a80a491962cf95b6d284216818b701686767fc1e01ba216016fd06c"
+          },
+          {
+            "index": 2,
+            "sigma2side": 1,
+            "outcome": "sigma2",
+            "plies": 68,
+            "revisits": 0,
+            "hash": "a270c845f52c3f7c4ebffdf8bd377d9db9c64bf015bc95e0b5ab16cf7381aeac"
+          },
+          {
+            "index": 3,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 47,
+            "revisits": 0,
+            "hash": "b7f90dd9856a0ee02a6e1e5ca1a9f2b1921635438686e3b8d5d763e7a798915a"
+          },
+          {
+            "index": 4,
+            "sigma2side": 1,
+            "outcome": "sigma2",
+            "plies": 96,
+            "revisits": 0,
+            "hash": "e6dce7745cd5cf888eeb7e13bad24abb48aee3d679266c1059591dca9b35c9d1"
+          },
+          {
+            "index": 5,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 87,
+            "revisits": 0,
+            "hash": "875cf120a3591c5b64551dbc9dd7741e306078ab6a6f7bafd2eda2840e354936"
+          },
+          {
+            "index": 6,
+            "sigma2side": 1,
+            "outcome": "sigma2",
+            "plies": 96,
+            "revisits": 0,
+            "hash": "a38bc074153e2f41aa2ddbbe6b87c12b2ab5fc23017274b74dbb9d8d78954bab"
+          },
+          {
+            "index": 7,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 47,
+            "revisits": 0,
+            "hash": "1c64a014c2527c0b57d32e669d1d4a63f6b43bd62ba1a9a83dfc59f63aa8f8de"
+          },
+          {
+            "index": 8,
+            "sigma2side": 1,
+            "outcome": "sigma2",
+            "plies": 96,
+            "revisits": 0,
+            "hash": "0e9367a705452be45503a4537ec04cc1f47c4e66039d7fd18a835db767d4ee2b"
+          },
+          {
+            "index": 9,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 43,
+            "revisits": 0,
+            "hash": "18e659aafbc89abae23586fd14276f8d6349b168e2df25d19a351816e805562b"
+          },
+          {
+            "index": 10,
+            "sigma2side": 1,
+            "outcome": "sigma1",
+            "plies": 43,
+            "revisits": 0,
+            "hash": "1da155d9a6d03727e0ebab542d18b19a5fc07434430b0c2617ccd5fd89b67c4d"
+          },
+          {
+            "index": 11,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 43,
+            "revisits": 0,
+            "hash": "18e659aafbc89abae23586fd14276f8d6349b168e2df25d19a351816e805562b"
+          }
+        ]
+      },
+      "winDifference": 1,
+      "repeatDifference": 20
+    },
+    {
+      "seed": 20261221,
+      "baseline": {
+        "wins": 9,
+        "losses": 3,
+        "cutoffs": 0,
+        "revisits": 0,
+        "averagePlies": 67.42,
+        "uniqueGames": 12,
+        "details": [
+          {
+            "index": 0,
+            "sigma2side": 1,
+            "outcome": "sigma2",
+            "plies": 72,
+            "revisits": 0,
+            "hash": "a23983f8b1d5d0f9acc09edcafbfe7d729a00c5f97fae981f923a65abaca4519"
+          },
+          {
+            "index": 1,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 47,
+            "revisits": 0,
+            "hash": "1b72615df2093fcf3256d91a76ceb8c15c826f469531e0257ffd5fba1949529b"
+          },
+          {
+            "index": 2,
+            "sigma2side": 1,
+            "outcome": "sigma1",
+            "plies": 87,
+            "revisits": 0,
+            "hash": "1bf833105ae602a727a2a66536397a6a1e445fc88053cca97ba74f8b3b0d7005"
+          },
+          {
+            "index": 3,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 59,
+            "revisits": 0,
+            "hash": "123bea0ae43ebfc39835270e0e0957e83b0becf495866f96b05c392873b00081"
+          },
+          {
+            "index": 4,
+            "sigma2side": 1,
+            "outcome": "sigma2",
+            "plies": 64,
+            "revisits": 0,
+            "hash": "3313b78ef949b5c9de7eafd661758454850b7db04c91b3c7977231196d2ccfe4"
+          },
+          {
+            "index": 5,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 63,
+            "revisits": 0,
+            "hash": "f060b964eb12c0f052eb7f93323c72f92311b8fd17d769b0d03f688348f824b0"
+          },
+          {
+            "index": 6,
+            "sigma2side": 1,
+            "outcome": "sigma2",
+            "plies": 82,
+            "revisits": 0,
+            "hash": "222086d2e171ce769daf94425ed9f3df25e730d7b62da675e11370efa2e47e30"
+          },
+          {
+            "index": 7,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 51,
+            "revisits": 0,
+            "hash": "4417cb39c8263ed059a69981a2766902408e6fe79ecbd53795ccb0c7d6222ed9"
+          },
+          {
+            "index": 8,
+            "sigma2side": 1,
+            "outcome": "sigma1",
+            "plies": 91,
+            "revisits": 0,
+            "hash": "3fca54f03dc20a989fcd7a00bc9380969c264d0d5d50f0ec006d794659ab0fb3"
+          },
+          {
+            "index": 9,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 63,
+            "revisits": 0,
+            "hash": "36ea8dfa3329353b7347226aaf0b9345d06146c9d35c6850b9089626ae1d0605"
+          },
+          {
+            "index": 10,
+            "sigma2side": 1,
+            "outcome": "sigma1",
+            "plies": 81,
+            "revisits": 0,
+            "hash": "df9d90804918641f87319447232c9bfa7e72042e1eba29e32be1dc1779faa5a3"
+          },
+          {
+            "index": 11,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 49,
+            "revisits": 0,
+            "hash": "99e06bfb6a37384b926760e18d322a3f3badd3c38c77ca13e056cad7d7331268"
+          }
+        ]
+      },
+      "trial": {
+        "wins": 9,
+        "losses": 3,
+        "cutoffs": 0,
+        "revisits": 30,
+        "averagePlies": 75.25,
+        "uniqueGames": 12,
+        "details": [
+          {
+            "index": 0,
+            "sigma2side": 1,
+            "outcome": "sigma2",
+            "plies": 72,
+            "revisits": 0,
+            "hash": "a23983f8b1d5d0f9acc09edcafbfe7d729a00c5f97fae981f923a65abaca4519"
+          },
+          {
+            "index": 1,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 87,
+            "revisits": 0,
+            "hash": "9080afaa5ce812d11c960b4c174c52a1e01453b0b7803a477cce2e8ffb1fa5db"
+          },
+          {
+            "index": 2,
+            "sigma2side": 1,
+            "outcome": "sigma2",
+            "plies": 58,
+            "revisits": 0,
+            "hash": "28e99233ad10cef0a48c5f2b35ea6ee12397807623dff4a3e8d46168160294dc"
+          },
+          {
+            "index": 3,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 91,
+            "revisits": 0,
+            "hash": "e63a6d094830553dd49a47dbfc78b902d039a02010e59d1db1350ebc3a53167f"
+          },
+          {
+            "index": 4,
+            "sigma2side": 1,
+            "outcome": "sigma2",
+            "plies": 96,
+            "revisits": 0,
+            "hash": "a38bc074153e2f41aa2ddbbe6b87c12b2ab5fc23017274b74dbb9d8d78954bab"
+          },
+          {
+            "index": 5,
+            "sigma2side": 0,
+            "outcome": "sigma1",
+            "plies": 58,
+            "revisits": 0,
+            "hash": "14bf8f706675d82e138b6cfc371828e67cf251213aa6841ec9276d2c5abd5e0f"
+          },
+          {
+            "index": 6,
+            "sigma2side": 1,
+            "outcome": "sigma2",
+            "plies": 54,
+            "revisits": 0,
+            "hash": "b46a8aa48b85c0aa67d2d0203cb6acdfc8301a569a7fe5a8cfd82f3f407a5c58"
+          },
+          {
+            "index": 7,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 63,
+            "revisits": 0,
+            "hash": "ce5dd34f122d285d93728f8338a52b47ad7ab13c44974f9f152db482a9ec1ddd"
+          },
+          {
+            "index": 8,
+            "sigma2side": 1,
+            "outcome": "sigma1",
+            "plies": 111,
+            "revisits": 29,
+            "hash": "e70a549b731c98349af01c5bb186af6bd28b27d0d0e3ee0ca4ffbbb984ed7998"
+          },
+          {
+            "index": 9,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 87,
+            "revisits": 0,
+            "hash": "19e111a02bc48266b6616f46af9b04c5d40b6600a241cee811f377740628f916"
+          },
+          {
+            "index": 10,
+            "sigma2side": 1,
+            "outcome": "sigma1",
+            "plies": 79,
+            "revisits": 1,
+            "hash": "810d4e12b0ee28bdbd44cc9833bfd7c94760324df58ef7df924f6ad38e4d32c0"
+          },
+          {
+            "index": 11,
+            "sigma2side": 0,
+            "outcome": "sigma2",
+            "plies": 47,
+            "revisits": 0,
+            "hash": "7516ed5726ce46c3dbd59eb5c842814d7c4edc8eb0c67dbb44b62a4a628e89f4"
+          }
+        ]
+      },
+      "winDifference": 0,
+      "repeatDifference": 30
+    }
+  ],
+  "totals": {
+    "baseline": {
+      "wins": 19,
+      "losses": 5,
+      "cutoffs": 0,
+      "revisits": 0
+    },
+    "trial": {
+      "wins": 20,
+      "losses": 4,
+      "cutoffs": 0,
+      "revisits": 50
+    }
+  },
+  "adoptTrial": false
+}

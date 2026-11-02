@@ -304,6 +304,54 @@ def choose(s,allowed,history=None):
     selected=RNG.choices(close,weights=[max(1,c.visit_count)**(1/temp) for c in close],k=1)[0].action
    else:selected=close[0].action
 
+ # PREVENTIVE progress guard: before playing, screen strongly searched
+ # candidate moves against plausible opponent pawn advances.  A move is
+ # considered at risk only if it creates no immediate distance progress AND
+ # there is no improving pawn follow-up against any of three nearest-to-goal
+ # opponent replies. This is a soft preference, never a move prohibition.
+ if VARIANT=='sigma2' and MODE=='puct' and dbg.get('terminalOverride') is None and len(choices)>1:
+  side=s['turn']
+  oldpos=state.player1pos if side==0 else state.player2pos
+  oldgrid=state.p1_dist if side==0 else state.p2_dist
+  olddistance=oldgrid[oldpos[1]][oldpos[0]]
+  lead= (state.p2_dist[state.player2pos[1]][state.player2pos[0]] if side==0 else state.p1_dist[state.player1pos[1]][state.player1pos[0]])-olddistance
+  leader=choices[0]
+  viable=[c for c in choices[:10] if c.visit_count>=max(5,leader.visit_count*0.40) and -c.q_value>=-leader.q_value-0.10]
+  def future_stall(c):
+   if not isinstance(c.action,PawnAction):return False
+   nxt=state.next(c.action)
+   pos=nxt.player1pos if side==0 else nxt.player2pos
+   grid=nxt.p1_dist if side==0 else nxt.p2_dist
+   d=grid[pos[1]][pos[0]]
+   if d<olddistance:return False
+   opp=1-side
+   replies=[a for a in nxt.get_legal_actions() if isinstance(a,PawnAction)]
+   def opponent_distance(a):
+    ns=nxt.next(a)
+    op=ns.player1pos if opp==0 else ns.player2pos
+    og=ns.p1_dist if opp==0 else ns.p2_dist
+    return og[op[1]][op[0]]
+   replies.sort(key=opponent_distance)
+   if not replies:return False
+   for reply in replies[:3]:
+    after=nxt.next(reply)
+    improved=False
+    for follow in after.get_legal_actions():
+     if not isinstance(follow,PawnAction):continue
+     finish=after.next(follow)
+     pp=finish.player1pos if side==0 else finish.player2pos
+     gg=finish.p1_dist if side==0 else finish.p2_dist
+     if gg[pp[1]][pp[0]]<d:improved=True;break
+    if not improved:return True
+   return False
+  if lead>=-1 and len(viable)>=2:
+   risk={id(c):future_stall(c) for c in viable}
+   current=next((c for c in viable if c.action==selected),None)
+   if current is not None and risk.get(id(current)):
+    safe=[c for c in viable if not risk[id(c)]]
+    if safe:
+     selected=safe[0].action
+     dbg['preventive']={'atRisk':to_action(s,current.action),'selected':to_action(s,selected),'reason':'no-improving-reply-after-opponent-pawn'}
  if VARIANT=='sigma2' and MODE=='puct' and SIGMA2_ONE_REPLY_OVERRIDE and safe_reply_choice is not None and dbg.get('terminalOverride') is None:
   selected=safe_reply_choice.action
  result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE,'simulations':sims if MODE=='puct' else 0,'reusedTree':VARIANT=='sigma2' and SIGMA2_REUSE}

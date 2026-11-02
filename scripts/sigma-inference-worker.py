@@ -20,6 +20,7 @@ SIGMA2_REUSE=os.getenv('SIGMA2_REUSE','0')=='1'
 # Keep unproven one-reply counterfactual overrides opt-in until deeper
 # continuations and matched-pair tournament evidence support them.
 SIGMA2_ONE_REPLY_OVERRIDE=os.getenv('SIGMA2_ONE_REPLY_OVERRIDE','0')=='1'
+SIGMA2_PREVENTIVE_WALL_OVERRIDE=os.getenv('SIGMA2_PREVENTIVE_WALL_OVERRIDE','0')=='1'
 PERSISTENT_AGENT=None
 if MODE=="puct":
  from mcts import MCTSAgent
@@ -323,28 +324,39 @@ def choose(s,allowed,history=None):
    pos=nxt.player1pos if side==0 else nxt.player2pos
    grid=nxt.p1_dist if side==0 else nxt.p2_dist
    d=grid[pos[1]][pos[0]]
+   # A backward step is not automatically bad: it may escape a trap.
+   # The test below asks whether the opponent can force another retreat,
+   # including via legal walls, BEFORE committing to this move.
    if d<olddistance:return False
    opp=1-side
-   replies=[a for a in nxt.get_legal_actions() if isinstance(a,PawnAction)]
-   def opponent_distance(a):
-    ns=nxt.next(a)
-    op=ns.player1pos if opp==0 else ns.player2pos
-    og=ns.p1_dist if opp==0 else ns.p2_dist
-    return og[op[1]][op[0]]
-   replies.sort(key=opponent_distance)
-   if not replies:return False
-   for reply in replies[:3]:
-    after=nxt.next(reply)
-    improved=False
+   replies=nxt.get_legal_actions()
+   scored=[]
+   for a in replies:
+    after=nxt.next(a)
+    own_p=after.player1pos if side==0 else after.player2pos
+    own_g=after.p1_dist if side==0 else after.p2_dist
+    opp_p=after.player1pos if opp==0 else after.player2pos
+    opp_g=after.p1_dist if opp==0 else after.p2_dist
+    own_d=own_g[own_p[1]][own_p[0]]
+    opp_d=opp_g[opp_p[1]][opp_p[0]]
+    # Opponent walls threatening our route outrank quiet pawn moves.
+    scored.append((own_d-opp_d,own_d,after,a))
+   scored.sort(key=lambda x:(x[0],x[1]),reverse=True)
+   # Always include the best walls as well as the best pawn responses.
+   walls=[v for v in scored if isinstance(v[3],WallAction)][:3]
+   pawn=[v for v in scored if isinstance(v[3],PawnAction)][:3]
+   for _,reply_d,after,_ in walls+pawn:
+    improving=False
     for follow in after.get_legal_actions():
      if not isinstance(follow,PawnAction):continue
-     finish=after.next(follow)
-     pp=finish.player1pos if side==0 else finish.player2pos
-     gg=finish.p1_dist if side==0 else finish.p2_dist
-     if gg[pp[1]][pp[0]]<d:improved=True;break
-    if not improved:return True
+     future=after.next(follow)
+     pp=future.player1pos if side==0 else future.player2pos
+     gg=future.p1_dist if side==0 else future.p2_dist
+     if gg[pp[1]][pp[0]]<reply_d:
+      improving=True;break
+    if not improving:return True
    return False
-  if lead>=-1 and len(viable)>=2:
+  if SIGMA2_PREVENTIVE_WALL_OVERRIDE and lead>=-1 and len(viable)>=2:
    risk={id(c):future_stall(c) for c in viable}
    current=next((c for c in viable if c.action==selected),None)
    if current is not None and risk.get(id(current)):

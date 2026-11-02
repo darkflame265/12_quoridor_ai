@@ -26,6 +26,8 @@ SIGMA2_STRICT_CYCLE_VALUE=os.getenv('SIGMA2_STRICT_CYCLE_VALUE','0')=='1'
 SIGMA2_DETERMINISTIC=os.getenv('SIGMA2_DETERMINISTIC','0')=='1'
 SIGMA2_CPUCT=float(os.getenv('SIGMA2_CPUCT','0.8'))
 SIGMA2_CLOSE_RATIO=float(os.getenv('SIGMA2_CLOSE_RATIO','0.88'))
+SIGMA2_CHOICE_TEMP=float(os.getenv('SIGMA2_CHOICE_TEMP','0.20'))
+if not 0.1 <= SIGMA2_CHOICE_TEMP <= 1.0:raise ValueError('Sigma2 choice temperature out of range')
 if not 0.3 <= SIGMA2_CPUCT <= 3.0:raise ValueError('Sigma2 PUCT constant must be in [0.3,3.0]')
 PERSISTENT_AGENT=None
 if MODE=="puct":
@@ -307,7 +309,7 @@ def choose(s,allowed,history=None):
     selected=(viable[0] if viable else leader).action
     dbg['safeReplacement']={'chosen':to_action(s,selected),'bestValue':best_q,'qualified':len(viable),'keptLeader':not viable}
    elif len(close)>1 and ply<44 and not SIGMA2_DETERMINISTIC:
-    temp=0.65 if ply<20 else 0.35
+    temp=0.65 if ply<20 else SIGMA2_CHOICE_TEMP
     selected=RNG.choices(close,weights=[max(1,c.visit_count)**(1/temp) for c in close],k=1)[0].action
    else:selected=close[0].action
 
@@ -404,6 +406,19 @@ def choose(s,allowed,history=None):
      dbg['preventive']={'atRisk':to_action(s,current.action),'selected':to_action(s,selected),'reason':'no-improving-reply-after-opponent-pawn'}
  if VARIANT=='sigma2' and MODE=='puct' and SIGMA2_ONE_REPLY_OVERRIDE and safe_reply_choice is not None and dbg.get('terminalOverride') is None:
   selected=safe_reply_choice.action
+ # Final action validation: post-search overrides must not reintroduce an exact
+ # previously reached position, which earlier candidate filtering excluded.
+ if VARIANT=='sigma2' and MODE=='puct' and history and dbg.get('terminalOverride') is None and choices:
+  past={state_of(h['state'])._position_key() for h in history if isinstance(h,dict) and 'state' in h}
+  chosen_next=state.next(selected)
+  if chosen_next._position_key() in past:
+   lead=choices[0]
+   alternatives=[c for c in choices if state.next(c.action)._position_key() not in past]
+   strong=[c for c in alternatives if c.visit_count>=max(3,lead.visit_count*0.25) and -c.q_value>=-lead.q_value-0.15]
+   if strong:
+    replacement=strong[0]
+    dbg['finalCycleGuard']={'rejected':to_action(s,selected),'chosen':to_action(s,replacement.action)}
+    selected=replacement.action
  result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE,'simulations':sims if MODE=='puct' else 0,'reusedTree':VARIANT=='sigma2' and SIGMA2_REUSE}
  if DIAGNOSTICS:
   visits={json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')):c.visit_count for c in root.children} if root else {}

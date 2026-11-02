@@ -22,6 +22,7 @@ SIGMA2_REUSE=os.getenv('SIGMA2_REUSE','0')=='1'
 SIGMA2_ONE_REPLY_OVERRIDE=os.getenv('SIGMA2_ONE_REPLY_OVERRIDE','0')=='1'
 SIGMA2_PREVENTIVE_WALL_OVERRIDE=os.getenv('SIGMA2_PREVENTIVE_WALL_OVERRIDE','0')=='1'
 SIGMA2_PRECOMMIT_RETREAT=os.getenv('SIGMA2_PRECOMMIT_RETREAT','0')=='1'
+SIGMA2_STRICT_CYCLE_VALUE=os.getenv('SIGMA2_STRICT_CYCLE_VALUE','0')=='1'
 PERSISTENT_AGENT=None
 if MODE=="puct":
  from mcts import MCTSAgent
@@ -53,7 +54,7 @@ if MODE=='puct':
      own_grid=r.p1_dist if current==1 else r.p2_dist
      other_grid=r.p2_dist if current==1 else r.p1_dist
      lead=other_grid[other[1]][other[0]]-own_grid[own[1]][own[0]]
-     root_value=-0.45 if lead>=2 else 0.0
+     root_value=(-0.90 if lead>=0 else -0.30) if SIGMA2_STRICT_CYCLE_VALUE else (-0.45 if lead>=2 else 0.0)
      depth=node.state.depth-root.state.depth
      self._backup(node,root_value if depth%2==0 else -root_value)
      return

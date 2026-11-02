@@ -15,7 +15,7 @@ const fixture=JSON.parse(readFileSync('reports/sigma-selfplay/sigma2-reviewed-po
 const prefix=fixture.trace.slice(0,22);
 const intervention=process.argv.includes('--precommit');
 const processes=[0,1].map(side=>{
- const child=spawn('python',['-u','scripts/sigma-inference-worker.py'],{stdio:['pipe','pipe','inherit'],windowsHide:true,env:{...process.env,SIGMA_MODE:'puct',SIGMA_SIMS:'50',SIGMA_DIAGNOSTICS:'1',SIGMA_EXPLORATION:String(exploration),SIGMA_SEED:String(seed+side*1000003),SIGMA_VARIANT:compare?(side===0?'sigma1':'sigma2'):'sigma1',SIGMA2_SIMS:String(sigma2Sims),SIGMA2_REUSE:sigma2Reuse?'1':'0',SIGMA2_PRECOMMIT_RETREAT:intervention?'1':'0'}});
+ const child=spawn('python',['-u','scripts/sigma-inference-worker.py'],{stdio:['pipe','pipe','inherit'],windowsHide:true,env:{...process.env,SIGMA_MODE:'puct',SIGMA_SIMS:'50',SIGMA_DIAGNOSTICS:'1',SIGMA_EXPLORATION:String(exploration),SIGMA_SEED:String(seed+side*1000003),SIGMA_VARIANT:compare?(side===0?'sigma1':'sigma2'):'sigma1',SIGMA2_SIMS:String(sigma2Sims),SIGMA2_REUSE:sigma2Reuse?'1':'0',SIGMA2_PRECOMMIT_RETREAT:intervention?'1':'0',SIGMA2_STRICT_CYCLE_VALUE:process.argv.includes('--strict-cycle')?'1':'0'}});
  const pending=new Map();
  let readyResolve;const ready=new Promise(r=>readyResolve=r);
  readline.createInterface({input:child.stdout}).on('line',line=>{let r;try{r=JSON.parse(line);}catch{return;}if(r.ready)return readyResolve();const job=pending.get(r.id);if(job){pending.delete(r.id);clearTimeout(job.timer);r.error?job.reject(Error(r.error)):job.resolve(r);}});

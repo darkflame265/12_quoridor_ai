@@ -10,9 +10,11 @@ const out=option('--out','reports/sigma-selfplay/sigma1-vs-sigma1.json');
 const compare=process.argv.includes('--compare');
 const sigma2Sims=Number(option('--sigma2-sims',200)),sigma2Reuse=process.argv.includes('--sigma2-reuse');
 if(!Number.isInteger(sigma2Sims)||sigma2Sims<1||sigma2Sims>200)throw Error('Invalid Sigma2 sims');
+const deterministic=process.argv.includes('--sigma2-deterministic');
+const cpuct=Number(option('--sigma2-cpuct',0.8));
 const version=compare?'sigma1-vs-sigma2-capped200-v2':'sigma1-puct50-selfplay-v1';
 const processes=[0,1].map(side=>{
- const child=spawn('python',['-u','scripts/sigma-inference-worker.py'],{stdio:['pipe','pipe','inherit'],windowsHide:true,env:{...process.env,SIGMA_MODE:'puct',SIGMA_SIMS:'50',SIGMA_DIAGNOSTICS:'1',SIGMA_EXPLORATION:String(exploration),SIGMA_SEED:String(seed+side*1000003),SIGMA_VARIANT:compare?(side===0?'sigma1':'sigma2'):'sigma1',SIGMA2_SIMS:String(sigma2Sims),SIGMA2_REUSE:sigma2Reuse?'1':'0'}});
+ const child=spawn('python',['-u','scripts/sigma-inference-worker.py'],{stdio:['pipe','pipe','inherit'],windowsHide:true,env:{...process.env,SIGMA_MODE:'puct',SIGMA_SIMS:'50',SIGMA_DIAGNOSTICS:'1',SIGMA_EXPLORATION:String(exploration),SIGMA_SEED:String(seed+side*1000003),SIGMA_VARIANT:compare?(side===0?'sigma1':'sigma2'):'sigma1',SIGMA2_SIMS:String(sigma2Sims),SIGMA2_REUSE:sigma2Reuse?'1':'0',SIGMA2_DETERMINISTIC:deterministic?'1':'0',SIGMA2_CPUCT:String(cpuct)}});
  const pending=new Map();
  let readyResolve;const ready=new Promise(r=>readyResolve=r);
  readline.createInterface({input:child.stdout}).on('line',line=>{let r;try{r=JSON.parse(line);}catch{return;}if(r.ready)return readyResolve();const job=pending.get(r.id);if(job){pending.delete(r.id);clearTimeout(job.timer);r.error?job.reject(Error(r.error)):job.resolve(r);}});
@@ -22,10 +24,10 @@ const processes=[0,1].map(side=>{
 const actionsOf=s=>{const a=moves(s);if(s.left[s.turn])for(let y=0;y<8;y++)for(let x=0;x<8;x++)for(const o of ['h','v']){const w={type:'wall',x,y,o};if(validWall(s,w))a.push(w);}return a.map(x=>JSON.stringify(Object.fromEntries(Object.entries(x).sort(([a],[b])=>a.localeCompare(b)))));};
 const modelHash=createHash('sha256').update(readFileSync('vendor/sigma-quoridor/models/best.onnx')).digest('hex');
 mkdirSync('reports/sigma-selfplay',{recursive:true});
-let report={version,modelHash,startingPosition:initial(),gamesRequested:games,exploration,seed,compare,sigma2Sims,sigma2Reuse,completed:[]};
+let report={version,modelHash,startingPosition:initial(),gamesRequested:games,exploration,seed,compare,sigma2Sims,sigma2Reuse,deterministic,cpuct,completed:[]};
 if(process.argv.includes('--resume')&&existsSync(out)){
  const prev=JSON.parse(readFileSync(out,'utf8'));
- if(prev.version!==version||prev.modelHash!==modelHash||prev.gamesRequested!==games||prev.exploration!==exploration||prev.seed!==seed||prev.compare!==compare||prev.sigma2Sims!==sigma2Sims||prev.sigma2Reuse!==sigma2Reuse||prev.completed.length>games)throw Error('Selfplay resume settings mismatch');
+ if(prev.version!==version||prev.modelHash!==modelHash||prev.gamesRequested!==games||prev.exploration!==exploration||prev.seed!==seed||prev.compare!==compare||prev.sigma2Sims!==sigma2Sims||prev.sigma2Reuse!==sigma2Reuse||prev.cpuct!==cpuct||prev.deterministic!==deterministic||prev.completed.length>games)throw Error('Selfplay resume settings mismatch');
  report=prev;
 }
 const memo=new Map();

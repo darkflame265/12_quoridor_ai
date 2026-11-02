@@ -23,6 +23,9 @@ SIGMA2_ONE_REPLY_OVERRIDE=os.getenv('SIGMA2_ONE_REPLY_OVERRIDE','0')=='1'
 SIGMA2_PREVENTIVE_WALL_OVERRIDE=os.getenv('SIGMA2_PREVENTIVE_WALL_OVERRIDE','0')=='1'
 SIGMA2_PRECOMMIT_RETREAT=os.getenv('SIGMA2_PRECOMMIT_RETREAT','0')=='1'
 SIGMA2_STRICT_CYCLE_VALUE=os.getenv('SIGMA2_STRICT_CYCLE_VALUE','0')=='1'
+SIGMA2_DETERMINISTIC=os.getenv('SIGMA2_DETERMINISTIC','0')=='1'
+SIGMA2_CPUCT=float(os.getenv('SIGMA2_CPUCT','0.8'))
+if not 0.3 <= SIGMA2_CPUCT <= 3.0:raise ValueError('Sigma2 PUCT constant must be in [0.3,3.0]')
 PERSISTENT_AGENT=None
 if MODE=="puct":
  from mcts import MCTSAgent
@@ -137,9 +140,9 @@ def choose(s,allowed,history=None):
   global PERSISTENT_AGENT
   sims=SIGMA2_SIMS if VARIANT=='sigma2' else int(os.getenv('SIGMA_SIMS','20'))
   if VARIANT=='sigma2' and SIGMA2_REUSE:
-   if PERSISTENT_AGENT is None:PERSISTENT_AGENT=Sigma2LoopAwareMCTS(evaluator=evaluator,num_simulations=sims,c_puct=1.2,training=False)
+   if PERSISTENT_AGENT is None:PERSISTENT_AGENT=Sigma2LoopAwareMCTS(evaluator=evaluator,num_simulations=sims,c_puct=SIGMA2_CPUCT,training=False)
    agent=PERSISTENT_AGENT
-  else:agent=(Sigma2LoopAwareMCTS if VARIANT=='sigma2' else MCTSAgent)(evaluator=evaluator,num_simulations=sims,c_puct=1.2,training=False)
+  else:agent=(Sigma2LoopAwareMCTS if VARIANT=='sigma2' else MCTSAgent)(evaluator=evaluator,num_simulations=sims,c_puct=SIGMA2_CPUCT if VARIANT=='sigma2' else 1.2,training=False)
   if VARIANT=='sigma2':
    # The root state itself is always in real-game history; only newly
    # reached descendants may be scored as repeated drawn positions.
@@ -150,7 +153,7 @@ def choose(s,allowed,history=None):
   choices=[c for c in children if json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')) in allowed]
   if choices:
    selected=choices[0].action
-   if EXPLORATION>0 and RNG.random()<EXPLORATION:
+   if EXPLORATION>0 and not (VARIANT=='sigma2' and SIGMA2_DETERMINISTIC) and RNG.random()<EXPLORATION:
     pool=choices[:min(4,len(choices))]
     selected=RNG.choices([c.action for c in pool],weights=[max(1,c.visit_count) for c in pool])[0]
  dbg={}
@@ -302,7 +305,7 @@ def choose(s,allowed,history=None):
     viable=[c for c in close if c.visit_count>=max(5,leader.visit_count*0.40) and (-c.q_value)>=best_q-0.10]
     selected=(viable[0] if viable else leader).action
     dbg['safeReplacement']={'chosen':to_action(s,selected),'bestValue':best_q,'qualified':len(viable),'keptLeader':not viable}
-   elif len(close)>1 and ply<44:
+   elif len(close)>1 and ply<44 and not SIGMA2_DETERMINISTIC:
     temp=0.65 if ply<20 else 0.35
     selected=RNG.choices(close,weights=[max(1,c.visit_count)**(1/temp) for c in close],k=1)[0].action
    else:selected=close[0].action

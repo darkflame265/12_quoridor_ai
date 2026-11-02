@@ -14,6 +14,10 @@ const version='sigma2-midgame-branch-v1';
 const fixture=JSON.parse(readFileSync('reports/sigma-selfplay/sigma2-reviewed-policy20.json','utf8')).completed[2];
 const prefix=fixture.trace.slice(0,22);
 const intervention=process.argv.includes('--precommit');
+const sigma2First=process.argv.includes('--sigma2-first');
+const force=option('--force','none');
+const firstActions={none:null,pawn:{type:'move',x:4,y:3},wall:{type:'wall',x:2,y:4,o:'h'},wall2:{type:'wall',x:7,y:2,o:'h'}};
+if(!(force in firstActions))throw Error('Unknown forced first action');
 const processes=[0,1].map(side=>{
  const child=spawn('python',['-u','scripts/sigma-inference-worker.py'],{stdio:['pipe','pipe','inherit'],windowsHide:true,env:{...process.env,SIGMA_MODE:'puct',SIGMA_SIMS:'50',SIGMA_DIAGNOSTICS:'1',SIGMA_EXPLORATION:String(exploration),SIGMA_SEED:String(seed+side*1000003),SIGMA_VARIANT:compare?(side===0?'sigma1':'sigma2'):'sigma1',SIGMA2_SIMS:String(sigma2Sims),SIGMA2_REUSE:sigma2Reuse?'1':'0',SIGMA2_PRECOMMIT_RETREAT:intervention?'1':'0',SIGMA2_STRICT_CYCLE_VALUE:process.argv.includes('--strict-cycle')?'1':'0'}});
  const pending=new Map();
@@ -25,10 +29,10 @@ const processes=[0,1].map(side=>{
 const actionsOf=s=>{const a=moves(s);if(s.left[s.turn])for(let y=0;y<8;y++)for(let x=0;x<8;x++)for(const o of ['h','v']){const w={type:'wall',x,y,o};if(validWall(s,w))a.push(w);}return a.map(x=>JSON.stringify(Object.fromEntries(Object.entries(x).sort(([a],[b])=>a.localeCompare(b)))));};
 const modelHash=createHash('sha256').update(readFileSync('vendor/sigma-quoridor/models/best.onnx')).digest('hex');
 mkdirSync('reports/sigma-selfplay',{recursive:true});
-let report={version,modelHash,startingPosition:apply(prefix.at(-1).state,prefix.at(-1).action),startingPly:22,intervention,gamesRequested:games,exploration,seed,compare,sigma2Sims,sigma2Reuse,completed:[]};
+let report={version,modelHash,startingPosition:apply(prefix.at(-1).state,prefix.at(-1).action),startingPly:22,intervention,sigma2First,force,gamesRequested:games,exploration,seed,compare,sigma2Sims,sigma2Reuse,completed:[]};
 if(process.argv.includes('--resume')&&existsSync(out)){
  const prev=JSON.parse(readFileSync(out,'utf8'));
- if(prev.version!==version||prev.modelHash!==modelHash||prev.gamesRequested!==games||prev.exploration!==exploration||prev.seed!==seed||prev.compare!==compare||prev.sigma2Sims!==sigma2Sims||prev.sigma2Reuse!==sigma2Reuse||prev.completed.length>games)throw Error('Selfplay resume settings mismatch');
+ if(prev.version!==version||prev.modelHash!==modelHash||prev.gamesRequested!==games||prev.exploration!==exploration||prev.seed!==seed||prev.compare!==compare||prev.sigma2Sims!==sigma2Sims||prev.sigma2Reuse!==sigma2Reuse||prev.sigma2First!==sigma2First||prev.force!==force||prev.completed.length>games)throw Error('Selfplay resume settings mismatch');
  report=prev;
 }
 const memo=new Map();
@@ -43,12 +47,12 @@ try{
  for(let i=report.completed.length;i<games;i++){
   let s=apply(prefix.at(-1).state,prefix.at(-1).action);const trace=[];let reason='ply-cap';const history=prefix.map(t=>({side:t.side,position:{...t.state.p[t.side]},state:t.state}));let cachedMoves=0;
   for(let ply=22;ply<102&&s.winner===null;ply++){
-   const side=s.turn,workerIndex=compare?(side+i)%2:side;
+   const side=s.turn,workerIndex=compare?(sigma2First?(1-side+i)%2:(side+i)%2):side;
    const key=keyOf(workerIndex,s);
    const choice=(canMemo&&memo.get(key))||await processes[workerIndex].move({...s,ply},String(i)+'-'+String(ply),actionsOf(s),history.slice(-48));
    if(canMemo&&!choice.cached)memo.set(key,choice);
    if(choice.cached)cachedMoves++;
-   const action=choice.pv?.[0];if(!action||!legal(s,action))throw Error('Illegal Sigma action');
+   const action=(ply===22&&force!=='none')?firstActions[force]:choice.pv?.[0];if(!action||!legal(s,action))throw Error('Illegal Sigma action');
    const next=apply(s,action);history.push({side,position:{...s.p[side]},state:s});
    trace.push({ply,side,state:s,action,value:choice.value,elapsedMs:choice.elapsedMs,diagnostics:choice.diagnostics,pathBefore:[distance(s,0),distance(s,1)],pathAfter:[distance(next,0),distance(next,1)]});
    s=next;
@@ -66,7 +70,7 @@ try{
    pawnVisits.set(pawnKey,(pawnVisits.get(pawnKey)||0)+1);
   }
   const cutoff=s.winner===null?{kind:'simulation-limit',notDraw:true,limit:200,fullPositionRevisits:revisitedPositions,uniqueFullPositions:fullPositionKeys.size,finalDistances:[distance(s,0),distance(s,1)]}:null;
-  report.completed.push({index:i,winner:s.winner,winnerVariant:s.winner===null?null:compare?((s.winner+i)%2===0?'sigma1':'sigma2'):'sigma1',reason,plies:trace.length,hash,cachedMoves,cutoff,trace});
+  report.completed.push({index:i,sigma2Side:compare?(sigma2First?i%2:1-i%2):null,winner:s.winner,winnerVariant:s.winner===null?null:compare?(s.winner===(sigma2First?i%2:1-i%2)?'sigma2':'sigma1'):'sigma1',reason,plies:trace.length,hash,cachedMoves,cutoff,trace});
   const tmp=out+'.tmp';writeFileSync(tmp,JSON.stringify(report)+'\n');renameSync(tmp,out);
   console.log(i+1+'/'+games,'winner',s.winner,'continuationPlies',trace.length,'precommit',trace.filter(t=>t.diagnostics?.loopDebug?.preCommitRetreat).length,'unique',new Set(report.completed.map(g=>g.hash)).size);
  }

@@ -1,0 +1,492 @@
+{
+  "source": "sigma2-valueguard20",
+  "method": "fixed beam minimax 4 plies, wall-aware geometry",
+  "cases": [
+    {
+      "game": 4,
+      "ply": 35,
+      "side": 0,
+      "oneReplyRegret": 7,
+      "lines": [
+        {
+          "kind": "played",
+          "first": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "score": 3,
+          "principalVariation": [
+            {
+              "type": "move",
+              "x": 5,
+              "y": 3
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 1,
+              "o": "h"
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "h"
+            },
+            {
+              "type": "move",
+              "x": 6,
+              "y": 3
+            }
+          ],
+          "cycle": false
+        },
+        {
+          "kind": "alternative",
+          "first": {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "h"
+          },
+          "score": 6,
+          "principalVariation": [
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "h"
+            },
+            {
+              "type": "move",
+              "x": 5,
+              "y": 3
+            },
+            {
+              "type": "wall",
+              "x": 5,
+              "y": 3,
+              "o": "v"
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 1,
+              "o": "h"
+            }
+          ],
+          "cycle": false
+        }
+      ],
+      "scoutDepth": 4,
+      "beamWidth": 4,
+      "note": "Heuristic beam minimax; NOT exhaustive proof or full-engine continuation"
+    },
+    {
+      "game": 0,
+      "ply": 27,
+      "side": 0,
+      "oneReplyRegret": 5,
+      "lines": [
+        {
+          "kind": "played",
+          "first": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "score": 2,
+          "principalVariation": [
+            {
+              "type": "move",
+              "x": 5,
+              "y": 3
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 1,
+              "o": "h"
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "h"
+            },
+            {
+              "type": "move",
+              "x": 6,
+              "y": 4
+            }
+          ],
+          "cycle": false
+        },
+        {
+          "kind": "alternative",
+          "first": {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "h"
+          },
+          "score": 5,
+          "principalVariation": [
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "h"
+            },
+            {
+              "type": "move",
+              "x": 6,
+              "y": 4
+            },
+            {
+              "type": "wall",
+              "x": 6,
+              "y": 3,
+              "o": "v"
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 1,
+              "o": "h"
+            }
+          ],
+          "cycle": false
+        }
+      ],
+      "scoutDepth": 4,
+      "beamWidth": 4,
+      "note": "Heuristic beam minimax; NOT exhaustive proof or full-engine continuation"
+    },
+    {
+      "game": 0,
+      "ply": 29,
+      "side": 0,
+      "oneReplyRegret": 5,
+      "lines": [
+        {
+          "kind": "played",
+          "first": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "score": 3,
+          "principalVariation": [
+            {
+              "type": "move",
+              "x": 5,
+              "y": 4
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 0,
+              "o": "h"
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "h"
+            },
+            {
+              "type": "move",
+              "x": 6,
+              "y": 4
+            }
+          ],
+          "cycle": false
+        },
+        {
+          "kind": "alternative",
+          "first": {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "h"
+          },
+          "score": 6,
+          "principalVariation": [
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "h"
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 1,
+              "o": "h"
+            },
+            {
+              "type": "wall",
+              "x": 5,
+              "y": 3,
+              "o": "v"
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 3
+            }
+          ],
+          "cycle": false
+        }
+      ],
+      "scoutDepth": 4,
+      "beamWidth": 4,
+      "note": "Heuristic beam minimax; NOT exhaustive proof or full-engine continuation"
+    },
+    {
+      "game": 2,
+      "ply": 27,
+      "side": 0,
+      "oneReplyRegret": 5,
+      "lines": [
+        {
+          "kind": "played",
+          "first": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "score": 2,
+          "principalVariation": [
+            {
+              "type": "move",
+              "x": 5,
+              "y": 3
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 1,
+              "o": "h"
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "h"
+            },
+            {
+              "type": "move",
+              "x": 6,
+              "y": 4
+            }
+          ],
+          "cycle": false
+        },
+        {
+          "kind": "alternative",
+          "first": {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "h"
+          },
+          "score": 5,
+          "principalVariation": [
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "h"
+            },
+            {
+              "type": "move",
+              "x": 6,
+              "y": 4
+            },
+            {
+              "type": "wall",
+              "x": 6,
+              "y": 3,
+              "o": "v"
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 1,
+              "o": "h"
+            }
+          ],
+          "cycle": false
+        }
+      ],
+      "scoutDepth": 4,
+      "beamWidth": 4,
+      "note": "Heuristic beam minimax; NOT exhaustive proof or full-engine continuation"
+    },
+    {
+      "game": 2,
+      "ply": 29,
+      "side": 0,
+      "oneReplyRegret": 5,
+      "lines": [
+        {
+          "kind": "played",
+          "first": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "score": 3,
+          "principalVariation": [
+            {
+              "type": "move",
+              "x": 5,
+              "y": 4
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 0,
+              "o": "h"
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "h"
+            },
+            {
+              "type": "move",
+              "x": 6,
+              "y": 4
+            }
+          ],
+          "cycle": false
+        },
+        {
+          "kind": "alternative",
+          "first": {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "h"
+          },
+          "score": 6,
+          "principalVariation": [
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "h"
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 1,
+              "o": "h"
+            },
+            {
+              "type": "wall",
+              "x": 5,
+              "y": 3,
+              "o": "v"
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 3
+            }
+          ],
+          "cycle": false
+        }
+      ],
+      "scoutDepth": 4,
+      "beamWidth": 4,
+      "note": "Heuristic beam minimax; NOT exhaustive proof or full-engine continuation"
+    },
+    {
+      "game": 4,
+      "ply": 33,
+      "side": 0,
+      "oneReplyRegret": 5,
+      "lines": [
+        {
+          "kind": "played",
+          "first": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "score": 3,
+          "principalVariation": [
+            {
+              "type": "move",
+              "x": 5,
+              "y": 4
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 0,
+              "o": "h"
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "h"
+            },
+            {
+              "type": "move",
+              "x": 6,
+              "y": 4
+            }
+          ],
+          "cycle": false
+        },
+        {
+          "kind": "alternative",
+          "first": {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "h"
+          },
+          "score": 6,
+          "principalVariation": [
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "h"
+            },
+            {
+              "type": "wall",
+              "x": 2,
+              "y": 1,
+              "o": "h"
+            },
+            {
+              "type": "wall",
+              "x": 5,
+              "y": 3,
+              "o": "v"
+            },
+            {
+              "type": "move",
+              "x": 4,
+              "y": 3
+            }
+          ],
+          "cycle": false
+        }
+      ],
+      "scoutDepth": 4,
+      "beamWidth": 4,
+      "note": "Heuristic beam minimax; NOT exhaustive proof or full-engine continuation"
+    }
+  ]
+}

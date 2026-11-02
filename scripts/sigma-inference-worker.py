@@ -17,6 +17,9 @@ RNG=random.Random(int(os.getenv('SIGMA_SEED','0')))
 SIGMA2_SIMS=int(os.getenv('SIGMA2_SIMS','200'))
 if not 1 <= SIGMA2_SIMS <= 200:raise ValueError('Sigma2 PUCT simulations must be between 1 and 200')
 SIGMA2_REUSE=os.getenv('SIGMA2_REUSE','0')=='1'
+# Keep unproven one-reply counterfactual overrides opt-in until deeper
+# continuations and matched-pair tournament evidence support them.
+SIGMA2_ONE_REPLY_OVERRIDE=os.getenv('SIGMA2_ONE_REPLY_OVERRIDE','0')=='1'
 PERSISTENT_AGENT=None
 if MODE=="puct":
  from mcts import MCTSAgent
@@ -301,7 +304,7 @@ def choose(s,allowed,history=None):
     selected=RNG.choices(close,weights=[max(1,c.visit_count)**(1/temp) for c in close],k=1)[0].action
    else:selected=close[0].action
 
- if VARIANT=='sigma2' and MODE=='puct' and safe_reply_choice is not None and dbg.get('terminalOverride') is None:
+ if VARIANT=='sigma2' and MODE=='puct' and SIGMA2_ONE_REPLY_OVERRIDE and safe_reply_choice is not None and dbg.get('terminalOverride') is None:
   selected=safe_reply_choice.action
  result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE,'simulations':sims if MODE=='puct' else 0,'reusedTree':VARIANT=='sigma2' and SIGMA2_REUSE}
  if DIAGNOSTICS:

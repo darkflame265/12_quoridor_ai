@@ -38,7 +38,19 @@ if MODE=='puct':
     node.ensure_state()
     key=node.state._position_key()
     if key in seen or (node is not root and key in self.historical_keys):
-     self._backup(node,0.0)
+     # In a winning race, stalling is worse than a neutral continuation.
+     # Preserve neutral loop value if the root is not clearly ahead, so
+     # defensive repetitions remain possible when avoiding a worse loss.
+     r=root.state
+     current=r.get_current_player()
+     own=r.player1pos if current==1 else r.player2pos
+     other=r.player2pos if current==1 else r.player1pos
+     own_grid=r.p1_dist if current==1 else r.p2_dist
+     other_grid=r.p2_dist if current==1 else r.p1_dist
+     lead=other_grid[other[1]][other[0]]-own_grid[own[1]][own[0]]
+     root_value=-0.45 if lead>=2 else 0.0
+     depth=node.state.depth-root.state.depth
+     self._backup(node,root_value if depth%2==0 else -root_value)
      return
     seen.add(key)
     if not node.is_expanded or node.state.is_finished():break
@@ -56,6 +68,55 @@ def state_of(s):
 def to_action(s,a):
  if isinstance(a,WallAction):return dict(type='wall',x=a.x,y=7-a.y,o=a.orientation)
  p=s['p'][s['turn']];return dict(type='move',x=p['x']+a.direction[0],y=p['y']-a.direction[1])
+def pawn_only_forced_win(root, max_plies=10, node_limit=16000):
+ # Exact tactical proof only when neither player can place walls.
+ # Returns (root_action, proof_depth) for a forced winning move; returns None
+ # when unproven, including node-budget exhaustion and repeating lines.
+ if root.walls_p1 or root.walls_p2:return None
+ nodes=[0]; memo={}; active=set()
+ def solve(state, depth):
+  nodes[0]+=1
+  if nodes[0]>node_limit:raise OverflowError('tactical node limit')
+  winner=state.winner()
+  if winner:
+   return (1 if winner==state.get_current_player() else -1,0)
+  if depth==0:return (0,0)
+  key=state._position_key()
+  cache_key=(key,depth)
+  if cache_key in memo:return memo[cache_key]
+  if key in active:return (0,0)
+  active.add(key)
+  try:
+   moves=[a for a in state.get_legal_actions() if isinstance(a,PawnAction)]
+   # Distance-aware order: identify fast wins early without changing proof.
+   def dist_after(a):
+    nxt=state.next(a)
+    pos=nxt.player1pos if state.get_current_player()==1 else nxt.player2pos
+    grid=nxt.p1_dist if state.get_current_player()==1 else nxt.p2_dist
+    return grid[pos[1]][pos[0]]
+   moves.sort(key=dist_after)
+   best=(-1,0);unknown=False
+   for a in moves:
+    result,plies=solve(state.next(a),depth-1)
+    val=-result
+    if val==1:
+     candidate=(1,plies+1)
+     if best[0]!=1 or candidate[1]<best[1]:best=candidate
+    elif val==0:unknown=True
+    elif best[0]==-1:best=(-1,plies+1)
+   if best[0]!=1 and unknown:best=(0,0)
+   memo[cache_key]=best
+   return best
+  finally:active.remove(key)
+ try:
+  winning=[]
+  for a in (a for a in root.get_legal_actions() if isinstance(a,PawnAction)):
+   val,plies=solve(root.next(a),max_plies-1)
+   if val==-1:winning.append((plies+1,a))
+  return (min(winning,key=lambda t:t[0])[1],min(winning,key=lambda t:t[0])[0]) if winning else None
+ except (OverflowError,RecursionError):
+  return None
+
 def choose(s,allowed,history=None):
  start=time.perf_counter();state=state_of(s)
  actions=state.get_legal_actions()
@@ -159,12 +220,16 @@ def choose(s,allowed,history=None):
      if g[p[1]][p[0]]<best_dist:fresh.append(c)
     if fresh:close=fresh
     dbg['afterFilter']=[to_action(s,c.action) for c in close[:5]]
+  tactical=pawn_only_forced_win(state) if s['left']==[0,0] else None
   # Exact legal immediate goal takes priority over stochastic selection or
   # cycle-prevention candidate filters. Evaluate ALL legal pawn moves.
   forced_goals=[a for a in actions if isinstance(a,PawnAction) and
     to_action(s,a)['type']=='move' and to_action(s,a)['y']==(0 if s['turn']==0 else 8)
     and json.dumps(to_action(s,a),sort_keys=True,separators=(',',':')) in allowed]
-  if forced_goals:
+  if tactical and json.dumps(to_action(s,tactical[0]),sort_keys=True,separators=(',',':')) in allowed:
+   selected=tactical[0]
+   dbg['terminalOverride']='forced-pawn-win-'+str(tactical[1])+'plies'
+  elif forced_goals:
    selected=forced_goals[0]
    dbg['terminalOverride']='immediate-legal-goal'
   else:
@@ -186,7 +251,7 @@ def choose(s,allowed,history=None):
      close=[c for c in close if c in safe] or [safe[0]]
      dbg['terminalOverride']='one-reply-safety'
 
-  if not forced_goals and dbg.get('terminalOverride')!='one-reply-safety':
+  if not forced_goals and not tactical and dbg.get('terminalOverride')!='one-reply-safety':
    winning=[c for c in close if to_action(s,c.action)['type']=='move' and to_action(s,c.action)['y']==(0 if s['turn']==0 else 8)]
 
    if winning:selected=winning[0].action

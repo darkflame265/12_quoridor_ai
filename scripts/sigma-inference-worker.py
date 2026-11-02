@@ -25,6 +25,7 @@ SIGMA2_PRECOMMIT_RETREAT=os.getenv('SIGMA2_PRECOMMIT_RETREAT','0')=='1'
 SIGMA2_STRICT_CYCLE_VALUE=os.getenv('SIGMA2_STRICT_CYCLE_VALUE','0')=='1'
 SIGMA2_DETERMINISTIC=os.getenv('SIGMA2_DETERMINISTIC','0')=='1'
 SIGMA2_CPUCT=float(os.getenv('SIGMA2_CPUCT','0.8'))
+SIGMA2_CLOSE_RATIO=float(os.getenv('SIGMA2_CLOSE_RATIO','0.88'))
 if not 0.3 <= SIGMA2_CPUCT <= 3.0:raise ValueError('Sigma2 PUCT constant must be in [0.3,3.0]')
 PERSISTENT_AGENT=None
 if MODE=="puct":
@@ -160,7 +161,7 @@ def choose(s,allowed,history=None):
  if VARIANT=='sigma2' and MODE=='puct' and choices:
   # Choose only similarly visited candidates and discourage exact full-state loops.
   ply=int(s.get('ply',0))
-  close=[c for c in choices if c.visit_count>=max(3,choices[0].visit_count*0.72)]
+  close=[c for c in choices if c.visit_count>=max(3,choices[0].visit_count*SIGMA2_CLOSE_RATIO)]
   if not close:close=[choices[0]]
   danger=False
   if history:

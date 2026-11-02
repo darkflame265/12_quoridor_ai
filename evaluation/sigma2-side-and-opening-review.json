@@ -1,0 +1,746 @@
+{
+  "source": "reports/sigma-selfplay/sigma2-reviewed-policy20.json",
+  "groups": {
+    "sigma2First": {
+      "wins": 8,
+      "losses": 2,
+      "cutoffs": 0
+    },
+    "sigma2Second": {
+      "wins": 2,
+      "losses": 8,
+      "cutoffs": 0
+    }
+  },
+  "firstPlayerWins": 16,
+  "secondPlayerWins": 4,
+  "openingPatterns": [
+    {
+      "moves": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ],
+      "count": 20
+    }
+  ],
+  "games": [
+    {
+      "index": 0,
+      "sigma2Side": 0,
+      "winner": 0,
+      "plies": 63,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 0,
+      "ownRepeatedSquareStates": 10,
+      "finalDistance": [
+        0,
+        1
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "sigma2Side": 1,
+      "winner": 0,
+      "plies": 41,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 0,
+      "ownRepeatedSquareStates": 8,
+      "finalDistance": [
+        0,
+        9
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "sigma2Side": 0,
+      "winner": 1,
+      "plies": 136,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 66,
+      "ownRepeatedSquareStates": 49,
+      "finalDistance": [
+        5,
+        0
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "sigma2Side": 1,
+      "winner": 0,
+      "plies": 45,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 0,
+      "ownRepeatedSquareStates": 10,
+      "finalDistance": [
+        0,
+        8
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "sigma2Side": 0,
+      "winner": 0,
+      "plies": 65,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 0,
+      "ownRepeatedSquareStates": 11,
+      "finalDistance": [
+        0,
+        1
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "sigma2Side": 1,
+      "winner": 0,
+      "plies": 83,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 2,
+      "ownRepeatedSquareStates": 19,
+      "finalDistance": [
+        0,
+        3
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "sigma2Side": 0,
+      "winner": 0,
+      "plies": 63,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 0,
+      "ownRepeatedSquareStates": 10,
+      "finalDistance": [
+        0,
+        1
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "sigma2Side": 1,
+      "winner": 0,
+      "plies": 55,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 0,
+      "ownRepeatedSquareStates": 12,
+      "finalDistance": [
+        0,
+        8
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "sigma2Side": 0,
+      "winner": 0,
+      "plies": 65,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 0,
+      "ownRepeatedSquareStates": 11,
+      "finalDistance": [
+        0,
+        2
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "sigma2Side": 1,
+      "winner": 0,
+      "plies": 47,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 2,
+      "ownRepeatedSquareStates": 14,
+      "finalDistance": [
+        0,
+        10
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "sigma2Side": 0,
+      "winner": 0,
+      "plies": 71,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 22,
+      "ownRepeatedSquareStates": 20,
+      "finalDistance": [
+        0,
+        12
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "sigma2Side": 1,
+      "winner": 1,
+      "plies": 58,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 0,
+      "ownRepeatedSquareStates": 10,
+      "finalDistance": [
+        2,
+        0
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "sigma2Side": 0,
+      "winner": 0,
+      "plies": 63,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 2,
+      "ownRepeatedSquareStates": 12,
+      "finalDistance": [
+        0,
+        13
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "sigma2Side": 1,
+      "winner": 0,
+      "plies": 41,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 0,
+      "ownRepeatedSquareStates": 11,
+      "finalDistance": [
+        0,
+        11
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "sigma2Side": 0,
+      "winner": 0,
+      "plies": 55,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 0,
+      "ownRepeatedSquareStates": 11,
+      "finalDistance": [
+        0,
+        1
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "sigma2Side": 1,
+      "winner": 0,
+      "plies": 69,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 2,
+      "ownRepeatedSquareStates": 16,
+      "finalDistance": [
+        0,
+        9
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "sigma2Side": 0,
+      "winner": 1,
+      "plies": 64,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 1,
+      "ownRepeatedSquareStates": 15,
+      "finalDistance": [
+        2,
+        0
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "sigma2Side": 1,
+      "winner": 0,
+      "plies": 47,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 0,
+      "ownRepeatedSquareStates": 12,
+      "finalDistance": [
+        0,
+        8
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "sigma2Side": 0,
+      "winner": 0,
+      "plies": 63,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 0,
+      "ownRepeatedSquareStates": 10,
+      "finalDistance": [
+        0,
+        1
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "sigma2Side": 1,
+      "winner": 1,
+      "plies": 58,
+      "firstWallPly": 7,
+      "repeatedPawnMoves": 0,
+      "ownRepeatedSquareStates": 10,
+      "finalDistance": [
+        4,
+        0
+      ],
+      "firstFour": [
+        {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    }
+  ]
+}

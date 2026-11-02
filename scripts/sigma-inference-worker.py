@@ -221,6 +221,38 @@ def choose(s,allowed,history=None):
     if fresh:close=fresh
     dbg['afterFilter']=[to_action(s,c.action) for c in close[:5]]
   tactical=pawn_only_forced_win(state) if s['left']==[0,0] else None
+  # Counterfactual check for repeated pawn progress: compare adversarial
+  # replies to similarly evaluated, well-visited candidate walls.
+  # This is a one-reply path-race heuristic, not a forced-win proof.
+  if danger and len(choices)>1 and (history or []):
+   leader=choices[0]
+   qualified=[c for c in choices[:8] if c.visit_count>=max(5,leader.visit_count*0.40)
+              and (-c.q_value)>=(-leader.q_value)-0.10]
+   def worst_race_reply(c):
+    after=state.next(c.action)
+    side=s['turn']
+    if after.winner():return -10000 if after.winner()==side+1 else 10000
+    worst=-10000
+    for reply in after.get_legal_actions():
+     follow=after.next(reply)
+     if follow.winner()==side+1:score=-10000
+     elif follow.winner()!=0:score=10000
+     else:
+      own=follow.player1pos if side==0 else follow.player2pos
+      opp=follow.player2pos if side==0 else follow.player1pos
+      own_grid=follow.p1_dist if side==0 else follow.p2_dist
+      opp_grid=follow.p2_dist if side==0 else follow.p1_dist
+      score=own_grid[own[1]][own[0]]-opp_grid[opp[1]][opp[0]]
+     worst=max(worst,score)
+    return worst
+   if len(qualified)>=2:
+    ranked_replies=sorted(((worst_race_reply(c),-c.visit_count,c) for c in qualified),key=lambda x:(x[0],x[1]))
+    if ranked_replies[0][0]+2<=worst_race_reply(leader):
+     safe_reply_choice=ranked_replies[0][2]
+     dbg['counterfactual']={'alternative':to_action(s,safe_reply_choice.action),'improvement':worst_race_reply(leader)-ranked_replies[0][0]}
+    else:safe_reply_choice=None
+   else:safe_reply_choice=None
+  else:safe_reply_choice=None
   # Exact legal immediate goal takes priority over stochastic selection or
   # cycle-prevention candidate filters. Evaluate ALL legal pawn moves.
   forced_goals=[a for a in actions if isinstance(a,PawnAction) and
@@ -269,6 +301,8 @@ def choose(s,allowed,history=None):
     selected=RNG.choices(close,weights=[max(1,c.visit_count)**(1/temp) for c in close],k=1)[0].action
    else:selected=close[0].action
 
+ if VARIANT=='sigma2' and MODE=='puct' and safe_reply_choice is not None and dbg.get('terminalOverride') is None:
+  selected=safe_reply_choice.action
  result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE,'simulations':sims if MODE=='puct' else 0,'reusedTree':VARIANT=='sigma2' and SIGMA2_REUSE}
  if DIAGNOSTICS:
   visits={json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')):c.visit_count for c in root.children} if root else {}

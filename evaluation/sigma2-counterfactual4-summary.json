@@ -1,0 +1,491 @@
+{
+  "source": "reports/sigma-selfplay/sigma2-counterfactual4.json",
+  "version": "sigma1-vs-sigma2-capped200-v2",
+  "requested": 4,
+  "completed": 4,
+  "uniqueGames": 4,
+  "duplicates": 0,
+  "winners": {
+    "side0": 2,
+    "side1": 2,
+    "undecided": 0
+  },
+  "winnerVariants": {
+    "sigma1": 2,
+    "sigma2": 2
+  },
+  "averagePlies": 63,
+  "wallsUsed": [
+    40,
+    35
+  ],
+  "wallImpact": {
+    "positive": 40,
+    "neutral": 34,
+    "negative": 1
+  },
+  "tacticalPositions": 65,
+  "selectedWithoutMostVisits": 20,
+  "opponentOneMoveFromGoal": 11,
+  "hotspots": [
+    {
+      "game": 0,
+      "ply": 78,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 7,
+        "y": 5
+      },
+      "opponentDistance": 1,
+      "candidateMoves": [
+        {
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          },
+          "policyLogit": 0.7354369163513184,
+          "visits": 32
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "policyLogit": 0.18970215320587158,
+          "visits": 18
+        }
+      ]
+    },
+    {
+      "game": 1,
+      "ply": 43,
+      "side": 1,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 5
+      },
+      "opponentDistance": 1,
+      "candidateMoves": [
+        {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "policyLogit": 2.254462242126465,
+          "visits": 9
+        },
+        {
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 3,
+            "o": "h"
+          },
+          "policyLogit": 1.9757933616638184,
+          "visits": 7
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "policyLogit": 1.762215495109558,
+          "visits": 5
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          "policyLogit": 1.6295377016067505,
+          "visits": 5
+        }
+      ]
+    },
+    {
+      "game": 2,
+      "ply": 67,
+      "side": 1,
+      "action": {
+        "type": "wall",
+        "x": 3,
+        "y": 0,
+        "o": "h"
+      },
+      "opponentDistance": 1,
+      "candidateMoves": [
+        {
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "o": "h"
+          },
+          "policyLogit": 3.5351791381835938,
+          "visits": 87
+        },
+        {
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          },
+          "policyLogit": 3.432410717010498,
+          "visits": 78
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "policyLogit": 2.532494068145752,
+          "visits": 31
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "policyLogit": 0.506516695022583,
+          "visits": 4
+        }
+      ]
+    },
+    {
+      "game": 2,
+      "ply": 69,
+      "side": 1,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 6
+      },
+      "opponentDistance": 1,
+      "candidateMoves": [
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "policyLogit": 0.7659244537353516,
+          "visits": 97
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "policyLogit": 0.17270001769065857,
+          "visits": 54
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "policyLogit": 0.08740934729576111,
+          "visits": 49
+        }
+      ]
+    },
+    {
+      "game": 3,
+      "ply": 42,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      },
+      "opponentDistance": 3,
+      "candidateMoves": [
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "policyLogit": 2.53420352935791,
+          "visits": 58
+        },
+        {
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 7,
+            "o": "h"
+          },
+          "policyLogit": 1.485783338546753,
+          "visits": 20
+        },
+        {
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "v"
+          },
+          "policyLogit": 1.1752164363861084,
+          "visits": 15
+        },
+        {
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 6,
+            "o": "h"
+          },
+          "policyLogit": 0.9613215923309326,
+          "visits": 12
+        }
+      ]
+    },
+    {
+      "game": 3,
+      "ply": 44,
+      "side": 0,
+      "action": {
+        "type": "wall",
+        "x": 6,
+        "y": 7,
+        "o": "h"
+      },
+      "opponentDistance": 2,
+      "candidateMoves": [
+        {
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 7,
+            "o": "h"
+          },
+          "policyLogit": 1.4797577857971191,
+          "visits": 19
+        },
+        {
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "v"
+          },
+          "policyLogit": 1.4116885662078857,
+          "visits": 18
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "policyLogit": 1.2788864374160767,
+          "visits": 15
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "policyLogit": 0.6595437526702881,
+          "visits": 8
+        }
+      ]
+    },
+    {
+      "game": 3,
+      "ply": 46,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 3
+      },
+      "opponentDistance": 3,
+      "candidateMoves": [
+        {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "policyLogit": 2.124328136444092,
+          "visits": 113
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "policyLogit": 1.723576307296753,
+          "visits": 87
+        }
+      ]
+    },
+    {
+      "game": 3,
+      "ply": 48,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 6,
+        "y": 3
+      },
+      "opponentDistance": 2,
+      "candidateMoves": [
+        {
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "policyLogit": 1.3893625736236572,
+          "visits": 115
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "policyLogit": 1.0915127992630005,
+          "visits": 85
+        }
+      ]
+    },
+    {
+      "game": 3,
+      "ply": 50,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 6,
+        "y": 2
+      },
+      "opponentDistance": 2,
+      "candidateMoves": [
+        {
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "policyLogit": 1.4383641481399536,
+          "visits": 74
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          },
+          "policyLogit": 1.1639045476913452,
+          "visits": 56
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "policyLogit": 1.0150543451309204,
+          "visits": 70
+        }
+      ]
+    },
+    {
+      "game": 3,
+      "ply": 52,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 7,
+        "y": 2
+      },
+      "opponentDistance": 1,
+      "candidateMoves": [
+        {
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          },
+          "policyLogit": 1.0106346607208252,
+          "visits": 83
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "policyLogit": 0.7413033246994019,
+          "visits": 63
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "policyLogit": 0.5972509384155273,
+          "visits": 54
+        }
+      ]
+    },
+    {
+      "game": 3,
+      "ply": 54,
+      "side": 0,
+      "action": {
+        "type": "move",
+        "x": 8,
+        "y": 2
+      },
+      "opponentDistance": 1,
+      "candidateMoves": [
+        {
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 2
+          },
+          "policyLogit": 1.2828162908554077,
+          "visits": 94
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "policyLogit": 0.745457112789154,
+          "visits": 55
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          },
+          "policyLogit": 0.6874980330467224,
+          "visits": 51
+        }
+      ]
+    }
+  ]
+}

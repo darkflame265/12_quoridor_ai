@@ -1,0 +1,902 @@
+{
+  "version": "sigma2-loss-deep-research-v1",
+  "source": "reports/sigma-selfplay/sigma3-vs-sigma2-seed20261103-24.json",
+  "baselineSims": 200,
+  "researchSims": 1200,
+  "randomExploration": 0,
+  "treeReuse": false,
+  "positions": [
+    {
+      "index": 1,
+      "game": 0,
+      "ply": 14,
+      "phase": "early",
+      "state": {
+        "p": [
+          {
+            "x": 3,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 2
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          }
+        ],
+        "left": [
+          7,
+          7
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "originalAction": {
+        "type": "move",
+        "x": 3,
+        "y": 4
+      },
+      "baseline": {
+        "action": {
+          "type": "move",
+          "x": 3,
+          "y": 4
+        },
+        "ms": 680.8952999999747,
+        "value": 0.35163283348083496,
+        "root": [
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 4
+            },
+            "visits": 146,
+            "qFromRoot": 0.18859284868693516,
+            "prior": 0.05530666983672986
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            "visits": 51,
+            "qFromRoot": 0.08778986587718714,
+            "prior": 0.5684938374980545
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 6,
+              "o": "h"
+            },
+            "visits": 1,
+            "qFromRoot": -0.10675656050443649,
+            "prior": 0.038041019408658824
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 3,
+              "y": 2,
+              "o": "h"
+            },
+            "visits": 1,
+            "qFromRoot": -0.2498013973236084,
+            "prior": 0.031018912222873538
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 2,
+              "o": "h"
+            },
+            "visits": 1,
+            "qFromRoot": -0.15302132070064545,
+            "prior": 0.03593613427842842
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            "visits": 0,
+            "qFromRoot": null,
+            "prior": 0.015605088608723096
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 0,
+              "y": 7,
+              "o": "h"
+            },
+            "visits": 0,
+            "qFromRoot": null,
+            "prior": 0.001550720012714897
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 0,
+              "y": 7,
+              "o": "v"
+            },
+            "visits": 0,
+            "qFromRoot": null,
+            "prior": 0.001550720012714897
+          }
+        ]
+      },
+      "deep": {
+        "action": {
+          "type": "move",
+          "x": 3,
+          "y": 4
+        },
+        "ms": 4104.806699997425,
+        "value": 0.35163283348083496,
+        "root": [
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 4
+            },
+            "visits": 709,
+            "qFromRoot": 0.1844287970617587,
+            "prior": 0.05530666983672986
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 5,
+              "y": 2,
+              "o": "h"
+            },
+            "visits": 370,
+            "qFromRoot": 0.36683973060115366,
+            "prior": 0.012391842833435905
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            "visits": 76,
+            "qFromRoot": 0.051292894732844284,
+            "prior": 0.5684938374980545
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            "visits": 26,
+            "qFromRoot": 0.14800612155634624,
+            "prior": 0.015605088608723096
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 6,
+              "o": "h"
+            },
+            "visits": 13,
+            "qFromRoot": 0.129531159137304,
+            "prior": 0.038041019408658824
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 5,
+              "y": 5,
+              "o": "h"
+            },
+            "visits": 1,
+            "qFromRoot": -0.04884091764688492,
+            "prior": 0.021771178002067116
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 3,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 1,
+            "qFromRoot": -0.14288164675235748,
+            "prior": 0.017023655235163634
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 3,
+              "y": 3,
+              "o": "h"
+            },
+            "visits": 1,
+            "qFromRoot": -0.6775693297386169,
+            "prior": 0.01528634610559351
+          }
+        ]
+      },
+      "changed": false,
+      "pathBefore": [
+        7,
+        6
+      ]
+    },
+    {
+      "index": 2,
+      "game": 0,
+      "ply": 22,
+      "phase": "middle",
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 3
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          }
+        ],
+        "left": [
+          6,
+          4
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "originalAction": {
+        "type": "move",
+        "x": 5,
+        "y": 5
+      },
+      "baseline": {
+        "action": {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        },
+        "ms": 926.2063999995007,
+        "value": -0.8761704564094543,
+        "root": [
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 5
+            },
+            "visits": 162,
+            "qFromRoot": -0.5024467955722853,
+            "prior": 0.16766935925987014
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 5,
+              "o": "v"
+            },
+            "visits": 19,
+            "qFromRoot": -0.5766249761769646,
+            "prior": 0.08535058062788704
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 6,
+              "o": "h"
+            },
+            "visits": 12,
+            "qFromRoot": -0.6275108506282171,
+            "prior": 0.15174872336478626
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            },
+            "visits": 2,
+            "qFromRoot": -0.6220348626375198,
+            "prior": 0.022813865596742415
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 5,
+              "y": 5,
+              "o": "h"
+            },
+            "visits": 2,
+            "qFromRoot": -0.7455604374408722,
+            "prior": 0.04251452002083998
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 5
+            },
+            "visits": 1,
+            "qFromRoot": -0.7847720384597778,
+            "prior": 0.05062477196992906
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 3,
+              "y": 6,
+              "o": "v"
+            },
+            "visits": 1,
+            "qFromRoot": -0.8681643009185791,
+            "prior": 0.03943446186508295
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 7,
+              "y": 5,
+              "o": "h"
+            },
+            "visits": 1,
+            "qFromRoot": -0.7854189276695251,
+            "prior": 0.031404997832571814
+          }
+        ]
+      },
+      "deep": {
+        "action": {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        },
+        "ms": 4398.7694999996165,
+        "value": -0.8761704564094543,
+        "root": [
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 5
+            },
+            "visits": 1114,
+            "qFromRoot": -0.4885910310225705,
+            "prior": 0.16766935925987014
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 5,
+              "o": "v"
+            },
+            "visits": 32,
+            "qFromRoot": -0.628704076167196,
+            "prior": 0.08535058062788704
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 6,
+              "o": "h"
+            },
+            "visits": 23,
+            "qFromRoot": -0.703126240035762,
+            "prior": 0.15174872336478626
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 3,
+              "y": 6,
+              "o": "v"
+            },
+            "visits": 7,
+            "qFromRoot": -0.7078006150467056,
+            "prior": 0.03943446186508295
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            },
+            "visits": 3,
+            "qFromRoot": -0.7341517309347788,
+            "prior": 0.022813865596742415
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 5
+            },
+            "visits": 3,
+            "qFromRoot": -0.9119264483451843,
+            "prior": 0.05062477196992906
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 5,
+              "y": 5,
+              "o": "h"
+            },
+            "visits": 3,
+            "qFromRoot": -0.8029402494430542,
+            "prior": 0.04251452002083998
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 3,
+              "y": 2,
+              "o": "h"
+            },
+            "visits": 3,
+            "qFromRoot": -0.7472900946935018,
+            "prior": 0.012436933756609134
+          }
+        ]
+      },
+      "changed": false,
+      "pathBefore": [
+        9,
+        6
+      ]
+    },
+    {
+      "index": 3,
+      "game": 0,
+      "ply": 30,
+      "phase": "late",
+      "state": {
+        "p": [
+          {
+            "x": 6,
+            "y": 5
+          },
+          {
+            "x": 2,
+            "y": 3
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          4,
+          2
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "originalAction": {
+        "type": "move",
+        "x": 7,
+        "y": 5
+      },
+      "baseline": {
+        "action": {
+          "type": "move",
+          "x": 7,
+          "y": 5
+        },
+        "ms": 947.6962000007916,
+        "value": -0.9340559840202332,
+        "root": [
+          {
+            "action": {
+              "type": "move",
+              "x": 7,
+              "y": 5
+            },
+            "visits": 164,
+            "qFromRoot": -0.8444352041328008,
+            "prior": 0.6791358500245395
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 6,
+              "y": 4
+            },
+            "visits": 35,
+            "qFromRoot": -0.8469043867928642,
+            "prior": 0.12643543466629792
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 1,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 1,
+            "qFromRoot": -0.9810197949409485,
+            "prior": 0.03617458570862355
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 6,
+              "y": 6
+            },
+            "visits": 0,
+            "qFromRoot": null,
+            "prior": 0.0013935756827886563
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 5
+            },
+            "visits": 0,
+            "qFromRoot": null,
+            "prior": 0.0013782420294484244
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 0,
+              "y": 7,
+              "o": "h"
+            },
+            "visits": 0,
+            "qFromRoot": null,
+            "prior": 0.0012062200008964889
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 0,
+              "y": 7,
+              "o": "v"
+            },
+            "visits": 0,
+            "qFromRoot": null,
+            "prior": 0.0012062200008964889
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 1,
+              "y": 7,
+              "o": "h"
+            },
+            "visits": 0,
+            "qFromRoot": null,
+            "prior": 0.0012062200008964889
+          }
+        ]
+      },
+      "deep": {
+        "action": {
+          "type": "move",
+          "x": 7,
+          "y": 5
+        },
+        "ms": 4598.779600000853,
+        "value": -0.9340559840202332,
+        "root": [
+          {
+            "action": {
+              "type": "move",
+              "x": 7,
+              "y": 5
+            },
+            "visits": 910,
+            "qFromRoot": -0.8591011626840375,
+            "prior": 0.6791358500245395
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 6,
+              "y": 4
+            },
+            "visits": 275,
+            "qFromRoot": -0.8610364049368284,
+            "prior": 0.12643543466629792
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 1,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 6,
+            "qFromRoot": -0.9659963647524515,
+            "prior": 0.03617458570862355
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 7,
+              "y": 7,
+              "o": "h"
+            },
+            "visits": 4,
+            "qFromRoot": -0.936723917722702,
+            "prior": 0.016842124239519318
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 6,
+              "y": 5,
+              "o": "h"
+            },
+            "visits": 3,
+            "qFromRoot": -0.9609161814053854,
+            "prior": 0.018468771464586035
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 1,
+              "y": 5,
+              "o": "h"
+            },
+            "visits": 2,
+            "qFromRoot": -0.9656001031398773,
+            "prior": 0.01249659289054456
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 6,
+              "y": 6
+            },
+            "visits": 0,
+            "qFromRoot": null,
+            "prior": 0.0013935756827886563
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 5
+            },
+            "visits": 0,
+            "qFromRoot": null,
+            "prior": 0.0013782420294484244
+          }
+        ]
+      },
+      "changed": false,
+      "pathBefore": [
+        17,
+        12
+      ]
+    }
+  ]
+}

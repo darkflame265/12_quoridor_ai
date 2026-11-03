@@ -15,6 +15,10 @@ VARIANT=os.getenv('SIGMA_VARIANT','sigma1')
 import random
 RNG=random.Random(int(os.getenv('SIGMA_SEED','0')))
 SIGMA2_SIMS=int(os.getenv('SIGMA2_SIMS','200'))
+# Offline research-only search. Production games still use the 200-sim cap.
+SIGMA3_RESEARCH_SIMS=int(os.getenv('SIGMA3_RESEARCH_SIMS','0'))
+if SIGMA3_RESEARCH_SIMS and not (VARIANT=='sigma3' and 200<=SIGMA3_RESEARCH_SIMS<=5000):
+ raise ValueError('Offline Sigma3 research simulations must be 200..5000')
 if not 1 <= SIGMA2_SIMS <= 200:raise ValueError('Sigma2 PUCT simulations must be between 1 and 200')
 SIGMA2_REUSE=os.getenv('SIGMA2_REUSE','1')=='1'
 # Keep unproven one-reply counterfactual overrides opt-in until deeper
@@ -234,6 +238,7 @@ def choose(s,allowed,history=None):
  if MODE=='puct':
   global PERSISTENT_AGENT
   sims=SIGMA2_SIMS if VARIANT in ('sigma2','sigma3') else int(os.getenv('SIGMA_SIMS','20'))
+  if VARIANT=='sigma3' and SIGMA3_RESEARCH_SIMS:sims=SIGMA3_RESEARCH_SIMS
   if VARIANT in ('sigma2','sigma3') and SIGMA2_REUSE:
    if PERSISTENT_AGENT is None:PERSISTENT_AGENT=(Sigma3ThreatAwareMCTS if VARIANT=='sigma3' else Sigma2LoopAwareMCTS)(evaluator=evaluator,num_simulations=sims,c_puct=SIGMA2_CPUCT,training=False)
    agent=PERSISTENT_AGENT

@@ -1,0 +1,36 @@
+{
+  "title": "Sigma3 vs Sigma2 diverse 100-game aggregate (verified from completed report before an accidental duplicate-run overwrite)",
+  "auditDate": "2026-11-03",
+  "games": 100,
+  "fixtures": 50,
+  "methods": "50 sampled early/mid/late positions; swap Sigma3 side for each fixture; 200-simulation MCTS per decision",
+  "sigma3Wins": 54,
+  "sigma2Wins": 46,
+  "unfinished": 0,
+  "byPhase": {
+    "early": {
+      "games": 30,
+      "sigma3Wins": 16,
+      "sigma2Wins": 14
+    },
+    "middle": {
+      "games": 40,
+      "sigma3Wins": 23,
+      "sigma2Wins": 17
+    },
+    "late": {
+      "games": 30,
+      "sigma3Wins": 15,
+      "sigma2Wins": 15
+    }
+  },
+  "sigma3CorridorFires": 12,
+  "gamesWithCorridorFires": 11,
+  "uniqueFirst12ActionSequences": 64,
+  "meanSearchMs": {
+    "sigma2": 692,
+    "sigma3": 695
+  },
+  "importantCaveat": "Full 100-game raw report was present and inspected, but accidentally overwritten by a duplicate launch. Original individual traces cannot be reconstructed from this aggregate. This is a record of directly observed aggregate data, NOT newly rerun 100 games.",
+  "conclusion": "Sample 54%-46% is inconclusive; Sigma2 remains default; Sigma3 remains experimental."
+}

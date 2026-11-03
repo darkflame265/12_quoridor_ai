@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import{readFileSync}from'node:fs';
+import{legal}from'../src/engine.js';
+import{chooseVaried,createRng}from'./sigma3-stochastic-policy.mjs';
+const audits=JSON.parse(readFileSync('evaluation/sigma3-midgame-stress-audit.json','utf8')).positions;
+const fixtures=JSON.parse(readFileSync('evaluation/sigma3-diverse-match-fixtures.json','utf8'));
+const record=audits.find(p=>p.id===15),state=fixtures[15].s;
+const response={pv:[record.off.action],diagnostics:{rootChildren:record.off.visits}};
+const original=chooseVaried(state,response,()=>.99);
+const trial=chooseVaried(state,response,()=>.03);
+assert.deepEqual(original.action,record.off.action);
+assert.ok(legal(state,trial.action));
+assert.equal(trial.diverted,true);
+assert.notDeepEqual(trial.action,original.action);
+let a=createRng(20261103),b=createRng(20261103);
+for(let i=0;i<20;i++)assert.equal(a(),b());
+console.log('PASS stochastic policy: legal candidates, deterministic replay, branch diversity');

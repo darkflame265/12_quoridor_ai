@@ -1,0 +1,634 @@
+{
+  "version": "bounded-existing-mcts-reply-v1",
+  "positions": [
+    {
+      "index": 0,
+      "phase": "early",
+      "sigma2": {
+        "action": {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        "elapsedMs": 790.7904999992752,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        "elapsedMs": 771.1552000000665,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 1,
+      "phase": "early",
+      "sigma2": {
+        "action": {
+          "type": "move",
+          "x": 3,
+          "y": 5
+        },
+        "elapsedMs": 878.8309000010486,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "move",
+          "x": 3,
+          "y": 5
+        },
+        "elapsedMs": 827.4111000027915,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 2,
+      "phase": "early",
+      "sigma2": {
+        "action": {
+          "type": "wall",
+          "x": 4,
+          "y": 0,
+          "o": "v"
+        },
+        "elapsedMs": 929.2372999989311,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "wall",
+          "x": 4,
+          "y": 0,
+          "o": "v"
+        },
+        "elapsedMs": 910.1657000028354,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 3,
+      "phase": "early",
+      "sigma2": {
+        "action": {
+          "type": "wall",
+          "x": 4,
+          "y": 3,
+          "o": "v"
+        },
+        "elapsedMs": 954.4941000021936,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "wall",
+          "x": 4,
+          "y": 3,
+          "o": "v"
+        },
+        "elapsedMs": 1028.9190000003146,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 4,
+      "phase": "early",
+      "sigma2": {
+        "action": {
+          "type": "wall",
+          "x": 3,
+          "y": 4,
+          "o": "v"
+        },
+        "elapsedMs": 1014.8096999982954,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "wall",
+          "x": 3,
+          "y": 4,
+          "o": "v"
+        },
+        "elapsedMs": 898.7916000005498,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 5,
+      "phase": "early",
+      "sigma2": {
+        "action": {
+          "type": "wall",
+          "x": 5,
+          "y": 2,
+          "o": "h"
+        },
+        "elapsedMs": 907.120700001542,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "wall",
+          "x": 5,
+          "y": 2,
+          "o": "h"
+        },
+        "elapsedMs": 935.3744000000006,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 6,
+      "phase": "early",
+      "sigma2": {
+        "action": {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        "elapsedMs": 1134.3664999985776,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        "elapsedMs": 973.1253999998444,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 7,
+      "phase": "early",
+      "sigma2": {
+        "action": {
+          "type": "wall",
+          "x": 4,
+          "y": 1,
+          "o": "h"
+        },
+        "elapsedMs": 802.3888999996416,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "wall",
+          "x": 4,
+          "y": 1,
+          "o": "h"
+        },
+        "elapsedMs": 841.6293000009318,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 8,
+      "phase": "middle",
+      "sigma2": {
+        "action": {
+          "type": "wall",
+          "x": 3,
+          "y": 6,
+          "o": "h"
+        },
+        "elapsedMs": 946.0751000005985,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "wall",
+          "x": 3,
+          "y": 6,
+          "o": "h"
+        },
+        "elapsedMs": 1192.554499997641,
+        "replyAudit": {
+          "candidates": 3,
+          "replyCap": 3,
+          "baselineRisk": -1,
+          "alternativeRisks": [
+            0,
+            1
+          ]
+        },
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 9,
+      "phase": "middle",
+      "sigma2": {
+        "action": {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        "elapsedMs": 793.0349999987811,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        "elapsedMs": 830.2605999997468,
+        "replyAudit": {
+          "candidates": 3,
+          "replyCap": 3,
+          "baselineRisk": 7,
+          "alternativeRisks": [
+            6,
+            6
+          ]
+        },
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 10,
+      "phase": "middle",
+      "sigma2": {
+        "action": {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        "elapsedMs": 959.3055000004824,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        "elapsedMs": 1071.572599998035,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 11,
+      "phase": "middle",
+      "sigma2": {
+        "action": {
+          "type": "move",
+          "x": 5,
+          "y": 4
+        },
+        "elapsedMs": 754.7337999967567,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "move",
+          "x": 5,
+          "y": 4
+        },
+        "elapsedMs": 790.9445999976015,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 12,
+      "phase": "middle",
+      "sigma2": {
+        "action": {
+          "type": "wall",
+          "x": 4,
+          "y": 3,
+          "o": "h"
+        },
+        "elapsedMs": 730.8601000004273,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "wall",
+          "x": 4,
+          "y": 3,
+          "o": "h"
+        },
+        "elapsedMs": 593.3884999976726,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 13,
+      "phase": "middle",
+      "sigma2": {
+        "action": {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        "elapsedMs": 616.6500999970594,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        "elapsedMs": 596.6207000019494,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 14,
+      "phase": "middle",
+      "sigma2": {
+        "action": {
+          "type": "move",
+          "x": 1,
+          "y": 4
+        },
+        "elapsedMs": 541.9818999980635,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "move",
+          "x": 1,
+          "y": 4
+        },
+        "elapsedMs": 517.9640999995172,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 15,
+      "phase": "middle",
+      "sigma2": {
+        "action": {
+          "type": "move",
+          "x": 6,
+          "y": 3
+        },
+        "elapsedMs": 563.36519999968,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "move",
+          "x": 6,
+          "y": 3
+        },
+        "elapsedMs": 570.7375000019965,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 16,
+      "phase": "middle",
+      "sigma2": {
+        "action": {
+          "type": "wall",
+          "x": 4,
+          "y": 4,
+          "o": "h"
+        },
+        "elapsedMs": 582.1252999994613,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "wall",
+          "x": 4,
+          "y": 4,
+          "o": "h"
+        },
+        "elapsedMs": 585.3841999996803,
+        "replyAudit": {
+          "candidates": 2,
+          "replyCap": 3,
+          "baselineRisk": -2,
+          "alternativeRisks": [
+            0
+          ]
+        },
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 17,
+      "phase": "middle",
+      "sigma2": {
+        "action": {
+          "type": "wall",
+          "x": 2,
+          "y": 4,
+          "o": "v"
+        },
+        "elapsedMs": 592.9200999999011,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "wall",
+          "x": 2,
+          "y": 4,
+          "o": "v"
+        },
+        "elapsedMs": 604.9397999995563,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 18,
+      "phase": "late",
+      "sigma2": {
+        "action": {
+          "type": "wall",
+          "x": 6,
+          "y": 4,
+          "o": "h"
+        },
+        "elapsedMs": 561.4915000005567,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "wall",
+          "x": 6,
+          "y": 4,
+          "o": "h"
+        },
+        "elapsedMs": 549.5214000002306,
+        "replyAudit": {
+          "candidates": 3,
+          "replyCap": 3,
+          "baselineRisk": -7,
+          "alternativeRisks": [
+            -3,
+            -5
+          ]
+        },
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 19,
+      "phase": "late",
+      "sigma2": {
+        "action": {
+          "type": "move",
+          "x": 0,
+          "y": 3
+        },
+        "elapsedMs": 584.509699998307,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "move",
+          "x": 0,
+          "y": 3
+        },
+        "elapsedMs": 581.4684999968449,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 20,
+      "phase": "late",
+      "sigma2": {
+        "action": {
+          "type": "wall",
+          "x": 5,
+          "y": 3,
+          "o": "h"
+        },
+        "elapsedMs": 368.7326999970537,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "wall",
+          "x": 5,
+          "y": 3,
+          "o": "h"
+        },
+        "elapsedMs": 361.8053999998665,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 21,
+      "phase": "late",
+      "sigma2": {
+        "action": {
+          "type": "move",
+          "x": 6,
+          "y": 7
+        },
+        "elapsedMs": 115.59699999997974,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "move",
+          "x": 6,
+          "y": 7
+        },
+        "elapsedMs": 115.19309999857796,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 22,
+      "phase": "late",
+      "sigma2": {
+        "action": {
+          "type": "move",
+          "x": 0,
+          "y": 2
+        },
+        "elapsedMs": 129.57420000020647,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "move",
+          "x": 0,
+          "y": 2
+        },
+        "elapsedMs": 130.97279999783495,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    },
+    {
+      "index": 23,
+      "phase": "late",
+      "sigma2": {
+        "action": {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        "elapsedMs": 597.9512000012619,
+        "replyAudit": null,
+        "replyGuard": null
+      },
+      "sigma3": {
+        "action": {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        "elapsedMs": 541.6283999984444,
+        "replyAudit": null,
+        "replyGuard": null
+      }
+    }
+  ]
+}

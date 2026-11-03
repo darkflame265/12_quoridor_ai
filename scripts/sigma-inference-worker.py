@@ -505,6 +505,50 @@ def choose(s,allowed,history=None):
     replacement=strong[0]
     dbg['finalCycleGuard']={'rejected':to_action(s,selected),'chosen':to_action(s,replacement.action)}
     selected=replacement.action
+ # Sigma3 bounded opponent reply verification from the EXISTING MCTS tree.
+ # Inspect only visited opponent branches for the chosen move and at most two
+ # comparably strong alternative root moves. No extra MCTS simulations.
+ if VARIANT=='sigma3' and MODE=='puct' and choices and dbg.get('terminalOverride') is None:
+  picked=next((c for c in choices if c.action==selected),None)
+  leader=choices[0]
+  if picked is not None and picked.visit_count>=8:
+   comparable=[c for c in choices[:6] if c.action!=selected
+               and c.visit_count>=max(5,leader.visit_count*.12)
+               and -c.q_value >= -picked.q_value-.075][:2]
+   if comparable:
+    side=s['turn']
+    def visited_reply_risk(candidate):
+     # A smaller path differential is favorable for the active side.
+     branches=sorted((n for n in candidate.children if n.visit_count>=2),
+                     key=lambda n:n.visit_count,reverse=True)[:3]
+     if not branches:return None
+     worst=-1000
+     for branch in branches:
+      branch.ensure_state()
+      follow=branch.state
+      if follow.winner()==2-side:return 1000
+      if follow.winner()==side+1:continue
+      me=follow.player1pos if side==0 else follow.player2pos
+      op=follow.player2pos if side==0 else follow.player1pos
+      mygrid=follow.p1_dist if side==0 else follow.p2_dist
+      opgrid=follow.p2_dist if side==0 else follow.p1_dist
+      worst=max(worst,mygrid[me[1]][me[0]]-opgrid[op[1]][op[0]])
+     return worst
+    baseline=visited_reply_risk(picked)
+    audited=[(visited_reply_risk(c),c) for c in comparable]
+    dbg['sigma3ReplyAudit']={'candidates':len(comparable)+1,
+                             'replyCap':3,'baselineRisk':baseline,
+                             'alternativeRisks':[v for v,_ in audited]}
+    if baseline is not None:
+     better=[(risk,c) for risk,c in audited if risk is not None
+             and baseline-risk>=3 and -c.q_value>=-picked.q_value-.035 and c.visit_count>=max(10,leader.visit_count*.20)]
+     if better:
+      risk,choice=min(better,key=lambda item:(item[0],-item[1].visit_count))
+      dbg['sigma3ReplyGuard']={'previous':to_action(s,selected),
+                               'selected':to_action(s,choice.action),
+                               'oldRisk':baseline,'newRisk':risk,
+                               'visits':choice.visit_count}
+      selected=choice.action
  # Sigma3 tactical safety net: never allow an immediate opponent pawn goal
  # when a legal, investigated escape exists. This is an exact one-ply test,
  # not a heuristic wall preference, and does not alter Sigma2.

@@ -1,0 +1,1507 @@
+{
+  "version": "sigma3-expanded-supervision-v1",
+  "featureNames": [
+    "bias",
+    "mctsQ",
+    "logVisits",
+    "ownDistGain",
+    "enemyDistIncrease",
+    "ownWalls",
+    "enemyWalls",
+    "wallFlag",
+    "plyFraction"
+  ],
+  "trainRootIds": [
+    15,
+    16,
+    17,
+    19,
+    20,
+    22,
+    23,
+    24,
+    26,
+    28,
+    32,
+    33
+  ],
+  "holdoutRootIds": [
+    25,
+    27,
+    29,
+    34
+  ],
+  "records": [
+    {
+      "id": 15,
+      "choice": 0,
+      "action": {
+        "type": "wall",
+        "x": 5,
+        "y": 3,
+        "o": "v"
+      },
+      "features": [
+        1,
+        0.26188019139308016,
+        0.806046984491913,
+        0,
+        0,
+        0.8,
+        0.6,
+        1,
+        0.16
+      ],
+      "winRate": 0.5,
+      "smoothedRate": 0.5,
+      "tempo": 0.03750000000000003,
+      "target": 0.5009375,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 55,
+          "diverted": 8,
+          "opportunities": 18,
+          "hash": "f107a5f359ad97a789e9972a1f70493001f7394ad996d5f9039ebcde46d07e17"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 46,
+          "diverted": 4,
+          "opportunities": 12,
+          "hash": "e7f6bfba1736fa79f933ff5aab57805aa3c189c28aeb1a2aba5bdad5aeea48ce"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 15,
+      "choice": 1,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "features": [
+        1,
+        0.3695976838798207,
+        0.7056844174328766,
+        0,
+        0,
+        0.8,
+        0.6,
+        0,
+        0.16
+      ],
+      "winRate": 0,
+      "smoothedRate": 0.25,
+      "tempo": -0.5166666666666666,
+      "target": 0.23708333333333334,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 63,
+          "diverted": 9,
+          "opportunities": 26,
+          "hash": "4d0f673935318d0b9d425baf950948c65dafe3456cbf05f97aa6f57c6f151e0f"
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "plies": 53,
+          "diverted": 8,
+          "opportunities": 25,
+          "hash": "4b1f6b467ff83959aa4790b2a7051669e1abb409ef7754de38230a2e3db87076"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 16,
+      "choice": 0,
+      "action": {
+        "type": "wall",
+        "x": 3,
+        "y": 6,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.355318192924772,
+        0.7979152904636743,
+        0,
+        1,
+        0.7,
+        0.7,
+        1,
+        0.12
+      ],
+      "winRate": 0.5,
+      "smoothedRate": 0.5,
+      "tempo": -0.04583333333333334,
+      "target": 0.49885416666666665,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 43,
+          "diverted": 7,
+          "opportunities": 14,
+          "hash": "0001851e112d2c3ec74369d674f2b45719a8777c1ba74562e0c589332d6f9700"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 54,
+          "diverted": 6,
+          "opportunities": 15,
+          "hash": "d3878890164f1fe09b01b5f1602d0b4791e04e2dc9ec16edf6e1173427d4818e"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 16,
+      "choice": 1,
+      "action": {
+        "type": "wall",
+        "x": 3,
+        "y": 7,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.3331265982526999,
+        0.6617153189253536,
+        0,
+        1,
+        0.7,
+        0.7,
+        1,
+        0.12
+      ],
+      "winRate": 0.5,
+      "smoothedRate": 0.5,
+      "tempo": -0.029166666666666674,
+      "target": 0.49927083333333333,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 43,
+          "diverted": 9,
+          "opportunities": 14,
+          "hash": "8af7474a672a581159ef344aaf5089ad9ff60eb75712bdad4d5299d9a8a6fb7c"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 50,
+          "diverted": 7,
+          "opportunities": 18,
+          "hash": "c2b0b56bf929318a28af64e74f7e85f682d7933879fd1a51cfd4f3609e1feb16"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 17,
+      "choice": 0,
+      "action": {
+        "type": "wall",
+        "x": 2,
+        "y": 2,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.390688054217789,
+        0.8020307258954028,
+        0,
+        2,
+        0.3,
+        0.7,
+        1,
+        0.24
+      ],
+      "winRate": 0,
+      "smoothedRate": 0.25,
+      "tempo": -0.575,
+      "target": 0.235625,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 55,
+          "diverted": 4,
+          "opportunities": 19,
+          "hash": "2b8ecb8911805748a84fbcb90144e08b76492c50fb1054e85a0516c77fc3cae2"
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "plies": 47,
+          "diverted": 3,
+          "opportunities": 16,
+          "hash": "85cbb633cf82d62c0c85c9dda1f240f921c15728c246c699ce3513c440f6824a"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 17,
+      "choice": 1,
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 3
+      },
+      "features": [
+        1,
+        0.3698341632882754,
+        0.7217888900477218,
+        1,
+        0,
+        0.3,
+        0.7,
+        0,
+        0.24
+      ],
+      "winRate": 0,
+      "smoothedRate": 0.25,
+      "tempo": -0.6083333333333333,
+      "target": 0.23479166666666668,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 47,
+          "diverted": 3,
+          "opportunities": 14,
+          "hash": "f496d8df54ac640ef0d8b7127752a09b685ba5131855f37fde95e50bfd82740a"
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "plies": 47,
+          "diverted": 2,
+          "opportunities": 14,
+          "hash": "04444443a55a50b497679c31e8935525d477a2ed66c297fd8070c3ed75edf0ab"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 19,
+      "choice": 0,
+      "action": {
+        "type": "wall",
+        "x": 6,
+        "y": 3,
+        "o": "h"
+      },
+      "features": [
+        1,
+        -0.9960431059201559,
+        0.7150765735247319,
+        0,
+        2,
+        0.6,
+        0.3,
+        1,
+        0.24
+      ],
+      "winRate": 0,
+      "smoothedRate": 0.25,
+      "tempo": -0.75,
+      "target": 0.23125,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 33,
+          "diverted": 6,
+          "opportunities": 12,
+          "hash": "2c72c9dd3d4ed7512f4b72cc284071ef1345c1d0f466916519534e9356062c4c"
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "plies": 27,
+          "diverted": 6,
+          "opportunities": 15,
+          "hash": "0ea7574d678b3a5b5bcaee5e44a1dff0a80acd479880dd54c6bb97054374b4dc"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 19,
+      "choice": 1,
+      "action": {
+        "type": "move",
+        "x": 6,
+        "y": 7
+      },
+      "features": [
+        1,
+        -0.9908373713493347,
+        0.6708919484558583,
+        -1,
+        0,
+        0.6,
+        0.3,
+        0,
+        0.24
+      ],
+      "winRate": 0,
+      "smoothedRate": 0.25,
+      "tempo": -0.75,
+      "target": 0.23125,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 31,
+          "diverted": 7,
+          "opportunities": 17,
+          "hash": "031bddcb0d7b6cf7464e8e5c4b76396cf893de1cc171f7442a985e3116ca2715"
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "plies": 29,
+          "diverted": 4,
+          "opportunities": 15,
+          "hash": "66fa8cfeca29ac644109867a66d612b948dbbfe96787c46be0d3a2496b17a31f"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 20,
+      "choice": 0,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "features": [
+        1,
+        -0.4682555325538376,
+        0.8805339547896648,
+        1,
+        0,
+        0.4,
+        0.4,
+        0,
+        0.28
+      ],
+      "winRate": 0.5,
+      "smoothedRate": 0.5,
+      "tempo": 0.029166666666666674,
+      "target": 0.5007291666666667,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 53,
+          "diverted": 7,
+          "opportunities": 11,
+          "hash": "e3d3cee79979ecd3e19a7db37dac1bc0d4cbc821108ebf439b886cf8da776337"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 46,
+          "diverted": 8,
+          "opportunities": 16,
+          "hash": "b38e59833958e2222530450f0381d55fe2793b90109538a03d0d568e7e14f1ea"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 20,
+      "choice": 1,
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 5
+      },
+      "features": [
+        1,
+        -0.8231892883777618,
+        0.18310204811135158,
+        -1,
+        0,
+        0.4,
+        0.4,
+        0,
+        0.28
+      ],
+      "winRate": 0.5,
+      "smoothedRate": 0.5,
+      "tempo": 0.029166666666666674,
+      "target": 0.5007291666666667,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 53,
+          "diverted": 4,
+          "opportunities": 9,
+          "hash": "3d2203007c3473827d4e2eec6941fd02000e31743de124efa627c366268939f5"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 46,
+          "diverted": 8,
+          "opportunities": 15,
+          "hash": "bc71c6e7e3c83505ede4129c53123300d2120fa91ae54940846b344a53ff1fab"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 22,
+      "choice": 0,
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 4
+      },
+      "features": [
+        1,
+        0.7562201529020264,
+        0.8416426678749228,
+        1,
+        0,
+        0.5,
+        0.5,
+        0,
+        0.23
+      ],
+      "winRate": 1,
+      "smoothedRate": 0.75,
+      "tempo": 0.7166666666666667,
+      "target": 0.7679166666666667,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": true,
+          "plies": 40,
+          "diverted": 4,
+          "opportunities": 16,
+          "hash": "9fc3d533176318f41929bb9cf267e0d7a3d159962670b31fdbd71b3bc9adc8ff"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 28,
+          "diverted": 2,
+          "opportunities": 12,
+          "hash": "ce9461021a8d5b4832eb5df17f4f34785ac927c589819ded94a64ca25499de01"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 22,
+      "choice": 1,
+      "action": {
+        "type": "move",
+        "x": 6,
+        "y": 3
+      },
+      "features": [
+        1,
+        0.5010922625660896,
+        0.5074204062872372,
+        0,
+        0,
+        0.5,
+        0.5,
+        0,
+        0.23
+      ],
+      "winRate": 1,
+      "smoothedRate": 0.75,
+      "tempo": 0.6000000000000001,
+      "target": 0.765,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": true,
+          "plies": 46,
+          "diverted": 4,
+          "opportunities": 15,
+          "hash": "a53903bdbf23c75f92c03e33e87fd4d6bac0fcc7c230f4badee297713caba50d"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 50,
+          "diverted": 5,
+          "opportunities": 18,
+          "hash": "34b35372d579dea622ce1759c79284c72a71064a4107e273408ed0ef168a24e8"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 23,
+      "choice": 0,
+      "action": {
+        "type": "wall",
+        "x": 1,
+        "y": 5,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.8434693687863049,
+        0.8607976623205857,
+        0,
+        4,
+        0.3,
+        0.5,
+        1,
+        0.34
+      ],
+      "winRate": 0.5,
+      "smoothedRate": 0.5,
+      "tempo": 0.004166666666666652,
+      "target": 0.5001041666666667,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 33,
+          "diverted": 4,
+          "opportunities": 6,
+          "hash": "b8bb1bc520b4525cf23f9938b52ee9cb0827eebb3ec7bc8e3d771b900a2d3184"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 32,
+          "diverted": 6,
+          "opportunities": 13,
+          "hash": "2a201ceb3625fa039787a0ba004ec7b713e792806330998a4c96c155efb63164"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 23,
+      "choice": 1,
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "features": [
+        1,
+        0.6210367462851785,
+        0.41415110829800006,
+        1,
+        0,
+        0.3,
+        0.5,
+        0,
+        0.34
+      ],
+      "winRate": 1,
+      "smoothedRate": 0.75,
+      "tempo": 0.6833333333333333,
+      "target": 0.7670833333333333,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": true,
+          "plies": 40,
+          "diverted": 4,
+          "opportunities": 17,
+          "hash": "e12721801423361b17dec4cd65959a0be03549430d31d5a2dda5b6380ed21f52"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 36,
+          "diverted": 4,
+          "opportunities": 15,
+          "hash": "d6c21f4c225b3b09ac87f3de6634906c43d2c1ae2808d0518057e73de32c2bd1"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 24,
+      "choice": 0,
+      "action": {
+        "type": "wall",
+        "x": 4,
+        "y": 3,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.234541531578444,
+        0.7708288022140452,
+        0,
+        4,
+        0.4,
+        0.5,
+        1,
+        0.24
+      ],
+      "winRate": 0,
+      "smoothedRate": 0.25,
+      "tempo": -0.6416666666666667,
+      "target": 0.23395833333333332,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 43,
+          "diverted": 3,
+          "opportunities": 8,
+          "hash": "71e12c6f6b31f6aec4be10d136397998ec8ec0be170699d5f44854de56d26e65"
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "plies": 43,
+          "diverted": 3,
+          "opportunities": 8,
+          "hash": "1e19782db5bb854a2d984fa7d1b97398d60fcfde97dceb7e7eb1700a69de81e7"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 24,
+      "choice": 1,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 4
+      },
+      "features": [
+        1,
+        -0.1106414008718818,
+        0.7032512841960178,
+        1,
+        0,
+        0.4,
+        0.5,
+        0,
+        0.24
+      ],
+      "winRate": 0,
+      "smoothedRate": 0.25,
+      "tempo": -0.525,
+      "target": 0.236875,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 71,
+          "diverted": 14,
+          "opportunities": 34,
+          "hash": "e4dc04b7af9b7059375841ec9121528d9d86b9b2c7e59077acce5984694b0522"
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "plies": 43,
+          "diverted": 5,
+          "opportunities": 15,
+          "hash": "8bb33862ff8465c9b65df3b045f07adb964f2094b7f5238832e0cf78239204a8"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 26,
+      "choice": 0,
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 6
+      },
+      "features": [
+        1,
+        0.5607096552848816,
+        0.8086717106532695,
+        1,
+        0,
+        0.3,
+        0.6,
+        0,
+        0.28
+      ],
+      "winRate": 0,
+      "smoothedRate": 0.25,
+      "tempo": -0.6833333333333333,
+      "target": 0.23291666666666666,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 37,
+          "diverted": 5,
+          "opportunities": 10,
+          "hash": "2d6cde620b3611e60236dfae7cc3cdf88cb4725254eeb3388b21f90c1a27c331"
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "plies": 39,
+          "diverted": 4,
+          "opportunities": 5,
+          "hash": "79092c15dcfe3e05c58b39ed80438aaee1353163047c09cd99a32fe74dc8acde"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 26,
+      "choice": 1,
+      "action": {
+        "type": "wall",
+        "x": 2,
+        "y": 1,
+        "o": "v"
+      },
+      "features": [
+        1,
+        0.4189004453320829,
+        0.6648306744273791,
+        0,
+        2,
+        0.3,
+        0.6,
+        1,
+        0.28
+      ],
+      "winRate": 0.5,
+      "smoothedRate": 0.5,
+      "tempo": -0.04583333333333334,
+      "target": 0.49885416666666665,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": true,
+          "plies": 50,
+          "diverted": 2,
+          "opportunities": 7,
+          "hash": "550753bf7f51ec73cb2f1d717f3da466c9d29253f4e5553b3d52965c2fb16e88"
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "plies": 39,
+          "diverted": 11,
+          "opportunities": 20,
+          "hash": "7ea00eeb8dbd933c177d841cb8947c4561c628de5052fbe2822f2a9a9591e224"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 28,
+      "choice": 0,
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "features": [
+        1,
+        0.2351892059319651,
+        0.8709577789522003,
+        1,
+        0,
+        0.4,
+        0.7,
+        0,
+        0.32
+      ],
+      "winRate": 1,
+      "smoothedRate": 0.75,
+      "tempo": 0.5583333333333333,
+      "target": 0.7639583333333333,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": true,
+          "plies": 50,
+          "diverted": 14,
+          "opportunities": 28,
+          "hash": "cceb443f7a79afe56a200d96be726d8c48f59ce5d06233260a6e891cb39e897f"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 56,
+          "diverted": 13,
+          "opportunities": 25,
+          "hash": "17bd3b6d3a16ed2ce48a1f5d2ef7de097e60ca6461164194705ce48f4edece1d"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 28,
+      "choice": 1,
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 3
+      },
+      "features": [
+        1,
+        -0.30570470605577743,
+        0.34657359027997264,
+        1,
+        0,
+        0.4,
+        0.7,
+        0,
+        0.32
+      ],
+      "winRate": 0.5,
+      "smoothedRate": 0.5,
+      "tempo": 0.012500000000000011,
+      "target": 0.5003125,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 59,
+          "diverted": 10,
+          "opportunities": 17,
+          "hash": "1d133abe3ba04f91a4dcb9bcd9cc90dbed99214f377222ee20af4a5a2b99e22e"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 56,
+          "diverted": 13,
+          "opportunities": 25,
+          "hash": "17bd3b6d3a16ed2ce48a1f5d2ef7de097e60ca6461164194705ce48f4edece1d"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 32,
+      "choice": 0,
+      "action": {
+        "type": "wall",
+        "x": 4,
+        "y": 4,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.6023841898785819,
+        0.7834133942987361,
+        0,
+        2,
+        0.7,
+        0.7,
+        1,
+        0.14
+      ],
+      "winRate": 1,
+      "smoothedRate": 0.75,
+      "tempo": 0.45,
+      "target": 0.76125,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": true,
+          "plies": 68,
+          "diverted": 10,
+          "opportunities": 31,
+          "hash": "30b26717168f9cfd0b8ea615346ffaa0f1db70ed431773426d73ec4a5b0c892e"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 64,
+          "diverted": 11,
+          "opportunities": 23,
+          "hash": "c5a7e264416085d25173ae27f3fbbfbbee706307861a81916fa4f11e234fdd5f"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 32,
+      "choice": 1,
+      "action": {
+        "type": "wall",
+        "x": 7,
+        "y": 5,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.644352793511821,
+        0.7364734346327664,
+        0,
+        0,
+        0.7,
+        0.7,
+        1,
+        0.14
+      ],
+      "winRate": 1,
+      "smoothedRate": 0.75,
+      "tempo": 0.6333333333333333,
+      "target": 0.7658333333333334,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": true,
+          "plies": 44,
+          "diverted": 7,
+          "opportunities": 24,
+          "hash": "47383e85bb4f0556024949f6d5b287d2f6ffe3ecbf017dde1bfa56a266204a98"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 44,
+          "diverted": 7,
+          "opportunities": 19,
+          "hash": "e9dfe47bc037197728787feb2509a6bd8d6873c8998266872c20d6e853bfe1bf"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 33,
+      "choice": 0,
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "features": [
+        1,
+        0.9682742378046346,
+        0.744318019775764,
+        1,
+        0,
+        0.5,
+        0.3,
+        0,
+        0.38
+      ],
+      "winRate": 1,
+      "smoothedRate": 0.75,
+      "tempo": 0.6166666666666667,
+      "target": 0.7654166666666666,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": true,
+          "plies": 44,
+          "diverted": 7,
+          "opportunities": 23,
+          "hash": "33f9eaa9e50edf4fd9c6353486ef023f6098624558d5a00fb3655d08532d288c"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 48,
+          "diverted": 7,
+          "opportunities": 21,
+          "hash": "4145f3796c4b4e8a0718b40a2a8dc0b5815478f87406938eedbab44b4b15e485"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 33,
+      "choice": 1,
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 3
+      },
+      "features": [
+        1,
+        0.9761239144691202,
+        0.744318019775764,
+        1,
+        0,
+        0.5,
+        0.3,
+        0,
+        0.38
+      ],
+      "winRate": 1,
+      "smoothedRate": 0.75,
+      "tempo": 0.7,
+      "target": 0.7675,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": true,
+          "plies": 38,
+          "diverted": 9,
+          "opportunities": 23,
+          "hash": "d6ad7ac5142800d0abc077ec8990d8270d4073fc5de7884a9aad17126feea967"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 34,
+          "diverted": 9,
+          "opportunities": 24,
+          "hash": "1fa87276bc292f62e1365fe0bb46053460bab6887559fbf5c76e012b0b5d6776"
+        }
+      ],
+      "source": "original-diverse-train"
+    },
+    {
+      "id": 25,
+      "choice": 0,
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 0
+      },
+      "features": [
+        1,
+        -0.12257822353858501,
+        0.8469007274974105,
+        1,
+        0,
+        0.5,
+        0.3,
+        0,
+        0.27
+      ],
+      "winRate": 1,
+      "smoothedRate": 0.8,
+      "tempo": 0.5055555555555555,
+      "target": 0.8126388888888889,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": true,
+          "plies": 58,
+          "diverted": 6,
+          "hash": "d08d8e31a6c4756c8c53a1e42b1cb1326601017ea00a8ffb583d77262483af14"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 60,
+          "diverted": 5,
+          "hash": "21d82e221112d42749e2a6bd908680eaa3b55f5e824a4f55a93350eedb2eb82f"
+        },
+        {
+          "seed": 2,
+          "win": true,
+          "plies": 60,
+          "diverted": 5,
+          "hash": "37f295a46150dcf92ceeaeaad67699168bfe47e37826b41eff86e9557d12204c"
+        }
+      ],
+      "source": "independent-holdout"
+    },
+    {
+      "id": 25,
+      "choice": 1,
+      "action": {
+        "type": "wall",
+        "x": 1,
+        "y": 7,
+        "o": "h"
+      },
+      "features": [
+        1,
+        -0.28216814818350894,
+        0.6105936076882744,
+        -2,
+        4,
+        0.5,
+        0.3,
+        1,
+        0.27
+      ],
+      "winRate": 1,
+      "smoothedRate": 0.8,
+      "tempo": 0.5055555555555555,
+      "target": 0.8126388888888889,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": true,
+          "plies": 58,
+          "diverted": 6,
+          "hash": "40b2c1a1c50eb6f0d45c8cfbb2d38c491d32650f2616e3d4f8c29bdd100c403b"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 60,
+          "diverted": 5,
+          "hash": "70c9015da6c00f92b69bbd01d8385448814fc2acae7012cf9ae0ff713103c7e4"
+        },
+        {
+          "seed": 2,
+          "win": true,
+          "plies": 60,
+          "diverted": 5,
+          "hash": "8610bdaab7f2f1ec62ff812c3aafbe1e2a36cf531ab2256aa03f628b2eb330bc"
+        }
+      ],
+      "source": "independent-holdout"
+    },
+    {
+      "id": 27,
+      "choice": 0,
+      "action": {
+        "type": "wall",
+        "x": 5,
+        "y": 4,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.6740643963895061,
+        0.7849217002187223,
+        0,
+        0,
+        0.6,
+        0.8,
+        1,
+        0.2
+      ],
+      "winRate": 0,
+      "smoothedRate": 0.2,
+      "tempo": -0.6527777777777778,
+      "target": 0.18368055555555557,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 35,
+          "diverted": 7,
+          "hash": "3aa77d5a9b6f2eaf445ec4a2d4c9392b8f5d85c64b81fbcb4bc8cf41eec97c70"
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "plies": 39,
+          "diverted": 3,
+          "hash": "bd8f0fc736b1340ad74af0483b9190fe06588ab623d50e207f550bab12ed7f94"
+        },
+        {
+          "seed": 2,
+          "win": false,
+          "plies": 51,
+          "diverted": 9,
+          "hash": "4d323f75a8e03254fe5be2bcea4eadb5804481bfe21bbdcdf4406ac9f6af2328"
+        }
+      ],
+      "source": "independent-holdout"
+    },
+    {
+      "id": 27,
+      "choice": 1,
+      "action": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.5398356875404716,
+        0.7056844174328766,
+        0,
+        2,
+        0.6,
+        0.8,
+        1,
+        0.2
+      ],
+      "winRate": 0.3333333333333333,
+      "smoothedRate": 0.4,
+      "tempo": -0.09999999999999999,
+      "target": 0.3975,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 73,
+          "diverted": 3,
+          "hash": "8bf870e09c4e09ad49e3ef8b76fdbe0901626817b31138b10157b29ce23ec0e7"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 64,
+          "diverted": 9,
+          "hash": "d79621e187d3a42b1c457eac2d4ecd1a9ff36c4f52a2101d4809297d62d4d611"
+        },
+        {
+          "seed": 2,
+          "win": false,
+          "plies": 75,
+          "diverted": 9,
+          "hash": "0c01558803216d9adf02d0844b923db94e0f68e06a9894a83465a2f75af065d5"
+        }
+      ],
+      "source": "independent-holdout"
+    },
+    {
+      "id": 29,
+      "choice": 0,
+      "action": {
+        "type": "wall",
+        "x": 7,
+        "y": 5,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.46777196924197056,
+        0.8691559596014976,
+        0,
+        0,
+        0.7,
+        0.7,
+        1,
+        0.14
+      ],
+      "winRate": 0.3333333333333333,
+      "smoothedRate": 0.4,
+      "tempo": -0.22777777777777777,
+      "target": 0.3943055555555556,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": false,
+          "plies": 53,
+          "diverted": 4,
+          "hash": "0b62b73036aab762c48994a8f3f752da27cd4263617349e28648c7252df9d392"
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "plies": 53,
+          "diverted": 15,
+          "hash": "c01d6cb39c8277177d67abcc578c158a25b2ba7f1015c025624bce23503a7d7f"
+        },
+        {
+          "seed": 2,
+          "win": true,
+          "plies": 68,
+          "diverted": 9,
+          "hash": "7f727cfcbb7293a466ad259d7bbead99f4e72db187bddd6be1731ae2ad376850"
+        }
+      ],
+      "source": "independent-holdout"
+    },
+    {
+      "id": 29,
+      "choice": 1,
+      "action": {
+        "type": "wall",
+        "x": 4,
+        "y": 4,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.18305493295192718,
+        0.39964921213306176,
+        0,
+        1,
+        0.7,
+        0.7,
+        1,
+        0.14
+      ],
+      "winRate": 0.6666666666666666,
+      "smoothedRate": 0.6,
+      "tempo": 0.23611111111111108,
+      "target": 0.6059027777777778,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": true,
+          "plies": 56,
+          "diverted": 2,
+          "hash": "5b5902c7092306f5866b5a83d3afd16950a6eb978808d6725f4b0d2b2a74668b"
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "plies": 53,
+          "diverted": 8,
+          "hash": "0598d615012509a4c1fcd6ca12568502e8b733bf26007f8966e875f3d3a07e3f"
+        },
+        {
+          "seed": 2,
+          "win": true,
+          "plies": 32,
+          "diverted": 1,
+          "hash": "8a28151b11959353696ff05da5e2b3c66eba6263044291302e5efccee0b57bff"
+        }
+      ],
+      "source": "independent-holdout"
+    },
+    {
+      "id": 34,
+      "choice": 0,
+      "action": {
+        "type": "wall",
+        "x": 2,
+        "y": 4,
+        "o": "v"
+      },
+      "features": [
+        1,
+        0.9153320016204447,
+        0.8224123221884486,
+        0,
+        2,
+        0.5,
+        0.6,
+        1,
+        0.2
+      ],
+      "winRate": 1,
+      "smoothedRate": 0.8,
+      "tempo": 0.7944444444444444,
+      "target": 0.8198611111111112,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": true,
+          "plies": 22,
+          "diverted": 3,
+          "hash": "e7482a328da457d181b2be5d9581f3b0606d920015ace9fb6dd6d5cfb9970dc3"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 26,
+          "diverted": 3,
+          "hash": "2f185545c64a5ce5c7e9f35f87932198c2cb7a979dc8152639fdfc3730056f2c"
+        },
+        {
+          "seed": 2,
+          "win": true,
+          "plies": 26,
+          "diverted": 4,
+          "hash": "0636bc567aecd95263e036d8d6289fbf902f30211e90ef17671be4b9e85988e2"
+        }
+      ],
+      "source": "independent-holdout"
+    },
+    {
+      "id": 34,
+      "choice": 1,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 3
+      },
+      "features": [
+        1,
+        0.28704915184299556,
+        0.6520038342380243,
+        1,
+        0,
+        0.5,
+        0.6,
+        0,
+        0.2
+      ],
+      "winRate": 1,
+      "smoothedRate": 0.8,
+      "tempo": 0.5944444444444444,
+      "target": 0.8148611111111111,
+      "seedResults": [
+        {
+          "seed": 0,
+          "win": true,
+          "plies": 46,
+          "diverted": 8,
+          "hash": "88503ae02e124832c4822efae443d4a39b91653d945ad76b64934dec5cd8b770"
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "plies": 46,
+          "diverted": 7,
+          "hash": "f5175747e82c47cc663cde270b67ce809c8c3e8db856989a7cbe580f8e2acd95"
+        },
+        {
+          "seed": 2,
+          "win": true,
+          "plies": 54,
+          "diverted": 11,
+          "hash": "455d19588212184132e76b44b184e456083b074fa9d68dd0780dc117f0d4c1b5"
+        }
+      ],
+      "source": "independent-holdout"
+    }
+  ],
+  "quality": {
+    "trainRoots": 12,
+    "holdoutRoots": 4,
+    "trainSamples": 24,
+    "holdoutSamples": 8,
+    "holdoutRollouts": 24,
+    "holdoutUniqueSequences": 24,
+    "holdoutDiversions": 147,
+    "holdoutDifferentCandidateWinRates": [
+      27,
+      29
+    ],
+    "holdoutWinRatePairs": [
+      {
+        "id": 25,
+        "winRate0": 1,
+        "winRate1": 1,
+        "changed": false
+      },
+      {
+        "id": 27,
+        "winRate0": 0,
+        "winRate1": 0.3333333333333333,
+        "changed": true
+      },
+      {
+        "id": 29,
+        "winRate0": 0.3333333333333333,
+        "winRate1": 0.6666666666666666,
+        "changed": true
+      },
+      {
+        "id": 34,
+        "winRate0": 1,
+        "winRate1": 1,
+        "changed": false
+      }
+    ]
+  }
+}

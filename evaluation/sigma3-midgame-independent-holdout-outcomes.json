@@ -1,0 +1,4635 @@
+{
+  "version": "sigma3-midgame-holdout-v1",
+  "policy": "MCTS root visited alternative if visit count >= 17% of leader, min7, qFromRoot within 0.25 of leader; 35% injected choice chance",
+  "games": 24,
+  "positions": [
+    25,
+    27,
+    29,
+    34
+  ],
+  "seedBase": 20261104,
+  "simulations": 200,
+  "results": [
+    {
+      "id": 25,
+      "choice": 0,
+      "seed": 0,
+      "forcedRootAction": {
+        "type": "move",
+        "x": 5,
+        "y": 0
+      },
+      "rootSide": 1,
+      "rootWon": true,
+      "rootLoss": false,
+      "cutoff": false,
+      "plies": 58,
+      "diverted": 6,
+      "opportunities": 10,
+      "sequenceHash": "d08d8e31a6c4756c8c53a1e42b1cb1326601017ea00a8ffb583d77262483af14",
+      "firstActions": [
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 7,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h"
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "o": "v"
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": 25,
+      "choice": 0,
+      "seed": 1,
+      "forcedRootAction": {
+        "type": "move",
+        "x": 5,
+        "y": 0
+      },
+      "rootSide": 1,
+      "rootWon": true,
+      "rootLoss": false,
+      "cutoff": false,
+      "plies": 60,
+      "diverted": 5,
+      "opportunities": 14,
+      "sequenceHash": "21d82e221112d42749e2a6bd908680eaa3b55f5e824a4f55a93350eedb2eb82f",
+      "firstActions": [
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 7,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        6,
+        0
+      ]
+    },
+    {
+      "id": 25,
+      "choice": 0,
+      "seed": 2,
+      "forcedRootAction": {
+        "type": "move",
+        "x": 5,
+        "y": 0
+      },
+      "rootSide": 1,
+      "rootWon": true,
+      "rootLoss": false,
+      "cutoff": false,
+      "plies": 60,
+      "diverted": 5,
+      "opportunities": 11,
+      "sequenceHash": "37f295a46150dcf92ceeaeaad67699168bfe47e37826b41eff86e9557d12204c",
+      "firstActions": [
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 7,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h"
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "o": "v"
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": 25,
+      "choice": 1,
+      "seed": 0,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 1,
+        "y": 7,
+        "o": "h"
+      },
+      "rootSide": 1,
+      "rootWon": true,
+      "rootLoss": false,
+      "cutoff": false,
+      "plies": 58,
+      "diverted": 6,
+      "opportunities": 10,
+      "sequenceHash": "40b2c1a1c50eb6f0d45c8cfbb2d38c491d32650f2616e3d4f8c29bdd100c403b",
+      "firstActions": [
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h"
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "o": "v"
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": 25,
+      "choice": 1,
+      "seed": 1,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 1,
+        "y": 7,
+        "o": "h"
+      },
+      "rootSide": 1,
+      "rootWon": true,
+      "rootLoss": false,
+      "cutoff": false,
+      "plies": 60,
+      "diverted": 5,
+      "opportunities": 14,
+      "sequenceHash": "70c9015da6c00f92b69bbd01d8385448814fc2acae7012cf9ae0ff713103c7e4",
+      "firstActions": [
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        6,
+        0
+      ]
+    },
+    {
+      "id": 25,
+      "choice": 1,
+      "seed": 2,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 1,
+        "y": 7,
+        "o": "h"
+      },
+      "rootSide": 1,
+      "rootWon": true,
+      "rootLoss": false,
+      "cutoff": false,
+      "plies": 60,
+      "diverted": 5,
+      "opportunities": 11,
+      "sequenceHash": "8610bdaab7f2f1ec62ff812c3aafbe1e2a36cf531ab2256aa03f628b2eb330bc",
+      "firstActions": [
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 8
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h"
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "o": "v"
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": 27,
+      "choice": 0,
+      "seed": 0,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 5,
+        "y": 4,
+        "o": "h"
+      },
+      "rootSide": 0,
+      "rootWon": false,
+      "rootLoss": true,
+      "cutoff": false,
+      "plies": 35,
+      "diverted": 7,
+      "opportunities": 16,
+      "sequenceHash": "3aa77d5a9b6f2eaf445ec4a2d4c9392b8f5d85c64b81fbcb4bc8cf41eec97c70",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 4,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": 27,
+      "choice": 0,
+      "seed": 1,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 5,
+        "y": 4,
+        "o": "h"
+      },
+      "rootSide": 0,
+      "rootWon": false,
+      "rootLoss": true,
+      "cutoff": false,
+      "plies": 39,
+      "diverted": 3,
+      "opportunities": 11,
+      "sequenceHash": "bd8f0fc736b1340ad74af0483b9190fe06588ab623d50e207f550bab12ed7f94",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 4,
+            "o": "h"
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 4,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "v"
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": 27,
+      "choice": 0,
+      "seed": 2,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 5,
+        "y": 4,
+        "o": "h"
+      },
+      "rootSide": 0,
+      "rootWon": false,
+      "rootLoss": true,
+      "cutoff": false,
+      "plies": 51,
+      "diverted": 9,
+      "opportunities": 27,
+      "sequenceHash": "4d323f75a8e03254fe5be2bcea4eadb5804481bfe21bbdcdf4406ac9f6af2328",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 4,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 3,
+            "o": "h"
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        14,
+        0
+      ]
+    },
+    {
+      "id": 27,
+      "choice": 1,
+      "seed": 0,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "rootSide": 0,
+      "rootWon": false,
+      "rootLoss": true,
+      "cutoff": false,
+      "plies": 73,
+      "diverted": 3,
+      "opportunities": 23,
+      "sequenceHash": "8bf870e09c4e09ad49e3ef8b76fdbe0901626817b31138b10157b29ce23ec0e7",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        10,
+        0
+      ]
+    },
+    {
+      "id": 27,
+      "choice": 1,
+      "seed": 1,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "rootSide": 0,
+      "rootWon": true,
+      "rootLoss": false,
+      "cutoff": false,
+      "plies": 64,
+      "diverted": 9,
+      "opportunities": 31,
+      "sequenceHash": "d79621e187d3a42b1c457eac2d4ecd1a9ff36c4f52a2101d4809297d62d4d611",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": 27,
+      "choice": 1,
+      "seed": 2,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "rootSide": 0,
+      "rootWon": false,
+      "rootLoss": true,
+      "cutoff": false,
+      "plies": 75,
+      "diverted": 9,
+      "opportunities": 20,
+      "sequenceHash": "0c01558803216d9adf02d0844b923db94e0f68e06a9894a83465a2f75af065d5",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        7,
+        0
+      ]
+    },
+    {
+      "id": 29,
+      "choice": 0,
+      "seed": 0,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 7,
+        "y": 5,
+        "o": "h"
+      },
+      "rootSide": 0,
+      "rootWon": false,
+      "rootLoss": true,
+      "cutoff": false,
+      "plies": 53,
+      "diverted": 4,
+      "opportunities": 17,
+      "sequenceHash": "0b62b73036aab762c48994a8f3f752da27cd4263617349e28648c7252df9d392",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "h"
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h"
+          },
+          "diverted": true
+        }
+      ],
+      "finalDistances": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": 29,
+      "choice": 0,
+      "seed": 1,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 7,
+        "y": 5,
+        "o": "h"
+      },
+      "rootSide": 0,
+      "rootWon": false,
+      "rootLoss": true,
+      "cutoff": false,
+      "plies": 53,
+      "diverted": 15,
+      "opportunities": 29,
+      "sequenceHash": "c01d6cb39c8277177d67abcc578c158a25b2ba7f1015c025624bce23503a7d7f",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "v"
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 2,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 4,
+            "o": "h"
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 5
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        16,
+        0
+      ]
+    },
+    {
+      "id": 29,
+      "choice": 0,
+      "seed": 2,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 7,
+        "y": 5,
+        "o": "h"
+      },
+      "rootSide": 0,
+      "rootWon": true,
+      "rootLoss": false,
+      "cutoff": false,
+      "plies": 68,
+      "diverted": 9,
+      "opportunities": 29,
+      "sequenceHash": "7f727cfcbb7293a466ad259d7bbead99f4e72db187bddd6be1731ae2ad376850",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "h"
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 1
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 2
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        0,
+        7
+      ]
+    },
+    {
+      "id": 29,
+      "choice": 1,
+      "seed": 0,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 4,
+        "y": 4,
+        "o": "h"
+      },
+      "rootSide": 0,
+      "rootWon": true,
+      "rootLoss": false,
+      "cutoff": false,
+      "plies": 56,
+      "diverted": 2,
+      "opportunities": 6,
+      "sequenceHash": "5b5902c7092306f5866b5a83d3afd16950a6eb978808d6725f4b0d2b2a74668b",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": 29,
+      "choice": 1,
+      "seed": 1,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 4,
+        "y": 4,
+        "o": "h"
+      },
+      "rootSide": 0,
+      "rootWon": false,
+      "rootLoss": true,
+      "cutoff": false,
+      "plies": 53,
+      "diverted": 8,
+      "opportunities": 17,
+      "sequenceHash": "0598d615012509a4c1fcd6ca12568502e8b733bf26007f8966e875f3d3a07e3f",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 4,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 1,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h"
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 6,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h"
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        11,
+        0
+      ]
+    },
+    {
+      "id": 29,
+      "choice": 1,
+      "seed": 2,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 4,
+        "y": 4,
+        "o": "h"
+      },
+      "rootSide": 0,
+      "rootWon": true,
+      "rootLoss": false,
+      "cutoff": false,
+      "plies": 32,
+      "diverted": 1,
+      "opportunities": 8,
+      "sequenceHash": "8a28151b11959353696ff05da5e2b3c66eba6263044291302e5efccee0b57bff",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 4,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "v"
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 4,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 3,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        0,
+        10
+      ]
+    },
+    {
+      "id": 34,
+      "choice": 0,
+      "seed": 0,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 4,
+        "o": "v"
+      },
+      "rootSide": 0,
+      "rootWon": true,
+      "rootLoss": false,
+      "cutoff": false,
+      "plies": 22,
+      "diverted": 3,
+      "opportunities": 11,
+      "sequenceHash": "e7482a328da457d181b2be5d9581f3b0606d920015ace9fb6dd6d5cfb9970dc3",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "h"
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 1,
+            "o": "v"
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 6
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 6
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 6,
+            "o": "v"
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 5
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": 34,
+      "choice": 0,
+      "seed": 1,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 4,
+        "o": "v"
+      },
+      "rootSide": 0,
+      "rootWon": true,
+      "rootLoss": false,
+      "cutoff": false,
+      "plies": 26,
+      "diverted": 3,
+      "opportunities": 10,
+      "sequenceHash": "2f185545c64a5ce5c7e9f35f87932198c2cb7a979dc8152639fdfc3730056f2c",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 1
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        0,
+        6
+      ]
+    },
+    {
+      "id": 34,
+      "choice": 0,
+      "seed": 2,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 4,
+        "o": "v"
+      },
+      "rootSide": 0,
+      "rootWon": true,
+      "rootLoss": false,
+      "cutoff": false,
+      "plies": 26,
+      "diverted": 4,
+      "opportunities": 13,
+      "sequenceHash": "0636bc567aecd95263e036d8d6289fbf902f30211e90ef17671be4b9e85988e2",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 1
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": 34,
+      "choice": 1,
+      "seed": 0,
+      "forcedRootAction": {
+        "type": "move",
+        "x": 3,
+        "y": 3
+      },
+      "rootSide": 0,
+      "rootWon": true,
+      "rootLoss": false,
+      "cutoff": false,
+      "plies": 46,
+      "diverted": 8,
+      "opportunities": 26,
+      "sequenceHash": "88503ae02e124832c4822efae443d4a39b91653d945ad76b64934dec5cd8b770",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 3,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 5,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "v"
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 5
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 5
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        0,
+        12
+      ]
+    },
+    {
+      "id": 34,
+      "choice": 1,
+      "seed": 1,
+      "forcedRootAction": {
+        "type": "move",
+        "x": 3,
+        "y": 3
+      },
+      "rootSide": 0,
+      "rootWon": true,
+      "rootLoss": false,
+      "cutoff": false,
+      "plies": 46,
+      "diverted": 7,
+      "opportunities": 13,
+      "sequenceHash": "f5175747e82c47cc663cde270b67ce809c8c3e8db856989a7cbe580f8e2acd95",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 3,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 5,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 5
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 5
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "v"
+          },
+          "diverted": false
+        }
+      ],
+      "finalDistances": [
+        0,
+        19
+      ]
+    },
+    {
+      "id": 34,
+      "choice": 1,
+      "seed": 2,
+      "forcedRootAction": {
+        "type": "move",
+        "x": 3,
+        "y": 3
+      },
+      "rootSide": 0,
+      "rootWon": true,
+      "rootLoss": false,
+      "cutoff": false,
+      "plies": 54,
+      "diverted": 11,
+      "opportunities": 20,
+      "sequenceHash": "455d19588212184132e76b44b184e456083b074fa9d68dd0780dc117f0d4c1b5",
+      "firstActions": [
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 3,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 5,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "h"
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 4
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h"
+          },
+          "diverted": true
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "o": "v"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          },
+          "diverted": false
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "diverted": false
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "diverted": true
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 6,
+            "o": "h"
+          },
+          "diverted": true
+        }
+      ],
+      "finalDistances": [
+        0,
+        19
+      ]
+    }
+  ]
+}

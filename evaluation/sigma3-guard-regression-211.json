@@ -1,0 +1,64 @@
+[
+  {
+    "index": 0,
+    "variant": "sigma2",
+    "got": {
+      "type": "move",
+      "x": 5,
+      "y": 5
+    },
+    "elapsedMs": 697.7322000020649,
+    "corridor": null
+  },
+  {
+    "index": 0,
+    "variant": "sigma3",
+    "got": {
+      "type": "wall",
+      "x": 7,
+      "y": 1,
+      "o": "v"
+    },
+    "elapsedMs": 710.9237999975448,
+    "corridor": {
+      "previous": {
+        "type": "move",
+        "x": 5,
+        "y": 5
+      },
+      "selected": {
+        "type": "wall",
+        "x": 7,
+        "y": 1,
+        "o": "v"
+      },
+      "riskBefore": 2,
+      "riskAfter": 0,
+      "riskReduction": 2,
+      "opponentDistanceGain": 2,
+      "visits": 64
+    }
+  },
+  {
+    "index": 46,
+    "variant": "sigma2",
+    "got": {
+      "type": "move",
+      "x": 5,
+      "y": 2
+    },
+    "elapsedMs": 720.1701999983925,
+    "corridor": null
+  },
+  {
+    "index": 46,
+    "variant": "sigma3",
+    "got": {
+      "type": "move",
+      "x": 5,
+      "y": 2
+    },
+    "elapsedMs": 678.3670999975584,
+    "corridor": null
+  }
+]

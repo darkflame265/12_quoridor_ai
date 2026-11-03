@@ -16,15 +16,16 @@ import random
 RNG=random.Random(int(os.getenv('SIGMA_SEED','0')))
 SIGMA2_SIMS=int(os.getenv('SIGMA2_SIMS','200'))
 if not 1 <= SIGMA2_SIMS <= 200:raise ValueError('Sigma2 PUCT simulations must be between 1 and 200')
-SIGMA2_REUSE=os.getenv('SIGMA2_REUSE','0')=='1'
+SIGMA2_REUSE=os.getenv('SIGMA2_REUSE','1')=='1'
 # Keep unproven one-reply counterfactual overrides opt-in until deeper
 # continuations and matched-pair tournament evidence support them.
 SIGMA2_ONE_REPLY_OVERRIDE=os.getenv('SIGMA2_ONE_REPLY_OVERRIDE','0')=='1'
 SIGMA2_PREVENTIVE_WALL_OVERRIDE=os.getenv('SIGMA2_PREVENTIVE_WALL_OVERRIDE','0')=='1'
 SIGMA2_PRECOMMIT_RETREAT=os.getenv('SIGMA2_PRECOMMIT_RETREAT','0')=='1'
+SIGMA2_WALL_VALUE_CHECK=os.getenv('SIGMA2_WALL_VALUE_CHECK','1')=='1'
 SIGMA2_STRICT_CYCLE_VALUE=os.getenv('SIGMA2_STRICT_CYCLE_VALUE','0')=='1'
 SIGMA2_DETERMINISTIC=os.getenv('SIGMA2_DETERMINISTIC','0')=='1'
-SIGMA2_CPUCT=float(os.getenv('SIGMA2_CPUCT','0.8'))
+SIGMA2_CPUCT=float(os.getenv('SIGMA2_CPUCT','0.60'))
 SIGMA2_CLOSE_RATIO=float(os.getenv('SIGMA2_CLOSE_RATIO','0.88'))
 SIGMA2_CHOICE_TEMP=float(os.getenv('SIGMA2_CHOICE_TEMP','0.20'))
 if not 0.1 <= SIGMA2_CHOICE_TEMP <= 1.0:raise ValueError('Sigma2 choice temperature out of range')
@@ -79,7 +80,7 @@ def state_of(s):
  return state
 def to_action(s,a):
  if isinstance(a,WallAction):return dict(type='wall',x=a.x,y=7-a.y,o=a.orientation)
- p=s['p'][s['turn']];return dict(type='move',x=p['x']+a.direction[0],y=p['y']-a.direction[1])
+ x,y=state_of(s)._pawn_dest(a);return dict(type='move',x=x,y=8-y)
 def pawn_only_forced_win(root, max_plies=10, node_limit=16000):
  # Exact tactical proof only when neither player can place walls.
  # Returns (root_action, proof_depth) for a forced winning move; returns None
@@ -141,12 +142,15 @@ def choose(s,allowed,history=None):
  root=None
  if MODE=='puct':
   global PERSISTENT_AGENT
-  sims=SIGMA2_SIMS if VARIANT=='sigma2' else int(os.getenv('SIGMA_SIMS','20'))
-  if VARIANT=='sigma2' and SIGMA2_REUSE:
+  sims=SIGMA2_SIMS if VARIANT in ('sigma2','sigma3') else int(os.getenv('SIGMA_SIMS','20'))
+  if VARIANT in ('sigma2','sigma3') and SIGMA2_REUSE:
    if PERSISTENT_AGENT is None:PERSISTENT_AGENT=Sigma2LoopAwareMCTS(evaluator=evaluator,num_simulations=sims,c_puct=SIGMA2_CPUCT,training=False)
    agent=PERSISTENT_AGENT
-  else:agent=(Sigma2LoopAwareMCTS if VARIANT=='sigma2' else MCTSAgent)(evaluator=evaluator,num_simulations=sims,c_puct=SIGMA2_CPUCT if VARIANT=='sigma2' else 1.2,training=False)
-  if VARIANT=='sigma2':
+   # A fresh starting board belongs to a new game, not the previous tree.
+   if not (history or []) and s.get('left')==[10,10] and not s.get('walls') and s['p']==[{'x':4,'y':8},{'x':4,'y':0}]:
+    agent._root=None
+  else:agent=(Sigma2LoopAwareMCTS if VARIANT in ('sigma2','sigma3') else MCTSAgent)(evaluator=evaluator,num_simulations=sims,c_puct=SIGMA2_CPUCT if VARIANT in ('sigma2','sigma3') else 1.2,training=False)
+  if VARIANT in ('sigma2','sigma3'):
    # The root state itself is always in real-game history; only newly
    # reached descendants may be scored as repeated drawn positions.
    prior_states=[h['state'] for h in (history or []) if isinstance(h,dict) and 'state' in h]
@@ -156,11 +160,11 @@ def choose(s,allowed,history=None):
   choices=[c for c in children if json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')) in allowed]
   if choices:
    selected=choices[0].action
-   if EXPLORATION>0 and not (VARIANT=='sigma2' and SIGMA2_DETERMINISTIC) and RNG.random()<EXPLORATION:
+   if EXPLORATION>0 and not (VARIANT in ('sigma2','sigma3') and SIGMA2_DETERMINISTIC) and RNG.random()<EXPLORATION:
     pool=choices[:min(4,len(choices))]
     selected=RNG.choices([c.action for c in pool],weights=[max(1,c.visit_count) for c in pool])[0]
  dbg={}
- if VARIANT=='sigma2' and MODE=='puct' and choices:
+ if VARIANT in ('sigma2','sigma3') and MODE=='puct' and choices:
   # Choose only similarly visited candidates and discourage exact full-state loops.
   ply=int(s.get('ply',0))
   close=[c for c in choices if c.visit_count>=max(3,choices[0].visit_count*SIGMA2_CLOSE_RATIO)]
@@ -313,12 +317,73 @@ def choose(s,allowed,history=None):
     selected=RNG.choices(close,weights=[max(1,c.visit_count)**(1/temp) for c in close],k=1)[0].action
    else:selected=close[0].action
 
+ # Only consider high-impact defensive walls if MCTS actually investigated
+ # them. Distance gain alone is not evidence of a good move.
+ if VARIANT in ('sigma2','sigma3') and MODE=='puct' and SIGMA2_WALL_VALUE_CHECK and dbg.get('terminalOverride') is None and choices:
+  leader=choices[0]
+  own=s['turn']
+  ownpos=state.player1pos if own==0 else state.player2pos
+  opppos=state.player2pos if own==0 else state.player1pos
+  mygrid=state.p1_dist if own==0 else state.p2_dist
+  oppgrid=state.p2_dist if own==0 else state.p1_dist
+  before_own=mygrid[ownpos[1]][ownpos[0]]
+  before_opp=oppgrid[opppos[1]][opppos[0]]
+  wall_options=[]
+  for c in choices:
+   if not isinstance(c.action,WallAction) or c.visit_count<max(4,leader.visit_count*0.08):continue
+   if -c.q_value < -leader.q_value-0.08:continue
+   after=state.next(c.action)
+   mypos=after.player1pos if own==0 else after.player2pos
+   opp=after.player2pos if own==0 else after.player1pos
+   mine=after.p1_dist if own==0 else after.p2_dist
+   theirs=after.p2_dist if own==0 else after.p1_dist
+   own_delta=mine[mypos[1]][mypos[0]]-before_own
+   opp_delta=theirs[opp[1]][opp[0]]-before_opp
+   if own_delta<=0 and opp_delta>=3:wall_options.append((opp_delta-own_delta,c))
+  if wall_options:
+   wall_options.sort(key=lambda t:(t[0],t[1].visit_count),reverse=True)
+   candidate=wall_options[0][1]
+   selected_node=next((c for c in choices if c.action==selected),None)
+   if selected_node is not None and candidate.visit_count>=max(8,selected_node.visit_count*0.08) and -candidate.q_value >= -selected_node.q_value-0.04:
+    dbg['wallValueCheck']={'previous':to_action(s,selected),'selected':to_action(s,candidate.action),'opponentDistanceGain':wall_options[0][0],'visits':candidate.visit_count}
+    selected=candidate.action
+ # Sigma3: rerank well-searched defensive walls.
+ if VARIANT=='sigma3' and MODE=='puct' and choices and dbg.get('terminalOverride') is None:
+  picked=next((c for c in choices if c.action==selected),None)
+  if picked is not None and isinstance(picked.action,PawnAction):
+   leader=choices[0]
+   walls=[c for c in choices if isinstance(c.action,WallAction) and c.visit_count>=max(12,leader.visit_count*.25) and -c.q_value>=-picked.q_value-.015]
+   if walls:
+    side=s['turn']
+    def distances(st):
+     pp=st.player1pos if side==0 else st.player2pos
+     op=st.player2pos if side==0 else st.player1pos
+     pg=st.p1_dist if side==0 else st.p2_dist
+     og=st.p2_dist if side==0 else st.p1_dist
+     return pg[pp[1]][pp[0]],og[op[1]][op[0]]
+    def threat(st):
+     d,_=distances(st)
+     return max((distances(st.next(a))[0]-d for a in st.get_legal_actions() if isinstance(a,WallAction)),default=0)
+    before=distances(state)
+    risk=threat(state.next(picked.action))
+    good=[]
+    for c in walls[:3]:
+     nxt=state.next(c.action)
+     own,opp=distances(nxt)
+     # Do not trade a tempo for a wall that fails to slow the opponent when already behind.
+     if own>before[0]+1 or opp<before[1] or (before[0]>before[1] and opp==before[1]):continue
+     protected=threat(nxt)
+     if risk-protected>=2:good.append((risk-protected,opp-before[1],-c.q_value,c,protected))
+    if good:
+     saving,gain,_,candidate,protected=max(good,key=lambda v:v[:3])
+     dbg['sigma3Corridor']={'previous':to_action(s,selected),'selected':to_action(s,candidate.action),'riskBefore':risk,'riskAfter':protected,'riskReduction':saving,'opponentDistanceGain':gain,'visits':candidate.visit_count}
+     selected=candidate.action
  # Pre-commit path-regression validation. Past loop screening was based on
  # stale historic distance grids from earlier wall layouts. Evaluate each
  # prospective action against the CURRENT board, BEFORE the first retreat,
  # and only switch when a searched, value-comparable non-regressing option
  # exists. Do not forbid defensive retreats when no such option exists.
- if VARIANT=='sigma2' and MODE=='puct' and SIGMA2_PRECOMMIT_RETREAT and dbg.get('terminalOverride') is None and choices:
+ if VARIANT in ('sigma2','sigma3') and MODE=='puct' and SIGMA2_PRECOMMIT_RETREAT and dbg.get('terminalOverride') is None and choices:
   own=s['turn']
   current_pos=state.player1pos if own==0 else state.player2pos
   current_grid=state.p1_dist if own==0 else state.p2_dist
@@ -350,7 +415,7 @@ def choose(s,allowed,history=None):
  # considered at risk only if it creates no immediate distance progress AND
  # there is no improving pawn follow-up against any of three nearest-to-goal
  # opponent replies. This is a soft preference, never a move prohibition.
- if VARIANT=='sigma2' and MODE=='puct' and dbg.get('terminalOverride') is None and len(choices)>1:
+ if VARIANT in ('sigma2','sigma3') and MODE=='puct' and dbg.get('terminalOverride') is None and len(choices)>1:
   side=s['turn']
   oldpos=state.player1pos if side==0 else state.player2pos
   oldgrid=state.p1_dist if side==0 else state.p2_dist
@@ -404,25 +469,43 @@ def choose(s,allowed,history=None):
     if safe:
      selected=safe[0].action
      dbg['preventive']={'atRisk':to_action(s,current.action),'selected':to_action(s,selected),'reason':'no-improving-reply-after-opponent-pawn'}
- if VARIANT=='sigma2' and MODE=='puct' and SIGMA2_ONE_REPLY_OVERRIDE and safe_reply_choice is not None and dbg.get('terminalOverride') is None:
+ if VARIANT in ('sigma2','sigma3') and MODE=='puct' and SIGMA2_ONE_REPLY_OVERRIDE and safe_reply_choice is not None and dbg.get('terminalOverride') is None:
   selected=safe_reply_choice.action
  # Final action validation: post-search overrides must not reintroduce an exact
  # previously reached position, which earlier candidate filtering excluded.
- if VARIANT=='sigma2' and MODE=='puct' and history and dbg.get('terminalOverride') is None and choices:
+ if VARIANT in ('sigma2','sigma3') and MODE=='puct' and history and dbg.get('terminalOverride') is None and choices:
   past={state_of(h['state'])._position_key() for h in history if isinstance(h,dict) and 'state' in h}
   chosen_next=state.next(selected)
   if chosen_next._position_key() in past:
    lead=choices[0]
    alternatives=[c for c in choices if state.next(c.action)._position_key() not in past]
    strong=[c for c in alternatives if c.visit_count>=max(3,lead.visit_count*0.25) and -c.q_value>=-lead.q_value-0.15]
-   if strong:
+   # Persistent cycles require an escape even when MCTS assigns all
+   # non-repeating children few visits. Prefer safe distance progress.
+   past_keys=[state_of(h['state'])._position_key() for h in history if isinstance(h,dict) and 'state' in h]
+   cycle_count=len(past_keys)-len(set(past_keys))
+   if cycle_count>=2:
+    own=s['turn']
+    def escape_score(a):
+     nxt=state.next(a)
+     pos=nxt.player1pos if own==0 else nxt.player2pos
+     dist=nxt.p1_dist if own==0 else nxt.p2_dist
+     op=nxt.player2pos if own==0 else nxt.player1pos
+     opdist=nxt.p2_dist if own==0 else nxt.p1_dist
+     opponent_goal=any(nxt.next(reply).winner()==(2 if own==0 else 1) for reply in nxt.get_legal_actions() if isinstance(reply,PawnAction))
+     return (opponent_goal,dist[pos[1]][pos[0]]-opdist[op[1]][op[0]],dist[pos[1]][pos[0]],0 if isinstance(a,PawnAction) else 1)
+    all_fresh=[a for a in actions if json.dumps(to_action(s,a),sort_keys=True,separators=(',',':')) in allowed and state.next(a)._position_key() not in past]
+    if all_fresh:
+     selected=min(all_fresh,key=escape_score)
+     dbg['cycleEscape']={'cycleCount':cycle_count,'chosen':to_action(s,selected)}
+   elif strong:
     replacement=strong[0]
     dbg['finalCycleGuard']={'rejected':to_action(s,selected),'chosen':to_action(s,replacement.action)}
     selected=replacement.action
- result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE,'simulations':sims if MODE=='puct' else 0,'reusedTree':VARIANT=='sigma2' and SIGMA2_REUSE}
+ result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE,'simulations':sims if MODE=='puct' else 0,'reusedTree':VARIANT in ('sigma2','sigma3') and SIGMA2_REUSE}
  if DIAGNOSTICS:
   visits={json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')):c.visit_count for c in root.children} if root else {}
-  result['diagnostics']={'loopDebug':dbg,'topCandidates':[{'action':to_action(s,a),'policyLogit':score,'visits':visits.get(json.dumps(to_action(s,a),sort_keys=True,separators=(',',':')),0)} for score,a in ranked[:8]],'rootValue':float(value[0][0])}
+  result['diagnostics']={'loopDebug':dbg,'rootChildren':[{'action':to_action(s,c.action),'visits':c.visit_count,'qFromRoot':-c.q_value if c.visit_count else None,'prior':c.base_prior} for c in (sorted(root.children,key=lambda n:n.visit_count,reverse=True)[:12] if root else [])],'rootReused':bool(root and root.visit_count != sims+1),'topCandidates':[{'action':to_action(s,a),'policyLogit':score,'visits':visits.get(json.dumps(to_action(s,a),sort_keys=True,separators=(',',':')),0)} for score,a in ranked[:8]],'rootValue':float(value[0][0])}
  return result
 print(json.dumps({"ready":True}),flush=True)
 for line in sys.stdin:

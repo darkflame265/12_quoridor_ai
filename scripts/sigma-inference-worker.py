@@ -72,6 +72,45 @@ if MODE=='puct':
    else:value=self._expand(node)
    self._backup(node,value)
 
+if MODE=='puct':
+ class Sigma3ThreatAwareMCTS(Sigma2LoopAwareMCTS):
+  # Bias visited opponent wall responses inside the same 200-simulation
+  # budget. Do not boost our root choices or change Sigma2.
+  _sigma_root_depth=0
+  boosted_nodes=0
+  boosted_walls=0
+  def _expand_from_eval(self,node,priors,legal_actions):
+   super()._expand_from_eval(node,priors,legal_actions)
+   if node.state.depth-self._sigma_root_depth!=1:return
+   st=node.state
+   side=st.get_current_player()
+   me=st.player1pos if side==1 else st.player2pos
+   opp=st.player2pos if side==1 else st.player1pos
+   mg=st.p1_dist if side==1 else st.p2_dist
+   og=st.p2_dist if side==1 else st.p1_dist
+   old_my=mg[me[1]][me[0]]
+   old_opp=og[opp[1]][opp[0]]
+   ranked=sorted((child for child in node.children if isinstance(child.action,WallAction)),
+                 key=lambda child:child.base_prior,reverse=True)[:4]
+   boosts=0
+   for child in ranked:
+    child.ensure_state()
+    nxt=child.state
+    new_my=nxt.p1_dist[me[1]][me[0]] if side==1 else nxt.p2_dist[me[1]][me[0]]
+    new_opp=nxt.p2_dist[opp[1]][opp[0]] if side==1 else nxt.p1_dist[opp[1]][opp[0]]
+    if new_opp-old_opp>=2 and new_my<=old_my:
+     factor=1.55 if new_opp-old_opp==2 else 1.8
+     child.prior*=factor
+     child.base_prior*=factor
+     boosts+=1
+   if boosts:
+    norm=sum(c.prior for c in node.children)
+    for child in node.children:
+     child.prior/=norm
+     child.base_prior/=norm
+    self.boosted_nodes+=1
+    self.boosted_walls+=boosts
+
 def state_of(s):
  state=State(boardsize=9,depth=s['turn'],player1pos=(s['p'][0]['x'],8-s['p'][0]['y']),player2pos=(s['p'][1]['x'],8-s['p'][1]['y']),walls_p1=s['left'][0],walls_p2=s['left'][1],walls_initial=10)
  for w in s['walls']:
@@ -144,17 +183,21 @@ def choose(s,allowed,history=None):
   global PERSISTENT_AGENT
   sims=SIGMA2_SIMS if VARIANT in ('sigma2','sigma3') else int(os.getenv('SIGMA_SIMS','20'))
   if VARIANT in ('sigma2','sigma3') and SIGMA2_REUSE:
-   if PERSISTENT_AGENT is None:PERSISTENT_AGENT=Sigma2LoopAwareMCTS(evaluator=evaluator,num_simulations=sims,c_puct=SIGMA2_CPUCT,training=False)
+   if PERSISTENT_AGENT is None:PERSISTENT_AGENT=(Sigma3ThreatAwareMCTS if VARIANT=='sigma3' else Sigma2LoopAwareMCTS)(evaluator=evaluator,num_simulations=sims,c_puct=SIGMA2_CPUCT,training=False)
    agent=PERSISTENT_AGENT
    # A fresh starting board belongs to a new game, not the previous tree.
    if not (history or []) and s.get('left')==[10,10] and not s.get('walls') and s['p']==[{'x':4,'y':8},{'x':4,'y':0}]:
     agent._root=None
-  else:agent=(Sigma2LoopAwareMCTS if VARIANT in ('sigma2','sigma3') else MCTSAgent)(evaluator=evaluator,num_simulations=sims,c_puct=SIGMA2_CPUCT if VARIANT in ('sigma2','sigma3') else 1.2,training=False)
+  else:agent=(Sigma3ThreatAwareMCTS if VARIANT=='sigma3' else Sigma2LoopAwareMCTS if VARIANT=='sigma2' else MCTSAgent)(evaluator=evaluator,num_simulations=sims,c_puct=SIGMA2_CPUCT if VARIANT in ('sigma2','sigma3') else 1.2,training=False)
   if VARIANT in ('sigma2','sigma3'):
    # The root state itself is always in real-game history; only newly
    # reached descendants may be scored as repeated drawn positions.
    prior_states=[h['state'] for h in (history or []) if isinstance(h,dict) and 'state' in h]
    agent.historical_keys=frozenset(state_of(v)._position_key() for v in prior_states)
+  if VARIANT=='sigma3':
+   agent._sigma_root_depth=state.depth
+   agent.boosted_nodes=0
+   agent.boosted_walls=0
   root=agent.search(state)
   children=sorted(root.children,key=lambda child:child.visit_count,reverse=True)
   choices=[c for c in children if json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')) in allowed]
@@ -164,6 +207,7 @@ def choose(s,allowed,history=None):
     pool=choices[:min(4,len(choices))]
     selected=RNG.choices([c.action for c in pool],weights=[max(1,c.visit_count) for c in pool])[0]
  dbg={}
+ if VARIANT=='sigma3' and MODE=='puct':dbg['sigma3ThreatPrior']={'nodes':agent.boosted_nodes,'walls':agent.boosted_walls}
  if VARIANT in ('sigma2','sigma3') and MODE=='puct' and choices:
   # Choose only similarly visited candidates and discourage exact full-state loops.
   ply=int(s.get('ply',0))

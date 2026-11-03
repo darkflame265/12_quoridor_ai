@@ -1,0 +1,2591 @@
+{
+  "version": "sigma3-attack-isolated-paired-v1",
+  "fixtures": 12,
+  "controlGames": 24,
+  "experimentalGames": 24,
+  "exploration": 0,
+  "simulations": 200,
+  "processRestartPerGame": true,
+  "results": [
+    {
+      "fixture": 0,
+      "game": 1,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 3,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        122,
+        133
+      ],
+      "finalDist": [
+        5,
+        0
+      ]
+    },
+    {
+      "fixture": 0,
+      "game": 2,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 3,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        119,
+        133
+      ],
+      "finalDist": [
+        5,
+        0
+      ]
+    },
+    {
+      "fixture": 0,
+      "game": 3,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 3,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        135,
+        150
+      ],
+      "finalDist": [
+        5,
+        0
+      ]
+    },
+    {
+      "fixture": 0,
+      "game": 4,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 3,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        109,
+        137
+      ],
+      "finalDist": [
+        5,
+        0
+      ]
+    },
+    {
+      "fixture": 1,
+      "game": 5,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 1,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        65,
+        null
+      ],
+      "finalDist": [
+        5,
+        0
+      ]
+    },
+    {
+      "fixture": 1,
+      "game": 6,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 1,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        null,
+        67
+      ],
+      "finalDist": [
+        5,
+        0
+      ]
+    },
+    {
+      "fixture": 1,
+      "game": 7,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 1,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        71,
+        null
+      ],
+      "finalDist": [
+        5,
+        0
+      ]
+    },
+    {
+      "fixture": 1,
+      "game": 8,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 1,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        null,
+        68
+      ],
+      "finalDist": [
+        5,
+        0
+      ]
+    },
+    {
+      "fixture": 2,
+      "game": 9,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 5,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        136,
+        130
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 2,
+      "game": 10,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 5,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        103,
+        130
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 2,
+      "game": 11,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 5,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        131,
+        120
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 2,
+      "game": 12,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 5,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        103,
+        149
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 3,
+      "game": 13,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 5,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 1
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        63,
+        123
+      ],
+      "finalDist": [
+        0,
+        3
+      ]
+    },
+    {
+      "fixture": 3,
+      "game": 14,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 5,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 1
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        175,
+        71
+      ],
+      "finalDist": [
+        0,
+        3
+      ]
+    },
+    {
+      "fixture": 3,
+      "game": 15,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 5,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 1
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        58,
+        135
+      ],
+      "finalDist": [
+        0,
+        3
+      ]
+    },
+    {
+      "fixture": 3,
+      "game": 16,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 5,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 1
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        142,
+        69
+      ],
+      "finalDist": [
+        0,
+        3
+      ]
+    },
+    {
+      "fixture": 4,
+      "game": 17,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 5,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        99,
+        107
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 4,
+      "game": 18,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 5,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        94,
+        104
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 4,
+      "game": 19,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 5,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        107,
+        110
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 4,
+      "game": 20,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 5,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        87,
+        118
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 5,
+      "game": 21,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 2,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        118,
+        39
+      ],
+      "finalDist": [
+        0,
+        3
+      ]
+    },
+    {
+      "fixture": 5,
+      "game": 22,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 2,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        38,
+        125
+      ],
+      "finalDist": [
+        0,
+        3
+      ]
+    },
+    {
+      "fixture": 5,
+      "game": 23,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 2,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        115,
+        36
+      ],
+      "finalDist": [
+        0,
+        3
+      ]
+    },
+    {
+      "fixture": 5,
+      "game": 24,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 2,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        38,
+        151
+      ],
+      "finalDist": [
+        0,
+        3
+      ]
+    },
+    {
+      "fixture": 6,
+      "game": 25,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 7,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        203,
+        196
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 6,
+      "game": 26,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 7,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        163,
+        194
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 6,
+      "game": 27,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 7,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        192,
+        178
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 6,
+      "game": 28,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 7,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 3
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        150,
+        216
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 7,
+      "game": 29,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 7,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        117,
+        98
+      ],
+      "finalDist": [
+        0,
+        1
+      ]
+    },
+    {
+      "fixture": 7,
+      "game": 30,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 7,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        97,
+        121
+      ],
+      "finalDist": [
+        0,
+        1
+      ]
+    },
+    {
+      "fixture": 7,
+      "game": 31,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 7,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        120,
+        95
+      ],
+      "finalDist": [
+        0,
+        1
+      ]
+    },
+    {
+      "fixture": 7,
+      "game": 32,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 7,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        93,
+        120
+      ],
+      "finalDist": [
+        0,
+        1
+      ]
+    },
+    {
+      "fixture": 8,
+      "game": 33,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 3,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        57,
+        97
+      ],
+      "finalDist": [
+        5,
+        0
+      ]
+    },
+    {
+      "fixture": 8,
+      "game": 34,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 3,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        79,
+        57
+      ],
+      "finalDist": [
+        5,
+        0
+      ]
+    },
+    {
+      "fixture": 8,
+      "game": 35,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 3,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        62,
+        100
+      ],
+      "finalDist": [
+        5,
+        0
+      ]
+    },
+    {
+      "fixture": 8,
+      "game": 36,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 3,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        82,
+        63
+      ],
+      "finalDist": [
+        5,
+        0
+      ]
+    },
+    {
+      "fixture": 9,
+      "game": 37,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 3,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        83,
+        107
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 9,
+      "game": 38,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 3,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        57,
+        83
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 9,
+      "game": 39,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 3,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        79,
+        94
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 9,
+      "game": 40,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 3,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        66,
+        97
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 10,
+      "game": 41,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 3,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        77,
+        98
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 10,
+      "game": 42,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 3,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        90,
+        83
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 10,
+      "game": 43,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 3,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        80,
+        241
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 10,
+      "game": 44,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 3,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        79,
+        91
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 11,
+      "game": 45,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 1,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        63,
+        null
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 11,
+      "game": 46,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 1,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        null,
+        60
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 11,
+      "game": 47,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 1,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        64,
+        null
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    },
+    {
+      "fixture": 11,
+      "game": 48,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 1,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        null,
+        64
+      ],
+      "finalDist": [
+        3,
+        0
+      ]
+    }
+  ]
+}

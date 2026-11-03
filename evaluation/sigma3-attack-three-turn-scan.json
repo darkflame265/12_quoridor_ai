@@ -1,0 +1,3810 @@
+{
+  "tested": 29,
+  "cases": [
+    {
+      "game": 0,
+      "ply": 57,
+      "kind": "three",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 5,
+        "y": 7
+      },
+      "attack": {
+        "type": "move",
+        "x": 5,
+        "y": 7
+      },
+      "state": {
+        "p": [
+          {
+            "x": 5,
+            "y": 2
+          },
+          {
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "replies": 2
+    },
+    {
+      "game": 0,
+      "ply": 59,
+      "kind": "two",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "attack": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 2
+          },
+          {
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "replies": 3
+    },
+    {
+      "game": 0,
+      "ply": 61,
+      "kind": "one",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 4,
+        "y": 8
+      },
+      "attack": {
+        "type": "move",
+        "x": 4,
+        "y": 8
+      },
+      "state": {
+        "p": [
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 4,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "replies": 0
+    },
+    {
+      "game": 4,
+      "ply": 61,
+      "kind": "three",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 3,
+        "y": 7
+      },
+      "attack": {
+        "type": "move",
+        "x": 3,
+        "y": 7
+      },
+      "state": {
+        "p": [
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 4,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "replies": 2
+    },
+    {
+      "game": 4,
+      "ply": 63,
+      "kind": "two",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 2,
+        "y": 7
+      },
+      "attack": {
+        "type": "move",
+        "x": 2,
+        "y": 7
+      },
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "replies": 2
+    },
+    {
+      "game": 4,
+      "ply": 65,
+      "kind": "one",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 2,
+        "y": 8
+      },
+      "attack": {
+        "type": "move",
+        "x": 2,
+        "y": 8
+      },
+      "state": {
+        "p": [
+          {
+            "x": 1,
+            "y": 2
+          },
+          {
+            "x": 2,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "replies": 0
+    },
+    {
+      "game": 5,
+      "ply": 58,
+      "kind": "three",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 1,
+        "y": 1
+      },
+      "attack": {
+        "type": "move",
+        "x": 1,
+        "y": 1
+      },
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 1
+          },
+          {
+            "x": 6,
+            "y": 4
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          }
+        ],
+        "left": [
+          1,
+          0
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "replies": 2
+    },
+    {
+      "game": 5,
+      "ply": 60,
+      "kind": "two",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 0,
+        "y": 1
+      },
+      "attack": {
+        "type": "move",
+        "x": 0,
+        "y": 1
+      },
+      "state": {
+        "p": [
+          {
+            "x": 1,
+            "y": 1
+          },
+          {
+            "x": 6,
+            "y": 5
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          }
+        ],
+        "left": [
+          1,
+          0
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "replies": 2
+    },
+    {
+      "game": 5,
+      "ply": 62,
+      "kind": "one",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      "attack": {
+        "type": "move",
+        "x": 0,
+        "y": 0
+      },
+      "state": {
+        "p": [
+          {
+            "x": 0,
+            "y": 1
+          },
+          {
+            "x": 7,
+            "y": 5
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 6,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          }
+        ],
+        "left": [
+          1,
+          0
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "replies": 0
+    },
+    {
+      "game": 6,
+      "ply": 61,
+      "kind": "three",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 5,
+        "y": 7
+      },
+      "attack": {
+        "type": "move",
+        "x": 5,
+        "y": 7
+      },
+      "state": {
+        "p": [
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "replies": 2
+    },
+    {
+      "game": 12,
+      "ply": 69,
+      "kind": "three",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 6,
+        "y": 6
+      },
+      "attack": {
+        "type": "move",
+        "x": 6,
+        "y": 6
+      },
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 3
+          },
+          {
+            "x": 5,
+            "y": 6
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "replies": 2
+    },
+    {
+      "game": 12,
+      "ply": 71,
+      "kind": "two",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 6,
+        "y": 7
+      },
+      "attack": {
+        "type": "move",
+        "x": 6,
+        "y": 7
+      },
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 2
+          },
+          {
+            "x": 6,
+            "y": 6
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "replies": 2
+    },
+    {
+      "game": 12,
+      "ply": 73,
+      "kind": "one",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 6,
+        "y": 8
+      },
+      "attack": {
+        "type": "move",
+        "x": 6,
+        "y": 8
+      },
+      "state": {
+        "p": [
+          {
+            "x": 1,
+            "y": 2
+          },
+          {
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "replies": 0
+    },
+    {
+      "game": 13,
+      "ply": 68,
+      "kind": "three",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 3,
+        "y": 1
+      },
+      "attack": {
+        "type": "move",
+        "x": 3,
+        "y": 1
+      },
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 1
+          },
+          {
+            "x": 6,
+            "y": 5
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 4,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          0
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "replies": 3
+    },
+    {
+      "game": 13,
+      "ply": 70,
+      "kind": "two",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 4,
+        "y": 1
+      },
+      "attack": {
+        "type": "move",
+        "x": 4,
+        "y": 1
+      },
+      "state": {
+        "p": [
+          {
+            "x": 3,
+            "y": 1
+          },
+          {
+            "x": 6,
+            "y": 6
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 4,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          0
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "replies": 3
+    },
+    {
+      "game": 13,
+      "ply": 72,
+      "kind": "one",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 4,
+        "y": 0
+      },
+      "attack": {
+        "type": "move",
+        "x": 4,
+        "y": 0
+      },
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 1
+          },
+          {
+            "x": 6,
+            "y": 5
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 0,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 4,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          0
+        ],
+        "turn": 0,
+        "winner": null
+      },
+      "replies": 0
+    },
+    {
+      "game": 14,
+      "ply": 61,
+      "kind": "one",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 4,
+        "y": 8
+      },
+      "attack": {
+        "type": "move",
+        "x": 4,
+        "y": 8
+      },
+      "state": {
+        "p": [
+          {
+            "x": 5,
+            "y": 2
+          },
+          {
+            "x": 4,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "replies": 0
+    },
+    {
+      "game": 16,
+      "ply": 61,
+      "kind": "three",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "attack": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 3
+          },
+          {
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 6,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          0
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "replies": 3
+    },
+    {
+      "game": 16,
+      "ply": 63,
+      "kind": "two",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 3,
+        "y": 7
+      },
+      "attack": {
+        "type": "move",
+        "x": 3,
+        "y": 7
+      },
+      "state": {
+        "p": [
+          {
+            "x": 4,
+            "y": 2
+          },
+          {
+            "x": 4,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 6,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          0
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "replies": 3
+    },
+    {
+      "game": 16,
+      "ply": 65,
+      "kind": "one",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 3,
+        "y": 8
+      },
+      "attack": {
+        "type": "move",
+        "x": 3,
+        "y": 8
+      },
+      "state": {
+        "p": [
+          {
+            "x": 3,
+            "y": 2
+          },
+          {
+            "x": 3,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 3,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 6,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          0
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "replies": 0
+    },
+    {
+      "game": 22,
+      "ply": 63,
+      "kind": "two",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "attack": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "state": {
+        "p": [
+          {
+            "x": 2,
+            "y": 2
+          },
+          {
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "replies": 2
+    },
+    {
+      "game": 22,
+      "ply": 65,
+      "kind": "one",
+      "type": "move",
+      "changed": false,
+      "old": {
+        "type": "move",
+        "x": 4,
+        "y": 8
+      },
+      "attack": {
+        "type": "move",
+        "x": 4,
+        "y": 8
+      },
+      "state": {
+        "p": [
+          {
+            "x": 1,
+            "y": 2
+          },
+          {
+            "x": 4,
+            "y": 7
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "v",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h",
+            "owner": 0
+          }
+        ],
+        "left": [
+          0,
+          1
+        ],
+        "turn": 1,
+        "winner": null
+      },
+      "replies": 0
+    }
+  ],
+  "seconds": 0.26
+}

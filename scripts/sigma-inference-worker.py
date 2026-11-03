@@ -79,6 +79,58 @@ if MODE=='puct':
   _sigma_root_depth=0
   boosted_nodes=0
   boosted_walls=0
+  focus_enabled=os.getenv('SIGMA3_FOCUS','0')=='1'
+  focus_stage=0
+  focus_candidates=()
+  focus_count=0
+  focus_alternatives=0
+  def _run_simulation(self,root):
+   self.focus_stage+=1
+   if not self.focus_enabled or self.focus_stage<=160:
+    return super()._run_simulation(root)
+   if not self.focus_candidates:
+    ranked=sorted((c for c in root.children if c.visit_count>=2),
+                  key=lambda c:c.visit_count,reverse=True)
+    if ranked:
+     lead=ranked[0]
+     alternatives=[c for c in ranked[1:8]
+                   if c.visit_count>=max(2,lead.visit_count*.012)
+                   and -c.q_value>=-lead.q_value-.15]
+     self.focus_candidates=tuple([lead]+alternatives[:2])
+   if len(self.focus_candidates)<2:
+    return super()._run_simulation(root)
+   candidates=self.focus_candidates
+   if self.focus_count%4==3:
+    first=candidates[1]
+    self.focus_alternatives+=1
+   else:
+    prior_sum=sum(c.base_prior for c in root.children if c.visit_count>0)
+    first=max(candidates,key=lambda c:c.puct_score(
+      root.visit_count,self.c_puct,root.q_value,self.fpu_reduction,prior_sum))
+   self.focus_count+=1
+   node=root
+   seen=set()
+   while True:
+    node.ensure_state()
+    key=node.state._position_key()
+    if key in seen or (node is not root and key in self.historical_keys):
+     r=root.state
+     current=r.get_current_player()
+     own=r.player1pos if current==1 else r.player2pos
+     other=r.player2pos if current==1 else r.player1pos
+     own_grid=r.p1_dist if current==1 else r.p2_dist
+     other_grid=r.p2_dist if current==1 else r.p1_dist
+     lead=other_grid[other[1]][other[0]]-own_grid[own[1]][own[0]]
+     root_value=(-0.90 if lead>=0 else -0.30) if SIGMA2_STRICT_CYCLE_VALUE else (-0.45 if lead>=2 else 0.0)
+     depth=node.state.depth-root.state.depth
+     self._backup(node,root_value if depth%2==0 else -root_value)
+     return
+    seen.add(key)
+    if not node.is_expanded or node.state.is_finished():break
+    node=first if node is root else node.best_child(self.c_puct,self.fpu_reduction)
+   if node.state.is_finished():value=self._terminal_value(node.state)
+   else:value=self._expand(node)
+   self._backup(node,value)
   def _expand_from_eval(self,node,priors,legal_actions):
    super()._expand_from_eval(node,priors,legal_actions)
    if node.state.depth-self._sigma_root_depth!=1:return
@@ -196,6 +248,10 @@ def choose(s,allowed,history=None):
    agent.historical_keys=frozenset(state_of(v)._position_key() for v in prior_states)
   if VARIANT=='sigma3':
    agent._sigma_root_depth=state.depth
+   agent.focus_stage=0
+   agent.focus_count=0
+   agent.focus_candidates=()
+   agent.focus_alternatives=0
    agent.boosted_nodes=0
    agent.boosted_walls=0
   root=agent.search(state)
@@ -207,7 +263,7 @@ def choose(s,allowed,history=None):
     pool=choices[:min(4,len(choices))]
     selected=RNG.choices([c.action for c in pool],weights=[max(1,c.visit_count) for c in pool])[0]
  dbg={}
- if VARIANT=='sigma3' and MODE=='puct':dbg['sigma3ThreatPrior']={'nodes':agent.boosted_nodes,'walls':agent.boosted_walls}
+ if VARIANT=='sigma3' and MODE=='puct':dbg['sigma3ThreatPrior']={'nodes':agent.boosted_nodes,'walls':agent.boosted_walls};dbg['sigma3Focus']={'focused':agent.focus_count,'alternatives':agent.focus_alternatives,'candidates':len(agent.focus_candidates)}
  if VARIANT in ('sigma2','sigma3') and MODE=='puct' and choices:
   # Choose only similarly visited candidates and discourage exact full-state loops.
   ply=int(s.get('ply',0))

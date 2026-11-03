@@ -1,0 +1,291 @@
+{
+  "version": "sigma3-candidate-5-position-seat-swapped-200-sims",
+  "sampleSources": "4 Sigma2 tournament reports",
+  "fixtureCount": 5,
+  "simulations": 200,
+  "exploration": 0.15,
+  "maxContinuationPlies": 130,
+  "gamesRequested": 10,
+  "results": [
+    {
+      "game": 1,
+      "fixtureIndex": 0,
+      "phase": "early",
+      "sigma3Side": 0,
+      "winner": 1,
+      "winnerVariant": "sigma2",
+      "plies": 72,
+      "cutoff": false,
+      "corridors": 0,
+      "wallPlacements": [
+        10,
+        10
+      ],
+      "elapsed": [
+        60527.948899991316,
+        61566.39000002178
+      ],
+      "movesCount": [
+        36,
+        36
+      ],
+      "firstMoves": "{\"type\":\"move\",\"x\":4,\"y\":7};{\"type\":\"move\",\"x\":4,\"y\":1};{\"type\":\"move\",\"x\":4,\"y\":6};{\"type\":\"move\",\"x\":4,\"y\":2};{\"type\":\"move\",\"x\":4,\"y\":5};{\"type\":\"move\",\"x\":4,\"y\":3};{\"type\":\"wall\",\"x\":0,\"y\":6,\"o\":\"h\"};{\"type\":\"wall\",\"x\":3,\"y\":1,\"o\":\"h\"};{\"type\":\"wall\",\"x\":2,\"y\":6,\"o\":\"h\"};{\"type\":\"wall\",\"x\":1,\"y\":1,\"o\":\"h\"};{\"type\":\"move\",\"x\":3,\"y\":5};{\"type\":\"wall\",\"x\":2,\"y\":4,\"o\":\"v\"};",
+      "finalDistances": [
+        4,
+        0
+      ]
+    },
+    {
+      "game": 2,
+      "fixtureIndex": 0,
+      "phase": "early",
+      "sigma3Side": 1,
+      "winner": 1,
+      "winnerVariant": "sigma3",
+      "plies": 72,
+      "cutoff": false,
+      "corridors": 0,
+      "wallPlacements": [
+        10,
+        10
+      ],
+      "elapsed": [
+        62549.690199994075,
+        61184.954999986076
+      ],
+      "movesCount": [
+        36,
+        36
+      ],
+      "firstMoves": "{\"type\":\"move\",\"x\":4,\"y\":7};{\"type\":\"move\",\"x\":4,\"y\":1};{\"type\":\"move\",\"x\":4,\"y\":6};{\"type\":\"move\",\"x\":4,\"y\":2};{\"type\":\"move\",\"x\":4,\"y\":5};{\"type\":\"move\",\"x\":4,\"y\":3};{\"type\":\"wall\",\"x\":0,\"y\":6,\"o\":\"h\"};{\"type\":\"wall\",\"x\":3,\"y\":1,\"o\":\"h\"};{\"type\":\"wall\",\"x\":2,\"y\":6,\"o\":\"h\"};{\"type\":\"wall\",\"x\":1,\"y\":1,\"o\":\"h\"};{\"type\":\"move\",\"x\":3,\"y\":5};{\"type\":\"wall\",\"x\":2,\"y\":4,\"o\":\"v\"};",
+      "finalDistances": [
+        4,
+        0
+      ]
+    },
+    {
+      "game": 3,
+      "fixtureIndex": 1,
+      "phase": "early",
+      "sigma3Side": 0,
+      "winner": 1,
+      "winnerVariant": "sigma2",
+      "plies": 52,
+      "cutoff": false,
+      "corridors": 1,
+      "wallPlacements": [
+        8,
+        7
+      ],
+      "elapsed": [
+        36251.37990000803,
+        37856.132400000206
+      ],
+      "movesCount": [
+        26,
+        26
+      ],
+      "firstMoves": "{\"type\":\"wall\",\"x\":5,\"y\":2,\"o\":\"h\"};{\"type\":\"wall\",\"x\":6,\"y\":1,\"o\":\"h\"};{\"type\":\"wall\",\"x\":7,\"y\":5,\"o\":\"h\"};{\"type\":\"move\",\"x\":4,\"y\":2};{\"type\":\"move\",\"x\":5,\"y\":4};{\"type\":\"move\",\"x\":4,\"y\":3};{\"type\":\"wall\",\"x\":6,\"y\":4,\"o\":\"h\"};{\"type\":\"wall\",\"x\":7,\"y\":0,\"o\":\"h\"};{\"type\":\"wall\",\"x\":3,\"y\":3,\"o\":\"v\"};{\"type\":\"move\",\"x\":4,\"y\":2};{\"type\":\"wall\",\"x\":2,\"y\":3,\"o\":\"h\"};{\"type\":\"wall\",\"x\":4,\"y\":3,\"o\":\"v\"};",
+      "finalDistances": [
+        3,
+        0
+      ]
+    },
+    {
+      "game": 4,
+      "fixtureIndex": 1,
+      "phase": "early",
+      "sigma3Side": 1,
+      "winner": 1,
+      "winnerVariant": "sigma3",
+      "plies": 46,
+      "cutoff": false,
+      "corridors": 0,
+      "wallPlacements": [
+        7,
+        6
+      ],
+      "elapsed": [
+        40527.27810000215,
+        42691.382500001055
+      ],
+      "movesCount": [
+        23,
+        23
+      ],
+      "firstMoves": "{\"type\":\"wall\",\"x\":5,\"y\":2,\"o\":\"h\"};{\"type\":\"wall\",\"x\":6,\"y\":1,\"o\":\"h\"};{\"type\":\"wall\",\"x\":7,\"y\":5,\"o\":\"h\"};{\"type\":\"move\",\"x\":4,\"y\":2};{\"type\":\"move\",\"x\":5,\"y\":4};{\"type\":\"move\",\"x\":4,\"y\":3};{\"type\":\"wall\",\"x\":6,\"y\":4,\"o\":\"h\"};{\"type\":\"wall\",\"x\":7,\"y\":0,\"o\":\"h\"};{\"type\":\"wall\",\"x\":3,\"y\":3,\"o\":\"v\"};{\"type\":\"move\",\"x\":4,\"y\":2};{\"type\":\"wall\",\"x\":2,\"y\":3,\"o\":\"h\"};{\"type\":\"wall\",\"x\":4,\"y\":3,\"o\":\"v\"};",
+      "finalDistances": [
+        11,
+        0
+      ]
+    },
+    {
+      "game": 5,
+      "fixtureIndex": 2,
+      "phase": "middle",
+      "sigma3Side": 0,
+      "winner": 1,
+      "winnerVariant": "sigma2",
+      "plies": 54,
+      "cutoff": false,
+      "corridors": 0,
+      "wallPlacements": [
+        4,
+        4
+      ],
+      "elapsed": [
+        33015.746899996884,
+        34260.70939999045
+      ],
+      "movesCount": [
+        27,
+        27
+      ],
+      "firstMoves": "{\"type\":\"move\",\"x\":3,\"y\":6};{\"type\":\"move\",\"x\":6,\"y\":3};{\"type\":\"move\",\"x\":3,\"y\":5};{\"type\":\"move\",\"x\":6,\"y\":2};{\"type\":\"wall\",\"x\":7,\"y\":1,\"o\":\"v\"};{\"type\":\"move\",\"x\":7,\"y\":2};{\"type\":\"move\",\"x\":3,\"y\":4};{\"type\":\"wall\",\"x\":5,\"y\":0,\"o\":\"v\"};{\"type\":\"wall\",\"x\":7,\"y\":2,\"o\":\"h\"};{\"type\":\"move\",\"x\":6,\"y\":2};{\"type\":\"move\",\"x\":4,\"y\":4};{\"type\":\"wall\",\"x\":6,\"y\":0,\"o\":\"h\"};",
+      "finalDistances": [
+        1,
+        0
+      ]
+    },
+    {
+      "game": 6,
+      "fixtureIndex": 2,
+      "phase": "middle",
+      "sigma3Side": 1,
+      "winner": 1,
+      "winnerVariant": "sigma3",
+      "plies": 54,
+      "cutoff": false,
+      "corridors": 0,
+      "wallPlacements": [
+        4,
+        4
+      ],
+      "elapsed": [
+        34102.06210000615,
+        32443.32029999714
+      ],
+      "movesCount": [
+        27,
+        27
+      ],
+      "firstMoves": "{\"type\":\"move\",\"x\":3,\"y\":6};{\"type\":\"move\",\"x\":6,\"y\":3};{\"type\":\"move\",\"x\":3,\"y\":5};{\"type\":\"move\",\"x\":6,\"y\":2};{\"type\":\"wall\",\"x\":7,\"y\":1,\"o\":\"v\"};{\"type\":\"move\",\"x\":7,\"y\":2};{\"type\":\"move\",\"x\":3,\"y\":4};{\"type\":\"wall\",\"x\":5,\"y\":0,\"o\":\"v\"};{\"type\":\"wall\",\"x\":7,\"y\":2,\"o\":\"h\"};{\"type\":\"move\",\"x\":6,\"y\":2};{\"type\":\"move\",\"x\":4,\"y\":4};{\"type\":\"wall\",\"x\":6,\"y\":0,\"o\":\"h\"};",
+      "finalDistances": [
+        1,
+        0
+      ]
+    },
+    {
+      "game": 7,
+      "fixtureIndex": 3,
+      "phase": "middle",
+      "sigma3Side": 0,
+      "winner": 0,
+      "winnerVariant": "sigma3",
+      "plies": 29,
+      "cutoff": false,
+      "corridors": 0,
+      "wallPlacements": [
+        3,
+        2
+      ],
+      "elapsed": [
+        19911.33219999756,
+        22026.529700004176
+      ],
+      "movesCount": [
+        14,
+        15
+      ],
+      "firstMoves": "{\"type\":\"move\",\"x\":6,\"y\":3};{\"type\":\"wall\",\"x\":7,\"y\":4,\"o\":\"v\"};{\"type\":\"move\",\"x\":4,\"y\":3};{\"type\":\"wall\",\"x\":3,\"y\":2,\"o\":\"v\"};{\"type\":\"wall\",\"x\":2,\"y\":4,\"o\":\"h\"};{\"type\":\"wall\",\"x\":4,\"y\":3,\"o\":\"h\"};{\"type\":\"move\",\"x\":6,\"y\":3};{\"type\":\"move\",\"x\":7,\"y\":3};{\"type\":\"move\",\"x\":6,\"y\":4};{\"type\":\"move\",\"x\":7,\"y\":4};{\"type\":\"move\",\"x\":5,\"y\":4};{\"type\":\"move\",\"x\":7,\"y\":5};",
+      "finalDistances": [
+        0,
+        2
+      ]
+    },
+    {
+      "game": 8,
+      "fixtureIndex": 3,
+      "phase": "middle",
+      "sigma3Side": 1,
+      "winner": 0,
+      "winnerVariant": "sigma2",
+      "plies": 29,
+      "cutoff": false,
+      "corridors": 0,
+      "wallPlacements": [
+        4,
+        2
+      ],
+      "elapsed": [
+        23631.196800008183,
+        22926.883099997212
+      ],
+      "movesCount": [
+        15,
+        14
+      ],
+      "firstMoves": "{\"type\":\"move\",\"x\":6,\"y\":3};{\"type\":\"move\",\"x\":5,\"y\":4};{\"type\":\"move\",\"x\":6,\"y\":4};{\"type\":\"wall\",\"x\":7,\"y\":4,\"o\":\"v\"};{\"type\":\"move\",\"x\":4,\"y\":4};{\"type\":\"move\",\"x\":3,\"y\":4};{\"type\":\"wall\",\"x\":2,\"y\":4,\"o\":\"h\"};{\"type\":\"move\",\"x\":5,\"y\":4};{\"type\":\"wall\",\"x\":5,\"y\":3,\"o\":\"v\"};{\"type\":\"move\",\"x\":5,\"y\":3};{\"type\":\"wall\",\"x\":4,\"y\":2,\"o\":\"h\"};{\"type\":\"move\",\"x\":4,\"y\":3};",
+      "finalDistances": [
+        0,
+        10
+      ]
+    },
+    {
+      "game": 9,
+      "fixtureIndex": 4,
+      "phase": "late",
+      "sigma3Side": 0,
+      "winner": 1,
+      "winnerVariant": "sigma2",
+      "plies": 17,
+      "cutoff": false,
+      "corridors": 0,
+      "wallPlacements": [
+        1,
+        1
+      ],
+      "elapsed": [
+        4355.7061000065005,
+        4554.187100002309
+      ],
+      "movesCount": [
+        9,
+        8
+      ],
+      "firstMoves": "{\"type\":\"wall\",\"x\":5,\"y\":3,\"o\":\"h\"};{\"type\":\"move\",\"x\":6,\"y\":4};{\"type\":\"move\",\"x\":2,\"y\":5};{\"type\":\"move\",\"x\":7,\"y\":4};{\"type\":\"move\",\"x\":2,\"y\":6};{\"type\":\"move\",\"x\":7,\"y\":3};{\"type\":\"move\",\"x\":3,\"y\":6};{\"type\":\"move\",\"x\":6,\"y\":3};{\"type\":\"move\",\"x\":4,\"y\":6};{\"type\":\"wall\",\"x\":4,\"y\":6,\"o\":\"h\"};{\"type\":\"move\",\"x\":5,\"y\":6};{\"type\":\"move\",\"x\":6,\"y\":2};",
+      "finalDistances": [
+        1,
+        0
+      ]
+    },
+    {
+      "game": 10,
+      "fixtureIndex": 4,
+      "phase": "late",
+      "sigma3Side": 1,
+      "winner": 1,
+      "winnerVariant": "sigma3",
+      "plies": 17,
+      "cutoff": false,
+      "corridors": 0,
+      "wallPlacements": [
+        1,
+        1
+      ],
+      "elapsed": [
+        3986.928299997089,
+        4177.737799993338
+      ],
+      "movesCount": [
+        8,
+        9
+      ],
+      "firstMoves": "{\"type\":\"wall\",\"x\":5,\"y\":3,\"o\":\"h\"};{\"type\":\"move\",\"x\":6,\"y\":4};{\"type\":\"move\",\"x\":2,\"y\":5};{\"type\":\"move\",\"x\":7,\"y\":4};{\"type\":\"move\",\"x\":2,\"y\":6};{\"type\":\"move\",\"x\":7,\"y\":3};{\"type\":\"move\",\"x\":3,\"y\":6};{\"type\":\"move\",\"x\":6,\"y\":3};{\"type\":\"move\",\"x\":4,\"y\":6};{\"type\":\"wall\",\"x\":4,\"y\":6,\"o\":\"h\"};{\"type\":\"move\",\"x\":5,\"y\":6};{\"type\":\"move\",\"x\":6,\"y\":2};",
+      "finalDistances": [
+        1,
+        0
+      ]
+    }
+  ]
+}

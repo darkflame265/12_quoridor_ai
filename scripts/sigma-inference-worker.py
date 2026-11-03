@@ -312,6 +312,9 @@ def choose(s,allowed,history=None):
     viable=[c for c in close if c.visit_count>=max(5,leader.visit_count*0.40) and (-c.q_value)>=best_q-0.10]
     selected=(viable[0] if viable else leader).action
     dbg['safeReplacement']={'chosen':to_action(s,selected),'bestValue':best_q,'qualified':len(viable),'keptLeader':not viable}
+   elif VARIANT=='sigma3' and len(close)>1 and not danger and -choices[0].q_value-max(-c.q_value for c in close[1:])>=0.035:
+    selected=choices[0].action
+    dbg['sigma3ValueConfidence']={'chosen':to_action(s,selected),'gap':-choices[0].q_value-max(-c.q_value for c in close[1:])}
    elif len(close)>1 and ply<44 and not SIGMA2_DETERMINISTIC:
     temp=0.65 if ply<20 else SIGMA2_CHOICE_TEMP
     selected=RNG.choices(close,weights=[max(1,c.visit_count)**(1/temp) for c in close],k=1)[0].action

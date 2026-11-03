@@ -1,0 +1,569 @@
+{
+  "version": "v1",
+  "features": [
+    "bias",
+    "rootQ",
+    "logVisits",
+    "ownDistanceReduction",
+    "enemyDistanceIncrease",
+    "ownWalls",
+    "enemyWalls",
+    "wallAction",
+    "plyFraction"
+  ],
+  "rows": [
+    {
+      "id": 15,
+      "choice": 0,
+      "action": {
+        "type": "wall",
+        "x": 5,
+        "y": 3,
+        "o": "v"
+      },
+      "features": [
+        1,
+        0.26188019139308016,
+        0.806046984491913,
+        0,
+        0,
+        0.8,
+        0.6,
+        1,
+        0.16
+      ],
+      "results": [
+        {
+          "seed": 0,
+          "win": true,
+          "cutoff": false,
+          "plies": 42
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "cutoff": false,
+          "plies": 42
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "choice": 1,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "features": [
+        1,
+        0.3695976838798207,
+        0.7056844174328766,
+        0,
+        0,
+        0.8,
+        0.6,
+        0,
+        0.16
+      ],
+      "results": [
+        {
+          "seed": 0,
+          "win": true,
+          "cutoff": false,
+          "plies": 72
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "cutoff": false,
+          "plies": 72
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "choice": 0,
+      "action": {
+        "type": "wall",
+        "x": 3,
+        "y": 6,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.355318192924772,
+        0.7979152904636743,
+        0,
+        1,
+        0.7,
+        0.7,
+        1,
+        0.12
+      ],
+      "results": [
+        {
+          "seed": 0,
+          "win": true,
+          "cutoff": false,
+          "plies": 38
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "cutoff": false,
+          "plies": 38
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "choice": 1,
+      "action": {
+        "type": "wall",
+        "x": 3,
+        "y": 7,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.3331265982526999,
+        0.6617153189253536,
+        0,
+        1,
+        0.7,
+        0.7,
+        1,
+        0.12
+      ],
+      "results": [
+        {
+          "seed": 0,
+          "win": true,
+          "cutoff": false,
+          "plies": 42
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "cutoff": false,
+          "plies": 42
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "choice": 0,
+      "action": {
+        "type": "wall",
+        "x": 2,
+        "y": 2,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.390688054217789,
+        0.8020307258954028,
+        0,
+        2,
+        0.3,
+        0.7,
+        1,
+        0.24
+      ],
+      "results": [
+        {
+          "seed": 0,
+          "win": false,
+          "cutoff": false,
+          "plies": 55
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "cutoff": false,
+          "plies": 55
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "choice": 1,
+      "action": {
+        "type": "move",
+        "x": 5,
+        "y": 3
+      },
+      "features": [
+        1,
+        0.3698341632882754,
+        0.7217888900477218,
+        1,
+        0,
+        0.3,
+        0.7,
+        0,
+        0.24
+      ],
+      "results": [
+        {
+          "seed": 0,
+          "win": false,
+          "cutoff": false,
+          "plies": 47
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "cutoff": false,
+          "plies": 47
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "choice": 0,
+      "action": {
+        "type": "wall",
+        "x": 6,
+        "y": 3,
+        "o": "h"
+      },
+      "features": [
+        1,
+        -0.9960431059201559,
+        0.7150765735247319,
+        0,
+        2,
+        0.6,
+        0.3,
+        1,
+        0.24
+      ],
+      "results": [
+        {
+          "seed": 0,
+          "win": false,
+          "cutoff": false,
+          "plies": 27
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "cutoff": false,
+          "plies": 27
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "choice": 1,
+      "action": {
+        "type": "move",
+        "x": 6,
+        "y": 7
+      },
+      "features": [
+        1,
+        -0.9908373713493347,
+        0.6708919484558583,
+        -1,
+        0,
+        0.6,
+        0.3,
+        0,
+        0.24
+      ],
+      "results": [
+        {
+          "seed": 0,
+          "win": false,
+          "cutoff": false,
+          "plies": 27
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "cutoff": false,
+          "plies": 27
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "choice": 0,
+      "action": {
+        "type": "wall",
+        "x": 4,
+        "y": 3,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.234541531578444,
+        0.7708288022140452,
+        0,
+        4,
+        0.4,
+        0.5,
+        1,
+        0.24
+      ],
+      "results": [
+        {
+          "seed": 0,
+          "win": false,
+          "cutoff": false,
+          "plies": 41
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "cutoff": false,
+          "plies": 41
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "choice": 1,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 4
+      },
+      "features": [
+        1,
+        -0.1106414008718818,
+        0.7032512841960178,
+        1,
+        0,
+        0.4,
+        0.5,
+        0,
+        0.24
+      ],
+      "results": [
+        {
+          "seed": 0,
+          "win": false,
+          "cutoff": false,
+          "plies": 47
+        },
+        {
+          "seed": 1,
+          "win": false,
+          "cutoff": false,
+          "plies": 47
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "choice": 0,
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 6
+      },
+      "features": [
+        1,
+        0.5607096552848816,
+        0.8086717106532695,
+        1,
+        0,
+        0.3,
+        0.6,
+        0,
+        0.28
+      ],
+      "results": [
+        {
+          "seed": 0,
+          "win": true,
+          "cutoff": false,
+          "plies": 34
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "cutoff": false,
+          "plies": 34
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "choice": 1,
+      "action": {
+        "type": "wall",
+        "x": 2,
+        "y": 1,
+        "o": "v"
+      },
+      "features": [
+        1,
+        0.4189004453320829,
+        0.6648306744273791,
+        0,
+        2,
+        0.3,
+        0.6,
+        1,
+        0.28
+      ],
+      "results": [
+        {
+          "seed": 0,
+          "win": true,
+          "cutoff": false,
+          "plies": 50
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "cutoff": false,
+          "plies": 50
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "choice": 0,
+      "action": {
+        "type": "wall",
+        "x": 4,
+        "y": 4,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.6023841898785819,
+        0.7834133942987361,
+        0,
+        2,
+        0.7,
+        0.7,
+        1,
+        0.14
+      ],
+      "results": [
+        {
+          "seed": 0,
+          "win": true,
+          "cutoff": false,
+          "plies": 60
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "cutoff": false,
+          "plies": 60
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "choice": 1,
+      "action": {
+        "type": "wall",
+        "x": 7,
+        "y": 5,
+        "o": "h"
+      },
+      "features": [
+        1,
+        0.644352793511821,
+        0.7364734346327664,
+        0,
+        0,
+        0.7,
+        0.7,
+        1,
+        0.14
+      ],
+      "results": [
+        {
+          "seed": 0,
+          "win": true,
+          "cutoff": false,
+          "plies": 48
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "cutoff": false,
+          "plies": 48
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "choice": 0,
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "features": [
+        1,
+        0.9682742378046346,
+        0.744318019775764,
+        1,
+        0,
+        0.5,
+        0.3,
+        0,
+        0.38
+      ],
+      "results": [
+        {
+          "seed": 0,
+          "win": true,
+          "cutoff": false,
+          "plies": 30
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "cutoff": false,
+          "plies": 30
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "choice": 1,
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 3
+      },
+      "features": [
+        1,
+        0.9761239144691202,
+        0.744318019775764,
+        1,
+        0,
+        0.5,
+        0.3,
+        0,
+        0.38
+      ],
+      "results": [
+        {
+          "seed": 0,
+          "win": true,
+          "cutoff": false,
+          "plies": 40
+        },
+        {
+          "seed": 1,
+          "win": true,
+          "cutoff": false,
+          "plies": 40
+        }
+      ]
+    }
+  ]
+}

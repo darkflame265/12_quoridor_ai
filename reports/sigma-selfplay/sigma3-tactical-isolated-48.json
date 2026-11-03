@@ -1,0 +1,6716 @@
+{
+  "version": "sigma3-tactical-isolated-paired-v1",
+  "fixtures": 12,
+  "controlGames": 24,
+  "experimentalGames": 24,
+  "exploration": 0,
+  "simulations": 200,
+  "processRestartPerGame": true,
+  "results": [
+    {
+      "fixture": 0,
+      "game": 1,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 12,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        477,
+        400
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 0,
+      "game": 2,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 12,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        409,
+        484
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 0,
+      "game": 3,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 12,
+      "cutoff": false,
+      "proofs": [
+        {
+          "ply": 8,
+          "threat": "two",
+          "enemyFirst": "PawnAction(direction=(-1, 0))",
+          "replies": 2,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "selected": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "escaped": false
+        },
+        {
+          "ply": 10,
+          "threat": "one",
+          "enemyFirst": "None",
+          "replies": 0,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "selected": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "escaped": false
+        }
+      ],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        463,
+        430
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 0,
+      "game": 4,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 12,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        386,
+        467
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 1,
+      "game": 5,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 10,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        387,
+        313
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 1,
+      "game": 6,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 10,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        329,
+        393
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 1,
+      "game": 7,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 10,
+      "cutoff": false,
+      "proofs": [
+        {
+          "ply": 6,
+          "threat": "two",
+          "enemyFirst": "PawnAction(direction=(-1, 0))",
+          "replies": 2,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "selected": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "escaped": false
+        },
+        {
+          "ply": 8,
+          "threat": "one",
+          "enemyFirst": "None",
+          "replies": 0,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "selected": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "escaped": false
+        }
+      ],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        412,
+        314
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 1,
+      "game": 8,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 10,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        364,
+        398
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 2,
+      "game": 9,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 8,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        376,
+        291
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 2,
+      "game": 10,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 8,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        254,
+        378
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 2,
+      "game": 11,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 8,
+      "cutoff": false,
+      "proofs": [
+        {
+          "ply": 4,
+          "threat": "two",
+          "enemyFirst": "PawnAction(direction=(-1, 0))",
+          "replies": 2,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "selected": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "escaped": false
+        },
+        {
+          "ply": 6,
+          "threat": "one",
+          "enemyFirst": "None",
+          "replies": 0,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "selected": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "escaped": false
+        }
+      ],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        374,
+        342
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 2,
+      "game": 12,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 8,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        274,
+        374
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 3,
+      "game": 13,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 6,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        259,
+        215
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 3,
+      "game": 14,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 6,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        232,
+        250
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 3,
+      "game": 15,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 6,
+      "cutoff": false,
+      "proofs": [
+        {
+          "ply": 2,
+          "threat": "two",
+          "enemyFirst": "PawnAction(direction=(-1, 0))",
+          "replies": 2,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "selected": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "escaped": false
+        },
+        {
+          "ply": 4,
+          "threat": "one",
+          "enemyFirst": "None",
+          "replies": 0,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "selected": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "escaped": false
+        }
+      ],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        257,
+        297
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 3,
+      "game": 16,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 6,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        193,
+        273
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 4,
+      "game": 17,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 6,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        286,
+        189
+      ],
+      "finalDist": [
+        0,
+        3
+      ]
+    },
+    {
+      "fixture": 4,
+      "game": 18,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 12,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        225,
+        267
+      ],
+      "finalDist": [
+        0,
+        2
+      ]
+    },
+    {
+      "fixture": 4,
+      "game": 19,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 6,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        273,
+        184
+      ],
+      "finalDist": [
+        0,
+        3
+      ]
+    },
+    {
+      "fixture": 4,
+      "game": 20,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 12,
+      "cutoff": false,
+      "proofs": [
+        {
+          "ply": 8,
+          "threat": "two",
+          "enemyFirst": "PawnAction(direction=(1, 0))",
+          "replies": 4,
+          "checked": 2,
+          "previous": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          },
+          "selected": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          },
+          "escaped": false
+        },
+        {
+          "ply": 10,
+          "threat": "one",
+          "enemyFirst": "None",
+          "replies": 0,
+          "checked": 3,
+          "previous": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          },
+          "selected": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          },
+          "escaped": false
+        }
+      ],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        225,
+        297
+      ],
+      "finalDist": [
+        0,
+        2
+      ]
+    },
+    {
+      "fixture": 5,
+      "game": 21,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 10,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        239,
+        201
+      ],
+      "finalDist": [
+        0,
+        2
+      ]
+    },
+    {
+      "fixture": 5,
+      "game": 22,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 10,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        199,
+        232
+      ],
+      "finalDist": [
+        0,
+        2
+      ]
+    },
+    {
+      "fixture": 5,
+      "game": 23,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 10,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        226,
+        195
+      ],
+      "finalDist": [
+        0,
+        2
+      ]
+    },
+    {
+      "fixture": 5,
+      "game": 24,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 10,
+      "cutoff": false,
+      "proofs": [
+        {
+          "ply": 6,
+          "threat": "two",
+          "enemyFirst": "PawnAction(direction=(1, 0))",
+          "replies": 4,
+          "checked": 2,
+          "previous": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          },
+          "selected": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          },
+          "escaped": false
+        },
+        {
+          "ply": 8,
+          "threat": "one",
+          "enemyFirst": "None",
+          "replies": 0,
+          "checked": 3,
+          "previous": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          },
+          "selected": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          },
+          "escaped": false
+        }
+      ],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        209,
+        258
+      ],
+      "finalDist": [
+        0,
+        2
+      ]
+    },
+    {
+      "fixture": 6,
+      "game": 25,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 43,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "ply": 12,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          }
+        },
+        {
+          "ply": 13,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 14,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "ply": 15,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 16,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "ply": 17,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "ply": 18,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        },
+        {
+          "ply": 19,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "ply": 20,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          }
+        },
+        {
+          "ply": 21,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        },
+        {
+          "ply": 22,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          }
+        },
+        {
+          "ply": 23,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        }
+      ],
+      "avgMs": [
+        451,
+        457
+      ],
+      "finalDist": [
+        2,
+        0
+      ]
+    },
+    {
+      "fixture": 6,
+      "game": 26,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 34,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 4,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "ply": 12,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 13,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 14,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 15,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "ply": 16,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "ply": 17,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          }
+        },
+        {
+          "ply": 18,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "ply": 19,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        },
+        {
+          "ply": 20,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "ply": 21,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "ply": 22,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          }
+        },
+        {
+          "ply": 23,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        }
+      ],
+      "avgMs": [
+        566,
+        597
+      ],
+      "finalDist": [
+        0,
+        15
+      ]
+    },
+    {
+      "fixture": 6,
+      "game": 27,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 43,
+      "cutoff": false,
+      "proofs": [
+        {
+          "ply": 39,
+          "threat": "two",
+          "enemyFirst": "PawnAction(direction=(0, -1))",
+          "replies": 2,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          "selected": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          "escaped": false
+        },
+        {
+          "ply": 41,
+          "threat": "one",
+          "enemyFirst": "None",
+          "replies": 0,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          "selected": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          "escaped": false
+        }
+      ],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "ply": 12,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          }
+        },
+        {
+          "ply": 13,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 14,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "ply": 15,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 16,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "ply": 17,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "ply": 18,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        },
+        {
+          "ply": 19,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "ply": 20,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          }
+        },
+        {
+          "ply": 21,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        },
+        {
+          "ply": 22,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          }
+        },
+        {
+          "ply": 23,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        }
+      ],
+      "avgMs": [
+        455,
+        487
+      ],
+      "finalDist": [
+        2,
+        0
+      ]
+    },
+    {
+      "fixture": 6,
+      "game": 28,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 34,
+      "cutoff": false,
+      "proofs": [
+        {
+          "ply": 30,
+          "threat": "two",
+          "enemyFirst": "PawnAction(direction=(-1, 0))",
+          "replies": 3,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "selected": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "escaped": false
+        },
+        {
+          "ply": 32,
+          "threat": "one",
+          "enemyFirst": "None",
+          "replies": 0,
+          "checked": 2,
+          "previous": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "selected": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          },
+          "escaped": false
+        }
+      ],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 4,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "ply": 12,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 13,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 14,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 15,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "ply": 16,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "ply": 17,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          }
+        },
+        {
+          "ply": 18,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "ply": 19,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        },
+        {
+          "ply": 20,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "ply": 21,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "ply": 22,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          }
+        },
+        {
+          "ply": 23,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        }
+      ],
+      "avgMs": [
+        555,
+        600
+      ],
+      "finalDist": [
+        0,
+        15
+      ]
+    },
+    {
+      "fixture": 7,
+      "game": 29,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 8,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        290,
+        238
+      ],
+      "finalDist": [
+        0,
+        13
+      ]
+    },
+    {
+      "fixture": 7,
+      "game": 30,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 8,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        211,
+        288
+      ],
+      "finalDist": [
+        0,
+        13
+      ]
+    },
+    {
+      "fixture": 7,
+      "game": 31,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 8,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        344,
+        253
+      ],
+      "finalDist": [
+        0,
+        13
+      ]
+    },
+    {
+      "fixture": 7,
+      "game": 32,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 14,
+      "cutoff": false,
+      "proofs": [
+        {
+          "ply": 2,
+          "threat": "two",
+          "enemyFirst": "PawnAction(direction=(-1, 0))",
+          "replies": 78,
+          "checked": 81,
+          "previous": {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h"
+          },
+          "selected": {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h"
+          },
+          "escaped": false
+        },
+        {
+          "ply": 4,
+          "threat": "two",
+          "enemyFirst": "PawnAction(direction=(1, 0))",
+          "replies": 78,
+          "checked": 4,
+          "previous": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "selected": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "v"
+          },
+          "escaped": true
+        },
+        {
+          "ply": 6,
+          "threat": "two",
+          "enemyFirst": "PawnAction(direction=(-1, 0))",
+          "replies": 77,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "selected": {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "v"
+          },
+          "escaped": true
+        },
+        {
+          "ply": 10,
+          "threat": "two",
+          "enemyFirst": "PawnAction(direction=(0, 1))",
+          "replies": 74,
+          "checked": 73,
+          "previous": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          "selected": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          "escaped": false
+        },
+        {
+          "ply": 12,
+          "threat": "one",
+          "enemyFirst": "None",
+          "replies": 0,
+          "checked": 73,
+          "previous": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "selected": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "escaped": false
+        }
+      ],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 1
+          }
+        },
+        {
+          "ply": 12,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 13,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        293,
+        551
+      ],
+      "finalDist": [
+        0,
+        16
+      ]
+    },
+    {
+      "fixture": 8,
+      "game": 33,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 14,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 6
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 12,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 13,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        441,
+        439
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 8,
+      "game": 34,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 14,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 6
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 12,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 13,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        411,
+        430
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 8,
+      "game": 35,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 14,
+      "cutoff": false,
+      "proofs": [
+        {
+          "ply": 10,
+          "threat": "two",
+          "enemyFirst": "PawnAction(direction=(-1, 0))",
+          "replies": 2,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "selected": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "escaped": false
+        },
+        {
+          "ply": 12,
+          "threat": "one",
+          "enemyFirst": "None",
+          "replies": 0,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "selected": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "escaped": false
+        }
+      ],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 6
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 12,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 13,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        593,
+        534
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 8,
+      "game": 36,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 14,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 6
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 7
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 7,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 12,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 13,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        728,
+        765
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 9,
+      "game": 37,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 4,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        235,
+        172
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 9,
+      "game": 38,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 4,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        163,
+        212
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 9,
+      "game": 39,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 4,
+      "cutoff": false,
+      "proofs": [
+        {
+          "ply": 0,
+          "threat": "two",
+          "enemyFirst": "PawnAction(direction=(-1, 0))",
+          "replies": 2,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "selected": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          },
+          "escaped": false
+        },
+        {
+          "ply": 2,
+          "threat": "one",
+          "enemyFirst": "None",
+          "replies": 0,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "selected": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "escaped": false
+        }
+      ],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        174,
+        196
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 9,
+      "game": 40,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 4,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 8
+          }
+        }
+      ],
+      "avgMs": [
+        177,
+        211
+      ],
+      "finalDist": [
+        7,
+        0
+      ]
+    },
+    {
+      "fixture": 10,
+      "game": 41,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 8,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        379,
+        243
+      ],
+      "finalDist": [
+        0,
+        3
+      ]
+    },
+    {
+      "fixture": 10,
+      "game": 42,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 14,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          }
+        },
+        {
+          "ply": 12,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          }
+        },
+        {
+          "ply": 13,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        247,
+        312
+      ],
+      "finalDist": [
+        0,
+        2
+      ]
+    },
+    {
+      "fixture": 10,
+      "game": 43,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 8,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        405,
+        310
+      ],
+      "finalDist": [
+        0,
+        3
+      ]
+    },
+    {
+      "fixture": 10,
+      "game": 44,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 14,
+      "cutoff": false,
+      "proofs": [
+        {
+          "ply": 10,
+          "threat": "two",
+          "enemyFirst": "PawnAction(direction=(1, 0))",
+          "replies": 4,
+          "checked": 2,
+          "previous": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          },
+          "selected": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          },
+          "escaped": false
+        },
+        {
+          "ply": 12,
+          "threat": "one",
+          "enemyFirst": "None",
+          "replies": 0,
+          "checked": 3,
+          "previous": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          },
+          "selected": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          },
+          "escaped": false
+        }
+      ],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 1
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 1
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          }
+        },
+        {
+          "ply": 12,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          }
+        },
+        {
+          "ply": 13,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 0
+          }
+        }
+      ],
+      "avgMs": [
+        253,
+        335
+      ],
+      "finalDist": [
+        0,
+        2
+      ]
+    },
+    {
+      "fixture": 11,
+      "game": 45,
+      "sigma3Side": 0,
+      "enabled": false,
+      "winnerVariant": "sigma2",
+      "plies": 43,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "ply": 12,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          }
+        },
+        {
+          "ply": 13,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 14,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "ply": 15,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 16,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "ply": 17,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "ply": 18,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        },
+        {
+          "ply": 19,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "ply": 20,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          }
+        },
+        {
+          "ply": 21,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        },
+        {
+          "ply": 22,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          }
+        },
+        {
+          "ply": 23,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        }
+      ],
+      "avgMs": [
+        414,
+        431
+      ],
+      "finalDist": [
+        2,
+        0
+      ]
+    },
+    {
+      "fixture": 11,
+      "game": 46,
+      "sigma3Side": 1,
+      "enabled": false,
+      "winnerVariant": "sigma3",
+      "plies": 43,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "ply": 12,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          }
+        },
+        {
+          "ply": 13,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 14,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "ply": 15,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 16,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "ply": 17,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "ply": 18,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        },
+        {
+          "ply": 19,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "ply": 20,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          }
+        },
+        {
+          "ply": 21,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        },
+        {
+          "ply": 22,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          }
+        },
+        {
+          "ply": 23,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        }
+      ],
+      "avgMs": [
+        458,
+        449
+      ],
+      "finalDist": [
+        2,
+        0
+      ]
+    },
+    {
+      "fixture": 11,
+      "game": 47,
+      "sigma3Side": 0,
+      "enabled": true,
+      "winnerVariant": "sigma2",
+      "plies": 43,
+      "cutoff": false,
+      "proofs": [
+        {
+          "ply": 39,
+          "threat": "two",
+          "enemyFirst": "PawnAction(direction=(0, -1))",
+          "replies": 2,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          "selected": {
+            "type": "move",
+            "x": 6,
+            "y": 1
+          },
+          "escaped": false
+        },
+        {
+          "ply": 41,
+          "threat": "one",
+          "enemyFirst": "None",
+          "replies": 0,
+          "checked": 1,
+          "previous": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          "selected": {
+            "type": "move",
+            "x": 5,
+            "y": 1
+          },
+          "escaped": false
+        }
+      ],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "ply": 12,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          }
+        },
+        {
+          "ply": 13,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 14,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "ply": 15,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 16,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "ply": 17,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "ply": 18,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        },
+        {
+          "ply": 19,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "ply": 20,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          }
+        },
+        {
+          "ply": 21,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        },
+        {
+          "ply": 22,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          }
+        },
+        {
+          "ply": 23,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        }
+      ],
+      "avgMs": [
+        455,
+        468
+      ],
+      "finalDist": [
+        2,
+        0
+      ]
+    },
+    {
+      "fixture": 11,
+      "game": 48,
+      "sigma3Side": 1,
+      "enabled": true,
+      "winnerVariant": "sigma3",
+      "plies": 43,
+      "cutoff": false,
+      "proofs": [],
+      "trace": [
+        {
+          "ply": 0,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 1,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 2,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 3,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 4,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          }
+        },
+        {
+          "ply": 5,
+          "variant": "sigma2",
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 6,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 2,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 7,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 2
+          }
+        },
+        {
+          "ply": 8,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 3,
+            "o": "h"
+          }
+        },
+        {
+          "ply": 9,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "ply": 10,
+          "variant": "sigma3",
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "ply": 11,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "ply": 12,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          }
+        },
+        {
+          "ply": 13,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "ply": 14,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "ply": 15,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          }
+        },
+        {
+          "ply": 16,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "ply": 17,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "ply": 18,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          }
+        },
+        {
+          "ply": 19,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "ply": 20,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 5
+          }
+        },
+        {
+          "ply": 21,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        },
+        {
+          "ply": 22,
+          "variant": "sigma3",
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 4
+          }
+        },
+        {
+          "ply": 23,
+          "variant": "sigma2",
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 5
+          }
+        }
+      ],
+      "avgMs": [
+        468,
+        447
+      ],
+      "finalDist": [
+        2,
+        0
+      ]
+    }
+  ]
+}

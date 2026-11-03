@@ -14,6 +14,7 @@ EXPLORATION=float(os.getenv('SIGMA_EXPLORATION','0'))
 VARIANT=os.getenv('SIGMA_VARIANT','sigma1')
 import random
 RNG=random.Random(int(os.getenv('SIGMA_SEED','0')))
+SIGMA3_TACTICAL_PROOF=os.getenv('SIGMA3_TACTICAL_PROOF','0')=='1'
 SIGMA2_SIMS=int(os.getenv('SIGMA2_SIMS','200'))
 # Offline research-only search. Production games still use the 200-sim cap.
 SIGMA3_RESEARCH_SIMS=int(os.getenv('SIGMA3_RESEARCH_SIMS','0'))
@@ -37,6 +38,7 @@ if not 0.3 <= SIGMA2_CPUCT <= 3.0:raise ValueError('Sigma2 PUCT constant must be
 PERSISTENT_AGENT=None
 if MODE=="puct":
  from mcts import MCTSAgent
+ from sigma3_tactical import enemy_two_turn_force
  def evaluator(state,actions):
   x,v=SESSION.run(None,{"input":state.to_nn_input()[None,...].astype(np.float32)})
   z=x[0]; idx=[action_to_index(a,9) for a in actions]
@@ -675,6 +677,31 @@ def choose(s,allowed,history=None):
     escape=max(escapes,key=lambda c:(c.visit_count,-c.q_value))
     dbg['sigma3ImmediateGoalDefense']={'previous':to_action(s,selected),'selected':to_action(s,escape.action),'visits':escape.visit_count}
     selected=escape.action
+ # Sigma3-only exact pawn-race threat witness. A confirmed threat means
+ # some opponent pawn move defeats EVERY legal defensive reply.
+ if VARIANT=='sigma3' and SIGMA3_TACTICAL_PROOF and MODE=='puct' and root and not state.next(selected).winner():
+  enemy=2 if s['turn']==0 else 1
+  enemy_pos=state.player1pos if enemy==1 else state.player2pos
+  enemy_grid=state.p1_dist if enemy==1 else state.p2_dist
+  if enemy_grid[enemy_pos[1]][enemy_pos[0]]<=2:
+   threat=enemy_two_turn_force(state.next(selected))
+   if threat:
+    original=selected
+    past={state_of(h['state'])._position_key() for h in (history or []) if isinstance(h,dict) and 'state' in h}
+    available=[a for a in actions if json.dumps(to_action(s,a),sort_keys=True,separators=(',',':')) in allowed and a!=selected and state.next(a)._position_key() not in past]
+    visited={json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')):c.visit_count for c in root.children}
+    available.sort(key=lambda a:visited.get(json.dumps(to_action(s,a),sort_keys=True,separators=(',',':')),0),reverse=True)
+    checks=0
+    for alt in available:
+     checks+=1
+     aft=state.next(alt)
+     if aft.winner()==s['turn']+1 or enemy_two_turn_force(aft) is None:
+      selected=alt
+      break
+    dbg['sigma3TacticalProof']={'threat':threat['kind'],
+      'enemyFirst':str(threat['enemyFirst']),'replies':threat['defenderReplies'],
+      'checked':checks,'previous':to_action(s,original),
+      'selected':to_action(s,selected),'escaped':selected!=original}
  result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE,'simulations':sims if MODE=='puct' else 0,'reusedTree':VARIANT in ('sigma2','sigma3') and SIGMA2_REUSE}
  if DIAGNOSTICS:
   visits={json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')):c.visit_count for c in root.children} if root else {}

@@ -1,0 +1,409 @@
+{
+  "version": "sigma3-depth-controlled-v1",
+  "source": "evaluation/sigma3-diverse-deep-audit.json",
+  "baseline": "sigma3 200",
+  "deep": "sigma3 1200",
+  "positions": [
+    {
+      "id": 8,
+      "phase": "early",
+      "sigma2At200": {
+        "type": "wall",
+        "x": 3,
+        "y": 4,
+        "o": "v"
+      },
+      "sigma3At200": {
+        "type": "wall",
+        "x": 3,
+        "y": 4,
+        "o": "v"
+      },
+      "sigma3At1200": {
+        "type": "wall",
+        "x": 3,
+        "y": 4,
+        "o": "v"
+      },
+      "rootLeaderAt200": {
+        "type": "wall",
+        "x": 3,
+        "y": 4,
+        "o": "v"
+      },
+      "rootLeaderAt1200": {
+        "type": "wall",
+        "x": 3,
+        "y": 4,
+        "o": "v"
+      },
+      "changesWithinSigma3": false,
+      "sigma3DiffersFromSigma2At200": false
+    },
+    {
+      "id": 12,
+      "phase": "early",
+      "sigma2At200": {
+        "type": "move",
+        "x": 5,
+        "y": 1
+      },
+      "sigma3At200": {
+        "type": "move",
+        "x": 5,
+        "y": 1
+      },
+      "sigma3At1200": {
+        "type": "move",
+        "x": 5,
+        "y": 1
+      },
+      "rootLeaderAt200": {
+        "type": "move",
+        "x": 5,
+        "y": 1
+      },
+      "rootLeaderAt1200": {
+        "type": "move",
+        "x": 5,
+        "y": 1
+      },
+      "changesWithinSigma3": false,
+      "sigma3DiffersFromSigma2At200": false
+    },
+    {
+      "id": 16,
+      "phase": "middle",
+      "sigma2At200": {
+        "type": "wall",
+        "x": 3,
+        "y": 6,
+        "o": "h"
+      },
+      "sigma3At200": {
+        "type": "wall",
+        "x": 3,
+        "y": 6,
+        "o": "h"
+      },
+      "sigma3At1200": {
+        "type": "wall",
+        "x": 3,
+        "y": 6,
+        "o": "h"
+      },
+      "rootLeaderAt200": {
+        "type": "wall",
+        "x": 3,
+        "y": 6,
+        "o": "h"
+      },
+      "rootLeaderAt1200": {
+        "type": "wall",
+        "x": 3,
+        "y": 6,
+        "o": "h"
+      },
+      "changesWithinSigma3": false,
+      "sigma3DiffersFromSigma2At200": false
+    },
+    {
+      "id": 20,
+      "phase": "middle",
+      "sigma2At200": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "sigma3At200": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "sigma3At1200": {
+        "type": "move",
+        "x": 1,
+        "y": 6
+      },
+      "rootLeaderAt200": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "rootLeaderAt1200": {
+        "type": "move",
+        "x": 1,
+        "y": 6
+      },
+      "changesWithinSigma3": true,
+      "sigma3DiffersFromSigma2At200": false
+    },
+    {
+      "id": 24,
+      "phase": "middle",
+      "sigma2At200": {
+        "type": "wall",
+        "x": 4,
+        "y": 3,
+        "o": "h"
+      },
+      "sigma3At200": {
+        "type": "wall",
+        "x": 4,
+        "y": 3,
+        "o": "h"
+      },
+      "sigma3At1200": {
+        "type": "wall",
+        "x": 4,
+        "y": 3,
+        "o": "h"
+      },
+      "rootLeaderAt200": {
+        "type": "wall",
+        "x": 4,
+        "y": 3,
+        "o": "h"
+      },
+      "rootLeaderAt1200": {
+        "type": "wall",
+        "x": 4,
+        "y": 3,
+        "o": "h"
+      },
+      "changesWithinSigma3": false,
+      "sigma3DiffersFromSigma2At200": false
+    },
+    {
+      "id": 28,
+      "phase": "middle",
+      "sigma2At200": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "sigma3At200": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "sigma3At1200": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "rootLeaderAt200": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "rootLeaderAt1200": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "changesWithinSigma3": false,
+      "sigma3DiffersFromSigma2At200": false
+    },
+    {
+      "id": 32,
+      "phase": "middle",
+      "sigma2At200": {
+        "type": "wall",
+        "x": 4,
+        "y": 4,
+        "o": "h"
+      },
+      "sigma3At200": {
+        "type": "wall",
+        "x": 4,
+        "y": 4,
+        "o": "h"
+      },
+      "sigma3At1200": {
+        "type": "wall",
+        "x": 4,
+        "y": 4,
+        "o": "h"
+      },
+      "rootLeaderAt200": {
+        "type": "wall",
+        "x": 4,
+        "y": 4,
+        "o": "h"
+      },
+      "rootLeaderAt1200": {
+        "type": "wall",
+        "x": 4,
+        "y": 4,
+        "o": "h"
+      },
+      "changesWithinSigma3": false,
+      "sigma3DiffersFromSigma2At200": false
+    },
+    {
+      "id": 36,
+      "phase": "late",
+      "sigma2At200": {
+        "type": "wall",
+        "x": 6,
+        "y": 4,
+        "o": "h"
+      },
+      "sigma3At200": {
+        "type": "wall",
+        "x": 6,
+        "y": 4,
+        "o": "h"
+      },
+      "sigma3At1200": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "rootLeaderAt200": {
+        "type": "wall",
+        "x": 6,
+        "y": 4,
+        "o": "h"
+      },
+      "rootLeaderAt1200": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "changesWithinSigma3": true,
+      "sigma3DiffersFromSigma2At200": false
+    },
+    {
+      "id": 40,
+      "phase": "late",
+      "sigma2At200": {
+        "type": "wall",
+        "x": 5,
+        "y": 3,
+        "o": "h"
+      },
+      "sigma3At200": {
+        "type": "wall",
+        "x": 5,
+        "y": 3,
+        "o": "h"
+      },
+      "sigma3At1200": {
+        "type": "wall",
+        "x": 5,
+        "y": 3,
+        "o": "h"
+      },
+      "rootLeaderAt200": {
+        "type": "wall",
+        "x": 5,
+        "y": 3,
+        "o": "h"
+      },
+      "rootLeaderAt1200": {
+        "type": "wall",
+        "x": 5,
+        "y": 3,
+        "o": "h"
+      },
+      "changesWithinSigma3": false,
+      "sigma3DiffersFromSigma2At200": false
+    },
+    {
+      "id": 44,
+      "phase": "late",
+      "sigma2At200": {
+        "type": "move",
+        "x": 0,
+        "y": 2
+      },
+      "sigma3At200": {
+        "type": "move",
+        "x": 0,
+        "y": 2
+      },
+      "sigma3At1200": {
+        "type": "move",
+        "x": 0,
+        "y": 2
+      },
+      "rootLeaderAt200": {
+        "type": "move",
+        "x": 0,
+        "y": 2
+      },
+      "rootLeaderAt1200": {
+        "type": "move",
+        "x": 0,
+        "y": 2
+      },
+      "changesWithinSigma3": false,
+      "sigma3DiffersFromSigma2At200": false
+    },
+    {
+      "id": 46,
+      "phase": "late",
+      "sigma2At200": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      },
+      "sigma3At200": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      },
+      "sigma3At1200": {
+        "type": "wall",
+        "x": 5,
+        "y": 2,
+        "o": "v"
+      },
+      "rootLeaderAt200": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      },
+      "rootLeaderAt1200": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      },
+      "changesWithinSigma3": true,
+      "sigma3DiffersFromSigma2At200": false
+    },
+    {
+      "id": 48,
+      "phase": "late",
+      "sigma2At200": {
+        "type": "move",
+        "x": 3,
+        "y": 4
+      },
+      "sigma3At200": {
+        "type": "move",
+        "x": 3,
+        "y": 4
+      },
+      "sigma3At1200": {
+        "type": "move",
+        "x": 3,
+        "y": 4
+      },
+      "rootLeaderAt200": {
+        "type": "move",
+        "x": 2,
+        "y": 5
+      },
+      "rootLeaderAt1200": {
+        "type": "move",
+        "x": 2,
+        "y": 5
+      },
+      "changesWithinSigma3": false,
+      "sigma3DiffersFromSigma2At200": false
+    }
+  ]
+}

@@ -159,6 +159,11 @@
       }
     ]
   },
+  "controlledDepth": {
+    "positions": 12,
+    "changedWithinSigma3": 3,
+    "changedBetweenSigma2AndSigma3At200": 0
+  },
   "nextDecision": "Do not promote deep-search choice; first isolate final selection overrides, use genuinely independent loss positions, and compare root-MCTS leader vs selected move on counterfactual branches",
   "limitations": [
     "Only two distinct full game sequences in original 24-game source; game count overstates independent data",

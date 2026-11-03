@@ -3,6 +3,7 @@ const selfplay=JSON.parse(readFileSync('reports/sigma-selfplay/sigma3-vs-sigma2-
 const audit=JSON.parse(readFileSync('evaluation/sigma3-diverse-deep-audit.json','utf8'));
 const forced=JSON.parse(readFileSync('evaluation/sigma3-deep-counterfactual-6.json','utf8'));
 const research=JSON.parse(readFileSync('evaluation/sigma3-loss-deep-research.json','utf8'));
+const control=JSON.parse(readFileSync('evaluation/sigma3-depth-controlled-audit.json','utf8'));
 const hashes=selfplay.completed.map(g=>g.hash);
 const sorted=[...new Set(hashes)].map(hash=>({hash,count:hashes.filter(x=>x===hash).length}));
 const loss=selfplay.completed.filter(g=>g.winnerVariant==='sigma3');
@@ -25,6 +26,7 @@ const review={
  sigma2LossDistinctHashes:new Set(loss.map(g=>g.hash)).size,
  lossResearch:{positions:research.positions.length,deepChanged:research.positions.filter(p=>p.changed).length},
  diverseResearch:{positions:audit.positions.length,deepChanged:changed.length,changes:changed},
+ controlledDepth:{positions:control.positions.length,changedWithinSigma3:control.positions.filter(x=>x.changesWithinSigma3).length,changedBetweenSigma2AndSigma3At200:control.positions.filter(x=>x.sigma3DiffersFromSigma2At200).length},
  nextDecision:'Do not promote deep-search choice; first isolate final selection overrides, use genuinely independent loss positions, and compare root-MCTS leader vs selected move on counterfactual branches',
  limitations:[
   'Only two distinct full game sequences in original 24-game source; game count overstates independent data',

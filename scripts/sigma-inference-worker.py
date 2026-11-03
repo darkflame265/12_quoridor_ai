@@ -502,6 +502,27 @@ def choose(s,allowed,history=None):
     replacement=strong[0]
     dbg['finalCycleGuard']={'rejected':to_action(s,selected),'chosen':to_action(s,replacement.action)}
     selected=replacement.action
+ # Sigma3 tactical safety net: never allow an immediate opponent pawn goal
+ # when a legal, investigated escape exists. This is an exact one-ply test,
+ # not a heuristic wall preference, and does not alter Sigma2.
+ if VARIANT=='sigma3' and MODE=='puct' and choices and dbg.get('terminalOverride') is None:
+  enemy=2 if s['turn']==0 else 1
+  def opponent_goal_next(a):
+   after=state.next(a)
+   if after.winner():return after.winner()==enemy
+   # A pawn cannot finish on its next turn when its static goal distance is >1.
+   enemy_pos=after.player1pos if enemy==1 else after.player2pos
+   enemy_grid=after.p1_dist if enemy==1 else after.p2_dist
+   if enemy_grid[enemy_pos[1]][enemy_pos[0]]>1:return False
+   return any(after.next(reply).winner()==enemy for reply in after.get_legal_actions() if isinstance(reply,PawnAction))
+  if opponent_goal_next(selected):
+   prior_keys={state_of(h['state'])._position_key() for h in (history or []) if isinstance(h,dict) and 'state' in h}
+   escapes=[c for c in choices if c.action!=selected and c.visit_count>=1
+            and state.next(c.action)._position_key() not in prior_keys and not opponent_goal_next(c.action)]
+   if escapes:
+    escape=max(escapes,key=lambda c:(c.visit_count,-c.q_value))
+    dbg['sigma3ImmediateGoalDefense']={'previous':to_action(s,selected),'selected':to_action(s,escape.action),'visits':escape.visit_count}
+    selected=escape.action
  result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE,'simulations':sims if MODE=='puct' else 0,'reusedTree':VARIANT in ('sigma2','sigma3') and SIGMA2_REUSE}
  if DIAGNOSTICS:
   visits={json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')):c.visit_count for c in root.children} if root else {}

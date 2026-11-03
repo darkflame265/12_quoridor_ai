@@ -1,0 +1,2301 @@
+{
+  "version": "sigma3-midgame-stress-audit-v1",
+  "positions": [
+    {
+      "id": 15,
+      "phase": "middle",
+      "ply": 16,
+      "wallCount": 6,
+      "off": {
+        "action": {
+          "type": "wall",
+          "x": 5,
+          "y": 3,
+          "o": "v"
+        },
+        "value": 0.07776476442813873,
+        "ms": 721.6635000004317,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 5,
+              "y": 3,
+              "o": "v"
+            },
+            "visits": 125,
+            "qFromRoot": 0.26188019139308016,
+            "prior": 0.2633835736324437
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            "visits": 68,
+            "qFromRoot": 0.3695976838798207,
+            "prior": 0.029901071298600042
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 3,
+              "y": 2,
+              "o": "h"
+            },
+            "visits": 4,
+            "qFromRoot": -0.15638467483222485,
+            "prior": 0.09639036708531924
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 2,
+              "y": 5
+            },
+            "visits": 1,
+            "qFromRoot": -0.3481588363647461,
+            "prior": 0.06659501885432706
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "wall",
+          "x": 5,
+          "y": 3,
+          "o": "v"
+        },
+        "value": 0.07776476442813873,
+        "ms": 772.4336000028416,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 5,
+              "y": 3,
+              "o": "v"
+            },
+            "visits": 125,
+            "qFromRoot": 0.26188019139308016,
+            "prior": 0.2633835736324437
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            "visits": 68,
+            "qFromRoot": 0.3695976838798207,
+            "prior": 0.029901071298600042
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 3,
+              "y": 2,
+              "o": "h"
+            },
+            "visits": 4,
+            "qFromRoot": -0.15638467483222485,
+            "prior": 0.09639036708531924
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 2,
+              "y": 5
+            },
+            "visits": 1,
+            "qFromRoot": -0.3481588363647461,
+            "prior": 0.06659501885432706
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 16,
+      "phase": "middle",
+      "ply": 12,
+      "wallCount": 6,
+      "off": {
+        "action": {
+          "type": "wall",
+          "x": 3,
+          "y": 6,
+          "o": "h"
+        },
+        "value": 0.44637617468833923,
+        "ms": 669.8045000011916,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 3,
+              "y": 6,
+              "o": "h"
+            },
+            "visits": 119,
+            "qFromRoot": 0.355318192924772,
+            "prior": 0.550924627196807
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 3,
+              "y": 7,
+              "o": "h"
+            },
+            "visits": 52,
+            "qFromRoot": 0.3331265982526999,
+            "prior": 0.1269463413431906
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 7,
+              "o": "h"
+            },
+            "visits": 28,
+            "qFromRoot": 0.326604195737413,
+            "prior": 0.04414929057339201
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 5,
+              "o": "v"
+            },
+            "visits": 1,
+            "qFromRoot": -0.48917123675346375,
+            "prior": 0.030426237766315575
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "wall",
+          "x": 3,
+          "y": 6,
+          "o": "h"
+        },
+        "value": 0.44637617468833923,
+        "ms": 707.5449999974808,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 3,
+              "y": 6,
+              "o": "h"
+            },
+            "visits": 119,
+            "qFromRoot": 0.355318192924772,
+            "prior": 0.550924627196807
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 3,
+              "y": 7,
+              "o": "h"
+            },
+            "visits": 52,
+            "qFromRoot": 0.3331265982526999,
+            "prior": 0.1269463413431906
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 7,
+              "o": "h"
+            },
+            "visits": 28,
+            "qFromRoot": 0.326604195737413,
+            "prior": 0.04414929057339201
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 5,
+              "o": "v"
+            },
+            "visits": 1,
+            "qFromRoot": -0.48917123675346375,
+            "prior": 0.030426237766315575
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 17,
+      "phase": "middle",
+      "ply": 24,
+      "wallCount": 10,
+      "off": {
+        "action": {
+          "type": "wall",
+          "x": 2,
+          "y": 2,
+          "o": "h"
+        },
+        "value": 0.2659057676792145,
+        "ms": 668.3038999981363,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 2,
+              "o": "h"
+            },
+            "visits": 122,
+            "qFromRoot": 0.390688054217789,
+            "prior": 0.38411971234260156
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 3
+            },
+            "visits": 75,
+            "qFromRoot": 0.3698341632882754,
+            "prior": 0.26775629448008503
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            },
+            "visits": 1,
+            "qFromRoot": -0.4540258049964905,
+            "prior": 0.09012779674754527
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 6,
+              "y": 4
+            },
+            "visits": 1,
+            "qFromRoot": -0.28582656383514404,
+            "prior": 0.06909356009371725
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "wall",
+          "x": 2,
+          "y": 2,
+          "o": "h"
+        },
+        "value": 0.2659057676792145,
+        "ms": 680.6061999959638,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 2,
+              "o": "h"
+            },
+            "visits": 122,
+            "qFromRoot": 0.390688054217789,
+            "prior": 0.38411971234260156
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 3
+            },
+            "visits": 75,
+            "qFromRoot": 0.3698341632882754,
+            "prior": 0.26775629448008503
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 4
+            },
+            "visits": 1,
+            "qFromRoot": -0.4540258049964905,
+            "prior": 0.09012779674754527
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 6,
+              "y": 4
+            },
+            "visits": 1,
+            "qFromRoot": -0.28582656383514404,
+            "prior": 0.06909356009371725
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 18,
+      "phase": "middle",
+      "ply": 19,
+      "wallCount": 10,
+      "off": {
+        "action": {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        "value": -0.7868519425392151,
+        "ms": 609.7745000006398,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            "visits": 182,
+            "qFromRoot": -0.3080513398618767,
+            "prior": 0.15045331411979693
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 6,
+              "y": 1,
+              "o": "h"
+            },
+            "visits": 14,
+            "qFromRoot": -0.5283609841551099,
+            "prior": 0.18990046085142753
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 2
+            },
+            "visits": 2,
+            "qFromRoot": -0.578831747174263,
+            "prior": 0.02075951448331194
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 3
+            },
+            "visits": 1,
+            "qFromRoot": -0.577428936958313,
+            "prior": 0.03442797326774612
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        "value": -0.7868519425392151,
+        "ms": 630.359499999031,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            "visits": 182,
+            "qFromRoot": -0.3080513398618767,
+            "prior": 0.15045331411979693
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 6,
+              "y": 1,
+              "o": "h"
+            },
+            "visits": 14,
+            "qFromRoot": -0.5283609841551099,
+            "prior": 0.18990046085142753
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 2
+            },
+            "visits": 2,
+            "qFromRoot": -0.578831747174263,
+            "prior": 0.02075951448331194
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 3
+            },
+            "visits": 1,
+            "qFromRoot": -0.577428936958313,
+            "prior": 0.03442797326774612
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 19,
+      "phase": "middle",
+      "ply": 24,
+      "wallCount": 11,
+      "off": {
+        "action": {
+          "type": "wall",
+          "x": 6,
+          "y": 3,
+          "o": "h"
+        },
+        "value": -0.9881399273872375,
+        "ms": 658.1965000004857,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 6,
+              "y": 3,
+              "o": "h"
+            },
+            "visits": 72,
+            "qFromRoot": -0.9960431059201559,
+            "prior": 0.1901842094712762
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 6,
+              "y": 7
+            },
+            "visits": 55,
+            "qFromRoot": -0.9908373713493347,
+            "prior": 0.11090072855460711
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 7,
+              "y": 7,
+              "o": "h"
+            },
+            "visits": 21,
+            "qFromRoot": -0.9923474107469831,
+            "prior": 0.04560613591189049
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 6,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 12,
+            "qFromRoot": -0.9955160816510519,
+            "prior": 0.032346417320570094
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "wall",
+          "x": 6,
+          "y": 3,
+          "o": "h"
+        },
+        "value": -0.9881399273872375,
+        "ms": 740.6953000026988,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 6,
+              "y": 3,
+              "o": "h"
+            },
+            "visits": 72,
+            "qFromRoot": -0.9960431059201559,
+            "prior": 0.1901842094712762
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 6,
+              "y": 7
+            },
+            "visits": 55,
+            "qFromRoot": -0.9908373713493347,
+            "prior": 0.11090072855460711
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 7,
+              "y": 7,
+              "o": "h"
+            },
+            "visits": 21,
+            "qFromRoot": -0.9923474107469831,
+            "prior": 0.04560613591189049
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 6,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 12,
+            "qFromRoot": -0.9955160816510519,
+            "prior": 0.032346417320570094
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 20,
+      "phase": "middle",
+      "ply": 28,
+      "wallCount": 12,
+      "off": {
+        "action": {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        "value": -0.5734899640083313,
+        "ms": 698.8771999967867,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            "visits": 196,
+            "qFromRoot": -0.4682555325538376,
+            "prior": 0.5865828266235239
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 2,
+              "y": 5
+            },
+            "visits": 2,
+            "qFromRoot": -0.8231892883777618,
+            "prior": 0.10072904583875497
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 1,
+              "y": 6
+            },
+            "visits": 1,
+            "qFromRoot": -0.8326138257980347,
+            "prior": 0.062099990934309686
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 3,
+              "y": 3,
+              "o": "v"
+            },
+            "visits": 1,
+            "qFromRoot": -0.8320762515068054,
+            "prior": 0.03255130500207445
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        "value": -0.5734899640083313,
+        "ms": 707.4166999955196,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            "visits": 196,
+            "qFromRoot": -0.4682555325538376,
+            "prior": 0.5865828266235239
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 2,
+              "y": 5
+            },
+            "visits": 2,
+            "qFromRoot": -0.8231892883777618,
+            "prior": 0.10072904583875497
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 1,
+              "y": 6
+            },
+            "visits": 1,
+            "qFromRoot": -0.8326138257980347,
+            "prior": 0.062099990934309686
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 3,
+              "y": 3,
+              "o": "v"
+            },
+            "visits": 1,
+            "qFromRoot": -0.8320762515068054,
+            "prior": 0.03255130500207445
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 21,
+      "phase": "middle",
+      "ply": 22,
+      "wallCount": 8,
+      "off": {
+        "action": {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        "value": 0.04029373079538345,
+        "ms": 705.2832000044873,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            "visits": 195,
+            "qFromRoot": 0.17198002664700676,
+            "prior": 0.40725289956539945
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            "visits": 3,
+            "qFromRoot": -0.3265330207844575,
+            "prior": 0.19208400590831082
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 6,
+              "y": 2,
+              "o": "h"
+            },
+            "visits": 1,
+            "qFromRoot": -0.20261818170547485,
+            "prior": 0.0377351677174391
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 7,
+              "y": 1,
+              "o": "v"
+            },
+            "visits": 1,
+            "qFromRoot": -0.658375084400177,
+            "prior": 0.05884347677053362
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "move",
+          "x": 3,
+          "y": 6
+        },
+        "value": 0.04029373079538345,
+        "ms": 714.6503999974811,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 6
+            },
+            "visits": 195,
+            "qFromRoot": 0.17198002664700676,
+            "prior": 0.40725289956539945
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 5
+            },
+            "visits": 3,
+            "qFromRoot": -0.3265330207844575,
+            "prior": 0.19208400590831082
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 6,
+              "y": 2,
+              "o": "h"
+            },
+            "visits": 1,
+            "qFromRoot": -0.20261818170547485,
+            "prior": 0.0377351677174391
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 7,
+              "y": 1,
+              "o": "v"
+            },
+            "visits": 1,
+            "qFromRoot": -0.658375084400177,
+            "prior": 0.05884347677053362
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 22,
+      "phase": "middle",
+      "ply": 23,
+      "wallCount": 10,
+      "off": {
+        "action": {
+          "type": "move",
+          "x": 5,
+          "y": 4
+        },
+        "value": 0.6762644648551941,
+        "ms": 702.6358000002801,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 4
+            },
+            "visits": 155,
+            "qFromRoot": 0.7562201529020264,
+            "prior": 0.14957308660467203
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 6,
+              "y": 3
+            },
+            "visits": 20,
+            "qFromRoot": 0.5010922625660896,
+            "prior": 0.21249369018049885
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 0,
+              "y": 2,
+              "o": "h"
+            },
+            "visits": 12,
+            "qFromRoot": 0.39390383909145993,
+            "prior": 0.20966245185609667
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 0,
+              "y": 4,
+              "o": "v"
+            },
+            "visits": 9,
+            "qFromRoot": 0.39751303527090287,
+            "prior": 0.05268501009983532
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "move",
+          "x": 5,
+          "y": 4
+        },
+        "value": 0.6762644648551941,
+        "ms": 745.4612000001362,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 4
+            },
+            "visits": 155,
+            "qFromRoot": 0.7562201529020264,
+            "prior": 0.14957308660467203
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 6,
+              "y": 3
+            },
+            "visits": 20,
+            "qFromRoot": 0.5010922625660896,
+            "prior": 0.21249369018049885
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 0,
+              "y": 2,
+              "o": "h"
+            },
+            "visits": 12,
+            "qFromRoot": 0.39390383909145993,
+            "prior": 0.20966245185609667
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 0,
+              "y": 4,
+              "o": "v"
+            },
+            "visits": 9,
+            "qFromRoot": 0.39751303527090287,
+            "prior": 0.05268501009983532
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 23,
+      "phase": "middle",
+      "ply": 34,
+      "wallCount": 12,
+      "off": {
+        "action": {
+          "type": "wall",
+          "x": 1,
+          "y": 5,
+          "o": "h"
+        },
+        "value": 0.9717389345169067,
+        "ms": 726.6734000004362,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 1,
+              "y": 5,
+              "o": "h"
+            },
+            "visits": 174,
+            "qFromRoot": 0.8434693687863049,
+            "prior": 0.09391007112358185
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 1,
+              "y": 4
+            },
+            "visits": 11,
+            "qFromRoot": 0.6210367462851785,
+            "prior": 0.13482849970853128
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 2,
+              "o": "h"
+            },
+            "visits": 6,
+            "qFromRoot": 0.765032430489858,
+            "prior": 0.026518389791296972
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 2,
+              "y": 3
+            },
+            "visits": 2,
+            "qFromRoot": 0.4924420565366745,
+            "prior": 0.04176975309037665
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "wall",
+          "x": 1,
+          "y": 5,
+          "o": "h"
+        },
+        "value": 0.9717389345169067,
+        "ms": 717.2598000033759,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 1,
+              "y": 5,
+              "o": "h"
+            },
+            "visits": 174,
+            "qFromRoot": 0.8434693687863049,
+            "prior": 0.09391007112358185
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 1,
+              "y": 4
+            },
+            "visits": 11,
+            "qFromRoot": 0.6210367462851785,
+            "prior": 0.13482849970853128
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 2,
+              "o": "h"
+            },
+            "visits": 6,
+            "qFromRoot": 0.765032430489858,
+            "prior": 0.026518389791296972
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 2,
+              "y": 3
+            },
+            "visits": 2,
+            "qFromRoot": 0.4924420565366745,
+            "prior": 0.04176975309037665
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 24,
+      "phase": "middle",
+      "ply": 24,
+      "wallCount": 11,
+      "off": {
+        "action": {
+          "type": "wall",
+          "x": 4,
+          "y": 3,
+          "o": "h"
+        },
+        "value": 0.6149294376373291,
+        "ms": 768.9368999999715,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 3,
+              "o": "h"
+            },
+            "visits": 101,
+            "qFromRoot": 0.234541531578444,
+            "prior": 0.19300551713462624
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 4
+            },
+            "visits": 67,
+            "qFromRoot": -0.1106414008718818,
+            "prior": 0.30179310190830644
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 14,
+            "qFromRoot": -0.15489698786820685,
+            "prior": 0.10920146582303629
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 2,
+              "o": "h"
+            },
+            "visits": 13,
+            "qFromRoot": -0.1301999011865029,
+            "prior": 0.08642984463041084
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "wall",
+          "x": 4,
+          "y": 3,
+          "o": "h"
+        },
+        "value": 0.6149294376373291,
+        "ms": 717.5308000005316,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 3,
+              "o": "h"
+            },
+            "visits": 101,
+            "qFromRoot": 0.234541531578444,
+            "prior": 0.19300551713462624
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 4
+            },
+            "visits": 67,
+            "qFromRoot": -0.1106414008718818,
+            "prior": 0.30179310190830644
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 14,
+            "qFromRoot": -0.15489698786820685,
+            "prior": 0.10920146582303629
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 2,
+              "o": "h"
+            },
+            "visits": 13,
+            "qFromRoot": -0.1301999011865029,
+            "prior": 0.08642984463041084
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 25,
+      "phase": "middle",
+      "ply": 27,
+      "wallCount": 12,
+      "off": {
+        "action": {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        "value": -0.9180845618247986,
+        "ms": 767.915999997058,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 0
+            },
+            "visits": 160,
+            "qFromRoot": -0.12257822353858501,
+            "prior": 0.521736233260993
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 1,
+              "y": 7,
+              "o": "h"
+            },
+            "visits": 38,
+            "qFromRoot": -0.28216814818350894,
+            "prior": 0.07211530217979069
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 6,
+              "y": 1
+            },
+            "visits": 2,
+            "qFromRoot": -0.7857829630374908,
+            "prior": 0.21821169896308157
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 7,
+              "y": 0
+            },
+            "visits": 0,
+            "qFromRoot": null,
+            "prior": 0.0017921376172763545
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        "value": -0.9180845618247986,
+        "ms": 825.1314000008279,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 0
+            },
+            "visits": 160,
+            "qFromRoot": -0.12257822353858501,
+            "prior": 0.521736233260993
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 1,
+              "y": 7,
+              "o": "h"
+            },
+            "visits": 38,
+            "qFromRoot": -0.28216814818350894,
+            "prior": 0.07211530217979069
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 6,
+              "y": 1
+            },
+            "visits": 2,
+            "qFromRoot": -0.7857829630374908,
+            "prior": 0.21821169896308157
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 7,
+              "y": 0
+            },
+            "visits": 0,
+            "qFromRoot": null,
+            "prior": 0.0017921376172763545
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 26,
+      "phase": "middle",
+      "ply": 28,
+      "wallCount": 11,
+      "off": {
+        "action": {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        "value": 0.8458988666534424,
+        "ms": 742.6368000014918,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 2,
+              "y": 6
+            },
+            "visits": 127,
+            "qFromRoot": 0.5607096552848816,
+            "prior": 0.6085763128988357
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 1,
+              "o": "v"
+            },
+            "visits": 53,
+            "qFromRoot": 0.4189004453320829,
+            "prior": 0.22597394092368014
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 0,
+              "o": "v"
+            },
+            "visits": 20,
+            "qFromRoot": 0.42307076752185824,
+            "prior": 0.07511206246928923
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            },
+            "visits": 0,
+            "qFromRoot": null,
+            "prior": 0.0004100318225994146
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "move",
+          "x": 2,
+          "y": 6
+        },
+        "value": 0.8458988666534424,
+        "ms": 707.4890000003506,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 2,
+              "y": 6
+            },
+            "visits": 127,
+            "qFromRoot": 0.5607096552848816,
+            "prior": 0.6085763128988357
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 1,
+              "o": "v"
+            },
+            "visits": 53,
+            "qFromRoot": 0.4189004453320829,
+            "prior": 0.22597394092368014
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 0,
+              "o": "v"
+            },
+            "visits": 20,
+            "qFromRoot": 0.42307076752185824,
+            "prior": 0.07511206246928923
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 6
+            },
+            "visits": 0,
+            "qFromRoot": null,
+            "prior": 0.0004100318225994146
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 27,
+      "phase": "middle",
+      "ply": 20,
+      "wallCount": 6,
+      "off": {
+        "action": {
+          "type": "wall",
+          "x": 5,
+          "y": 4,
+          "o": "h"
+        },
+        "value": 0.763056218624115,
+        "ms": 679.714600002626,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 5,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 110,
+            "qFromRoot": 0.6740643963895061,
+            "prior": 0.04101045775819801
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 5,
+              "o": "h"
+            },
+            "visits": 68,
+            "qFromRoot": 0.5398356875404716,
+            "prior": 0.4598237984388086
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 2,
+              "y": 3
+            },
+            "visits": 14,
+            "qFromRoot": 0.4433082370885781,
+            "prior": 0.24204093429070156
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 1,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 8,
+            "qFromRoot": 0.48670123517513275,
+            "prior": 0.08471628892733889
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "wall",
+          "x": 5,
+          "y": 4,
+          "o": "h"
+        },
+        "value": 0.763056218624115,
+        "ms": 797.163700000965,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 5,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 110,
+            "qFromRoot": 0.6740643963895061,
+            "prior": 0.04101045775819801
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 5,
+              "o": "h"
+            },
+            "visits": 68,
+            "qFromRoot": 0.5398356875404716,
+            "prior": 0.4598237984388086
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 2,
+              "y": 3
+            },
+            "visits": 14,
+            "qFromRoot": 0.4433082370885781,
+            "prior": 0.24204093429070156
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 1,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 8,
+            "qFromRoot": 0.48670123517513275,
+            "prior": 0.08471628892733889
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 28,
+      "phase": "middle",
+      "ply": 32,
+      "wallCount": 9,
+      "off": {
+        "action": {
+          "type": "move",
+          "x": 1,
+          "y": 4
+        },
+        "value": 0.6254624724388123,
+        "ms": 561.6464999984601,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 1,
+              "y": 4
+            },
+            "visits": 185,
+            "qFromRoot": 0.2351892059319651,
+            "prior": 0.12649828704449573
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 2,
+              "y": 3
+            },
+            "visits": 7,
+            "qFromRoot": -0.30570470605577743,
+            "prior": 0.45417314751544136
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 4
+            },
+            "visits": 7,
+            "qFromRoot": -0.20547546659197127,
+            "prior": 0.23897834189760972
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 7,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 1,
+            "qFromRoot": -0.5883041620254517,
+            "prior": 0.05539584782943241
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "move",
+          "x": 1,
+          "y": 4
+        },
+        "value": 0.6254624724388123,
+        "ms": 571.3577999995323,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 1,
+              "y": 4
+            },
+            "visits": 185,
+            "qFromRoot": 0.2351892059319651,
+            "prior": 0.12649828704449573
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 2,
+              "y": 3
+            },
+            "visits": 7,
+            "qFromRoot": -0.30570470605577743,
+            "prior": 0.45417314751544136
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 4
+            },
+            "visits": 7,
+            "qFromRoot": -0.20547546659197127,
+            "prior": 0.23897834189760972
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 7,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 1,
+            "qFromRoot": -0.5883041620254517,
+            "prior": 0.05539584782943241
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 29,
+      "phase": "middle",
+      "ply": 14,
+      "wallCount": 6,
+      "off": {
+        "action": {
+          "type": "wall",
+          "x": 7,
+          "y": 5,
+          "o": "h"
+        },
+        "value": -0.0588129386305809,
+        "ms": 693.3757000006153,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 7,
+              "y": 5,
+              "o": "h"
+            },
+            "visits": 183,
+            "qFromRoot": 0.46777196924197056,
+            "prior": 0.36015797263727356
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 10,
+            "qFromRoot": 0.18305493295192718,
+            "prior": 0.35753945119880665
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 3
+            },
+            "visits": 2,
+            "qFromRoot": 0.18318947590887547,
+            "prior": 0.03316227908698806
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 4
+            },
+            "visits": 2,
+            "qFromRoot": 0.26730596274137497,
+            "prior": 0.02879051807117364
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "wall",
+          "x": 7,
+          "y": 5,
+          "o": "h"
+        },
+        "value": -0.0588129386305809,
+        "ms": 685.0134000051185,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 7,
+              "y": 5,
+              "o": "h"
+            },
+            "visits": 183,
+            "qFromRoot": 0.46777196924197056,
+            "prior": 0.36015797263727356
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 10,
+            "qFromRoot": 0.18305493295192718,
+            "prior": 0.35753945119880665
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 3
+            },
+            "visits": 2,
+            "qFromRoot": 0.18318947590887547,
+            "prior": 0.03316227908698806
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 4
+            },
+            "visits": 2,
+            "qFromRoot": 0.26730596274137497,
+            "prior": 0.02879051807117364
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 30,
+      "phase": "middle",
+      "ply": 38,
+      "wallCount": 12,
+      "off": {
+        "action": {
+          "type": "move",
+          "x": 6,
+          "y": 3
+        },
+        "value": 0.895383894443512,
+        "ms": 729.5032999973046,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 6,
+              "y": 3
+            },
+            "visits": 186,
+            "qFromRoot": 0.9685741650160923,
+            "prior": 0.6169341707718139
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 7,
+              "y": 2
+            },
+            "visits": 5,
+            "qFromRoot": 0.9345813274383545,
+            "prior": 0.03845004167615289
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 2
+            },
+            "visits": 4,
+            "qFromRoot": 0.9163049608469009,
+            "prior": 0.043782043049851505
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 2,
+            "qFromRoot": 0.8728571236133575,
+            "prior": 0.04029168557817412
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "move",
+          "x": 6,
+          "y": 3
+        },
+        "value": 0.895383894443512,
+        "ms": 711.8094999968889,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 6,
+              "y": 3
+            },
+            "visits": 186,
+            "qFromRoot": 0.9685741650160923,
+            "prior": 0.6169341707718139
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 7,
+              "y": 2
+            },
+            "visits": 5,
+            "qFromRoot": 0.9345813274383545,
+            "prior": 0.03845004167615289
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 2
+            },
+            "visits": 4,
+            "qFromRoot": 0.9163049608469009,
+            "prior": 0.043782043049851505
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 2,
+            "qFromRoot": 0.8728571236133575,
+            "prior": 0.04029168557817412
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 31,
+      "phase": "middle",
+      "ply": 27,
+      "wallCount": 10,
+      "off": {
+        "action": {
+          "type": "wall",
+          "x": 2,
+          "y": 1,
+          "o": "h"
+        },
+        "value": -0.7200705409049988,
+        "ms": 682.8284000002895,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 1,
+              "o": "h"
+            },
+            "visits": 195,
+            "qFromRoot": 0.18559533388186725,
+            "prior": 0.35364186307599094
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 3
+            },
+            "visits": 1,
+            "qFromRoot": -0.8899766206741333,
+            "prior": 0.02639141157838426
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 4
+            },
+            "visits": 1,
+            "qFromRoot": -0.8360759615898132,
+            "prior": 0.04333595506062145
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 4
+            },
+            "visits": 1,
+            "qFromRoot": -0.817956805229187,
+            "prior": 0.03551376308716403
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "wall",
+          "x": 2,
+          "y": 1,
+          "o": "h"
+        },
+        "value": -0.7200705409049988,
+        "ms": 685.3989000010188,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 1,
+              "o": "h"
+            },
+            "visits": 195,
+            "qFromRoot": 0.18559533388186725,
+            "prior": 0.35364186307599094
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 4,
+              "y": 3
+            },
+            "visits": 1,
+            "qFromRoot": -0.8899766206741333,
+            "prior": 0.02639141157838426
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 4
+            },
+            "visits": 1,
+            "qFromRoot": -0.8360759615898132,
+            "prior": 0.04333595506062145
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 4
+            },
+            "visits": 1,
+            "qFromRoot": -0.817956805229187,
+            "prior": 0.03551376308716403
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 32,
+      "phase": "middle",
+      "ply": 14,
+      "wallCount": 6,
+      "off": {
+        "action": {
+          "type": "wall",
+          "x": 4,
+          "y": 4,
+          "o": "h"
+        },
+        "value": 0.3762916326522827,
+        "ms": 666.9707999972161,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 109,
+            "qFromRoot": 0.6023841898785819,
+            "prior": 0.39590436309982185
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 7,
+              "y": 5,
+              "o": "h"
+            },
+            "visits": 82,
+            "qFromRoot": 0.644352793511821,
+            "prior": 0.14466899172836878
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 4
+            },
+            "visits": 8,
+            "qFromRoot": 0.5221915207803249,
+            "prior": 0.12052754747287514
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 4
+            },
+            "visits": 1,
+            "qFromRoot": 0.2134246528148651,
+            "prior": 0.02686396782426131
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "wall",
+          "x": 4,
+          "y": 4,
+          "o": "h"
+        },
+        "value": 0.3762916326522827,
+        "ms": 710.1752000016859,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 4,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 109,
+            "qFromRoot": 0.6023841898785819,
+            "prior": 0.39590436309982185
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 7,
+              "y": 5,
+              "o": "h"
+            },
+            "visits": 82,
+            "qFromRoot": 0.644352793511821,
+            "prior": 0.14466899172836878
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 4
+            },
+            "visits": 8,
+            "qFromRoot": 0.5221915207803249,
+            "prior": 0.12052754747287514
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 5,
+              "y": 4
+            },
+            "visits": 1,
+            "qFromRoot": 0.2134246528148651,
+            "prior": 0.02686396782426131
+          }
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": 33,
+      "phase": "middle",
+      "ply": 38,
+      "wallCount": 12,
+      "off": {
+        "action": {
+          "type": "move",
+          "x": 1,
+          "y": 4
+        },
+        "value": 0.9673416614532471,
+        "ms": 700.4279000029783,
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 1,
+              "y": 4
+            },
+            "visits": 86,
+            "qFromRoot": 0.9682742378046346,
+            "prior": 0.33708765809177166
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 2,
+              "y": 3
+            },
+            "visits": 86,
+            "qFromRoot": 0.9761239144691202,
+            "prior": 0.2602942884656205
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 28,
+            "qFromRoot": 0.9210510488067355,
+            "prior": 0.2719705556423041
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 1,
+              "y": 2
+            },
+            "visits": 0,
+            "qFromRoot": null,
+            "prior": 0.0049459256662969485
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "wall",
+          "x": 2,
+          "y": 4,
+          "o": "h"
+        },
+        "value": 0.9673416614532471,
+        "ms": 711.8697999976575,
+        "stress": {
+          "previous": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "selected": {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "h"
+          },
+          "oldRisk": 2,
+          "newRisk": 0,
+          "replies": 89,
+          "candidates": 3
+        },
+        "visits": [
+          {
+            "action": {
+              "type": "move",
+              "x": 1,
+              "y": 4
+            },
+            "visits": 86,
+            "qFromRoot": 0.9682742378046346,
+            "prior": 0.33708765809177166
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 2,
+              "y": 3
+            },
+            "visits": 86,
+            "qFromRoot": 0.9761239144691202,
+            "prior": 0.2602942884656205
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 28,
+            "qFromRoot": 0.9210510488067355,
+            "prior": 0.2719705556423041
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 1,
+              "y": 2
+            },
+            "visits": 0,
+            "qFromRoot": null,
+            "prior": 0.0049459256662969485
+          }
+        ]
+      },
+      "changed": true
+    },
+    {
+      "id": 34,
+      "phase": "middle",
+      "ply": 20,
+      "wallCount": 9,
+      "off": {
+        "action": {
+          "type": "wall",
+          "x": 2,
+          "y": 4,
+          "o": "v"
+        },
+        "value": 0.6483707427978516,
+        "ms": 661.8582000010065,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "v"
+            },
+            "visits": 138,
+            "qFromRoot": 0.9153320016204447,
+            "prior": 0.050849252147532976
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 3
+            },
+            "visits": 49,
+            "qFromRoot": 0.28704915184299556,
+            "prior": 0.43884373053338993
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 3,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 10,
+            "qFromRoot": 0.03572575598955154,
+            "prior": 0.08078461653115016
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 6,
+              "o": "h"
+            },
+            "visits": 2,
+            "qFromRoot": 0.0223822221159935,
+            "prior": 0.05703889143235298
+          }
+        ]
+      },
+      "on": {
+        "action": {
+          "type": "wall",
+          "x": 2,
+          "y": 4,
+          "o": "v"
+        },
+        "value": 0.6483707427978516,
+        "ms": 636.1344999968424,
+        "visits": [
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 4,
+              "o": "v"
+            },
+            "visits": 138,
+            "qFromRoot": 0.9153320016204447,
+            "prior": 0.050849252147532976
+          },
+          {
+            "action": {
+              "type": "move",
+              "x": 3,
+              "y": 3
+            },
+            "visits": 49,
+            "qFromRoot": 0.28704915184299556,
+            "prior": 0.43884373053338993
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 3,
+              "y": 4,
+              "o": "h"
+            },
+            "visits": 10,
+            "qFromRoot": 0.03572575598955154,
+            "prior": 0.08078461653115016
+          },
+          {
+            "action": {
+              "type": "wall",
+              "x": 2,
+              "y": 6,
+              "o": "h"
+            },
+            "visits": 2,
+            "qFromRoot": 0.0223822221159935,
+            "prior": 0.05703889143235298
+          }
+        ]
+      },
+      "changed": false
+    }
+  ]
+}

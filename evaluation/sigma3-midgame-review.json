@@ -1,0 +1,189 @@
+{
+  "version": "sigma3-midgame-opponent-response-review-v1",
+  "date": "2026-11-03",
+  "flag": "SIGMA3_MIDGAME_STRESS=1",
+  "enabledByDefault": false,
+  "change": "exhaustive one-opponent-reply path-race stress comparison of MCTS-backed root candidates, not an exact winning proof",
+  "conditions": {
+    "simulations": 200,
+    "puct": 50,
+    "exploration": 0,
+    "engineRestartPerGame": true,
+    "pairedSeatSwaps": true
+  },
+  "rootPositionAudit": {
+    "positions": 20,
+    "changed": 1,
+    "changes": [
+      {
+        "index": 33,
+        "old": {
+          "type": "move",
+          "x": 1,
+          "y": 4
+        },
+        "trial": {
+          "type": "wall",
+          "x": 2,
+          "y": 4,
+          "o": "h"
+        },
+        "stress": {
+          "previous": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          },
+          "selected": {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "h"
+          },
+          "oldRisk": 2,
+          "newRisk": 0,
+          "replies": 89,
+          "candidates": 3
+        }
+      }
+    ],
+    "meanOverheadMs": 18
+  },
+  "isolatedTournament": {
+    "fixtures": 6,
+    "totalGames": 24,
+    "control": {
+      "games": 12,
+      "sigma3Wins": 6,
+      "sigma2Wins": 6,
+      "cutoffs": 0,
+      "interventions": 0
+    },
+    "trial": {
+      "games": 12,
+      "sigma3Wins": 6,
+      "sigma2Wins": 6,
+      "cutoffs": 0,
+      "interventions": 3
+    },
+    "changes": [
+      {
+        "fixture": 0,
+        "originalIndex": 15,
+        "side": 1,
+        "offWinner": "sigma2",
+        "onWinner": "sigma2",
+        "offPlies": 43,
+        "onPlies": 41,
+        "interventions": [
+          {
+            "ply": 21
+          }
+        ],
+        "firstMoveChanged": false
+      },
+      {
+        "fixture": 5,
+        "originalIndex": 33,
+        "side": 0,
+        "offWinner": "sigma3",
+        "onWinner": "sigma3",
+        "offPlies": 25,
+        "onPlies": 39,
+        "interventions": [
+          {
+            "ply": 0
+          }
+        ],
+        "firstMoveChanged": true
+      },
+      {
+        "fixture": 5,
+        "originalIndex": 33,
+        "side": 1,
+        "offWinner": "sigma2",
+        "onWinner": "sigma2",
+        "offPlies": 41,
+        "onPlies": 39,
+        "interventions": [
+          {
+            "ply": 3
+          }
+        ],
+        "firstMoveChanged": false
+      }
+    ],
+    "winnerChanges": [],
+    "lengthChanges": [
+      {
+        "fixture": 0,
+        "originalIndex": 15,
+        "side": 1,
+        "offWinner": "sigma2",
+        "onWinner": "sigma2",
+        "offPlies": 43,
+        "onPlies": 41,
+        "interventions": [
+          {
+            "ply": 21
+          }
+        ],
+        "firstMoveChanged": false
+      },
+      {
+        "fixture": 5,
+        "originalIndex": 33,
+        "side": 0,
+        "offWinner": "sigma3",
+        "onWinner": "sigma3",
+        "offPlies": 25,
+        "onPlies": 39,
+        "interventions": [
+          {
+            "ply": 0
+          }
+        ],
+        "firstMoveChanged": true
+      },
+      {
+        "fixture": 5,
+        "originalIndex": 33,
+        "side": 1,
+        "offWinner": "sigma2",
+        "onWinner": "sigma2",
+        "offPlies": 41,
+        "onPlies": 39,
+        "interventions": [
+          {
+            "ply": 3
+          }
+        ],
+        "firstMoveChanged": false
+      }
+    ]
+  },
+  "forcedBranchFixture33": {
+    "forcedGames": 6,
+    "offWins": 3,
+    "onWins": 3,
+    "offLengths": [
+      30,
+      30,
+      30
+    ],
+    "onLengths": [
+      38,
+      38,
+      38
+    ]
+  },
+  "conclusion": "Do NOT promote feature: no higher win rate; changed wall action can substantially delay victory.",
+  "limitations": [
+    "Fixture root states from earlier Sigma2 tournaments; not independently sampled gameplay distribution",
+    "Only 6 paired middle-game positions in tournament; small sample",
+    "Static worst-opponent path gap does not evaluate multi-turn wall value, tempo, or probability of winning",
+    "Forced-branch result uses three deterministic seeds and Sigma2 self-play from one board",
+    "Candidate was inspected before validation (no held-out promotion test was attempted)"
+  ],
+  "nextDirection": "Focus on middle-game training labels from counterfactual outcomes with separate held-out fixtures, not another static path-score adjustment."
+}

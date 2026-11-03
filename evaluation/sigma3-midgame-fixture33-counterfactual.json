@@ -1,0 +1,736 @@
+{
+  "version": "sigma3-midgame-fixture33-counterfactual-v1",
+  "fixture": 33,
+  "phase": "middle",
+  "conditions": {
+    "simulations": 200,
+    "opponents": "sigma2 vs sigma2",
+    "sameSeeds": true,
+    "restarterPerGame": true
+  },
+  "runs": [
+    {
+      "seed": 0,
+      "name": "off",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "winner": 0,
+      "rootWon": true,
+      "cutoff": false,
+      "plies": 30,
+      "finalDistances": [
+        0,
+        15
+      ],
+      "trace": [
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 5
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h"
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 1,
+            "o": "v"
+          }
+        }
+      ]
+    },
+    {
+      "seed": 0,
+      "name": "on",
+      "action": {
+        "type": "wall",
+        "x": 2,
+        "y": 4,
+        "o": "h"
+      },
+      "winner": 0,
+      "rootWon": true,
+      "cutoff": false,
+      "plies": 38,
+      "finalDistances": [
+        0,
+        3
+      ],
+      "trace": [
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 5
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h"
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "h"
+          }
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "name": "off",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "winner": 0,
+      "rootWon": true,
+      "cutoff": false,
+      "plies": 30,
+      "finalDistances": [
+        0,
+        15
+      ],
+      "trace": [
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 5
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h"
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 1,
+            "o": "v"
+          }
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "name": "on",
+      "action": {
+        "type": "wall",
+        "x": 2,
+        "y": 4,
+        "o": "h"
+      },
+      "winner": 0,
+      "rootWon": true,
+      "cutoff": false,
+      "plies": 38,
+      "finalDistances": [
+        0,
+        3
+      ],
+      "trace": [
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 5
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h"
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "h"
+          }
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "name": "off",
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "winner": 0,
+      "rootWon": true,
+      "cutoff": false,
+      "plies": 30,
+      "finalDistances": [
+        0,
+        15
+      ],
+      "trace": [
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 5
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h"
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 4,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 2,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 1,
+            "o": "v"
+          }
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "name": "on",
+      "action": {
+        "type": "wall",
+        "x": 2,
+        "y": 4,
+        "o": "h"
+      },
+      "winner": 0,
+      "rootWon": true,
+      "cutoff": false,
+      "plies": 38,
+      "finalDistances": [
+        0,
+        3
+      ],
+      "trace": [
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 3,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 5
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        },
+        {
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 2,
+            "o": "h"
+          }
+        },
+        {
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "h"
+          }
+        }
+      ]
+    }
+  ]
+}

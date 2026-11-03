@@ -16,6 +16,7 @@ import random
 RNG=random.Random(int(os.getenv('SIGMA_SEED','0')))
 SIGMA3_TACTICAL_PROOF=os.getenv('SIGMA3_TACTICAL_PROOF','0')=='1'
 SIGMA3_ATTACK_PROOF=os.getenv('SIGMA3_ATTACK_PROOF','0')=='1'
+SIGMA3_MIDGAME_STRESS=os.getenv('SIGMA3_MIDGAME_STRESS','0')=='1'
 SIGMA2_SIMS=int(os.getenv('SIGMA2_SIMS','200'))
 # Offline research-only search. Production games still use the 200-sim cap.
 SIGMA3_RESEARCH_SIMS=int(os.getenv('SIGMA3_RESEARCH_SIMS','0'))
@@ -41,6 +42,7 @@ if MODE=="puct":
  from mcts import MCTSAgent
  from sigma3_tactical import enemy_two_turn_force
  from sigma3_attack import find_forced_goal_two_turns,find_forced_three_turn_race
+ from sigma3_midgame import root_stress_guard
  def evaluator(state,actions):
   x,v=SESSION.run(None,{"input":state.to_nn_input()[None,...].astype(np.float32)})
   z=x[0]; idx=[action_to_index(a,9) for a in actions]
@@ -726,6 +728,19 @@ def choose(s,allowed,history=None):
     dbg['sigma3AttackProof']={'kind':proof['kind'],'defenderReplies':proof['defenderReplies'],
      'previous':to_action(s,original),'selected':to_action(s,selected),
      'oldProof':chosen_proof['kind'] if chosen_proof else None}
+ # Opt-in: compare fully enumerated ONE enemy reply at the root for
+ # similarly visited MCTS candidates. This is a path-race *heuristic*,
+ # never a forced-win oracle, and never modifies Sigma2.
+ if VARIANT=='sigma3' and SIGMA3_MIDGAME_STRESS and MODE=='puct' and root and choices and dbg.get('terminalOverride') is None:
+  if 6<=len(s['walls'])<=16:
+   guard=root_stress_guard(state,selected,choices)
+   if guard is not None:
+    old=selected
+    selected=guard['action']
+    dbg['sigma3MidgameStress']={'previous':to_action(s,old),
+      'selected':to_action(s,selected),'oldRisk':guard['oldRisk'],
+      'newRisk':guard['newRisk'],'replies':guard['replyCount'],
+      'candidates':guard['compared']}
  result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE,'simulations':sims if MODE=='puct' else 0,'reusedTree':VARIANT in ('sigma2','sigma3') and SIGMA2_REUSE}
  if DIAGNOSTICS:
   visits={json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')):c.visit_count for c in root.children} if root else {}

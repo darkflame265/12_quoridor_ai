@@ -1,0 +1,133 @@
+{
+  "version": "sigma4-independent-holdout-plus-guarded-prototype-v1",
+  "originalSigma4Research": {
+    "games": 24,
+    "wins": 15,
+    "losses": 9,
+    "winRate": 0.625,
+    "wilson95": [
+      0.42709619037907065,
+      0.7884086656636855
+    ],
+    "firstWins": 9,
+    "secondWins": 6,
+    "uniqueSequences": 22,
+    "uniqueFirstSix": 4,
+    "cutoffs": 0,
+    "evidence": {
+      "eligible": false,
+      "requirements": {
+        "manyPairedSeeds": false,
+        "completeBalancedPairing": true,
+        "enoughUniqueGames": true,
+        "enoughOpeningDiversity": false,
+        "enoughGames": false,
+        "noCutoffs": true,
+        "statisticallyAboveHalf": false,
+        "frozenModels": true
+      },
+      "wins": 15,
+      "games": 24,
+      "winRate": 0.625,
+      "wilson95": [
+        0.42709619037907065,
+        0.7884086656636855
+      ],
+      "blockingReasons": [
+        "manyPairedSeeds",
+        "enoughOpeningDiversity",
+        "enoughGames",
+        "statisticallyAboveHalf"
+      ]
+    }
+  },
+  "guardedSigma4Prototype": {
+    "games": 4,
+    "wins": 3,
+    "losses": 1,
+    "unique": 2,
+    "firstSix": 1,
+    "overrides": 1,
+    "firstWins": 2,
+    "secondWins": 1,
+    "evidence": {
+      "eligible": false,
+      "requirements": {
+        "manyPairedSeeds": false,
+        "completeBalancedPairing": true,
+        "enoughUniqueGames": false,
+        "enoughOpeningDiversity": false,
+        "enoughGames": false,
+        "noCutoffs": true,
+        "statisticallyAboveHalf": false,
+        "frozenModels": true
+      },
+      "wins": 3,
+      "games": 4,
+      "winRate": 0.75,
+      "wilson95": [
+        0.3006360524426366,
+        0.9544139373553637
+      ],
+      "blockingReasons": [
+        "manyPairedSeeds",
+        "enoughUniqueGames",
+        "enoughOpeningDiversity",
+        "enoughGames",
+        "statisticallyAboveHalf"
+      ]
+    }
+  },
+  "observedRootRisk": [
+    {
+      "name": "prior",
+      "group": {
+        "win": {
+          "games": 8,
+          "meanChanges": 2.875,
+          "meanLargeQDrops": 0,
+          "meanEarlyChanges": 1.25
+        },
+        "loss": {
+          "games": 4,
+          "meanChanges": 5.5,
+          "meanLargeQDrops": 1.25,
+          "meanEarlyChanges": 1.5
+        }
+      }
+    },
+    {
+      "name": "holdout",
+      "group": {
+        "win": {
+          "games": 7,
+          "meanChanges": 2,
+          "meanLargeQDrops": 0,
+          "meanEarlyChanges": 1
+        },
+        "loss": {
+          "games": 5,
+          "meanChanges": 2.6,
+          "meanLargeQDrops": 0,
+          "meanEarlyChanges": 0.6
+        }
+      }
+    }
+  ],
+  "sourceSHA256": {
+    "candidateSelector": "b6508349c041eb6499461d7410bf0ec5f99f09723e49093d65f1a7848f6854ee",
+    "guardedSelector": "5f1298fc5351ac03b3a68c19629d8bc4b237390af86c2c20532e54f80a2b6cf5",
+    "engineWorker": "eb5a5369c3fc04522b1152efec698b3845f1f20b80d6947db6e8da4be64c35d7",
+    "holdout": "50d7bc9b813b604c13d49a663533ac82767148182ea5702722a09e174a8812c2",
+    "guardedPilot": "2dd77839c1d801899f9c496c2041560a74f5675d857cc0dca547dc3adee9146c"
+  },
+  "productionChanged": false,
+  "modelTrainingApproved": false,
+  "enginePromotionApproved": false,
+  "conclusions": [
+    "Weighted Q/visit candidate 15/24 pooled, but independent holdout 7/12: positive trend, insufficient significance",
+    "Guarded sampler yielded 3/4 in pilot but only 2 distinct full games and 1 deviation from native; not evidence of superior play",
+    "Do not select or tune parameters using the same data and claim independent verification",
+    "Next iteration must create genuinely varied complete openings with predeclared evaluation seeds and more paired comparisons"
+  ]
+}

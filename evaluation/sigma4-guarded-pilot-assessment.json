@@ -1,0 +1,95 @@
+{
+  "version": "sigma4-guarded-early-evaluation-v1",
+  "originalWeighted": {
+    "games": 12,
+    "wins": 8,
+    "losses": 4,
+    "unique": 11,
+    "firstSix": 3,
+    "overrides": 44,
+    "firstWins": 5,
+    "secondWins": 3
+  },
+  "originalHoldout": {
+    "games": 12,
+    "wins": 7,
+    "losses": 5,
+    "unique": 12,
+    "firstSix": 3,
+    "overrides": 25,
+    "firstWins": 4,
+    "secondWins": 3
+  },
+  "guardedPilot": {
+    "games": 4,
+    "wins": 3,
+    "losses": 1,
+    "unique": 2,
+    "firstSix": 1,
+    "overrides": 1,
+    "firstWins": 2,
+    "secondWins": 1
+  },
+  "pairs": [
+    {
+      "seed": 93821,
+      "candidateFirstWon": true,
+      "candidateSecondWon": true
+    },
+    {
+      "seed": 93827,
+      "candidateFirstWon": true,
+      "candidateSecondWon": false
+    }
+  ],
+  "riskAssociation": [
+    {
+      "name": "prior",
+      "group": {
+        "win": {
+          "games": 8,
+          "meanChanges": 2.875,
+          "meanLargeQDrops": 0,
+          "meanEarlyChanges": 1.25
+        },
+        "loss": {
+          "games": 4,
+          "meanChanges": 5.5,
+          "meanLargeQDrops": 1.25,
+          "meanEarlyChanges": 1.5
+        }
+      }
+    },
+    {
+      "name": "holdout",
+      "group": {
+        "win": {
+          "games": 7,
+          "meanChanges": 2,
+          "meanLargeQDrops": 0,
+          "meanEarlyChanges": 1
+        },
+        "loss": {
+          "games": 5,
+          "meanChanges": 2.6,
+          "meanLargeQDrops": 0,
+          "meanEarlyChanges": 0.6
+        }
+      }
+    }
+  ],
+  "gates": {
+    "seedsFresh": true,
+    "rolePairsComplete": true,
+    "allMovesLegal": true,
+    "broadIndependentWinRateEvidence": false,
+    "statisticallyHigherThanNative": false,
+    "productionPromotable": false
+  },
+  "status": "research-only",
+  "interpretation": [
+    "Conservative research sampling limits Q gap and required root-visit support but remains experimental",
+    "Small four-game pilot cannot establish stronger play, even if observed wins are high",
+    "Risk association from earlier games guided this design; earlier games must not be reused as independent validation"
+  ]
+}

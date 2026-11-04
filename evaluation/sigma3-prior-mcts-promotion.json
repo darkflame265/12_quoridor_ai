@@ -1,0 +1,95 @@
+{
+  "version": "sigma3-prior-mcts-promotion-v1",
+  "status": "experimental-only",
+  "pairedMatchups": 20,
+  "totalRecordedGames": 40,
+  "newlyExecutedCandidateGames": 20,
+  "reusedBaselineGames": 20,
+  "distinctScriptedOpenings": 10,
+  "sideMatchups": {
+    "first": 10,
+    "second": 10
+  },
+  "baseline": {
+    "wins": 11,
+    "losses": 9,
+    "winRate": 0.55
+  },
+  "candidate": {
+    "wins": 11,
+    "losses": 9,
+    "winRate": 0.55
+  },
+  "improvements": [
+    {
+      "pool": 0,
+      "opening": 4,
+      "side": 1
+    }
+  ],
+  "regressions": [
+    {
+      "pool": 0,
+      "opening": 4,
+      "side": 0
+    }
+  ],
+  "cutoffs": 0,
+  "overrides": 0,
+  "pools": [
+    {
+      "file": "evaluation/sigma3-prior-mcts-opening-20.json",
+      "completed": 20,
+      "baselineWins": 5,
+      "candidateWins": 5,
+      "improved": [
+        {
+          "opening": 4,
+          "side": 1,
+          "baselineWon": false,
+          "candidateWon": true,
+          "baselinePlies": 83,
+          "candidatePlies": 76,
+          "candidateChanges": []
+        }
+      ],
+      "regressed": [
+        {
+          "opening": 4,
+          "side": 0,
+          "baselineWon": true,
+          "candidateWon": false,
+          "baselinePlies": 83,
+          "candidatePlies": 94,
+          "candidateChanges": []
+        }
+      ],
+      "candidateCutoffs": 0,
+      "overrides": 0
+    },
+    {
+      "file": "evaluation/sigma3-prior-mcts-holdout-20.json",
+      "completed": 20,
+      "baselineWins": 6,
+      "candidateWins": 6,
+      "improved": [],
+      "regressed": [],
+      "candidateCutoffs": 0,
+      "overrides": 0
+    }
+  ],
+  "gates": {
+    "pairedComplete": true,
+    "improvedWinRate": false,
+    "noPairedRegressions": false,
+    "noCutoffs": true,
+    "enoughStartDiversity": false,
+    "independentHeldOutOpenings": false
+  },
+  "promote": false,
+  "limitations": [
+    "Fixed deterministic openings only; not a representative random sample of complete games",
+    "Two previous pools include already-inspected positions; tests can overfit",
+    "Experimental root-prior adjustment only; preserve production until stronger evidence and regression-free evaluation"
+  ]
+}

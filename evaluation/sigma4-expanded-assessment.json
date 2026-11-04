@@ -1,0 +1,219 @@
+{
+  "version": "sigma4-expanded-independent-check-v1",
+  "comparisons": {
+    "priorPilot": {
+      "games": 4,
+      "candidateWins": 2
+    },
+    "expanded": {
+      "games": 12,
+      "uniqueGames": 11,
+      "uniqueOpeningPrefixes": 3,
+      "candidateWins": 8,
+      "candidateLosses": 4,
+      "cutoffs": 0,
+      "candidateFirstWins": 5,
+      "candidateSecondWins": 3,
+      "changedChoices": 44,
+      "winRate": 0.6666666666666666,
+      "wilson95": [
+        0.3906175873976139,
+        0.8618821601026385
+      ],
+      "pairedSeedGroups": [
+        {
+          "seed": 71429,
+          "wins": 1,
+          "first": true,
+          "second": false,
+          "sequences": [
+            "6338d1acc37aafb2c562a74d8312c40b60f75dc7571ec39751142fb7daa6b0f5",
+            "7dad183acbba9d07d1c5436aa3511f007324540b3b35333c54d43e9c2bf4f455"
+          ],
+          "early": [
+            "6c4725ab58838950b85e21adee61d668519b0166b4b19d21baf9ea3b72c4ce0e",
+            "6c4725ab58838950b85e21adee61d668519b0166b4b19d21baf9ea3b72c4ce0e"
+          ]
+        },
+        {
+          "seed": 71443,
+          "wins": 2,
+          "first": true,
+          "second": true,
+          "sequences": [
+            "e59f7a9a7d4846d082f658678c8b1fb18bfea5f6c4975a239c2b5fa80c751307",
+            "2c72f9bfee13ac6c67539c42fb9869154bcc8ad5a52002d9d1614dde479bf631"
+          ],
+          "early": [
+            "6c4725ab58838950b85e21adee61d668519b0166b4b19d21baf9ea3b72c4ce0e",
+            "6c4725ab58838950b85e21adee61d668519b0166b4b19d21baf9ea3b72c4ce0e"
+          ]
+        },
+        {
+          "seed": 71453,
+          "wins": 1,
+          "first": true,
+          "second": false,
+          "sequences": [
+            "e8449cb803e0817b62628ddc645bbd1d65310f5d7eb40ec28a514cc7ff78cf6e",
+            "6338d1acc37aafb2c562a74d8312c40b60f75dc7571ec39751142fb7daa6b0f5"
+          ],
+          "early": [
+            "6c4725ab58838950b85e21adee61d668519b0166b4b19d21baf9ea3b72c4ce0e",
+            "6c4725ab58838950b85e21adee61d668519b0166b4b19d21baf9ea3b72c4ce0e"
+          ]
+        },
+        {
+          "seed": 71471,
+          "wins": 2,
+          "first": true,
+          "second": true,
+          "sequences": [
+            "2ab953bbcf0bb97081879f23195a7b9eee317cabddc6634f8e3e05c4b19e1b90",
+            "7a030a329fba049681811818c3543104ab292c96d6eafc26dcfd97717bc91170"
+          ],
+          "early": [
+            "9aae701509fee92b9f49d3339e1c3aedfa44021402d62ee5bcbd3078337814ff",
+            "6c4725ab58838950b85e21adee61d668519b0166b4b19d21baf9ea3b72c4ce0e"
+          ]
+        },
+        {
+          "seed": 71473,
+          "wins": 1,
+          "first": false,
+          "second": true,
+          "sequences": [
+            "8d0f7b36040e21343fab7787c77ee3a1663742f391839a1afef06649e24072b5",
+            "e64be8f6d4a4ae449f6fae27678943b9794aae8331ac9a01fa5e4285b3511660"
+          ],
+          "early": [
+            "2e1332cfac022dc68be7184689835708bc082c13f665bda37ebc6ac08f63a637",
+            "6c4725ab58838950b85e21adee61d668519b0166b4b19d21baf9ea3b72c4ce0e"
+          ]
+        },
+        {
+          "seed": 71479,
+          "wins": 1,
+          "first": true,
+          "second": false,
+          "sequences": [
+            "20742a0e9fb607d8e87812e2a93f364644338d4d44669f254babae55dd2e0edd",
+            "61b6852053cb5f383dd72414b13716fcf6db6d3217ee19e1391b56a86f3fa8f8"
+          ],
+          "early": [
+            "6c4725ab58838950b85e21adee61d668519b0166b4b19d21baf9ea3b72c4ce0e",
+            "6c4725ab58838950b85e21adee61d668519b0166b4b19d21baf9ea3b72c4ce0e"
+          ]
+        }
+      ]
+    }
+  },
+  "branchValidation": {
+    "games": 12,
+    "roots": [
+      {
+        "id": "w-86719-sigma2-1-9",
+        "sourceSeed": 86719,
+        "rootKey": "6cae9b5146e2afc86dabe486f69ca603c7b35919b79b0bed90d124fd1e04cbd7",
+        "original": "d5│",
+        "alternative": "f6",
+        "pairedSeeds": 2,
+        "improvements": 0,
+        "regressions": 0,
+        "ties": 2,
+        "pairs": [
+          {
+            "seed": 78311,
+            "originalWon": true,
+            "alternativeWon": true,
+            "delta": 0
+          },
+          {
+            "seed": 78317,
+            "originalWon": true,
+            "alternativeWon": true,
+            "delta": 0
+          }
+        ]
+      },
+      {
+        "id": "w-91867-sigma2-1-19",
+        "sourceSeed": 91867,
+        "rootKey": "62c1e3d8e1ecaac7dc11d29f8f306b7005a250d6dbd216c3d65bd5c32a85bcf0",
+        "original": "c9│",
+        "alternative": "e8",
+        "pairedSeeds": 2,
+        "improvements": 0,
+        "regressions": 0,
+        "ties": 2,
+        "pairs": [
+          {
+            "seed": 78311,
+            "originalWon": false,
+            "alternativeWon": false,
+            "delta": 0
+          },
+          {
+            "seed": 78317,
+            "originalWon": false,
+            "alternativeWon": false,
+            "delta": 0
+          }
+        ]
+      },
+      {
+        "id": "w-86719-sigma2-1-25",
+        "sourceSeed": 86719,
+        "rootKey": "57a7683f77c05dab473942c8491d605db5aa7ec8988a0d6ed8f9bec5088ff322",
+        "original": "a7",
+        "alternative": "c7│",
+        "pairedSeeds": 2,
+        "improvements": 0,
+        "regressions": 0,
+        "ties": 2,
+        "pairs": [
+          {
+            "seed": 78311,
+            "originalWon": false,
+            "alternativeWon": false,
+            "delta": 0
+          },
+          {
+            "seed": 78317,
+            "originalWon": false,
+            "alternativeWon": false,
+            "delta": 0
+          }
+        ]
+      }
+    ],
+    "trainRootsOnly": true
+  },
+  "provenance": {
+    "duelSHA256": "176610f872a74b8e01db4f0a02d3aed1eb7b1d75ff318581edea548da25cb1f6",
+    "branchSHA256": "c3d514c07285ddc69f9661089f70813a8337f925e0baa4686f64fe59811409b5",
+    "candidateWorker": "eb5a5369c3fc04522b1152efec698b3845f1f20b80d6947db6e8da4be64c35d7",
+    "sigma2BaselineWorker": "0d4ae24779e18b3b80c952228e736a2e8940aaa181d86a8b3ba12cbe64b74336",
+    "branchRunner": "ca412fff3b0b56776a96a4ad4b0e79377ccaa72065d4a6b11a3664416c240294",
+    "tournamentRunner": "c22cd509d78bf47c0abb07942569f310c7ef8730f1c3f747d8f8d805e741b69f"
+  },
+  "gates": {
+    "allFinished": true,
+    "allPaired": true,
+    "noTrainingOnHeldoutBranches": true,
+    "atLeast40IndependentGamePairs": false,
+    "candidateStatisticallyBetter": false,
+    "verifiedActionGains": false,
+    "modelTrainingApproved": false,
+    "productionPromotionApproved": false
+  },
+  "productionChanged": false,
+  "modelTrained": false,
+  "limitations": [
+    "Candidate and baseline share a frozen Sigma3 neural model and 200 simulations",
+    "Seeds alone do not imply distinct opening trajectories",
+    "A 12-game head-to-head estimate has wide uncertainty",
+    "Loss-branch continuations are research estimates, not proofs of best move",
+    "Sigma2 baseline-worker source has pre-existing uncommitted user modifications; SHA256 recorded"
+  ]
+}

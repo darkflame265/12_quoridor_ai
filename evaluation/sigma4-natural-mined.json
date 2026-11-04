@@ -1,0 +1,29 @@
+{
+  "version": "sigma4-natural-mining-disjoint-v1",
+  "source": "evaluation/sigma4-natural-opening-games.json",
+  "trainSeeds": [
+    31517,
+    42829
+  ],
+  "holdoutSeeds": [
+    53681
+  ],
+  "summary": {
+    "games": 9,
+    "rawCandidateRows": 174,
+    "splitConflictStates": 29,
+    "uniqueCandidateStates": 0,
+    "trainStates": 0,
+    "holdoutStates": 0,
+    "trainLossStates": 0,
+    "holdoutNotUsedForTraining": true
+  },
+  "train": [],
+  "holdout": [],
+  "warnings": [
+    "Overall game outcome is not action-quality ground truth",
+    "Same board state in train and holdout excluded from both",
+    "Opening trajectories are AI-generated without forced moves",
+    "Data includes exploratory policy and is not a deterministic Elo estimate"
+  ]
+}

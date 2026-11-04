@@ -1,0 +1,200 @@
+{
+  "version": "sigma3-strong-advance-holdout-promotion-gate-v1",
+  "status": "experimental-only",
+  "experiment": "PUCT-200 sigma3 vs sigma2 from 10 middle-game states. Identical fixed deterministic seed per paired root; not a full opening 9x9 tournament.",
+  "pairedGames": 20,
+  "roots": 10,
+  "sideCoverage": [
+    8,
+    2
+  ],
+  "baseline": {
+    "wins": 5,
+    "losses": 5,
+    "winRate": 0.5
+  },
+  "experimental": {
+    "wins": 6,
+    "losses": 4,
+    "winRate": 0.6
+  },
+  "pairedImprovements": [
+    301
+  ],
+  "pairedRegressions": [],
+  "actionOverrides": 4,
+  "analyzedSigmaTurns": 211,
+  "extraTacticalTotalMs": 23132,
+  "averageExtraMsPerSigmaTurn": 109.6303317535545,
+  "perFixture": [
+    {
+      "id": 300,
+      "baselineWon": true,
+      "tacticalWon": true,
+      "delta": 0,
+      "baselinePlies": 41,
+      "tacticalPlies": 57,
+      "tacticalChanges": [
+        {
+          "ply": 10,
+          "baseline": "g3─",
+          "experimental": "f7─",
+          "estimatedTacticalGain": 1,
+          "elapsedMs": 1294
+        }
+      ],
+      "extraTacticalMs": 4433,
+      "averageAdditionalMsPerSigmaDecision": 152.86206896551724,
+      "sigmaMoves": 29
+    },
+    {
+      "id": 301,
+      "baselineWon": false,
+      "tacticalWon": true,
+      "delta": 1,
+      "baselinePlies": 48,
+      "tacticalPlies": 39,
+      "tacticalChanges": [
+        {
+          "ply": 2,
+          "baseline": "f6",
+          "experimental": "a7─",
+          "estimatedTacticalGain": 2.3499999999999996,
+          "elapsedMs": 768
+        }
+      ],
+      "extraTacticalMs": 3651,
+      "averageAdditionalMsPerSigmaDecision": 182.55,
+      "sigmaMoves": 20
+    },
+    {
+      "id": 302,
+      "baselineWon": false,
+      "tacticalWon": false,
+      "delta": 0,
+      "baselinePlies": 28,
+      "tacticalPlies": 28,
+      "tacticalChanges": [],
+      "extraTacticalMs": 4270,
+      "averageAdditionalMsPerSigmaDecision": 305,
+      "sigmaMoves": 14
+    },
+    {
+      "id": 303,
+      "baselineWon": false,
+      "tacticalWon": false,
+      "delta": 0,
+      "baselinePlies": 54,
+      "tacticalPlies": 54,
+      "tacticalChanges": [],
+      "extraTacticalMs": 2618,
+      "averageAdditionalMsPerSigmaDecision": 96.96296296296296,
+      "sigmaMoves": 27
+    },
+    {
+      "id": 304,
+      "baselineWon": true,
+      "tacticalWon": true,
+      "delta": 0,
+      "baselinePlies": 51,
+      "tacticalPlies": 51,
+      "tacticalChanges": [],
+      "extraTacticalMs": 723,
+      "averageAdditionalMsPerSigmaDecision": 27.807692307692307,
+      "sigmaMoves": 26
+    },
+    {
+      "id": 305,
+      "baselineWon": true,
+      "tacticalWon": true,
+      "delta": 0,
+      "baselinePlies": 29,
+      "tacticalPlies": 29,
+      "tacticalChanges": [],
+      "extraTacticalMs": 536,
+      "averageAdditionalMsPerSigmaDecision": 35.733333333333334,
+      "sigmaMoves": 15
+    },
+    {
+      "id": 306,
+      "baselineWon": true,
+      "tacticalWon": true,
+      "delta": 0,
+      "baselinePlies": 33,
+      "tacticalPlies": 33,
+      "tacticalChanges": [],
+      "extraTacticalMs": 71,
+      "averageAdditionalMsPerSigmaDecision": 4.176470588235294,
+      "sigmaMoves": 17
+    },
+    {
+      "id": 307,
+      "baselineWon": false,
+      "tacticalWon": false,
+      "delta": 0,
+      "baselinePlies": 48,
+      "tacticalPlies": 48,
+      "tacticalChanges": [
+        {
+          "ply": 8,
+          "baseline": "d6",
+          "experimental": "d4",
+          "estimatedTacticalGain": 1.35,
+          "elapsedMs": 450
+        },
+        {
+          "ply": 12,
+          "baseline": "c6─",
+          "experimental": "c3",
+          "estimatedTacticalGain": 1.6500000000000001,
+          "elapsedMs": 461
+        }
+      ],
+      "extraTacticalMs": 3610,
+      "averageAdditionalMsPerSigmaDecision": 150.41666666666666,
+      "sigmaMoves": 24
+    },
+    {
+      "id": 308,
+      "baselineWon": true,
+      "tacticalWon": true,
+      "delta": 0,
+      "baselinePlies": 35,
+      "tacticalPlies": 35,
+      "tacticalChanges": [],
+      "extraTacticalMs": 600,
+      "averageAdditionalMsPerSigmaDecision": 33.333333333333336,
+      "sigmaMoves": 18
+    },
+    {
+      "id": 309,
+      "baselineWon": false,
+      "tacticalWon": false,
+      "delta": 0,
+      "baselinePlies": 42,
+      "tacticalPlies": 42,
+      "tacticalChanges": [],
+      "extraTacticalMs": 2620,
+      "averageAdditionalMsPerSigmaDecision": 124.76190476190476,
+      "sigmaMoves": 21
+    }
+  ],
+  "gates": {
+    "allPairedGamesCompleted": true,
+    "noCutoffs": true,
+    "improvedHeadToHeadWinRate": true,
+    "noPairedRegression": true,
+    "enoughIndependentStartPositions": false,
+    "maximumDecisionOverheadVerified": false,
+    "separateOpeningToEndGamesTested": false,
+    "balancedSidesVerified": false
+  },
+  "promote": false,
+  "rationale": "7/10 beats 6/10 in paired midgame fixtures without fixture-level regression, but this evaluation reuses analyzed positions and is not independent full-game evidence. Keep experimental.",
+  "limitations": [
+    "Ten starting states are a small, non-random sample",
+    "Per-ply tactical search is beam-limited; best defender response is chosen within static top-N moves",
+    "The states were drawn from previously curated historical match fixtures, so the sample is not a newly generated independent holdout",
+    "Further trial in full games and more independent positions needed before promotion"
+  ]
+}

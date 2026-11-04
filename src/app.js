@@ -48,7 +48,7 @@ const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.tur
 const flipped=()=>viewFlipped(Number($('#side').value),$('#start-position').value);
 const viewPosition=p=>orientPosition(p,flipped());
 const viewAction=a=>orientAction(a,flipped());
-const engineName=id=>id==='sigma2'?'Sigma 2':id==='sigma'?'Sigma 1':id==='atlas5'?'Atlas 5.3 \u00b7 \uC548\uC815':'Atlas 0.4 \u00b7 \uCD5C\uC2E0';
+const engineName=id=>id==='sigma4'?'Sigma 4':id==='sigma3'?'Sigma 3':id==='sigma2'?'Sigma 2':id==='sigma'?'Sigma 1':id==='atlas5'?'Atlas 5.3 \u00b7 \uC548\uC815':'Atlas 0.4 \u00b7 \uCD5C\uC2E0';
 function statusFor(selector){return (status,info)=>{
  const label=info?.engineInfo;
  if(selector==='#engine-status')$(selector).hidden=!['stale','unavailable','wasm'].includes(status);

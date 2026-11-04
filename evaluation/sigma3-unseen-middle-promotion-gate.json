@@ -1,0 +1,37 @@
+{
+  "version": "sigma3-independent-middle-promotion-gate-v1",
+  "distinctRootPositions": 8,
+  "originalTrainingRoots": 12,
+  "researchContinuationGames": 32,
+  "uniqueContinuations": 32,
+  "outcomeDiscriminatingRoots": [
+    101,
+    103,
+    105
+  ],
+  "baselineObservedWinRate": 0.5625,
+  "modelObservedWinRate": 0.5,
+  "baselineWinSum": 4.5,
+  "modelWinSum": 4,
+  "modelWinDelta": -0.5,
+  "regressionPositions": [
+    101
+  ],
+  "gates": {
+    "noExactRootIdsOverlap": true,
+    "allGamesCompleted": true,
+    "rootActionsLegal": true,
+    "sequencesDiverse": true,
+    "heldoutNotWorse": false,
+    "enoughIndependentRootPositions": false,
+    "enoughOutcomeSamplesPerCandidate": false,
+    "productionTournamentVerified": false
+  },
+  "promote": false,
+  "rationale": "Observed win sum regressed 4.5 to 4.0 on eight unseen positions. Fixed value head rejected; no sigma2/sigma3 engine modifications.",
+  "caveats": [
+    "Two rollouts per candidate, not enough for robust win probability estimates",
+    "Some board states may share historical source-game structure",
+    "Randomized Sigma2 continuations do not measure Sigma3-vs-Sigma2 tournament win rates"
+  ]
+}

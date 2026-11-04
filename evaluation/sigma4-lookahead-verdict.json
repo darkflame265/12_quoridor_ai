@@ -1,0 +1,79 @@
+{
+  "version": "sigma4-minimax-three-ply-validation-v1",
+  "stats": {
+    "games": 6,
+    "wins": 3,
+    "firstWins": 3,
+    "secondWins": 0,
+    "changedMoves": 1,
+    "uniqueSequences": 2,
+    "uniqueOpenings": 1,
+    "cutoffs": 0,
+    "losses": 3,
+    "winRate": 0.5
+  },
+  "pairedSeeds": [
+    {
+      "seed": 125011,
+      "firstWon": true,
+      "secondWon": false
+    },
+    {
+      "seed": 125021,
+      "firstWon": true,
+      "secondWon": false
+    },
+    {
+      "seed": 125029,
+      "firstWon": true,
+      "secondWon": false
+    }
+  ],
+  "reasons": {
+    "native": 98,
+    "visit-and-q-weighted": 113,
+    "tactical-safe-weighted-choice": 1,
+    "forced-immediate-win": 3,
+    "minimax-native-fallback": 4,
+    "no-legal-one-move-defense-exists": 3
+  },
+  "promotion": {
+    "eligible": false,
+    "requirements": {
+      "manyPairedSeeds": false,
+      "completeBalancedPairing": true,
+      "enoughUniqueGames": false,
+      "enoughOpeningDiversity": false,
+      "enoughGames": false,
+      "noCutoffs": true,
+      "statisticallyAboveHalf": false,
+      "frozenModels": true
+    },
+    "wins": 3,
+    "games": 6,
+    "winRate": 0.5,
+    "wilson95": [
+      0.18761280689940868,
+      0.8123871931005913
+    ],
+    "blockingReasons": [
+      "manyPairedSeeds",
+      "enoughUniqueGames",
+      "enoughOpeningDiversity",
+      "enoughGames",
+      "statisticallyAboveHalf"
+    ]
+  },
+  "hashes": {
+    "scripts/sigma4-lookahead-choice.mjs": "2f38a9552d2a8c500982341c1cbbc22c2bfbba713135dcd756356190a65de71f",
+    "scripts/sigma4-tactical-escape.mjs": "3d0eeda0db310272794355d5f4b1463ee3a98d35899e1e1de93148f261d6e8cc",
+    "scripts/sigma-inference-worker.py": "eb5a5369c3fc04522b1152efec698b3845f1f20b80d6947db6e8da4be64c35d7",
+    "scripts/sigma4-lookahead-vs-sigma3.mjs": "e8ac09c5157b29e6b7226ce726630531285a4e38146199ed7c0b9b217903cb01"
+  },
+  "caveats": [
+    "Depth-3 selective minimax is not a game-solving proof",
+    "Tactical search only considers MCTS root candidates and a bounded reply subset",
+    "Small game sample is not a proven advantage over SIGMA3",
+    "The candidate is research-only; production engine unchanged"
+  ]
+}

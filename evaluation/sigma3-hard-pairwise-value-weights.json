@@ -1,0 +1,53 @@
+{
+  "version": "sigma3-hard-pairwise-v1",
+  "weights": [
+    0.09041314047562804,
+    0.03884166712579133,
+    -0.09174386079332839,
+    -0.04599535280952918,
+    0.0,
+    0.0,
+    -0.07791229508631047,
+    0.0
+  ],
+  "features": [
+    "MctsQ",
+    "logVisits",
+    "ownDistGain",
+    "enemyDistGain",
+    "ownWalls",
+    "enemyWalls",
+    "isWall",
+    "plyFraction"
+  ],
+  "qMax": 0.3,
+  "visitGapMax": 0.32,
+  "minimumPredictedGain": 0.1,
+  "trainingRoots": [
+    15,
+    16,
+    17,
+    19,
+    20,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    32,
+    33,
+    34,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107
+  ],
+  "deployed": false
+}

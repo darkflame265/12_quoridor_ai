@@ -1,0 +1,1115 @@
+{
+  "version": "sigma3-outcome-hard-example-audit-v1",
+  "totalPositions": 24,
+  "contradictoryCandidateOutcomes": 5,
+  "discriminatingPositions": 9,
+  "discriminatingIds": [
+    15,
+    23,
+    26,
+    27,
+    28,
+    29,
+    101,
+    103,
+    105
+  ],
+  "caseStudies": [
+    {
+      "id": 101,
+      "rootSource": "new",
+      "mctsChosen": {
+        "type": "move",
+        "x": 5,
+        "y": 4
+      },
+      "alternative": {
+        "type": "wall",
+        "x": 1,
+        "y": 2,
+        "o": "v"
+      },
+      "mctsQGap": 0.426,
+      "logVisitGap": 0.392,
+      "ownDistanceGain": [
+        1,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        1
+      ],
+      "rootWallCounts": [
+        0.6,
+        0.7
+      ],
+      "observedBaselineWinRate": 0.5,
+      "observedAlternativeWinRate": 0,
+      "winRateDelta": -0.5,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 103,
+      "rootSource": "new",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 3,
+        "y": 2,
+        "o": "h"
+      },
+      "alternative": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "mctsQGap": 0.12,
+      "logVisitGap": 0.157,
+      "ownDistanceGain": [
+        -1,
+        -1
+      ],
+      "enemyDistanceIncrease": [
+        1,
+        0
+      ],
+      "rootWallCounts": [
+        0.7,
+        0.7
+      ],
+      "observedBaselineWinRate": 0,
+      "observedAlternativeWinRate": 0.5,
+      "winRateDelta": 0.5,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 105,
+      "rootSource": "new",
+      "mctsChosen": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "alternative": {
+        "type": "wall",
+        "x": 7,
+        "y": 1,
+        "o": "v"
+      },
+      "mctsQGap": 0.777,
+      "logVisitGap": 0.427,
+      "ownDistanceGain": [
+        -1,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        2
+      ],
+      "rootWallCounts": [
+        0.5,
+        0.6
+      ],
+      "observedBaselineWinRate": 1,
+      "observedAlternativeWinRate": 0,
+      "winRateDelta": -1,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    }
+  ],
+  "otherContradictions": [
+    {
+      "id": 23,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 1,
+        "y": 5,
+        "o": "h"
+      },
+      "alternative": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "mctsQGap": 0.222,
+      "logVisitGap": 0.447,
+      "ownDistanceGain": [
+        0,
+        1
+      ],
+      "enemyDistanceIncrease": [
+        4,
+        0
+      ],
+      "rootWallCounts": [
+        0.3,
+        0.5
+      ],
+      "observedBaselineWinRate": 0.5,
+      "observedAlternativeWinRate": 1,
+      "winRateDelta": 0.5,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 26,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "move",
+        "x": 2,
+        "y": 6
+      },
+      "alternative": {
+        "type": "wall",
+        "x": 2,
+        "y": 1,
+        "o": "v"
+      },
+      "mctsQGap": 0.142,
+      "logVisitGap": 0.144,
+      "ownDistanceGain": [
+        1,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        2
+      ],
+      "rootWallCounts": [
+        0.3,
+        0.6
+      ],
+      "observedBaselineWinRate": 0,
+      "observedAlternativeWinRate": 0.5,
+      "winRateDelta": 0.5,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 27,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 5,
+        "y": 4,
+        "o": "h"
+      },
+      "alternative": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "mctsQGap": 0.134,
+      "logVisitGap": 0.079,
+      "ownDistanceGain": [
+        0,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        2
+      ],
+      "rootWallCounts": [
+        0.6,
+        0.8
+      ],
+      "observedBaselineWinRate": 0,
+      "observedAlternativeWinRate": 0.3333333333333333,
+      "winRateDelta": 0.333,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 29,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 7,
+        "y": 5,
+        "o": "h"
+      },
+      "alternative": {
+        "type": "wall",
+        "x": 4,
+        "y": 4,
+        "o": "h"
+      },
+      "mctsQGap": 0.285,
+      "logVisitGap": 0.47,
+      "ownDistanceGain": [
+        0,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        1
+      ],
+      "rootWallCounts": [
+        0.7,
+        0.7
+      ],
+      "observedBaselineWinRate": 0.3333333333333333,
+      "observedAlternativeWinRate": 0.6666666666666666,
+      "winRateDelta": 0.333,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 103,
+      "rootSource": "new",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 3,
+        "y": 2,
+        "o": "h"
+      },
+      "alternative": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "mctsQGap": 0.12,
+      "logVisitGap": 0.157,
+      "ownDistanceGain": [
+        -1,
+        -1
+      ],
+      "enemyDistanceIncrease": [
+        1,
+        0
+      ],
+      "rootWallCounts": [
+        0.7,
+        0.7
+      ],
+      "observedBaselineWinRate": 0,
+      "observedAlternativeWinRate": 0.5,
+      "winRateDelta": 0.5,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    }
+  ],
+  "allPositions": [
+    {
+      "id": 15,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 5,
+        "y": 3,
+        "o": "v"
+      },
+      "alternative": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "mctsQGap": -0.108,
+      "logVisitGap": 0.1,
+      "ownDistanceGain": [
+        0,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        0
+      ],
+      "rootWallCounts": [
+        0.8,
+        0.6
+      ],
+      "observedBaselineWinRate": 0.5,
+      "observedAlternativeWinRate": 0,
+      "winRateDelta": -0.5,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 16,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 3,
+        "y": 6,
+        "o": "h"
+      },
+      "alternative": {
+        "type": "wall",
+        "x": 3,
+        "y": 7,
+        "o": "h"
+      },
+      "mctsQGap": 0.022,
+      "logVisitGap": 0.136,
+      "ownDistanceGain": [
+        0,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        1,
+        1
+      ],
+      "rootWallCounts": [
+        0.7,
+        0.7
+      ],
+      "observedBaselineWinRate": 0.5,
+      "observedAlternativeWinRate": 0.5,
+      "winRateDelta": 0.0,
+      "differingWinner": false,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 17,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 2,
+        "y": 2,
+        "o": "h"
+      },
+      "alternative": {
+        "type": "move",
+        "x": 5,
+        "y": 3
+      },
+      "mctsQGap": 0.021,
+      "logVisitGap": 0.08,
+      "ownDistanceGain": [
+        0,
+        1
+      ],
+      "enemyDistanceIncrease": [
+        2,
+        0
+      ],
+      "rootWallCounts": [
+        0.3,
+        0.7
+      ],
+      "observedBaselineWinRate": 0,
+      "observedAlternativeWinRate": 0,
+      "winRateDelta": 0,
+      "differingWinner": false,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 19,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 6,
+        "y": 3,
+        "o": "h"
+      },
+      "alternative": {
+        "type": "move",
+        "x": 6,
+        "y": 7
+      },
+      "mctsQGap": -0.005,
+      "logVisitGap": 0.044,
+      "ownDistanceGain": [
+        0,
+        -1
+      ],
+      "enemyDistanceIncrease": [
+        2,
+        0
+      ],
+      "rootWallCounts": [
+        0.6,
+        0.3
+      ],
+      "observedBaselineWinRate": 0,
+      "observedAlternativeWinRate": 0,
+      "winRateDelta": 0,
+      "differingWinner": false,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 20,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "alternative": {
+        "type": "move",
+        "x": 2,
+        "y": 5
+      },
+      "mctsQGap": 0.355,
+      "logVisitGap": 0.697,
+      "ownDistanceGain": [
+        1,
+        -1
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        0
+      ],
+      "rootWallCounts": [
+        0.4,
+        0.4
+      ],
+      "observedBaselineWinRate": 0.5,
+      "observedAlternativeWinRate": 0.5,
+      "winRateDelta": 0.0,
+      "differingWinner": false,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 22,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "move",
+        "x": 5,
+        "y": 4
+      },
+      "alternative": {
+        "type": "move",
+        "x": 6,
+        "y": 3
+      },
+      "mctsQGap": 0.255,
+      "logVisitGap": 0.334,
+      "ownDistanceGain": [
+        1,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        0
+      ],
+      "rootWallCounts": [
+        0.5,
+        0.5
+      ],
+      "observedBaselineWinRate": 1,
+      "observedAlternativeWinRate": 1,
+      "winRateDelta": 0,
+      "differingWinner": false,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 23,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 1,
+        "y": 5,
+        "o": "h"
+      },
+      "alternative": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "mctsQGap": 0.222,
+      "logVisitGap": 0.447,
+      "ownDistanceGain": [
+        0,
+        1
+      ],
+      "enemyDistanceIncrease": [
+        4,
+        0
+      ],
+      "rootWallCounts": [
+        0.3,
+        0.5
+      ],
+      "observedBaselineWinRate": 0.5,
+      "observedAlternativeWinRate": 1,
+      "winRateDelta": 0.5,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 24,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 4,
+        "y": 3,
+        "o": "h"
+      },
+      "alternative": {
+        "type": "move",
+        "x": 3,
+        "y": 4
+      },
+      "mctsQGap": 0.345,
+      "logVisitGap": 0.068,
+      "ownDistanceGain": [
+        0,
+        1
+      ],
+      "enemyDistanceIncrease": [
+        4,
+        0
+      ],
+      "rootWallCounts": [
+        0.4,
+        0.5
+      ],
+      "observedBaselineWinRate": 0,
+      "observedAlternativeWinRate": 0,
+      "winRateDelta": 0,
+      "differingWinner": false,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 25,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "move",
+        "x": 5,
+        "y": 0
+      },
+      "alternative": {
+        "type": "wall",
+        "x": 1,
+        "y": 7,
+        "o": "h"
+      },
+      "mctsQGap": 0.16,
+      "logVisitGap": 0.236,
+      "ownDistanceGain": [
+        1,
+        -2
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        4
+      ],
+      "rootWallCounts": [
+        0.5,
+        0.3
+      ],
+      "observedBaselineWinRate": 1,
+      "observedAlternativeWinRate": 1,
+      "winRateDelta": 0,
+      "differingWinner": false,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 26,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "move",
+        "x": 2,
+        "y": 6
+      },
+      "alternative": {
+        "type": "wall",
+        "x": 2,
+        "y": 1,
+        "o": "v"
+      },
+      "mctsQGap": 0.142,
+      "logVisitGap": 0.144,
+      "ownDistanceGain": [
+        1,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        2
+      ],
+      "rootWallCounts": [
+        0.3,
+        0.6
+      ],
+      "observedBaselineWinRate": 0,
+      "observedAlternativeWinRate": 0.5,
+      "winRateDelta": 0.5,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 27,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 5,
+        "y": 4,
+        "o": "h"
+      },
+      "alternative": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "mctsQGap": 0.134,
+      "logVisitGap": 0.079,
+      "ownDistanceGain": [
+        0,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        2
+      ],
+      "rootWallCounts": [
+        0.6,
+        0.8
+      ],
+      "observedBaselineWinRate": 0,
+      "observedAlternativeWinRate": 0.3333333333333333,
+      "winRateDelta": 0.333,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 28,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "alternative": {
+        "type": "move",
+        "x": 2,
+        "y": 3
+      },
+      "mctsQGap": 0.541,
+      "logVisitGap": 0.524,
+      "ownDistanceGain": [
+        1,
+        1
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        0
+      ],
+      "rootWallCounts": [
+        0.4,
+        0.7
+      ],
+      "observedBaselineWinRate": 1,
+      "observedAlternativeWinRate": 0.5,
+      "winRateDelta": -0.5,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 29,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 7,
+        "y": 5,
+        "o": "h"
+      },
+      "alternative": {
+        "type": "wall",
+        "x": 4,
+        "y": 4,
+        "o": "h"
+      },
+      "mctsQGap": 0.285,
+      "logVisitGap": 0.47,
+      "ownDistanceGain": [
+        0,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        1
+      ],
+      "rootWallCounts": [
+        0.7,
+        0.7
+      ],
+      "observedBaselineWinRate": 0.3333333333333333,
+      "observedAlternativeWinRate": 0.6666666666666666,
+      "winRateDelta": 0.333,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 32,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 4,
+        "y": 4,
+        "o": "h"
+      },
+      "alternative": {
+        "type": "wall",
+        "x": 7,
+        "y": 5,
+        "o": "h"
+      },
+      "mctsQGap": -0.042,
+      "logVisitGap": 0.047,
+      "ownDistanceGain": [
+        0,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        2,
+        0
+      ],
+      "rootWallCounts": [
+        0.7,
+        0.7
+      ],
+      "observedBaselineWinRate": 1,
+      "observedAlternativeWinRate": 1,
+      "winRateDelta": 0,
+      "differingWinner": false,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 33,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "alternative": {
+        "type": "move",
+        "x": 2,
+        "y": 3
+      },
+      "mctsQGap": -0.008,
+      "logVisitGap": 0.0,
+      "ownDistanceGain": [
+        1,
+        1
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        0
+      ],
+      "rootWallCounts": [
+        0.5,
+        0.3
+      ],
+      "observedBaselineWinRate": 1,
+      "observedAlternativeWinRate": 1,
+      "winRateDelta": 0,
+      "differingWinner": false,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 34,
+      "rootSource": "prior",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 2,
+        "y": 4,
+        "o": "v"
+      },
+      "alternative": {
+        "type": "move",
+        "x": 3,
+        "y": 3
+      },
+      "mctsQGap": 0.628,
+      "logVisitGap": 0.17,
+      "ownDistanceGain": [
+        0,
+        1
+      ],
+      "enemyDistanceIncrease": [
+        2,
+        0
+      ],
+      "rootWallCounts": [
+        0.5,
+        0.6
+      ],
+      "observedBaselineWinRate": 1,
+      "observedAlternativeWinRate": 1,
+      "winRateDelta": 0,
+      "differingWinner": false,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 100,
+      "rootSource": "new",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 5,
+        "y": 1,
+        "o": "h"
+      },
+      "alternative": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      },
+      "mctsQGap": 0.137,
+      "logVisitGap": 0.214,
+      "ownDistanceGain": [
+        0,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        0
+      ],
+      "rootWallCounts": [
+        0.6,
+        0.7
+      ],
+      "observedBaselineWinRate": 0,
+      "observedAlternativeWinRate": 0,
+      "winRateDelta": 0,
+      "differingWinner": false,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 101,
+      "rootSource": "new",
+      "mctsChosen": {
+        "type": "move",
+        "x": 5,
+        "y": 4
+      },
+      "alternative": {
+        "type": "wall",
+        "x": 1,
+        "y": 2,
+        "o": "v"
+      },
+      "mctsQGap": 0.426,
+      "logVisitGap": 0.392,
+      "ownDistanceGain": [
+        1,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        1
+      ],
+      "rootWallCounts": [
+        0.6,
+        0.7
+      ],
+      "observedBaselineWinRate": 0.5,
+      "observedAlternativeWinRate": 0,
+      "winRateDelta": -0.5,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 102,
+      "rootSource": "new",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 3,
+        "y": 3,
+        "o": "v"
+      },
+      "alternative": {
+        "type": "wall",
+        "x": 7,
+        "y": 1,
+        "o": "h"
+      },
+      "mctsQGap": 0.95,
+      "logVisitGap": 0.316,
+      "ownDistanceGain": [
+        0,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        1
+      ],
+      "rootWallCounts": [
+        0.4,
+        0.4
+      ],
+      "observedBaselineWinRate": 1,
+      "observedAlternativeWinRate": 1,
+      "winRateDelta": 0,
+      "differingWinner": false,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 103,
+      "rootSource": "new",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 3,
+        "y": 2,
+        "o": "h"
+      },
+      "alternative": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "mctsQGap": 0.12,
+      "logVisitGap": 0.157,
+      "ownDistanceGain": [
+        -1,
+        -1
+      ],
+      "enemyDistanceIncrease": [
+        1,
+        0
+      ],
+      "rootWallCounts": [
+        0.7,
+        0.7
+      ],
+      "observedBaselineWinRate": 0,
+      "observedAlternativeWinRate": 0.5,
+      "winRateDelta": 0.5,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 104,
+      "rootSource": "new",
+      "mctsChosen": {
+        "type": "wall",
+        "x": 4,
+        "y": 3,
+        "o": "h"
+      },
+      "alternative": {
+        "type": "wall",
+        "x": 4,
+        "y": 4,
+        "o": "h"
+      },
+      "mctsQGap": 0.241,
+      "logVisitGap": 0.438,
+      "ownDistanceGain": [
+        -1,
+        -1
+      ],
+      "enemyDistanceIncrease": [
+        3,
+        3
+      ],
+      "rootWallCounts": [
+        0.6,
+        0.7
+      ],
+      "observedBaselineWinRate": 1,
+      "observedAlternativeWinRate": 1,
+      "winRateDelta": 0,
+      "differingWinner": false,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 105,
+      "rootSource": "new",
+      "mctsChosen": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "alternative": {
+        "type": "wall",
+        "x": 7,
+        "y": 1,
+        "o": "v"
+      },
+      "mctsQGap": 0.777,
+      "logVisitGap": 0.427,
+      "ownDistanceGain": [
+        -1,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        2
+      ],
+      "rootWallCounts": [
+        0.5,
+        0.6
+      ],
+      "observedBaselineWinRate": 1,
+      "observedAlternativeWinRate": 0,
+      "winRateDelta": -1,
+      "differingWinner": true,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 106,
+      "rootSource": "new",
+      "mctsChosen": {
+        "type": "move",
+        "x": 5,
+        "y": 2
+      },
+      "alternative": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      },
+      "mctsQGap": 0.044,
+      "logVisitGap": 0.165,
+      "ownDistanceGain": [
+        0,
+        1
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        0
+      ],
+      "rootWallCounts": [
+        0.7,
+        0.6
+      ],
+      "observedBaselineWinRate": 0,
+      "observedAlternativeWinRate": 0,
+      "winRateDelta": 0,
+      "differingWinner": false,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    },
+    {
+      "id": 107,
+      "rootSource": "new",
+      "mctsChosen": {
+        "type": "move",
+        "x": 4,
+        "y": 4
+      },
+      "alternative": {
+        "type": "wall",
+        "x": 3,
+        "y": 5,
+        "o": "h"
+      },
+      "mctsQGap": 0.961,
+      "logVisitGap": 0.649,
+      "ownDistanceGain": [
+        1,
+        0
+      ],
+      "enemyDistanceIncrease": [
+        0,
+        2
+      ],
+      "rootWallCounts": [
+        0.7,
+        0.7
+      ],
+      "observedBaselineWinRate": 1,
+      "observedAlternativeWinRate": 1,
+      "winRateDelta": 0,
+      "differingWinner": false,
+      "labelConfidence": "LOW: 2-5 continuations per candidate"
+    }
+  ],
+  "interpretation": "MCTS Q and visits can disagree with noisy outcomes, especially for path-changing walls. No evidence identifies a definite bug; avoid universal wall penalty or unconditional learned override."
+}

@@ -1,0 +1,105 @@
+{
+  "version": "sigma3-active-middle-prospective-validation-v1",
+  "rootIds": [
+    200,
+    201,
+    203,
+    204
+  ],
+  "runCount": 16,
+  "uniqueSequences": 16,
+  "trainingFrozen": true,
+  "records": [
+    {
+      "id": 200,
+      "candidateWinRates": [
+        1,
+        1
+      ],
+      "mctsChoice": 0,
+      "priorValueHeadChoice": 0,
+      "pairwiseV2Choice": 0,
+      "priorValueScores": [
+        0.5994837880134583,
+        0.5598750114440918
+      ],
+      "pairwisePredictedDelta": -0.07538725714914016,
+      "mctsQGap": -0.007803082466125488,
+      "visitLogGap": 0.002298891544342041,
+      "baselineWinRate": 1,
+      "priorValueWinRate": 1,
+      "pairwiseV2WinRate": 1
+    },
+    {
+      "id": 201,
+      "candidateWinRates": [
+        1,
+        1
+      ],
+      "mctsChoice": 0,
+      "priorValueHeadChoice": 0,
+      "pairwiseV2Choice": 0,
+      "priorValueScores": [
+        0.4286453425884247,
+        0.4196963608264923
+      ],
+      "pairwisePredictedDelta": -0.08264603145137181,
+      "mctsQGap": 0.019633352756500244,
+      "visitLogGap": 0.14805281162261963,
+      "baselineWinRate": 1,
+      "priorValueWinRate": 1,
+      "pairwiseV2WinRate": 1
+    },
+    {
+      "id": 203,
+      "candidateWinRates": [
+        1,
+        1
+      ],
+      "mctsChoice": 0,
+      "priorValueHeadChoice": 0,
+      "pairwiseV2Choice": 0,
+      "priorValueScores": [
+        0.5330436825752258,
+        0.5309468507766724
+      ],
+      "pairwisePredictedDelta": -0.07922304394347641,
+      "mctsQGap": -0.022038161754608154,
+      "visitLogGap": 0.14615494012832642,
+      "baselineWinRate": 1,
+      "priorValueWinRate": 1,
+      "pairwiseV2WinRate": 1
+    },
+    {
+      "id": 204,
+      "candidateWinRates": [
+        0,
+        0
+      ],
+      "mctsChoice": 0,
+      "priorValueHeadChoice": 1,
+      "pairwiseV2Choice": 0,
+      "priorValueScores": [
+        0.4403499364852905,
+        0.48616817593574524
+      ],
+      "pairwisePredictedDelta": -0.004063186977376024,
+      "mctsQGap": -0.014346927404403687,
+      "visitLogGap": 0.04287046194076538,
+      "baselineWinRate": 0,
+      "priorValueWinRate": 0,
+      "pairwiseV2WinRate": 0
+    }
+  ],
+  "baselineWinSum": 3,
+  "priorValueWinSum": 3,
+  "pairwiseV2WinSum": 3,
+  "priorValueChanges": 1,
+  "pairwiseV2Changes": 0,
+  "promoted": false,
+  "caveats": [
+    "Outcome estimates use two randomized continuations per root candidate",
+    "Not evidence of sigma3-vs-sigma2 strength",
+    "MCTS and model outcomes estimated from source-game positions"
+  ]
+}

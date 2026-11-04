@@ -1,0 +1,69 @@
+{
+  "version": "sigma3-hard-example-confidence-gate-v1",
+  "newHardExampleGames": 18,
+  "newProspectiveValidationGames": 16,
+  "hardExampleRoots": 3,
+  "selectedProspectiveRoots": 4,
+  "activeRootMctsSimulations": 200,
+  "prospectiveUniqueContinuations": 16,
+  "observedHardExampleRootResults": [
+    {
+      "id": 101,
+      "baselineWins": 4,
+      "alternativeWins": 1,
+      "probabilityAlternativeBetter": 0.039655,
+      "credibleInterval": [
+        -0.8138641559741162,
+        0.05390192789854128
+      ]
+    },
+    {
+      "id": 103,
+      "baselineWins": 0,
+      "alternativeWins": 2,
+      "probabilityAlternativeBetter": 0.90862,
+      "credibleInterval": [
+        -0.1488179226603583,
+        0.6901238955996323
+      ]
+    },
+    {
+      "id": 105,
+      "baselineWins": 4,
+      "alternativeWins": 0,
+      "probabilityAlternativeBetter": 0.00796,
+      "credibleInterval": [
+        -0.8937549116366602,
+        -0.12467800968534579
+      ]
+    }
+  ],
+  "crossValidation": {
+    "baseline": 12.933333333333334,
+    "newRanker": 12.433333333333334
+  },
+  "prospective": {
+    "baseline": 3,
+    "oldHead": 3,
+    "newRanker": 3,
+    "allCandidatesSameOutcome": true
+  },
+  "promotionChecks": {
+    "researchRunsComplete": true,
+    "rootCandidatesLegal": true,
+    "rootIndependentBoardStates": true,
+    "moreThanTenStrongOutcomeLabels": false,
+    "cvNotWorse": false,
+    "prospectiveWinImprovement": false,
+    "adequateProspectiveDiscriminatingRoots": false,
+    "productionTournamentPassed": false
+  },
+  "promote": false,
+  "productionEnginesUnchanged": true,
+  "reason": "No robust or prospective winning improvement; 101 and 105 prefer MCTS, 103 alternative has noisy 2/5 vs 0/5 evidence. Avoid new unproven heuristic.",
+  "caveats": [
+    "5 games per hard action is insufficient to establish true win probability",
+    "Prospective four root states do not contain outcomes discriminating between candidates",
+    "Offline follow-up with varied Sigma2 is not a sigma3 vs sigma2 tournament"
+  ]
+}

@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import{initial,legal,apply,moves}from '../src/engine.js';
+import{chooseTacticalSigma4WithEmergency,findEmergencyDefense}from './sigma4-tactical-escape.mjs';
+const state={...initial(),p:[{x:4,y:5},{x:4,y:7}],turn:0};
+const native={type:'move',x:4,y:4};
+const root={pv:[native],diagnostics:{rootChildren:[{action:native,visits:200,qFromRoot:.1}]}};
+const v=chooseTacticalSigma4WithEmergency(state,root,()=>0);
+assert.equal(v.reason,'exhaustive-immediate-loss-defense');
+assert.equal(v.action.type,'wall');assert.ok(legal(state,v.action));
+const after=apply(state,v.action);
+assert.ok(moves(after).every(a=>apply(after,a).winner===null));
+const immediate={...initial(),p:[{x:4,y:1},{x:8,y:0}],turn:0};
+const w=chooseTacticalSigma4WithEmergency(immediate,{pv:[{type:'move',x:3,y:1}],diagnostics:{rootChildren:[]}},()=>0);
+assert.equal(w.reason,'forced-immediate-win');
+console.log('PASS SIGMA4 emergency tactical: exhaustive legal wall defense blocks immediate goal and immediate own win');

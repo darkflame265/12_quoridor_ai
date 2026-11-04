@@ -1,0 +1,336 @@
+{
+  "version": "sigma3-response-search-paired-12-v1",
+  "ids": [
+    103,
+    203,
+    101,
+    105,
+    27,
+    29
+  ],
+  "sims": 200,
+  "settings": {
+    "deterministic": true,
+    "exploration": 0,
+    "search": "sigma3 vs sigma2",
+    "maxQGap": 0.15,
+    "maxQPenalty": 0.1,
+    "minimumVisits": 15,
+    "minimumTacticalGain": 0.8,
+    "attackBeam": 6,
+    "defenderBeam": 4,
+    "wallRiskWeight": 0.35
+  },
+  "totalGames": 12,
+  "games": [
+    {
+      "id": 103,
+      "arm": "base",
+      "rootSide": 0,
+      "rootWon": false,
+      "rootLost": true,
+      "cutoff": false,
+      "plies": 48,
+      "sigmaMoves": 24,
+      "changed": 0,
+      "eligible": 0,
+      "changes": [],
+      "averageBaseMs": 1631.875689583391,
+      "extraTacticalMs": 0,
+      "finalDistances": [
+        9,
+        0
+      ]
+    },
+    {
+      "id": 103,
+      "arm": "tactical",
+      "rootSide": 0,
+      "rootWon": true,
+      "rootLost": false,
+      "cutoff": false,
+      "plies": 49,
+      "sigmaMoves": 25,
+      "changed": 2,
+      "eligible": 12,
+      "changes": [
+        {
+          "ply": 0,
+          "baseline": "d7─",
+          "experimental": "c4",
+          "estimatedTacticalGain": 1.2999999999999998,
+          "elapsedMs": 454
+        },
+        {
+          "ply": 20,
+          "baseline": "e5",
+          "experimental": "h2─",
+          "estimatedTacticalGain": 1.35,
+          "elapsedMs": 1285
+        }
+      ],
+      "averageBaseMs": 1520.5142836734458,
+      "extraTacticalMs": 8117,
+      "finalDistances": [
+        0,
+        5
+      ]
+    },
+    {
+      "id": 203,
+      "arm": "base",
+      "rootSide": 1,
+      "rootWon": true,
+      "rootLost": false,
+      "cutoff": false,
+      "plies": 31,
+      "sigmaMoves": 16,
+      "changed": 0,
+      "eligible": 0,
+      "changes": [],
+      "averageBaseMs": 1110.7096129029917,
+      "extraTacticalMs": 0,
+      "finalDistances": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": 203,
+      "arm": "tactical",
+      "rootSide": 1,
+      "rootWon": true,
+      "rootLost": false,
+      "cutoff": false,
+      "plies": 47,
+      "sigmaMoves": 24,
+      "changed": 1,
+      "eligible": 14,
+      "changes": [
+        {
+          "ply": 0,
+          "baseline": "f6",
+          "experimental": "a6─",
+          "estimatedTacticalGain": 4.75,
+          "elapsedMs": 584
+        }
+      ],
+      "averageBaseMs": 1066.8504042554405,
+      "extraTacticalMs": 6146,
+      "finalDistances": [
+        12,
+        0
+      ]
+    },
+    {
+      "id": 101,
+      "arm": "base",
+      "rootSide": 1,
+      "rootWon": true,
+      "rootLost": false,
+      "cutoff": false,
+      "plies": 49,
+      "sigmaMoves": 25,
+      "changed": 0,
+      "eligible": 0,
+      "changes": [],
+      "averageBaseMs": 1376.4629428571834,
+      "extraTacticalMs": 0,
+      "finalDistances": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": 101,
+      "arm": "tactical",
+      "rootSide": 1,
+      "rootWon": true,
+      "rootLost": false,
+      "cutoff": false,
+      "plies": 49,
+      "sigmaMoves": 25,
+      "changed": 0,
+      "eligible": 5,
+      "changes": [],
+      "averageBaseMs": 1372.4408326530206,
+      "extraTacticalMs": 1767,
+      "finalDistances": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": 105,
+      "arm": "base",
+      "rootSide": 0,
+      "rootWon": false,
+      "rootLost": true,
+      "cutoff": false,
+      "plies": 68,
+      "sigmaMoves": 34,
+      "changed": 0,
+      "eligible": 0,
+      "changes": [],
+      "averageBaseMs": 1547.6768205881747,
+      "extraTacticalMs": 0,
+      "finalDistances": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": 105,
+      "arm": "tactical",
+      "rootSide": 0,
+      "rootWon": false,
+      "rootLost": true,
+      "cutoff": false,
+      "plies": 68,
+      "sigmaMoves": 34,
+      "changed": 0,
+      "eligible": 22,
+      "changes": [],
+      "averageBaseMs": 1518.7205176470718,
+      "extraTacticalMs": 4827,
+      "finalDistances": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": 27,
+      "arm": "base",
+      "rootSide": 0,
+      "rootWon": true,
+      "rootLost": false,
+      "cutoff": false,
+      "plies": 23,
+      "sigmaMoves": 12,
+      "changed": 0,
+      "eligible": 0,
+      "changes": [],
+      "averageBaseMs": 1060.575656521747,
+      "extraTacticalMs": 0,
+      "finalDistances": [
+        0,
+        18
+      ]
+    },
+    {
+      "id": 27,
+      "arm": "tactical",
+      "rootSide": 0,
+      "rootWon": false,
+      "rootLost": true,
+      "cutoff": false,
+      "plies": 52,
+      "sigmaMoves": 26,
+      "changed": 5,
+      "eligible": 20,
+      "changes": [
+        {
+          "ply": 2,
+          "baseline": "c7",
+          "experimental": "b5─",
+          "estimatedTacticalGain": 1.350000000000001,
+          "elapsedMs": 516
+        },
+        {
+          "ply": 6,
+          "baseline": "c6",
+          "experimental": "g6│",
+          "estimatedTacticalGain": 2.3499999999999996,
+          "elapsedMs": 853
+        },
+        {
+          "ply": 8,
+          "baseline": "a9│",
+          "experimental": "d5",
+          "estimatedTacticalGain": 0.9999999999999991,
+          "elapsedMs": 376
+        },
+        {
+          "ply": 22,
+          "baseline": "g5",
+          "experimental": "e5",
+          "estimatedTacticalGain": 1.7000000000000002,
+          "elapsedMs": 192
+        },
+        {
+          "ply": 26,
+          "baseline": "d6",
+          "experimental": "f6",
+          "estimatedTacticalGain": 1,
+          "elapsedMs": 147
+        }
+      ],
+      "averageBaseMs": 932.3198519229244,
+      "extraTacticalMs": 4260,
+      "finalDistances": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": 29,
+      "arm": "base",
+      "rootSide": 0,
+      "rootWon": true,
+      "rootLost": false,
+      "cutoff": false,
+      "plies": 47,
+      "sigmaMoves": 24,
+      "changed": 0,
+      "eligible": 0,
+      "changes": [],
+      "averageBaseMs": 1483.5227702126158,
+      "extraTacticalMs": 0,
+      "finalDistances": [
+        0,
+        5
+      ]
+    },
+    {
+      "id": 29,
+      "arm": "tactical",
+      "rootSide": 0,
+      "rootWon": true,
+      "rootLost": false,
+      "cutoff": false,
+      "plies": 77,
+      "sigmaMoves": 39,
+      "changed": 3,
+      "eligible": 12,
+      "changes": [
+        {
+          "ply": 2,
+          "baseline": "f5",
+          "experimental": "e7",
+          "estimatedTacticalGain": 1.65,
+          "elapsedMs": 1387
+        },
+        {
+          "ply": 16,
+          "baseline": "a8─",
+          "experimental": "g6",
+          "estimatedTacticalGain": 1.6500000000000001,
+          "elapsedMs": 937
+        },
+        {
+          "ply": 18,
+          "baseline": "a8─",
+          "experimental": "d4│",
+          "estimatedTacticalGain": 4,
+          "elapsedMs": 595
+        }
+      ],
+      "averageBaseMs": 1164.4729428570556,
+      "extraTacticalMs": 6874,
+      "finalDistances": [
+        0,
+        17
+      ]
+    }
+  ]
+}

@@ -1,0 +1,358 @@
+{
+  "version": "sigma3-response-search-decision-audit-v1",
+  "conditions": {
+    "attackBeam": 6,
+    "defenderBeam": 4,
+    "wallRiskWeight": 0.35
+  },
+  "cases": [
+    {
+      "id": 101,
+      "side": 1,
+      "elapsedMs": 919.509,
+      "candidates": [
+        {
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "notation": "f5",
+          "visits": 178,
+          "q": 0.29473185187775974,
+          "tactic": {
+            "worstCase": 3,
+            "static": 3.35,
+            "wallRisk": 1,
+            "examined": 6,
+            "worstResponse": {
+              "attack": {
+                "type": "wall",
+                "x": 5,
+                "y": 4,
+                "o": "h"
+              },
+              "immediateMargin": 3,
+              "reply": {
+                "type": "wall",
+                "x": 0,
+                "y": 0,
+                "o": "h"
+              },
+              "score": 3,
+              "rawScore": 3.35,
+              "afterReplyThreat": 1,
+              "checked": 4
+            }
+          }
+        },
+        {
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "o": "v"
+          },
+          "notation": "b7│",
+          "visits": 16,
+          "q": -0.1308551903348416,
+          "tactic": {
+            "worstCase": 2.6999999999999997,
+            "static": 2.7,
+            "wallRisk": 1,
+            "examined": 6,
+            "worstResponse": {
+              "attack": {
+                "type": "move",
+                "x": 2,
+                "y": 5
+              },
+              "immediateMargin": 1.7,
+              "reply": {
+                "type": "wall",
+                "x": 5,
+                "y": 1,
+                "o": "h"
+              },
+              "score": 2.6999999999999997,
+              "rawScore": 3.05,
+              "afterReplyThreat": 1,
+              "checked": 4
+            }
+          }
+        },
+        {
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h"
+          },
+          "notation": "c4─",
+          "visits": 5,
+          "q": -0.27137219309806826,
+          "tactic": {
+            "worstCase": 2.6500000000000004,
+            "static": 2.7,
+            "wallRisk": 1,
+            "examined": 6,
+            "worstResponse": {
+              "attack": {
+                "type": "wall",
+                "x": 5,
+                "y": 3,
+                "o": "h"
+              },
+              "immediateMargin": 2.35,
+              "reply": {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              "score": 2.6500000000000004,
+              "rawScore": 3.35,
+              "afterReplyThreat": 2,
+              "checked": 4
+            }
+          }
+        }
+      ],
+      "adaptedChoice": "f5",
+      "changed": false,
+      "reason": "not-close-enough"
+    },
+    {
+      "id": 103,
+      "side": 0,
+      "elapsedMs": 879.2951000000002,
+      "candidates": [
+        {
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 2,
+            "o": "h"
+          },
+          "notation": "d7─",
+          "visits": 112,
+          "q": -0.10700750954648745,
+          "tactic": {
+            "worstCase": -1.65,
+            "static": -1.65,
+            "wallRisk": 1,
+            "examined": 3,
+            "worstResponse": {
+              "attack": {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              "immediateMargin": -2.65,
+              "reply": {
+                "type": "wall",
+                "x": 5,
+                "y": 2,
+                "o": "h"
+              },
+              "score": -1.65,
+              "rawScore": -1.3,
+              "afterReplyThreat": 1,
+              "checked": 4
+            }
+          }
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          },
+          "notation": "d3",
+          "visits": 43,
+          "q": -0.22736155276178643,
+          "tactic": {
+            "worstCase": -1.35,
+            "static": -2,
+            "wallRisk": 1,
+            "examined": 5,
+            "worstResponse": {
+              "attack": {
+                "type": "wall",
+                "x": 5,
+                "y": 1,
+                "o": "h"
+              },
+              "immediateMargin": -2.35,
+              "reply": {
+                "type": "wall",
+                "x": 4,
+                "y": 2,
+                "o": "h"
+              },
+              "score": -1.35,
+              "rawScore": -1,
+              "afterReplyThreat": 1,
+              "checked": 4
+            }
+          }
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 5
+          },
+          "notation": "c4",
+          "visits": 35,
+          "q": -0.17724779972008298,
+          "tactic": {
+            "worstCase": -0.35,
+            "static": -1,
+            "wallRisk": 1,
+            "examined": 3,
+            "worstResponse": {
+              "attack": {
+                "type": "wall",
+                "x": 0,
+                "y": 0,
+                "o": "h"
+              },
+              "immediateMargin": -1.35,
+              "reply": {
+                "type": "wall",
+                "x": 4,
+                "y": 2,
+                "o": "h"
+              },
+              "score": -0.35,
+              "rawScore": 0,
+              "afterReplyThreat": 1,
+              "checked": 4
+            }
+          }
+        }
+      ],
+      "adaptedChoice": "d7─",
+      "changed": false,
+      "reason": "no-proven-tactical-advantage",
+      "adaptedDelta": 1.2999999999999998,
+      "adaptedTimeMs": 295.3919000000001
+    },
+    {
+      "id": 105,
+      "side": 0,
+      "elapsedMs": 832.1943999999999,
+      "candidates": [
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "notation": "e2",
+          "visits": 181,
+          "q": 0.5047141627224615,
+          "tactic": {
+            "worstCase": -2.05,
+            "static": -0.65,
+            "wallRisk": 4,
+            "examined": 6,
+            "worstResponse": {
+              "attack": {
+                "type": "wall",
+                "x": 2,
+                "y": 5,
+                "o": "v"
+              },
+              "immediateMargin": -4,
+              "reply": {
+                "type": "wall",
+                "x": 5,
+                "y": 1,
+                "o": "v"
+              },
+              "score": -2.05,
+              "rawScore": -0.65,
+              "afterReplyThreat": 4,
+              "checked": 4
+            }
+          }
+        },
+        {
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "v"
+          },
+          "notation": "h8│",
+          "visits": 13,
+          "q": -0.2720417701281034,
+          "tactic": {
+            "worstCase": -1.7,
+            "static": 1.7,
+            "wallRisk": 4,
+            "examined": 6,
+            "worstResponse": {
+              "attack": {
+                "type": "wall",
+                "x": 2,
+                "y": 5,
+                "o": "v"
+              },
+              "immediateMargin": -1.65,
+              "reply": {
+                "type": "wall",
+                "x": 7,
+                "y": 3,
+                "o": "h"
+              },
+              "score": -1.7,
+              "rawScore": -0.30000000000000004,
+              "afterReplyThreat": 4,
+              "checked": 4
+            }
+          }
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          },
+          "notation": "d3",
+          "visits": 4,
+          "q": -0.4121363013982773,
+          "tactic": {
+            "worstCase": -4.05,
+            "static": 1.35,
+            "wallRisk": 8,
+            "examined": 6,
+            "worstResponse": {
+              "attack": {
+                "type": "wall",
+                "x": 2,
+                "y": 5,
+                "o": "v"
+              },
+              "immediateMargin": -6,
+              "reply": {
+                "type": "wall",
+                "x": 5,
+                "y": 1,
+                "o": "v"
+              },
+              "score": -4.05,
+              "rawScore": -2.65,
+              "afterReplyThreat": 4,
+              "checked": 4
+            }
+          }
+        }
+      ],
+      "adaptedChoice": "e2",
+      "changed": false,
+      "reason": "not-close-enough"
+    }
+  ]
+}

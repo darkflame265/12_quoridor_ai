@@ -1,0 +1,36 @@
+{
+  "version": "sigma3-early-override-balanced-promotion-gate-v1",
+  "status": "experimental-only",
+  "source": "evaluation/sigma3-early-override-guard-full-opening-20.json",
+  "completed": 20,
+  "startingOpenings": 5,
+  "sideCounts": [
+    5,
+    5
+  ],
+  "baseline": {
+    "wins": 5,
+    "losses": 5
+  },
+  "guard": {
+    "wins": 6,
+    "losses": 4
+  },
+  "improved": [
+    {
+      "opening": 3,
+      "side": 0
+    }
+  ],
+  "regressed": [],
+  "cutoffs": 0,
+  "changed": 13,
+  "averageTacticalExtraMs": 95.66461538461539,
+  "bothSidesGuardWins": [
+    5,
+    1
+  ],
+  "protectedOpeningPlies": 18,
+  "promote": false,
+  "reason": "Only five distinct scripted openings and 10 paired full games; cannot establish general superiority or controlled latency. Hold separate production integration until broader diverse, paired evaluation."
+}

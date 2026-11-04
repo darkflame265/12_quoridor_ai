@@ -1,0 +1,45 @@
+{
+  "version": "sigma4-counterfactual-pairwise-learner-v1",
+  "status": "blocked-insufficient-evidence",
+  "requirements": {
+    "trainRoots": 40,
+    "holdoutRoots": 20,
+    "repliesPerAction": 5
+  },
+  "trainRoots": 2,
+  "holdoutRoots": 0,
+  "groupsDisjoint": true,
+  "samples": [
+    {
+      "id": "s6721-1-p23",
+      "split": "train",
+      "openingHash": "b0adf325f49a8f3ddfb7b4ba21989e453c4ceabfc7b1b296e34aa794047723da",
+      "armCounts": [
+        1,
+        1
+      ],
+      "rates": [
+        0,
+        0
+      ],
+      "delta": 0
+    },
+    {
+      "id": "s4187-0-p42",
+      "split": "train",
+      "openingHash": "41fe44701e915147cd69c476404c16864e92cc7cb44126b98bdfb6eae3c37ded",
+      "armCounts": [
+        1,
+        1
+      ],
+      "rates": [
+        0,
+        0
+      ],
+      "delta": 0
+    }
+  ],
+  "modelSaved": false,
+  "productionChanged": false,
+  "warning": "One deterministic rollout per action is NOT a reliable superiority label. A candidate must be trained on many verified grouped roots, then tested out-of-sample."
+}

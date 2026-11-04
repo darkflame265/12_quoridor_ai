@@ -1,0 +1,103 @@
+{
+  "version": "sigma4-counterfactual-first-divergences-v1",
+  "source": "evaluation/sigma4-research-mined.json",
+  "selectionRule": "2 unique training-only lost roots, each baseline vs first comparable alternative",
+  "maxTotalPlies": 200,
+  "totalTrials": 4,
+  "trials": [
+    {
+      "id": "s6721-1-p23",
+      "split": "train",
+      "openingHash": "b0adf325f49a8f3ddfb7b4ba21989e453c4ceabfc7b1b296e34aa794047723da",
+      "rootKey": "4dada1c9c10a890fdecaf4fb99962b06037a3150e96978811fc78591d46a2ac1",
+      "side": 1,
+      "choice": 0,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 3,
+        "y": 3,
+        "o": "v"
+      },
+      "notation": "d6│",
+      "winner": 0,
+      "rootWon": false,
+      "cutoff": false,
+      "continuationPlies": 42,
+      "sequenceHash": "fed75969047044f9e64447da427994a3b825980ff7acac88328ac50257dc619f",
+      "finalDistances": [
+        0,
+        5
+      ]
+    },
+    {
+      "id": "s6721-1-p23",
+      "split": "train",
+      "openingHash": "b0adf325f49a8f3ddfb7b4ba21989e453c4ceabfc7b1b296e34aa794047723da",
+      "rootKey": "4dada1c9c10a890fdecaf4fb99962b06037a3150e96978811fc78591d46a2ac1",
+      "side": 1,
+      "choice": 1,
+      "forcedRootAction": {
+        "type": "move",
+        "x": 3,
+        "y": 2
+      },
+      "notation": "d7",
+      "winner": 0,
+      "rootWon": false,
+      "cutoff": false,
+      "continuationPlies": 68,
+      "sequenceHash": "d88391de09ebd911a4213506d08efd3b48e7a61dde09d7b8822732c7512b129f",
+      "finalDistances": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": "s4187-0-p42",
+      "split": "train",
+      "openingHash": "41fe44701e915147cd69c476404c16864e92cc7cb44126b98bdfb6eae3c37ded",
+      "rootKey": "9fc2d13478df6bb2adce5e194450e8d5a022994fe64a932896f52a2780b0c516",
+      "side": 0,
+      "choice": 0,
+      "forcedRootAction": {
+        "type": "wall",
+        "x": 4,
+        "y": 0,
+        "o": "h"
+      },
+      "notation": "e9─",
+      "winner": 1,
+      "rootWon": false,
+      "cutoff": false,
+      "continuationPlies": 60,
+      "sequenceHash": "815541335faa06a4715cfddf08e3fd5ca9e5c41f36644f49cdd47ce35393e56f",
+      "finalDistances": [
+        4,
+        0
+      ]
+    },
+    {
+      "id": "s4187-0-p42",
+      "split": "train",
+      "openingHash": "41fe44701e915147cd69c476404c16864e92cc7cb44126b98bdfb6eae3c37ded",
+      "rootKey": "9fc2d13478df6bb2adce5e194450e8d5a022994fe64a932896f52a2780b0c516",
+      "side": 0,
+      "choice": 1,
+      "forcedRootAction": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      },
+      "notation": "i1",
+      "winner": 1,
+      "rootWon": false,
+      "cutoff": false,
+      "continuationPlies": 60,
+      "sequenceHash": "37f1e259ace85ef745a4d83188bcb28a9a5ba12e08116e8d01dec79ad2854f8f",
+      "finalDistances": [
+        2,
+        0
+      ]
+    }
+  ]
+}

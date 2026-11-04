@@ -1,0 +1,326 @@
+{
+  "version": "sigma4-matched-mcts-diverse-continuations-v3",
+  "settings": {
+    "exploration": 0,
+    "sims": 200,
+    "reuse": false,
+    "deterministic": true,
+    "experimentalOverrideProbability": 0.3,
+    "seedList": [
+      24011,
+      24029,
+      24047
+    ]
+  },
+  "source": "evaluation/sigma4-research-mined.json",
+  "sourceVersion": "sigma4-divergence-mining-v1",
+  "planned": 12,
+  "trials": [
+    {
+      "id": "s6721-1-p23",
+      "seed": 24011,
+      "choice": 0,
+      "rootKey": "4dada1c9c10a890fdecaf4fb99962b06037a3150e96978811fc78591d46a2ac1",
+      "split": "train",
+      "openingHash": "b0adf325f49a8f3ddfb7b4ba21989e453c4ceabfc7b1b296e34aa794047723da",
+      "forcedAction": {
+        "type": "wall",
+        "x": 3,
+        "y": 3,
+        "o": "v"
+      },
+      "forcedNotation": "d6│",
+      "side": 1,
+      "winner": 1,
+      "rootWon": true,
+      "cutoff": false,
+      "continuationPlies": 49,
+      "experimentalDeviations": 2,
+      "sequenceHash": "417c762020c55511322db0dd55fa323a4bac4d23f62f97b629f9fa292611bf90",
+      "remaining": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": "s6721-1-p23",
+      "seed": 24011,
+      "choice": 1,
+      "rootKey": "4dada1c9c10a890fdecaf4fb99962b06037a3150e96978811fc78591d46a2ac1",
+      "split": "train",
+      "openingHash": "b0adf325f49a8f3ddfb7b4ba21989e453c4ceabfc7b1b296e34aa794047723da",
+      "forcedAction": {
+        "type": "move",
+        "x": 3,
+        "y": 2
+      },
+      "forcedNotation": "d7",
+      "side": 1,
+      "winner": 1,
+      "rootWon": true,
+      "cutoff": false,
+      "continuationPlies": 51,
+      "experimentalDeviations": 6,
+      "sequenceHash": "4470b1e10287680ff0b66bb089fa67e8d69cc654c3d15f439565c057707426b6",
+      "remaining": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": "s6721-1-p23",
+      "seed": 24029,
+      "choice": 0,
+      "rootKey": "4dada1c9c10a890fdecaf4fb99962b06037a3150e96978811fc78591d46a2ac1",
+      "split": "train",
+      "openingHash": "b0adf325f49a8f3ddfb7b4ba21989e453c4ceabfc7b1b296e34aa794047723da",
+      "forcedAction": {
+        "type": "wall",
+        "x": 3,
+        "y": 3,
+        "o": "v"
+      },
+      "forcedNotation": "d6│",
+      "side": 1,
+      "winner": 1,
+      "rootWon": true,
+      "cutoff": false,
+      "continuationPlies": 61,
+      "experimentalDeviations": 7,
+      "sequenceHash": "72e38f202f581cc28b36b86bc31847743c605ae02e9ffefe0c17b39604f1723e",
+      "remaining": [
+        8,
+        0
+      ]
+    },
+    {
+      "id": "s6721-1-p23",
+      "seed": 24029,
+      "choice": 1,
+      "rootKey": "4dada1c9c10a890fdecaf4fb99962b06037a3150e96978811fc78591d46a2ac1",
+      "split": "train",
+      "openingHash": "b0adf325f49a8f3ddfb7b4ba21989e453c4ceabfc7b1b296e34aa794047723da",
+      "forcedAction": {
+        "type": "move",
+        "x": 3,
+        "y": 2
+      },
+      "forcedNotation": "d7",
+      "side": 1,
+      "winner": 1,
+      "rootWon": true,
+      "cutoff": false,
+      "continuationPlies": 53,
+      "experimentalDeviations": 6,
+      "sequenceHash": "a81bc68a8b467d26fb657687e23b29e5e9e4865a14812a0ae334e58408616cc3",
+      "remaining": [
+        16,
+        0
+      ]
+    },
+    {
+      "id": "s6721-1-p23",
+      "seed": 24047,
+      "choice": 0,
+      "rootKey": "4dada1c9c10a890fdecaf4fb99962b06037a3150e96978811fc78591d46a2ac1",
+      "split": "train",
+      "openingHash": "b0adf325f49a8f3ddfb7b4ba21989e453c4ceabfc7b1b296e34aa794047723da",
+      "forcedAction": {
+        "type": "wall",
+        "x": 3,
+        "y": 3,
+        "o": "v"
+      },
+      "forcedNotation": "d6│",
+      "side": 1,
+      "winner": 0,
+      "rootWon": false,
+      "cutoff": false,
+      "continuationPlies": 38,
+      "experimentalDeviations": 5,
+      "sequenceHash": "dbb33d4657d37538161b0a74d7d78e61c0890c708a31bfcfcdd910edadc0a8f2",
+      "remaining": [
+        0,
+        8
+      ]
+    },
+    {
+      "id": "s6721-1-p23",
+      "seed": 24047,
+      "choice": 1,
+      "rootKey": "4dada1c9c10a890fdecaf4fb99962b06037a3150e96978811fc78591d46a2ac1",
+      "split": "train",
+      "openingHash": "b0adf325f49a8f3ddfb7b4ba21989e453c4ceabfc7b1b296e34aa794047723da",
+      "forcedAction": {
+        "type": "move",
+        "x": 3,
+        "y": 2
+      },
+      "forcedNotation": "d7",
+      "side": 1,
+      "winner": 0,
+      "rootWon": false,
+      "cutoff": false,
+      "continuationPlies": 68,
+      "experimentalDeviations": 10,
+      "sequenceHash": "6612ec876f4ba1c2df995afa95195eefb0a8579fc6f150b27acf503327babcc5",
+      "remaining": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": "s4187-0-p42",
+      "seed": 24011,
+      "choice": 0,
+      "rootKey": "9fc2d13478df6bb2adce5e194450e8d5a022994fe64a932896f52a2780b0c516",
+      "split": "train",
+      "openingHash": "41fe44701e915147cd69c476404c16864e92cc7cb44126b98bdfb6eae3c37ded",
+      "forcedAction": {
+        "type": "wall",
+        "x": 4,
+        "y": 0,
+        "o": "h"
+      },
+      "forcedNotation": "e9─",
+      "side": 0,
+      "winner": 1,
+      "rootWon": false,
+      "cutoff": false,
+      "continuationPlies": 56,
+      "experimentalDeviations": 3,
+      "sequenceHash": "da3a6f0c49ddd319726e69ff2ba4e73c4ec9f05292499d32c341df616af38d42",
+      "remaining": [
+        6,
+        0
+      ]
+    },
+    {
+      "id": "s4187-0-p42",
+      "seed": 24011,
+      "choice": 1,
+      "rootKey": "9fc2d13478df6bb2adce5e194450e8d5a022994fe64a932896f52a2780b0c516",
+      "split": "train",
+      "openingHash": "41fe44701e915147cd69c476404c16864e92cc7cb44126b98bdfb6eae3c37ded",
+      "forcedAction": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      },
+      "forcedNotation": "i1",
+      "side": 0,
+      "winner": 1,
+      "rootWon": false,
+      "cutoff": false,
+      "continuationPlies": 56,
+      "experimentalDeviations": 7,
+      "sequenceHash": "9bfbdf90ed8da62273d933cccd647ca2dc57b2644ec41513a764aafee88a17b9",
+      "remaining": [
+        7,
+        0
+      ]
+    },
+    {
+      "id": "s4187-0-p42",
+      "seed": 24029,
+      "choice": 0,
+      "rootKey": "9fc2d13478df6bb2adce5e194450e8d5a022994fe64a932896f52a2780b0c516",
+      "split": "train",
+      "openingHash": "41fe44701e915147cd69c476404c16864e92cc7cb44126b98bdfb6eae3c37ded",
+      "forcedAction": {
+        "type": "wall",
+        "x": 4,
+        "y": 0,
+        "o": "h"
+      },
+      "forcedNotation": "e9─",
+      "side": 0,
+      "winner": 1,
+      "rootWon": false,
+      "cutoff": false,
+      "continuationPlies": 62,
+      "experimentalDeviations": 4,
+      "sequenceHash": "7aeba861a7550371846cd6b0663aba8fee9159f20823d2b135c17c6840d5cd45",
+      "remaining": [
+        8,
+        0
+      ]
+    },
+    {
+      "id": "s4187-0-p42",
+      "seed": 24029,
+      "choice": 1,
+      "rootKey": "9fc2d13478df6bb2adce5e194450e8d5a022994fe64a932896f52a2780b0c516",
+      "split": "train",
+      "openingHash": "41fe44701e915147cd69c476404c16864e92cc7cb44126b98bdfb6eae3c37ded",
+      "forcedAction": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      },
+      "forcedNotation": "i1",
+      "side": 0,
+      "winner": 1,
+      "rootWon": false,
+      "cutoff": false,
+      "continuationPlies": 58,
+      "experimentalDeviations": 4,
+      "sequenceHash": "5424aa2ef41bdf2e19bd7aa9330519dcbd215fc4e431bc33df8ed199ef732e12",
+      "remaining": [
+        9,
+        0
+      ]
+    },
+    {
+      "id": "s4187-0-p42",
+      "seed": 24047,
+      "choice": 0,
+      "rootKey": "9fc2d13478df6bb2adce5e194450e8d5a022994fe64a932896f52a2780b0c516",
+      "split": "train",
+      "openingHash": "41fe44701e915147cd69c476404c16864e92cc7cb44126b98bdfb6eae3c37ded",
+      "forcedAction": {
+        "type": "wall",
+        "x": 4,
+        "y": 0,
+        "o": "h"
+      },
+      "forcedNotation": "e9─",
+      "side": 0,
+      "winner": 1,
+      "rootWon": false,
+      "cutoff": false,
+      "continuationPlies": 64,
+      "experimentalDeviations": 9,
+      "sequenceHash": "7694a177cd45f91c85a5b470a4cdd3308cb13165c9a7193b7a36a5fe09c8088a",
+      "remaining": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": "s4187-0-p42",
+      "seed": 24047,
+      "choice": 1,
+      "rootKey": "9fc2d13478df6bb2adce5e194450e8d5a022994fe64a932896f52a2780b0c516",
+      "split": "train",
+      "openingHash": "41fe44701e915147cd69c476404c16864e92cc7cb44126b98bdfb6eae3c37ded",
+      "forcedAction": {
+        "type": "move",
+        "x": 8,
+        "y": 8
+      },
+      "forcedNotation": "i1",
+      "side": 0,
+      "winner": 1,
+      "rootWon": false,
+      "cutoff": false,
+      "continuationPlies": 64,
+      "experimentalDeviations": 7,
+      "sequenceHash": "fb1bf09c437234f5bc5cafa39c15323f70c0dee6e3595f2118d7dbdd441f5d96",
+      "remaining": [
+        9,
+        0
+      ]
+    }
+  ]
+}

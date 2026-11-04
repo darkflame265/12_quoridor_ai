@@ -21,3 +21,9 @@ SIGMA2 and SIGMA3 share the frozen Sigma ONNX policy/value model. Recent ad-hoc 
 - The unique full-game hashes, not just raw game count, matter. Exact repeated games should be discounted.
 - Worker files that are already modified locally must remain untouched; SHA256 fingerprints and Git status warn that results cannot be reproduced from HEAD alone.
 - Use several opponent seeds / searches and independent opponents before treating a branch as a training target. The initial 8-game/4-branch experiment is purely a pipeline demonstration.
+
+
+## Expanded research cycle
+Run sigma4-research-extended-games.mjs, sigma4-selfplay-games.mjs, sigma4-repeated-branches-paired.mjs, sigma4-evaluate-coverage.mjs, sigma4-multiseed-evidence-paired.mjs, sigma4-train-pairwise-paired.mjs, then test_sigma4_expanded.mjs. The seed-paired experimental continuations use bounded sampling only from visited MCTS alternatives, not a production policy. Different seeds with identical action sequences do not count as independent evidence. Training requires five distinct continuations per action and disjoint training/holdout opening families.
+
+**Reproducibility correction:** The original pilot, extended, and self-play runners used server/sigma-process.mjs, whose current implementation forces tree reuse ON for sigma2/sigma3. Their saved processSettings metadata was corrected to reuse=true. The new matched-seed branch trial uses scripts/sigma4-isolated-process.mjs with reuse OFF; do not pool raw win rates across these different search conditions.

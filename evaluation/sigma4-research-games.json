@@ -11,7 +11,8 @@
     "simulations": 200,
     "exploration": 0,
     "deterministic": true,
-    "reuse": false
+    "reuse": true,
+    "actualReuseProvenance": "server/sigma-process.mjs hardcoded SIGMA2_REUSE=1 when collecting these games; env override did not apply"
   },
   "model": "frozen best.onnx for sigma2 and sigma3",
   "games": [

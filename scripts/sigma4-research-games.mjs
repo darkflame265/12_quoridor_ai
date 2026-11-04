@@ -29,7 +29,7 @@ const positions=SEEDS.map(seed=>({...prefix(seed),seed}));
 if(new Set(positions.map(x=>x.openingHash)).size!==SEEDS.length)throw Error('duplicate opening');
 const tasks=positions.flatMap(p=>[0,1].map(side=>({seed:p.seed,sigma3Side:side})));
 const meta={version:'sigma4-research-balanced-independent-openings-v1',seeds:SEEDS,openingPlies:6,
- processSettings:{simulations:200,exploration:0,deterministic:true,reuse:false},
+ processSettings:{simulations:200,exploration:0,deterministic:true,reuse:true},
  model:'frozen best.onnx for sigma2 and sigma3',games:[]};
 let report=meta;
 if(existsSync(resultPath)){report=JSON.parse(readFileSync(resultPath,'utf8'));if(report.version!==meta.version||JSON.stringify(report.seeds)!==JSON.stringify(SEEDS))throw Error('resume mismatch');}

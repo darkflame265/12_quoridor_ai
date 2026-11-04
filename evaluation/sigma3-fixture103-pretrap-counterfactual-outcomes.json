@@ -1,0 +1,196 @@
+{
+  "version": "sigma3-fixture103-pretrap-counterfactual-v1",
+  "rootId": 103,
+  "searchSims": 200,
+  "forcedAlternatives": [
+    "d6─",
+    "c6",
+    "c4"
+  ],
+  "games": 9,
+  "results": [
+    {
+      "choice": 0,
+      "seed": 0,
+      "forcedAction": {
+        "type": "wall",
+        "x": 3,
+        "y": 3,
+        "o": "h"
+      },
+      "win": false,
+      "loss": true,
+      "cutoff": false,
+      "plies": 33,
+      "diverted": 5,
+      "threatAfterForced": 6,
+      "sequenceHash": "9f421b1b42b28a74ba355751fafc315ebe189bda92de7962d20b81fb81aa251e",
+      "finalDistances": [
+        13,
+        0
+      ]
+    },
+    {
+      "choice": 0,
+      "seed": 1,
+      "forcedAction": {
+        "type": "wall",
+        "x": 3,
+        "y": 3,
+        "o": "h"
+      },
+      "win": false,
+      "loss": true,
+      "cutoff": false,
+      "plies": 31,
+      "diverted": 6,
+      "threatAfterForced": 6,
+      "sequenceHash": "625030cef3b708f3552aab2269a38d0cf1995f8cbc93f1742efe676175f3d1b7",
+      "finalDistances": [
+        10,
+        0
+      ]
+    },
+    {
+      "choice": 0,
+      "seed": 2,
+      "forcedAction": {
+        "type": "wall",
+        "x": 3,
+        "y": 3,
+        "o": "h"
+      },
+      "win": false,
+      "loss": true,
+      "cutoff": false,
+      "plies": 33,
+      "diverted": 5,
+      "threatAfterForced": 6,
+      "sequenceHash": "19ce61296120cdd50b5163ba858570364aaf485df36d2d9524510af1943ec547",
+      "finalDistances": [
+        10,
+        0
+      ]
+    },
+    {
+      "choice": 1,
+      "seed": 0,
+      "forcedAction": {
+        "type": "move",
+        "x": 2,
+        "y": 3
+      },
+      "win": false,
+      "loss": true,
+      "cutoff": false,
+      "plies": 33,
+      "diverted": 5,
+      "threatAfterForced": 6,
+      "sequenceHash": "56267a238d175023450411926ee0ac65eeea3fc1e6edc36204dd40cf004b899a",
+      "finalDistances": [
+        5,
+        0
+      ]
+    },
+    {
+      "choice": 1,
+      "seed": 1,
+      "forcedAction": {
+        "type": "move",
+        "x": 2,
+        "y": 3
+      },
+      "win": false,
+      "loss": true,
+      "cutoff": false,
+      "plies": 47,
+      "diverted": 8,
+      "threatAfterForced": 6,
+      "sequenceHash": "e69ac8d57a5a33ba69fd72a98c5db92c719324473c5bf3db0d35e7dd4b9fa7a1",
+      "finalDistances": [
+        14,
+        0
+      ]
+    },
+    {
+      "choice": 1,
+      "seed": 2,
+      "forcedAction": {
+        "type": "move",
+        "x": 2,
+        "y": 3
+      },
+      "win": false,
+      "loss": true,
+      "cutoff": false,
+      "plies": 47,
+      "diverted": 8,
+      "threatAfterForced": 6,
+      "sequenceHash": "57a65885c4cceedad5dfaa4f289d4e50e8c4a059bcac03e0a0e3165ede814d90",
+      "finalDistances": [
+        12,
+        0
+      ]
+    },
+    {
+      "choice": 2,
+      "seed": 0,
+      "forcedAction": {
+        "type": "move",
+        "x": 2,
+        "y": 5
+      },
+      "win": false,
+      "loss": true,
+      "cutoff": false,
+      "plies": 39,
+      "diverted": 5,
+      "threatAfterForced": 4,
+      "sequenceHash": "4169442925dbf8127c3a80d6149c2ce956fb997fda2e5eeef95129a2fcd389e1",
+      "finalDistances": [
+        20,
+        0
+      ]
+    },
+    {
+      "choice": 2,
+      "seed": 1,
+      "forcedAction": {
+        "type": "move",
+        "x": 2,
+        "y": 5
+      },
+      "win": false,
+      "loss": true,
+      "cutoff": false,
+      "plies": 39,
+      "diverted": 5,
+      "threatAfterForced": 4,
+      "sequenceHash": "39538c21038f3dc348392f341b9de084457baa328686bd30d6db6c168fb2569d",
+      "finalDistances": [
+        21,
+        0
+      ]
+    },
+    {
+      "choice": 2,
+      "seed": 2,
+      "forcedAction": {
+        "type": "move",
+        "x": 2,
+        "y": 5
+      },
+      "win": false,
+      "loss": true,
+      "cutoff": false,
+      "plies": 33,
+      "diverted": 7,
+      "threatAfterForced": 4,
+      "sequenceHash": "2eeba5a2b71ea0ae9c4edf1f6d10ecada5b7a6cd9d9250fecf87648a34b38681",
+      "finalDistances": [
+        22,
+        0
+      ]
+    }
+  ]
+}

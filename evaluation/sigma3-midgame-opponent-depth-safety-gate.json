@@ -1,0 +1,189 @@
+{
+  "version": "sigma3-midgame-opponent-depth-safety-gate-v1",
+  "status": "offline-research-only",
+  "rootIds": [
+    101,
+    103,
+    105,
+    27,
+    29,
+    28
+  ],
+  "cases": [
+    {
+      "id": 101,
+      "observedBetter": 0,
+      "deepPreferred": 0,
+      "matches": true,
+      "baselineWinRate": 0.8,
+      "alternativeWinRate": 0.2,
+      "at4Margins": [
+        6,
+        6
+      ],
+      "at16Margins": [
+        10,
+        1
+      ],
+      "rootPathReversals": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": 103,
+      "observedBetter": 1,
+      "deepPreferred": 1,
+      "matches": true,
+      "baselineWinRate": 0,
+      "alternativeWinRate": 0.4,
+      "at4Margins": [
+        5,
+        -1
+      ],
+      "at16Margins": [
+        -1,
+        4
+      ],
+      "rootPathReversals": [
+        true,
+        false
+      ]
+    },
+    {
+      "id": 105,
+      "observedBetter": 0,
+      "deepPreferred": 0,
+      "matches": true,
+      "baselineWinRate": 0.8,
+      "alternativeWinRate": 0,
+      "at4Margins": [
+        4,
+        -3
+      ],
+      "at16Margins": [
+        7,
+        -3
+      ],
+      "rootPathReversals": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": 27,
+      "observedBetter": 1,
+      "deepPreferred": 0,
+      "matches": false,
+      "baselineWinRate": 0.2,
+      "alternativeWinRate": 0.4,
+      "at4Margins": [
+        5,
+        4
+      ],
+      "at16Margins": [
+        5,
+        4
+      ],
+      "rootPathReversals": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": 29,
+      "observedBetter": 1,
+      "deepPreferred": 0,
+      "matches": false,
+      "baselineWinRate": 0.4,
+      "alternativeWinRate": 0.8,
+      "at4Margins": [
+        0,
+        4
+      ],
+      "at16Margins": [
+        8,
+        5
+      ],
+      "rootPathReversals": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": 28,
+      "observedBetter": 0,
+      "deepPreferred": 0,
+      "matches": true,
+      "baselineWinRate": 1,
+      "alternativeWinRate": 0.5,
+      "at4Margins": [
+        6,
+        6
+      ],
+      "at16Margins": [
+        4,
+        4
+      ],
+      "rootPathReversals": [
+        false,
+        false
+      ]
+    }
+  ],
+  "keyFailure103": {
+    "rootSide": 0,
+    "baselineFirstAction": {
+      "type": "wall",
+      "x": 3,
+      "y": 2,
+      "o": "h"
+    },
+    "candidateAlternative": {
+      "type": "move",
+      "x": 3,
+      "y": 6
+    },
+    "after4": {
+      "ownDist": 8,
+      "opponentDist": 13,
+      "margin": 5
+    },
+    "after12": {
+      "ownDist": 6,
+      "opponentDist": 12,
+      "margin": 6
+    },
+    "decisiveReply": {
+      "type": "wall",
+      "x": 2,
+      "y": 0,
+      "o": "h"
+    },
+    "ownDistanceIncreaseInOneReply": 6,
+    "after16Baseline": {
+      "ownDist": 13,
+      "opponentDist": 12,
+      "margin": -1
+    },
+    "after16Alternative": {
+      "ownDist": 10,
+      "opponentDist": 14,
+      "margin": 4
+    }
+  },
+  "checks": {
+    "legalAndDeterministicReplays": true,
+    "observedBetterPredictions": 4,
+    "totalEvaluatedPositions": 6,
+    "contradictoryPositions": [
+      27,
+      29
+    ],
+    "independentModelWinGainDemonstrated": false,
+    "timeBudgetValidated": false,
+    "winRateTournamentPassed": false
+  },
+  "promote": false,
+  "explanation": "16-ply PUCT-200 policy rollouts explain why the wall option in fixture 103 can fail late; the same margin rule errs on 27/29 and has no tournament proof. Do not modify sigma2 or sigma3."
+}

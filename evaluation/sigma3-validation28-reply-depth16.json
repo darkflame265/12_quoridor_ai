@@ -1,0 +1,2714 @@
+{
+  "version": "sigma3-fixture103-reply-depth-v1",
+  "rootId": 28,
+  "originalPly": 32,
+  "originalMcts": [
+    {
+      "action": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "visits": 185,
+      "qFromRoot": 0.2351892059319651,
+      "prior": 0.12649828704449573
+    },
+    {
+      "action": {
+        "type": "move",
+        "x": 2,
+        "y": 3
+      },
+      "visits": 7,
+      "qFromRoot": -0.30570470605577743,
+      "prior": 0.45417314751544136
+    }
+  ],
+  "conditions": {
+    "sims": 200,
+    "variant": "sigma2",
+    "deterministic": true,
+    "reuse": false,
+    "stepsAfterForced": 16
+  },
+  "branches": [
+    {
+      "choice": 0,
+      "forcedAction": {
+        "type": "move",
+        "x": 1,
+        "y": 4
+      },
+      "rootDistances": [
+        6,
+        9
+      ],
+      "initialAfterForced": {
+        "p": [
+          {
+            "x": 1,
+            "y": 4
+          },
+          {
+            "x": 6,
+            "y": 3
+          }
+        ],
+        "left": [
+          4,
+          7
+        ],
+        "distances": [
+          5,
+          9
+        ],
+        "walls": 9
+      },
+      "replies": [
+        {
+          "plyAfterForced": 1,
+          "side": 1,
+          "chosen": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "q": -0.5288223624229431,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 3
+              },
+              "visits": 196,
+              "qFromRoot": -0.05821980110236576,
+              "prior": 0.3068970875525237
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 6,
+                "y": 2
+              },
+              "visits": 1,
+              "qFromRoot": -0.5889580249786377,
+              "prior": 0.06874822432396473
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 6,
+                "y": 4
+              },
+              "visits": 1,
+              "qFromRoot": -0.4689360558986664,
+              "prior": 0.08620587003093692
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 7,
+                "y": 3
+              },
+              "visits": 1,
+              "qFromRoot": -0.5956841707229614,
+              "prior": 0.12620768094961413
+            }
+          ],
+          "distancesBefore": [
+            5,
+            9
+          ],
+          "distancesAfter": [
+            5,
+            10
+          ],
+          "pawnPositions": [
+            {
+              "x": 1,
+              "y": 4
+            },
+            {
+              "x": 5,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            7
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 2,
+          "side": 0,
+          "chosen": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          "q": 0.32610559463500977,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 1,
+                "y": 3
+              },
+              "visits": 174,
+              "qFromRoot": 0.3198319155298007,
+              "prior": 0.12183257469719601
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 1,
+                "y": 5
+              },
+              "visits": 13,
+              "qFromRoot": 0.14278779580042908,
+              "prior": 0.05940389632254687
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 4
+              },
+              "visits": 7,
+              "qFromRoot": -0.45000000000000007,
+              "prior": 0.6620085898711489
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 0,
+                "y": 4
+              },
+              "visits": 6,
+              "qFromRoot": 0.20670854846636455,
+              "prior": 0.04019836694766467
+            }
+          ],
+          "distancesBefore": [
+            5,
+            10
+          ],
+          "distancesAfter": [
+            4,
+            10
+          ],
+          "pawnPositions": [
+            {
+              "x": 1,
+              "y": 3
+            },
+            {
+              "x": 5,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            7
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 3,
+          "side": 1,
+          "chosen": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "q": -0.3948928713798523,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              "visits": 122,
+              "qFromRoot": -0.36010240971112667,
+              "prior": 0.2589536584680229
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 6,
+                "y": 3
+              },
+              "visits": 70,
+              "qFromRoot": -0.35517757455153126,
+              "prior": 0.12888038474867933
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              "visits": 26,
+              "qFromRoot": -0.12732209275978115,
+              "prior": 0.07392569332109933
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 4
+              },
+              "visits": 20,
+              "qFromRoot": -0.3690002426505089,
+              "prior": 0.044898244136334794
+            }
+          ],
+          "distancesBefore": [
+            4,
+            10
+          ],
+          "distancesAfter": [
+            4,
+            9
+          ],
+          "pawnPositions": [
+            {
+              "x": 1,
+              "y": 3
+            },
+            {
+              "x": 4,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            7
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 4,
+          "side": 0,
+          "chosen": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          },
+          "q": 0.5878620743751526,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 1,
+                "y": 2
+              },
+              "visits": 259,
+              "qFromRoot": 0.5236947446632284,
+              "prior": 0.09815453095251159
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 0,
+                "y": 3
+              },
+              "visits": 11,
+              "qFromRoot": -0.05512581359256397,
+              "prior": 0.1136024007528682
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 1,
+                "y": 4
+              },
+              "visits": 7,
+              "qFromRoot": -0.20803167990275792,
+              "prior": 0.15740103044812062
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 3
+              },
+              "visits": 5,
+              "qFromRoot": -0.33583608478307725,
+              "prior": 0.46556219510407676
+            }
+          ],
+          "distancesBefore": [
+            4,
+            9
+          ],
+          "distancesAfter": [
+            3,
+            9
+          ],
+          "pawnPositions": [
+            {
+              "x": 1,
+              "y": 2
+            },
+            {
+              "x": 4,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            7
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 5,
+          "side": 1,
+          "chosen": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "q": 0.08921737223863602,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 3
+              },
+              "visits": 145,
+              "qFromRoot": -0.4835977011456572,
+              "prior": 0.03223599292795548
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 3,
+                "y": 3
+              },
+              "visits": 91,
+              "qFromRoot": -0.5407567196576805,
+              "prior": 0.11883076175726966
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 0,
+                "y": 0,
+                "o": "h"
+              },
+              "visits": 32,
+              "qFromRoot": -0.6210233750753105,
+              "prior": 0.4154505187551369
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "o": "v"
+              },
+              "visits": 12,
+              "qFromRoot": -0.6447165779197045,
+              "prior": 0.18631153959428984
+            }
+          ],
+          "distancesBefore": [
+            3,
+            9
+          ],
+          "distancesAfter": [
+            3,
+            10
+          ],
+          "pawnPositions": [
+            {
+              "x": 1,
+              "y": 2
+            },
+            {
+              "x": 5,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            7
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 6,
+          "side": 0,
+          "chosen": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          },
+          "q": 0.6431404948234558,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 0,
+                "y": 2
+              },
+              "visits": 322,
+              "qFromRoot": 0.5222811219600602,
+              "prior": 0.1326394821784809
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 2
+              },
+              "visits": 10,
+              "qFromRoot": 0.07676897808909418,
+              "prior": 0.2605579351249977
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 1,
+                "y": 3
+              },
+              "visits": 5,
+              "qFromRoot": -0.45,
+              "prior": 0.5275141212824955
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h"
+              },
+              "visits": 0,
+              "qFromRoot": null,
+              "prior": 0.0005662352903315795
+            }
+          ],
+          "distancesBefore": [
+            3,
+            10
+          ],
+          "distancesAfter": [
+            2,
+            10
+          ],
+          "pawnPositions": [
+            {
+              "x": 0,
+              "y": 2
+            },
+            {
+              "x": 5,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            7
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 7,
+          "side": 1,
+          "chosen": {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "h"
+          },
+          "q": -0.039363447576761246,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              "visits": 162,
+              "qFromRoot": -0.5100797307965013,
+              "prior": 0.10898802754123477
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 0,
+                "y": 0,
+                "o": "h"
+              },
+              "visits": 161,
+              "qFromRoot": -0.5364089264008014,
+              "prior": 0.469772480385052
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              "visits": 1,
+              "qFromRoot": -0.8437567949295044,
+              "prior": 0.0366989807241752
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 4
+              },
+              "visits": 1,
+              "qFromRoot": -0.8490607738494873,
+              "prior": 0.02196416634711874
+            }
+          ],
+          "distancesBefore": [
+            2,
+            10
+          ],
+          "distancesAfter": [
+            4,
+            10
+          ],
+          "pawnPositions": [
+            {
+              "x": 0,
+              "y": 2
+            },
+            {
+              "x": 5,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 8,
+          "side": 0,
+          "chosen": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          },
+          "q": 0.4410995543003082,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 1,
+                "y": 2
+              },
+              "visits": 249,
+              "qFromRoot": 0.5605764155242458,
+              "prior": 0.27850410681278204
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 0,
+                "y": 3
+              },
+              "visits": 71,
+              "qFromRoot": 0.5193117246241636,
+              "prior": 0.2948789843268498
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 0,
+                "y": 1
+              },
+              "visits": 18,
+              "qFromRoot": 0.38319108593795037,
+              "prior": 0.26179574871755923
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h"
+              },
+              "visits": 0,
+              "qFromRoot": null,
+              "prior": 0.0012258218305324928
+            }
+          ],
+          "distancesBefore": [
+            4,
+            10
+          ],
+          "distancesAfter": [
+            5,
+            10
+          ],
+          "pawnPositions": [
+            {
+              "x": 1,
+              "y": 2
+            },
+            {
+              "x": 5,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 9,
+          "side": 1,
+          "chosen": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "q": 0.13887794315814972,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              "visits": 81,
+              "qFromRoot": -0.5735737368878391,
+              "prior": 0.13462847124719463
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 4
+              },
+              "visits": 62,
+              "qFromRoot": -0.5615042933533269,
+              "prior": 0.04145957023510834
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              "visits": 47,
+              "qFromRoot": -0.6242595603491398,
+              "prior": 0.3383504078914614
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 6,
+                "y": 3
+              },
+              "visits": 42,
+              "qFromRoot": -0.6044222286769322,
+              "prior": 0.20439993563421008
+            }
+          ],
+          "distancesBefore": [
+            5,
+            10
+          ],
+          "distancesAfter": [
+            5,
+            11
+          ],
+          "pawnPositions": [
+            {
+              "x": 1,
+              "y": 2
+            },
+            {
+              "x": 5,
+              "y": 2
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 10,
+          "side": 0,
+          "chosen": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "q": 0.5431810617446899,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 2
+              },
+              "visits": 207,
+              "qFromRoot": 0.6564668429358569,
+              "prior": 0.34988262516945406
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 1,
+                "y": 3
+              },
+              "visits": 75,
+              "qFromRoot": 0.5724453669637442,
+              "prior": 0.43706142555757477
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 0,
+                "y": 2
+              },
+              "visits": 3,
+              "qFromRoot": 0.15744916598002115,
+              "prior": 0.12253465266738013
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h"
+              },
+              "visits": 0,
+              "qFromRoot": null,
+              "prior": 0.0007293448688105798
+            }
+          ],
+          "distancesBefore": [
+            5,
+            11
+          ],
+          "distancesAfter": [
+            5,
+            11
+          ],
+          "pawnPositions": [
+            {
+              "x": 2,
+              "y": 2
+            },
+            {
+              "x": 5,
+              "y": 2
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 11,
+          "side": 1,
+          "chosen": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "q": -0.5255568623542786,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              "visits": 89,
+              "qFromRoot": -0.6796417222933823,
+              "prior": 0.40464903205876923
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 3
+              },
+              "visits": 88,
+              "qFromRoot": -0.6494626389308409,
+              "prior": 0.19083321205295728
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 6,
+                "y": 2
+              },
+              "visits": 19,
+              "qFromRoot": -0.6918138932975891,
+              "prior": 0.11934642516017024
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 1
+              },
+              "visits": 5,
+              "qFromRoot": -0.7178303241729737,
+              "prior": 0.042373966027308495
+            }
+          ],
+          "distancesBefore": [
+            5,
+            11
+          ],
+          "distancesAfter": [
+            5,
+            10
+          ],
+          "pawnPositions": [
+            {
+              "x": 2,
+              "y": 2
+            },
+            {
+              "x": 4,
+              "y": 2
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 12,
+          "side": 0,
+          "chosen": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          "q": 0.5612426400184631,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 3,
+                "y": 2
+              },
+              "visits": 249,
+              "qFromRoot": 0.7048115768346443,
+              "prior": 0.23896052583208446
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 3
+              },
+              "visits": 27,
+              "qFromRoot": 0.563419908505899,
+              "prior": 0.3870963077737524
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 1,
+                "y": 2
+              },
+              "visits": 4,
+              "qFromRoot": 0.07838682532310486,
+              "prior": 0.26028759924979833
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h"
+              },
+              "visits": 0,
+              "qFromRoot": null,
+              "prior": 0.0007123535697104843
+            }
+          ],
+          "distancesBefore": [
+            5,
+            10
+          ],
+          "distancesAfter": [
+            4,
+            10
+          ],
+          "pawnPositions": [
+            {
+              "x": 3,
+              "y": 2
+            },
+            {
+              "x": 4,
+              "y": 2
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 13,
+          "side": 1,
+          "chosen": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "q": -0.5325875878334045,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              "visits": 173,
+              "qFromRoot": -0.7213267422997194,
+              "prior": 0.29189437554815467
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              "visits": 53,
+              "qFromRoot": -0.7212496523587208,
+              "prior": 0.07763703070882731
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 2
+              },
+              "visits": 27,
+              "qFromRoot": -0.7837466029105363,
+              "prior": 0.22517516965617518
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 4,
+                "y": 2,
+                "o": "v"
+              },
+              "visits": 6,
+              "qFromRoot": -0.8924364348252615,
+              "prior": 0.12269070125601979
+            }
+          ],
+          "distancesBefore": [
+            4,
+            10
+          ],
+          "distancesAfter": [
+            4,
+            9
+          ],
+          "pawnPositions": [
+            {
+              "x": 3,
+              "y": 2
+            },
+            {
+              "x": 4,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 14,
+          "side": 0,
+          "chosen": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "q": 0.7027336955070496,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 3,
+                "y": 3
+              },
+              "visits": 334,
+              "qFromRoot": 0.7430321202351305,
+              "prior": 0.4058579604503203
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              "visits": 21,
+              "qFromRoot": 0.5768241534630457,
+              "prior": 0.28264982826755075
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 2
+              },
+              "visits": 10,
+              "qFromRoot": 0.5442182976007461,
+              "prior": 0.1888382535305805
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 1,
+                "y": 4,
+                "o": "h"
+              },
+              "visits": 1,
+              "qFromRoot": -0.6605149507522583,
+              "prior": 0.018973637020028723
+            }
+          ],
+          "distancesBefore": [
+            4,
+            9
+          ],
+          "distancesAfter": [
+            5,
+            9
+          ],
+          "pawnPositions": [
+            {
+              "x": 3,
+              "y": 3
+            },
+            {
+              "x": 4,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 15,
+          "side": 1,
+          "chosen": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "q": -0.6044443845748901,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 3
+              },
+              "visits": 139,
+              "qFromRoot": -0.7483744359702516,
+              "prior": 0.17145924372099106
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 4
+              },
+              "visits": 83,
+              "qFromRoot": -0.7446472832416914,
+              "prior": 0.07466313361390267
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              "visits": 79,
+              "qFromRoot": -0.7481862178331689,
+              "prior": 0.10002827004144417
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 3
+              },
+              "visits": 40,
+              "qFromRoot": -0.8303864367306233,
+              "prior": 0.34571978274803133
+            }
+          ],
+          "distancesBefore": [
+            5,
+            9
+          ],
+          "distancesAfter": [
+            5,
+            8
+          ],
+          "pawnPositions": [
+            {
+              "x": 3,
+              "y": 3
+            },
+            {
+              "x": 4,
+              "y": 4
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 16,
+          "side": 0,
+          "chosen": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "q": 0.6785627603530884,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              "visits": 251,
+              "qFromRoot": 0.6106867932228454,
+              "prior": 0.40151404095578075
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 3
+              },
+              "visits": 9,
+              "qFromRoot": 0.2704532868332332,
+              "prior": 0.3313249250696818
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 3,
+                "y": 4
+              },
+              "visits": 3,
+              "qFromRoot": 0.23544460137685141,
+              "prior": 0.06181366368965507
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 3,
+                "y": 2
+              },
+              "visits": 2,
+              "qFromRoot": 0.027868354320526117,
+              "prior": 0.07669225634724391
+            }
+          ],
+          "distancesBefore": [
+            5,
+            8
+          ],
+          "distancesAfter": [
+            4,
+            8
+          ],
+          "pawnPositions": [
+            {
+              "x": 4,
+              "y": 3
+            },
+            {
+              "x": 4,
+              "y": 4
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        }
+      ],
+      "stateAfter16Plies": {
+        "p": [
+          {
+            "x": 4,
+            "y": 3
+          },
+          {
+            "x": 4,
+            "y": 4
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          }
+        ],
+        "left": [
+          4,
+          6
+        ],
+        "turn": 1,
+        "winner": null,
+        "distances": [
+          4,
+          8
+        ]
+      }
+    },
+    {
+      "choice": 1,
+      "forcedAction": {
+        "type": "move",
+        "x": 2,
+        "y": 3
+      },
+      "rootDistances": [
+        6,
+        9
+      ],
+      "initialAfterForced": {
+        "p": [
+          {
+            "x": 2,
+            "y": 3
+          },
+          {
+            "x": 6,
+            "y": 3
+          }
+        ],
+        "left": [
+          4,
+          7
+        ],
+        "distances": [
+          5,
+          9
+        ],
+        "walls": 9
+      },
+      "replies": [
+        {
+          "plyAfterForced": 1,
+          "side": 1,
+          "chosen": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "q": -0.5600670576095581,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 3
+              },
+              "visits": 196,
+              "qFromRoot": 0,
+              "prior": 0.3331416706093432
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 6,
+                "y": 2
+              },
+              "visits": 1,
+              "qFromRoot": -0.788731038570404,
+              "prior": 0.08086667703243516
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 6,
+                "y": 4
+              },
+              "visits": 1,
+              "qFromRoot": -0.603484570980072,
+              "prior": 0.09900218910510347
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 7,
+                "y": 3
+              },
+              "visits": 1,
+              "qFromRoot": -0.6968848705291748,
+              "prior": 0.1535361216734033
+            }
+          ],
+          "distancesBefore": [
+            5,
+            9
+          ],
+          "distancesAfter": [
+            5,
+            10
+          ],
+          "pawnPositions": [
+            {
+              "x": 2,
+              "y": 3
+            },
+            {
+              "x": 5,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            7
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 2,
+          "side": 0,
+          "chosen": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          },
+          "q": 0.4696805775165558,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 1,
+                "y": 3
+              },
+              "visits": 191,
+              "qFromRoot": 0.3748167659797831,
+              "prior": 0.10798566525377044
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 3,
+                "y": 3
+              },
+              "visits": 7,
+              "qFromRoot": -0.45000000000000007,
+              "prior": 0.562167709182779
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 2
+              },
+              "visits": 1,
+              "qFromRoot": -0.15950779616832733,
+              "prior": 0.0626683316653515
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 4
+              },
+              "visits": 1,
+              "qFromRoot": -0.45,
+              "prior": 0.11904285503705224
+            }
+          ],
+          "distancesBefore": [
+            5,
+            10
+          ],
+          "distancesAfter": [
+            4,
+            10
+          ],
+          "pawnPositions": [
+            {
+              "x": 1,
+              "y": 3
+            },
+            {
+              "x": 5,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            7
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 3,
+          "side": 1,
+          "chosen": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "q": -0.3948928713798523,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              "visits": 115,
+              "qFromRoot": -0.32833906826816256,
+              "prior": 0.2589536584680229
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 6,
+                "y": 3
+              },
+              "visits": 62,
+              "qFromRoot": -0.3246615604167023,
+              "prior": 0.12888038474867933
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 4
+              },
+              "visits": 17,
+              "qFromRoot": -0.3275219219572404,
+              "prior": 0.044898244136334794
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              "visits": 2,
+              "qFromRoot": -0.5580487251281738,
+              "prior": 0.07392569332109933
+            }
+          ],
+          "distancesBefore": [
+            4,
+            10
+          ],
+          "distancesAfter": [
+            4,
+            9
+          ],
+          "pawnPositions": [
+            {
+              "x": 1,
+              "y": 3
+            },
+            {
+              "x": 4,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            7
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 4,
+          "side": 0,
+          "chosen": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          },
+          "q": 0.5878620743751526,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 1,
+                "y": 2
+              },
+              "visits": 259,
+              "qFromRoot": 0.5152293415922171,
+              "prior": 0.09815453095251159
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 1,
+                "y": 4
+              },
+              "visits": 8,
+              "qFromRoot": -0.14126452058553696,
+              "prior": 0.15740103044812062
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 3
+              },
+              "visits": 5,
+              "qFromRoot": -0.33583608478307725,
+              "prior": 0.46556219510407676
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 0,
+                "y": 3
+              },
+              "visits": 1,
+              "qFromRoot": -0.2633397877216339,
+              "prior": 0.1136024007528682
+            }
+          ],
+          "distancesBefore": [
+            4,
+            9
+          ],
+          "distancesAfter": [
+            3,
+            9
+          ],
+          "pawnPositions": [
+            {
+              "x": 1,
+              "y": 2
+            },
+            {
+              "x": 4,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            7
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 5,
+          "side": 1,
+          "chosen": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "q": 0.08921737223863602,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 3
+              },
+              "visits": 135,
+              "qFromRoot": -0.48111777965117386,
+              "prior": 0.03223599292795548
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 3,
+                "y": 3
+              },
+              "visits": 91,
+              "qFromRoot": -0.5407567196576805,
+              "prior": 0.11883076175726966
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 0,
+                "y": 0,
+                "o": "h"
+              },
+              "visits": 32,
+              "qFromRoot": -0.6210233750753105,
+              "prior": 0.4154505187551369
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 0,
+                "y": 2,
+                "o": "v"
+              },
+              "visits": 12,
+              "qFromRoot": -0.6447165779197045,
+              "prior": 0.18631153959428984
+            }
+          ],
+          "distancesBefore": [
+            3,
+            9
+          ],
+          "distancesAfter": [
+            3,
+            10
+          ],
+          "pawnPositions": [
+            {
+              "x": 1,
+              "y": 2
+            },
+            {
+              "x": 5,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            7
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 6,
+          "side": 0,
+          "chosen": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          },
+          "q": 0.6431404948234558,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 0,
+                "y": 2
+              },
+              "visits": 317,
+              "qFromRoot": 0.520610570261249,
+              "prior": 0.1326394821784809
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 2
+              },
+              "visits": 15,
+              "qFromRoot": 0.13717682262261702,
+              "prior": 0.2605579351249977
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 1,
+                "y": 3
+              },
+              "visits": 5,
+              "qFromRoot": -0.45,
+              "prior": 0.5275141212824955
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h"
+              },
+              "visits": 0,
+              "qFromRoot": null,
+              "prior": 0.0005662352903315795
+            }
+          ],
+          "distancesBefore": [
+            3,
+            10
+          ],
+          "distancesAfter": [
+            2,
+            10
+          ],
+          "pawnPositions": [
+            {
+              "x": 0,
+              "y": 2
+            },
+            {
+              "x": 5,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            7
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 7,
+          "side": 1,
+          "chosen": {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "h"
+          },
+          "q": -0.039363447576761246,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "wall",
+                "x": 0,
+                "y": 0,
+                "o": "h"
+              },
+              "visits": 159,
+              "qFromRoot": -0.5348755496220207,
+              "prior": 0.469772480385052
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              "visits": 152,
+              "qFromRoot": -0.5089346827130372,
+              "prior": 0.10898802754123477
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              "visits": 1,
+              "qFromRoot": -0.8437567949295044,
+              "prior": 0.0366989807241752
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 4
+              },
+              "visits": 1,
+              "qFromRoot": -0.8490607738494873,
+              "prior": 0.02196416634711874
+            }
+          ],
+          "distancesBefore": [
+            2,
+            10
+          ],
+          "distancesAfter": [
+            4,
+            10
+          ],
+          "pawnPositions": [
+            {
+              "x": 0,
+              "y": 2
+            },
+            {
+              "x": 5,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 8,
+          "side": 0,
+          "chosen": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          },
+          "q": 0.4410995543003082,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 1,
+                "y": 2
+              },
+              "visits": 249,
+              "qFromRoot": 0.5605764155242458,
+              "prior": 0.27850410681278204
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 0,
+                "y": 3
+              },
+              "visits": 71,
+              "qFromRoot": 0.5193117246241636,
+              "prior": 0.2948789843268498
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 0,
+                "y": 1
+              },
+              "visits": 18,
+              "qFromRoot": 0.38319108593795037,
+              "prior": 0.26179574871755923
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h"
+              },
+              "visits": 0,
+              "qFromRoot": null,
+              "prior": 0.0012258218305324928
+            }
+          ],
+          "distancesBefore": [
+            4,
+            10
+          ],
+          "distancesAfter": [
+            5,
+            10
+          ],
+          "pawnPositions": [
+            {
+              "x": 1,
+              "y": 2
+            },
+            {
+              "x": 5,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 9,
+          "side": 1,
+          "chosen": {
+            "type": "move",
+            "x": 5,
+            "y": 2
+          },
+          "q": 0.13887794315814972,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              "visits": 81,
+              "qFromRoot": -0.5735737368878391,
+              "prior": 0.13462847124719463
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 4
+              },
+              "visits": 62,
+              "qFromRoot": -0.5615042933533269,
+              "prior": 0.04145957023510834
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              "visits": 47,
+              "qFromRoot": -0.6242595603491398,
+              "prior": 0.3383504078914614
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 6,
+                "y": 3
+              },
+              "visits": 42,
+              "qFromRoot": -0.6044222286769322,
+              "prior": 0.20439993563421008
+            }
+          ],
+          "distancesBefore": [
+            5,
+            10
+          ],
+          "distancesAfter": [
+            5,
+            11
+          ],
+          "pawnPositions": [
+            {
+              "x": 1,
+              "y": 2
+            },
+            {
+              "x": 5,
+              "y": 2
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 10,
+          "side": 0,
+          "chosen": {
+            "type": "move",
+            "x": 2,
+            "y": 2
+          },
+          "q": 0.5431810617446899,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 2
+              },
+              "visits": 207,
+              "qFromRoot": 0.6564668429358569,
+              "prior": 0.34988262516945406
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 1,
+                "y": 3
+              },
+              "visits": 75,
+              "qFromRoot": 0.5724453669637442,
+              "prior": 0.43706142555757477
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 0,
+                "y": 2
+              },
+              "visits": 3,
+              "qFromRoot": 0.15744916598002115,
+              "prior": 0.12253465266738013
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h"
+              },
+              "visits": 0,
+              "qFromRoot": null,
+              "prior": 0.0007293448688105798
+            }
+          ],
+          "distancesBefore": [
+            5,
+            11
+          ],
+          "distancesAfter": [
+            5,
+            11
+          ],
+          "pawnPositions": [
+            {
+              "x": 2,
+              "y": 2
+            },
+            {
+              "x": 5,
+              "y": 2
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 11,
+          "side": 1,
+          "chosen": {
+            "type": "move",
+            "x": 4,
+            "y": 2
+          },
+          "q": -0.5255568623542786,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              "visits": 89,
+              "qFromRoot": -0.6796417222933823,
+              "prior": 0.40464903205876923
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 3
+              },
+              "visits": 88,
+              "qFromRoot": -0.6494626389308409,
+              "prior": 0.19083321205295728
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 6,
+                "y": 2
+              },
+              "visits": 19,
+              "qFromRoot": -0.6918138932975891,
+              "prior": 0.11934642516017024
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 1
+              },
+              "visits": 5,
+              "qFromRoot": -0.7178303241729737,
+              "prior": 0.042373966027308495
+            }
+          ],
+          "distancesBefore": [
+            5,
+            11
+          ],
+          "distancesAfter": [
+            5,
+            10
+          ],
+          "pawnPositions": [
+            {
+              "x": 2,
+              "y": 2
+            },
+            {
+              "x": 4,
+              "y": 2
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 12,
+          "side": 0,
+          "chosen": {
+            "type": "move",
+            "x": 3,
+            "y": 2
+          },
+          "q": 0.5612426400184631,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 3,
+                "y": 2
+              },
+              "visits": 249,
+              "qFromRoot": 0.7048115768346443,
+              "prior": 0.23896052583208446
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 3
+              },
+              "visits": 27,
+              "qFromRoot": 0.563419908505899,
+              "prior": 0.3870963077737524
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 1,
+                "y": 2
+              },
+              "visits": 4,
+              "qFromRoot": 0.07838682532310486,
+              "prior": 0.26028759924979833
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 0,
+                "y": 7,
+                "o": "h"
+              },
+              "visits": 0,
+              "qFromRoot": null,
+              "prior": 0.0007123535697104843
+            }
+          ],
+          "distancesBefore": [
+            5,
+            10
+          ],
+          "distancesAfter": [
+            4,
+            10
+          ],
+          "pawnPositions": [
+            {
+              "x": 3,
+              "y": 2
+            },
+            {
+              "x": 4,
+              "y": 2
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 13,
+          "side": 1,
+          "chosen": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "q": -0.5325875878334045,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              "visits": 173,
+              "qFromRoot": -0.7213267422997194,
+              "prior": 0.29189437554815467
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 2
+              },
+              "visits": 53,
+              "qFromRoot": -0.7212496523587208,
+              "prior": 0.07763703070882731
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 2
+              },
+              "visits": 27,
+              "qFromRoot": -0.7837466029105363,
+              "prior": 0.22517516965617518
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 4,
+                "y": 2,
+                "o": "v"
+              },
+              "visits": 6,
+              "qFromRoot": -0.8924364348252615,
+              "prior": 0.12269070125601979
+            }
+          ],
+          "distancesBefore": [
+            4,
+            10
+          ],
+          "distancesAfter": [
+            4,
+            9
+          ],
+          "pawnPositions": [
+            {
+              "x": 3,
+              "y": 2
+            },
+            {
+              "x": 4,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 14,
+          "side": 0,
+          "chosen": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          },
+          "q": 0.7027336955070496,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 3,
+                "y": 3
+              },
+              "visits": 334,
+              "qFromRoot": 0.7430321202351305,
+              "prior": 0.4058579604503203
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              "visits": 21,
+              "qFromRoot": 0.5768241534630457,
+              "prior": 0.28264982826755075
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 2
+              },
+              "visits": 10,
+              "qFromRoot": 0.5442182976007461,
+              "prior": 0.1888382535305805
+            },
+            {
+              "action": {
+                "type": "wall",
+                "x": 1,
+                "y": 4,
+                "o": "h"
+              },
+              "visits": 1,
+              "qFromRoot": -0.6605149507522583,
+              "prior": 0.018973637020028723
+            }
+          ],
+          "distancesBefore": [
+            4,
+            9
+          ],
+          "distancesAfter": [
+            5,
+            9
+          ],
+          "pawnPositions": [
+            {
+              "x": 3,
+              "y": 3
+            },
+            {
+              "x": 4,
+              "y": 3
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 15,
+          "side": 1,
+          "chosen": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "q": -0.6044443845748901,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 5,
+                "y": 3
+              },
+              "visits": 139,
+              "qFromRoot": -0.7483744359702516,
+              "prior": 0.17145924372099106
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 4
+              },
+              "visits": 83,
+              "qFromRoot": -0.7446472832416914,
+              "prior": 0.07466313361390267
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 2
+              },
+              "visits": 79,
+              "qFromRoot": -0.7481862178331689,
+              "prior": 0.10002827004144417
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 3
+              },
+              "visits": 40,
+              "qFromRoot": -0.8303864367306233,
+              "prior": 0.34571978274803133
+            }
+          ],
+          "distancesBefore": [
+            5,
+            9
+          ],
+          "distancesAfter": [
+            5,
+            8
+          ],
+          "pawnPositions": [
+            {
+              "x": 3,
+              "y": 3
+            },
+            {
+              "x": 4,
+              "y": 4
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        },
+        {
+          "plyAfterForced": 16,
+          "side": 0,
+          "chosen": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          },
+          "q": 0.6785627603530884,
+          "rootChildren": [
+            {
+              "action": {
+                "type": "move",
+                "x": 4,
+                "y": 3
+              },
+              "visits": 251,
+              "qFromRoot": 0.6106867932228454,
+              "prior": 0.40151404095578075
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 2,
+                "y": 3
+              },
+              "visits": 9,
+              "qFromRoot": 0.2704532868332332,
+              "prior": 0.3313249250696818
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 3,
+                "y": 4
+              },
+              "visits": 3,
+              "qFromRoot": 0.23544460137685141,
+              "prior": 0.06181366368965507
+            },
+            {
+              "action": {
+                "type": "move",
+                "x": 3,
+                "y": 2
+              },
+              "visits": 2,
+              "qFromRoot": 0.027868354320526117,
+              "prior": 0.07669225634724391
+            }
+          ],
+          "distancesBefore": [
+            5,
+            8
+          ],
+          "distancesAfter": [
+            4,
+            8
+          ],
+          "pawnPositions": [
+            {
+              "x": 4,
+              "y": 3
+            },
+            {
+              "x": 4,
+              "y": 4
+            }
+          ],
+          "remainingWalls": [
+            4,
+            6
+          ],
+          "winner": null
+        }
+      ],
+      "stateAfter16Plies": {
+        "p": [
+          {
+            "x": 4,
+            "y": 3
+          },
+          {
+            "x": 4,
+            "y": 4
+          }
+        ],
+        "walls": [
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 6,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 0,
+            "o": "v",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 1,
+            "o": "h",
+            "owner": 1
+          },
+          {
+            "type": "wall",
+            "x": 5,
+            "y": 4,
+            "o": "h",
+            "owner": 0
+          },
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 0,
+            "o": "h",
+            "owner": 1
+          }
+        ],
+        "left": [
+          4,
+          6
+        ],
+        "turn": 1,
+        "winner": null,
+        "distances": [
+          4,
+          8
+        ]
+      }
+    }
+  ]
+}

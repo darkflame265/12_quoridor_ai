@@ -1,0 +1,213 @@
+{
+  "version": "sigma4-strong-opponent-reply-matched-v1",
+  "settings": {
+    "seeds": [
+      45611,
+      45629
+    ],
+    "followupMethod": "weighted-our-side-vs-native-opponent",
+    "researchRate": 0.55,
+    "sims": 200,
+    "reuse": false
+  },
+  "source": "evaluation/sigma4-weighted-mined.json",
+  "planned": 8,
+  "results": [
+    {
+      "id": "w-86719-sigma2-1-9",
+      "seed": 45611,
+      "choice": 0,
+      "rootSplit": "train",
+      "side": 1,
+      "rootKey": "6cae9b5146e2afc86dabe486f69ca603c7b35919b79b0bed90d124fd1e04cbd7",
+      "forcedAction": {
+        "type": "wall",
+        "x": 3,
+        "y": 4,
+        "o": "v"
+      },
+      "forcedNotation": "d5│",
+      "rootWon": true,
+      "cutoff": false,
+      "winner": 1,
+      "continuationPlies": 63,
+      "uniqueHash": "cdcf701ed0ebcac7fa2530d72ccc556e4da8b0cec7dfc0e0b1e1ed9781ae3d8a",
+      "explorationChanges": 0,
+      "finalPaths": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": "w-86719-sigma2-1-9",
+      "seed": 45611,
+      "choice": 1,
+      "rootSplit": "train",
+      "side": 1,
+      "rootKey": "6cae9b5146e2afc86dabe486f69ca603c7b35919b79b0bed90d124fd1e04cbd7",
+      "forcedAction": {
+        "type": "move",
+        "x": 5,
+        "y": 3
+      },
+      "forcedNotation": "f6",
+      "rootWon": true,
+      "cutoff": false,
+      "winner": 1,
+      "continuationPlies": 61,
+      "uniqueHash": "0be3b16ae57e3f8316b493e5a46d10dd6a67d5cd0318bd0a7d1e7b147a95f5e5",
+      "explorationChanges": 0,
+      "finalPaths": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "w-86719-sigma2-1-9",
+      "seed": 45629,
+      "choice": 0,
+      "rootSplit": "train",
+      "side": 1,
+      "rootKey": "6cae9b5146e2afc86dabe486f69ca603c7b35919b79b0bed90d124fd1e04cbd7",
+      "forcedAction": {
+        "type": "wall",
+        "x": 3,
+        "y": 4,
+        "o": "v"
+      },
+      "forcedNotation": "d5│",
+      "rootWon": true,
+      "cutoff": false,
+      "winner": 1,
+      "continuationPlies": 63,
+      "uniqueHash": "cdcf701ed0ebcac7fa2530d72ccc556e4da8b0cec7dfc0e0b1e1ed9781ae3d8a",
+      "explorationChanges": 0,
+      "finalPaths": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": "w-86719-sigma2-1-9",
+      "seed": 45629,
+      "choice": 1,
+      "rootSplit": "train",
+      "side": 1,
+      "rootKey": "6cae9b5146e2afc86dabe486f69ca603c7b35919b79b0bed90d124fd1e04cbd7",
+      "forcedAction": {
+        "type": "move",
+        "x": 5,
+        "y": 3
+      },
+      "forcedNotation": "f6",
+      "rootWon": true,
+      "cutoff": false,
+      "winner": 1,
+      "continuationPlies": 43,
+      "uniqueHash": "5e358b669d1de34c6f9826ad2811a1b887c9ac55dc8243628bbb6097a7ed075b",
+      "explorationChanges": 1,
+      "finalPaths": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": "w-91867-sigma2-1-19",
+      "seed": 45611,
+      "choice": 0,
+      "rootSplit": "train",
+      "side": 1,
+      "rootKey": "62c1e3d8e1ecaac7dc11d29f8f306b7005a250d6dbd216c3d65bd5c32a85bcf0",
+      "forcedAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 0,
+        "o": "v"
+      },
+      "forcedNotation": "c9│",
+      "rootWon": false,
+      "cutoff": false,
+      "winner": 0,
+      "continuationPlies": 44,
+      "uniqueHash": "c62afc511ab4bc3b6b4089f3b91fced56de2fdac1ced7751d873791f47e0cb39",
+      "explorationChanges": 0,
+      "finalPaths": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "w-91867-sigma2-1-19",
+      "seed": 45611,
+      "choice": 1,
+      "rootSplit": "train",
+      "side": 1,
+      "rootKey": "62c1e3d8e1ecaac7dc11d29f8f306b7005a250d6dbd216c3d65bd5c32a85bcf0",
+      "forcedAction": {
+        "type": "move",
+        "x": 4,
+        "y": 1
+      },
+      "forcedNotation": "e8",
+      "rootWon": false,
+      "cutoff": false,
+      "winner": 0,
+      "continuationPlies": 46,
+      "uniqueHash": "ad364fee7b966d75e070c668bf1081136c04ae88cc0aad4b741ea6ccf45a67d2",
+      "explorationChanges": 2,
+      "finalPaths": [
+        0,
+        8
+      ]
+    },
+    {
+      "id": "w-91867-sigma2-1-19",
+      "seed": 45629,
+      "choice": 0,
+      "rootSplit": "train",
+      "side": 1,
+      "rootKey": "62c1e3d8e1ecaac7dc11d29f8f306b7005a250d6dbd216c3d65bd5c32a85bcf0",
+      "forcedAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 0,
+        "o": "v"
+      },
+      "forcedNotation": "c9│",
+      "rootWon": false,
+      "cutoff": false,
+      "winner": 0,
+      "continuationPlies": 44,
+      "uniqueHash": "c62afc511ab4bc3b6b4089f3b91fced56de2fdac1ced7751d873791f47e0cb39",
+      "explorationChanges": 0,
+      "finalPaths": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "w-91867-sigma2-1-19",
+      "seed": 45629,
+      "choice": 1,
+      "rootSplit": "train",
+      "side": 1,
+      "rootKey": "62c1e3d8e1ecaac7dc11d29f8f306b7005a250d6dbd216c3d65bd5c32a85bcf0",
+      "forcedAction": {
+        "type": "move",
+        "x": 4,
+        "y": 1
+      },
+      "forcedNotation": "e8",
+      "rootWon": false,
+      "cutoff": false,
+      "winner": 0,
+      "continuationPlies": 34,
+      "uniqueHash": "249b207832d3925f9ce36a847b76bf0c315130b392c2b1e6bfdb78f7a50ac809",
+      "explorationChanges": 3,
+      "finalPaths": [
+        0,
+        5
+      ]
+    }
+  ]
+}

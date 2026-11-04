@@ -1,0 +1,504 @@
+{
+  "version": "sigma3-confidence-gate-opening-paired20-v1",
+  "settings": {
+    "protectedOpeningPlies": 18,
+    "maxQGap": 0.15,
+    "maxQPenalty": 0.1,
+    "minimumVisits": 15,
+    "minimumTacticalGain": 0.8,
+    "attackBeam": 6,
+    "defenderBeam": 4,
+    "wallRiskWeight": 0.35
+  },
+  "patterns": [
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      2,
+      2,
+      0,
+      0
+    ],
+    [
+      1,
+      2,
+      1,
+      2
+    ]
+  ],
+  "totalGames": 20,
+  "games": [
+    {
+      "opening": [
+        "e2",
+        "f9",
+        "e3",
+        "g9"
+      ],
+      "side": 0,
+      "arm": "base",
+      "winner": 0,
+      "rootWon": true,
+      "cutoff": false,
+      "plies": 53,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 0,
+      "sigmaMoves": 27,
+      "finalDistances": [
+        0,
+        10
+      ],
+      "reusedBaseline": true
+    },
+    {
+      "opening": [
+        "e2",
+        "f9",
+        "e3",
+        "g9"
+      ],
+      "side": 0,
+      "arm": "guard",
+      "winner": 0,
+      "rootWon": true,
+      "cutoff": false,
+      "plies": 53,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 4234,
+      "sigmaMoves": 27,
+      "finalDistances": [
+        0,
+        10
+      ]
+    },
+    {
+      "opening": [
+        "e2",
+        "f9",
+        "e3",
+        "g9"
+      ],
+      "side": 1,
+      "arm": "base",
+      "winner": 0,
+      "rootWon": false,
+      "cutoff": false,
+      "plies": 53,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 0,
+      "sigmaMoves": 26,
+      "finalDistances": [
+        0,
+        10
+      ],
+      "reusedBaseline": true
+    },
+    {
+      "opening": [
+        "e2",
+        "f9",
+        "e3",
+        "g9"
+      ],
+      "side": 1,
+      "arm": "guard",
+      "winner": 0,
+      "rootWon": false,
+      "cutoff": false,
+      "plies": 53,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 7290,
+      "sigmaMoves": 26,
+      "finalDistances": [
+        0,
+        10
+      ]
+    },
+    {
+      "opening": [
+        "e2",
+        "e8",
+        "f2",
+        "e9"
+      ],
+      "side": 0,
+      "arm": "base",
+      "winner": 0,
+      "rootWon": true,
+      "cutoff": false,
+      "plies": 47,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 0,
+      "sigmaMoves": 24,
+      "finalDistances": [
+        0,
+        10
+      ],
+      "reusedBaseline": true
+    },
+    {
+      "opening": [
+        "e2",
+        "e8",
+        "f2",
+        "e9"
+      ],
+      "side": 0,
+      "arm": "guard",
+      "winner": 0,
+      "rootWon": true,
+      "cutoff": false,
+      "plies": 47,
+      "overrides": 1,
+      "changes": [
+        {
+          "ply": 34,
+          "from": "c9│",
+          "to": "e7"
+        }
+      ],
+      "extraMs": 2348,
+      "sigmaMoves": 24,
+      "finalDistances": [
+        0,
+        10
+      ]
+    },
+    {
+      "opening": [
+        "e2",
+        "e8",
+        "f2",
+        "e9"
+      ],
+      "side": 1,
+      "arm": "base",
+      "winner": 0,
+      "rootWon": false,
+      "cutoff": false,
+      "plies": 47,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 0,
+      "sigmaMoves": 23,
+      "finalDistances": [
+        0,
+        10
+      ],
+      "reusedBaseline": true
+    },
+    {
+      "opening": [
+        "e2",
+        "e8",
+        "f2",
+        "e9"
+      ],
+      "side": 1,
+      "arm": "guard",
+      "winner": 0,
+      "rootWon": false,
+      "cutoff": false,
+      "plies": 47,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 4657,
+      "sigmaMoves": 23,
+      "finalDistances": [
+        0,
+        10
+      ]
+    },
+    {
+      "opening": [
+        "f1",
+        "f9",
+        "f2",
+        "f8"
+      ],
+      "side": 0,
+      "arm": "base",
+      "winner": 0,
+      "rootWon": true,
+      "cutoff": false,
+      "plies": 73,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 0,
+      "sigmaMoves": 37,
+      "finalDistances": [
+        0,
+        8
+      ],
+      "reusedBaseline": true
+    },
+    {
+      "opening": [
+        "f1",
+        "f9",
+        "f2",
+        "f8"
+      ],
+      "side": 0,
+      "arm": "guard",
+      "winner": 0,
+      "rootWon": true,
+      "cutoff": false,
+      "plies": 73,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 4568,
+      "sigmaMoves": 37,
+      "finalDistances": [
+        0,
+        8
+      ]
+    },
+    {
+      "opening": [
+        "f1",
+        "f9",
+        "f2",
+        "f8"
+      ],
+      "side": 1,
+      "arm": "base",
+      "winner": 1,
+      "rootWon": true,
+      "cutoff": false,
+      "plies": 80,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 0,
+      "sigmaMoves": 40,
+      "finalDistances": [
+        2,
+        0
+      ],
+      "reusedBaseline": true
+    },
+    {
+      "opening": [
+        "f1",
+        "f9",
+        "f2",
+        "f8"
+      ],
+      "side": 1,
+      "arm": "guard",
+      "winner": 1,
+      "rootWon": true,
+      "cutoff": false,
+      "plies": 80,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 1350,
+      "sigmaMoves": 40,
+      "finalDistances": [
+        2,
+        0
+      ]
+    },
+    {
+      "opening": [
+        "d1",
+        "d9",
+        "d2",
+        "e9"
+      ],
+      "side": 0,
+      "arm": "base",
+      "winner": 1,
+      "rootWon": false,
+      "cutoff": false,
+      "plies": 70,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 0,
+      "sigmaMoves": 35,
+      "finalDistances": [
+        1,
+        0
+      ],
+      "reusedBaseline": true
+    },
+    {
+      "opening": [
+        "d1",
+        "d9",
+        "d2",
+        "e9"
+      ],
+      "side": 0,
+      "arm": "guard",
+      "winner": 1,
+      "rootWon": false,
+      "cutoff": false,
+      "plies": 70,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 7882,
+      "sigmaMoves": 35,
+      "finalDistances": [
+        1,
+        0
+      ]
+    },
+    {
+      "opening": [
+        "d1",
+        "d9",
+        "d2",
+        "e9"
+      ],
+      "side": 1,
+      "arm": "base",
+      "winner": 0,
+      "rootWon": false,
+      "cutoff": false,
+      "plies": 75,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 0,
+      "sigmaMoves": 37,
+      "finalDistances": [
+        0,
+        1
+      ],
+      "reusedBaseline": true
+    },
+    {
+      "opening": [
+        "d1",
+        "d9",
+        "d2",
+        "e9"
+      ],
+      "side": 1,
+      "arm": "guard",
+      "winner": 0,
+      "rootWon": false,
+      "cutoff": false,
+      "plies": 75,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 4986,
+      "sigmaMoves": 37,
+      "finalDistances": [
+        0,
+        1
+      ]
+    },
+    {
+      "opening": [
+        "f1",
+        "d9",
+        "g1",
+        "c9"
+      ],
+      "side": 0,
+      "arm": "base",
+      "winner": 0,
+      "rootWon": true,
+      "cutoff": false,
+      "plies": 83,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 0,
+      "sigmaMoves": 42,
+      "finalDistances": [
+        0,
+        1
+      ],
+      "reusedBaseline": true
+    },
+    {
+      "opening": [
+        "f1",
+        "d9",
+        "g1",
+        "c9"
+      ],
+      "side": 0,
+      "arm": "guard",
+      "winner": 0,
+      "rootWon": true,
+      "cutoff": false,
+      "plies": 83,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 1302,
+      "sigmaMoves": 42,
+      "finalDistances": [
+        0,
+        1
+      ]
+    },
+    {
+      "opening": [
+        "f1",
+        "d9",
+        "g1",
+        "c9"
+      ],
+      "side": 1,
+      "arm": "base",
+      "winner": 0,
+      "rootWon": false,
+      "cutoff": false,
+      "plies": 83,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 0,
+      "sigmaMoves": 41,
+      "finalDistances": [
+        0,
+        10
+      ],
+      "reusedBaseline": true
+    },
+    {
+      "opening": [
+        "f1",
+        "d9",
+        "g1",
+        "c9"
+      ],
+      "side": 1,
+      "arm": "guard",
+      "winner": 0,
+      "rootWon": false,
+      "cutoff": false,
+      "plies": 83,
+      "overrides": 0,
+      "changes": [],
+      "extraMs": 18676,
+      "sigmaMoves": 41,
+      "finalDistances": [
+        0,
+        10
+      ]
+    }
+  ]
+}

@@ -1,6 +1,0 @@
-import {readFileSync} from 'node:fs';import {fileURLToPath} from 'node:url';import {nativeSources,nativeSourceHash,digest} from './native-policy.mjs';
-export const rootGuardExecutable=fileURLToPath(new URL(`../root-guard-engine/target/release/quoridor-root-guard${process.platform==='win32'?'.exe':''}`,import.meta.url));
-export const rootGuardModes=['root','tactical'];
-export const rootGuardSources=[...nativeSources,'speed-engine/src/ranking-paths.rs','root-guard-engine/Cargo.toml','root-guard-engine/Cargo.lock','root-guard-engine/build.rs','root-guard-engine/src/lib.rs','root-guard-engine/src/main.rs','root-guard-engine/src/root-policy.rs','root-guard-engine/src/bin/branches.rs'];
-export function rootGuardIdentity(){return {baselineSourceHash:nativeSourceHash(),sources:Object.fromEntries(rootGuardSources.map(f=>[f,digest(readFileSync(f))])),binaryHash:digest(readFileSync(rootGuardExecutable)),branchBinaryHash:digest(readFileSync(rootGuardExecutable.replace(/quoridor-root-guard(\.exe)?$/,'branches$1')))};}
-export function verifyRootGuardBuild(){const r=rootGuardIdentity(),saved=JSON.parse(readFileSync('root-guard-engine/target/release/source-manifest.json'));if(JSON.stringify(r)!==JSON.stringify(saved))throw Error('Rebuild root guard engine');return r;}

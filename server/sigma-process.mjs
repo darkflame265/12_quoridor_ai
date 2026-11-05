@@ -11,7 +11,7 @@ const allowed=state=>{
  return actions.map(a=>JSON.stringify(Object.fromEntries(Object.entries(a).sort(([a],[b])=>a.localeCompare(b)))));
 };
 export class SigmaProcess {
- constructor({variant='sigma1'}={}){this.variant=variant;this.profile=variant;this.child=null;this.pending=new Map();this.ready=null;}
+ constructor({variant='sigma2'}={}){this.variant=variant;this.profile=variant;this.child=null;this.pending=new Map();this.ready=null;}
  ensure(){
   if(this.child)return this.ready;
   const child=spawn('python',['-u','scripts/sigma-inference-worker.py'],{env:{...process.env,SIGMA_MODE:'puct',SIGMA_SIMS:'50',SIGMA_VARIANT:this.variant,SIGMA2_SIMS:'200'},stdio:['pipe','pipe','pipe'],windowsHide:true});

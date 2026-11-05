@@ -1,10 +1,8 @@
 import http from 'node:http';
-import {fileURLToPath} from 'node:url';
-import path from 'node:path';
-import {NativeProcess} from './native-process.mjs';
-import {activeNativeProfile} from '../evaluation/native-policy.mjs';
 function validState(s){return s&&Array.isArray(s.p)&&s.p.length===2&&s.p.every(p=>p&&Number.isInteger(p.x)&&Number.isInteger(p.y)&&p.x>=0&&p.x<9&&p.y>=0&&p.y<9)&&Array.isArray(s.left)&&s.left.length===2&&s.left.every(n=>Number.isInteger(n)&&n>=0&&n<=10)&&[0,1].includes(s.turn)&&[null,0,1].includes(s.winner)&&Array.isArray(s.walls)&&s.walls.length<=20&&s.walls.every(w=>w&&['h','v'].includes(w.o)&&Number.isInteger(w.x)&&Number.isInteger(w.y)&&w.x>=0&&w.x<8&&w.y>=0&&w.y<8);}
-export function createNativeService({client=new NativeProcess({profile:activeNativeProfile()}),engineInfo={id:'atlas5',label:activeNativeProfile()==='candidate'?'Atlas 안정':'Atlas 기준 프로필',version:activeNativeProfile()==='candidate'?'5.3':'5'}}={}){
+// Shared local HTTP transport; engine construction belongs to Sigma services.
+export function createNativeService({client,engineInfo}={}){
+ if(!client||!engineInfo)throw Error('Engine client and identity are required');
  let active=null;const server=http.createServer(async(req,res)=>{
   const origin=req.headers.origin,host=req.headers.host??'';
   if(!/^(127\.0\.0\.1|localhost):\d+$/.test(host)||origin&&!/^http:\/\/(127\.0\.0\.1|localhost):\d+$/.test(origin)){res.writeHead(403);res.end('Local origin required');return;}
@@ -28,11 +26,5 @@ export function createNativeService({client=new NativeProcess({profile:activeNat
    finally{if(active===task)active=null;res.end();}
   }catch(error){if(!res.headersSent)reply(503,{error:error.message});else res.end();}
  });
- return {server,client,engineInfo,async close(){client.close();server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}};
-}
-if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
- const service=createNativeService(),port=Number(process.env.QUORIDOR_NATIVE_PORT??4317);await service.client.health();await new Promise((resolve,reject)=>{service.server.once('error',reject);service.server.listen(port,'127.0.0.1',resolve);});
- const stop=()=>{service.close().finally(()=>process.exit());};process.on('SIGINT',stop);process.on('SIGTERM',stop);
- process.on('message',message=>{if(message?.op==='shutdown')stop();});process.on('disconnect',stop);
- console.log(`Atlas native service: http://127.0.0.1:${service.server.address().port}`);
+ return {server,client,engineInfo,async close(){await client.close();server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}};
 }

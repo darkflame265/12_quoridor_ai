@@ -1,5 +1,2 @@
-// Both spectator engines are loaded lazily inside module Workers.
-import {verifyPressureBuild} from './evaluation/pressure-policy.mjs';
-let pressureBuild='unverified';try{pressureBuild=verifyPressureBuild().binaryHash.slice(0,12);}catch{}
-const nativeProxy=Object.fromEntries([['native',4317],['goal',4321]].map(([name,port])=>['/api/'+name,{target:'http://127.0.0.1:'+port,changeOrigin:true,rewrite:path=>path.replace('/api/'+name,'')} ]));
-export default {define:{__PRESSURE_BUILD__:JSON.stringify(pressureBuild)},worker:{format:'es'},server:{proxy:nativeProxy},preview:{proxy:nativeProxy}};
+const proxies=Object.fromEntries([['sigma2',4322],['sigma3',4323],['sigma4',4324]].map(([name,port])=>['/api/'+name,{target:'http://127.0.0.1:'+port,changeOrigin:true,rewrite:path=>path.replace('/api/'+name,'')}]));
+export default {worker:{format:'es'},server:{host:'127.0.0.1',proxy:proxies},preview:{proxy:proxies}};

@@ -4,13 +4,8 @@ import {readFile,writeFile,mkdir,open,unlink,stat} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import {randomUUID} from 'node:crypto';
-import {createNativeService} from '../server/native-service.mjs';
-import {nativeSources,digest} from '../evaluation/native-policy.mjs';
-import {createPressureService} from '../server/pressure-service.mjs';
 import {createSigmaService} from '../server/sigma-service.mjs';
 import {createSigma4Service} from '../server/sigma4-service.mjs';
-import {watchPressure} from './pressure-hot-reload.mjs';
-import {verifyPressureBuild} from '../evaluation/pressure-policy.mjs';
 import {runtimeFingerprint} from './runtime-identity.mjs';
 import {leaseOwner,removeUnchangedLease} from './play-lock.mjs';
 
@@ -48,16 +43,9 @@ if(args.includes('--stop')) {
   await new Promise(r=>setTimeout(r,200));
  }
  if(!acquired){console.error('쿼리도 실행 준비를 2분 동안 확인하지 못했습니다. 기존 실행의 준비 로그와 포트 12324 상태를 확인해 주세요.');process.exit(1);}
- let native=null,goal=null,sigma=null,sigma2=null,sigma3=null,sigma4=null,web=null,watcher=null,stopping=null;const token=randomUUID();
+ let services={},web=null,stopping=null;const token=randomUUID();
  const cleanup=()=>stopping??=(async()=>{
-  watcher?.close();
-  if(web){web.closeAllConnections();await new Promise(r=>web.close(r));}
-  if(native)await native.close();
-  if(goal)await goal.close();
-  if(sigma)await sigma.close();
-  if(sigma2)await sigma2.close();
-  if(sigma3)await sigma3.close();
-   if(sigma4)await sigma4.close();
+  if(web){web.closeAllConnections();await new Promise(r=>web.close(r));}  await Promise.all(Object.values(services).map(service=>service.close()));
   const state=await existing();if(state?.pid===process.pid)await unlink(lock).catch(()=>{});
  })();
  process.on('SIGINT',()=>cleanup().then(()=>process.exit()));process.on('SIGTERM',()=>cleanup().then(()=>process.exit()));
@@ -67,36 +55,11 @@ if(args.includes('--stop')) {
   web=http.createServer((req,res)=>{res.writeHead(503,{'Retry-After':'2'});res.end('Quoridor is starting. Please refresh shortly.');});
   await new Promise((resolve,reject)=>{web.once('error',reject);web.listen(playPort,'127.0.0.1',resolve);});
   const run=(file,parameters=[])=>{const r=spawnSync(process.execPath,[file,...parameters],{stdio:'inherit',windowsHide:true});if(r.status!==0)throw Error(`준비 실패: ${file}`);};
-  // Build the browser bundle, not a development server. Reuse a native build
-  // only when its full source manifest still matches this checkout.
-  let ready=false;try{const manifest=JSON.parse(await readFile('native-engine/target/release/source-manifest.json'));
-   ready=(await Promise.all(nativeSources.map(async f=>manifest.sources[f]===digest(await readFile(f))))).every(Boolean);
-   await stat(`native-engine/target/release/quoridor-native${process.platform==='win32'?'.exe':''}`);
-  }catch{}
-  if(!ready)run('scripts/build-native.mjs');
-  native=createNativeService();await native.client.health();
-  await new Promise((resolve,reject)=>{native.server.once('error',reject);native.server.listen(0,'127.0.0.1',resolve);});
-  try{verifyPressureBuild();}catch{run('scripts/build-pressure.mjs');}
-  try{goal=createPressureService({goal:true});await goal.client.health();await new Promise((resolve,reject)=>{goal.server.once('error',reject);goal.server.listen(0,'127.0.0.1',resolve);});}catch(error){console.error(`골인 안전 실험 엔진 준비 실패: ${error.message}`);if(goal)await goal.close();goal=null;}
-  // Keep the public server alive while a new goal engine builds in isolation.
-  // Never interrupt an active native search; new requests switch after it drains.
-  watcher=watchPressure({root,folder,getCurrent:()=>goal,
-   replace:async(next,isClosed)=>{
-    while(!isClosed()&&goal?.client.pending.size>0)await new Promise(r=>setTimeout(r,100));
-    if(isClosed())return;
-    const previous=goal;goal=next;
-    if(previous)await previous.close();
-   },
-   onStatus:(status,error)=>console.log('[goal hot reload]',status,error?.message??'')
-  });
-  sigma=createSigmaService();await sigma.client.health();
-  await new Promise((resolve,reject)=>{sigma.server.once('error',reject);sigma.server.listen(0,'127.0.0.1',resolve);});
-  sigma2=createSigmaService('sigma2');await sigma2.client.health();
-  await new Promise((resolve,reject)=>{sigma2.server.once('error',reject);sigma2.server.listen(0,'127.0.0.1',resolve);});
-  sigma3=createSigmaService('sigma3');await sigma3.client.health();
-  await new Promise((resolve,reject)=>{sigma3.server.once('error',reject);sigma3.server.listen(0,'127.0.0.1',resolve);});
-   sigma4=createSigma4Service();await sigma4.client.health();
-   await new Promise((resolve,reject)=>{sigma4.server.once('error',reject);sigma4.server.listen(0,'127.0.0.1',resolve);});
+  for(const variant of ['sigma2','sigma3','sigma4']){
+   const service=variant==='sigma4'?createSigma4Service():createSigmaService(variant);services[variant]=service;
+   await service.client.health();
+   await new Promise((resolve,reject)=>{service.server.once('error',reject);service.server.listen(0,'127.0.0.1',resolve);});
+  }
   // Compile the browser contract after its engine build has been verified.
   if(!args.includes('--no-build'))run('node_modules/vite/bin/vite.js',['build']);
   const fingerprint=await runtimeFingerprint(root);
@@ -112,10 +75,10 @@ if(args.includes('--stop')) {
     if(pathname==='/__app/stop'&&req.method==='POST'){res.end('ok');setTimeout(()=>cleanup().then(()=>process.exit()),50);return;}
     res.writeHead(404).end();return;
    }
-   if(pathname.startsWith('/api/native/')||pathname.startsWith('/api/goal/')||pathname.startsWith('/api/sigma/')||pathname.startsWith('/api/sigma2/')||pathname.startsWith('/api/sigma3/')||pathname.startsWith('/api/sigma4/')) {
-    const selected=pathname.startsWith('/api/sigma4/')?sigma4:pathname.startsWith('/api/sigma3/')?sigma3:pathname.startsWith('/api/sigma2/')?sigma2:pathname.startsWith('/api/sigma/')?sigma:pathname.startsWith('/api/goal/')?goal:native;
-    if(!selected){res.writeHead(503).end('Experimental engine unavailable');return;}
-    const upstream=http.request({host:'127.0.0.1',port:selected.server.address().port,path:req.url.replace(/^\/api\/(native|goal|sigma4|sigma3|sigma2|sigma)/,''),method:req.method,headers:{...req.headers,host:`127.0.0.1:${selected.server.address().port}`}},reply=>{res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);});
+   if(pathname.startsWith('/api/')){
+    const match=pathname.match(/^\/api\/(sigma2|sigma3|sigma4)(\/.*)$/),selected=match&&services[match[1]];
+    if(!selected){res.writeHead(404).end('Unknown engine');return;}
+    const upstream=http.request({host:'127.0.0.1',port:selected.server.address().port,path:req.url.replace('/api/'+match[1],''),method:req.method,headers:{...req.headers,host:'127.0.0.1:'+selected.server.address().port}},reply=>{res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);});
     upstream.on('error',()=>{if(!res.headersSent)res.writeHead(503);res.end();});res.on('close',()=>upstream.destroy());req.pipe(upstream);return;
    }
    if(!['GET','HEAD'].includes(req.method)){res.writeHead(405).end();return;}

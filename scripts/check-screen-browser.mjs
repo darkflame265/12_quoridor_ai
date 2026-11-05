@@ -1,416 +1,49 @@
-// Isolated headless browser QA of our local app. It never attaches to the
-// user's browser/profile; capture is tested with our own canvas MediaStream.
-import assert from 'node:assert/strict';
-import http from 'node:http';
-import path from 'node:path';
-import {readFile,writeFile,mkdir,access,rm} from 'node:fs/promises';
-import {spawn,execFileSync} from 'node:child_process';
-import {fileURLToPath} from 'node:url';
-import {createPressureService} from '../server/pressure-service.mjs';
-const root=fileURLToPath(new URL('../',import.meta.url)),dist=path.join(root,'dist'),out=path.join(root,'reports',process.env.SCREEN_ANALYSIS_PANEL_QA==='1'?'analysis-panel':process.env.SCREEN_WALLZ_QA==='1'?'wallz-connect':process.env.SCREEN_COMPACT_QA==='1'?'compact-panels':process.env.SCREEN_RESYNC_QA==='1'?'screen-resync':'screen-import');
-execFileSync(process.execPath,[path.join(root,'node_modules','vite','bin','vite.js'),'build'],{cwd:root,stdio:'inherit',windowsHide:true});
-let browserPath;for(const candidate of [process.env.SCREEN_QA_CHROME,'C:/Program Files/Google/Chrome/Application/chrome.exe','C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe','/usr/bin/chromium','/usr/bin/google-chrome'].filter(Boolean)){try{await access(candidate);browserPath=candidate;break;}catch{}}
-if(!browserPath)throw Error('Set SCREEN_QA_CHROME to a Chrome/Edge executable');
-const temp=path.resolve(root,'native-engine','target',`screen-qa-${Date.now()}`),profile=path.join(temp,'profile');await mkdir(temp,{recursive:true});await mkdir(out,{recursive:true});
-const pressureService=process.env.QUORIDOR_PRESSURE_BROWSER_QA==='1'||process.env.SCREEN_COMPACT_QA==='1'||process.env.SCREEN_ANALYSIS_PANEL_QA==='1'?createPressureService():null;
-if(pressureService){await pressureService.client.health();await new Promise(resolve=>pressureService.server.listen(0,'127.0.0.1',resolve));}
-const tempoService=pressureService?createPressureService({tempo:true}):null;
-if(tempoService){await tempoService.client.health();await new Promise(resolve=>tempoService.server.listen(0,'127.0.0.1',resolve));}
-const goalService=pressureService?createPressureService({goal:true}):null;
-if(goalService){await goalService.client.health();await new Promise(resolve=>goalService.server.listen(0,'127.0.0.1',resolve));}
-const fixtureRoutes={'/_qa/fixture.js':'scripts/test-fixtures/screen-board.mjs','/_qa/screen-board.mjs':'scripts/test-fixtures/screen-board.mjs','/_qa/context-fixture.js':'scripts/test-fixtures/source-screen.mjs','/_qa/reader.js':'src/source-context.js','/_qa/screen-recognition.js':'src/screen-recognition.js','/_qa/wall-observation.js':'src/wall-observation.js','/_qa/move-dot-evidence.js':'src/move-dot-evidence.js','/_qa/engine.js':'src/engine.js','/_qa/observed-state.js':'src/observed-state.js'};
-fixtureRoutes['/_qa/goal-fixtures.json']='evaluation/fixtures/goal-safety-regressions.json';
-let stalePressure=false;
-const server=http.createServer(async(req,res)=>{try{const url=new URL(req.url,'http://localhost'),file=fixtureRoutes[url.pathname]?path.join(root,fixtureRoutes[url.pathname]):path.resolve(dist,'.'+(url.pathname==='/'?'/index.html':decodeURIComponent(url.pathname)));
- if(stalePressure&&url.pathname==='/api/pressure/health'){res.setHeader('Content-Type','application/json');res.end(JSON.stringify({service:'quoridor-native-v1',engineInfo:{id:'atlas-pressure',version:'0.1 experiment',build:'old'}}));return;}
- if(pressureService&&(url.pathname.startsWith('/api/pressure/')||url.pathname.startsWith('/api/tempo/')||url.pathname.startsWith('/api/goal/'))){const selected=url.pathname.startsWith('/api/goal/')?goalService:url.pathname.startsWith('/api/tempo/')?tempoService:pressureService;const upstream=http.request({host:'127.0.0.1',port:selected.server.address().port,path:req.url.replace(/^\/api\/(pressure|tempo|goal)/,''),method:req.method,headers:{...req.headers,host:`127.0.0.1:${selected.server.address().port}`}},reply=>{res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);});upstream.on('error',()=>{res.writeHead(503);res.end();});res.on('close',()=>upstream.destroy());req.pipe(upstream);return;}
- if(!file.startsWith(dist+path.sep)&&!Object.values(fixtureRoutes).some(relative=>file===path.join(root,relative))){res.writeHead(403);res.end();return;}
- const bytes=await readFile(file);res.setHeader('Content-Type',file.endsWith('.js')||file.endsWith('.mjs')?'text/javascript':file.endsWith('.css')?'text/css':file.endsWith('.html')?'text/html':file.endsWith('.wasm')?'application/wasm':'application/octet-stream');res.end(bytes);
- }catch{res.writeHead(404);res.end();}});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const url=`http://127.0.0.1:${server.address().port}/`;
+// Isolated UI smoke: synthetic capture/service; real Sigma inference is tested
+// separately by check-sigma-runtime.mjs. No user browser/profile is accessed.
+import assert from 'node:assert/strict';import http from 'node:http';import path from 'node:path';
+import {readFile,writeFile,mkdir,access,rm} from 'node:fs/promises';import {spawn,execFileSync} from 'node:child_process';import {fileURLToPath} from 'node:url';import {moves} from '../src/engine.js';
+const root=fileURLToPath(new URL('../',import.meta.url)),dist=path.join(root,'dist'),out=path.join(root,'reports/project-cleanup');
+execFileSync(process.execPath,['node_modules/vite/bin/vite.js','build'],{cwd:root,stdio:'inherit',windowsHide:true});await mkdir(out,{recursive:true});
+let browserPath;for(const candidate of [process.env.SCREEN_QA_CHROME,'C:/Program Files/Google/Chrome/Application/chrome.exe','C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe','/usr/bin/chromium'].filter(Boolean)){try{await access(candidate);browserPath=candidate;break;}catch{}}
+if(!browserPath)throw Error('Chrome or Edge is required for UI smoke');
+const temp=path.resolve('.local-app','qa-'+Date.now()),profile=path.join(temp,'profile');await mkdir(temp,{recursive:true});
+const fixtures={'/_qa/context.mjs':'scripts/test-fixtures/source-screen.mjs','/_qa/screen-board.mjs':'scripts/test-fixtures/screen-board.mjs'};
+const server=http.createServer(async(req,res)=>{try{
+ const url=new URL(req.url,'http://localhost'),engine=url.pathname.match(/^\/api\/(sigma[234])\/(health|search|cancel)$/);
+ if(engine){
+  if(engine[2]==='health'){res.setHeader('Content-Type','application/json');res.end(JSON.stringify({service:'quoridor-native-v1',engineInfo:{id:engine[1],label:engine[1],build:'ui-fixture',version:'test'}}));return;}
+  let body='';for await(const chunk of req)body+=chunk;const data=JSON.parse(body);
+  if(engine[2]==='cancel'){res.end('{}');return;}
+  res.setHeader('Content-Type','application/x-ndjson');res.end(JSON.stringify({id:data.id,done:true,pv:[{type:'move',...moves(data.state)[0]}],depth:1,score:0,nodes:1,elapsedMs:1})+'\n');return;
+ }
+ const file=fixtures[url.pathname]?path.join(root,fixtures[url.pathname]):path.resolve(dist,'.'+(url.pathname==='/'?'/index.html':url.pathname));
+ if(!file.startsWith(dist+path.sep)&&!Object.values(fixtures).some(f=>file===path.join(root,f))){res.writeHead(403).end();return;}
+ const bytes=await readFile(file);res.setHeader('Content-Type',/\.(js|mjs)$/.test(file)?'text/javascript':file.endsWith('.css')?'text/css':file.endsWith('.html')?'text/html':'application/octet-stream');res.end(bytes);
+ }catch{res.writeHead(404).end();}});await new Promise(r=>server.listen(0,'127.0.0.1',r));
 let chrome,ws,session,stderr='',counter=0;const pending=new Map(),errors=[],checks=[];
-async function send(method,params={},target=session){const id=++counter;return new Promise((resolve,reject)=>{const timer=setTimeout(()=>{pending.delete(id);reject(Error(`CDP timeout ${method}`));},20000);pending.set(id,{resolve,reject,timer});ws.send(JSON.stringify({id,method,params,...(target?{sessionId:target}:{})}));});}
+async function send(method,params={},target=session){const id=++counter;return new Promise((resolve,reject)=>{const timer=setTimeout(()=>{pending.delete(id);reject(Error('CDP timeout '+method));},15000);pending.set(id,{resolve,reject,timer});ws.send(JSON.stringify({id,method,params,...(target?{sessionId:target}:{})}));});}
 async function evaluate(expression){const r=await send('Runtime.evaluate',{expression,awaitPromise:true,returnByValue:true});if(r.exceptionDetails)throw Error(r.exceptionDetails.exception?.description??r.exceptionDetails.text);return r.result.value;}
-async function until(expression){const end=Date.now()+15000;while(Date.now()<end){if(await evaluate(expression))return;await new Promise(resolve=>setTimeout(resolve,50));}throw Error(`Condition timed out: ${expression}`);}
-async function screenshot(name){const r=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(path.join(out,name),Buffer.from(r.data,'base64'));}
-async function crop(){
- const r=await evaluate(`(()=>{const c=document.querySelector('#screen-source-canvas'),b=c.getBoundingClientRect();return {x:b.left+24/c.width*b.width,y:b.top+24/c.height*b.height,x2:b.left+536/c.width*b.width,y2:b.top+536/c.height*b.height};})()`);
- await send('Input.dispatchMouseEvent',{type:'mousePressed',x:r.x,y:r.y,button:'left',clickCount:1});await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:r.x2,y:r.y2,button:'left',buttons:1});await send('Input.dispatchMouseEvent',{type:'mouseReleased',x:r.x2,y:r.y2,button:'left',clickCount:1});
-}
+async function until(expression){const end=Date.now()+10000;while(Date.now()<end){if(await evaluate(expression))return;await new Promise(r=>setTimeout(r,50));}throw Error('Timed out: '+expression);}
 try{
- chrome=spawn(browserPath,['--headless=new','--disable-gpu','--no-first-run','--no-default-browser-check','--disable-background-networking','--remote-debugging-address=127.0.0.1','--remote-debugging-port=0','--remote-allow-origins=*',`--user-data-dir=${profile}`,'about:blank'],{windowsHide:true,stdio:['ignore','ignore','pipe']});
- const endpoint=await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('Browser did not start: '+stderr.slice(-1500))),15000);chrome.on('error',reject);chrome.stderr.on('data',b=>{stderr+=b.toString();const m=stderr.match(/DevTools listening on (ws:\/\/[^\s]+)/);if(m){clearTimeout(timer);resolve(m[1]);}});});
+ chrome=spawn(browserPath,['--headless=new','--disable-gpu','--no-first-run','--no-default-browser-check','--remote-debugging-address=127.0.0.1','--remote-debugging-port=0',`--user-data-dir=${profile}`,'about:blank'],{windowsHide:true,stdio:['ignore','ignore','pipe']});
+ const endpoint=await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('Browser startup failed')),15000);chrome.on('error',reject);chrome.stderr.on('data',b=>{stderr+=b;const m=stderr.match(/DevTools listening on (ws:\/\/[^\s]+)/);if(m){clearTimeout(timer);resolve(m[1]);}});});
  ws=new WebSocket(endpoint);await new Promise((resolve,reject)=>{ws.addEventListener('open',resolve,{once:true});ws.addEventListener('error',reject,{once:true});});
  ws.addEventListener('message',e=>{const r=JSON.parse(e.data);if(r.id){const p=pending.get(r.id);if(p){clearTimeout(p.timer);pending.delete(r.id);r.error?p.reject(Error(r.error.message)):p.resolve(r.result);}}else if(r.method==='Runtime.exceptionThrown')errors.push(r.params.exceptionDetails.exception?.description??r.params.exceptionDetails.text);});
  const target=await send('Target.createTarget',{url:'about:blank'},null);session=(await send('Target.attachToTarget',{targetId:target.targetId,flatten:true},null)).sessionId;
- await send('Page.enable');await send('Runtime.enable');await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1100,deviceScaleFactor:1,mobile:false});
- await send('Browser.setDownloadBehavior',{behavior:'deny'},null);
- await send('Page.addScriptToEvaluateOnNewDocument',{source:`if(!localStorage.getItem('quoridor-session'))localStorage.setItem('quoridor-session',JSON.stringify({version:2,records:[],mode:'sandbox',side:0,startPosition:'bottom',time:'${process.env.SCREEN_ANALYSIS_PANEL_QA==='1'?'variable':'500'}',cores:'1',engine:'${process.env.SCREEN_COMPACT_QA==='1'||process.env.SCREEN_ANALYSIS_PANEL_QA==='1'?'atlas-goal':'atlas3'}'}));`});
- await send('Page.navigate',{url});await until(`!!document.querySelector('#screen-open')`);
- if(process.env.SCREEN_ANALYSIS_PANEL_QA==='1'){
-  await evaluate(`document.querySelector('#mode').value='sandbox';document.querySelector('#mode').dispatchEvent(new Event('change'))`);
-  assert.equal(await evaluate(`!!document.querySelector('aside #analysis')`),false);
-  assert.equal(await evaluate(`document.querySelectorAll('#hint').length`),1);
-  await evaluate(`document.fonts.ready.then(()=>true)`);
-  await evaluate(`window.qaBoardTop=document.querySelector('#board').getBoundingClientRect().top;document.querySelector('#hint').click()`);
-  await until(`document.querySelector('#analysis-choice').textContent.startsWith('추천 ') && !!document.querySelector('#board .recommend')`);
-  assert.deepEqual(await evaluate(`({before:qaBoardTop,after:document.querySelector('#board').getBoundingClientRect().top})`),await evaluate(`({before:qaBoardTop,after:qaBoardTop})`));
-  checks.push('live native variable recommendation and board highlight render in the new panel without moving the board');
-  for(const width of [1440,950,390]){
-   await send('Emulation.setDeviceMetricsOverride',{width,height:1100,deviceScaleFactor:1,mobile:false});
-   const layout=await evaluate(`(()=>{const board=document.querySelector('#board'),panel=document.querySelector('#wait-advice'),scroll=document.querySelector('.analysis-scroll'),choice=document.querySelector('#analysis-choice');scrollTo(0,0);const before=board.getBoundingClientRect().top;document.querySelector('#analysis').textContent='긴 분석 결과와 위험 안내 '.repeat(800);document.querySelector('#wait-reason').textContent='화면 재확인 중 '.repeat(30);const after=board.getBoundingClientRect().top;scroll.scrollTop=200;return {before,after,height:panel.getBoundingClientRect().height,internalScroll:scroll.scrollHeight>scroll.clientHeight,choiceVisible:choice.getBoundingClientRect().top>=panel.getBoundingClientRect().top&&choice.getBoundingClientRect().bottom<=panel.getBoundingClientRect().bottom,overflow:document.documentElement.scrollWidth>innerWidth}})()`);
-   assert.equal(layout.before,layout.after);assert.equal(layout.height,width<=720?264:208);assert.equal(layout.internalScroll,true);assert.equal(layout.choiceVisible,true);assert.equal(layout.overflow,false);checks.push({width,...layout});await screenshot(`analysis-${width}.png`);
-  }
- }else if(process.env.SCREEN_WALLZ_QA==='1'){
-  await evaluate(`document.querySelector('#mode').value='screen';document.querySelector('#mode').dispatchEvent(new Event('change'));document.querySelector('#screen-close').click();document.querySelector('#screen-auto-hint').checked=false;Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async()=>{throw new DOMException('cancelled','NotAllowedError')}});document.querySelector('#screen-wallz').click()`);
-  await until(`!document.querySelector('#screen-wallz').disabled`);
-  assert.equal(await evaluate(`document.querySelector('#screen-dialog').open`),false);
-  assert.equal(await evaluate(`document.querySelector('#screen-auto-status').textContent.includes('취소')`),true);
-  checks.push('cancelled picker leaves the button reusable without opening a review dialog');
-  await evaluate(`(async()=>{const {paintSourceScreen}=await import('/_qa/context-fixture.js');window.qaLiveSource=document.createElement('canvas');window.qaLiveStream=null;window.qaPickCount=0;window.qaLivePaint=options=>{paintSourceScreen(qaLiveSource,{rounded:true,muted:true,labelSize:8,size:8,...options});qaLiveStream?.getVideoTracks()[0].requestFrame?.();};qaLivePaint({bottom:0,relative:'opponent',plies:12});Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async options=>{qaPickCount++;window.qaPickOptions=options;qaLiveStream=qaLiveSource.captureStream(30);return qaLiveStream;}});document.querySelector('#screen-wallz').click();})()`);
-  await until(`document.querySelector('#screen-connection').textContent.includes('활성') && !document.querySelector('#screen-dialog').open`);
-  assert.equal(await evaluate(`qaPickCount`),1);assert.equal(await evaluate(`qaPickOptions.video.displaySurface`),'browser');
-  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.turn`),1);
-  checks.push('one Wallz click requests tab sharing and automatically recognizes, applies, and starts monitoring');
-  await evaluate(`document.querySelector('#screen-auto-pause').click();document.querySelector('#screen-wallz').click()`);
-  await until(`document.querySelector('#screen-connection').textContent.includes('활성')`);assert.equal(await evaluate(`qaPickCount`),1);
-  checks.push('connected Wallz button reuses the existing stream and resumes monitoring without another picker');
-  await evaluate(`document.querySelector('#screen-disconnect').click();qaLivePaint({bottom:0,relative:'self',cardRole:null,phrase:false,plies:0});document.querySelector('#screen-wallz').click()`);
-  await until(`document.querySelector('#screen-dialog').open && document.querySelector('#screen-apply').disabled && !document.querySelector('#screen-wallz').disabled`);
-  checks.push('uncertain first connection opens correction instead of applying an unreadable turn');
- }else if(process.env.SCREEN_COMPACT_QA==='1'){
-  await evaluate(`document.querySelector('#mode').value='screen';document.querySelector('#mode').dispatchEvent(new Event('change'));document.querySelector('#screen-close').click();scrollTo(0,0)`);
-  for(const width of [1440,950,390]){
-   await send('Emulation.setDeviceMetricsOverride',{width,height:1100,deviceScaleFactor:1,mobile:false});
-   const layout=await evaluate(`(()=>{const box=id=>document.querySelector(id).getBoundingClientRect(),buttons=['#screen-open','#screen-disconnect','#screen-auto-pause','#screen-resync'].map(box);return {intro:!!document.querySelector('.intro'),diagnostic:!!document.querySelector('#screen-diagnostic'),settings:box('.play-settings').height,screen:box('#screen-panel').height,paired:Math.abs(buttons[0].top-buttons[1].top)<1&&Math.abs(buttons[2].top-buttons[3].top)<1,overflow:document.documentElement.scrollWidth>innerWidth,controlsFit:buttons.every(b=>b.left>=0&&b.right<=innerWidth),normalEngineHidden:document.querySelector('#engine-status').hidden}})()`);
-   assert.equal(layout.intro,false,JSON.stringify(layout));assert.equal(layout.diagnostic,false,JSON.stringify(layout));assert.equal(layout.paired,true,JSON.stringify(layout));assert.equal(layout.overflow,false,JSON.stringify(layout));assert.equal(layout.controlsFit,true,JSON.stringify(layout));assert.equal(layout.normalEngineHidden,true,JSON.stringify(layout));assert(layout.settings<350,JSON.stringify(layout));assert(layout.screen<300,JSON.stringify(layout));
-   checks.push({width,...layout});await screenshot(`compact-${width}.png`);
-  }
- }else if(process.env.SCREEN_RESYNC_QA==='1'){
-  await evaluate(`(async()=>{const {paintSourceScreen}=await import('/_qa/context-fixture.js');window.qaLiveSource=document.createElement('canvas');window.qaLiveStream=null;window.qaLivePaint=options=>{paintSourceScreen(qaLiveSource,{rounded:true,muted:true,labelSize:8,size:8,...options});qaLiveStream?.getVideoTracks()[0].requestFrame?.();};qaLivePaint({bottom:0,relative:'opponent',plies:12});Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async()=>{qaLiveStream=qaLiveSource.captureStream(30);return qaLiveStream;}});document.querySelector('#mode').value='screen';document.querySelector('#mode').dispatchEvent(new Event('change'));document.querySelector('#screen-auto-hint').checked=false;document.querySelector('#screen-open').click();document.querySelector('#screen-connect').click();})()`);
-  await until(`!document.querySelector('#screen-apply').disabled`);
-  assert.equal(await evaluate(`document.querySelector('#screen-dialog').open`),true);
-  await evaluate(`document.querySelector('#screen-apply').click()`);
-  await until(`document.querySelector('#screen-connection').textContent.includes('활성')`);
-  checks.push('initial connection still requires explicit confirmation');
-  await evaluate(`qaLivePaint({bottom:1,relative:'self',plies:0})`);
-  await until(`document.querySelector('#screen-auto-status').textContent.includes('내 진영 판독 불일치')`);
-  await evaluate(`document.querySelector('#screen-resync').click()`);
-  await until(`!document.querySelector('#screen-dialog').open && document.querySelector('#screen-connection').textContent.includes('활성') && JSON.parse(localStorage.getItem('quoridor-session')).side===1`);
-  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.turn`),1);
-  checks.push('valid fresh resync applies side and turn automatically, closes the dialog, and resumes monitoring');
-  await evaluate(`document.querySelector('#screen-auto-pause').click();document.querySelector('#screen-resync').click()`);
-  await until(`!document.querySelector('#screen-dialog').open && document.querySelector('#screen-connection').textContent.includes('활성')`);
-  checks.push('resync also resumes a deliberately paused monitor');
-  await evaluate(`qaLivePaint({bottom:1,relative:'self',cardRole:null,phrase:false,plies:0});new Promise(r=>setTimeout(r,250))`);
-  await evaluate(`document.querySelector('#screen-resync').click()`);
-  await until(`document.querySelector('#screen-dialog').open && document.querySelector('#screen-apply').disabled`);
-  assert.equal(await evaluate(`document.querySelector('#screen-connection').textContent.includes('일시정지')`),true);
-  assert.equal(await evaluate(`document.querySelector('#screen-resync').disabled`),false);
-  checks.push('uncertain turn keeps monitoring paused and opens correction rather than auto-applying');
- }else{
- const sourceReads=await evaluate(`(async()=>{const {paintSourceScreen}=await import('/_qa/context-fixture.js'),reader=await import('/_qa/reader.js');window.qaContextCanvas=document.createElement('canvas');window.qaSourceTemplates=reader.createSourceTemplates(document);window.qaPaintContext=options=>paintSourceScreen(qaContextCanvas,options);const results=[];for(const bottom of [0,1])for(const relative of ['self','opponent'])for(const font of ['Arial','Segoe UI']){const g=qaPaintContext({bottom,relative,font});const r=reader.readSourceContext(qaContextCanvas.getContext('2d').getImageData(0,0,1000,760),g.rect,{gap:g.gap,templates:qaSourceTemplates});results.push({bottom,relative,font,gotBottom:r.bottom,gotTurn:r.turn,moveCount:r.moveCount,moveEvidence:r.moveEvidence,evidence:r.evidence});}return results;})()`);
- for(const result of sourceReads){assert.equal(result.gotBottom,result.bottom);assert.equal(result.gotTurn,result.relative==='self'?result.bottom:1-result.bottom,JSON.stringify(result));assert.equal(result.moveCount,12,JSON.stringify(result));}
- checks.push('source captions and active player cards identify either turn for both bottom colors across fonts');
- const roundedReads=await evaluate(`(async()=>{const reader=await import('/_qa/reader.js'),results=[];for(const bottom of [0,1])for(const relative of ['self','opponent']){const g=qaPaintContext({bottom,relative,phrase:false,rounded:true,muted:true,labelSize:8,font:'Verdana',size:8});const r=reader.readSourceContext(qaContextCanvas.getContext('2d').getImageData(0,0,1000,760),g.rect,{gap:g.gap,templates:qaSourceTemplates});results.push({bottom,relative,turn:r.turn,evidence:r.evidence});}return results;})()`);
- for(const result of roundedReads)assert.equal(result.turn,result.relative==='self'?result.bottom:1-result.bottom,JSON.stringify(result));
- checks.push('dim one-pixel rounded player cards with small captions identify either turn without a turn phrase');
- const captionOnly=await evaluate(`(async()=>{const reader=await import('/_qa/reader.js'),results=[];for(const relative of ['self','opponent'])for(const size of [8,14]){const g=qaPaintContext({relative,cardRole:null,size});const r=reader.readSourceContext(qaContextCanvas.getContext('2d').getImageData(0,0,1000,760),g.rect,{gap:g.gap,templates:qaSourceTemplates});results.push({relative,size,got:r.relative});}return results;})()`);
- for(const result of captionOnly)assert.equal(result.got,result.relative,JSON.stringify(result));
- checks.push('small and larger turn captions identify the source turn independently of card highlights');
- await evaluate(`(async()=>{const {screenFixture}=await import('/_qa/fixture.js');const f=screenFixture();window.qaCanvas=document.createElement('canvas');qaCanvas.width=f.width;qaCanvas.height=f.height;qaCanvas.getContext('2d').putImageData(new ImageData(f.data,f.width,f.height),0,0);const blob=await new Promise(r=>qaCanvas.toBlob(r));const transfer=new DataTransfer();transfer.items.add(new File([blob],'board.png',{type:'image/png'}));document.querySelector('#mode').value='screen';document.querySelector('#mode').dispatchEvent(new Event('change'));const input=document.querySelector('#screen-image-file');input.files=transfer.files;input.dispatchEvent(new Event('change'));})()`);
- await until(`!document.querySelector('#screen-source-canvas').hidden && document.querySelector('#screen-source-canvas').width===560`);
- assert.equal(await evaluate(`document.querySelectorAll('#screen-review-board circle').length`),2);
- assert.equal(await evaluate(`document.querySelectorAll('#screen-wall-list button').length`),3);
- assert.equal(await evaluate(`document.querySelector('#screen-grid-status').textContent.includes('자동 정렬 완료')`),true);
- checks.push('image import automatically finds lattice, axis spacing, pawns and walls without dragging');await crop();
- await evaluate(`document.querySelector('#screen-recognize').click();document.querySelector('#screen-turn').value='1';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));`);
- await until(`!document.querySelector('#screen-apply').disabled`);
- assert.equal(await evaluate(`document.querySelector('#hint').disabled`),true);
- assert.deepEqual(await evaluate(`[document.querySelectorAll('#screen-review-board circle').length,document.querySelectorAll('#screen-wall-list button').length,document.querySelector('#screen-left-0').value,document.querySelector('#screen-left-1').value]`),[2,3,'8','9']);checks.push('image, drag calibration, recognition and stock inference');
- await evaluate(`window.qaReview=(brush,x,y)=>{document.querySelector('#screen-brush').value=brush;const s=document.querySelector('#screen-review-board svg'),r=s.getBoundingClientRect();s.dispatchEvent(new MouseEvent('click',{bubbles:true,clientX:r.left+x/400*r.width,clientY:r.top+y/400*r.height}));};qaReview('p1',195,111);qaReview('p1',195,279);`);
- assert.equal(await evaluate(`document.querySelector('#screen-apply').disabled`),true);
- await evaluate(`qaReview('p1',195,111);qaReview('v0',90,174);`);assert.equal(await evaluate(`document.querySelector('#screen-apply').disabled`),true);
- await evaluate(`document.querySelector('#screen-wall-list').lastElementChild.querySelector('button').click();document.querySelector('#screen-left-0').value='9';document.querySelector('#screen-left-0').dispatchEvent(new Event('input'));`);assert.equal(await evaluate(`document.querySelector('#screen-apply').disabled`),true);
- await evaluate(`document.querySelector('#screen-stock-reset').click()`);assert.equal(await evaluate(`document.querySelector('#screen-apply').disabled`),false);checks.push('manual pawn/wall correction and invalid-state blocking');
- await screenshot('recognition-review.png');await evaluate(`document.querySelector('#screen-apply').click()`);await until(`!document.querySelector('#screen-dialog').open`);
- const saved=await evaluate(`JSON.parse(localStorage.getItem('quoridor-session'))`);assert.equal(saved.version,3);assert.equal(saved.mode,'screen');assert.equal(saved.baseState.turn,1);assert.deepEqual(saved.baseState.p,[{x:4,y:6},{x:4,y:2}]);assert.deepEqual(saved.baseState.left,[8,9]);assert.equal(saved.records.length,0);
- await evaluate(`document.querySelector('#board').click();document.querySelector('#hint').click()`);await until(`!!document.querySelector('#board .recommend')`);assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),0);checks.push('read-only observed board and manual engine recommendation without auto-move');
- await screenshot('applied-board.png');
- const downloaded=await evaluate(`(async()=>{const original=URL.createObjectURL;URL.createObjectURL=blob=>{window.qaSavedBlob=blob;return original.call(URL,blob);};document.querySelector('#save').click();URL.createObjectURL=original;return JSON.parse(await qaSavedBlob.text());})()`);assert.deepEqual({...downloaded,decisionLog:[]},saved);assert.ok(downloaded.decisionLog.some(e=>e.kind==='recommendation'));
- await evaluate(`document.querySelector('#mode').value='sandbox';document.querySelector('#mode').dispatchEvent(new Event('change'));document.querySelector('#reset').click();const transfer=new DataTransfer();transfer.items.add(new File([JSON.stringify(${JSON.stringify(saved)})],'observed.json',{type:'application/json'}));const input=document.querySelector('#file');input.files=transfer.files;input.dispatchEvent(new Event('change'));`);
- await until(`document.querySelector('#mode').value==='screen' && document.querySelector('#count').textContent.includes('가져온')`);checks.push('saved snapshot download payload and JSON file restore');
- await send('Page.reload');await until(`document.querySelector('#count')?.textContent.match(/가져온|재동기화/)`);assert.equal(await evaluate(`document.querySelector('#mode').value`),'screen');
- await evaluate(`document.querySelector('#mode').value='sandbox';document.querySelector('#mode').dispatchEvent(new Event('change'));const svg=document.querySelector('#board svg'),r=svg.getBoundingClientRect();svg.dispatchEvent(new MouseEvent('click',{bubbles:true,clientX:r.left+401/664*r.width,clientY:r.top+191/664*r.height}));`);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),1);assert.equal(await evaluate(`document.querySelector('#history i').style.background`),'rgb(250, 115, 147)');
- await send('Page.reload');await until(`document.querySelector('#count')?.textContent.includes('1수')`);await evaluate(`document.querySelector('#undo').click()`);assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),0);checks.push('observed-base reload, subsequent move, correct player color and undo');
- await evaluate(`(async()=>{const {screenFixture}=await import('/_qa/fixture.js');const f=screenFixture();window.qaCanvas=document.createElement('canvas');qaCanvas.width=f.width;qaCanvas.height=f.height;qaCanvas.getContext('2d').putImageData(new ImageData(f.data,f.width,f.height),0,0);window.qaCalls=0;Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async()=>{qaCalls++;window.qaStream=qaCanvas.captureStream(30);setTimeout(()=>{qaCanvas.getContext('2d').fillRect(0,0,1,1);qaStream.getVideoTracks()[0].requestFrame?.();},100);return qaStream;}});document.querySelector('#mode').value='screen';document.querySelector('#mode').dispatchEvent(new Event('change'));})()`);
- assert.equal(await evaluate(`qaCalls`),0);await evaluate(`document.querySelector('#screen-connect').click()`);await until(`window.qaStream && !document.querySelector('#screen-source-canvas').hidden`);assert.equal(await evaluate(`qaCalls`),1);
- await until(`document.querySelector('#screen-video').readyState>=2`);
- await evaluate(`document.querySelector('#screen-freeze').click()`);await crop();
- await evaluate(`document.querySelector('#screen-recognize').click();document.querySelector('#screen-bottom').value='0';document.querySelector('#screen-bottom').dispatchEvent(new Event('change'));document.querySelector('#screen-turn').value='1';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click();`);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
- assert.equal(await evaluate(`document.querySelector('#screen-dialog').open`),false);
- await evaluate(`(async()=>{const {screenFixture}=await import('/_qa/fixture.js');window.qaDraw=(options)=>{const f=screenFixture(options);qaCanvas.getContext('2d').putImageData(new ImageData(f.data,f.width,f.height),0,0);qaStream.getVideoTracks()[0].requestFrame?.();};qaDraw({positions:[{x:4,y:6},{x:4,y:3}]});})()`);
- await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===1`);
- await until(`!!document.querySelector('#board .recommend')`);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records[0].y`),3);
- checks.push('live video move auto-sync with dialog closed and own-turn automatic recommendation');
- await evaluate(`qaDraw({positions:[{x:4,y:5},{x:5,y:3}]})`);
- await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===3`);
- await until(`!!document.querySelector('#board .recommend')`);
- await evaluate(`window.qaInstalled=[{type:'wall',x:1,y:3,o:'h',owner:0},{type:'wall',x:3,y:3,o:'h',owner:0},{type:'wall',x:5,y:4,o:'v',owner:1},{type:'wall',x:0,y:0,o:'h',owner:0}];qaDraw({positions:[{x:4,y:5},{x:6,y:3}],installed:qaInstalled});`);
- await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===5`);
- assert.equal(await evaluate(`document.querySelectorAll('#board .wall').length`),4);
- assert.equal(await evaluate(`document.querySelectorAll('#players .walls-count b')[0].textContent`),'7');
- checks.push('two fast plies, wall owner, remaining stock and history synchronize together');
- await evaluate(`qaDraw({positions:[{x:4,y:1},{x:6,y:3}],installed:qaInstalled})`);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('갱신 보류')`);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),5);
- assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);
- await evaluate(`qaDraw({positions:[{x:4,y:5},{x:6,y:3}],installed:qaInstalled})`);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
- await until(`!!document.querySelector('#board .recommend')`);
- checks.push('illegal recognition preserves last good board, clears stale hint and recovers');
- await evaluate(`document.querySelector('#screen-auto-pause').click();qaDraw({positions:[{x:4,y:4},{x:6,y:3}],installed:qaInstalled})`);
- await evaluate(`new Promise(r=>setTimeout(r,1000))`);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),5);
- await evaluate(`document.querySelector('#screen-auto-pause').click()`);
- await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===6`);
- assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);
- checks.push('pause prevents synchronization; resume catches up without suggesting on opponent turn');
- await evaluate(`document.querySelector('#screen-auto-hint').click();qaDraw({positions:[{x:4,y:4},{x:6,y:4}],installed:qaInstalled})`);
- await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===7`);
- assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);
- await evaluate(`document.querySelector('#screen-auto-hint').click()`);
- await until(`!!document.querySelector('#board .recommend')`);
- checks.push('automatic analysis can be disabled and re-enabled without changing the board');
- await evaluate(`document.querySelector('#screen-video').pause()`);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('새 영상 프레임')`);
- assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);
- await evaluate(`document.querySelector('#screen-video').play()`);
- await until(`!!document.querySelector('#board .recommend')`);
- checks.push('stalled video clears stale analysis and resumes after fresh stable frames');
- await screenshot('automatic-sync.png');
- await evaluate(`document.querySelector('#screen-open').click()`);
- assert.equal(await evaluate(`document.querySelector('#screen-dialog').open && document.querySelector('#screen-auto-pause').disabled`),true);
- assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);
- assert.equal(await evaluate(`qaStream.getTracks().every(t=>t.readyState==='live')`),true);
- await crop(); // Explicit manual fallback must retain its resize-stop behavior.
- await evaluate(`document.querySelector('#screen-recognize').click();document.querySelector('#screen-turn').value='0';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click()`);
- await until(`!!document.querySelector('#board .recommend')`);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.walls.length`),4);
- checks.push('reopening calibration pauses monitoring, freezes latest frame and requires reviewed reapplication');
- await evaluate(`qaCanvas.width=600;qaCanvas.height=600;qaCanvas.getContext('2d').fillRect(0,0,600,600);qaStream.getVideoTracks()[0].requestFrame?.()`);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('크기가 바뀌었습니다')`);
- assert.equal(await evaluate(`document.querySelector('#screen-auto-pause').disabled`),true);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),0);
- checks.push('capture dimension change stops monitoring and requires a fresh crop');
- await evaluate(`document.querySelector('#screen-disconnect').click()`);assert.equal(await evaluate(`qaStream.getTracks().every(t=>t.readyState==='ended')`),true);
- await evaluate(`Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async()=>{throw new DOMException('denied','NotAllowedError');}});document.querySelector('#screen-connect').click();`);await until(`document.querySelector('#screen-message').textContent.includes('취소')`);
- await evaluate(`Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:()=>new Promise(r=>window.qaResolve=r)});document.querySelector('#screen-connect').click();document.querySelector('#mode').value='sandbox';document.querySelector('#mode').dispatchEvent(new Event('change'));window.qaPending=qaCanvas.captureStream(1);qaResolve(qaPending);`);await until(`qaPending.getTracks().every(t=>t.readyState==='ended')`);checks.push('explicit capture request, stop, denial and late permission-result cleanup using synthetic stream');
- await evaluate(`(async()=>{const {screenFixture}=await import('/_qa/fixture.js');const f=screenFixture({bottom:1}),canvas=document.createElement('canvas');canvas.width=f.width;canvas.height=f.height;canvas.getContext('2d').putImageData(new ImageData(f.data,f.width,f.height),0,0);const blob=await new Promise(r=>canvas.toBlob(r));const transfer=new DataTransfer();transfer.items.add(new File([blob],'pink-bottom.png',{type:'image/png'}));document.querySelector('#mode').value='screen';document.querySelector('#mode').dispatchEvent(new Event('change'));const input=document.querySelector('#screen-image-file');input.files=transfer.files;input.dispatchEvent(new Event('change'));})()`);
- await until(`!document.querySelector('#screen-source-canvas').hidden && document.querySelector('#screen-source-canvas').width===560 && document.querySelector('#screen-grid-status').textContent.includes('자동 정렬 완료')`);await crop();await evaluate(`document.querySelector('#screen-recognize').click();document.querySelector('#screen-bottom').value='1';document.querySelector('#screen-bottom').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click();`);await until(`!document.querySelector('#screen-dialog').open`);
- const pink=await evaluate(`JSON.parse(localStorage.getItem('quoridor-session'))`);assert.equal(pink.startPosition,'bottom');assert.equal(pink.side,1);assert.equal(pink.sourceBottom,1);assert.deepEqual(pink.baseState.p,[{x:4,y:2},{x:4,y:6}]);assert.deepEqual(await evaluate(`[...document.querySelectorAll('#board .pawn')].map(c=>Number(c.getAttribute('cy')))`),[471,191]);await send('Page.reload');await until(`document.querySelector('#count')?.textContent.match(/가져온|재동기화/)`);assert.equal(await evaluate(`document.querySelector('#screen-bottom').value`),'1');checks.push('pink-bottom source mapping automatically sets own side below and persists orientation');
- await evaluate(`(async()=>{const {screenFixture}=await import('/_qa/fixture.js');window.qaSceneCanvas=document.createElement('canvas');window.qaPaint=(options={},layout={})=>{const f=screenFixture(options),tile=document.createElement('canvas');tile.width=f.width;tile.height=f.height;tile.getContext('2d').putImageData(new ImageData(f.data,f.width,f.height),0,0);qaSceneCanvas.width=layout.width??900;qaSceneCanvas.height=layout.height??800;const ctx=qaSceneCanvas.getContext('2d');ctx.fillStyle='#10120e';ctx.fillRect(0,0,qaSceneCanvas.width,qaSceneCanvas.height);ctx.drawImage(tile,layout.x??130,layout.y??80,560*(layout.sx??.8),560*(layout.sy??.85));if(layout.second)ctx.drawImage(tile,650,100,392,392);window.qaSceneStream?.getVideoTracks()[0].requestFrame?.();};qaPaint();Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async()=>{window.qaSceneStream=qaSceneCanvas.captureStream(30);setTimeout(()=>qaSceneStream.getVideoTracks()[0].requestFrame?.(),100);return qaSceneStream;}});document.querySelector('#screen-open').click();document.querySelector('#screen-connect').click();})()`);
- await until(`document.querySelector('#screen-source-canvas').width===900 && document.querySelectorAll('#screen-review-board circle').length===2`);
- await evaluate(`document.querySelector('#screen-bottom').value='0';document.querySelector('#screen-bottom').dispatchEvent(new Event('change'));document.querySelector('#screen-turn').value='1';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click()`);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
- await evaluate(`qaPaint({}, {x:176.4,y:80,sx:.8,sy:.85})`);
- await evaluate(`new Promise(r=>setTimeout(r,1800))`);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),0);
- checks.push('whole-board translation by one cell does not fabricate two pawn moves');
- await evaluate(`qaPaint({positions:[{x:4,y:6},{x:4,y:3}]},{x:270,y:140,sx:.65,sy:.7})`);
- await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===1`);
- await until(`!!document.querySelector('#board .recommend')`);
- checks.push('automatic calibration tracks a moved and rescaled board inside unchanged video dimensions');
- await evaluate(`qaPaint({positions:[{x:4,y:5},{x:5,y:3}]},{x:170,y:100,sx:.9,sy:.95,width:1000,height:850})`);
- await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===3`);
- await until(`!!document.querySelector('#board .recommend')`);
- checks.push('video resolution change automatically reacquires grid and resumes legal synchronization');
- await screenshot('automatic-grid.png');
- await evaluate(`document.querySelector('#screen-open').click();qaPaint({}, {width:1200,height:850,x:30,y:90,sx:.7,sy:.7,second:true});`);
- await until(`document.querySelector('#screen-video').videoWidth===1200`);
- await evaluate(`document.querySelector('#screen-freeze').click()`);
- await until(`document.querySelectorAll('#screen-board-candidates button').length===2`);
- assert.equal(await evaluate(`document.querySelector('#screen-apply').disabled`),true);
- await evaluate(`document.querySelector('#screen-board-candidates button').click();document.querySelector('#screen-apply').click()`);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
- checks.push('multiple visible boards require selection and tracking retains the selected board');
- await evaluate(`document.querySelector('#screen-open').click();qaSceneCanvas.getContext('2d').fillRect(0,0,1200,850);qaSceneStream.getVideoTracks()[0].requestFrame?.()`);
- await evaluate(`new Promise(r=>setTimeout(r,200))`);await evaluate(`document.querySelector('#screen-freeze').click()`);
- await until(`document.querySelector('#screen-grid-status').textContent.includes('확정하지 못했습니다')`);
- assert.equal(await evaluate(`document.querySelector('#screen-apply').disabled`),true);
- checks.push('missing board blocks application and offers manual calibration instead of guessing');
- await evaluate(`qaPaint({positions:[{x:4,y:8},{x:4,y:0}],installed:[]})`);
- await until(`document.querySelector('#screen-video').videoWidth===900`);
- await evaluate(`document.querySelector('#screen-freeze').click();document.querySelector('#screen-turn').value='0';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click()`);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
- await evaluate(`qaPaint({positions:[{x:4,y:5},{x:4,y:3}],installed:[]})`);
- await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===6`);
- await until(`!!document.querySelector('#board .recommend')`);
- checks.push('six skipped legal plies recover from live pixels and refresh own-turn analysis');
- await evaluate(`qaPaint({positions:[{x:5,y:4},{x:5,y:3}],installed:[]})`);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('여러 개')`);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),6);
- assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);
- checks.push('ambiguous missed history stays blocked without applying an uncertain board');
- await evaluate(`document.querySelector('#screen-resync').click()`);
- await until(`document.querySelector('#screen-dialog').open && !document.querySelector('#screen-apply').disabled`);
- await evaluate(`document.querySelector('#screen-turn').value='1';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click()`);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).screenRebased`),true);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).screenSegments.at(-1).records.length`),6);
- assert.equal(await evaluate(`document.querySelector('#count').textContent.includes('중간 기보 누락')`),true);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),0);
- checks.push('confirmed current-frame resynchronization marks missing history and resumes monitoring');
- await screenshot('recovery.png');
- await evaluate(`window.qaDense=[];for(const [row,owner]of[[0,0],[2,1],[4,0],[6,1]])for(const x of [0,2,4,6])qaDense.push({type:'wall',x,y:row,o:'h',owner});for(const x of [0,2,4,6])qaDense.push({type:'wall',x,y:7,o:'h',owner:x<4?0:1});qaPaint({installed:qaDense,joinWalls:true})`);
- await evaluate(`new Promise(r=>setTimeout(r,250))`);await evaluate(`document.querySelector('#screen-resync').click()`);
- await until(`document.querySelectorAll('#screen-wall-list button').length===20`);
- assert.deepEqual(await evaluate(`[document.querySelector('#screen-left-0').value,document.querySelector('#screen-left-1').value]`),['0','0']);
- await evaluate(`document.querySelector('#screen-turn').value='0';document.querySelector('#screen-turn').dispatchEvent(new Event('change'));document.querySelector('#screen-apply').click()`);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
- assert.equal(await evaluate(`document.querySelectorAll('#board .wall').length`),20);
- checks.push('dense connected twenty-wall video imports without duplicate walls or negative stock');
- await evaluate(`qaPaint({installed:qaDense,joinWalls:true,fragmentTiles:true})`);await evaluate(`new Promise(r=>setTimeout(r,1800))`);
- assert.ok(retained.events.some(e=>e.reason.includes('기존 격자')));assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),0);
- checks.push('failed full-grid detection retains confirmed geometry when corner evidence still matches');
- await send('Page.reload');await until(`document.querySelector('#count')?.textContent.includes('중간 기보 누락')`);
- checks.push('missing-history annotation survives session reload without fabricated actions');
- await evaluate(`(async()=>{const {paintSourceScreen}=await import('/_qa/context-fixture.js');window.qaLiveSource=document.createElement('canvas');window.qaLivePaint=options=>{paintSourceScreen(qaLiveSource,{rounded:true,muted:true,labelSize:8,size:8,...options});qaLiveStream?.getVideoTracks()[0].requestFrame?.();};window.qaLiveStream=null;qaLivePaint({bottom:1,relative:'self',plies:12});Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async()=>{window.qaLiveStream=qaLiveSource.captureStream(30);setTimeout(()=>qaLiveStream.getVideoTracks()[0].requestFrame?.(),100);return qaLiveStream;}});document.querySelector('#screen-open').click();document.querySelector('#screen-connect').click();})()`);
- await until(`document.querySelector('#screen-source-canvas').width===1000 && document.querySelector('#screen-side-result').textContent.includes('분홍') && document.querySelector('#screen-turn-result').textContent.includes('내 차례') && !document.querySelector('#screen-apply').disabled`);
- assert.equal(await evaluate(`document.querySelector('#screen-auto-side').checked && document.querySelector('#screen-auto-turn').checked && document.querySelector('#screen-bottom').disabled && document.querySelector('#screen-turn').disabled`),true);
- await evaluate(`document.querySelector('#screen-apply').click()`);
- await until(`!!document.querySelector('#board .recommend')`);
- const automaticPink=await evaluate(`JSON.parse(localStorage.getItem('quoridor-session'))`);assert.equal(automaticPink.side,1);assert.equal(automaticPink.startPosition,'bottom');assert.equal(automaticPink.baseState.turn,1);
- assert.deepEqual(await evaluate(`[...document.querySelectorAll('#board .pawn')].map(c=>Number(c.getAttribute('cy')))`),[191,471]);
- checks.push('initial full-screen import automatically selects pink own side below and its source turn without manual selections');
- await evaluate(`qaLivePaint({bottom:1,relative:'opponent',plies:13,positions:[{x:4,y:2},{x:4,y:5}]})`);
- await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===1`);
- assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);
- await evaluate(`qaLivePaint({bottom:1,relative:'self',plies:14,positions:[{x:4,y:3},{x:4,y:5}]})`);
- await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===2`);
- await until(`!!document.querySelector('#board .recommend')`);
- checks.push('source turn and MOVES count track both players, cancelling recommendations on opponent turn');
- await evaluate(`qaLivePaint({bottom:1,relative:'opponent',plies:14,positions:[{x:4,y:3},{x:4,y:5}]})`);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('갱신 보류') && document.querySelector('#screen-auto-status').textContent.includes('차례')`);
- assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),2);
- checks.push('contradictory source turn never silently rewrites tracked state or produces a stale recommendation');
- await evaluate(`qaLivePaint({bottom:1,relative:'self',cardRole:'opponent',plies:14,positions:[{x:4,y:3},{x:4,y:5}]})`);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('충돌')`);
- checks.push('conflicting source caption and active-card evidence suspend automatic analysis');
- await evaluate(`qaLivePaint({bottom:1,relative:'self',plies:14,positions:[{x:4,y:3},{x:4,y:5}]})`);
- await until(`!!document.querySelector('#board .recommend')`);
- await screenshot('automatic-side-turn.png');
- await evaluate(`qaLivePaint({bottom:0,relative:'self',plies:0})`);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('내 진영 판독 불일치')`);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).side`),1);
- await evaluate(`document.querySelector('#screen-resync').click()`);
- await until(`!document.querySelector('#screen-dialog').open && document.querySelector('#screen-connection').textContent.includes('활성') && JSON.parse(localStorage.getItem('quoridor-session')).side===0`);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).side`),0);
- assert.equal(await evaluate(`document.querySelector('#start-position').value`),'bottom');
- checks.push('valid resynchronization automatically applies without opening the dialog and resumes monitoring with the new bottom side');
- await evaluate(`qaLivePaint({bottom:0,relative:'self',cardRole:null,phrase:false,plies:0})`);await evaluate(`new Promise(r=>setTimeout(r,200))`);
- await evaluate(`document.querySelector('#screen-resync').click()`);
- await until(`document.querySelector('#screen-turn-result').textContent.includes('판독 실패') && document.querySelector('#screen-apply').disabled`);
- await evaluate(`document.querySelector('#screen-auto-turn').click();document.querySelector('#screen-manual-context').open=true;document.querySelector('#screen-turn').value='0';document.querySelector('#screen-turn').dispatchEvent(new Event('change'))`);
- assert.equal(await evaluate(`document.querySelector('#screen-apply').disabled`),false);
- await evaluate(`document.querySelector('#screen-apply').click()`);
- checks.push('unreadable initial turn blocks automatic application and allows explicit manual correction');
- await evaluate(`window.qaInitialDots=[{x:3,y:8,owner:0},{x:5,y:8,owner:0},{x:4,y:7,owner:0}];qaLivePaint({bottom:0,relative:'self',cardRole:null,phrase:false,plies:0,positions:[{x:4,y:8},{x:4,y:0}],installed:[],dots:qaInitialDots,dotOpacity:.35})`);
- await evaluate(`new Promise(r=>setTimeout(r,250))`);await evaluate(`document.querySelector('#screen-resync').click();document.querySelector('#screen-auto-turn').checked=true;document.querySelector('#screen-auto-turn').dispatchEvent(new Event('change'))`);
- await until(`document.querySelector('#screen-turn-result').textContent.includes('이동 점 3개') && !document.querySelector('#screen-apply').disabled`);
- assert.equal(await evaluate(`document.querySelector('#screen-turn').disabled && document.querySelector('#screen-turn').value==='0'`),true);
- await screenshot('move-dot-review.png');
- await evaluate(`document.querySelector('#screen-apply').click()`);
- await until(`!!document.querySelector('#board .recommend')`);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.turn`),0);
- checks.push('dim initial three-dot hints alone enable automatic application and own-turn recommendation without captions or cards');
- await evaluate(`qaLivePaint({bottom:0,relative:'self',cardRole:null,phrase:false,plies:0,positions:[{x:4,y:8},{x:4,y:0}],installed:[],dots:[]})`);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('판독 실패')`);
- assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),0);
- checks.push('disappearing hint dots do not imply opponent turn and clear stale recommendations');
- await evaluate(`qaLivePaint({bottom:0,relative:'opponent',cardRole:'opponent',phrase:false,plies:1,positions:[{x:4,y:7},{x:4,y:0}],installed:[],dots:[]})`);
- await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===1`);
- assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);
- await evaluate(`window.qaFourDots=[{x:4,y:6,owner:0},{x:3,y:7,owner:0},{x:5,y:7,owner:0},{x:4,y:8,owner:0}];qaLivePaint({bottom:0,relative:'self',cardRole:null,phrase:false,plies:2,positions:[{x:4,y:7},{x:4,y:1}],installed:[],dots:qaFourDots,dotOpacity:.35})`);
- await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===2`);await until(`!!document.querySelector('#board .recommend')`);
- checks.push('card fallback and four-dot evidence resume legal synchronization and refresh recommendation on own turn');
- await evaluate(`qaLivePaint({bottom:0,relative:'opponent',cardRole:'opponent',phrase:true,plies:2,positions:[{x:4,y:7},{x:4,y:1}],installed:[],dots:qaFourDots})`);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('충돌')`);
- assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),2);
- checks.push('valid own move dots conflicting with an opponent caption suspend state updates instead of choosing a turn');
- await evaluate(`qaLivePaint({bottom:1,relative:'self',cardRole:null,phrase:false,plies:9,positions:[{x:4,y:2},{x:4,y:6}],installed:[],dots:[{x:3,y:6,owner:1},{x:5,y:6,owner:1},{x:4,y:5,owner:1},{x:4,y:7,owner:1}],dotOpacity:.35})`);
- await evaluate(`new Promise(r=>setTimeout(r,250))`);await evaluate(`document.querySelector('#screen-resync').click()`);
- await until(`document.querySelector('#screen-turn-result').textContent.includes('분홍 이동 점 4개') && !document.querySelector('#screen-apply').disabled`);
- await evaluate(`document.querySelector('#screen-apply').click()`);
- await until(`!!document.querySelector('#board .recommend')`);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).side`),1);
- assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.turn`),1);
- checks.push('pink hint dots automatically identify own turn after bottom-side resynchronization');
- // Keep producing moves while checking progress: final catch-up alone is insufficient.
- await evaluate(`qaLivePaint({bottom:0,relative:'self',cardRole:'self',phrase:true,plies:0,positions:[{x:4,y:7},{x:4,y:1}],installed:[],dots:[]})`);
- await evaluate(`new Promise(r=>setTimeout(r,150))`);
- await evaluate(`document.querySelector('#screen-resync').click()`);
- await until(`!document.querySelector('#screen-apply').disabled`);
- await evaluate(`document.querySelector('#screen-apply').click()`);
- assert.equal(await evaluate(`document.querySelector('#screen-auto-start')===null && document.querySelector('#screen-connection').textContent.includes('활성')`),true);
- await until(`document.querySelector('#screen-auto-status').textContent.includes('원본과 일치')`);
- await evaluate(`window.qaBurst={sent:0,samples:[]};window.qaBurstTimer=setInterval(()=>{const b=qaBurst;b.sent++;const n=b.sent,positions=[{x:4+(Math.ceil(n/2)%2),y:7},{x:4+(Math.floor(n/2)%2),y:1}];qaLivePaint({bottom:0,relative:n%2?'opponent':'self',cardRole:n%2?'opponent':'self',phrase:true,plies:n,positions,installed:[],dots:[]});b.samples.push({sent:n,received:JSON.parse(localStorage.getItem('quoridor-session')).records.length});if(n===16){clearInterval(qaBurstTimer);b.done=true;}},120)`);
- await until(`qaBurst.done===true`);
- const burst=await evaluate(`qaBurst`);
- assert.ok(burst.samples.some(s=>s.sent>=4&&s.sent<16&&s.received>=2),JSON.stringify(burst));
- await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===16`);
- checks.push('120ms continuous 16-ply stream updates the board before play stops; Apply starts monitoring without a Start button');
- await writeFile(path.join(out,'continuous-stream.json'),JSON.stringify(burst,null,2)+'\n');
- // Restore pink source used by the optional engine integration checks.
- await evaluate(`qaLivePaint({bottom:1,relative:'self',cardRole:'self',plies:9,positions:[{x:4,y:2},{x:4,y:6}],installed:[],dots:[]})`);
- await evaluate(`new Promise(r=>setTimeout(r,150));`);await evaluate(`document.querySelector('#screen-resync').click()`);
- await until(`!document.querySelector('#screen-apply').disabled`);await evaluate(`document.querySelector('#screen-apply').click()`);
- if(pressureService){
-  stalePressure=true;
-  await evaluate(`document.querySelector('#play-engine').value='atlas-pressure';document.querySelector('#play-engine').dispatchEvent(new Event('change'))`);
-  await until(`document.querySelector('#engine-status').textContent.includes('불일치') && document.querySelector('#analysis').textContent.includes('실제 엔진')`);
-  assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);checks.push('a real browser refuses an old pressure service instead of showing a recommendation under the new selector name');
-  stalePressure=false;
-  await evaluate(`document.querySelector('#play-engine').value='atlas3';document.querySelector('#play-engine').dispatchEvent(new Event('change'))`);
-  await evaluate(`document.querySelector('#play-engine').value='atlas-pressure';document.querySelector('#play-engine').dispatchEvent(new Event('change'))`);
-  await until(`document.querySelector('#engine-status').textContent.includes('즉시 압박') && document.querySelector('#analysis').textContent.includes('immediate pressure') && !!document.querySelector('#analysis .pressure-reason')`);
-  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).engine`),'atlas-pressure');checks.push('pressure engine uses its own real native service and explains the recommendation in screen mode');
-  await until(`JSON.parse(localStorage.getItem('quoridor-session')).decisionLog.some(e=>e.kind==='recommendation' && e.engine==='atlas-pressure' && e.build?.length===12 && e.pv.length && Number.isFinite(e.score) && e.budgetMs===500)`);
-  checks.push('saved screen session includes actual engine build, recommendation, score, depth and search budget');
-  await evaluate(`document.querySelector('#mode').value='watch';document.querySelector('#mode').dispatchEvent(new Event('change'));document.querySelector('#watch-engine-1').value='atlas-pressure';document.querySelector('#watch-engine-1').dispatchEvent(new Event('change'));document.querySelector('#watch-step').click()`);
-  await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===1 && document.querySelector('#analysis').textContent.includes('immediate pressure')`);
-  assert.ok(await evaluate(`document.querySelector('#analysis .pressure-reason')?.textContent.length>0`));checks.push('AI spectator step preserves pressure identity and explains the move from its pre-move position');
-  await evaluate(`document.querySelector('#mode').value='ai';document.querySelector('#mode').dispatchEvent(new Event('change'))`);
-  await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===2 && document.querySelector('#analysis').textContent.includes('선택')`);
-  assert.ok(await evaluate(`document.querySelector('#analysis .pressure-reason')?.textContent.length>0`));checks.push('AI opponent mode commits a pressure-engine reply and retains its pre-move explanation');
-  await evaluate(`document.querySelector('#analysis').scrollIntoView({block:'center'})`);await screenshot('pressure-engine.png');
-  await evaluate(`document.querySelector('#mode').value='sandbox';document.querySelector('#mode').dispatchEvent(new Event('change'));document.querySelector('#play-engine').value='atlas-tempo';document.querySelector('#play-engine').dispatchEvent(new Event('change'));document.querySelector('#hint').click()`);
-  await until(`document.querySelector('#engine-status').textContent.includes('0.3') && document.querySelector('#analysis').textContent.includes('wall tempo 0.3') && document.querySelector('#analysis .advice-context').textContent.includes('분석 완료')`);
-  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).decisionLog.some(e=>e.engine==='atlas-tempo' && e.complete===true && e.build?.length===12 && e.ply===3)`),true);
-  checks.push('wall tempo 0.3 uses its separate service, displays the current ply and completed phase, and saves the actual build');
-  await evaluate(`(async()=>{window.qaGoalFixtures=await(await fetch('/_qa/goal-fixtures.json')).json();window.qaLoadGoal=ply=>{const f=qaGoalFixtures.find(f=>f.id.endsWith('-'+ply)),transfer=new DataTransfer();transfer.items.add(new File([JSON.stringify({version:3,baseState:f.state,records:[],mode:'screen',side:0,sourceBottom:0,startPosition:'bottom',engine:'atlas-goal',time:'500',cores:'4'})],'goal.json',{type:'application/json'}));document.querySelector('#file').files=transfer.files;document.querySelector('#file').dispatchEvent(new Event('change'));};qaLoadGoal(37)})()`);
-  await until(`document.querySelector('#play-engine').value==='atlas-goal' && document.querySelector('#mode').value==='screen'`);
-  await evaluate(`document.querySelector('#hint').click()`);
-  await until(`document.querySelector('#engine-status').textContent.includes('0.4') && document.querySelector('#analysis .analysis-warning')?.textContent.includes('골인 경로 위험') && document.querySelector('#analysis .advice-context')?.textContent.includes('분석 완료')`);
-  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).decisionLog.some(e=>e.engine==='atlas-goal' && e.goalSafety?.goalThreat && e.goalSafety.exposure[0]===1 && e.complete)`),true);
-  checks.push('goal safety 0.4 reports corridor exposure and saves the actual goal model without a false exact-win claim');
-  await evaluate(`document.querySelector('#analysis').scrollIntoView({block:'center'})`);await screenshot('goal-safety.png');
-  await evaluate(`qaLoadGoal(39)`);await until(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.left[0]===1`);await evaluate(`document.querySelector('#hint').click()`);
-  await until(`document.querySelector('#analysis .analysis-warning')?.textContent.includes('탐색에서 패배 수순')`);checks.push('selective native loss scores show a limited-search warning');
-  await evaluate(`qaLoadGoal(45)`);await until(`JSON.parse(localStorage.getItem('quoridor-session')).baseState.left.every(n=>n===0)`);await evaluate(`document.querySelector('#hint').click()`);
-  await until(`document.querySelector('#analysis .analysis-warning')?.textContent.includes('후반 완전 해법')`);checks.push('a solved zero-wall loss is distinguished from heuristic corridor risk and selective search');
-  await mkdir(path.join(root,'reports','immediate-pressure'),{recursive:true});await writeFile(path.join(root,'reports','immediate-pressure','browser.json'),JSON.stringify({engineInfo:(await(await fetch(`http://127.0.0.1:${pressureService.server.address().port}/health`)).json()).engineInfo,checks:checks.slice(-3),uncaughtErrors:errors,screenshot:'../screen-import/pressure-engine.png'},null,2)+'\n');
- }
- }
- assert.deepEqual(errors,[]);await writeFile(path.join(out,'browser-qa.json'),JSON.stringify({browser:'isolated headless Chrome/Edge',checks,uncaughtErrors:errors,realScreenCaptureTested:false,syntheticMediaStreamTested:true},null,2)+'\n');console.log(JSON.stringify({checks,uncaughtErrors:errors},null,2));
-}catch(error){try{await screenshot('failure.png');console.error(await evaluate(`JSON.stringify({message:document.querySelector('#screen-message')?.textContent,calls:window.qaCalls,videoReady:document.querySelector('#screen-video')?.readyState,connection:document.querySelector('#screen-connection')?.textContent,mode:document.querySelector('#mode')?.value})`));}catch{}throw error;}finally{
+ await send('Page.enable');await send('Runtime.enable');await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1100,deviceScaleFactor:1,mobile:false});await send('Browser.setDownloadBehavior',{behavior:'deny'},null);
+ await send('Page.navigate',{url:'http://127.0.0.1:'+server.address().port});await until(`!!document.querySelector('#screen-wallz')`);
+ for(const id of ['play-engine','watch-engine-0','watch-engine-1'])assert.deepEqual((await evaluate(`[...document.querySelector('#${id}').options].map(o=>o.value)`)).sort(),['sigma2','sigma3','sigma4']);checks.push('all three engine selectors contain only Sigma2/3/4');
+ await evaluate(`(async()=>{const {paintSourceScreen}=await import('/_qa/context.mjs');window.qaSource=document.createElement('canvas');window.qaStream=null;window.qaPaint=o=>{paintSourceScreen(qaSource,{rounded:true,muted:true,labelSize:8,size:8,...o});qaStream?.getVideoTracks()[0].requestFrame?.();};qaPaint({bottom:0,relative:'opponent',plies:12});Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async()=>{qaStream=qaSource.captureStream(30);return qaStream;}});document.querySelector('#screen-auto-hint').checked=false;document.querySelector('#screen-wallz').click();})()`);
+ await until(`document.querySelector('#screen-connection').textContent.includes('활성')&&!document.querySelector('#screen-dialog').open`);checks.push('Wallz capture recognizes, auto-applies and starts monitoring');
+ await evaluate(`document.querySelector('#screen-resync').click()`);await until(`!document.querySelector('#screen-dialog').open&&document.querySelector('#screen-connection').textContent.includes('활성')`);checks.push('current-screen resync remains automatic');
+ await evaluate(`document.querySelector('#mode').value='watch';document.querySelector('#mode').dispatchEvent(new Event('change'));document.querySelector('#watch-step').click()`);await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===1`);checks.push('spectator executes one legal fixture-service action');
+ await evaluate(`(()=>{const saved=JSON.parse(localStorage.getItem('quoridor-session'));saved.engine='atlas5';const input=document.querySelector('#file'),data=new DataTransfer();data.items.add(new File([JSON.stringify(saved)],'legacy.json',{type:'application/json'}));input.files=data.files;input.dispatchEvent(new Event('change'));})()`);
+ await until(`document.querySelector('#play-engine').value==='sigma4'&&document.querySelector('#engine-import-note').textContent.includes('atlas5')`);assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),1);checks.push('legacy engine game import preserves records and migrates analysis to Sigma4');
+ for(const width of [1440,390]){await send('Emulation.setDeviceMetricsOverride',{width,height:1100,deviceScaleFactor:1,mobile:false});assert.equal(await evaluate(`document.documentElement.scrollWidth>innerWidth`),false);}
+ assert.deepEqual(errors,[]);await writeFile(path.join(out,'browser-smoke.json'),JSON.stringify({checks,uncaughtErrors:errors,syntheticCaptureAndService:true},null,2));console.log(JSON.stringify({checks,uncaughtErrors:errors}));
+}finally{
  if(ws?.readyState===WebSocket.OPEN){try{await send('Browser.close',{},null);}catch{}ws.close();}
- if(chrome&&chrome.exitCode===null){await new Promise(resolve=>{const timer=setTimeout(()=>{chrome.kill();resolve();},3000);chrome.once('exit',()=>{clearTimeout(timer);resolve();});});}
- server.closeAllConnections();await new Promise(resolve=>server.close(resolve));
- if(pressureService)await pressureService.close();if(tempoService)await tempoService.close();if(goalService)await goalService.close();
- // Only remove this freshly allocated profile inside the ignored QA directory.
- if(path.dirname(profile)===temp&&temp.startsWith(path.resolve(root,'native-engine','target')+path.sep))try{await rm(profile,{recursive:true,force:true,maxRetries:10,retryDelay:100});}catch{}
+ if(chrome&&chrome.exitCode===null)await new Promise(resolve=>{const timer=setTimeout(()=>{chrome.kill();resolve();},3000);chrome.once('exit',()=>{clearTimeout(timer);resolve();});});
+ server.closeAllConnections();await new Promise(r=>server.close(r));
+ if(path.dirname(profile)===temp&&temp.startsWith(path.resolve('.local-app')+path.sep))await rm(temp,{recursive:true,force:true,maxRetries:5,retryDelay:100});
 }

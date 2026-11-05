@@ -48,17 +48,17 @@ const human=()=>$('#mode').value==='sandbox'||$('#mode').value==='ai'&&state.tur
 const flipped=()=>viewFlipped(Number($('#side').value),$('#start-position').value);
 const viewPosition=p=>orientPosition(p,flipped());
 const viewAction=a=>orientAction(a,flipped());
-const engineName=id=>id==='sigma4'?'Sigma 4':id==='sigma3'?'Sigma 3':id==='sigma2'?'Sigma 2':id==='sigma'?'Sigma 1':id==='atlas5'?'Atlas 5.3 \u00b7 \uC548\uC815':'Atlas 0.4 \u00b7 \uCD5C\uC2E0';
+const engineName=id=>({'sigma2':'Sigma 2','sigma3':'Sigma 3','sigma4':'Sigma 4'})[id]??'Sigma 4';
 function statusFor(selector){return (status,info)=>{
  const label=info?.engineInfo;
  if(selector==='#engine-status')$(selector).hidden=!['stale','unavailable','wasm'].includes(status);
  if(status==='stale'){$(selector).textContent=`엔진 버전·빌드 불일치 · 실제 ${label?.version??'알 수 없음'} · ${label?.build??'빌드 확인 실패'} · 실행기를 다시 열어 갱신하세요`;return;}
- $(selector).textContent=status==='atlas3'?'Atlas 3 사용':status==='atlas4'?'Atlas 4 WASM 사용':status==='native'?`${label?.label??'Atlas Native'} · ${label?.version??info.engine??'Native'}${label?.variant?' · '+label.variant:''}${label?.build?' · '+label.build:''}`:status==='unavailable'?'실험 엔진 사용 불가 · 다른 엔진으로 자동 대체하지 않습니다.':'Atlas 4 WASM 사용 (Native 연결 불가)';
+ $(selector).textContent=status==='native'?`${label?.label??'Sigma'} · ${label?.version??''}${label?.build?' · '+label.build:''}`:'선택한 Sigma 엔진에 연결할 수 없습니다. 앱을 다시 실행해 주세요.';
 };}
 function createPlayPool(workers){const engine=$('#play-engine').value;$('#engine-status').hidden=true;return new AdaptiveEngine({workers,engine,onStatus:statusFor('#engine-status')});}
 const escapeHtml=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function watchSettings(t){return {engine:$(`#watch-engine-${t}`).value,ms:Number($(`#watch-time-${t}`).value),cores:Number($(`#watch-cores-${t}`).value)};}
-function watchPool(t){const config=watchSettings(t);if(!watchPools[t]){$(`#watch-engine-status-${t}`).textContent=['atlas3','atlas4'].includes(config.engine)?engineName(config.engine)+' 사용':'선택 엔진 확인 중…';watchPools[t]=new AdaptiveEngine({workers:config.cores,engine:config.engine,onStatus:statusFor(`#watch-engine-status-${t}`)});}return watchPools[t];}
+function watchPool(t){const config=watchSettings(t);if(!watchPools[t]){$(`#watch-engine-status-${t}`).textContent='선택 엔진 확인 중…';watchPools[t]=new AdaptiveEngine({workers:config.cores,engine:config.engine,onStatus:statusFor(`#watch-engine-status-${t}`)});}return watchPools[t];}
 function cancelWatch(){for(const p of watchPools)p?.cancel();}
 function disposeWatch(){for(const p of watchPools)p?.dispose();watchPools=[null,null];for(const t of [0,1])$(`#watch-engine-status-${t}`).textContent='선택한 엔진은 계산할 때 확인합니다.';}
 const expectedDefense=(source,engine)=>defenseContinuation(source,records,past,decisionLog,engine);
@@ -115,7 +115,7 @@ function render(){
   $('#watch-start').disabled=watcher.running||busy||!!outcome;
   $('#watch-pause').disabled=!watcher.running&&!watcher.thinking&&!busy;
   $('#watch-step').disabled=watcher.running||busy||!!outcome;
-  for(const t of [0,1]){$(`#watch-cores-${t}`).disabled=$(`#watch-engine-${t}`).value==='atlas3';}
+  for(const t of [0,1]){$(`#watch-cores-${t}`).disabled=false;}
   $('#instruction').textContent=watch?'두 AI의 대국을 관전합니다 · 금색 표시는 방금 둔 수입니다':'점을 클릭해 이동 · 칸 사이에 커서를 대고 클릭해 벽 설치';
   $('#result').hidden=!outcome;
   if(outcome){$('#result').textContent=outcome.type==='win'?`${names[outcome.winner]} 승리 · ${records.length}수`:`관전 무승부 · ${outcome.reason==='repetition'?'같은 배치가 3회 반복되었습니다':'관전 최대 300수에 도달했습니다'}`;}
@@ -173,14 +173,6 @@ function commitMove(action){if(!legal(state,action))return;stop();applyMove(acti
 function schedule(){
   if($('#mode').value==='screen'){
     if(screenReady&&screenCapture?.active&&screenCapture.autoHint&&baseState&&state.winner===null&&state.turn===Number($('#side').value))think(false,'screen-auto');
-    else if(screenReady&&screenCapture?.active&&screenCapture.autoHint&&baseState&&state.winner===null&&state.turn!==Number($('#side').value)&&['atlas5','atlas-goal','sigma'].includes($('#play-engine').value)){
-     const source=clone(state),engine=$('#play-engine').value,selectedPool=pool;
-     screenPonder.start(selectedPool,searchSnapshot(source),{
-      valid:()=>screenReady&&screenCapture?.active&&screenCapture.autoHint&&$('#mode').value==='screen'&&$('#play-engine').value===engine&&pool===selectedPool&&state.turn===source.turn&&boardKey(state)===boardKey(source),
-      prepare:(child,action)=>({state:searchSnapshot(child),options:{wallStreak:observedWallStreak(child.turn),defenseReply:defenseContinuation(child,[...records,action],[...past,source],decisionLog,engine)}}),
-      onStatus:ponderStatus
-     });
-    }
     return;
   }
   if(watching()||state.winner!==null)return;
@@ -277,9 +269,9 @@ $('#side').onchange=()=>{stop();persist();render();schedule();};
 $('#start-position').onchange=()=>{persist();render();};
 $('#time').onchange=()=>{stop();persist();render();schedule();};
 $('#cores').value=String(defaultCores);
-$('#play-engine').onchange=$('#cores').onchange=()=>{stop();if($('#play-engine').value==='atlas3')$('#cores').value='1';$('#cores').disabled=$('#play-engine').value==='atlas3';pool.dispose();pool=createPlayPool(Number($('#cores').value));clearAnalysis();persist();render();schedule();};
+$('#play-engine').onchange=$('#cores').onchange=()=>{stop();$('#cores').disabled=false;pool.dispose();pool=createPlayPool(Number($('#cores').value));clearAnalysis();persist();render();schedule();};
 for(const t of [0,1])for(const field of ['engine','time','cores'])$(`#watch-${field}-${t}`).onchange=()=>{
-  stop();if($(`#watch-engine-${t}`).value==='atlas3')$(`#watch-cores-${t}`).value='1';disposeWatch();clearAnalysis();persist();render();
+  stop();disposeWatch();clearAnalysis();persist();render();
 };
 $('#watch-delay').onchange=()=>{stop();persist();render();};
 $('#watch-start').onclick=()=>{stop();hint=null;watcher.start();};
@@ -293,11 +285,11 @@ function restore(data,{startup=false}={}){
   const replay=restoreObservedSession(data);const archives=data.screenSegments??[];if(!Array.isArray(archives)||archives.length>8)throw Error('이전 화면 기보 보관 형식이 올바르지 않습니다.');const segments=archives.map(segment=>{const r=restoreObservedSession(segment);return {baseState:r.baseState,records:r.records,decisionLog:Array.isArray(segment.decisionLog)?segment.decisionLog.slice(-1000):[]};});stop();lastAnalysisTrace=null;decisionLog=Array.isArray(data.decisionLog)?data.decisionLog.slice(-1000):[];screenSegments=segments;state=replay.state;past=replay.past;records=replay.records;baseState=replay.baseState;screenRebased=!!baseState&&data.screenRebased===true;
   observedBottom=baseState&&[0,1].includes(data.sourceBottom)?data.sourceBottom:null;screenCapture?.setBottom(observedBottom);
   selectValue('#mode',data.mode);selectValue('#side',data.side);selectValue('#time',data.time);selectValue('#cores',data.cores);selectValue('#play-engine',data.engine);
-  $('#engine-import-note').hidden=!data.unsupportedEngine;$('#engine-import-note').textContent=data.unsupportedEngine?`기보의 원본 엔진 ${data.unsupportedEngine}은 선택 목록에서 제외됐습니다. 기록은 유지하고 새 분석에는 Atlas 0.4를 사용합니다.`:'';
+  $('#engine-import-note').hidden=!data.unsupportedEngine;$('#engine-import-note').textContent=data.unsupportedEngine?`기보의 원본 엔진 ${data.unsupportedEngine}은 선택 목록에서 제외됐습니다. 기록은 유지하고 새 분석에는 Sigma 4를 사용합니다.`:'';
   selectValue('#start-position',data.startPosition??'top');
   if($('#mode').value==='screen'&&observedBottom!==null){$('#side').value=String(observedBottom);$('#start-position').value='bottom';}
-  if($('#play-engine').value==='atlas3')$('#cores').value='1';$('#cores').disabled=$('#play-engine').value==='atlas3';
-  for(const t of [0,1]){const p=data.watch?.players?.[t];if(!p)continue;selectValue(`#watch-engine-${t}`,p.engine);selectValue(`#watch-time-${t}`,p.ms);selectValue(`#watch-cores-${t}`,p.cores);if($(`#watch-engine-${t}`).value==='atlas3')$(`#watch-cores-${t}`).value='1';}
+  $('#cores').disabled=false;
+  for(const t of [0,1]){const p=data.watch?.players?.[t];if(!p)continue;selectValue(`#watch-engine-${t}`,p.engine);selectValue(`#watch-time-${t}`,p.ms);selectValue(`#watch-cores-${t}`,p.cores);}
   selectValue('#watch-delay',data.watch?.delay);pool.dispose();pool=createPlayPool(Number($('#cores').value));disposeWatch();clearAnalysis();persist();render();schedule();
 }
 $('#save').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(sessionData(),null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=watching()?'quoridor-ai-vs-ai.json':'quoridor-game.json';a.click();URL.revokeObjectURL(url);};

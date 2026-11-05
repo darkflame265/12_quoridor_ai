@@ -2,9 +2,7 @@ import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 const children=[];
 const run=(file,args=[],ipc=false)=>{const child=spawn(process.execPath,[file,...args],{stdio:ipc?['ignore','inherit','inherit','ipc']:'inherit',windowsHide:true});children.push(child);return child;};
-async function native(){let ready=false;try{const response=await fetch('http://127.0.0.1:4317/health',{signal:AbortSignal.timeout(500)});ready=response.ok&&(await response.json()).service==='quoridor-native-v1';}catch{}
- if(!ready){const build=run(fileURLToPath(new URL('./build-native.mjs',import.meta.url)));ready=await new Promise(resolve=>build.once('exit',resolve))===0;}
- if(ready&&!stopping)run(fileURLToPath(new URL('../server/run-native-services.mjs',import.meta.url)),[],true);else console.log('Native engine unavailable; the browser will use WASM.');}
+async function native(){if(!stopping)run(fileURLToPath(new URL('../server/run-sigma-services.mjs',import.meta.url)),[],true);}
 let stopping=null;
 native().catch(error=>console.error(error.message));
 const vite=run(fileURLToPath(new URL('../node_modules/vite/bin/vite.js',import.meta.url)),['--host','127.0.0.1',...process.argv.slice(2)]);

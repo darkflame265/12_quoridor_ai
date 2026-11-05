@@ -20,7 +20,7 @@ test('dead processes are stale without a metadata query',async()=>{
  assert.equal(await leaseOwner(state,{probe:()=>{throw Object.assign(Error(),{code:'ESRCH'});},inspect:async()=>{throw Error('must not run');}}),'dead');
 });
 test('cleanup serializes contenders and cannot delete a replacement lease',async t=>{
- const base=path.resolve('native-engine/target'),folder=await mkdtemp(path.join(base,'play-lock-test-')),file=path.join(folder,'running.json');
+ const base=path.resolve('.local-app'),folder=await mkdtemp(path.join(base,'play-lock-test-')),file=path.join(folder,'running.json');
  t.after(async()=>{assert(folder.startsWith(base+path.sep));await rm(folder,{recursive:true,force:true});});
  const stale={pid:1,phase:'starting'},fresh={pid:2,phase:'ready'};
  await writeFile(file,JSON.stringify(stale));const results=await Promise.all([removeUnchangedLease(file,stale),removeUnchangedLease(file,stale)]);assert.equal(results.filter(Boolean).length,1);

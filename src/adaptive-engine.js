@@ -1,21 +1,21 @@
-import {EnginePool} from './engine-pool.js';
 import {NativeClient} from './native-client.js';
+import {supportedEngines} from './session-settings.js';
 export class AdaptiveEngine{
- constructor({workers=4,engine='atlas5',onStatus=()=>{},nativeClient,webPool}={}){if(!['atlas5','atlas-experiment','atlas-pressure','atlas-tempo','atlas-goal','sigma','sigma2','sigma3','sigma4','atlas4','atlas3'].includes(engine))throw Error('Unknown engine');this.engine=engine;this.web=webPool??new EnginePool({workers,engine:engine==='atlas3'?'atlas3':'atlas4'});this.onStatus=onStatus;this.native=['atlas5','atlas-experiment','atlas-pressure','atlas-tempo','atlas-goal','sigma','sigma2','sigma3','sigma4'].includes(engine)?(nativeClient??new NativeClient({onStatus:(status,info)=>onStatus(['atlas-experiment','atlas-pressure','atlas-tempo','atlas-goal','sigma','sigma2','sigma3','sigma4'].includes(engine)&&status==='wasm'?'unavailable':status,info),base:engine==='sigma4'?'/api/sigma4':engine==='sigma3'?'/api/sigma3':engine==='sigma2'?'/api/sigma2':engine==='sigma'?'/api/sigma':engine==='atlas-goal'?'/api/goal':engine==='atlas-tempo'?'/api/tempo':engine==='atlas-pressure'?'/api/pressure':engine==='atlas-experiment'?'/api/experimental':'/api/native'})):null;this.size=this.web.size;this.generation=0;this.job=null;}
+ constructor({workers=4,engine='sigma4',onStatus=()=>{},nativeClient}={}){
+  if(!supportedEngines.includes(engine))throw Error('Unknown engine');
+  this.engine=engine;this.size=Math.max(1,Math.min(4,workers|0));this.onStatus=onStatus;this.generation=0;this.job=null;
+  this.native=nativeClient??new NativeClient({base:'/api/'+engine,onStatus});
+ }
  get active(){return this.job!==null;}
- get ponderMs(){return this.native?.online?1500:250;}
- cancel(){this.generation++;this.job=null;this.native?.cancel();this.web.cancel();}
- dispose(){this.cancel();this.native?.dispose();this.web.dispose();}
- async search(state,{ms=500,onProgress=()=>{},ponder=false,cores=this.size,wallStreak=0,defenseReply=null}={}){this.cancel();const generation=this.generation,start=performance.now();this.job={generation};const guarded=r=>{if(generation===this.generation)onProgress(r);};
-  try{if(this.native&&(this.native.online||await this.native.probe())){
-    if(generation!==this.generation)throw Object.assign(Error('Calculation cancelled'),{name:'AbortError'});
-    try{const r=await this.native.search(state,{ms:Math.max(1,ms-(performance.now()-start)),cores:Math.max(1,Math.min(this.size,cores)),onProgress:guarded,wallStreak,defenseReply});if(generation!==this.generation)throw Object.assign(Error('Calculation cancelled'),{name:'AbortError'});return {...r,elapsedMs:performance.now()-start};}
-    catch(error){if(generation!==this.generation)throw error;this.native.online=false;this.native.checked=Date.now();}
-   }
-   if(generation!==this.generation)throw Object.assign(Error('Calculation cancelled'),{name:'AbortError'});
-   if(['atlas-experiment','atlas-pressure','atlas-tempo','atlas-goal','sigma','sigma2','sigma3','sigma4'].includes(this.engine)){this.onStatus(this.native?.unavailableReason?'stale':'unavailable',this.native?.info);throw Error(this.native?.unavailableReason??'실험 엔진을 사용할 수 없습니다. 실행기를 다시 시작하거나 안정 엔진을 선택하세요.');}
-   this.onStatus(this.engine==='atlas3'?'atlas3':this.engine==='atlas4'?'atlas4':'wasm');
-   const r=await this.web.search(state,{ms:Math.max(1,ms-(performance.now()-start)),onProgress:guarded,ponder,workers:cores});if(generation!==this.generation)throw Object.assign(Error('Calculation cancelled'),{name:'AbortError'});return {...r,backend:'wasm',elapsedMs:performance.now()-start};
+ get ponderMs(){return 1500;}
+ cancel(){this.generation++;this.job=null;this.native.cancel();}
+ dispose(){this.cancel();this.native.dispose();}
+ async search(state,{ms=500,onProgress=()=>{},cores=this.size,wallStreak=0,defenseReply=null}={}){
+  this.cancel();const generation=this.generation,start=performance.now();this.job={generation};
+  const check=()=>{if(generation!==this.generation)throw Object.assign(Error('Calculation cancelled'),{name:'AbortError'});};
+  try{
+   if(!this.native.online&&!await this.native.probe()){check();this.onStatus('unavailable',this.native.info);throw Error('선택한 Sigma 엔진을 사용할 수 없습니다. 앱을 다시 실행해 주세요.');}
+   check();const r=await this.native.search(state,{ms:Math.max(1,ms-(performance.now()-start)),cores:Math.max(1,Math.min(this.size,cores)),wallStreak,defenseReply,onProgress:r=>{if(generation===this.generation)onProgress(r);}});check();return {...r,elapsedMs:performance.now()-start};
   }finally{if(generation===this.generation)this.job=null;}
  }
 }

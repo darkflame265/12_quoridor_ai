@@ -1,9 +1,0 @@
-import {readFile,writeFile} from 'node:fs/promises';import path from 'node:path';import {spawnSync} from 'node:child_process';
-import {verifyMazeGuardBuild} from '../evaluation/maze-guard-policy.mjs';import {assessMazeGuardDevelopment} from '../evaluation/maze-guard-decision.mjs';import {digest} from '../evaluation/native-policy.mjs';
-const [directory,proofFile,out]=process.argv.slice(2);if(!out)throw Error('Specify development directory, proof JSON and fresh decision JSON');
-const reportFile=path.join(directory,'report.json'),reportBytes=await readFile(reportFile),proofBytes=await readFile(proofFile),report=JSON.parse(reportBytes),proof=JSON.parse(proofBytes);
-if(JSON.stringify(report.identity)!==JSON.stringify(verifyMazeGuardBuild())||JSON.stringify(proof.identity)!==JSON.stringify(report.identity)||proof.scriptSha256!==digest(await readFile('scripts/check-maze-guard.mjs'))||proof.source.sha256!==digest(await readFile(proof.source.file)))throw Error('Guard proof or sources changed');
-const r=spawnSync(process.execPath,['scripts/verify-maze-guard.mjs',directory,'--save'],{encoding:'utf8',windowsHide:true});if(r.status!==0)throw Error(r.stderr||'Replay verification failed');
-const assessment=assessMazeGuardDevelopment(report,proof),bySuite=Object.fromEntries(['general','maze'].map(s=>[s,Object.fromEntries(['win','loss','draw'].map(result=>[result,report.games.filter(g=>g.suite===s&&g.result===result).length]))]));
-const result={format:'atlas-maze-guard-development-decision-v1',identity:report.identity,inputs:[{file:reportFile,sha256:digest(reportBytes)},{file:proofFile,sha256:digest(proofBytes)}],policySha256:digest(await readFile('evaluation/maze-guard-decision.mjs')),summary:report.summary,bySuite,...assessment,validationSkipped:!assessment.advanceToValidation,holdoutSkipped:true};
-await writeFile(out,JSON.stringify(result,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({summary:report.summary,bySuite,...assessment},null,2));

@@ -1,0 +1,386 @@
+{
+  "version": "sigma4-wall-structure-v10-independent-evidence-audit-v1",
+  "games": 48,
+  "fixtureCount": 6,
+  "pairedComparisons": 24,
+  "opponents": {
+    "sigma2": {
+      "v3": {
+        "wins": 7,
+        "losses": 5,
+        "draws": 0,
+        "games": 12
+      },
+      "v10": {
+        "wins": 7,
+        "losses": 5,
+        "draws": 0,
+        "games": 12
+      }
+    },
+    "sigma3": {
+      "v3": {
+        "wins": 5,
+        "losses": 7,
+        "draws": 0,
+        "games": 12
+      },
+      "v10": {
+        "wins": 5,
+        "losses": 7,
+        "draws": 0,
+        "games": 12
+      }
+    }
+  },
+  "timing": {
+    "v3": {
+      "count": 781,
+      "meanMs": 207.8482156210003,
+      "p95Ms": 434.1964000000007,
+      "p99Ms": 552.2773000000743,
+      "maxMs": 722.6889999998966,
+      "over500": 15
+    },
+    "v10": {
+      "count": 781,
+      "meanMs": 205.85534852752883,
+      "p95Ms": 438.8725000000559,
+      "p99Ms": 617.5128999999724,
+      "maxMs": 782.6376999999629,
+      "over500": 16
+    }
+  },
+  "wallPolicyStatuses": {
+    "no-comparable-sample": 697,
+    "non-wall-contrast": 73,
+    "native-q-not-better": 6,
+    "replaced": 2,
+    "retained": 3
+  },
+  "pairedComparisonsResults": [
+    {
+      "opponent": "sigma2",
+      "fixture": "v10-blind-01-20261105",
+      "seat": 0,
+      "v3Won": true,
+      "v10Won": true,
+      "v3Plies": 65,
+      "v10Plies": 65,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma2",
+      "fixture": "v10-blind-01-20261105",
+      "seat": 1,
+      "v3Won": true,
+      "v10Won": true,
+      "v3Plies": 80,
+      "v10Plies": 80,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma2",
+      "fixture": "v10-blind-02-20261105",
+      "seat": 0,
+      "v3Won": false,
+      "v10Won": false,
+      "v3Plies": 56,
+      "v10Plies": 56,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma2",
+      "fixture": "v10-blind-02-20261105",
+      "seat": 1,
+      "v3Won": true,
+      "v10Won": true,
+      "v3Plies": 62,
+      "v10Plies": 72,
+      "allActionsSame": false,
+      "v10Overrides": 1,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma2",
+      "fixture": "v10-blind-03-20261105",
+      "seat": 0,
+      "v3Won": true,
+      "v10Won": true,
+      "v3Plies": 89,
+      "v10Plies": 89,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma2",
+      "fixture": "v10-blind-03-20261105",
+      "seat": 1,
+      "v3Won": false,
+      "v10Won": false,
+      "v3Plies": 89,
+      "v10Plies": 89,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma2",
+      "fixture": "v10-blind-04-20261105",
+      "seat": 0,
+      "v3Won": false,
+      "v10Won": false,
+      "v3Plies": 70,
+      "v10Plies": 70,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma2",
+      "fixture": "v10-blind-04-20261105",
+      "seat": 1,
+      "v3Won": true,
+      "v10Won": true,
+      "v3Plies": 78,
+      "v10Plies": 78,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma2",
+      "fixture": "v10-blind-05-20261105",
+      "seat": 0,
+      "v3Won": false,
+      "v10Won": false,
+      "v3Plies": 82,
+      "v10Plies": 82,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma2",
+      "fixture": "v10-blind-05-20261105",
+      "seat": 1,
+      "v3Won": true,
+      "v10Won": true,
+      "v3Plies": 86,
+      "v10Plies": 86,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma2",
+      "fixture": "v10-blind-06-20261105",
+      "seat": 0,
+      "v3Won": false,
+      "v10Won": false,
+      "v3Plies": 42,
+      "v10Plies": 42,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma2",
+      "fixture": "v10-blind-06-20261105",
+      "seat": 1,
+      "v3Won": true,
+      "v10Won": true,
+      "v3Plies": 72,
+      "v10Plies": 62,
+      "allActionsSame": false,
+      "v10Overrides": 1,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma3",
+      "fixture": "v10-blind-01-20261105",
+      "seat": 0,
+      "v3Won": false,
+      "v10Won": false,
+      "v3Plies": 86,
+      "v10Plies": 86,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma3",
+      "fixture": "v10-blind-01-20261105",
+      "seat": 1,
+      "v3Won": true,
+      "v10Won": true,
+      "v3Plies": 76,
+      "v10Plies": 76,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma3",
+      "fixture": "v10-blind-02-20261105",
+      "seat": 0,
+      "v3Won": false,
+      "v10Won": false,
+      "v3Plies": 58,
+      "v10Plies": 58,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma3",
+      "fixture": "v10-blind-02-20261105",
+      "seat": 1,
+      "v3Won": true,
+      "v10Won": true,
+      "v3Plies": 62,
+      "v10Plies": 62,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma3",
+      "fixture": "v10-blind-03-20261105",
+      "seat": 0,
+      "v3Won": false,
+      "v10Won": false,
+      "v3Plies": 86,
+      "v10Plies": 86,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma3",
+      "fixture": "v10-blind-03-20261105",
+      "seat": 1,
+      "v3Won": true,
+      "v10Won": true,
+      "v3Plies": 86,
+      "v10Plies": 86,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma3",
+      "fixture": "v10-blind-04-20261105",
+      "seat": 0,
+      "v3Won": false,
+      "v10Won": false,
+      "v3Plies": 90,
+      "v10Plies": 90,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma3",
+      "fixture": "v10-blind-04-20261105",
+      "seat": 1,
+      "v3Won": false,
+      "v10Won": false,
+      "v3Plies": 91,
+      "v10Plies": 91,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma3",
+      "fixture": "v10-blind-05-20261105",
+      "seat": 0,
+      "v3Won": false,
+      "v10Won": false,
+      "v3Plies": 82,
+      "v10Plies": 82,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma3",
+      "fixture": "v10-blind-05-20261105",
+      "seat": 1,
+      "v3Won": true,
+      "v10Won": true,
+      "v3Plies": 84,
+      "v10Plies": 84,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma3",
+      "fixture": "v10-blind-06-20261105",
+      "seat": 0,
+      "v3Won": false,
+      "v10Won": false,
+      "v3Plies": 64,
+      "v10Plies": 64,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "opponent": "sigma3",
+      "fixture": "v10-blind-06-20261105",
+      "seat": 1,
+      "v3Won": true,
+      "v10Won": true,
+      "v3Plies": 66,
+      "v10Plies": 66,
+      "allActionsSame": true,
+      "v10Overrides": 0,
+      "improved": false,
+      "regressed": false
+    }
+  ],
+  "improvements": 0,
+  "regressions": 0,
+  "gates": {
+    "legalReplay": true,
+    "sixIndependentStartFixtures": true,
+    "sameSeatAndSeed": true,
+    "demonstratedWinImprovement": false,
+    "strict500Ms": false,
+    "productionPromotionApproved": false
+  },
+  "decision": "Research-only. A 48-game, 6-opening pilot is not enough to establish a general strength advantage, and Wall-structure root tie breaker retains 200-sim root but does not guarantee 500ms."
+}

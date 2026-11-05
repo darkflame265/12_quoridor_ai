@@ -1,0 +1,276 @@
+{
+  "version": "sigma4-028-040-counterfactual-audit-v1",
+  "sourceHash": "f97542f186d0b768151b552806a512c52cdc4f91862b7dbc2b6dd9e5b880caaa",
+  "games": 24,
+  "pairedGroups": 8,
+  "pairedComparisons": 16,
+  "comparisons": [
+    {
+      "id": "independent-wall-028",
+      "opponent": "sigma2",
+      "seed": 118031,
+      "arm": "pawn",
+      "originalWon": true,
+      "alternativeWon": false,
+      "winnerChanged": true,
+      "improved": false,
+      "regressed": true,
+      "originalContinuation": 40,
+      "alternativeContinuation": 29
+    },
+    {
+      "id": "independent-wall-028",
+      "opponent": "sigma2",
+      "seed": 118031,
+      "arm": "wall",
+      "originalWon": true,
+      "alternativeWon": false,
+      "winnerChanged": true,
+      "improved": false,
+      "regressed": true,
+      "originalContinuation": 40,
+      "alternativeContinuation": 23
+    },
+    {
+      "id": "independent-wall-028",
+      "opponent": "sigma2",
+      "seed": 921117,
+      "arm": "pawn",
+      "originalWon": true,
+      "alternativeWon": false,
+      "winnerChanged": true,
+      "improved": false,
+      "regressed": true,
+      "originalContinuation": 40,
+      "alternativeContinuation": 31
+    },
+    {
+      "id": "independent-wall-028",
+      "opponent": "sigma2",
+      "seed": 921117,
+      "arm": "wall",
+      "originalWon": true,
+      "alternativeWon": false,
+      "winnerChanged": true,
+      "improved": false,
+      "regressed": true,
+      "originalContinuation": 40,
+      "alternativeContinuation": 23
+    },
+    {
+      "id": "independent-wall-028",
+      "opponent": "sigma3",
+      "seed": 118031,
+      "arm": "pawn",
+      "originalWon": true,
+      "alternativeWon": false,
+      "winnerChanged": true,
+      "improved": false,
+      "regressed": true,
+      "originalContinuation": 50,
+      "alternativeContinuation": 29
+    },
+    {
+      "id": "independent-wall-028",
+      "opponent": "sigma3",
+      "seed": 118031,
+      "arm": "wall",
+      "originalWon": true,
+      "alternativeWon": false,
+      "winnerChanged": true,
+      "improved": false,
+      "regressed": true,
+      "originalContinuation": 50,
+      "alternativeContinuation": 23
+    },
+    {
+      "id": "independent-wall-028",
+      "opponent": "sigma3",
+      "seed": 921117,
+      "arm": "pawn",
+      "originalWon": true,
+      "alternativeWon": false,
+      "winnerChanged": true,
+      "improved": false,
+      "regressed": true,
+      "originalContinuation": 50,
+      "alternativeContinuation": 31
+    },
+    {
+      "id": "independent-wall-028",
+      "opponent": "sigma3",
+      "seed": 921117,
+      "arm": "wall",
+      "originalWon": true,
+      "alternativeWon": false,
+      "winnerChanged": true,
+      "improved": false,
+      "regressed": true,
+      "originalContinuation": 50,
+      "alternativeContinuation": 23
+    },
+    {
+      "id": "independent-wall-040",
+      "opponent": "sigma2",
+      "seed": 118031,
+      "arm": "pawn",
+      "originalWon": true,
+      "alternativeWon": true,
+      "winnerChanged": false,
+      "improved": false,
+      "regressed": false,
+      "originalContinuation": 40,
+      "alternativeContinuation": 54
+    },
+    {
+      "id": "independent-wall-040",
+      "opponent": "sigma2",
+      "seed": 118031,
+      "arm": "wall",
+      "originalWon": true,
+      "alternativeWon": false,
+      "winnerChanged": true,
+      "improved": false,
+      "regressed": true,
+      "originalContinuation": 40,
+      "alternativeContinuation": 37
+    },
+    {
+      "id": "independent-wall-040",
+      "opponent": "sigma2",
+      "seed": 921117,
+      "arm": "pawn",
+      "originalWon": false,
+      "alternativeWon": false,
+      "winnerChanged": false,
+      "improved": false,
+      "regressed": false,
+      "originalContinuation": 53,
+      "alternativeContinuation": 55
+    },
+    {
+      "id": "independent-wall-040",
+      "opponent": "sigma2",
+      "seed": 921117,
+      "arm": "wall",
+      "originalWon": false,
+      "alternativeWon": false,
+      "winnerChanged": false,
+      "improved": false,
+      "regressed": false,
+      "originalContinuation": 53,
+      "alternativeContinuation": 41
+    },
+    {
+      "id": "independent-wall-040",
+      "opponent": "sigma3",
+      "seed": 118031,
+      "arm": "pawn",
+      "originalWon": true,
+      "alternativeWon": true,
+      "winnerChanged": false,
+      "improved": false,
+      "regressed": false,
+      "originalContinuation": 36,
+      "alternativeContinuation": 54
+    },
+    {
+      "id": "independent-wall-040",
+      "opponent": "sigma3",
+      "seed": 118031,
+      "arm": "wall",
+      "originalWon": true,
+      "alternativeWon": false,
+      "winnerChanged": true,
+      "improved": false,
+      "regressed": true,
+      "originalContinuation": 36,
+      "alternativeContinuation": 37
+    },
+    {
+      "id": "independent-wall-040",
+      "opponent": "sigma3",
+      "seed": 921117,
+      "arm": "pawn",
+      "originalWon": false,
+      "alternativeWon": false,
+      "winnerChanged": false,
+      "improved": false,
+      "regressed": false,
+      "originalContinuation": 53,
+      "alternativeContinuation": 55
+    },
+    {
+      "id": "independent-wall-040",
+      "opponent": "sigma3",
+      "seed": 921117,
+      "arm": "wall",
+      "originalWon": false,
+      "alternativeWon": false,
+      "winnerChanged": false,
+      "improved": false,
+      "regressed": false,
+      "originalContinuation": 53,
+      "alternativeContinuation": 41
+    }
+  ],
+  "groupStats": {
+    "independent-wall-028": {
+      "comparisons": 8,
+      "improved": 0,
+      "regressed": 8,
+      "byArm": {
+        "pawn": {
+          "wins": 0,
+          "baselineWins": 4,
+          "improved": 0,
+          "regressed": 4
+        },
+        "wall": {
+          "wins": 0,
+          "baselineWins": 4,
+          "improved": 0,
+          "regressed": 4
+        }
+      }
+    },
+    "independent-wall-040": {
+      "comparisons": 8,
+      "improved": 0,
+      "regressed": 2,
+      "byArm": {
+        "pawn": {
+          "wins": 2,
+          "baselineWins": 2,
+          "improved": 0,
+          "regressed": 0
+        },
+        "wall": {
+          "wins": 0,
+          "baselineWins": 2,
+          "improved": 0,
+          "regressed": 2
+        }
+      }
+    }
+  },
+  "overall": {
+    "originalWins": 6,
+    "pawnWins": 2,
+    "wallWins": 0,
+    "improved": 0,
+    "regressed": 10,
+    "unchanged": 6
+  },
+  "promotion": {
+    "modelTrainingApproved": false,
+    "productionEngineApproved": false,
+    "reason": "No proven minimax labels; two hand-selected development positions and repeated seeds cannot establish a general root policy advantage"
+  },
+  "limitations": [
+    "Same full-game policy and original ONNX value head used in every branch",
+    "Different forced first moves can lead to different later RNG consumption; same seed is only a controlled initial condition",
+    "Two positions selected because of prior evaluation anomalies; not an unbiased holdout",
+    "Observed game outcomes depend on two opponent policies; not a solved Quoridor game"
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "version": "sigma4-bitset-wall-promotion-verdict-v1",
+  "files": {
+    "scripts/sigma4-bitset-wall-worker.py": "980a3baf524fa166c8bb3de841240f8f4dbd3dd5ac3bd2eb440baef15679e0a2",
+    "scripts/sigma4-cache-worker.py": "845902195f46a8b8229df43222e053d885460d14b51d6d990a93e0f76b4b689d",
+    "scripts/sigma4-budget-process.mjs": "45ca7a563a8b9689e61bd0b58e97ec1b665ed9c69e5dcc250dbb8b7713a58fe2"
+  },
+  "accuracy": {
+    "legalWalls9x9": 1799,
+    "legalWalls7x7": 506,
+    "wallHeavyStates9x9": 1412,
+    "rootComparisons": 57,
+    "originalHistorical": 30,
+    "middleLate": 13,
+    "freshWallHeavy": 14,
+    "allMatched": true
+  },
+  "benchmark": {
+    "directWall9x9": {
+      "boardSize": 9,
+      "states": 1799,
+      "statesWith10PlusWalls": 1412,
+      "maxWalls": 20,
+      "originalWallMs": 347.55,
+      "bitsetWallMs": 145.17,
+      "ms": 732.9,
+      "allMatched": true
+    },
+    "directWall7x7": {
+      "boardSize": 7,
+      "states": 506,
+      "statesWith10PlusWalls": 292,
+      "maxWalls": 10,
+      "originalWallMs": 42.2,
+      "bitsetWallMs": 21.1,
+      "ms": 104.3,
+      "allMatched": true
+    },
+    "historical": {
+      "baseline": {
+        "count": 30,
+        "meanMs": 332.33180666666675,
+        "p50Ms": 322.8805000000011,
+        "p95Ms": 519.1729,
+        "p99Ms": 527.9714999999997,
+        "maxMs": 527.9714999999997,
+        "over500": 2,
+        "cacheHits": 3349,
+        "cacheMisses": 2507
+      },
+      "bitset": {
+        "count": 30,
+        "meanMs": 315.29244666666665,
+        "p50Ms": 287.1841999999997,
+        "p95Ms": 505.69119999999987,
+        "p99Ms": 517.6417000000001,
+        "maxMs": 517.6417000000001,
+        "over500": 2,
+        "cacheHits": 3349,
+        "cacheMisses": 2507
+      }
+    },
+    "freshWallHeavy": {
+      "baseline": {
+        "count": 14,
+        "meanMs": 426.4469357142857,
+        "p95Ms": 555.3581999999999,
+        "p99Ms": 555.3581999999999,
+        "maxMs": 555.3581999999999,
+        "over500": 4
+      },
+      "bitset": {
+        "count": 14,
+        "meanMs": 393.26800714285724,
+        "p95Ms": 512.0044999999991,
+        "p99Ms": 512.0044999999991,
+        "maxMs": 512.0044999999991,
+        "over500": 1
+      }
+    },
+    "middleLate": {
+      "bitset": {
+        "total": 13,
+        "meanCached": 193.59561538461531,
+        "p95Cached": 381.6246,
+        "over500": 0
+      }
+    }
+  },
+  "gates": {
+    "legalListsMatched": true,
+    "searchDecisionsMatched": true,
+    "meanSpeedImprovedOnBothSets": true,
+    "p95Below500BothSets": false,
+    "freshFullGameWinRateProven": false,
+    "strict500MsProven": false
+  },
+  "researchCandidateAccepted": true,
+  "productionPromotionApproved": false,
+  "rationale": "Bitset graph reachability reduces wall-generation cost and preserves sampled decisions. P95 latency still over 500ms; the default remains unchanged."
+}

@@ -1,0 +1,50 @@
+{
+  "version": "sigma4-onnx-timing-profile-v1",
+  "results": [
+    {
+      "fixture": "start",
+      "simulations": 100,
+      "engineMs": 269.4554000008793,
+      "wallMs": 288.25579999999997,
+      "onnxCalls": 102,
+      "onnxMs": 154.81020001607249,
+      "nonOnnxMs": 114.64519998480682,
+      "onnxFraction": 0.5745299593757159,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      }
+    },
+    {
+      "fixture": "midgame-pawns",
+      "simulations": 100,
+      "engineMs": 285.7122999994317,
+      "wallMs": 294.3446,
+      "onnxCalls": 102,
+      "onnxMs": 153.69580001788563,
+      "nonOnnxMs": 132.01649998154608,
+      "onnxFraction": 0.5379390387399889,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "fixture": "midgame-wall",
+      "simulations": 100,
+      "engineMs": 315.5791999997746,
+      "wallMs": 324.91650000000004,
+      "onnxCalls": 102,
+      "onnxMs": 163.86419999980717,
+      "nonOnnxMs": 151.7149999999674,
+      "onnxFraction": 0.5192490506342757,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      }
+    }
+  ]
+}

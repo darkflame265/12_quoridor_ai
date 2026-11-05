@@ -1,0 +1,32 @@
+{
+  "version": "sigma4-value-platt-prototype-v1",
+  "fitSplit": "development",
+  "holdoutUsedForFit": false,
+  "logitScale": 0.7585267110282176,
+  "logitBias": -0.2754340422017596,
+  "l2Anchor": [
+    1,
+    0
+  ],
+  "l2Strength": 0.05,
+  "development": {
+    "n": 308,
+    "brierOriginal": 0.08316157291258176,
+    "brierCalibrated": 0.07967889909111651,
+    "logLossOriginal": 0.29298912447613085,
+    "logLossCalibrated": 0.2761141042840417,
+    "accuracyOriginal": 0.9025974025974026,
+    "accuracyCalibrated": 0.9058441558441559
+  },
+  "holdout": {
+    "n": 89,
+    "brierOriginal": 0.27556519676534197,
+    "brierCalibrated": 0.23194429614776405,
+    "logLossOriginal": 0.8107238980549919,
+    "logLossCalibrated": 0.6522682999210299,
+    "accuracyOriginal": 0.5955056179775281,
+    "accuracyCalibrated": 0.5955056179775281
+  },
+  "decision": "Research-only calibration, does not replace ONNX weights. Deploy only if heldout calibration and independent match strength are proven.",
+  "approvedForProduction": false
+}

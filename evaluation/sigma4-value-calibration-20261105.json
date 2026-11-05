@@ -1,0 +1,571 @@
+{
+  "version": "sigma4-value-calibration-v1",
+  "modelSha256": "d790dac68389f7602ff8a887a2385417d3c925fe22da7164c86e9226f943908d",
+  "label": "Observed outcome, NOT guaranteed optimal state value",
+  "development": {
+    "n": 308,
+    "wins": 101,
+    "winRate": 0.32792207792207795,
+    "predictedWinRate": 0.3595593516902345,
+    "brier": 0.08316157291258176,
+    "logLoss": 0.29298912447613085,
+    "accuracy": 0.9025974025974026,
+    "ece5": 0.06990601503677278,
+    "bins": [
+      {
+        "band": 0,
+        "n": 158,
+        "predicted": 0.02599122686476647,
+        "observed": 0.06329113924050633
+      },
+      {
+        "band": 1,
+        "n": 33,
+        "predicted": 0.27616985164808505,
+        "observed": 0.06060606060606061
+      },
+      {
+        "band": 2,
+        "n": 21,
+        "predicted": 0.4886076356772156,
+        "observed": 0.23809523809523808
+      },
+      {
+        "band": 3,
+        "n": 19,
+        "predicted": 0.6993765254553995,
+        "observed": 0.631578947368421
+      },
+      {
+        "band": 4,
+        "n": 77,
+        "predicted": 0.9607161953077687,
+        "observed": 0.935064935064935
+      }
+    ]
+  },
+  "holdout": {
+    "n": 89,
+    "wins": 24,
+    "winRate": 0.2696629213483146,
+    "predictedWinRate": 0.45574820636028657,
+    "brier": 0.275565196765342,
+    "logLoss": 0.8107238980549919,
+    "accuracy": 0.5955056179775281,
+    "ece5": 0.27545996387018246,
+    "bins": [
+      {
+        "band": 0,
+        "n": 38,
+        "predicted": 0.05323228396867451,
+        "observed": 0.15789473684210525
+      },
+      {
+        "band": 1,
+        "n": 4,
+        "predicted": 0.2658249977976084,
+        "observed": 0.25
+      },
+      {
+        "band": 2,
+        "n": 5,
+        "predicted": 0.4462648183107376,
+        "observed": 0.4
+      },
+      {
+        "band": 3,
+        "n": 19,
+        "predicted": 0.7047344728520042,
+        "observed": 0.15789473684210525
+      },
+      {
+        "band": 4,
+        "n": 23,
+        "predicted": 0.9501819351445073,
+        "observed": 0.5217391304347826
+      }
+    ]
+  },
+  "developmentConstant": {
+    "pFromDevelopment": 0.32792207792207795,
+    "brier": 0.22038918873334457,
+    "logLoss": 0.6326973076265011
+  },
+  "holdoutConstantFromDevelopment": {
+    "pFromDevelopment": 0.32792207792207795,
+    "brier": 0.2003389595228936,
+    "logLoss": 0.5908906372832463
+  },
+  "holdoutByOpening": {
+    "v10-blind-01-20261105": {
+      "n": 45,
+      "wins": 10,
+      "winRate": 0.2222222222222222,
+      "predictedWinRate": 0.472358345405923,
+      "brier": 0.24971443215654004,
+      "logLoss": 0.6773090353511573,
+      "accuracy": 0.6,
+      "ece5": 0.2721532656914658,
+      "bins": [
+        {
+          "band": 0,
+          "n": 17,
+          "predicted": 0.049363152069204,
+          "observed": 0.058823529411764705
+        },
+        {
+          "band": 1,
+          "n": 3,
+          "predicted": 0.22181356946627298,
+          "observed": 0.3333333333333333
+        },
+        {
+          "band": 2,
+          "n": 3,
+          "predicted": 0.4547269977629185,
+          "observed": 0.3333333333333333
+        },
+        {
+          "band": 3,
+          "n": 9,
+          "predicted": 0.6854681066340871,
+          "observed": 0.0
+        },
+        {
+          "band": 4,
+          "n": 13,
+          "predicted": 0.9398551766689007,
+          "observed": 0.5384615384615384
+        }
+      ]
+    },
+    "v10-blind-03-20261105": {
+      "n": 18,
+      "wins": 10,
+      "winRate": 0.5555555555555556,
+      "predictedWinRate": 0.5312576964497566,
+      "brier": 0.398471601920126,
+      "logLoss": 1.222216702521786,
+      "accuracy": 0.4444444444444444,
+      "ece5": 0.4362039607432153,
+      "bins": [
+        {
+          "band": 0,
+          "n": 7,
+          "predicted": 0.0635643984590258,
+          "observed": 0.5714285714285714
+        },
+        {
+          "band": 2,
+          "n": 1,
+          "predicted": 0.4105328321456909,
+          "observed": 1.0
+        },
+        {
+          "band": 3,
+          "n": 4,
+          "predicted": 0.7357810102403164,
+          "observed": 0.25
+        },
+        {
+          "band": 4,
+          "n": 6,
+          "predicted": 0.9606718122959137,
+          "observed": 0.6666666666666666
+        }
+      ]
+    },
+    "v10-blind-04-20261105": {
+      "n": 26,
+      "wins": 4,
+      "winRate": 0.15384615384615385,
+      "predictedWinRate": 0.3747240879501288,
+      "brier": 0.2352178550195718,
+      "logLoss": 0.756754603488463,
+      "accuracy": 0.6923076923076923,
+      "ece5": 0.24097774822551474,
+      "bins": [
+        {
+          "band": 0,
+          "n": 14,
+          "predicted": 0.05276445831571307,
+          "observed": 0.07142857142857142
+        },
+        {
+          "band": 1,
+          "n": 1,
+          "predicted": 0.39785928279161453,
+          "observed": 0.0
+        },
+        {
+          "band": 2,
+          "n": 1,
+          "predicted": 0.4566102661192417,
+          "observed": 0.0
+        },
+        {
+          "band": 3,
+          "n": 6,
+          "predicted": 0.7129363305866718,
+          "observed": 0.3333333333333333
+        },
+        {
+          "band": 4,
+          "n": 4,
+          "predicted": 0.9680090844631195,
+          "observed": 0.25
+        }
+      ]
+    }
+  },
+  "byGameStage": {
+    "early": {
+      "development": {
+        "n": 68,
+        "wins": 25,
+        "winRate": 0.36764705882352944,
+        "predictedWinRate": 0.44879645717275496,
+        "brier": 0.12714012526343416,
+        "logLoss": 0.41275152920658376,
+        "accuracy": 0.8823529411764706,
+        "ece5": 0.13663405152585578,
+        "bins": [
+          {
+            "band": 0,
+            "n": 19,
+            "predicted": 0.06339790162287261,
+            "observed": 0.05263157894736842
+          },
+          {
+            "band": 1,
+            "n": 13,
+            "predicted": 0.29772503903278935,
+            "observed": 0.07692307692307693
+          },
+          {
+            "band": 2,
+            "n": 12,
+            "predicted": 0.483212501121064,
+            "observed": 0.25
+          },
+          {
+            "band": 3,
+            "n": 10,
+            "predicted": 0.7113521791994571,
+            "observed": 0.9
+          },
+          {
+            "band": 4,
+            "n": 14,
+            "predicted": 0.8950786888599396,
+            "observed": 0.7857142857142857
+          }
+        ]
+      },
+      "holdout": {
+        "n": 13,
+        "wins": 3,
+        "winRate": 0.23076923076923078,
+        "predictedWinRate": 0.5526746588830764,
+        "brier": 0.4810000583402682,
+        "logLoss": 1.2412394000386797,
+        "accuracy": 0.23076923076923078,
+        "ece5": 0.5561332367360592,
+        "bins": [
+          {
+            "band": 0,
+            "n": 2,
+            "predicted": 0.12106682360172272,
+            "observed": 0.5
+          },
+          {
+            "band": 1,
+            "n": 1,
+            "predicted": 0.23538559675216675,
+            "observed": 1.0
+          },
+          {
+            "band": 2,
+            "n": 3,
+            "predicted": 0.4547269977629185,
+            "observed": 0.3333333333333333
+          },
+          {
+            "band": 3,
+            "n": 5,
+            "predicted": 0.7226958274841309,
+            "observed": 0.0
+          },
+          {
+            "band": 4,
+            "n": 2,
+            "predicted": 0.864795595407486,
+            "observed": 0.0
+          }
+        ]
+      }
+    },
+    "middle": {
+      "development": {
+        "n": 155,
+        "wins": 52,
+        "winRate": 0.33548387096774196,
+        "predictedWinRate": 0.33816284732592683,
+        "brier": 0.08966306639954263,
+        "logLoss": 0.3414047475887946,
+        "accuracy": 0.8903225806451613,
+        "ece5": 0.07481259668185826,
+        "bins": [
+          {
+            "band": 0,
+            "n": 87,
+            "predicted": 0.027697062355348433,
+            "observed": 0.09195402298850575
+          },
+          {
+            "band": 1,
+            "n": 15,
+            "predicted": 0.25408999224503837,
+            "observed": 0.06666666666666667
+          },
+          {
+            "band": 2,
+            "n": 6,
+            "predicted": 0.4820787293526034,
+            "observed": 0.3333333333333333
+          },
+          {
+            "band": 3,
+            "n": 7,
+            "predicted": 0.6846117547580174,
+            "observed": 0.42857142857142855
+          },
+          {
+            "band": 4,
+            "n": 40,
+            "predicted": 0.9627373091876507,
+            "observed": 0.95
+          }
+        ]
+      },
+      "holdout": {
+        "n": 35,
+        "wins": 9,
+        "winRate": 0.2571428571428571,
+        "predictedWinRate": 0.47805899307131766,
+        "brier": 0.3392204043677732,
+        "logLoss": 1.0270948626119498,
+        "accuracy": 0.5142857142857142,
+        "ece5": 0.38891998625227386,
+        "bins": [
+          {
+            "band": 0,
+            "n": 15,
+            "predicted": 0.07066217462221781,
+            "observed": 0.26666666666666666
+          },
+          {
+            "band": 1,
+            "n": 1,
+            "predicted": 0.20332160592079163,
+            "observed": 0.0
+          },
+          {
+            "band": 2,
+            "n": 1,
+            "predicted": 0.4566102661192417,
+            "observed": 0.0
+          },
+          {
+            "band": 3,
+            "n": 7,
+            "predicted": 0.6594176931040627,
+            "observed": 0.0
+          },
+          {
+            "band": 4,
+            "n": 11,
+            "predicted": 0.9451160376722162,
+            "observed": 0.45454545454545453
+          }
+        ]
+      }
+    },
+    "late": {
+      "development": {
+        "n": 85,
+        "wins": 24,
+        "winRate": 0.2823529411764706,
+        "predictedWinRate": 0.32718682232148505,
+        "brier": 0.03612306643803002,
+        "logLoss": 0.10889188795691107,
+        "accuracy": 0.9411764705882353,
+        "ece5": 0.05831712076769156,
+        "bins": [
+          {
+            "band": 0,
+            "n": 52,
+            "predicted": 0.009469409401600178,
+            "observed": 0.019230769230769232
+          },
+          {
+            "band": 1,
+            "n": 5,
+            "predicted": 0.2863659426569939,
+            "observed": 0.0
+          },
+          {
+            "band": 2,
+            "n": 3,
+            "predicted": 0.5232459865510464,
+            "observed": 0.0
+          },
+          {
+            "band": 3,
+            "n": 2,
+            "predicted": 0.6911749541759491,
+            "observed": 0.0
+          },
+          {
+            "band": 4,
+            "n": 23,
+            "predicted": 0.9971544794414354,
+            "observed": 1.0
+          }
+        ]
+      },
+      "holdout": {
+        "n": 41,
+        "wins": 12,
+        "winRate": 0.2926829268292683,
+        "predictedWinRate": 0.40596963519730217,
+        "brier": 0.1560875024590217,
+        "logLoss": 0.4895120618286145,
+        "accuracy": 0.7804878048780488,
+        "ece5": 0.1556626422012725,
+        "bins": [
+          {
+            "band": 0,
+            "n": 21,
+            "predicted": 0.03432192972728184,
+            "observed": 0.047619047619047616
+          },
+          {
+            "band": 1,
+            "n": 2,
+            "predicted": 0.31229639425873756,
+            "observed": 0.0
+          },
+          {
+            "band": 2,
+            "n": 1,
+            "predicted": 0.4105328321456909,
+            "observed": 1.0
+          },
+          {
+            "band": 3,
+            "n": 7,
+            "predicted": 0.7372217135769981,
+            "observed": 0.42857142857142855
+          },
+          {
+            "band": 4,
+            "n": 10,
+            "predicted": 0.9728316903114319,
+            "observed": 0.7
+          }
+        ]
+      }
+    },
+    "behind3": {
+      "development": {
+        "n": 147,
+        "wins": 18,
+        "winRate": 0.12244897959183673,
+        "predictedWinRate": 0.19771637733975034,
+        "brier": 0.04869078943158307,
+        "logLoss": 0.16126072890421211,
+        "accuracy": 0.9455782312925171,
+        "ece5": 0.07526739774791359,
+        "bins": [
+          {
+            "band": 0,
+            "n": 99,
+            "predicted": 0.01866242048716304,
+            "observed": 0.010101010101010102
+          },
+          {
+            "band": 1,
+            "n": 19,
+            "predicted": 0.27476121759728384,
+            "observed": 0.0
+          },
+          {
+            "band": 2,
+            "n": 8,
+            "predicted": 0.4514334643026814,
+            "observed": 0.125
+          },
+          {
+            "band": 3,
+            "n": 7,
+            "predicted": 0.7002889279808316,
+            "observed": 0.42857142857142855
+          },
+          {
+            "band": 4,
+            "n": 14,
+            "predicted": 0.9630553211484637,
+            "observed": 0.9285714285714286
+          }
+        ]
+      },
+      "holdout": {
+        "n": 18,
+        "wins": 4,
+        "winRate": 0.2222222222222222,
+        "predictedWinRate": 0.2597640444421106,
+        "brier": 0.14337168588262014,
+        "logLoss": 0.4186213028861355,
+        "accuracy": 0.7777777777777778,
+        "ece5": 0.1286208134972387,
+        "bins": [
+          {
+            "band": 0,
+            "n": 12,
+            "predicted": 0.026652274032433827,
+            "observed": 0.08333333333333333
+          },
+          {
+            "band": 2,
+            "n": 2,
+            "predicted": 0.4302308950573206,
+            "observed": 0.5
+          },
+          {
+            "band": 3,
+            "n": 1,
+            "predicted": 0.618632934987545,
+            "observed": 0.0
+          },
+          {
+            "band": 4,
+            "n": 3,
+            "predicted": 0.9589435954888662,
+            "observed": 0.6666666666666666
+          }
+        ]
+      }
+    }
+  },
+  "hardDevelopmentCount": 17,
+  "hardHoldoutCount": 23,
+  "approvedForTraining": false,
+  "approvedForProduction": false,
+  "caveats": [
+    "Only 11 independent openings; correlated moves and stochastic game outcomes",
+    "Conflicting outcome positions excluded",
+    "Observed winners are noisy policy-conditioned labels; not minimax proofs",
+    "No model weights modified"
+  ]
+}

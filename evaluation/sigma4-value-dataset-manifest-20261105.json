@@ -1,0 +1,91 @@
+{
+  "version": "sigma4-value-calibration-dataset-v1",
+  "label": "Observed final outcome from current player perspective; NOT minimax or proven winning value",
+  "sourceFiles": [
+    "evaluation/sigma4-v10-independent-sigma23-20261105.json",
+    "evaluation/sigma4-v9-independent-sigma23-20261105.json",
+    "evaluation/sigma4-bitset200-vs-sigma23-20261105.json"
+  ],
+  "sourceGames": 80,
+  "fixtureGroups": [
+    {
+      "id": "v10-blind-04-20261105",
+      "hash": "180859ae1f9f3c3967a28ffaab69c60b0b1cdb6fd4b2520fa7613577a1b95b8a",
+      "split": "holdout"
+    },
+    {
+      "id": "v10-blind-06-20261105",
+      "hash": "2839b80b99c0e287d9948d60754a5fc47f56e9970167c95112600df00a6d366e",
+      "split": "development"
+    },
+    {
+      "id": "v10-blind-05-20261105",
+      "hash": "28a51d763ef958dc388d41b3c69e6d055a22895518df0c4c4d629ad503885c16",
+      "split": "development"
+    },
+    {
+      "id": "v9-holdout-02-20261105",
+      "hash": "2e3d711d545bf834ad6eb885a508ca445c79e15af8743c9a9831bf4578b54986",
+      "split": "development"
+    },
+    {
+      "id": "v10-blind-03-20261105",
+      "hash": "2fea1a55605d6fe20419850ac85561521eb27a1b18b8a44ff4de9250909df88a",
+      "split": "holdout"
+    },
+    {
+      "id": "v9-holdout-03-20261105",
+      "hash": "612328f62ed8c9288b1c97412baf2c17d30b4825b372c4288c64089304bf1b8b",
+      "split": "development"
+    },
+    {
+      "id": "independent-wall-se-20261105",
+      "hash": "897f6d059719f147a135cc6e3c95af059fe32bea9e9f1afc0662c54a8a822f66",
+      "split": "development"
+    },
+    {
+      "id": "v9-holdout-01-20261105",
+      "hash": "9a4f6217b848ed2379334132ba5d4e33f3b061581040b305764dd7926dba587b",
+      "split": "development"
+    },
+    {
+      "id": "v10-blind-01-20261105",
+      "hash": "9ba3aeb9f90837c043df3ab549eb3af9a952058e08478bb49f4ea3b7c9c4fee9",
+      "split": "holdout"
+    },
+    {
+      "id": "independent-wall-nw-20261105",
+      "hash": "b1ca7ab6cfdaa7a3c056a7f6ec061d39eb2d3e50308125c8d7e814476001d16e",
+      "split": "development"
+    },
+    {
+      "id": "v10-blind-02-20261105",
+      "hash": "efe50b20f05e927002235b417778182164289f52f685a167a2f0e41ca9b3356f",
+      "split": "development"
+    }
+  ],
+  "overlap": {
+    "rawPositionSamples": 960,
+    "duplicated": 539,
+    "conflictingObservedLabels": 65,
+    "crossSplitObserved": 0,
+    "quarantinedCrossSplit": 0,
+    "excludedAmbiguousPositions": 24
+  },
+  "splits": {
+    "development": {
+      "positions": 308,
+      "positive": 101,
+      "negative": 207
+    },
+    "holdout": {
+      "positions": 89,
+      "positive": 24,
+      "negative": 65
+    }
+  },
+  "holdoutLeakagePrevented": true,
+  "ambiguousOutcomeExcluded": true,
+  "seed": 20261105,
+  "modelPath": "vendor/sigma-quoridor/models/best.onnx"
+}

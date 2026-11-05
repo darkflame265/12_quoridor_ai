@@ -1,0 +1,91 @@
+{
+  "version": "sigma4-200-cache-promotion-audit-v1",
+  "evidence": {
+    "equivalentPositions": 30,
+    "original": {
+      "count": 30,
+      "meanMs": 506.04449333333343,
+      "p50Ms": 506.253999999999,
+      "p95Ms": 578.5803000000014,
+      "p99Ms": 661.7560999999996,
+      "maxMs": 661.7560999999996,
+      "over500": 17,
+      "cacheHits": 0,
+      "cacheMisses": 0
+    },
+    "cached": {
+      "count": 30,
+      "meanMs": 333.32075,
+      "p50Ms": 320.08219999999983,
+      "p95Ms": 529.0246000000001,
+      "p99Ms": 551.4573000000019,
+      "maxMs": 551.4573000000019,
+      "over500": 3,
+      "cacheHits": 3349,
+      "cacheMisses": 2507
+    },
+    "capacities": {
+      "2048": {
+        "count": 30,
+        "meanMs": 372.89034,
+        "p95Ms": 545.9329999999999,
+        "p99Ms": 674.8919999999998,
+        "maxMs": 674.8919999999998,
+        "over500": 2,
+        "hits": 3349,
+        "misses": 2507,
+        "evictions": 459,
+        "peakRSSBytes": 114126848,
+        "maxEntries": 2048
+      },
+      "4096": {
+        "count": 30,
+        "meanMs": 349.4073033333333,
+        "p95Ms": 545.5640999999996,
+        "p99Ms": 621.5506999999998,
+        "maxMs": 621.5506999999998,
+        "over500": 3,
+        "hits": 3349,
+        "misses": 2507,
+        "evictions": 0,
+        "peakRSSBytes": 115970048,
+        "maxEntries": 2507
+      },
+      "8192": {
+        "count": 30,
+        "meanMs": 361.08628666666675,
+        "p95Ms": 520.5999000000011,
+        "p99Ms": 566.086800000001,
+        "maxMs": 566.086800000001,
+        "over500": 3,
+        "hits": 3349,
+        "misses": 2507,
+        "evictions": 0,
+        "peakRSSBytes": 116125696,
+        "maxEntries": 2507
+      }
+    },
+    "extraHitsFromLargerCaches": 0,
+    "coldFirstMs": [
+      806.3743999999999,
+      848.9280000000001,
+      770.2156999999997
+    ],
+    "warmFirstMs": [
+      497.93370000000004,
+      501.3759,
+      483.0084000000006
+    ]
+  },
+  "gates": {
+    "exactSearchEquivalence": true,
+    "measurableCacheAcceleration": true,
+    "largerCacheProvenBetter": false,
+    "strict500MsAllWarm": false,
+    "strict500MsCold": false,
+    "independentFixtureCoverage": false,
+    "strengthMatchedHoldout": false
+  },
+  "promotionApproved": false,
+  "recommendation": "Retain tested 2048-entry cache as research-only. Do not promote to website default or claim guaranteed 500ms. Increase independent and wall-heavy position coverage, profile pathological cache misses, and engineer hard-deadline safe fallback."
+}

@@ -1,0 +1,2098 @@
+{
+  "version": "sigma4-cache-capacity-screen-v1",
+  "sizes": [
+    2048,
+    4096,
+    8192
+  ],
+  "positions": [
+    "0-8",
+    "0-12",
+    "0-16",
+    "0-20",
+    "0-24",
+    "0-28",
+    "0-32",
+    "0-36",
+    "0-40",
+    "0-44",
+    "1-6",
+    "1-10",
+    "1-14",
+    "1-18",
+    "1-22",
+    "1-26",
+    "1-30",
+    "1-34",
+    "1-38",
+    "1-42",
+    "2-8",
+    "2-12",
+    "2-16",
+    "2-20",
+    "2-24",
+    "2-28",
+    "2-32",
+    "2-36",
+    "2-40",
+    "2-44"
+  ],
+  "settings": {
+    "simulations": 200,
+    "worker": "isolated-sigma3-lru",
+    "treeReuse": false
+  },
+  "results": [
+    {
+      "2048": {
+        "wallMs": 545.9329999999999,
+        "engineMs": 523.7216999994416,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "value": -0.11827617138624191,
+        "cache": {
+          "hits": 41,
+          "misses": 161,
+          "entries": 161,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 87420928
+        },
+        "rootChildrenHash": "0e8cd88716472ecb9f5a0d50bc902c5d3b0ef043559a2db462ceb04a7b37aca0"
+      },
+      "4096": {
+        "wallMs": 523.9036999999998,
+        "engineMs": 513.555900000938,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "value": -0.11827617138624191,
+        "cache": {
+          "hits": 41,
+          "misses": 161,
+          "entries": 161,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 87482368
+        },
+        "rootChildrenHash": "0e8cd88716472ecb9f5a0d50bc902c5d3b0ef043559a2db462ceb04a7b37aca0"
+      },
+      "8192": {
+        "wallMs": 496.6966,
+        "engineMs": 488.6279000020295,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "value": -0.11827617138624191,
+        "cache": {
+          "hits": 41,
+          "misses": 161,
+          "entries": 161,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 87568384
+        },
+        "rootChildrenHash": "0e8cd88716472ecb9f5a0d50bc902c5d3b0ef043559a2db462ceb04a7b37aca0"
+      },
+      "id": "0-8"
+    },
+    {
+      "2048": {
+        "wallMs": 440.68769999999995,
+        "engineMs": 432.1001000025717,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "o": "v"
+          }
+        ],
+        "value": -0.460534930229187,
+        "cache": {
+          "hits": 77,
+          "misses": 125,
+          "entries": 286,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 96198656
+        },
+        "rootChildrenHash": "cdee6cab5dfa9c171a2f2579501de6743190a8fa1ec90623300bdbce0188f460"
+      },
+      "4096": {
+        "wallMs": 439.3182999999999,
+        "engineMs": 430.1986000027682,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "o": "v"
+          }
+        ],
+        "value": -0.460534930229187,
+        "cache": {
+          "hits": 77,
+          "misses": 125,
+          "entries": 286,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 96235520
+        },
+        "rootChildrenHash": "cdee6cab5dfa9c171a2f2579501de6743190a8fa1ec90623300bdbce0188f460"
+      },
+      "8192": {
+        "wallMs": 404.72569999999996,
+        "engineMs": 396.1151000003156,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "o": "v"
+          }
+        ],
+        "value": -0.460534930229187,
+        "cache": {
+          "hits": 77,
+          "misses": 125,
+          "entries": 286,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 96047104
+        },
+        "rootChildrenHash": "cdee6cab5dfa9c171a2f2579501de6743190a8fa1ec90623300bdbce0188f460"
+      },
+      "id": "0-12"
+    },
+    {
+      "2048": {
+        "wallMs": 352.29219999999987,
+        "engineMs": 343.0073999988963,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "o": "h"
+          }
+        ],
+        "value": -0.19922886788845062,
+        "cache": {
+          "hits": 76,
+          "misses": 120,
+          "entries": 406,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 99135488
+        },
+        "rootChildrenHash": "cb113df370d6e883f4534520680271d2757d9ede53a7ace0973f5fda9e291b50"
+      },
+      "4096": {
+        "wallMs": 427.53300000000036,
+        "engineMs": 418.779399999039,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "o": "h"
+          }
+        ],
+        "value": -0.19922886788845062,
+        "cache": {
+          "hits": 76,
+          "misses": 120,
+          "entries": 406,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 99328000
+        },
+        "rootChildrenHash": "cb113df370d6e883f4534520680271d2757d9ede53a7ace0973f5fda9e291b50"
+      },
+      "8192": {
+        "wallMs": 477.35909999999967,
+        "engineMs": 468.4458000010636,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 2,
+            "o": "h"
+          }
+        ],
+        "value": -0.19922886788845062,
+        "cache": {
+          "hits": 76,
+          "misses": 120,
+          "entries": 406,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 99061760
+        },
+        "rootChildrenHash": "cb113df370d6e883f4534520680271d2757d9ede53a7ace0973f5fda9e291b50"
+      },
+      "id": "0-16"
+    },
+    {
+      "2048": {
+        "wallMs": 388.1383000000005,
+        "engineMs": 380.6894999979704,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "value": -0.5530842542648315,
+        "cache": {
+          "hits": 97,
+          "misses": 94,
+          "entries": 500,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 100028416
+        },
+        "rootChildrenHash": "550b20101f5f40acb349304e83259bcccf881379576e0c35d156d09d0a5a7cb4"
+      },
+      "4096": {
+        "wallMs": 360.6262999999999,
+        "engineMs": 352.9219000010926,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "value": -0.5530842542648315,
+        "cache": {
+          "hits": 97,
+          "misses": 94,
+          "entries": 500,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 100528128
+        },
+        "rootChildrenHash": "550b20101f5f40acb349304e83259bcccf881379576e0c35d156d09d0a5a7cb4"
+      },
+      "8192": {
+        "wallMs": 306.8890000000001,
+        "engineMs": 299.95989999952144,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "value": -0.5530842542648315,
+        "cache": {
+          "hits": 97,
+          "misses": 94,
+          "entries": 500,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 100249600
+        },
+        "rootChildrenHash": "550b20101f5f40acb349304e83259bcccf881379576e0c35d156d09d0a5a7cb4"
+      },
+      "id": "0-20"
+    },
+    {
+      "2048": {
+        "wallMs": 431.0017000000007,
+        "engineMs": 422.3627999999735,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "value": -0.5271083116531372,
+        "cache": {
+          "hits": 96,
+          "misses": 103,
+          "entries": 603,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 100745216
+        },
+        "rootChildrenHash": "f28acb03818c2ee23bbce185ccf5cdebbf28f7b33dc34882b4af09f10315f799"
+      },
+      "4096": {
+        "wallMs": 385.48449999999957,
+        "engineMs": 376.99609999981476,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "value": -0.5271083116531372,
+        "cache": {
+          "hits": 96,
+          "misses": 103,
+          "entries": 603,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 100941824
+        },
+        "rootChildrenHash": "f28acb03818c2ee23bbce185ccf5cdebbf28f7b33dc34882b4af09f10315f799"
+      },
+      "8192": {
+        "wallMs": 420.0547999999999,
+        "engineMs": 407.56709999914165,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "value": -0.5271083116531372,
+        "cache": {
+          "hits": 96,
+          "misses": 103,
+          "entries": 603,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 100597760
+        },
+        "rootChildrenHash": "f28acb03818c2ee23bbce185ccf5cdebbf28f7b33dc34882b4af09f10315f799"
+      },
+      "id": "0-24"
+    },
+    {
+      "2048": {
+        "wallMs": 407.59390000000076,
+        "engineMs": 400.94220000173664,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "value": -0.7218618988990784,
+        "cache": {
+          "hits": 130,
+          "misses": 72,
+          "entries": 675,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 101601280
+        },
+        "rootChildrenHash": "52379c997e2f2aa2a834ef55fd167c89114a2f096d2cc03ae6464dc81dcdbac1"
+      },
+      "4096": {
+        "wallMs": 324.6848,
+        "engineMs": 317.8587000002153,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "value": -0.7218618988990784,
+        "cache": {
+          "hits": 130,
+          "misses": 72,
+          "entries": 675,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 101584896
+        },
+        "rootChildrenHash": "52379c997e2f2aa2a834ef55fd167c89114a2f096d2cc03ae6464dc81dcdbac1"
+      },
+      "8192": {
+        "wallMs": 336.78159999999934,
+        "engineMs": 329.55589999983204,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "value": -0.7218618988990784,
+        "cache": {
+          "hits": 130,
+          "misses": 72,
+          "entries": 675,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 101535744
+        },
+        "rootChildrenHash": "52379c997e2f2aa2a834ef55fd167c89114a2f096d2cc03ae6464dc81dcdbac1"
+      },
+      "id": "0-28"
+    },
+    {
+      "2048": {
+        "wallMs": 307.8850999999995,
+        "engineMs": 301.6449000024295,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          }
+        ],
+        "value": -0.8027512431144714,
+        "cache": {
+          "hits": 129,
+          "misses": 69,
+          "entries": 744,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 101683200
+        },
+        "rootChildrenHash": "87b3bd8940865d26a055efc0957d67bdf90f03b2133ecedc7a9860961dd24a21"
+      },
+      "4096": {
+        "wallMs": 321.9560999999994,
+        "engineMs": 315.3037000010954,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          }
+        ],
+        "value": -0.8027512431144714,
+        "cache": {
+          "hits": 129,
+          "misses": 69,
+          "entries": 744,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 101933056
+        },
+        "rootChildrenHash": "87b3bd8940865d26a055efc0957d67bdf90f03b2133ecedc7a9860961dd24a21"
+      },
+      "8192": {
+        "wallMs": 388.5043999999998,
+        "engineMs": 381.5451000009489,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          }
+        ],
+        "value": -0.8027512431144714,
+        "cache": {
+          "hits": 129,
+          "misses": 69,
+          "entries": 744,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 101896192
+        },
+        "rootChildrenHash": "87b3bd8940865d26a055efc0957d67bdf90f03b2133ecedc7a9860961dd24a21"
+      },
+      "id": "0-32"
+    },
+    {
+      "2048": {
+        "wallMs": 401.7450000000008,
+        "engineMs": 394.96539999890956,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "v"
+          }
+        ],
+        "value": -0.568938136100769,
+        "cache": {
+          "hits": 75,
+          "misses": 119,
+          "entries": 863,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 103407616
+        },
+        "rootChildrenHash": "a3d7207c7fd11f9c97118dc6bac17e99dbb5c6f3ea35ef8e5314176c462aa9ef"
+      },
+      "4096": {
+        "wallMs": 379.23019999999997,
+        "engineMs": 372.63700000039535,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "v"
+          }
+        ],
+        "value": -0.568938136100769,
+        "cache": {
+          "hits": 75,
+          "misses": 119,
+          "entries": 863,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 103346176
+        },
+        "rootChildrenHash": "a3d7207c7fd11f9c97118dc6bac17e99dbb5c6f3ea35ef8e5314176c462aa9ef"
+      },
+      "8192": {
+        "wallMs": 366.1225000000013,
+        "engineMs": 359.061399998609,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 7,
+            "y": 5,
+            "o": "v"
+          }
+        ],
+        "value": -0.568938136100769,
+        "cache": {
+          "hits": 75,
+          "misses": 119,
+          "entries": 863,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 103424000
+        },
+        "rootChildrenHash": "a3d7207c7fd11f9c97118dc6bac17e99dbb5c6f3ea35ef8e5314176c462aa9ef"
+      },
+      "id": "0-36"
+    },
+    {
+      "2048": {
+        "wallMs": 326.378200000001,
+        "engineMs": 320.72429999971064,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "value": -0.9993884563446045,
+        "cache": {
+          "hits": 85,
+          "misses": 117,
+          "entries": 980,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 106201088
+        },
+        "rootChildrenHash": "33b252ee686693744350790c6615d34fc7794433f6156097cd6a2885736b3a2a"
+      },
+      "4096": {
+        "wallMs": 341.1275999999998,
+        "engineMs": 335.13920000041253,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "value": -0.9993884563446045,
+        "cache": {
+          "hits": 85,
+          "misses": 117,
+          "entries": 980,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 106409984
+        },
+        "rootChildrenHash": "33b252ee686693744350790c6615d34fc7794433f6156097cd6a2885736b3a2a"
+      },
+      "8192": {
+        "wallMs": 420.41979999999967,
+        "engineMs": 415.02519999994547,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "value": -0.9993884563446045,
+        "cache": {
+          "hits": 85,
+          "misses": 117,
+          "entries": 980,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 106180608
+        },
+        "rootChildrenHash": "33b252ee686693744350790c6615d34fc7794433f6156097cd6a2885736b3a2a"
+      },
+      "id": "0-40"
+    },
+    {
+      "2048": {
+        "wallMs": 366.3594000000012,
+        "engineMs": 360.06759999872884,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "value": -0.9992451667785645,
+        "cache": {
+          "hits": 137,
+          "misses": 65,
+          "entries": 1045,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 107442176
+        },
+        "rootChildrenHash": "d1f6eeca799dcfbcbb20333e7bb9453a1b927abe81bf19c41695510769c6f16c"
+      },
+      "4096": {
+        "wallMs": 295.0125000000007,
+        "engineMs": 288.9992999989772,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "value": -0.9992451667785645,
+        "cache": {
+          "hits": 137,
+          "misses": 65,
+          "entries": 1045,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 107311104
+        },
+        "rootChildrenHash": "d1f6eeca799dcfbcbb20333e7bb9453a1b927abe81bf19c41695510769c6f16c"
+      },
+      "8192": {
+        "wallMs": 264.48469999999907,
+        "engineMs": 257.104000000254,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          }
+        ],
+        "value": -0.9992451667785645,
+        "cache": {
+          "hits": 137,
+          "misses": 65,
+          "entries": 1045,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 107409408
+        },
+        "rootChildrenHash": "d1f6eeca799dcfbcbb20333e7bb9453a1b927abe81bf19c41695510769c6f16c"
+      },
+      "id": "0-44"
+    },
+    {
+      "2048": {
+        "wallMs": 285.2928000000011,
+        "engineMs": 277.9295000000275,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          }
+        ],
+        "value": 0.12236529588699341,
+        "cache": {
+          "hits": 175,
+          "misses": 27,
+          "entries": 1072,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 107728896
+        },
+        "rootChildrenHash": "aac0e0d2ad3d25d68d9bbe2e72182a0d7c0db6573e207b0bf294dc179fa1fc31"
+      },
+      "4096": {
+        "wallMs": 298.3347999999987,
+        "engineMs": 290.8351000005496,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          }
+        ],
+        "value": 0.12236529588699341,
+        "cache": {
+          "hits": 175,
+          "misses": 27,
+          "entries": 1072,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 107859968
+        },
+        "rootChildrenHash": "aac0e0d2ad3d25d68d9bbe2e72182a0d7c0db6573e207b0bf294dc179fa1fc31"
+      },
+      "8192": {
+        "wallMs": 378.6743999999999,
+        "engineMs": 371.1132999997062,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          }
+        ],
+        "value": 0.12236529588699341,
+        "cache": {
+          "hits": 175,
+          "misses": 27,
+          "entries": 1072,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 107794432
+        },
+        "rootChildrenHash": "aac0e0d2ad3d25d68d9bbe2e72182a0d7c0db6573e207b0bf294dc179fa1fc31"
+      },
+      "id": "1-6"
+    },
+    {
+      "2048": {
+        "wallMs": 458.47829999999885,
+        "engineMs": 450.13639999888255,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 6,
+            "o": "h"
+          }
+        ],
+        "value": -0.2770403027534485,
+        "cache": {
+          "hits": 154,
+          "misses": 48,
+          "entries": 1120,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 108154880
+        },
+        "rootChildrenHash": "87c60cb9d0a6d8d283d48b1dd72e1d62981232ce7c58d5890359efba108ea884"
+      },
+      "4096": {
+        "wallMs": 320.17219999999907,
+        "engineMs": 311.7046000006667,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 6,
+            "o": "h"
+          }
+        ],
+        "value": -0.2770403027534485,
+        "cache": {
+          "hits": 154,
+          "misses": 48,
+          "entries": 1120,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 108277760
+        },
+        "rootChildrenHash": "87c60cb9d0a6d8d283d48b1dd72e1d62981232ce7c58d5890359efba108ea884"
+      },
+      "8192": {
+        "wallMs": 288.2379999999994,
+        "engineMs": 279.775700000755,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 3,
+            "y": 6,
+            "o": "h"
+          }
+        ],
+        "value": -0.2770403027534485,
+        "cache": {
+          "hits": 154,
+          "misses": 48,
+          "entries": 1120,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 108441600
+        },
+        "rootChildrenHash": "87c60cb9d0a6d8d283d48b1dd72e1d62981232ce7c58d5890359efba108ea884"
+      },
+      "id": "1-10"
+    },
+    {
+      "2048": {
+        "wallMs": 465.27909999999974,
+        "engineMs": 456.7317999972147,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          }
+        ],
+        "value": -0.4074380695819855,
+        "cache": {
+          "hits": 40,
+          "misses": 162,
+          "entries": 1282,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 109088768
+        },
+        "rootChildrenHash": "2cbf09b123aa19d668d44b500fbd11107406f1f1112ebcc40a99c871b5568e29"
+      },
+      "4096": {
+        "wallMs": 490.0763999999999,
+        "engineMs": 482.936399999744,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          }
+        ],
+        "value": -0.4074380695819855,
+        "cache": {
+          "hits": 40,
+          "misses": 162,
+          "entries": 1282,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 109281280
+        },
+        "rootChildrenHash": "2cbf09b123aa19d668d44b500fbd11107406f1f1112ebcc40a99c871b5568e29"
+      },
+      "8192": {
+        "wallMs": 504.15669999999955,
+        "engineMs": 497.33740000010584,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          }
+        ],
+        "value": -0.4074380695819855,
+        "cache": {
+          "hits": 40,
+          "misses": 162,
+          "entries": 1282,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 109338624
+        },
+        "rootChildrenHash": "2cbf09b123aa19d668d44b500fbd11107406f1f1112ebcc40a99c871b5568e29"
+      },
+      "id": "1-14"
+    },
+    {
+      "2048": {
+        "wallMs": 475.9953999999998,
+        "engineMs": 468.16340000077616,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 4,
+            "o": "h"
+          }
+        ],
+        "value": -0.30745041370391846,
+        "cache": {
+          "hits": 105,
+          "misses": 97,
+          "entries": 1379,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 109498368
+        },
+        "rootChildrenHash": "8146f96b71ceb11aacaac1f9bee0a7cf22aca47b6746a16ce8233b59581edc2b"
+      },
+      "4096": {
+        "wallMs": 384.90500000000065,
+        "engineMs": 378.0170999998518,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 4,
+            "o": "h"
+          }
+        ],
+        "value": -0.30745041370391846,
+        "cache": {
+          "hits": 105,
+          "misses": 97,
+          "entries": 1379,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 109473792
+        },
+        "rootChildrenHash": "8146f96b71ceb11aacaac1f9bee0a7cf22aca47b6746a16ce8233b59581edc2b"
+      },
+      "8192": {
+        "wallMs": 320.6234999999997,
+        "engineMs": 314.2734000030032,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 1,
+            "y": 4,
+            "o": "h"
+          }
+        ],
+        "value": -0.30745041370391846,
+        "cache": {
+          "hits": 105,
+          "misses": 97,
+          "entries": 1379,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 109510656
+        },
+        "rootChildrenHash": "8146f96b71ceb11aacaac1f9bee0a7cf22aca47b6746a16ce8233b59581edc2b"
+      },
+      "id": "1-18"
+    },
+    {
+      "2048": {
+        "wallMs": 499.22599999999875,
+        "engineMs": 490.2110000002722,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "value": -0.60821133852005,
+        "cache": {
+          "hits": 64,
+          "misses": 138,
+          "entries": 1517,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 109973504
+        },
+        "rootChildrenHash": "a30033785ce1b103103ce98f35aaad853df03c5cd2eaa8a666e44f8fa85f3fc8"
+      },
+      "4096": {
+        "wallMs": 480.5154000000002,
+        "engineMs": 473.47139999692445,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "value": -0.60821133852005,
+        "cache": {
+          "hits": 64,
+          "misses": 138,
+          "entries": 1517,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 109891584
+        },
+        "rootChildrenHash": "a30033785ce1b103103ce98f35aaad853df03c5cd2eaa8a666e44f8fa85f3fc8"
+      },
+      "8192": {
+        "wallMs": 520.5999000000011,
+        "engineMs": 511.782099998527,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "value": -0.60821133852005,
+        "cache": {
+          "hits": 64,
+          "misses": 138,
+          "entries": 1517,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 109928448
+        },
+        "rootChildrenHash": "a30033785ce1b103103ce98f35aaad853df03c5cd2eaa8a666e44f8fa85f3fc8"
+      },
+      "id": "1-22"
+    },
+    {
+      "2048": {
+        "wallMs": 402.23419999999896,
+        "engineMs": 396.05200000005425,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "h"
+          }
+        ],
+        "value": -0.5961784720420837,
+        "cache": {
+          "hits": 116,
+          "misses": 86,
+          "entries": 1603,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 110039040
+        },
+        "rootChildrenHash": "4667e9e690b1ce893b9dc49e983a57d1b81ffb717d205bf0b42b46109cfd55ab"
+      },
+      "4096": {
+        "wallMs": 375.9418000000005,
+        "engineMs": 369.7039999970002,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "h"
+          }
+        ],
+        "value": -0.5961784720420837,
+        "cache": {
+          "hits": 116,
+          "misses": 86,
+          "entries": 1603,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 110370816
+        },
+        "rootChildrenHash": "4667e9e690b1ce893b9dc49e983a57d1b81ffb717d205bf0b42b46109cfd55ab"
+      },
+      "8192": {
+        "wallMs": 363.91239999999743,
+        "engineMs": 358.1021000027249,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "h"
+          }
+        ],
+        "value": -0.5961784720420837,
+        "cache": {
+          "hits": 116,
+          "misses": 86,
+          "entries": 1603,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 110272512
+        },
+        "rootChildrenHash": "4667e9e690b1ce893b9dc49e983a57d1b81ffb717d205bf0b42b46109cfd55ab"
+      },
+      "id": "1-26"
+    },
+    {
+      "2048": {
+        "wallMs": 245.04160000000047,
+        "engineMs": 237.79089999879943,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "value": -0.6296376585960388,
+        "cache": {
+          "hits": 172,
+          "misses": 30,
+          "entries": 1633,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 110440448
+        },
+        "rootChildrenHash": "006de08df8cdf23dadbf4ef7e374a19cbb4ac5b60e2ba79d38d40bfa4b4c575d"
+      },
+      "4096": {
+        "wallMs": 278.51820000000225,
+        "engineMs": 271.2186000026122,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "value": -0.6296376585960388,
+        "cache": {
+          "hits": 172,
+          "misses": 30,
+          "entries": 1633,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 110440448
+        },
+        "rootChildrenHash": "006de08df8cdf23dadbf4ef7e374a19cbb4ac5b60e2ba79d38d40bfa4b4c575d"
+      },
+      "8192": {
+        "wallMs": 356.5580000000009,
+        "engineMs": 348.7215999994078,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "value": -0.6296376585960388,
+        "cache": {
+          "hits": 172,
+          "misses": 30,
+          "entries": 1633,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 110342144
+        },
+        "rootChildrenHash": "006de08df8cdf23dadbf4ef7e374a19cbb4ac5b60e2ba79d38d40bfa4b4c575d"
+      },
+      "id": "1-30"
+    },
+    {
+      "2048": {
+        "wallMs": 410.9534999999996,
+        "engineMs": 403.7726999995357,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h"
+          }
+        ],
+        "value": 0.1718856543302536,
+        "cache": {
+          "hits": 85,
+          "misses": 117,
+          "entries": 1750,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 111017984
+        },
+        "rootChildrenHash": "ef3c5e5c3a38d2fa5ed975a4b8cae4480b83013039d3cf93ca561b55a6cf9098"
+      },
+      "4096": {
+        "wallMs": 396.0014999999985,
+        "engineMs": 388.36999999693944,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h"
+          }
+        ],
+        "value": 0.1718856543302536,
+        "cache": {
+          "hits": 85,
+          "misses": 117,
+          "entries": 1750,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 111296512
+        },
+        "rootChildrenHash": "ef3c5e5c3a38d2fa5ed975a4b8cae4480b83013039d3cf93ca561b55a6cf9098"
+      },
+      "8192": {
+        "wallMs": 375.71860000000015,
+        "engineMs": 368.826199999603,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h"
+          }
+        ],
+        "value": 0.1718856543302536,
+        "cache": {
+          "hits": 85,
+          "misses": 117,
+          "entries": 1750,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 110964736
+        },
+        "rootChildrenHash": "ef3c5e5c3a38d2fa5ed975a4b8cae4480b83013039d3cf93ca561b55a6cf9098"
+      },
+      "id": "1-34"
+    },
+    {
+      "2048": {
+        "wallMs": 260.04269999999815,
+        "engineMs": 255.08730000001378,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          }
+        ],
+        "value": -0.9959109425544739,
+        "cache": {
+          "hits": 101,
+          "misses": 101,
+          "entries": 1851,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 111755264
+        },
+        "rootChildrenHash": "e393f91dc1dbfdd3bf515b624bf46aec26dbcadf2fcd8d986ecfceb3742ed9ae"
+      },
+      "4096": {
+        "wallMs": 284.7387000000017,
+        "engineMs": 279.087899998558,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          }
+        ],
+        "value": -0.9959109425544739,
+        "cache": {
+          "hits": 101,
+          "misses": 101,
+          "entries": 1851,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 111943680
+        },
+        "rootChildrenHash": "e393f91dc1dbfdd3bf515b624bf46aec26dbcadf2fcd8d986ecfceb3742ed9ae"
+      },
+      "8192": {
+        "wallMs": 392.00810000000274,
+        "engineMs": 386.6474000024027,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          }
+        ],
+        "value": -0.9959109425544739,
+        "cache": {
+          "hits": 101,
+          "misses": 101,
+          "entries": 1851,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 111702016
+        },
+        "rootChildrenHash": "e393f91dc1dbfdd3bf515b624bf46aec26dbcadf2fcd8d986ecfceb3742ed9ae"
+      },
+      "id": "1-38"
+    },
+    {
+      "2048": {
+        "wallMs": 194.4465999999993,
+        "engineMs": 187.8986999981862,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          }
+        ],
+        "value": -0.9986329674720764,
+        "cache": {
+          "hits": 182,
+          "misses": 20,
+          "entries": 1871,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 111828992
+        },
+        "rootChildrenHash": "da9af81dae85cd8b41713ce151e18468cc8bf5060cab4bc51770ecbc1a9a95fb"
+      },
+      "4096": {
+        "wallMs": 160.85469999999987,
+        "engineMs": 154.51829999801703,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          }
+        ],
+        "value": -0.9986329674720764,
+        "cache": {
+          "hits": 182,
+          "misses": 20,
+          "entries": 1871,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 112021504
+        },
+        "rootChildrenHash": "da9af81dae85cd8b41713ce151e18468cc8bf5060cab4bc51770ecbc1a9a95fb"
+      },
+      "8192": {
+        "wallMs": 134.4844000000012,
+        "engineMs": 128.4416999988025,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 6
+          }
+        ],
+        "value": -0.9986329674720764,
+        "cache": {
+          "hits": 182,
+          "misses": 20,
+          "entries": 1871,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 111976448
+        },
+        "rootChildrenHash": "da9af81dae85cd8b41713ce151e18468cc8bf5060cab4bc51770ecbc1a9a95fb"
+      },
+      "id": "1-42"
+    },
+    {
+      "2048": {
+        "wallMs": 328.78269999999975,
+        "engineMs": 320.8931000008306,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "value": -0.11827617138624191,
+        "cache": {
+          "hits": 202,
+          "misses": 0,
+          "entries": 1871,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 112095232
+        },
+        "rootChildrenHash": "0e8cd88716472ecb9f5a0d50bc902c5d3b0ef043559a2db462ceb04a7b37aca0"
+      },
+      "4096": {
+        "wallMs": 205.05459999999948,
+        "engineMs": 198.44219999868074,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "value": -0.11827617138624191,
+        "cache": {
+          "hits": 202,
+          "misses": 0,
+          "entries": 1871,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 112283648
+        },
+        "rootChildrenHash": "0e8cd88716472ecb9f5a0d50bc902c5d3b0ef043559a2db462ceb04a7b37aca0"
+      },
+      "8192": {
+        "wallMs": 182.47569999999905,
+        "engineMs": 176.06900000100723,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "value": -0.11827617138624191,
+        "cache": {
+          "hits": 202,
+          "misses": 0,
+          "entries": 1871,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 112242688
+        },
+        "rootChildrenHash": "0e8cd88716472ecb9f5a0d50bc902c5d3b0ef043559a2db462ceb04a7b37aca0"
+      },
+      "id": "2-8"
+    },
+    {
+      "2048": {
+        "wallMs": 188.925900000002,
+        "engineMs": 181.62049999955343,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "o": "v"
+          }
+        ],
+        "value": -0.460534930229187,
+        "cache": {
+          "hits": 202,
+          "misses": 0,
+          "entries": 1871,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 112128000
+        },
+        "rootChildrenHash": "cdee6cab5dfa9c171a2f2579501de6743190a8fa1ec90623300bdbce0188f460"
+      },
+      "4096": {
+        "wallMs": 180.70130000000063,
+        "engineMs": 173.28420000194455,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "o": "v"
+          }
+        ],
+        "value": -0.460534930229187,
+        "cache": {
+          "hits": 202,
+          "misses": 0,
+          "entries": 1871,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 112283648
+        },
+        "rootChildrenHash": "cdee6cab5dfa9c171a2f2579501de6743190a8fa1ec90623300bdbce0188f460"
+      },
+      "8192": {
+        "wallMs": 181.9530999999988,
+        "engineMs": 174.82640000162064,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 7,
+            "o": "v"
+          }
+        ],
+        "value": -0.460534930229187,
+        "cache": {
+          "hits": 202,
+          "misses": 0,
+          "entries": 1871,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 112242688
+        },
+        "rootChildrenHash": "cdee6cab5dfa9c171a2f2579501de6743190a8fa1ec90623300bdbce0188f460"
+      },
+      "id": "2-12"
+    },
+    {
+      "2048": {
+        "wallMs": 492.9585999999981,
+        "engineMs": 486.8159999969066,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "value": -0.16881322860717773,
+        "cache": {
+          "hits": 31,
+          "misses": 171,
+          "entries": 2042,
+          "capacity": 2048,
+          "evictions": 0,
+          "rssBytes": 112820224
+        },
+        "rootChildrenHash": "ac9347ae9c7131cc46dbfaf0ac48c44e03c36d2d66171da1e5c66b26f48443bc"
+      },
+      "4096": {
+        "wallMs": 621.5506999999998,
+        "engineMs": 614.4040999970457,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "value": -0.16881322860717773,
+        "cache": {
+          "hits": 31,
+          "misses": 171,
+          "entries": 2042,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 113037312
+        },
+        "rootChildrenHash": "ac9347ae9c7131cc46dbfaf0ac48c44e03c36d2d66171da1e5c66b26f48443bc"
+      },
+      "8192": {
+        "wallMs": 566.086800000001,
+        "engineMs": 559.0895999994245,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          }
+        ],
+        "value": -0.16881322860717773,
+        "cache": {
+          "hits": 31,
+          "misses": 171,
+          "entries": 2042,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 112717824
+        },
+        "rootChildrenHash": "ac9347ae9c7131cc46dbfaf0ac48c44e03c36d2d66171da1e5c66b26f48443bc"
+      },
+      "id": "2-16"
+    },
+    {
+      "2048": {
+        "wallMs": 337.8536000000022,
+        "engineMs": 330.4874999994354,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          }
+        ],
+        "value": -0.40426039695739746,
+        "cache": {
+          "hits": 161,
+          "misses": 41,
+          "entries": 2048,
+          "capacity": 2048,
+          "evictions": 35,
+          "rssBytes": 112824320
+        },
+        "rootChildrenHash": "8f0326121601195d237db1a79c247d3d30e0076156d6ae4ee6a5d23da350441a"
+      },
+      "4096": {
+        "wallMs": 302.0767999999989,
+        "engineMs": 295.0498999998672,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          }
+        ],
+        "value": -0.40426039695739746,
+        "cache": {
+          "hits": 161,
+          "misses": 41,
+          "entries": 2083,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 113115136
+        },
+        "rootChildrenHash": "8f0326121601195d237db1a79c247d3d30e0076156d6ae4ee6a5d23da350441a"
+      },
+      "8192": {
+        "wallMs": 278.89800000000105,
+        "engineMs": 272.2555000000284,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 6
+          }
+        ],
+        "value": -0.40426039695739746,
+        "cache": {
+          "hits": 161,
+          "misses": 41,
+          "entries": 2083,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 113086464
+        },
+        "rootChildrenHash": "8f0326121601195d237db1a79c247d3d30e0076156d6ae4ee6a5d23da350441a"
+      },
+      "id": "2-20"
+    },
+    {
+      "2048": {
+        "wallMs": 410.9463999999971,
+        "engineMs": 402.9923999987659,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 3,
+            "o": "v"
+          }
+        ],
+        "value": -0.36970028281211853,
+        "cache": {
+          "hits": 95,
+          "misses": 107,
+          "entries": 2048,
+          "capacity": 2048,
+          "evictions": 107,
+          "rssBytes": 112836608
+        },
+        "rootChildrenHash": "8846246d6f38b67746399af84d14cd76b82383ee35d5ef1ff9d18c65828ad4b6"
+      },
+      "4096": {
+        "wallMs": 425.60529999999926,
+        "engineMs": 419.52799999853596,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 3,
+            "o": "v"
+          }
+        ],
+        "value": -0.36970028281211853,
+        "cache": {
+          "hits": 95,
+          "misses": 107,
+          "entries": 2190,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 113532928
+        },
+        "rootChildrenHash": "8846246d6f38b67746399af84d14cd76b82383ee35d5ef1ff9d18c65828ad4b6"
+      },
+      "8192": {
+        "wallMs": 435.1177000000025,
+        "engineMs": 428.3761000006052,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 3,
+            "o": "v"
+          }
+        ],
+        "value": -0.36970028281211853,
+        "cache": {
+          "hits": 95,
+          "misses": 107,
+          "entries": 2190,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 113500160
+        },
+        "rootChildrenHash": "8846246d6f38b67746399af84d14cd76b82383ee35d5ef1ff9d18c65828ad4b6"
+      },
+      "id": "2-24"
+    },
+    {
+      "2048": {
+        "wallMs": 674.8919999999998,
+        "engineMs": 667.264100000466,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          }
+        ],
+        "value": -0.46057024598121643,
+        "cache": {
+          "hits": 21,
+          "misses": 181,
+          "entries": 2048,
+          "capacity": 2048,
+          "evictions": 181,
+          "rssBytes": 113713152
+        },
+        "rootChildrenHash": "d3b5c385a9b9d690505b5580f32b88df701b1fc6899dcc4a41a1510c0236160c"
+      },
+      "4096": {
+        "wallMs": 545.5640999999996,
+        "engineMs": 539.7393999992346,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          }
+        ],
+        "value": -0.46057024598121643,
+        "cache": {
+          "hits": 21,
+          "misses": 181,
+          "entries": 2371,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 115068928
+        },
+        "rootChildrenHash": "d3b5c385a9b9d690505b5580f32b88df701b1fc6899dcc4a41a1510c0236160c"
+      },
+      "8192": {
+        "wallMs": 493.8718999999983,
+        "engineMs": 485.2412000000186,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          }
+        ],
+        "value": -0.46057024598121643,
+        "cache": {
+          "hits": 21,
+          "misses": 181,
+          "entries": 2371,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 115146752
+        },
+        "rootChildrenHash": "d3b5c385a9b9d690505b5580f32b88df701b1fc6899dcc4a41a1510c0236160c"
+      },
+      "id": "2-28"
+    },
+    {
+      "2048": {
+        "wallMs": 219.65859999999884,
+        "engineMs": 213.0654000029608,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "o": "v"
+          }
+        ],
+        "value": -0.12853898108005524,
+        "cache": {
+          "hits": 176,
+          "misses": 24,
+          "entries": 2048,
+          "capacity": 2048,
+          "evictions": 24,
+          "rssBytes": 113991680
+        },
+        "rootChildrenHash": "86354a82742b566df750e23240a637ece265bd0c8f5f1c6e0367e59e687d1096"
+      },
+      "4096": {
+        "wallMs": 243.5786999999982,
+        "engineMs": 236.4597000014328,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "o": "v"
+          }
+        ],
+        "value": -0.12853898108005524,
+        "cache": {
+          "hits": 176,
+          "misses": 24,
+          "entries": 2395,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 115216384
+        },
+        "rootChildrenHash": "86354a82742b566df750e23240a637ece265bd0c8f5f1c6e0367e59e687d1096"
+      },
+      "8192": {
+        "wallMs": 365.86629999999786,
+        "engineMs": 358.08909999832395,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 4,
+            "y": 5,
+            "o": "v"
+          }
+        ],
+        "value": -0.12853898108005524,
+        "cache": {
+          "hits": 176,
+          "misses": 24,
+          "entries": 2395,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 115265536
+        },
+        "rootChildrenHash": "86354a82742b566df750e23240a637ece265bd0c8f5f1c6e0367e59e687d1096"
+      },
+      "id": "2-32"
+    },
+    {
+      "2048": {
+        "wallMs": 325.224000000002,
+        "engineMs": 318.31939999756287,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          }
+        ],
+        "value": 0.4247996509075165,
+        "cache": {
+          "hits": 127,
+          "misses": 46,
+          "entries": 2048,
+          "capacity": 2048,
+          "evictions": 46,
+          "rssBytes": 114077696
+        },
+        "rootChildrenHash": "9af329a0927c963948516fd2db8ef3632e5b3ced046c4a1827bb20a039d98746"
+      },
+      "4096": {
+        "wallMs": 273.063299999998,
+        "engineMs": 265.821799999685,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          }
+        ],
+        "value": 0.4247996509075165,
+        "cache": {
+          "hits": 127,
+          "misses": 46,
+          "entries": 2441,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 115765248
+        },
+        "rootChildrenHash": "9af329a0927c963948516fd2db8ef3632e5b3ced046c4a1827bb20a039d98746"
+      },
+      "8192": {
+        "wallMs": 268.1231000000007,
+        "engineMs": 260.68730000042706,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          }
+        ],
+        "value": 0.4247996509075165,
+        "cache": {
+          "hits": 127,
+          "misses": 46,
+          "entries": 2441,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 115716096
+        },
+        "rootChildrenHash": "9af329a0927c963948516fd2db8ef3632e5b3ced046c4a1827bb20a039d98746"
+      },
+      "id": "2-36"
+    },
+    {
+      "2048": {
+        "wallMs": 228.87900000000081,
+        "engineMs": 222.79060000073514,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          }
+        ],
+        "value": 0.014511976391077042,
+        "cache": {
+          "hits": 132,
+          "misses": 40,
+          "entries": 2048,
+          "capacity": 2048,
+          "evictions": 40,
+          "rssBytes": 114126848
+        },
+        "rootChildrenHash": "81240a0691171b21475ef1911156aeff3d8778ad50bee4096d7d07cc2d46899b"
+      },
+      "4096": {
+        "wallMs": 237.42949999999837,
+        "engineMs": 232.11649999939254,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          }
+        ],
+        "value": 0.014511976391077042,
+        "cache": {
+          "hits": 132,
+          "misses": 40,
+          "entries": 2481,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 115855360
+        },
+        "rootChildrenHash": "81240a0691171b21475ef1911156aeff3d8778ad50bee4096d7d07cc2d46899b"
+      },
+      "8192": {
+        "wallMs": 383.78859999999986,
+        "engineMs": 378.3045000018319,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          }
+        ],
+        "value": 0.014511976391077042,
+        "cache": {
+          "hits": 132,
+          "misses": 40,
+          "entries": 2481,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 116076544
+        },
+        "rootChildrenHash": "81240a0691171b21475ef1911156aeff3d8778ad50bee4096d7d07cc2d46899b"
+      },
+      "id": "2-40"
+    },
+    {
+      "2048": {
+        "wallMs": 313.58469999999943,
+        "engineMs": 307.92230000224663,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          }
+        ],
+        "value": 0.049090635031461716,
+        "cache": {
+          "hits": 65,
+          "misses": 26,
+          "entries": 2048,
+          "capacity": 2048,
+          "evictions": 26,
+          "rssBytes": 114114560
+        },
+        "rootChildrenHash": "fdab6be5cfdd20c9f940cb994a9892af3702ceacebdebd280e6f93485736e283"
+      },
+      "4096": {
+        "wallMs": 178.6591000000044,
+        "engineMs": 171.37179999917862,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          }
+        ],
+        "value": 0.049090635031461716,
+        "cache": {
+          "hits": 65,
+          "misses": 26,
+          "entries": 2507,
+          "capacity": 4096,
+          "evictions": 0,
+          "rssBytes": 115970048
+        },
+        "rootChildrenHash": "fdab6be5cfdd20c9f940cb994a9892af3702ceacebdebd280e6f93485736e283"
+      },
+      "8192": {
+        "wallMs": 159.39520000000266,
+        "engineMs": 152.04570000059903,
+        "pv": [
+          {
+            "type": "move",
+            "x": 7,
+            "y": 8
+          }
+        ],
+        "value": 0.049090635031461716,
+        "cache": {
+          "hits": 65,
+          "misses": 26,
+          "entries": 2507,
+          "capacity": 8192,
+          "evictions": 0,
+          "rssBytes": 116125696
+        },
+        "rootChildrenHash": "fdab6be5cfdd20c9f940cb994a9892af3702ceacebdebd280e6f93485736e283"
+      },
+      "id": "2-44"
+    }
+  ],
+  "summary": {
+    "2048": {
+      "count": 30,
+      "meanMs": 372.89034,
+      "p95Ms": 545.9329999999999,
+      "p99Ms": 674.8919999999998,
+      "maxMs": 674.8919999999998,
+      "over500": 2,
+      "hits": 3349,
+      "misses": 2507,
+      "evictions": 459,
+      "peakRSSBytes": 114126848,
+      "maxEntries": 2048
+    },
+    "4096": {
+      "count": 30,
+      "meanMs": 349.4073033333333,
+      "p95Ms": 545.5640999999996,
+      "p99Ms": 621.5506999999998,
+      "maxMs": 621.5506999999998,
+      "over500": 3,
+      "hits": 3349,
+      "misses": 2507,
+      "evictions": 0,
+      "peakRSSBytes": 115970048,
+      "maxEntries": 2507
+    },
+    "8192": {
+      "count": 30,
+      "meanMs": 361.08628666666675,
+      "p95Ms": 520.5999000000011,
+      "p99Ms": 566.086800000001,
+      "maxMs": 566.086800000001,
+      "over500": 3,
+      "hits": 3349,
+      "misses": 2507,
+      "evictions": 0,
+      "peakRSSBytes": 116125696,
+      "maxEntries": 2507
+    }
+  }
+}

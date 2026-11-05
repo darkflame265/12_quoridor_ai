@@ -1,0 +1,244 @@
+{
+  "version": "sigma4-counterfactual-branch-verdict-v1",
+  "scope": "200-simulation Sigma3-bitset weighted candidate vs deterministic native Sigma3, fixed recorded prefix and independently seeded continuation",
+  "summary": [
+    {
+      "collection": "late-critical",
+      "games": 8,
+      "pairs": 4,
+      "fullyPlayed": true
+    },
+    {
+      "collection": "early-seed1",
+      "games": 4,
+      "pairs": 2,
+      "fullyPlayed": true
+    },
+    {
+      "collection": "early-seed2",
+      "games": 4,
+      "pairs": 2,
+      "fullyPlayed": true
+    }
+  ],
+  "pairedResults": [
+    {
+      "collection": "late-critical",
+      "fixture": "independent-wall-nw-20261105",
+      "ply": 24,
+      "seed": 117011,
+      "recordedAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 3,
+        "o": "v"
+      },
+      "alternativeAction": {
+        "type": "move",
+        "x": 6,
+        "y": 8
+      },
+      "recordedWin": false,
+      "alternativeWin": false,
+      "recordedTotalPlies": 50,
+      "alternativeTotalPlies": 50,
+      "recordedContinuation": 25,
+      "alternativeContinuation": 25,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "collection": "late-critical",
+      "fixture": "independent-wall-nw-20261105",
+      "ply": 40,
+      "seed": 117011,
+      "recordedAction": {
+        "type": "wall",
+        "x": 6,
+        "y": 5,
+        "o": "h"
+      },
+      "alternativeAction": {
+        "type": "move",
+        "x": 7,
+        "y": 8
+      },
+      "recordedWin": false,
+      "alternativeWin": false,
+      "recordedTotalPlies": 72,
+      "alternativeTotalPlies": 46,
+      "recordedContinuation": 31,
+      "alternativeContinuation": 5,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "collection": "late-critical",
+      "fixture": "independent-wall-se-20261105",
+      "ply": 53,
+      "seed": 117011,
+      "recordedAction": {
+        "type": "wall",
+        "x": 5,
+        "y": 3,
+        "o": "h"
+      },
+      "alternativeAction": {
+        "type": "move",
+        "x": 7,
+        "y": 0
+      },
+      "recordedWin": false,
+      "alternativeWin": false,
+      "recordedTotalPlies": 61,
+      "alternativeTotalPlies": 61,
+      "recordedContinuation": 7,
+      "alternativeContinuation": 7,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "collection": "late-critical",
+      "fixture": "independent-wall-se-20261105",
+      "ply": 55,
+      "seed": 117011,
+      "recordedAction": {
+        "type": "wall",
+        "x": 0,
+        "y": 7,
+        "o": "v"
+      },
+      "alternativeAction": {
+        "type": "move",
+        "x": 7,
+        "y": 0
+      },
+      "recordedWin": false,
+      "alternativeWin": false,
+      "recordedTotalPlies": 63,
+      "alternativeTotalPlies": 63,
+      "recordedContinuation": 7,
+      "alternativeContinuation": 7,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "collection": "early-seed1",
+      "fixture": "independent-wall-nw-20261105",
+      "ply": 10,
+      "seed": 117011,
+      "recordedAction": {
+        "type": "wall",
+        "x": 3,
+        "y": 6,
+        "o": "h"
+      },
+      "alternativeAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 7,
+        "o": "v"
+      },
+      "recordedWin": true,
+      "alternativeWin": false,
+      "recordedTotalPlies": 75,
+      "alternativeTotalPlies": 94,
+      "recordedContinuation": 64,
+      "alternativeContinuation": 83,
+      "improved": false,
+      "regressed": true
+    },
+    {
+      "collection": "early-seed1",
+      "fixture": "independent-wall-se-20261105",
+      "ply": 17,
+      "seed": 117011,
+      "recordedAction": {
+        "type": "move",
+        "x": 6,
+        "y": 2
+      },
+      "alternativeAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "recordedWin": false,
+      "alternativeWin": false,
+      "recordedTotalPlies": 67,
+      "alternativeTotalPlies": 61,
+      "recordedContinuation": 49,
+      "alternativeContinuation": 43,
+      "improved": false,
+      "regressed": false
+    },
+    {
+      "collection": "early-seed2",
+      "fixture": "independent-wall-nw-20261105",
+      "ply": 10,
+      "seed": 917233,
+      "recordedAction": {
+        "type": "wall",
+        "x": 3,
+        "y": 6,
+        "o": "h"
+      },
+      "alternativeAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 7,
+        "o": "v"
+      },
+      "recordedWin": true,
+      "alternativeWin": false,
+      "recordedTotalPlies": 75,
+      "alternativeTotalPlies": 104,
+      "recordedContinuation": 64,
+      "alternativeContinuation": 93,
+      "improved": false,
+      "regressed": true
+    },
+    {
+      "collection": "early-seed2",
+      "fixture": "independent-wall-se-20261105",
+      "ply": 17,
+      "seed": 917233,
+      "recordedAction": {
+        "type": "move",
+        "x": 6,
+        "y": 2
+      },
+      "alternativeAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "recordedWin": false,
+      "alternativeWin": false,
+      "recordedTotalPlies": 67,
+      "alternativeTotalPlies": 57,
+      "recordedContinuation": 49,
+      "alternativeContinuation": 39,
+      "improved": false,
+      "regressed": false
+    }
+  ],
+  "totals": {
+    "games": 16,
+    "pairs": 8,
+    "alternativeImprovedWins": 0,
+    "alternativeRegressedWins": 2,
+    "tiesInWinOutcome": 6
+  },
+  "interpretation": "Follow-up RNG is reinitialized at each branch; recorded branch is a controlled counterfactual baseline and may not reproduce the historical trajectory. Results are correlated by scenario; not an unbiased win-rate experiment.",
+  "promotionGates": {
+    "legalCompleteContinuations": true,
+    "pairedPrefixIdentical": true,
+    "demonstratedNewStrengthGain": false,
+    "crossFixtureBlindValidation": false,
+    "productionPromotionApproved": false
+  },
+  "decision": "No sampled alternative improved final win outcome. Do not replace current Sigma4 root-selection or add a shortcut favoring path-distance-only pawn moves."
+}

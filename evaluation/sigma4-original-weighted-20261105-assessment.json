@@ -1,0 +1,144 @@
+{
+  "version": "sigma4-original-weighted-20261105-replay-verified-v1",
+  "groups": [
+    {
+      "opponent": "sigma2",
+      "games": 12,
+      "wins": 9,
+      "losses": 3,
+      "winRate": 0.75,
+      "wilson95": [
+        0.46768966087934005,
+        0.9110599603710386
+      ],
+      "firstWins": 6,
+      "secondWins": 3,
+      "uniqueGames": 12,
+      "uniqueOpenings": 6,
+      "changedMoves": 26,
+      "cutoffs": 0,
+      "paired": [
+        {
+          "fixture": "opening-1",
+          "firstWon": true,
+          "secondWon": false,
+          "wins": 1
+        },
+        {
+          "fixture": "opening-2",
+          "firstWon": true,
+          "secondWon": true,
+          "wins": 2
+        },
+        {
+          "fixture": "opening-3",
+          "firstWon": true,
+          "secondWon": true,
+          "wins": 2
+        },
+        {
+          "fixture": "opening-4",
+          "firstWon": true,
+          "secondWon": false,
+          "wins": 1
+        },
+        {
+          "fixture": "opening-5",
+          "firstWon": true,
+          "secondWon": true,
+          "wins": 2
+        },
+        {
+          "fixture": "opening-6",
+          "firstWon": true,
+          "secondWon": false,
+          "wins": 1
+        }
+      ]
+    },
+    {
+      "opponent": "sigma3",
+      "games": 12,
+      "wins": 6,
+      "losses": 6,
+      "winRate": 0.5,
+      "wilson95": [
+        0.2537781703934222,
+        0.7462218296065778
+      ],
+      "firstWins": 3,
+      "secondWins": 3,
+      "uniqueGames": 12,
+      "uniqueOpenings": 6,
+      "changedMoves": 31,
+      "cutoffs": 0,
+      "paired": [
+        {
+          "fixture": "opening-1",
+          "firstWon": true,
+          "secondWon": false,
+          "wins": 1
+        },
+        {
+          "fixture": "opening-2",
+          "firstWon": false,
+          "secondWon": true,
+          "wins": 1
+        },
+        {
+          "fixture": "opening-3",
+          "firstWon": false,
+          "secondWon": true,
+          "wins": 1
+        },
+        {
+          "fixture": "opening-4",
+          "firstWon": true,
+          "secondWon": false,
+          "wins": 1
+        },
+        {
+          "fixture": "opening-5",
+          "firstWon": false,
+          "secondWon": true,
+          "wins": 1
+        },
+        {
+          "fixture": "opening-6",
+          "firstWon": true,
+          "secondWon": false,
+          "wins": 1
+        }
+      ]
+    }
+  ],
+  "gate": {
+    "candidateStrongerThanSigma2": false,
+    "candidateStrongerThanSigma3": false,
+    "atLeast20PairedFixturesPerOpponent": false,
+    "enoughDistinctOpenings": false,
+    "allGamesFinished": true,
+    "enoughIndependentEvidence": false
+  },
+  "outcome": "NO_PROMOTION_UNLESS_ALL_GATES_PASS",
+  "allowDefaultSwitch": false,
+  "workers": {
+    "sigma2Worker": "6f9371a0ab5621ae3515a1edb3ed17b10006a66d24951067f95db22511b21175",
+    "sigma3Worker": "317fd5f4439963b647076ff0baeba7778c02efa24b13e10359769c678867488b",
+    "policy": "3e5bc38d2d9bbef5d6dfb03e5e8945e13f4be610ec6e73e8b8b1d82eaaff5a7e"
+  },
+  "limitations": [
+    "The six opening fixtures are historical gameplay openings, not a representative random sample of all Quoridor positions.",
+    "Baseline Sigma2 worker has pre-existing local uncommitted code; results correspond to its captured source hash.",
+    "SIGMA4 original uses current SIGMA3 MCTS worker with historical visit/Q weighted policy; this is not a trained separate neural model.",
+    "A 12-game per-opponent comparison cannot prove the original weighted policy is strongest."
+  ],
+  "plannedImprovements": [
+    "Freeze this exact candidate and current Sigma2/3 worker sources with hashes before further testing.",
+    "Build a 40+ paired fixture set including diverse openings, walls, balanced seats and previously unseen midgames.",
+    "Run paired ablations with weighted choice on/off using the same state and worker, measure tactical blunders and path quality.",
+    "Identify losses with post-decision opponent best-response rollouts over 3-6 plies and measure wall economy.",
+    "Optimize risk filters only on training fixtures; evaluate candidate once on untouched holdout fixtures.",
+    "Promote only after a convincing independent advantage against both Sigma2 and Sigma3 with no cutoff or legality regressions."
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "version": "sigma4-ort-one-thread-comparison-v1",
+  "simulations": 100,
+  "results": [
+    {
+      "fixture": "start",
+      "type": "original",
+      "wallMs": 282.78790000000004,
+      "engineMs": 266.34719999856316,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "value": 0.21437488496303558
+    },
+    {
+      "fixture": "start",
+      "type": "optimized",
+      "wallMs": 591.7127,
+      "engineMs": 582.9634000001533,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "value": 0.21437488496303558
+    },
+    {
+      "fixture": "start",
+      "type": "optimized",
+      "wallMs": 541.6904,
+      "engineMs": 537.9467000020668,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "value": 0.21437488496303558
+    },
+    {
+      "fixture": "start",
+      "type": "original",
+      "wallMs": 244.09539999999993,
+      "engineMs": 239.8974999996426,
+      "action": {
+        "type": "move",
+        "x": 4,
+        "y": 7
+      },
+      "value": 0.21437488496303558
+    },
+    {
+      "fixture": "pawn-flank",
+      "type": "original",
+      "wallMs": 284.15890000000013,
+      "engineMs": 276.32699999958277,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 5
+      },
+      "value": 0.19027310609817505
+    },
+    {
+      "fixture": "pawn-flank",
+      "type": "optimized",
+      "wallMs": 590.8026999999997,
+      "engineMs": 586.8675000019721,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 5
+      },
+      "value": 0.19027310609817505
+    },
+    {
+      "fixture": "pawn-flank",
+      "type": "optimized",
+      "wallMs": 582.1176999999998,
+      "engineMs": 578.5193000010622,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 5
+      },
+      "value": 0.19027310609817505
+    },
+    {
+      "fixture": "pawn-flank",
+      "type": "original",
+      "wallMs": 251.6211999999996,
+      "engineMs": 247.7577999998175,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 5
+      },
+      "value": 0.19027310609817505
+    },
+    {
+      "fixture": "wall-flank",
+      "type": "original",
+      "wallMs": 299.63329999999996,
+      "engineMs": 292.4860000020999,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "value": -0.13617995381355286
+    },
+    {
+      "fixture": "wall-flank",
+      "type": "optimized",
+      "wallMs": 623.8892999999998,
+      "engineMs": 619.4715999990876,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "value": -0.13617995381355286
+    },
+    {
+      "fixture": "wall-flank",
+      "type": "optimized",
+      "wallMs": 563.7874999999995,
+      "engineMs": 559.5769999999902,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "value": -0.13617995381355286
+    },
+    {
+      "fixture": "wall-flank",
+      "type": "original",
+      "wallMs": 253.8795,
+      "engineMs": 249.39679999806685,
+      "action": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "value": -0.13617995381355286
+    },
+    {
+      "fixture": "unseen",
+      "type": "original",
+      "wallMs": 245.4290000000001,
+      "engineMs": 241.16910000157077,
+      "action": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "value": -0.11546110361814499
+    },
+    {
+      "fixture": "unseen",
+      "type": "optimized",
+      "wallMs": 575.5297,
+      "engineMs": 569.9311999997008,
+      "action": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "value": -0.11546110361814499
+    },
+    {
+      "fixture": "unseen",
+      "type": "optimized",
+      "wallMs": 555.7402999999995,
+      "engineMs": 551.9172000022081,
+      "action": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "value": -0.11546110361814499
+    },
+    {
+      "fixture": "unseen",
+      "type": "original",
+      "wallMs": 285.78120000000035,
+      "engineMs": 281.80000000065775,
+      "action": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "value": -0.11546110361814499
+    }
+  ],
+  "summary": {
+    "originalMeanMs": 268.42330000000004,
+    "optimizedMeanMs": 578.1587874999998
+  }
+}

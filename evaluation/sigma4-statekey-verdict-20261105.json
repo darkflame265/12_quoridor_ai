@@ -1,0 +1,80 @@
+{
+  "version": "sigma4-bitset-statekey-inference-verdict-v1",
+  "sourceHashes": {
+    "scripts/sigma4-bitset-statekey-worker.py": "10fc9738790d3cfbe2884bc322150d3a39fd200ba0586ad3390988db2a23dbe4",
+    "scripts/sigma4-bitset-wall-worker.py": "980a3baf524fa166c8bb3de841240f8f4dbd3dd5ac3bd2eb440baef15679e0a2"
+  },
+  "evidence": {
+    "equivalentSearches": 44,
+    "historical": {
+      "original": {
+        "count": 30,
+        "meanMs": 585.2764800000004,
+        "p50Ms": 535.8312999999998,
+        "p95Ms": 1034.2342000000026,
+        "p99Ms": 1165.0890999999992,
+        "maxMs": 1165.0890999999992,
+        "over500": 17,
+        "cacheHits": 3349,
+        "cacheMisses": 2507
+      },
+      "cached": {
+        "count": 30,
+        "meanMs": 564.0015366666664,
+        "p50Ms": 534.7736000000004,
+        "p95Ms": 1038.074700000001,
+        "p99Ms": 1413.9078000000009,
+        "maxMs": 1413.9078000000009,
+        "over500": 17,
+        "cacheHits": 3349,
+        "cacheMisses": 2507
+      }
+    },
+    "fresh": {
+      "original": {
+        "count": 14,
+        "meanMs": 680.1018357142863,
+        "p95Ms": 1084.859900000003,
+        "p99Ms": 1084.859900000003,
+        "maxMs": 1084.859900000003,
+        "over500": 13
+      },
+      "bitset": {
+        "count": 14,
+        "meanMs": 663.542757142857,
+        "p95Ms": 1078.2674000000006,
+        "p99Ms": 1078.2674000000006,
+        "maxMs": 1078.2674000000006,
+        "over500": 9
+      }
+    },
+    "normalCacheHits": 3349,
+    "repeatedInitialSearch": {
+      "simulations": 200,
+      "first": {
+        "hits": 43,
+        "misses": 159,
+        "tensorBuilds": 159
+      },
+      "second": {
+        "hits": 202,
+        "misses": 0,
+        "tensorBuilds": 0
+      },
+      "third": {
+        "hits": 202,
+        "misses": 0,
+        "tensorBuilds": 0
+      }
+    }
+  },
+  "gates": {
+    "searchEquivalence": true,
+    "inputTensorBuildsSkippedOnCacheHit": true,
+    "stableP95Below500": false,
+    "independentStrengthTest": false
+  },
+  "researchCandidateImplemented": true,
+  "productionPromotionApproved": false,
+  "decision": "Research-only. State-key lookup skips input tensor encoding on hits, but wall-time variability and p95 above 500ms remain. No default engine change."
+}

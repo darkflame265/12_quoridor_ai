@@ -1,0 +1,657 @@
+{
+  "version": "sigma4-statekey-fresh-pilot-v1",
+  "positions": [
+    {
+      "id": "seed-0-14",
+      "hash": "bee9e9abeb63a3c8460c75ce6a679545e41f0103914d6d94688dedd67756852e",
+      "walls": 6,
+      "plies": 14
+    },
+    {
+      "id": "seed-1-16",
+      "hash": "768c9156ee2a29998936c0d0bec19fa396c710ca71b7d4c3bea181cfe3045312",
+      "walls": 14,
+      "plies": 16
+    },
+    {
+      "id": "seed-2-18",
+      "hash": "6c95ec89f4ef3f9582456c1fa5e132e77f508759381a14ae9c72db04793886d4",
+      "walls": 13,
+      "plies": 18
+    },
+    {
+      "id": "seed-3-20",
+      "hash": "618a354f78022a98e8d9c5f512e60ec16b0e47770f645aee3fbf68441dc82d63",
+      "walls": 17,
+      "plies": 20
+    },
+    {
+      "id": "seed-4-22",
+      "hash": "cf6b85efe87c5d56da1ab438fb0e60b8b4aeeb971fcccce275a8d28a1436a489",
+      "walls": 17,
+      "plies": 22
+    },
+    {
+      "id": "seed-5-14",
+      "hash": "92ba3c7db0bc67e7a027988ca238ac86164497f8499544e16d8342f129c3e693",
+      "walls": 12,
+      "plies": 14
+    },
+    {
+      "id": "seed-6-16",
+      "hash": "0e94614f3ceba7b975598d0165987b52e126973282262af1777b1d9b1cc2b797",
+      "walls": 10,
+      "plies": 16
+    },
+    {
+      "id": "seed-7-18",
+      "hash": "1b29b88efc4f4bac246c619ad0deb04751df2b046a1c87b23a4dee4b33b00da9",
+      "walls": 15,
+      "plies": 18
+    },
+    {
+      "id": "seed-8-20",
+      "hash": "d3c31e9fe9294bfef26518a507a8a7b6951b2becd55430f6437368583ef34196",
+      "walls": 14,
+      "plies": 20
+    },
+    {
+      "id": "seed-9-22",
+      "hash": "1c23eb898f1eebe326221ab97214fa7eebbe4947f22095b4b3cde5c8ae814fc2",
+      "walls": 16,
+      "plies": 22
+    },
+    {
+      "id": "seed-10-14",
+      "hash": "bbc6d4a0e29ff956a0bf6b19d6cfa79b4f5cf1ca4a34e6e9a99bcf98a5e9815f",
+      "walls": 13,
+      "plies": 14
+    },
+    {
+      "id": "seed-11-16",
+      "hash": "03332cf9d3defabf46e9f54f4b946dcd520a1363874460318ea3373a38819e4d",
+      "walls": 14,
+      "plies": 16
+    },
+    {
+      "id": "seed-12-18",
+      "hash": "c753266631675836a666d2666fd05d518ed252f72ce7a0d049d7c9a906a73d46",
+      "walls": 13,
+      "plies": 18
+    },
+    {
+      "id": "seed-13-20",
+      "hash": "ba6de4e1dca5fa2eea493d29875f12e004c048910a21e017ebe07b6981645272",
+      "walls": 16,
+      "plies": 20
+    }
+  ],
+  "results": [
+    {
+      "id": "seed-0-14",
+      "walls": 6,
+      "plies": 14,
+      "original": {
+        "wallMs": 983.7655999999997,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h"
+          }
+        ],
+        "value": -0.8364624381065369,
+        "cache": {
+          "hits": 16,
+          "misses": 186,
+          "entries": 186
+        },
+        "rootHash": "81817606fcf3bd1b2043cd657cc515d96f3d200e47ed85f2b9225840478857c5"
+      },
+      "bitset": {
+        "wallMs": 933.9115999999999,
+        "pv": [
+          {
+            "type": "wall",
+            "x": 2,
+            "y": 2,
+            "o": "h"
+          }
+        ],
+        "value": -0.8364624381065369,
+        "cache": {
+          "hits": 16,
+          "misses": 186,
+          "entries": 186
+        },
+        "rootHash": "81817606fcf3bd1b2043cd657cc515d96f3d200e47ed85f2b9225840478857c5"
+      }
+    },
+    {
+      "id": "seed-1-16",
+      "walls": 14,
+      "plies": 16,
+      "bitset": {
+        "wallMs": 438.4988999999996,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        ],
+        "value": -0.919053852558136,
+        "cache": {
+          "hits": 116,
+          "misses": 86,
+          "entries": 272
+        },
+        "rootHash": "70c8040b7c826964fcb42a0922588b1c166bf1349ae8b19231e04f968b075a7f"
+      },
+      "original": {
+        "wallMs": 453.20769999999993,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          }
+        ],
+        "value": -0.919053852558136,
+        "cache": {
+          "hits": 116,
+          "misses": 86,
+          "entries": 272
+        },
+        "rootHash": "70c8040b7c826964fcb42a0922588b1c166bf1349ae8b19231e04f968b075a7f"
+      }
+    },
+    {
+      "id": "seed-2-18",
+      "walls": 13,
+      "plies": 18,
+      "original": {
+        "wallMs": 612.0793999999996,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "value": -0.9483011960983276,
+        "cache": {
+          "hits": 75,
+          "misses": 126,
+          "entries": 398
+        },
+        "rootHash": "ebf9097219127df2b1ad4daa597755908e685562e666fafff6a8bea2e33240d5"
+      },
+      "bitset": {
+        "wallMs": 788.1085000000003,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "value": -0.9483011960983276,
+        "cache": {
+          "hits": 75,
+          "misses": 126,
+          "entries": 398
+        },
+        "rootHash": "ebf9097219127df2b1ad4daa597755908e685562e666fafff6a8bea2e33240d5"
+      }
+    },
+    {
+      "id": "seed-3-20",
+      "walls": 17,
+      "plies": 20,
+      "bitset": {
+        "wallMs": 441.7975000000006,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "value": 0.29448652267456055,
+        "cache": {
+          "hits": 44,
+          "misses": 141,
+          "entries": 539
+        },
+        "rootHash": "b82e54305c876e86e830b890c9dfd1f774fa432f6ce9be107b086d3dca59043e"
+      },
+      "original": {
+        "wallMs": 832.3568999999998,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "value": 0.29448652267456055,
+        "cache": {
+          "hits": 44,
+          "misses": 141,
+          "entries": 539
+        },
+        "rootHash": "b82e54305c876e86e830b890c9dfd1f774fa432f6ce9be107b086d3dca59043e"
+      }
+    },
+    {
+      "id": "seed-4-22",
+      "walls": 17,
+      "plies": 22,
+      "original": {
+        "wallMs": 572.6853000000001,
+        "pv": [
+          {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          }
+        ],
+        "value": -0.6682784557342529,
+        "cache": {
+          "hits": 119,
+          "misses": 83,
+          "entries": 622
+        },
+        "rootHash": "8e6e9d490a6496561bac86ad9cf8935aef4cc5cadc3a7aa54c30d48f38a7f257"
+      },
+      "bitset": {
+        "wallMs": 619.7154,
+        "pv": [
+          {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          }
+        ],
+        "value": -0.6682784557342529,
+        "cache": {
+          "hits": 119,
+          "misses": 83,
+          "entries": 622
+        },
+        "rootHash": "8e6e9d490a6496561bac86ad9cf8935aef4cc5cadc3a7aa54c30d48f38a7f257"
+      }
+    },
+    {
+      "id": "seed-5-14",
+      "walls": 12,
+      "plies": 14,
+      "bitset": {
+        "wallMs": 791.7186999999994,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "value": 0.9012536406517029,
+        "cache": {
+          "hits": 7,
+          "misses": 195,
+          "entries": 817
+        },
+        "rootHash": "79d731b49e9a209fa3f038d42309bcc83a074bdfe816db53fb6f23db9582723a"
+      },
+      "original": {
+        "wallMs": 733.5668000000005,
+        "pv": [
+          {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          }
+        ],
+        "value": 0.9012536406517029,
+        "cache": {
+          "hits": 7,
+          "misses": 195,
+          "entries": 817
+        },
+        "rootHash": "79d731b49e9a209fa3f038d42309bcc83a074bdfe816db53fb6f23db9582723a"
+      }
+    },
+    {
+      "id": "seed-6-16",
+      "walls": 10,
+      "plies": 16,
+      "original": {
+        "wallMs": 603.2526000000016,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          }
+        ],
+        "value": -0.9935908317565918,
+        "cache": {
+          "hits": 30,
+          "misses": 168,
+          "entries": 985
+        },
+        "rootHash": "d01eebe8edc2e0b3fbb911aacaf7401be3038b2bd71ec865e5ef4d3e1548e4f7"
+      },
+      "bitset": {
+        "wallMs": 774.5454999999984,
+        "pv": [
+          {
+            "type": "move",
+            "x": 3,
+            "y": 7
+          }
+        ],
+        "value": -0.9935908317565918,
+        "cache": {
+          "hits": 30,
+          "misses": 168,
+          "entries": 985
+        },
+        "rootHash": "d01eebe8edc2e0b3fbb911aacaf7401be3038b2bd71ec865e5ef4d3e1548e4f7"
+      }
+    },
+    {
+      "id": "seed-7-18",
+      "walls": 15,
+      "plies": 18,
+      "bitset": {
+        "wallMs": 436.4264999999996,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "value": 0.9549486041069031,
+        "cache": {
+          "hits": 70,
+          "misses": 126,
+          "entries": 1111
+        },
+        "rootHash": "0895b3d6d4da340f6893fe58521a0a85fe0472842629abd8d5f6c2dec636a056"
+      },
+      "original": {
+        "wallMs": 574.4237000000012,
+        "pv": [
+          {
+            "type": "move",
+            "x": 6,
+            "y": 7
+          }
+        ],
+        "value": 0.9549486041069031,
+        "cache": {
+          "hits": 70,
+          "misses": 126,
+          "entries": 1111
+        },
+        "rootHash": "0895b3d6d4da340f6893fe58521a0a85fe0472842629abd8d5f6c2dec636a056"
+      }
+    },
+    {
+      "id": "seed-8-20",
+      "walls": 14,
+      "plies": 20,
+      "original": {
+        "wallMs": 648.1936000000005,
+        "pv": [
+          {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          }
+        ],
+        "value": -0.9201089143753052,
+        "cache": {
+          "hits": 28,
+          "misses": 174,
+          "entries": 1285
+        },
+        "rootHash": "7bed184d86f5a65ead80276664e72944c65477cd3c3841d94d138f2d9227473c"
+      },
+      "bitset": {
+        "wallMs": 687.9596000000001,
+        "pv": [
+          {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          }
+        ],
+        "value": -0.9201089143753052,
+        "cache": {
+          "hits": 28,
+          "misses": 174,
+          "entries": 1285
+        },
+        "rootHash": "7bed184d86f5a65ead80276664e72944c65477cd3c3841d94d138f2d9227473c"
+      }
+    },
+    {
+      "id": "seed-9-22",
+      "walls": 16,
+      "plies": 22,
+      "bitset": {
+        "wallMs": 451.6712000000007,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 8
+          }
+        ],
+        "value": -0.9864926934242249,
+        "cache": {
+          "hits": 122,
+          "misses": 79,
+          "entries": 1364
+        },
+        "rootHash": "5b1dd749f847a424414ad7fb04a1de088284c43c419ad7b20960e2ec1529ac33"
+      },
+      "original": {
+        "wallMs": 519.9655000000002,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 8
+          }
+        ],
+        "value": -0.9864926934242249,
+        "cache": {
+          "hits": 122,
+          "misses": 79,
+          "entries": 1364
+        },
+        "rootHash": "5b1dd749f847a424414ad7fb04a1de088284c43c419ad7b20960e2ec1529ac33"
+      }
+    },
+    {
+      "id": "seed-10-14",
+      "walls": 13,
+      "plies": 14,
+      "original": {
+        "wallMs": 801.960000000001,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "value": 0.78464674949646,
+        "cache": {
+          "hits": 39,
+          "misses": 163,
+          "entries": 1527
+        },
+        "rootHash": "7cbc212979f0e9ef37cefb46cfd89cbca739ab048e18147a2e40f6461cfba5b9"
+      },
+      "bitset": {
+        "wallMs": 824.3276999999998,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "value": 0.78464674949646,
+        "cache": {
+          "hits": 39,
+          "misses": 163,
+          "entries": 1527
+        },
+        "rootHash": "7cbc212979f0e9ef37cefb46cfd89cbca739ab048e18147a2e40f6461cfba5b9"
+      }
+    },
+    {
+      "id": "seed-11-16",
+      "walls": 14,
+      "plies": 16,
+      "bitset": {
+        "wallMs": 599.4567999999999,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "value": -0.7165204882621765,
+        "cache": {
+          "hits": 32,
+          "misses": 170,
+          "entries": 1697
+        },
+        "rootHash": "9b0935a3ce117c924a437ce76eddb9e110772370a7e9fa952bf3ad137627290f"
+      },
+      "original": {
+        "wallMs": 1084.859900000003,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "value": -0.7165204882621765,
+        "cache": {
+          "hits": 32,
+          "misses": 170,
+          "entries": 1697
+        },
+        "rootHash": "9b0935a3ce117c924a437ce76eddb9e110772370a7e9fa952bf3ad137627290f"
+      }
+    },
+    {
+      "id": "seed-12-18",
+      "walls": 13,
+      "plies": 18,
+      "original": {
+        "wallMs": 505.15929999999935,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "value": 0.8214865326881409,
+        "cache": {
+          "hits": 65,
+          "misses": 128,
+          "entries": 1825
+        },
+        "rootHash": "db4aa44fe915b8bab7b6c74fc0c6ebb7b71493b18b4c625fae65a2b86f80d2db"
+      },
+      "bitset": {
+        "wallMs": 1078.2674000000006,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "value": 0.8214865326881409,
+        "cache": {
+          "hits": 65,
+          "misses": 128,
+          "entries": 1825
+        },
+        "rootHash": "db4aa44fe915b8bab7b6c74fc0c6ebb7b71493b18b4c625fae65a2b86f80d2db"
+      }
+    },
+    {
+      "id": "seed-13-20",
+      "walls": 16,
+      "plies": 20,
+      "bitset": {
+        "wallMs": 423.193299999999,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "value": -0.9682722687721252,
+        "cache": {
+          "hits": 115,
+          "misses": 74,
+          "entries": 1899
+        },
+        "rootHash": "6e8cd4e570744cb5739e7d084075f572bf138ea98c785ca5461a7e336e600132"
+      },
+      "original": {
+        "wallMs": 595.9494000000013,
+        "pv": [
+          {
+            "type": "move",
+            "x": 5,
+            "y": 7
+          }
+        ],
+        "value": -0.9682722687721252,
+        "cache": {
+          "hits": 115,
+          "misses": 74,
+          "entries": 1899
+        },
+        "rootHash": "6e8cd4e570744cb5739e7d084075f572bf138ea98c785ca5461a7e336e600132"
+      }
+    }
+  ],
+  "summary": {
+    "original": {
+      "count": 14,
+      "meanMs": 680.1018357142863,
+      "p95Ms": 1084.859900000003,
+      "p99Ms": 1084.859900000003,
+      "maxMs": 1084.859900000003,
+      "over500": 13
+    },
+    "bitset": {
+      "count": 14,
+      "meanMs": 663.542757142857,
+      "p95Ms": 1078.2674000000006,
+      "p99Ms": 1078.2674000000006,
+      "maxMs": 1078.2674000000006,
+      "over500": 9
+    }
+  }
+}

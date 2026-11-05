@@ -1,0 +1,77 @@
+{
+  "version": "sigma4-cached100-startup-latency-v1",
+  "results": [
+    {
+      "mode": "cold",
+      "i": 0,
+      "wallMs": 610.5651,
+      "workerMs": 244.07220000284724,
+      "healthMs": null,
+      "cache": {
+        "hits": 24,
+        "misses": 78,
+        "entries": 78
+      }
+    },
+    {
+      "mode": "cold",
+      "i": 1,
+      "wallMs": 556.9047999999999,
+      "workerMs": 249.0131000013207,
+      "healthMs": null,
+      "cache": {
+        "hits": 24,
+        "misses": 78,
+        "entries": 78
+      }
+    },
+    {
+      "mode": "cold",
+      "i": 2,
+      "wallMs": 529.8761999999999,
+      "workerMs": 234.5662000006996,
+      "healthMs": null,
+      "cache": {
+        "hits": 24,
+        "misses": 78,
+        "entries": 78
+      }
+    },
+    {
+      "mode": "warm",
+      "i": 0,
+      "wallMs": 241.62299999999982,
+      "workerMs": 236.44289999720058,
+      "healthMs": 293.9363000000001,
+      "cache": {
+        "hits": 24,
+        "misses": 78,
+        "entries": 78
+      }
+    },
+    {
+      "mode": "warm",
+      "i": 1,
+      "wallMs": 235.64249999999993,
+      "workerMs": 231.48469999796362,
+      "healthMs": 285.9901,
+      "cache": {
+        "hits": 24,
+        "misses": 78,
+        "entries": 78
+      }
+    },
+    {
+      "mode": "warm",
+      "i": 2,
+      "wallMs": 240.6208999999999,
+      "workerMs": 235.84549999941373,
+      "healthMs": 279.6124,
+      "cache": {
+        "hits": 24,
+        "misses": 78,
+        "entries": 78
+      }
+    }
+  ]
+}

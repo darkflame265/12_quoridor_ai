@@ -1,0 +1,542 @@
+{
+  "version": "sigma4-200-miss-hotspots-v1",
+  "results": [
+    {
+      "id": "0-8",
+      "engineMs": 764.6249999997963,
+      "cache": {
+        "hits": 41,
+        "misses": 161,
+        "entries": 161
+      },
+      "hotspots": [
+        {
+          "fn": "choose",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 1,
+          "selfMs": 0.484,
+          "cumulativeMs": 769.369
+        },
+        {
+          "fn": "search",
+          "file": "mcts.py",
+          "calls": 1,
+          "selfMs": 0.232,
+          "cumulativeMs": 744.152
+        },
+        {
+          "fn": "_run_simulation",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 200,
+          "selfMs": 0.839,
+          "cumulativeMs": 743.511
+        },
+        {
+          "fn": "_run_simulation",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 200,
+          "selfMs": 3.208,
+          "cumulativeMs": 742.673
+        },
+        {
+          "fn": "_expand",
+          "file": "mcts.py",
+          "calls": 201,
+          "selfMs": 0.478,
+          "cumulativeMs": 347.299
+        },
+        {
+          "fn": "evaluator",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 201,
+          "selfMs": 13.328,
+          "cumulativeMs": 313.846
+        },
+        {
+          "fn": "cached_run",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 202,
+          "selfMs": 1.241,
+          "cumulativeMs": 270.199
+        },
+        {
+          "fn": "run",
+          "file": "onnxruntime_inference_collection.py",
+          "calls": 161,
+          "selfMs": 1.002,
+          "cumulativeMs": 268.459
+        },
+        {
+          "fn": "<built-in method onnxruntime.capi.onnxruntime_pybind11_state.run>",
+          "file": "~",
+          "calls": 161,
+          "selfMs": 265.371,
+          "cumulativeMs": 265.737
+        },
+        {
+          "fn": "is_finished",
+          "file": "game.py",
+          "calls": 1459,
+          "selfMs": 0.896,
+          "cumulativeMs": 206.999
+        },
+        {
+          "fn": "get_legal_actions",
+          "file": "game.py",
+          "calls": 1661,
+          "selfMs": 0.887,
+          "cumulativeMs": 206.182
+        },
+        {
+          "fn": "is_drawn",
+          "file": "game.py",
+          "calls": 1459,
+          "selfMs": 0.611,
+          "cumulativeMs": 205.763
+        },
+        {
+          "fn": "_get_legal_wall_actions",
+          "file": "game.py",
+          "calls": 201,
+          "selfMs": 21.67,
+          "cumulativeMs": 195.639
+        },
+        {
+          "fn": "BFS",
+          "file": "game.py",
+          "calls": 4341,
+          "selfMs": 126.365,
+          "cumulativeMs": 167.459
+        },
+        {
+          "fn": "best_child",
+          "file": "mcts.py",
+          "calls": 1259,
+          "selfMs": 1.708,
+          "cumulativeMs": 157.277
+        },
+        {
+          "fn": "<built-in method builtins.max>",
+          "file": "~",
+          "calls": 1846,
+          "selfMs": 24.637,
+          "cumulativeMs": 149.982
+        },
+        {
+          "fn": "<lambda>",
+          "file": "mcts.py",
+          "calls": 148624,
+          "selfMs": 37.03,
+          "cumulativeMs": 125.345
+        },
+        {
+          "fn": "puct_score",
+          "file": "mcts.py",
+          "calls": 148624,
+          "selfMs": 58.485,
+          "cumulativeMs": 88.316
+        },
+        {
+          "fn": "_recompute_dists",
+          "file": "game.py",
+          "calls": 241,
+          "selfMs": 0.472,
+          "cumulativeMs": 44.177
+        },
+        {
+          "fn": "_bfs_dist_grid",
+          "file": "game.py",
+          "calls": 482,
+          "selfMs": 32.441,
+          "cumulativeMs": 39.554
+        },
+        {
+          "fn": "_expand_from_eval",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 201,
+          "selfMs": 0.586,
+          "cumulativeMs": 32.941
+        },
+        {
+          "fn": "ensure_state",
+          "file": "mcts.py",
+          "calls": 1486,
+          "selfMs": 0.447,
+          "cumulativeMs": 31.48
+        },
+        {
+          "fn": "next",
+          "file": "game.py",
+          "calls": 221,
+          "selfMs": 0.692,
+          "cumulativeMs": 31.244
+        },
+        {
+          "fn": "<built-in method math.sqrt>",
+          "file": "~",
+          "calls": 293999,
+          "selfMs": 29.274,
+          "cumulativeMs": 29.274
+        }
+      ]
+    },
+    {
+      "id": "1-16",
+      "engineMs": 874.8115000016696,
+      "cache": {
+        "hits": 18,
+        "misses": 184,
+        "entries": 345
+      },
+      "hotspots": [
+        {
+          "fn": "choose",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 1,
+          "selfMs": 0.494,
+          "cumulativeMs": 878.873
+        },
+        {
+          "fn": "search",
+          "file": "mcts.py",
+          "calls": 1,
+          "selfMs": 0.246,
+          "cumulativeMs": 845.129
+        },
+        {
+          "fn": "_run_simulation",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 200,
+          "selfMs": 1.238,
+          "cumulativeMs": 844.399
+        },
+        {
+          "fn": "_run_simulation",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 200,
+          "selfMs": 4.37,
+          "cumulativeMs": 843.161
+        },
+        {
+          "fn": "_expand",
+          "file": "mcts.py",
+          "calls": 201,
+          "selfMs": 0.491,
+          "cumulativeMs": 367.781
+        },
+        {
+          "fn": "evaluator",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 201,
+          "selfMs": 11.865,
+          "cumulativeMs": 342.536
+        },
+        {
+          "fn": "cached_run",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 202,
+          "selfMs": 1.402,
+          "cumulativeMs": 299.188
+        },
+        {
+          "fn": "run",
+          "file": "onnxruntime_inference_collection.py",
+          "calls": 184,
+          "selfMs": 1.124,
+          "cumulativeMs": 297.281
+        },
+        {
+          "fn": "<built-in method onnxruntime.capi.onnxruntime_pybind11_state.run>",
+          "file": "~",
+          "calls": 184,
+          "selfMs": 294.481,
+          "cumulativeMs": 294.481
+        },
+        {
+          "fn": "is_finished",
+          "file": "game.py",
+          "calls": 2260,
+          "selfMs": 1.257,
+          "cumulativeMs": 230.44
+        },
+        {
+          "fn": "get_legal_actions",
+          "file": "game.py",
+          "calls": 2462,
+          "selfMs": 1.084,
+          "cumulativeMs": 229.004
+        },
+        {
+          "fn": "is_drawn",
+          "file": "game.py",
+          "calls": 2260,
+          "selfMs": 0.871,
+          "cumulativeMs": 228.691
+        },
+        {
+          "fn": "_get_legal_wall_actions",
+          "file": "game.py",
+          "calls": 201,
+          "selfMs": 19.176,
+          "cumulativeMs": 220.973
+        },
+        {
+          "fn": "best_child",
+          "file": "mcts.py",
+          "calls": 2060,
+          "selfMs": 2.472,
+          "cumulativeMs": 210.881
+        },
+        {
+          "fn": "<built-in method builtins.max>",
+          "file": "~",
+          "calls": 2708,
+          "selfMs": 33.04,
+          "cumulativeMs": 201.058
+        },
+        {
+          "fn": "BFS",
+          "file": "game.py",
+          "calls": 5753,
+          "selfMs": 148.913,
+          "cumulativeMs": 194.959
+        },
+        {
+          "fn": "<lambda>",
+          "file": "mcts.py",
+          "calls": 201032,
+          "selfMs": 49.789,
+          "cumulativeMs": 168.019
+        },
+        {
+          "fn": "puct_score",
+          "file": "mcts.py",
+          "calls": 201032,
+          "selfMs": 78.413,
+          "cumulativeMs": 118.23
+        },
+        {
+          "fn": "_recompute_dists",
+          "file": "game.py",
+          "calls": 241,
+          "selfMs": 0.484,
+          "cumulativeMs": 50.659
+        },
+        {
+          "fn": "_bfs_dist_grid",
+          "file": "game.py",
+          "calls": 482,
+          "selfMs": 36.203,
+          "cumulativeMs": 44.283
+        },
+        {
+          "fn": "<built-in method math.sqrt>",
+          "file": "~",
+          "calls": 397476,
+          "selfMs": 39.112,
+          "cumulativeMs": 39.112
+        },
+        {
+          "fn": "ensure_state",
+          "file": "mcts.py",
+          "calls": 2268,
+          "selfMs": 0.537,
+          "cumulativeMs": 29.374
+        },
+        {
+          "fn": "state_of",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 71,
+          "selfMs": 0.402,
+          "cumulativeMs": 29.243
+        },
+        {
+          "fn": "next",
+          "file": "game.py",
+          "calls": 208,
+          "selfMs": 0.631,
+          "cumulativeMs": 28.94
+        }
+      ]
+    },
+    {
+      "id": "1-28",
+      "engineMs": 766.6726999996172,
+      "cache": {
+        "hits": 14,
+        "misses": 188,
+        "entries": 533
+      },
+      "hotspots": [
+        {
+          "fn": "choose",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 1,
+          "selfMs": 0.425,
+          "cumulativeMs": 770.779
+        },
+        {
+          "fn": "search",
+          "file": "mcts.py",
+          "calls": 1,
+          "selfMs": 0.224,
+          "cumulativeMs": 730.218
+        },
+        {
+          "fn": "_run_simulation",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 200,
+          "selfMs": 1.105,
+          "cumulativeMs": 729.703
+        },
+        {
+          "fn": "_run_simulation",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 200,
+          "selfMs": 3.876,
+          "cumulativeMs": 728.598
+        },
+        {
+          "fn": "_expand",
+          "file": "mcts.py",
+          "calls": 201,
+          "selfMs": 0.409,
+          "cumulativeMs": 359.107
+        },
+        {
+          "fn": "evaluator",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 201,
+          "selfMs": 9.824,
+          "cumulativeMs": 324.523
+        },
+        {
+          "fn": "cached_run",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 202,
+          "selfMs": 1.177,
+          "cumulativeMs": 291.566
+        },
+        {
+          "fn": "run",
+          "file": "onnxruntime_inference_collection.py",
+          "calls": 188,
+          "selfMs": 1.025,
+          "cumulativeMs": 289.935
+        },
+        {
+          "fn": "<built-in method onnxruntime.capi.onnxruntime_pybind11_state.run>",
+          "file": "~",
+          "calls": 188,
+          "selfMs": 287.427,
+          "cumulativeMs": 287.427
+        },
+        {
+          "fn": "is_finished",
+          "file": "game.py",
+          "calls": 2158,
+          "selfMs": 1.139,
+          "cumulativeMs": 184.855
+        },
+        {
+          "fn": "get_legal_actions",
+          "file": "game.py",
+          "calls": 2360,
+          "selfMs": 0.994,
+          "cumulativeMs": 183.814
+        },
+        {
+          "fn": "is_drawn",
+          "file": "game.py",
+          "calls": 2158,
+          "selfMs": 0.828,
+          "cumulativeMs": 183.278
+        },
+        {
+          "fn": "_get_legal_wall_actions",
+          "file": "game.py",
+          "calls": 201,
+          "selfMs": 16.453,
+          "cumulativeMs": 176.415
+        },
+        {
+          "fn": "best_child",
+          "file": "mcts.py",
+          "calls": 1958,
+          "selfMs": 2.204,
+          "cumulativeMs": 156.906
+        },
+        {
+          "fn": "BFS",
+          "file": "game.py",
+          "calls": 5389,
+          "selfMs": 117.399,
+          "cumulativeMs": 153.507
+        },
+        {
+          "fn": "<built-in method builtins.max>",
+          "file": "~",
+          "calls": 2427,
+          "selfMs": 24.653,
+          "cumulativeMs": 148.645
+        },
+        {
+          "fn": "<lambda>",
+          "file": "mcts.py",
+          "calls": 155878,
+          "selfMs": 36.676,
+          "cumulativeMs": 123.992
+        },
+        {
+          "fn": "puct_score",
+          "file": "mcts.py",
+          "calls": 155878,
+          "selfMs": 58.234,
+          "cumulativeMs": 87.316
+        },
+        {
+          "fn": "_recompute_dists",
+          "file": "game.py",
+          "calls": 283,
+          "selfMs": 0.46,
+          "cumulativeMs": 52.639
+        },
+        {
+          "fn": "_bfs_dist_grid",
+          "file": "game.py",
+          "calls": 566,
+          "selfMs": 37.845,
+          "cumulativeMs": 46.312
+        },
+        {
+          "fn": "state_of",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 94,
+          "selfMs": 0.593,
+          "cumulativeMs": 34.745
+        },
+        {
+          "fn": "_expand_from_eval",
+          "file": "sigma4-cache-cprofile-worker.py",
+          "calls": 201,
+          "selfMs": 0.543,
+          "cumulativeMs": 34.144
+        },
+        {
+          "fn": "<built-in method math.sqrt>",
+          "file": "~",
+          "calls": 306971,
+          "selfMs": 28.396,
+          "cumulativeMs": 28.396
+        },
+        {
+          "fn": "_expand_from_eval",
+          "file": "mcts.py",
+          "calls": 201,
+          "selfMs": 23.685,
+          "cumulativeMs": 28.043
+        }
+      ]
+    }
+  ]
+}

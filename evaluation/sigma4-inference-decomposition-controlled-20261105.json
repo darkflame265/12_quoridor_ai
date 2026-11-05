@@ -1,0 +1,587 @@
+{
+  "version": "sigma4-inference-decomposition-20261105-v1",
+  "results": [
+    {
+      "mode": "serial",
+      "id": "0-8",
+      "totalWallMs": 1371.6573,
+      "profiledWorkerMs": 670.9115999983624,
+      "referenceWorkerMs": 660.5551000029664,
+      "breakdown": {
+        "keyMs": 0.384,
+        "tensorMs": 13.473,
+        "onnxMs": 437.76,
+        "totalEvalMs": 453.351,
+        "pythonOtherMs": 217.561
+      },
+      "cache": {
+        "hits": 41,
+        "misses": 161,
+        "entries": 161,
+        "tensorBuilds": 161
+      }
+    },
+    {
+      "mode": "serial",
+      "id": "0-14",
+      "totalWallMs": 1426.3895,
+      "profiledWorkerMs": 670.8818000006431,
+      "referenceWorkerMs": 734.8708999998053,
+      "breakdown": {
+        "keyMs": 0.495,
+        "tensorMs": 13.036,
+        "onnxMs": 387.931,
+        "totalEvalMs": 403.17,
+        "pythonOtherMs": 267.712
+      },
+      "cache": {
+        "hits": 47,
+        "misses": 154,
+        "entries": 315,
+        "tensorBuilds": 154
+      }
+    },
+    {
+      "mode": "serial",
+      "id": "0-20",
+      "totalWallMs": 1291.4613000000004,
+      "profiledWorkerMs": 627.9324999995879,
+      "referenceWorkerMs": 647.3911000030057,
+      "breakdown": {
+        "keyMs": 0.416,
+        "tensorMs": 14.31,
+        "onnxMs": 373.24,
+        "totalEvalMs": 389.482,
+        "pythonOtherMs": 238.45
+      },
+      "cache": {
+        "hits": 37,
+        "misses": 154,
+        "entries": 469,
+        "tensorBuilds": 154
+      }
+    },
+    {
+      "mode": "serial",
+      "id": "0-26",
+      "totalWallMs": 1024.9358000000002,
+      "profiledWorkerMs": 503.9178000006359,
+      "referenceWorkerMs": 500.672799997119,
+      "breakdown": {
+        "keyMs": 0.344,
+        "tensorMs": 8.622,
+        "onnxMs": 271.331,
+        "totalEvalMs": 282.117,
+        "pythonOtherMs": 221.801
+      },
+      "cache": {
+        "hits": 107,
+        "misses": 94,
+        "entries": 563,
+        "tensorBuilds": 94
+      }
+    },
+    {
+      "mode": "serial",
+      "id": "0-32",
+      "totalWallMs": 1363.7124000000003,
+      "profiledWorkerMs": 644.4954999969923,
+      "referenceWorkerMs": 703.9379999987432,
+      "breakdown": {
+        "keyMs": 0.413,
+        "tensorMs": 11.972,
+        "onnxMs": 375.151,
+        "totalEvalMs": 389.047,
+        "pythonOtherMs": 255.448
+      },
+      "cache": {
+        "hits": 75,
+        "misses": 123,
+        "entries": 686,
+        "tensorBuilds": 123
+      }
+    },
+    {
+      "mode": "serial",
+      "id": "0-38",
+      "totalWallMs": 1491.2627999999995,
+      "profiledWorkerMs": 782.6951999995799,
+      "referenceWorkerMs": 698.4839999968244,
+      "breakdown": {
+        "keyMs": 0.721,
+        "tensorMs": 17.892,
+        "onnxMs": 560.167,
+        "totalEvalMs": 580.901,
+        "pythonOtherMs": 201.794
+      },
+      "cache": {
+        "hits": 19,
+        "misses": 183,
+        "entries": 869,
+        "tensorBuilds": 183
+      }
+    },
+    {
+      "mode": "serial",
+      "id": "1-8",
+      "totalWallMs": 431.16679999999906,
+      "profiledWorkerMs": 211.49490000243532,
+      "referenceWorkerMs": 199.3824000019231,
+      "breakdown": {
+        "keyMs": 0.386,
+        "tensorMs": 0,
+        "onnxMs": 0,
+        "totalEvalMs": 1.175,
+        "pythonOtherMs": 210.32
+      },
+      "cache": {
+        "hits": 202,
+        "misses": 0,
+        "entries": 869,
+        "tensorBuilds": 0
+      }
+    },
+    {
+      "mode": "serial",
+      "id": "1-14",
+      "totalWallMs": 443.9218000000001,
+      "profiledWorkerMs": 226.5014999975392,
+      "referenceWorkerMs": 198.53470000089146,
+      "breakdown": {
+        "keyMs": 0.313,
+        "tensorMs": 0,
+        "onnxMs": 0,
+        "totalEvalMs": 1.946,
+        "pythonOtherMs": 224.555
+      },
+      "cache": {
+        "hits": 201,
+        "misses": 0,
+        "entries": 869,
+        "tensorBuilds": 0
+      }
+    },
+    {
+      "mode": "serial",
+      "id": "1-20",
+      "totalWallMs": 1225.7227999999996,
+      "profiledWorkerMs": 550.8867999997165,
+      "referenceWorkerMs": 658.8607000012416,
+      "breakdown": {
+        "keyMs": 0.408,
+        "tensorMs": 12.648,
+        "onnxMs": 303.678,
+        "totalEvalMs": 318.263,
+        "pythonOtherMs": 232.624
+      },
+      "cache": {
+        "hits": 63,
+        "misses": 139,
+        "entries": 1008,
+        "tensorBuilds": 139
+      }
+    },
+    {
+      "mode": "serial",
+      "id": "1-26",
+      "totalWallMs": 1031.9063000000006,
+      "profiledWorkerMs": 497.72280000252067,
+      "referenceWorkerMs": 514.208000000508,
+      "breakdown": {
+        "keyMs": 0.331,
+        "tensorMs": 8.558,
+        "onnxMs": 264.171,
+        "totalEvalMs": 274.558,
+        "pythonOtherMs": 223.165
+      },
+      "cache": {
+        "hits": 113,
+        "misses": 89,
+        "entries": 1097,
+        "tensorBuilds": 89
+      }
+    },
+    {
+      "mode": "serial",
+      "id": "1-32",
+      "totalWallMs": 1159.0569999999989,
+      "profiledWorkerMs": 604.698200000712,
+      "referenceWorkerMs": 540.8562000011443,
+      "breakdown": {
+        "keyMs": 0.38,
+        "tensorMs": 10.54,
+        "onnxMs": 350.243,
+        "totalEvalMs": 362.525,
+        "pythonOtherMs": 242.173
+      },
+      "cache": {
+        "hits": 73,
+        "misses": 114,
+        "entries": 1211,
+        "tensorBuilds": 114
+      }
+    },
+    {
+      "mode": "serial",
+      "id": "1-38",
+      "totalWallMs": 1633.8828000000012,
+      "profiledWorkerMs": 868.4001000001444,
+      "referenceWorkerMs": 747.7040000012494,
+      "breakdown": {
+        "keyMs": 0.492,
+        "tensorMs": 18.967,
+        "onnxMs": 544.878,
+        "totalEvalMs": 566.817,
+        "pythonOtherMs": 301.583
+      },
+      "cache": {
+        "hits": 23,
+        "misses": 179,
+        "entries": 1390,
+        "tensorBuilds": 179
+      }
+    },
+    {
+      "mode": "concurrent",
+      "id": "0-8",
+      "totalWallMs": 624.0406999999996,
+      "profiledWorkerMs": 564.2937999982678,
+      "referenceWorkerMs": 572.4900999994134,
+      "breakdown": {
+        "keyMs": 0.295,
+        "tensorMs": 10.306,
+        "onnxMs": 352.526,
+        "totalEvalMs": 364.433,
+        "pythonOtherMs": 199.861
+      },
+      "cache": {
+        "hits": 41,
+        "misses": 161,
+        "entries": 161,
+        "tensorBuilds": 161
+      }
+    },
+    {
+      "mode": "concurrent",
+      "id": "0-14",
+      "totalWallMs": 607.2782000000007,
+      "profiledWorkerMs": 564.3382999987807,
+      "referenceWorkerMs": 549.8254999984056,
+      "breakdown": {
+        "keyMs": 0.297,
+        "tensorMs": 9.975,
+        "onnxMs": 317.305,
+        "totalEvalMs": 328.86,
+        "pythonOtherMs": 235.478
+      },
+      "cache": {
+        "hits": 47,
+        "misses": 154,
+        "entries": 315,
+        "tensorBuilds": 154
+      }
+    },
+    {
+      "mode": "concurrent",
+      "id": "0-20",
+      "totalWallMs": 492.8649000000023,
+      "profiledWorkerMs": 481.86940000232426,
+      "referenceWorkerMs": 478.9342000003671,
+      "breakdown": {
+        "keyMs": 0.276,
+        "tensorMs": 9.656,
+        "onnxMs": 273.208,
+        "totalEvalMs": 284.379,
+        "pythonOtherMs": 197.49
+      },
+      "cache": {
+        "hits": 37,
+        "misses": 154,
+        "entries": 469,
+        "tensorBuilds": 154
+      }
+    },
+    {
+      "mode": "concurrent",
+      "id": "0-26",
+      "totalWallMs": 819.4172000000035,
+      "profiledWorkerMs": 810.5872999985877,
+      "referenceWorkerMs": 732.1464999986347,
+      "breakdown": {
+        "keyMs": 0.384,
+        "tensorMs": 13.099,
+        "onnxMs": 475.606,
+        "totalEvalMs": 491.228,
+        "pythonOtherMs": 319.359
+      },
+      "cache": {
+        "hits": 107,
+        "misses": 94,
+        "entries": 563,
+        "tensorBuilds": 94
+      }
+    },
+    {
+      "mode": "concurrent",
+      "id": "0-32",
+      "totalWallMs": 830.6884000000027,
+      "profiledWorkerMs": 822.1698999986984,
+      "referenceWorkerMs": 801.2684999994235,
+      "breakdown": {
+        "keyMs": 0.364,
+        "tensorMs": 13.072,
+        "onnxMs": 506.232,
+        "totalEvalMs": 523.4,
+        "pythonOtherMs": 298.77
+      },
+      "cache": {
+        "hits": 75,
+        "misses": 123,
+        "entries": 686,
+        "tensorBuilds": 123
+      }
+    },
+    {
+      "mode": "concurrent",
+      "id": "0-38",
+      "totalWallMs": 1009.6431999999986,
+      "profiledWorkerMs": 1000.5719000000681,
+      "referenceWorkerMs": 968.2103999984975,
+      "breakdown": {
+        "keyMs": 0.493,
+        "tensorMs": 18.384,
+        "onnxMs": 717.136,
+        "totalEvalMs": 739.152,
+        "pythonOtherMs": 261.42
+      },
+      "cache": {
+        "hits": 19,
+        "misses": 183,
+        "entries": 869,
+        "tensorBuilds": 183
+      }
+    },
+    {
+      "mode": "concurrent",
+      "id": "1-8",
+      "totalWallMs": 327.0146999999997,
+      "profiledWorkerMs": 309.314699999959,
+      "referenceWorkerMs": 310.4470999969635,
+      "breakdown": {
+        "keyMs": 0.742,
+        "tensorMs": 0,
+        "onnxMs": 0,
+        "totalEvalMs": 1.8,
+        "pythonOtherMs": 307.515
+      },
+      "cache": {
+        "hits": 202,
+        "misses": 0,
+        "entries": 869,
+        "tensorBuilds": 0
+      }
+    },
+    {
+      "mode": "concurrent",
+      "id": "1-14",
+      "totalWallMs": 355.8354999999974,
+      "profiledWorkerMs": 345.4909000029147,
+      "referenceWorkerMs": 306.2316999967152,
+      "breakdown": {
+        "keyMs": 1.174,
+        "tensorMs": 0,
+        "onnxMs": 0,
+        "totalEvalMs": 2.993,
+        "pythonOtherMs": 342.498
+      },
+      "cache": {
+        "hits": 201,
+        "misses": 0,
+        "entries": 869,
+        "tensorBuilds": 0
+      }
+    },
+    {
+      "mode": "concurrent",
+      "id": "1-20",
+      "totalWallMs": 869.3135999999977,
+      "profiledWorkerMs": 816.2023999975645,
+      "referenceWorkerMs": 857.1563000004971,
+      "breakdown": {
+        "keyMs": 1.118,
+        "tensorMs": 11.664,
+        "onnxMs": 513.316,
+        "totalEvalMs": 530.609,
+        "pythonOtherMs": 285.593
+      },
+      "cache": {
+        "hits": 63,
+        "misses": 139,
+        "entries": 1008,
+        "tensorBuilds": 139
+      }
+    },
+    {
+      "mode": "concurrent",
+      "id": "1-26",
+      "totalWallMs": 629.935300000001,
+      "profiledWorkerMs": 575.8140999969328,
+      "referenceWorkerMs": 613.7027000004309,
+      "breakdown": {
+        "keyMs": 0.695,
+        "tensorMs": 7.775,
+        "onnxMs": 301.617,
+        "totalEvalMs": 311.398,
+        "pythonOtherMs": 264.416
+      },
+      "cache": {
+        "hits": 113,
+        "misses": 89,
+        "entries": 1097,
+        "tensorBuilds": 89
+      }
+    },
+    {
+      "mode": "concurrent",
+      "id": "1-32",
+      "totalWallMs": 826.8202999999994,
+      "profiledWorkerMs": 812.8436000006332,
+      "referenceWorkerMs": 813.3215999987442,
+      "breakdown": {
+        "keyMs": 0.471,
+        "tensorMs": 16.537,
+        "onnxMs": 525.268,
+        "totalEvalMs": 544.053,
+        "pythonOtherMs": 268.791
+      },
+      "cache": {
+        "hits": 73,
+        "misses": 114,
+        "entries": 1211,
+        "tensorBuilds": 114
+      }
+    },
+    {
+      "mode": "concurrent",
+      "id": "1-38",
+      "totalWallMs": 1145.8627000000015,
+      "profiledWorkerMs": 1135.701399998652,
+      "referenceWorkerMs": 1041.395399999601,
+      "breakdown": {
+        "keyMs": 0.733,
+        "tensorMs": 22.019,
+        "onnxMs": 773.184,
+        "totalEvalMs": 798.206,
+        "pythonOtherMs": 337.495
+      },
+      "cache": {
+        "hits": 23,
+        "misses": 179,
+        "entries": 1390,
+        "tensorBuilds": 179
+      }
+    }
+  ],
+  "summary": {
+    "serial": {
+      "engineMs": {
+        "n": 12,
+        "mean": 571.7115583332392,
+        "p50": 604.698200000712,
+        "p95": 868.4001000001444,
+        "p99": 868.4001000001444,
+        "max": 868.4001000001444
+      },
+      "referenceMs": {
+        "n": 12,
+        "mean": 567.1214916671184,
+        "p50": 647.3911000030057,
+        "p95": 747.7040000012494,
+        "p99": 747.7040000012494,
+        "max": 747.7040000012494
+      },
+      "onnxMs": {
+        "n": 12,
+        "mean": 322.37916666666666,
+        "p50": 350.243,
+        "p95": 560.167,
+        "p99": 560.167,
+        "max": 560.167
+      },
+      "tensorMs": {
+        "n": 12,
+        "mean": 10.834833333333334,
+        "p50": 11.972,
+        "p95": 18.967,
+        "p99": 18.967,
+        "max": 18.967
+      },
+      "pythonOtherMs": {
+        "n": 12,
+        "mean": 236.4321666666667,
+        "p50": 224.555,
+        "p95": 301.583,
+        "p99": 301.583,
+        "max": 301.583
+      },
+      "misses": {
+        "n": 12,
+        "mean": 115.83333333333333,
+        "p50": 123,
+        "p95": 183,
+        "p99": 183,
+        "max": 183
+      }
+    },
+    "concurrent": {
+      "engineMs": {
+        "n": 12,
+        "mean": 686.5998083327819,
+        "p50": 575.8140999969328,
+        "p95": 1135.701399998652,
+        "p99": 1135.701399998652,
+        "max": 1135.701399998652
+      },
+      "referenceMs": {
+        "n": 12,
+        "mean": 670.4274999989744,
+        "p50": 613.7027000004309,
+        "p95": 1041.395399999601,
+        "p99": 1041.395399999601,
+        "max": 1041.395399999601
+      },
+      "onnxMs": {
+        "n": 12,
+        "mean": 396.28316666666666,
+        "p50": 352.526,
+        "p95": 773.184,
+        "p99": 773.184,
+        "max": 773.184
+      },
+      "tensorMs": {
+        "n": 12,
+        "mean": 11.040583333333332,
+        "p50": 10.306,
+        "p95": 22.019,
+        "p99": 22.019,
+        "max": 22.019
+      },
+      "pythonOtherMs": {
+        "n": 12,
+        "mean": 276.55716666666666,
+        "p50": 268.791,
+        "p95": 342.498,
+        "p99": 342.498,
+        "max": 342.498
+      },
+      "misses": {
+        "n": 12,
+        "mean": 115.83333333333333,
+        "p50": 123,
+        "p95": 183,
+        "p99": 183,
+        "max": 183
+      }
+    }
+  }
+}

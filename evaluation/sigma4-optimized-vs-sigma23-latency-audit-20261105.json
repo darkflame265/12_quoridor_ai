@@ -1,0 +1,178 @@
+{
+  "version": "sigma4-speed-versus-strength-audit-v1",
+  "optimized200VsNative": {
+    "sigma2": {
+      "wins": 3,
+      "losses": 1,
+      "games": 4
+    },
+    "sigma3": {
+      "wins": 2,
+      "losses": 2,
+      "games": 4
+    }
+  },
+  "identicalToOriginalWeighted200": {
+    "fullGames": 8,
+    "allActionsMatched": true,
+    "sameWins": true
+  },
+  "performance": {
+    "singleWorker": {
+      "engineMs": {
+        "n": 12,
+        "mean": 571.7115583332392,
+        "p50": 604.698200000712,
+        "p95": 868.4001000001444,
+        "p99": 868.4001000001444,
+        "max": 868.4001000001444
+      },
+      "referenceMs": {
+        "n": 12,
+        "mean": 567.1214916671184,
+        "p50": 647.3911000030057,
+        "p95": 747.7040000012494,
+        "p99": 747.7040000012494,
+        "max": 747.7040000012494
+      },
+      "onnxMs": {
+        "n": 12,
+        "mean": 322.37916666666666,
+        "p50": 350.243,
+        "p95": 560.167,
+        "p99": 560.167,
+        "max": 560.167
+      },
+      "tensorMs": {
+        "n": 12,
+        "mean": 10.834833333333334,
+        "p50": 11.972,
+        "p95": 18.967,
+        "p99": 18.967,
+        "max": 18.967
+      },
+      "pythonOtherMs": {
+        "n": 12,
+        "mean": 236.4321666666667,
+        "p50": 224.555,
+        "p95": 301.583,
+        "p99": 301.583,
+        "max": 301.583
+      },
+      "misses": {
+        "n": 12,
+        "mean": 115.83333333333333,
+        "p50": 123,
+        "p95": 183,
+        "p99": 183,
+        "max": 183
+      }
+    },
+    "twoWorkersAtOnce": {
+      "engineMs": {
+        "n": 12,
+        "mean": 686.5998083327819,
+        "p50": 575.8140999969328,
+        "p95": 1135.701399998652,
+        "p99": 1135.701399998652,
+        "max": 1135.701399998652
+      },
+      "referenceMs": {
+        "n": 12,
+        "mean": 670.4274999989744,
+        "p50": 613.7027000004309,
+        "p95": 1041.395399999601,
+        "p99": 1041.395399999601,
+        "max": 1041.395399999601
+      },
+      "onnxMs": {
+        "n": 12,
+        "mean": 396.28316666666666,
+        "p50": 352.526,
+        "p95": 773.184,
+        "p99": 773.184,
+        "max": 773.184
+      },
+      "tensorMs": {
+        "n": 12,
+        "mean": 11.040583333333332,
+        "p50": 10.306,
+        "p95": 22.019,
+        "p99": 22.019,
+        "max": 22.019
+      },
+      "pythonOtherMs": {
+        "n": 12,
+        "mean": 276.55716666666666,
+        "p50": 268.791,
+        "p95": 342.498,
+        "p99": 342.498,
+        "max": 342.498
+      },
+      "misses": {
+        "n": 12,
+        "mean": 115.83333333333333,
+        "p50": 123,
+        "p95": 183,
+        "p99": 183,
+        "max": 183
+      }
+    },
+    "warmQueue": {
+      "version": "sigma4-warm-serial-queue-v1",
+      "results": [
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "id": 1,
+          "queueWaitMs": 0.05319999999994707,
+          "searchWallMs": 636.2427,
+          "fullWaitMs": 636.2959,
+          "workerMs": 610.5091000026732
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "id": 2,
+          "queueWaitMs": 636.3603999999999,
+          "searchWallMs": 261.11900000000014,
+          "fullWaitMs": 897.4794,
+          "workerMs": 249.37580000187154
+        },
+        {
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 7
+          },
+          "id": 3,
+          "queueWaitMs": 897.4926999999999,
+          "searchWallMs": 246.8208000000002,
+          "fullWaitMs": 1144.3135000000002,
+          "workerMs": 239.97700000109035
+        }
+      ],
+      "startupMs": 555.2637
+    },
+    "notes": "Concurrency samples used fresh prewarmed workers for each mode. The serial mode always ran first, and the measured ONNX/Python timings include profiling overhead. This is exploratory, not a controlled load-neutral latency guarantee."
+  },
+  "promotionGates": {
+    "fasterInSomeBenchmarks": true,
+    "searchDecisionsPreserved": true,
+    "outperformSigma2Proven": false,
+    "outperformSigma3Proven": false,
+    "strict500msProven": false,
+    "productionPromotionApproved": false
+  },
+  "codeHashes": {
+    "scripts/sigma4-bitset-wall-worker.py": "980a3baf524fa166c8bb3de841240f8f4dbd3dd5ac3bd2eb440baef15679e0a2",
+    "scripts/sigma4-statekey-timing-worker.py": "2780cb295486148ccf6eeb8fb3e313be5b131d742a03c9b70a5df17740a043f2",
+    "scripts/sigma4-warm-serial-pool.mjs": "76a41079f806d789b447e604f2d025468f576ab74d723abd458ab0c42b3abfd1"
+  }
+}

@@ -12,7 +12,7 @@ const rows=[];
 for(const game of games){
  for(const turn of game.trace){
   const side=turn.side,winBySigma2=game.winnerVariant==='sigma2';
-  const sigma2Turn=game.index%2===side;
+  const sigma2Turn=(game.index+side)%2===1;
   if(!sigma2Turn)continue;
   const s=turn.state,actual=turn.action,after=apply(s,actual),beforeAdv=distance(s,1-side)-distance(s,side);
   const ownGain=distance(s,side)-distance(after,side);
@@ -29,7 +29,7 @@ for(const game of games){
  }
 }
 rows.sort((a,b)=>Number(b.gameWinner==='sigma1')-Number(a.gameWinner==='sigma1')||(b.regretProxy??-1)-(a.regretProxy??-1));
-const summary={source,games:games.length,reviewedSigma2Turns:games.flatMap(g=>g.trace.filter(t=>g.index%2===t.side)).length,flagged:rows.length,losingGameFlags:rows.filter(r=>r.gameWinner==='sigma1').length,highestPriority:rows.slice(0,20)};
+const summary={source,games:games.length,reviewedSigma2Turns:games.flatMap(g=>g.trace.filter(t=>(g.index+t.side)%2===1)).length,flagged:rows.length,losingGameFlags:rows.filter(r=>r.gameWinner==='sigma1').length,highestPriority:rows.slice(0,20)};
 mkdirSync(dirname(target),{recursive:true});
 writeFileSync(target,JSON.stringify({summary:{...summary,highestPriority:undefined},rows},null,2)+'\n');
 console.log(JSON.stringify(summary,null,2));

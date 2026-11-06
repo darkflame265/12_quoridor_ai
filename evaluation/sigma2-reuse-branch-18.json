@@ -1,0 +1,564 @@
+{
+  "game": 4,
+  "ply": 18,
+  "method": "two concrete first actions, then 10 plies with current Sigma1/Sigma2 engines; neither branch proves optimality",
+  "branches": [
+    {
+      "label": "original",
+      "first": {
+        "type": "wall",
+        "x": 5,
+        "y": 2,
+        "o": "v"
+      },
+      "continuation": [
+        {
+          "ply": 19,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 6
+          },
+          "sims": 50
+        },
+        {
+          "ply": 20,
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "h"
+          },
+          "sims": 200
+        },
+        {
+          "ply": 21,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "sims": 50
+        },
+        {
+          "ply": 22,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "sims": 200
+        },
+        {
+          "ply": 23,
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 4,
+            "o": "h"
+          },
+          "sims": 50
+        },
+        {
+          "ply": 24,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "sims": 200
+        },
+        {
+          "ply": 25,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          },
+          "sims": 50
+        },
+        {
+          "ply": 26,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          },
+          "sims": 200
+        },
+        {
+          "ply": 27,
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 3,
+            "o": "v"
+          },
+          "sims": 50
+        },
+        {
+          "ply": 28,
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 2,
+            "y": 5,
+            "o": "h"
+          },
+          "sims": 200
+        },
+        {
+          "ply": 29,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 6
+          },
+          "sims": 50
+        },
+        {
+          "ply": 30,
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 6,
+            "o": "v"
+          },
+          "sims": 200
+        },
+        {
+          "ply": 31,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          "sims": 50
+        },
+        {
+          "ply": 32,
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 2,
+            "o": "h"
+          },
+          "sims": 200
+        },
+        {
+          "ply": 33,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          "sims": 50
+        },
+        {
+          "ply": 34,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "sims": 200
+        },
+        {
+          "ply": 35,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 8
+          },
+          "sims": 50
+        },
+        {
+          "ply": 36,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "sims": 200
+        },
+        {
+          "ply": 37,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 7
+          },
+          "sims": 50
+        },
+        {
+          "ply": 38,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          },
+          "sims": 200
+        },
+        {
+          "ply": 39,
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 3,
+            "y": 3,
+            "o": "h"
+          },
+          "sims": 50
+        },
+        {
+          "ply": 40,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "sims": 200
+        },
+        {
+          "ply": 41,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 6
+          },
+          "sims": 50
+        },
+        {
+          "ply": 42,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "sims": 200
+        }
+      ],
+      "final": {
+        "winner": null,
+        "distances": [
+          13,
+          9
+        ],
+        "walls": [
+          4,
+          1
+        ],
+        "positions": [
+          {
+            "x": 1,
+            "y": 6
+          },
+          {
+            "x": 5,
+            "y": 3
+          }
+        ]
+      }
+    },
+    {
+      "label": "alternative",
+      "first": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "continuation": [
+        {
+          "ply": 19,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          "sims": 50
+        },
+        {
+          "ply": 20,
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 5,
+            "y": 2,
+            "o": "v"
+          },
+          "sims": 200
+        },
+        {
+          "ply": 21,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "sims": 50
+        },
+        {
+          "ply": 22,
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 4,
+            "y": 4,
+            "o": "h"
+          },
+          "sims": 200
+        },
+        {
+          "ply": 23,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 5
+          },
+          "sims": 50
+        },
+        {
+          "ply": 24,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "sims": 200
+        },
+        {
+          "ply": 25,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 4,
+            "y": 6
+          },
+          "sims": 50
+        },
+        {
+          "ply": 26,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "sims": 200
+        },
+        {
+          "ply": 27,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 3,
+            "y": 6
+          },
+          "sims": 50
+        },
+        {
+          "ply": 28,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "sims": 200
+        },
+        {
+          "ply": 29,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 6
+          },
+          "sims": 50
+        },
+        {
+          "ply": 30,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 3
+          },
+          "sims": 200
+        },
+        {
+          "ply": 31,
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 6,
+            "y": 4,
+            "o": "h"
+          },
+          "sims": 50
+        },
+        {
+          "ply": 32,
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 1,
+            "y": 6,
+            "o": "v"
+          },
+          "sims": 200
+        },
+        {
+          "ply": 33,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 7
+          },
+          "sims": 50
+        },
+        {
+          "ply": 34,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 5,
+            "y": 4
+          },
+          "sims": 200
+        },
+        {
+          "ply": 35,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 2,
+            "y": 8
+          },
+          "sims": 50
+        },
+        {
+          "ply": 36,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 6,
+            "y": 4
+          },
+          "sims": 200
+        },
+        {
+          "ply": 37,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 8
+          },
+          "sims": 50
+        },
+        {
+          "ply": 38,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 7,
+            "y": 4
+          },
+          "sims": 200
+        },
+        {
+          "ply": 39,
+          "side": 0,
+          "action": {
+            "type": "move",
+            "x": 1,
+            "y": 7
+          },
+          "sims": 50
+        },
+        {
+          "ply": 40,
+          "side": 1,
+          "action": {
+            "type": "move",
+            "x": 8,
+            "y": 4
+          },
+          "sims": 200
+        },
+        {
+          "ply": 41,
+          "side": 0,
+          "action": {
+            "type": "wall",
+            "x": 7,
+            "y": 7,
+            "o": "h"
+          },
+          "sims": 50
+        },
+        {
+          "ply": 42,
+          "side": 1,
+          "action": {
+            "type": "wall",
+            "x": 0,
+            "y": 7,
+            "o": "h"
+          },
+          "sims": 200
+        }
+      ],
+      "final": {
+        "winner": null,
+        "distances": [
+          14,
+          6
+        ],
+        "walls": [
+          5,
+          1
+        ],
+        "positions": [
+          {
+            "x": 1,
+            "y": 7
+          },
+          {
+            "x": 8,
+            "y": 4
+          }
+        ]
+      }
+    }
+  ]
+}

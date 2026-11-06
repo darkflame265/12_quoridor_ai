@@ -1,0 +1,77 @@
+{
+  "version": "sigma3-conservative-guard-paired-20-v1",
+  "ids": [
+    103,
+    203,
+    101,
+    105,
+    27,
+    29,
+    100,
+    102,
+    104,
+    106
+  ],
+  "sims": 200,
+  "settings": {
+    "deterministic": true,
+    "exploration": 0,
+    "search": "sigma3 vs sigma2",
+    "maxQGap": 0.15,
+    "maxQPenalty": 0.1,
+    "minimumVisits": 15,
+    "minimumTacticalGain": 0.8,
+    "attackBeam": 6,
+    "defenderBeam": 4,
+    "wallRiskWeight": 0.35
+  },
+  "totalGames": 20,
+  "games": [
+    {
+      "id": 103,
+      "arm": "base",
+      "rootSide": 0,
+      "rootWon": false,
+      "rootLost": true,
+      "cutoff": false,
+      "plies": 48,
+      "sigmaMoves": 24,
+      "changed": 0,
+      "eligible": 0,
+      "changes": [],
+      "averageBaseMs": 1559.398379166699,
+      "extraTacticalMs": 0,
+      "finalDistances": [
+        9,
+        0
+      ]
+    },
+    {
+      "id": 103,
+      "arm": "tactical",
+      "rootSide": 0,
+      "rootWon": false,
+      "rootLost": true,
+      "cutoff": false,
+      "plies": 50,
+      "sigmaMoves": 25,
+      "changed": 1,
+      "eligible": 15,
+      "changes": [
+        {
+          "ply": 0,
+          "baseline": "d7─",
+          "experimental": "c4",
+          "estimatedTacticalGain": 1.2999999999999998,
+          "elapsedMs": 450
+        }
+      ],
+      "averageBaseMs": 1433.513037999728,
+      "extraTacticalMs": 5803,
+      "finalDistances": [
+        5,
+        0
+      ]
+    }
+  ]
+}

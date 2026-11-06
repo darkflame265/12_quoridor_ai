@@ -1,14 +1,14 @@
 const pageSession=globalThis.crypto?.randomUUID?.()??`page-${Date.now()}-${Math.random()}`;
 const abortError=()=>Object.assign(Error('Calculation cancelled'),{name:'AbortError'});
 export class NativeClient{
- constructor({fetcher=(...args)=>fetch(...args),onStatus=()=>{},base='/api/sigma4'}={}){
+ constructor({fetcher=(...args)=>fetch(...args),onStatus=()=>{},base='/api/sigma4',autoProbe=true}={}){
   if(!['/api/sigma2','/api/sigma3','/api/sigma4'].includes(base))throw Error('Unsupported engine endpoint');
-  this.base=base;this.fetcher=fetcher;this.onStatus=onStatus;this.online=false;this.checked=0;this.probing=null;this.job=null;this.disposed=false;this.probe().catch(()=>{});
+  this.base=base;this.fetcher=fetcher;this.onStatus=onStatus;this.online=false;this.checked=0;this.probing=null;this.job=null;this.disposed=false;if(autoProbe)this.probe().catch(()=>{});
  }
  async probe(){
   if(this.disposed)return false;if(this.probing)return this.probing;if(Date.now()-this.checked<(this.online?10000:1000))return this.online;
   this.probing=(async()=>{
-   try{const r=await this.fetcher(this.base+'/health',{signal:AbortSignal.timeout(500),cache:'no-store'});this.info=r.ok?await r.json():null;this.online=this.info?.service==='quoridor-native-v1'&&this.info.engineInfo?.id===this.base.slice(5);}
+   try{const r=await this.fetcher(this.base+'/health',{signal:AbortSignal.timeout(2000),cache:'no-store'});this.info=r.ok?await r.json():null;this.online=this.info?.service==='quoridor-native-v1'&&this.info.engineInfo?.id===this.base.slice(5);}
    catch{this.online=false;}
    this.checked=Date.now();if(!this.disposed)this.onStatus(this.online?'native':'unavailable',this.info);this.probing=null;return this.online;
   })();return this.probing;

@@ -1,10 +1,10 @@
 import {NativeClient} from './native-client.js';
 import {supportedEngines} from './session-settings.js';
 export class AdaptiveEngine{
- constructor({workers=4,engine='sigma4',onStatus=()=>{},nativeClient}={}){
+ constructor({workers=4,engine='sigma4',onStatus=()=>{},nativeClient,autoProbe=true}={}){
   if(!supportedEngines.includes(engine))throw Error('Unknown engine');
   this.engine=engine;this.size=Math.max(1,Math.min(4,workers|0));this.onStatus=onStatus;this.generation=0;this.job=null;
-  this.native=nativeClient??new NativeClient({base:'/api/'+engine,onStatus});
+  this.native=nativeClient??new NativeClient({base:'/api/'+engine,onStatus,autoProbe});
  }
  get active(){return this.job!==null;}
  get ponderMs(){return 1500;}

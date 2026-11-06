@@ -1,0 +1,4164 @@
+{
+  "sourceCounts": {
+    "early": 85,
+    "middle": 480,
+    "late": 1614
+  },
+  "requested": 90,
+  "results": [
+    {
+      "index": 0,
+      "phase": "special",
+      "source": "evaluation/turn21-f4-h8.json",
+      "turn": 0,
+      "wallCount": 12,
+      "remaining": [
+        2,
+        6
+      ],
+      "previousDistances": [
+        9,
+        25
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        },
+        "elapsedMs": 634.2789000009361,
+        "afterDistances": [
+          8,
+          25
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 7,
+          "y": 1,
+          "o": "v"
+        },
+        "elapsedMs": 822.62179999816,
+        "afterDistances": [
+          9,
+          27
+        ],
+        "corridor": {
+          "previous": {
+            "type": "move",
+            "x": 5,
+            "y": 5
+          },
+          "selected": {
+            "type": "wall",
+            "x": 7,
+            "y": 1,
+            "o": "v"
+          },
+          "riskBefore": 2,
+          "riskAfter": 0,
+          "riskReduction": 2,
+          "opponentDistanceGain": 2,
+          "visits": 64
+        },
+        "wallValue": null
+      },
+      "changed": true
+    },
+    {
+      "index": 1,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 0,
+      "remaining": [
+        10,
+        10
+      ],
+      "previousDistances": [
+        8,
+        8
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        "elapsedMs": 778.1820999989577,
+        "afterDistances": [
+          7,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        "elapsedMs": 791.4903999990202,
+        "afterDistances": [
+          7,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 2,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 0,
+      "remaining": [
+        10,
+        10
+      ],
+      "previousDistances": [
+        7,
+        7
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        "elapsedMs": 814.2260000022361,
+        "afterDistances": [
+          6,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        "elapsedMs": 794.9258999979065,
+        "afterDistances": [
+          6,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 3,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 0,
+      "remaining": [
+        10,
+        10
+      ],
+      "previousDistances": [
+        5,
+        6
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        "elapsedMs": 882.3757999998634,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        "elapsedMs": 967.4326999993355,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 4,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 2,
+      "remaining": [
+        9,
+        9
+      ],
+      "previousDistances": [
+        6,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 2,
+          "y": 6,
+          "o": "h"
+        },
+        "elapsedMs": 1088.3685000007972,
+        "afterDistances": [
+          6,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 2,
+          "y": 6,
+          "o": "h"
+        },
+        "elapsedMs": 853.5002999997232,
+        "afterDistances": [
+          6,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 5,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 4,
+      "remaining": [
+        8,
+        8
+      ],
+      "previousDistances": [
+        7,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 2,
+          "y": 4,
+          "o": "v"
+        },
+        "elapsedMs": 1022.8169000001799,
+        "afterDistances": [
+          7,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 2,
+          "y": 4,
+          "o": "v"
+        },
+        "elapsedMs": 1335.2379999996629,
+        "afterDistances": [
+          7,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 6,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 5,
+      "remaining": [
+        8,
+        7
+      ],
+      "previousDistances": [
+        8,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 5,
+          "y": 3,
+          "o": "v"
+        },
+        "elapsedMs": 924.3037000014738,
+        "afterDistances": [
+          8,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 5,
+          "y": 3,
+          "o": "v"
+        },
+        "elapsedMs": 1059.627000002365,
+        "afterDistances": [
+          8,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 7,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 3,
+      "remaining": [
+        8,
+        9
+      ],
+      "previousDistances": [
+        5,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 2,
+          "y": 6,
+          "o": "v"
+        },
+        "elapsedMs": 1383.6006000019552,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 2,
+          "y": 6,
+          "o": "v"
+        },
+        "elapsedMs": 993.0115999995905,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 8,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 5,
+      "remaining": [
+        7,
+        8
+      ],
+      "previousDistances": [
+        5,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 0,
+          "y": 1,
+          "o": "h"
+        },
+        "elapsedMs": 771.9202999978734,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 0,
+          "y": 1,
+          "o": "h"
+        },
+        "elapsedMs": 1005.0990999989153,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 9,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 4,
+      "remaining": [
+        8,
+        8
+      ],
+      "previousDistances": [
+        6,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        },
+        "elapsedMs": 1191.2766999994346,
+        "afterDistances": [
+          6,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        },
+        "elapsedMs": 874.1062000008242,
+        "afterDistances": [
+          6,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 10,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 5,
+      "remaining": [
+        7,
+        8
+      ],
+      "previousDistances": [
+        6,
+        4
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 4,
+          "y": 3,
+          "o": "h"
+        },
+        "elapsedMs": 881.9403000015882,
+        "afterDistances": [
+          6,
+          4
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 4,
+          "y": 3,
+          "o": "h"
+        },
+        "elapsedMs": 882.4301000022388,
+        "afterDistances": [
+          6,
+          4
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 11,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 2,
+      "remaining": [
+        9,
+        9
+      ],
+      "previousDistances": [
+        5,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 3,
+          "y": 4,
+          "o": "v"
+        },
+        "elapsedMs": 839.9030000000494,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 3,
+          "y": 4,
+          "o": "v"
+        },
+        "elapsedMs": 881.9327999990492,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 12,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 5,
+      "remaining": [
+        8,
+        7
+      ],
+      "previousDistances": [
+        5,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 2,
+          "y": 6,
+          "o": "h"
+        },
+        "elapsedMs": 928.2517999999982,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 2,
+          "y": 6,
+          "o": "h"
+        },
+        "elapsedMs": 2726.7342999984976,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 13,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 4,
+      "remaining": [
+        8,
+        8
+      ],
+      "previousDistances": [
+        5,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 4,
+          "y": 3,
+          "o": "v"
+        },
+        "elapsedMs": 2789.014199999656,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 4,
+          "y": 3,
+          "o": "v"
+        },
+        "elapsedMs": 2329.693399999087,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 14,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 4,
+      "remaining": [
+        8,
+        8
+      ],
+      "previousDistances": [
+        6,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 4
+        },
+        "elapsedMs": 2548.5369999987597,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 4
+        },
+        "elapsedMs": 2625.7676999994146,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 15,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 5,
+      "remaining": [
+        7,
+        8
+      ],
+      "previousDistances": [
+        5,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 5,
+          "y": 0,
+          "o": "v"
+        },
+        "elapsedMs": 2153.088499999285,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 5,
+          "y": 0,
+          "o": "v"
+        },
+        "elapsedMs": 2072.919500002172,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 16,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24-seed2.json",
+      "turn": 1,
+      "wallCount": 5,
+      "remaining": [
+        7,
+        8
+      ],
+      "previousDistances": [
+        6,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        "elapsedMs": 2301.8327000027057,
+        "afterDistances": [
+          6,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        "elapsedMs": 2474.2767000025196,
+        "afterDistances": [
+          6,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 17,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24-seed2.json",
+      "turn": 0,
+      "wallCount": 2,
+      "remaining": [
+        9,
+        9
+      ],
+      "previousDistances": [
+        5,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 2,
+          "y": 6,
+          "o": "h"
+        },
+        "elapsedMs": 2120.10680000094,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 2,
+          "y": 6,
+          "o": "h"
+        },
+        "elapsedMs": 2116.3706999977876,
+        "afterDistances": [
+          5,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 18,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24-seed2.json",
+      "turn": 1,
+      "wallCount": 5,
+      "remaining": [
+        7,
+        8
+      ],
+      "previousDistances": [
+        6,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        "elapsedMs": 2054.4329000003927,
+        "afterDistances": [
+          6,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        "elapsedMs": 2046.8782000025385,
+        "afterDistances": [
+          6,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 19,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24-seed2.json",
+      "turn": 0,
+      "wallCount": 5,
+      "remaining": [
+        7,
+        8
+      ],
+      "previousDistances": [
+        7,
+        6
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 6,
+          "y": 2,
+          "o": "h"
+        },
+        "elapsedMs": 1932.7373999985866,
+        "afterDistances": [
+          7,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 6,
+          "y": 2,
+          "o": "h"
+        },
+        "elapsedMs": 2210.5850000007194,
+        "afterDistances": [
+          7,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 20,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 0,
+      "wallCount": 4,
+      "remaining": [
+        8,
+        8
+      ],
+      "previousDistances": [
+        5,
+        6
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 4,
+          "y": 4,
+          "o": "h"
+        },
+        "elapsedMs": 2095.636599999125,
+        "afterDistances": [
+          5,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 4,
+          "y": 4,
+          "o": "h"
+        },
+        "elapsedMs": 1865.6293999993068,
+        "afterDistances": [
+          5,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 21,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 1,
+      "remaining": [
+        9,
+        10
+      ],
+      "previousDistances": [
+        5,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 3,
+          "y": 1,
+          "o": "h"
+        },
+        "elapsedMs": 2357.779900001333,
+        "afterDistances": [
+          6,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 3,
+          "y": 1,
+          "o": "h"
+        },
+        "elapsedMs": 2014.9089000005915,
+        "afterDistances": [
+          6,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 22,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 0,
+      "wallCount": 4,
+      "remaining": [
+        8,
+        8
+      ],
+      "previousDistances": [
+        6,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 2,
+          "y": 5,
+          "o": "h"
+        },
+        "elapsedMs": 2241.4382999995723,
+        "afterDistances": [
+          6,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 2,
+          "y": 5,
+          "o": "h"
+        },
+        "elapsedMs": 2151.435699997819,
+        "afterDistances": [
+          6,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 23,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 5,
+      "remaining": [
+        7,
+        8
+      ],
+      "previousDistances": [
+        5,
+        6
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        },
+        "elapsedMs": 2158.626500000537,
+        "afterDistances": [
+          5,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        },
+        "elapsedMs": 2103.189099998417,
+        "afterDistances": [
+          5,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 24,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 5,
+      "remaining": [
+        7,
+        8
+      ],
+      "previousDistances": [
+        5,
+        6
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 6,
+          "y": 1,
+          "o": "h"
+        },
+        "elapsedMs": 1935.879799999384,
+        "afterDistances": [
+          5,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 6,
+          "y": 1,
+          "o": "h"
+        },
+        "elapsedMs": 2050.089800002752,
+        "afterDistances": [
+          5,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 25,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 0,
+      "remaining": [
+        10,
+        10
+      ],
+      "previousDistances": [
+        6,
+        8
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        "elapsedMs": 1993.0253999991692,
+        "afterDistances": [
+          6,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 1
+        },
+        "elapsedMs": 2184.5986000007542,
+        "afterDistances": [
+          6,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 26,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 0,
+      "remaining": [
+        10,
+        10
+      ],
+      "previousDistances": [
+        5,
+        7
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        },
+        "elapsedMs": 1981.3767000014195,
+        "afterDistances": [
+          5,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        },
+        "elapsedMs": 1951.6708000010112,
+        "afterDistances": [
+          5,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 27,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 0,
+      "wallCount": 2,
+      "remaining": [
+        9,
+        9
+      ],
+      "previousDistances": [
+        5,
+        7
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 7,
+          "y": 5,
+          "o": "h"
+        },
+        "elapsedMs": 2297.3978000009083,
+        "afterDistances": [
+          5,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 7,
+          "y": 5,
+          "o": "h"
+        },
+        "elapsedMs": 2540.109900000971,
+        "afterDistances": [
+          5,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 28,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 5,
+      "remaining": [
+        7,
+        8
+      ],
+      "previousDistances": [
+        5,
+        7
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 3
+        },
+        "elapsedMs": 2311.726300002192,
+        "afterDistances": [
+          5,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 3
+        },
+        "elapsedMs": 2128.492499999993,
+        "afterDistances": [
+          5,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 29,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-threat-diverse4.json",
+      "turn": 1,
+      "wallCount": 5,
+      "remaining": [
+        7,
+        8
+      ],
+      "previousDistances": [
+        5,
+        7
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 6,
+          "y": 4,
+          "o": "h"
+        },
+        "elapsedMs": 2118.734499999846,
+        "afterDistances": [
+          5,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 6,
+          "y": 4,
+          "o": "h"
+        },
+        "elapsedMs": 2042.0572000002721,
+        "afterDistances": [
+          5,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 30,
+      "phase": "early",
+      "source": "reports/sigma-selfplay/sigma2-threat-diverse4.json",
+      "turn": 1,
+      "wallCount": 5,
+      "remaining": [
+        7,
+        8
+      ],
+      "previousDistances": [
+        6,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 3,
+          "y": 3
+        },
+        "elapsedMs": 2060.0276999975904,
+        "afterDistances": [
+          6,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 3,
+          "y": 3
+        },
+        "elapsedMs": 2174.173300001712,
+        "afterDistances": [
+          6,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 31,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 6,
+      "remaining": [
+        8,
+        6
+      ],
+      "previousDistances": [
+        8,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 5,
+          "y": 3,
+          "o": "v"
+        },
+        "elapsedMs": 2158.981500000664,
+        "afterDistances": [
+          8,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 5,
+          "y": 3,
+          "o": "v"
+        },
+        "elapsedMs": 2050.155900000391,
+        "afterDistances": [
+          8,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 32,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 8,
+      "remaining": [
+        6,
+        6
+      ],
+      "previousDistances": [
+        6,
+        6
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        "elapsedMs": 2412.7543000031437,
+        "afterDistances": [
+          5,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        "elapsedMs": 2122.8363000009267,
+        "afterDistances": [
+          5,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 33,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 9,
+      "remaining": [
+        4,
+        7
+      ],
+      "previousDistances": [
+        6,
+        9
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 3,
+          "y": 3,
+          "o": "v"
+        },
+        "elapsedMs": 2017.9628000005323,
+        "afterDistances": [
+          6,
+          11
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 3,
+          "y": 3,
+          "o": "v"
+        },
+        "elapsedMs": 2345.043399996939,
+        "afterDistances": [
+          6,
+          11
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 34,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 11,
+      "remaining": [
+        6,
+        3
+      ],
+      "previousDistances": [
+        11,
+        8
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 5,
+          "y": 2,
+          "o": "h"
+        },
+        "elapsedMs": 2351.8422999986797,
+        "afterDistances": [
+          11,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 5,
+          "y": 2,
+          "o": "h"
+        },
+        "elapsedMs": 2477.1082999977807,
+        "afterDistances": [
+          11,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 35,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 12,
+      "remaining": [
+        3,
+        5
+      ],
+      "previousDistances": [
+        6,
+        11
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        },
+        "elapsedMs": 2389.6648999980243,
+        "afterDistances": [
+          6,
+          10
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 5
+        },
+        "elapsedMs": 2261.4105000029667,
+        "afterDistances": [
+          6,
+          10
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 36,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 10,
+      "remaining": [
+        6,
+        4
+      ],
+      "previousDistances": [
+        12,
+        6
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 6,
+          "y": 5
+        },
+        "elapsedMs": 2238.871499997913,
+        "afterDistances": [
+          11,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 6,
+          "y": 5
+        },
+        "elapsedMs": 2192.8564999980154,
+        "afterDistances": [
+          11,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 37,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 10,
+      "remaining": [
+        3,
+        7
+      ],
+      "previousDistances": [
+        5,
+        17
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 2,
+          "y": 5
+        },
+        "elapsedMs": 2088.0440000000817,
+        "afterDistances": [
+          5,
+          16
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 2,
+          "y": 5
+        },
+        "elapsedMs": 2385.5548999999883,
+        "afterDistances": [
+          5,
+          16
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 38,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 8,
+      "remaining": [
+        6,
+        6
+      ],
+      "previousDistances": [
+        8,
+        4
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 6,
+          "y": 4,
+          "o": "h"
+        },
+        "elapsedMs": 2022.5462000016705,
+        "afterDistances": [
+          8,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 6,
+          "y": 4,
+          "o": "h"
+        },
+        "elapsedMs": 2234.9678999999014,
+        "afterDistances": [
+          8,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 39,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 9,
+      "remaining": [
+        5,
+        6
+      ],
+      "previousDistances": [
+        7,
+        8
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 4
+        },
+        "elapsedMs": 2398.352199998044,
+        "afterDistances": [
+          6,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 4
+        },
+        "elapsedMs": 2355.9187999999267,
+        "afterDistances": [
+          6,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 40,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 11,
+      "remaining": [
+        3,
+        6
+      ],
+      "previousDistances": [
+        5,
+        16
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        "elapsedMs": 2548.4725999995135,
+        "afterDistances": [
+          5,
+          15
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        "elapsedMs": 2929.266399998596,
+        "afterDistances": [
+          5,
+          15
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 41,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24-seed2.json",
+      "turn": 0,
+      "wallCount": 9,
+      "remaining": [
+        4,
+        7
+      ],
+      "previousDistances": [
+        8,
+        10
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 3,
+          "y": 4,
+          "o": "v"
+        },
+        "elapsedMs": 2250.514600000315,
+        "afterDistances": [
+          8,
+          10
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 3,
+          "y": 4,
+          "o": "v"
+        },
+        "elapsedMs": 2136.87310000023,
+        "afterDistances": [
+          8,
+          10
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 42,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24-seed2.json",
+      "turn": 1,
+      "wallCount": 9,
+      "remaining": [
+        6,
+        5
+      ],
+      "previousDistances": [
+        6,
+        7
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        },
+        "elapsedMs": 2270.926099998178,
+        "afterDistances": [
+          6,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        },
+        "elapsedMs": 1987.8892000015185,
+        "afterDistances": [
+          6,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 43,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24-seed2.json",
+      "turn": 0,
+      "wallCount": 10,
+      "remaining": [
+        4,
+        6
+      ],
+      "previousDistances": [
+        9,
+        11
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 7,
+          "y": 0,
+          "o": "h"
+        },
+        "elapsedMs": 972.5766999981715,
+        "afterDistances": [
+          9,
+          13
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 7,
+          "y": 0,
+          "o": "h"
+        },
+        "elapsedMs": 951.5600000013364,
+        "afterDistances": [
+          9,
+          13
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 44,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24-seed2.json",
+      "turn": 0,
+      "wallCount": 8,
+      "remaining": [
+        6,
+        6
+      ],
+      "previousDistances": [
+        7,
+        6
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 6,
+          "y": 2,
+          "o": "h"
+        },
+        "elapsedMs": 865.4559999995399,
+        "afterDistances": [
+          7,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 6,
+          "y": 2,
+          "o": "h"
+        },
+        "elapsedMs": 932.2019999999611,
+        "afterDistances": [
+          7,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 45,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24-seed2.json",
+      "turn": 0,
+      "wallCount": 12,
+      "remaining": [
+        5,
+        3
+      ],
+      "previousDistances": [
+        12,
+        6
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 6,
+          "y": 2,
+          "o": "v"
+        },
+        "elapsedMs": 1037.9252999991877,
+        "afterDistances": [
+          12,
+          10
+        ],
+        "corridor": null,
+        "wallValue": {
+          "previous": {
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "o": "v"
+          },
+          "selected": {
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "o": "v"
+          },
+          "opponentDistanceGain": 4,
+          "visits": 151
+        }
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 6,
+          "y": 2,
+          "o": "v"
+        },
+        "elapsedMs": 1091.0841000004439,
+        "afterDistances": [
+          12,
+          10
+        ],
+        "corridor": null,
+        "wallValue": {
+          "previous": {
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "o": "v"
+          },
+          "selected": {
+            "type": "wall",
+            "x": 6,
+            "y": 2,
+            "o": "v"
+          },
+          "opponentDistanceGain": 4,
+          "visits": 151
+        }
+      },
+      "changed": false
+    },
+    {
+      "index": 46,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 12,
+      "remaining": [
+        3,
+        5
+      ],
+      "previousDistances": [
+        13,
+        16
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        "elapsedMs": 962.4059000016132,
+        "afterDistances": [
+          13,
+          15
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 0
+        },
+        "elapsedMs": 984.7660000014002,
+        "afterDistances": [
+          13,
+          15
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 47,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 12,
+      "remaining": [
+        3,
+        5
+      ],
+      "previousDistances": [
+        7,
+        14
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 3,
+          "y": 2
+        },
+        "elapsedMs": 900.3969999976107,
+        "afterDistances": [
+          7,
+          13
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 3,
+          "y": 2
+        },
+        "elapsedMs": 915.1420000016515,
+        "afterDistances": [
+          7,
+          13
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 48,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 0,
+      "wallCount": 11,
+      "remaining": [
+        3,
+        6
+      ],
+      "previousDistances": [
+        9,
+        12
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        "elapsedMs": 980.9889999996813,
+        "afterDistances": [
+          8,
+          12
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        "elapsedMs": 1025.4100999991351,
+        "afterDistances": [
+          8,
+          12
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 49,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 7,
+      "remaining": [
+        6,
+        7
+      ],
+      "previousDistances": [
+        5,
+        8
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        "elapsedMs": 975.0085999985458,
+        "afterDistances": [
+          5,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        "elapsedMs": 910.4236999992281,
+        "afterDistances": [
+          5,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 50,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 12,
+      "remaining": [
+        2,
+        6
+      ],
+      "previousDistances": [
+        2,
+        14
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 6,
+          "y": 1,
+          "o": "h"
+        },
+        "elapsedMs": 978.803500001959,
+        "afterDistances": [
+          4,
+          14
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 6,
+          "y": 1,
+          "o": "h"
+        },
+        "elapsedMs": 914.1786999971373,
+        "afterDistances": [
+          4,
+          14
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 51,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 0,
+      "wallCount": 9,
+      "remaining": [
+        4,
+        7
+      ],
+      "previousDistances": [
+        5,
+        9
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        "elapsedMs": 877.5525000019115,
+        "afterDistances": [
+          4,
+          9
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        "elapsedMs": 947.9117999981099,
+        "afterDistances": [
+          4,
+          9
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 52,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 0,
+      "wallCount": 8,
+      "remaining": [
+        6,
+        6
+      ],
+      "previousDistances": [
+        6,
+        8
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 7,
+          "y": 5,
+          "o": "h"
+        },
+        "elapsedMs": 1071.2789999997767,
+        "afterDistances": [
+          6,
+          9
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 7,
+          "y": 5,
+          "o": "h"
+        },
+        "elapsedMs": 1032.6701999983925,
+        "afterDistances": [
+          6,
+          9
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 53,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 0,
+      "wallCount": 9,
+      "remaining": [
+        5,
+        6
+      ],
+      "previousDistances": [
+        5,
+        7
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        "elapsedMs": 970.7858999972814,
+        "afterDistances": [
+          4,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 3
+        },
+        "elapsedMs": 1013.1657999991148,
+        "afterDistances": [
+          4,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 54,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 0,
+      "wallCount": 11,
+      "remaining": [
+        5,
+        4
+      ],
+      "previousDistances": [
+        5,
+        7
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        },
+        "elapsedMs": 1099.3775999995705,
+        "afterDistances": [
+          5,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 2
+        },
+        "elapsedMs": 1187.5049000009312,
+        "afterDistances": [
+          5,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 55,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 0,
+      "wallCount": 12,
+      "remaining": [
+        4,
+        4
+      ],
+      "previousDistances": [
+        8,
+        10
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 4,
+          "y": 4,
+          "o": "h"
+        },
+        "elapsedMs": 1044.3582000007154,
+        "afterDistances": [
+          8,
+          12
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 4,
+          "y": 4,
+          "o": "h"
+        },
+        "elapsedMs": 950.4625000008673,
+        "afterDistances": [
+          8,
+          12
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 56,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 0,
+      "wallCount": 6,
+      "remaining": [
+        7,
+        7
+      ],
+      "previousDistances": [
+        5,
+        6
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 3,
+          "y": 5,
+          "o": "h"
+        },
+        "elapsedMs": 1224.364699999569,
+        "afterDistances": [
+          5,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 3,
+          "y": 5,
+          "o": "h"
+        },
+        "elapsedMs": 1184.9468000000343,
+        "afterDistances": [
+          5,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 57,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-threat-diverse4.json",
+      "turn": 0,
+      "wallCount": 8,
+      "remaining": [
+        5,
+        7
+      ],
+      "previousDistances": [
+        3,
+        7
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 3,
+          "y": 2
+        },
+        "elapsedMs": 908.1298999990395,
+        "afterDistances": [
+          2,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 3,
+          "y": 2
+        },
+        "elapsedMs": 904.4180000018969,
+        "afterDistances": [
+          2,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 58,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-threat-diverse4.json",
+      "turn": 0,
+      "wallCount": 12,
+      "remaining": [
+        5,
+        3
+      ],
+      "previousDistances": [
+        8,
+        7
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 2,
+          "y": 3
+        },
+        "elapsedMs": 1089.1459999984363,
+        "afterDistances": [
+          7,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 2,
+          "y": 3
+        },
+        "elapsedMs": 1132.1715999984008,
+        "afterDistances": [
+          7,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 59,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-threat-diverse4.json",
+      "turn": 0,
+      "wallCount": 6,
+      "remaining": [
+        7,
+        7
+      ],
+      "previousDistances": [
+        7,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 4
+        },
+        "elapsedMs": 1005.2575000008801,
+        "afterDistances": [
+          6,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 4
+        },
+        "elapsedMs": 1122.7507000003243,
+        "afterDistances": [
+          6,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 60,
+      "phase": "middle",
+      "source": "reports/sigma-selfplay/sigma2-threat-diverse4.json",
+      "turn": 1,
+      "wallCount": 8,
+      "remaining": [
+        5,
+        7
+      ],
+      "previousDistances": [
+        4,
+        7
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 3
+        },
+        "elapsedMs": 892.036500001268,
+        "afterDistances": [
+          4,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 5,
+          "y": 3
+        },
+        "elapsedMs": 894.7136999995564,
+        "afterDistances": [
+          4,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 61,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 13,
+      "remaining": [
+        4,
+        3
+      ],
+      "previousDistances": [
+        9,
+        7
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 4,
+          "y": 1,
+          "o": "v"
+        },
+        "elapsedMs": 944.0547000012884,
+        "afterDistances": [
+          9,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 4,
+          "y": 1,
+          "o": "v"
+        },
+        "elapsedMs": 960.4080999997677,
+        "afterDistances": [
+          9,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 62,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 17,
+      "remaining": [
+        1,
+        2
+      ],
+      "previousDistances": [
+        4,
+        8
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 6,
+          "y": 2
+        },
+        "elapsedMs": 732.589300001564,
+        "afterDistances": [
+          4,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 6,
+          "y": 2
+        },
+        "elapsedMs": 736.6829000020516,
+        "afterDistances": [
+          4,
+          7
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 63,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 17,
+      "remaining": [
+        2,
+        1
+      ],
+      "previousDistances": [
+        8,
+        4
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 8,
+          "y": 7
+        },
+        "elapsedMs": 734.6313999987615,
+        "afterDistances": [
+          8,
+          3
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 8,
+          "y": 7
+        },
+        "elapsedMs": 772.818900000857,
+        "afterDistances": [
+          8,
+          3
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 64,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 15,
+      "remaining": [
+        3,
+        2
+      ],
+      "previousDistances": [
+        14,
+        8
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 6,
+          "y": 4,
+          "o": "h"
+        },
+        "elapsedMs": 906.9544000012684,
+        "afterDistances": [
+          16,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 6,
+          "y": 4,
+          "o": "h"
+        },
+        "elapsedMs": 944.7762000017974,
+        "afterDistances": [
+          16,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 65,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 13,
+      "remaining": [
+        5,
+        2
+      ],
+      "previousDistances": [
+        11,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 8,
+          "y": 4
+        },
+        "elapsedMs": 905.8568000000378,
+        "afterDistances": [
+          11,
+          4
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 8,
+          "y": 4
+        },
+        "elapsedMs": 913.524999999936,
+        "afterDistances": [
+          11,
+          4
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 66,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 19,
+      "remaining": [
+        1,
+        0
+      ],
+      "previousDistances": [
+        11,
+        2
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        "elapsedMs": 160.83069999876898,
+        "afterDistances": [
+          11,
+          1
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 1,
+          "y": 7
+        },
+        "elapsedMs": 168.51949999909266,
+        "afterDistances": [
+          11,
+          1
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 67,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 15,
+      "remaining": [
+        1,
+        4
+      ],
+      "previousDistances": [
+        10,
+        16
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 0,
+          "y": 3
+        },
+        "elapsedMs": 879.8843999975361,
+        "afterDistances": [
+          10,
+          15
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 0,
+          "y": 3
+        },
+        "elapsedMs": 886.9836999983818,
+        "afterDistances": [
+          10,
+          15
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 68,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 1,
+      "wallCount": 16,
+      "remaining": [
+        3,
+        1
+      ],
+      "previousDistances": [
+        14,
+        12
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 3,
+          "y": 3
+        },
+        "elapsedMs": 869.840799998201,
+        "afterDistances": [
+          14,
+          11
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 3,
+          "y": 3
+        },
+        "elapsedMs": 1016.7766999984451,
+        "afterDistances": [
+          14,
+          11
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 69,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24.json",
+      "turn": 0,
+      "wallCount": 13,
+      "remaining": [
+        1,
+        6
+      ],
+      "previousDistances": [
+        3,
+        15
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 3,
+          "y": 2
+        },
+        "elapsedMs": 875.1583000012033,
+        "afterDistances": [
+          2,
+          15
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 3,
+          "y": 2
+        },
+        "elapsedMs": 913.5653999983333,
+        "afterDistances": [
+          2,
+          15
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 70,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24-seed2.json",
+      "turn": 1,
+      "wallCount": 16,
+      "remaining": [
+        3,
+        1
+      ],
+      "previousDistances": [
+        7,
+        2
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 8,
+          "y": 7
+        },
+        "elapsedMs": 717.2683999997389,
+        "afterDistances": [
+          7,
+          1
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 8,
+          "y": 7
+        },
+        "elapsedMs": 766.8415000007371,
+        "afterDistances": [
+          7,
+          1
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 71,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24-seed2.json",
+      "turn": 0,
+      "wallCount": 18,
+      "remaining": [
+        0,
+        2
+      ],
+      "previousDistances": [
+        2,
+        6
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        },
+        "elapsedMs": 386.3024000020232,
+        "afterDistances": [
+          1,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 6,
+          "y": 1
+        },
+        "elapsedMs": 369.14790000082576,
+        "afterDistances": [
+          1,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 72,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24-seed2.json",
+      "turn": 0,
+      "wallCount": 13,
+      "remaining": [
+        1,
+        6
+      ],
+      "previousDistances": [
+        3,
+        9
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 6,
+          "y": 2
+        },
+        "elapsedMs": 566.32879999961,
+        "afterDistances": [
+          2,
+          9
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 6,
+          "y": 2
+        },
+        "elapsedMs": 570.5722999991849,
+        "afterDistances": [
+          2,
+          9
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 73,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24-seed2.json",
+      "turn": 1,
+      "wallCount": 17,
+      "remaining": [
+        1,
+        2
+      ],
+      "previousDistances": [
+        4,
+        10
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 8,
+          "y": 3
+        },
+        "elapsedMs": 571.3018000024022,
+        "afterDistances": [
+          4,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 8,
+          "y": 3
+        },
+        "elapsedMs": 478.896699998586,
+        "afterDistances": [
+          4,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 74,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24-seed2.json",
+      "turn": 0,
+      "wallCount": 16,
+      "remaining": [
+        1,
+        3
+      ],
+      "previousDistances": [
+        12,
+        14
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        "elapsedMs": 813.9332999999169,
+        "afterDistances": [
+          11,
+          14
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        "elapsedMs": 822.5328000007721,
+        "afterDistances": [
+          11,
+          14
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 75,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-wallvalue-trial-24-seed2.json",
+      "turn": 0,
+      "wallCount": 18,
+      "remaining": [
+        1,
+        1
+      ],
+      "previousDistances": [
+        10,
+        6
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        "elapsedMs": 778.077699997084,
+        "afterDistances": [
+          9,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 5
+        },
+        "elapsedMs": 770.2766000002157,
+        "afterDistances": [
+          9,
+          6
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 76,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 15,
+      "remaining": [
+        1,
+        4
+      ],
+      "previousDistances": [
+        14,
+        20
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 2,
+          "y": 1
+        },
+        "elapsedMs": 878.3326999982819,
+        "afterDistances": [
+          14,
+          19
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 2,
+          "y": 1
+        },
+        "elapsedMs": 922.4665000001551,
+        "afterDistances": [
+          14,
+          19
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 77,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 13,
+      "remaining": [
+        2,
+        5
+      ],
+      "previousDistances": [
+        7,
+        15
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        "elapsedMs": 858.90450000079,
+        "afterDistances": [
+          7,
+          14
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 3,
+          "y": 1
+        },
+        "elapsedMs": 996.7499999984284,
+        "afterDistances": [
+          7,
+          14
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 78,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 20,
+      "remaining": [
+        0,
+        0
+      ],
+      "previousDistances": [
+        1,
+        3
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        "elapsedMs": 151.92930000193883,
+        "afterDistances": [
+          1,
+          2
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 6
+        },
+        "elapsedMs": 119.62270000003628,
+        "afterDistances": [
+          1,
+          2
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 79,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 0,
+      "wallCount": 16,
+      "remaining": [
+        2,
+        2
+      ],
+      "previousDistances": [
+        2,
+        14
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 0,
+          "y": 1
+        },
+        "elapsedMs": 276.96190000278875,
+        "afterDistances": [
+          1,
+          14
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 0,
+          "y": 1
+        },
+        "elapsedMs": 280.5492999978014,
+        "afterDistances": [
+          1,
+          14
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 80,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 15,
+      "remaining": [
+        1,
+        4
+      ],
+      "previousDistances": [
+        8,
+        16
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 1,
+          "y": 4
+        },
+        "elapsedMs": 866.1067000030016,
+        "afterDistances": [
+          8,
+          15
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 1,
+          "y": 4
+        },
+        "elapsedMs": 905.9577000007266,
+        "afterDistances": [
+          8,
+          15
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 81,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 13,
+      "remaining": [
+        3,
+        4
+      ],
+      "previousDistances": [
+        6,
+        11
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 5,
+          "y": 1,
+          "o": "v"
+        },
+        "elapsedMs": 800.8291000005556,
+        "afterDistances": [
+          10,
+          11
+        ],
+        "corridor": null,
+        "wallValue": {
+          "previous": {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "v"
+          },
+          "selected": {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "v"
+          },
+          "opponentDistanceGain": 4,
+          "visits": 91
+        }
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 5,
+          "y": 1,
+          "o": "v"
+        },
+        "elapsedMs": 852.119400002266,
+        "afterDistances": [
+          10,
+          11
+        ],
+        "corridor": null,
+        "wallValue": {
+          "previous": {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "v"
+          },
+          "selected": {
+            "type": "wall",
+            "x": 5,
+            "y": 1,
+            "o": "v"
+          },
+          "opponentDistanceGain": 4,
+          "visits": 91
+        }
+      },
+      "changed": false
+    },
+    {
+      "index": 82,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 0,
+      "wallCount": 19,
+      "remaining": [
+        0,
+        1
+      ],
+      "previousDistances": [
+        7,
+        5
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 3,
+          "y": 4
+        },
+        "elapsedMs": 665.5912999995053,
+        "afterDistances": [
+          6,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 3,
+          "y": 4
+        },
+        "elapsedMs": 729.3890999972064,
+        "afterDistances": [
+          6,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 83,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 13,
+      "remaining": [
+        3,
+        4
+      ],
+      "previousDistances": [
+        6,
+        14
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 1,
+          "y": 2,
+          "o": "h"
+        },
+        "elapsedMs": 799.8647999993409,
+        "afterDistances": [
+          7,
+          14
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 1,
+          "y": 2,
+          "o": "h"
+        },
+        "elapsedMs": 793.0771999999706,
+        "afterDistances": [
+          7,
+          14
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 84,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 20,
+      "remaining": [
+        0,
+        0
+      ],
+      "previousDistances": [
+        7,
+        6
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        "elapsedMs": 531.1161999998149,
+        "afterDistances": [
+          7,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 7
+        },
+        "elapsedMs": 516.8613999994704,
+        "afterDistances": [
+          7,
+          5
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 85,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 0,
+      "wallCount": 17,
+      "remaining": [
+        1,
+        2
+      ],
+      "previousDistances": [
+        11,
+        16
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        "elapsedMs": 752.4653000000399,
+        "afterDistances": [
+          10,
+          16
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 2
+        },
+        "elapsedMs": 729.3005999999878,
+        "afterDistances": [
+          10,
+          16
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 86,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 0,
+      "wallCount": 15,
+      "remaining": [
+        2,
+        3
+      ],
+      "previousDistances": [
+        2,
+        15
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        "elapsedMs": 529.5441000016581,
+        "afterDistances": [
+          1,
+          15
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 4,
+          "y": 1
+        },
+        "elapsedMs": 550.0560000000405,
+        "afterDistances": [
+          1,
+          15
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 87,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 1,
+      "wallCount": 19,
+      "remaining": [
+        0,
+        1
+      ],
+      "previousDistances": [
+        2,
+        2
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 0,
+          "y": 7
+        },
+        "elapsedMs": 246.52600000263192,
+        "afterDistances": [
+          2,
+          1
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 0,
+          "y": 7
+        },
+        "elapsedMs": 223.11919999992824,
+        "afterDistances": [
+          2,
+          1
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 88,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-seed20261102-baseline24.json",
+      "turn": 0,
+      "wallCount": 17,
+      "remaining": [
+        3,
+        0
+      ],
+      "previousDistances": [
+        7,
+        10
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        },
+        "elapsedMs": 749.2305000014312,
+        "afterDistances": [
+          6,
+          10
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "move",
+          "x": 1,
+          "y": 5
+        },
+        "elapsedMs": 779.4991000009759,
+        "afterDistances": [
+          6,
+          10
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 89,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-threat-diverse4.json",
+      "turn": 0,
+      "wallCount": 14,
+      "remaining": [
+        3,
+        3
+      ],
+      "previousDistances": [
+        8,
+        9
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 3,
+          "y": 5,
+          "o": "v"
+        },
+        "elapsedMs": 785.8563999980106,
+        "afterDistances": [
+          8,
+          9
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 3,
+          "y": 5,
+          "o": "v"
+        },
+        "elapsedMs": 761.1528000015824,
+        "afterDistances": [
+          8,
+          9
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    },
+    {
+      "index": 90,
+      "phase": "late",
+      "source": "reports/sigma-selfplay/sigma2-threat-diverse4.json",
+      "turn": 1,
+      "wallCount": 17,
+      "remaining": [
+        1,
+        2
+      ],
+      "previousDistances": [
+        6,
+        8
+      ],
+      "sigma2": {
+        "chosen": {
+          "type": "wall",
+          "x": 4,
+          "y": 0,
+          "o": "h"
+        },
+        "elapsedMs": 708.0903000023682,
+        "afterDistances": [
+          8,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "sigma3": {
+        "chosen": {
+          "type": "wall",
+          "x": 4,
+          "y": 0,
+          "o": "h"
+        },
+        "elapsedMs": 687.9188999992039,
+        "afterDistances": [
+          8,
+          8
+        ],
+        "corridor": null,
+        "wallValue": null
+      },
+      "changed": false
+    }
+  ]
+}

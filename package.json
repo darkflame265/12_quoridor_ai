@@ -8,6 +8,7 @@
     "play:shortcuts": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/install-play-shortcuts.ps1",
     "dev": "node scripts/dev.mjs",
     "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
     "test": "node --test \"src/*.test.js\" scripts/play-lock.test.mjs",
     "screen:qa": "node scripts/check-screen-browser.mjs",
     "sigma:smoke": "node scripts/check-sigma-runtime.mjs"

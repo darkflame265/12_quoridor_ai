@@ -1,0 +1,1684 @@
+{
+  "setup": {
+    "simulations": 200,
+    "policy": "Sigma2 player1 vs Sigma2 player0",
+    "startingPly": 32,
+    "seeds": 10,
+    "maxPlies": 100
+  },
+  "runs": [
+    {
+      "seed": 0,
+      "branch": "b5-pawn",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 4,
+      "finalDistances": [
+        0,
+        3
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          }
+        }
+      ]
+    },
+    {
+      "seed": 0,
+      "branch": "a6-horizontal",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 2,
+      "finalDistances": [
+        0,
+        1
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 6
+          }
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "branch": "b5-pawn",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 4,
+      "finalDistances": [
+        0,
+        3
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          }
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "branch": "a6-horizontal",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 2,
+      "finalDistances": [
+        0,
+        1
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 6
+          }
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "branch": "b5-pawn",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 4,
+      "finalDistances": [
+        0,
+        3
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          }
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "branch": "a6-horizontal",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 2,
+      "finalDistances": [
+        0,
+        1
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          }
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "branch": "b5-pawn",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 4,
+      "finalDistances": [
+        0,
+        3
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          }
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "branch": "a6-horizontal",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 2,
+      "finalDistances": [
+        0,
+        1
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 6
+          }
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "branch": "b5-pawn",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 4,
+      "finalDistances": [
+        0,
+        3
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          }
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "branch": "a6-horizontal",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 2,
+      "finalDistances": [
+        0,
+        1
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 6
+          }
+        }
+      ]
+    },
+    {
+      "seed": 5,
+      "branch": "b5-pawn",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 4,
+      "finalDistances": [
+        0,
+        3
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          }
+        }
+      ]
+    },
+    {
+      "seed": 5,
+      "branch": "a6-horizontal",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 2,
+      "finalDistances": [
+        0,
+        1
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 6
+          }
+        }
+      ]
+    },
+    {
+      "seed": 6,
+      "branch": "b5-pawn",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 4,
+      "finalDistances": [
+        0,
+        3
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          }
+        }
+      ]
+    },
+    {
+      "seed": 6,
+      "branch": "a6-horizontal",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 2,
+      "finalDistances": [
+        0,
+        1
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 6
+          }
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "branch": "b5-pawn",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 4,
+      "finalDistances": [
+        0,
+        3
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          }
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "branch": "a6-horizontal",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 2,
+      "finalDistances": [
+        0,
+        1
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          }
+        }
+      ]
+    },
+    {
+      "seed": 8,
+      "branch": "b5-pawn",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 4,
+      "finalDistances": [
+        0,
+        3
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          }
+        }
+      ]
+    },
+    {
+      "seed": 8,
+      "branch": "a6-horizontal",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 2,
+      "finalDistances": [
+        0,
+        1
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "wall",
+            "x": 2,
+            "y": 0,
+            "o": "h"
+          }
+        }
+      ]
+    },
+    {
+      "seed": 9,
+      "branch": "b5-pawn",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 4,
+      "finalDistances": [
+        0,
+        3
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 3,
+            "o": "v"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 3
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "wall",
+            "x": 4,
+            "y": 1,
+            "o": "h"
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 2
+          }
+        }
+      ]
+    },
+    {
+      "seed": 9,
+      "branch": "a6-horizontal",
+      "winner": 0,
+      "cutoff": false,
+      "plies": 17,
+      "wallAttacks": 2,
+      "finalDistances": [
+        0,
+        1
+      ],
+      "finalWalls": [
+        0,
+        1
+      ],
+      "trace": [
+        {
+          "side": 0,
+          "move": {
+            "type": "wall",
+            "x": 0,
+            "y": 6,
+            "o": "h"
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 1,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 4
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 4,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 5
+          }
+        },
+        {
+          "side": 0,
+          "move": {
+            "type": "move",
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "side": 1,
+          "move": {
+            "type": "move",
+            "x": 0,
+            "y": 6
+          }
+        }
+      ]
+    }
+  ]
+}

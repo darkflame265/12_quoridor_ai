@@ -1,0 +1,553 @@
+{
+  "createdAt": "2026-11-06T07:40:27.039Z",
+  "finishedAt": "2026-11-06T07:55:50.048Z",
+  "config": {
+    "version": 1,
+    "budgetMs": 500,
+    "cores": 1,
+    "pilot": [
+      0,
+      1,
+      16,
+      22,
+      25,
+      40
+    ],
+    "followup": [
+      3,
+      6,
+      21,
+      24,
+      34,
+      46
+    ],
+    "maxContinuationPlies": 200,
+    "fixturesHash": "9808c84abef72a69015691dc4ec20faf8049d2498c580599cfa83a469f634655",
+    "fingerprint": "c5e049441510dc8336fae0bc7fad4ea0d5f45ead71a601935cca6ae94ef81663",
+    "semantics": "Fresh per-game workers; model startup prewarmed; sequential actual HTTP + AdaptiveEngine; production policy/reuse defaults; no strength tuning",
+    "gate": {
+      "minScore": 0.65,
+      "maxWeakScore": 0.35,
+      "pairedOneSidedAlpha": 0.016666666666666666,
+      "requireBothOpponents": true,
+      "allowCutoffsOrErrors": false
+    },
+    "limitations": [
+      "Fixed historical corpus selected before results; not random/independent human opponents.",
+      "Seat-swapped games share a starting position; use source pairs as comparison units.",
+      "Adaptive followup is exploratory, not a certified global ranking.",
+      "Response time depends on hardware and includes HTTP overhead; native calls may overshoot a cooperative deadline."
+    ]
+  },
+  "fixtureSources": [
+    {
+      "id": "source-0",
+      "phase": "early",
+      "hash": "426a10e0903659e6b678aec9267d547b7cfb8f9ca7a950cafebdec76f5db382b"
+    },
+    {
+      "id": "source-1",
+      "phase": "early",
+      "hash": "6f93484c0424536bea0af69694347b5f5d74f2d2715c8103e080cbd5554cee79"
+    },
+    {
+      "id": "source-16",
+      "phase": "middle",
+      "hash": "e5d4bc386ad41b2661e07ddcd425776f576ef78322be194437f414bf1032a515"
+    },
+    {
+      "id": "source-22",
+      "phase": "middle",
+      "hash": "705929af65a30f8e97c6b024c984f93a08d8767dceba93fb6effc260063e1dcb"
+    },
+    {
+      "id": "source-25",
+      "phase": "middle",
+      "hash": "de01de0804b76ee667089442a6a925feecfacac4bedf4378ece4ce0a60a9399e"
+    },
+    {
+      "id": "source-40",
+      "phase": "late",
+      "hash": "60241e4091f2fb4f2d9191997ea31ffd8cb59bd1daa506537092cebf291aa9ef"
+    },
+    {
+      "id": "source-3",
+      "phase": "early",
+      "hash": "a04556b96b6953d7236cc21849ec4626116d6b8997176c4ef9e520e899d9ec3a"
+    },
+    {
+      "id": "source-6",
+      "phase": "early",
+      "hash": "1eae3204cbd473bdf3c237c558da6f14cc87d178fd658d0ab88bb1a080e75ca3"
+    },
+    {
+      "id": "source-21",
+      "phase": "middle",
+      "hash": "0b1b5d265594c5ce22537f889db7d9acc274268fe9767deab1ea1f881be35d84"
+    },
+    {
+      "id": "source-24",
+      "phase": "middle",
+      "hash": "a67b22b2e2fe99f069435b18247b078861f2d21576cc98edb80b9775e64ea804"
+    },
+    {
+      "id": "source-34",
+      "phase": "middle",
+      "hash": "b2d25731ebf2eeaf62c6fdf8699794c9bb923971d9e142e7c727338806d5684b"
+    },
+    {
+      "id": "source-46",
+      "phase": "late",
+      "hash": "d015024789167c53ebe6922a1cb00d438c626e7a44366edb2ef52a2a1e5310d8"
+    }
+  ],
+  "pilot": [
+    {
+      "a": "sigma2",
+      "b": "sigma3",
+      "games": 12,
+      "winsA": 7,
+      "winsB": 5,
+      "draws": 0,
+      "cutoffs": 0,
+      "errors": 0,
+      "scoreA": 0.5833333333333334,
+      "sourceGroups": [
+        {
+          "fixture": "source-0",
+          "n": 2,
+          "scoreA": 1
+        },
+        {
+          "fixture": "source-1",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-16",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-22",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-25",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-40",
+          "n": 2,
+          "scoreA": 0.5
+        }
+      ],
+      "pairedWinsA": 1,
+      "pairedWinsB": 0,
+      "oneSidedA": 0.5,
+      "oneSidedB": 1
+    },
+    {
+      "a": "sigma2",
+      "b": "sigma4",
+      "games": 12,
+      "winsA": 7,
+      "winsB": 4,
+      "draws": 1,
+      "cutoffs": 0,
+      "errors": 0,
+      "scoreA": 0.625,
+      "sourceGroups": [
+        {
+          "fixture": "source-0",
+          "n": 2,
+          "scoreA": 1
+        },
+        {
+          "fixture": "source-1",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-16",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-22",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-25",
+          "n": 2,
+          "scoreA": 0.75
+        },
+        {
+          "fixture": "source-40",
+          "n": 2,
+          "scoreA": 0.5
+        }
+      ],
+      "pairedWinsA": 2,
+      "pairedWinsB": 0,
+      "oneSidedA": 0.25,
+      "oneSidedB": 1
+    },
+    {
+      "a": "sigma3",
+      "b": "sigma4",
+      "games": 12,
+      "winsA": 7,
+      "winsB": 4,
+      "draws": 1,
+      "cutoffs": 0,
+      "errors": 0,
+      "scoreA": 0.625,
+      "sourceGroups": [
+        {
+          "fixture": "source-0",
+          "n": 2,
+          "scoreA": 1
+        },
+        {
+          "fixture": "source-1",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-16",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-22",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-25",
+          "n": 2,
+          "scoreA": 0.75
+        },
+        {
+          "fixture": "source-40",
+          "n": 2,
+          "scoreA": 0.5
+        }
+      ],
+      "pairedWinsA": 2,
+      "pairedWinsB": 0,
+      "oneSidedA": 0.25,
+      "oneSidedB": 1
+    }
+  ],
+  "followupPairs": [
+    [
+      "sigma2",
+      "sigma3"
+    ],
+    [
+      "sigma2",
+      "sigma4"
+    ],
+    [
+      "sigma3",
+      "sigma4"
+    ]
+  ],
+  "summary": [
+    {
+      "a": "sigma2",
+      "b": "sigma3",
+      "games": 24,
+      "winsA": 13,
+      "winsB": 11,
+      "draws": 0,
+      "cutoffs": 0,
+      "errors": 0,
+      "scoreA": 0.5416666666666666,
+      "sourceGroups": [
+        {
+          "fixture": "source-0",
+          "n": 2,
+          "scoreA": 1
+        },
+        {
+          "fixture": "source-1",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-16",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-22",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-25",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-40",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-3",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-6",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-21",
+          "n": 2,
+          "scoreA": 1
+        },
+        {
+          "fixture": "source-24",
+          "n": 2,
+          "scoreA": 0
+        },
+        {
+          "fixture": "source-34",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-46",
+          "n": 2,
+          "scoreA": 0.5
+        }
+      ],
+      "pairedWinsA": 2,
+      "pairedWinsB": 1,
+      "oneSidedA": 0.5,
+      "oneSidedB": 0.875
+    },
+    {
+      "a": "sigma2",
+      "b": "sigma4",
+      "games": 24,
+      "winsA": 14,
+      "winsB": 9,
+      "draws": 1,
+      "cutoffs": 0,
+      "errors": 0,
+      "scoreA": 0.6041666666666666,
+      "sourceGroups": [
+        {
+          "fixture": "source-0",
+          "n": 2,
+          "scoreA": 1
+        },
+        {
+          "fixture": "source-1",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-16",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-22",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-25",
+          "n": 2,
+          "scoreA": 0.75
+        },
+        {
+          "fixture": "source-40",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-3",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-6",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-21",
+          "n": 2,
+          "scoreA": 1
+        },
+        {
+          "fixture": "source-24",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-34",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-46",
+          "n": 2,
+          "scoreA": 0.5
+        }
+      ],
+      "pairedWinsA": 3,
+      "pairedWinsB": 0,
+      "oneSidedA": 0.125,
+      "oneSidedB": 1
+    },
+    {
+      "a": "sigma3",
+      "b": "sigma4",
+      "games": 24,
+      "winsA": 13,
+      "winsB": 10,
+      "draws": 1,
+      "cutoffs": 0,
+      "errors": 0,
+      "scoreA": 0.5625,
+      "sourceGroups": [
+        {
+          "fixture": "source-0",
+          "n": 2,
+          "scoreA": 1
+        },
+        {
+          "fixture": "source-1",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-16",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-22",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-25",
+          "n": 2,
+          "scoreA": 0.75
+        },
+        {
+          "fixture": "source-40",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-3",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-6",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-21",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-24",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-34",
+          "n": 2,
+          "scoreA": 0.5
+        },
+        {
+          "fixture": "source-46",
+          "n": 2,
+          "scoreA": 0.5
+        }
+      ],
+      "pairedWinsA": 2,
+      "pairedWinsB": 0,
+      "oneSidedA": 0.25,
+      "oneSidedB": 1
+    }
+  ],
+  "decision": {
+    "weakest": null,
+    "strongest": null,
+    "removalEvidencePassed": false,
+    "defaultEngine": "sigma4",
+    "reason": "No engine meets the predeclared weakest-engine deletion gate. Preserve all three; do not equate numerical last place with proven inferiority."
+  },
+  "audit": {
+    "partial": false,
+    "checkedGames": 72,
+    "uniqueGameKeys": 72,
+    "fullReplayAndWinnersValid": true,
+    "currentCodeMatchesFrozenRun": true,
+    "metrics": {
+      "sigma2": {
+        "wins": 27,
+        "losses": 20,
+        "repetitionDraws": 1,
+        "moves": 1150,
+        "over500ms": 5,
+        "over550ms": 0,
+        "illegal": 0,
+        "meanMs": 273.79800286956475,
+        "p95Ms": 486.53879999999845,
+        "meanSimulations": 194.70260869565217
+      },
+      "sigma3": {
+        "wins": 24,
+        "losses": 23,
+        "repetitionDraws": 1,
+        "moves": 1140,
+        "over500ms": 21,
+        "over550ms": 0,
+        "illegal": 0,
+        "meanMs": 277.61697131578984,
+        "p95Ms": 492.152700000006,
+        "meanSimulations": 195.84912280701755
+      },
+      "sigma4": {
+        "wins": 19,
+        "losses": 27,
+        "repetitionDraws": 2,
+        "moves": 1138,
+        "over500ms": 8,
+        "over550ms": 0,
+        "illegal": 0,
+        "meanMs": 209.18131072056204,
+        "p95Ms": 466.26310000001104,
+        "meanSimulations": 199.4683655536028
+      }
+    },
+    "decision": {
+      "weakest": null,
+      "strongest": null,
+      "removalEvidencePassed": false,
+      "defaultEngine": "sigma4",
+      "reason": "No engine meets the predeclared weakest-engine deletion gate. Preserve all three; do not equate numerical last place with proven inferiority."
+    }
+  }
+}

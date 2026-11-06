@@ -11,7 +11,7 @@ const compare=process.argv.includes('--compare');
 const sigma2Sims=Number(option('--sigma2-sims',200)),sigma2Reuse=process.argv.includes('--sigma2-reuse');
 if(!Number.isInteger(sigma2Sims)||sigma2Sims<1||sigma2Sims>200)throw Error('Invalid Sigma2 sims');
 const deterministic=process.argv.includes('--sigma2-deterministic');
-const cpuct=Number(option('--sigma2-cpuct',0.8));
+const cpuct=Number(option('--sigma2-cpuct',0.60));
 const closeRatio=Number(option('--sigma2-close-ratio',0.88));
 const choiceTemp=Number(option('--sigma2-choice-temp',0.20));
 const version=compare?'sigma1-vs-sigma2-capped200-v2':'sigma1-puct50-selfplay-v1';

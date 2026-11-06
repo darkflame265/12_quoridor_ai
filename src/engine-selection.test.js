@@ -15,3 +15,10 @@ test('unavailable Sigma cannot silently fall back to another engine',async()=>{
  const statuses=[],native={online:false,probe:async()=>false,cancel(){},dispose(){}};const engine=new AdaptiveEngine({engine:'sigma2',nativeClient:native,onStatus:s=>statuses.push(s)});
  await assert.rejects(engine.search(initial()),/Sigma/);assert.equal(statuses.at(-1),'unavailable');engine.dispose();
 });
+test('legacy common engine/time initialize both roles; separate settings survive restore',()=>{
+ const legacy=normalizeSessionSettings({settingsRevision:1,engine:'sigma3',time:'500',mode:'ai',records:[]},{startup:true});
+ assert.equal(legacy.engine,'sigma3');assert.deepEqual(legacy.opponent,{engine:'sigma3',time:'500'});
+ const separate=normalizeSessionSettings({...legacy,engine:'sigma4',time:'variable',opponent:{engine:'sigma2',time:'500'}},{startup:true});
+ assert.equal(separate.engine,'sigma4');assert.equal(separate.time,'variable');assert.deepEqual(separate.opponent,{engine:'sigma2',time:'500'});
+ assert.deepEqual(normalizeSessionSettings({...legacy,opponent:{engine:'atlas5',time:'invalid'}}).opponent,{engine:'sigma3',time:'500'});
+});

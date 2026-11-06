@@ -1,0 +1,1256 @@
+{
+  "version": "sigma4-v3-historical-root-regression-screen-v1",
+  "source": "evaluation/sigma4-original-weighted-vs-sigma23-20261105.json",
+  "rootOptions": {
+    "rate": 0.72,
+    "temperature": 1.2,
+    "qTemperature": 0.15,
+    "maxQDrop": 0.15,
+    "minVisits": 5,
+    "minVisitRatio": 0.06
+  },
+  "conservativeOptions": {
+    "rate": 0.55,
+    "temperature": 0.9,
+    "qTemperature": 0.12,
+    "maxQDrop": 0.1,
+    "minVisits": 5,
+    "minVisitRatio": 0.06
+  },
+  "all": {
+    "decisions": 708,
+    "safetyChanges": 0,
+    "cautiousChanges": 27,
+    "immediateLossExposures": 8,
+    "safetyPreventedImmediateLoss": 0,
+    "guardedStillExposesImmediateLoss": 8
+  },
+  "losingGames": {
+    "decisions": 265,
+    "safetyChanges": 0,
+    "cautiousChanges": 13,
+    "immediateLossExposures": 8,
+    "safetyPreventedImmediateLoss": 0,
+    "guardedStillExposesImmediateLoss": 8
+  },
+  "winningGames": {
+    "decisions": 443,
+    "safetyChanges": 0,
+    "cautiousChanges": 14,
+    "immediateLossExposures": 0,
+    "safetyPreventedImmediateLoss": 0,
+    "guardedStillExposesImmediateLoss": 0
+  },
+  "byOpponent": {
+    "sigma2": {
+      "decisions": 353,
+      "safetyChanges": 0,
+      "cautiousChanges": 16,
+      "immediateLossExposures": 3,
+      "safetyPreventedImmediateLoss": 0,
+      "guardedStillExposesImmediateLoss": 3
+    },
+    "sigma3": {
+      "decisions": 355,
+      "safetyChanges": 0,
+      "cautiousChanges": 11,
+      "immediateLossExposures": 5,
+      "safetyPreventedImmediateLoss": 0,
+      "guardedStillExposesImmediateLoss": 5
+    }
+  },
+  "changingExamples": [
+    {
+      "game": 0,
+      "fixture": "opening-1",
+      "opponent": "sigma2",
+      "historicalCandidateWon": true,
+      "ply": 52,
+      "baselineAction": {
+        "type": "move",
+        "x": 2,
+        "y": 5
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 2,
+        "y": 5
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 3,
+        "y": 4
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 3,
+        "y": 4
+      }
+    },
+    {
+      "game": 1,
+      "fixture": "opening-1",
+      "opponent": "sigma2",
+      "historicalCandidateWon": false,
+      "ply": 23,
+      "baselineAction": {
+        "type": "move",
+        "x": 2,
+        "y": 2
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 2,
+        "y": 2
+      },
+      "cautiousAction": {
+        "type": "wall",
+        "x": 0,
+        "y": 1,
+        "o": "h"
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "wall",
+        "x": 0,
+        "y": 1,
+        "o": "h"
+      }
+    },
+    {
+      "game": 2,
+      "fixture": "opening-2",
+      "opponent": "sigma2",
+      "historicalCandidateWon": true,
+      "ply": 36,
+      "baselineAction": {
+        "type": "wall",
+        "x": 6,
+        "y": 6,
+        "o": "h"
+      },
+      "safetyAction": {
+        "type": "wall",
+        "x": 6,
+        "y": 6,
+        "o": "h"
+      },
+      "cautiousAction": {
+        "type": "wall",
+        "x": 6,
+        "y": 7,
+        "o": "h"
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "wall",
+        "x": 6,
+        "y": 7,
+        "o": "h"
+      }
+    },
+    {
+      "game": 3,
+      "fixture": "opening-2",
+      "opponent": "sigma2",
+      "historicalCandidateWon": true,
+      "ply": 55,
+      "baselineAction": {
+        "type": "move",
+        "x": 0,
+        "y": 6
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 0,
+        "y": 6
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 1,
+        "y": 5
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 1,
+        "y": 5
+      }
+    },
+    {
+      "game": 3,
+      "fixture": "opening-2",
+      "opponent": "sigma2",
+      "historicalCandidateWon": true,
+      "ply": 61,
+      "baselineAction": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 2,
+        "y": 7
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 2,
+        "y": 7
+      }
+    },
+    {
+      "game": 4,
+      "fixture": "opening-3",
+      "opponent": "sigma2",
+      "historicalCandidateWon": true,
+      "ply": 10,
+      "baselineAction": {
+        "type": "wall",
+        "x": 5,
+        "y": 5,
+        "o": "h"
+      },
+      "safetyAction": {
+        "type": "wall",
+        "x": 5,
+        "y": 5,
+        "o": "h"
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 4,
+        "y": 4
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 4,
+        "y": 4
+      }
+    },
+    {
+      "game": 4,
+      "fixture": "opening-3",
+      "opponent": "sigma2",
+      "historicalCandidateWon": true,
+      "ply": 18,
+      "baselineAction": {
+        "type": "move",
+        "x": 4,
+        "y": 2
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 4,
+        "y": 2
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 3,
+        "y": 4
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 3,
+        "y": 4
+      }
+    },
+    {
+      "game": 4,
+      "fixture": "opening-3",
+      "opponent": "sigma2",
+      "historicalCandidateWon": true,
+      "ply": 24,
+      "baselineAction": {
+        "type": "wall",
+        "x": 6,
+        "y": 6,
+        "o": "h"
+      },
+      "safetyAction": {
+        "type": "wall",
+        "x": 6,
+        "y": 6,
+        "o": "h"
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 4,
+        "y": 3
+      }
+    },
+    {
+      "game": 4,
+      "fixture": "opening-3",
+      "opponent": "sigma2",
+      "historicalCandidateWon": true,
+      "ply": 26,
+      "baselineAction": {
+        "type": "move",
+        "x": 4,
+        "y": 4
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 4,
+        "y": 4
+      },
+      "cautiousAction": {
+        "type": "wall",
+        "x": 6,
+        "y": 6,
+        "o": "h"
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 3,
+        "y": 3
+      }
+    },
+    {
+      "game": 5,
+      "fixture": "opening-3",
+      "opponent": "sigma2",
+      "historicalCandidateWon": true,
+      "ply": 49,
+      "baselineAction": {
+        "type": "move",
+        "x": 6,
+        "y": 4
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 6,
+        "y": 4
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 7,
+        "y": 5
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 7,
+        "y": 5
+      }
+    },
+    {
+      "game": 7,
+      "fixture": "opening-4",
+      "opponent": "sigma2",
+      "historicalCandidateWon": false,
+      "ply": 25,
+      "baselineAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "safetyAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 6,
+        "y": 3
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 6,
+        "y": 3
+      }
+    },
+    {
+      "game": 7,
+      "fixture": "opening-4",
+      "opponent": "sigma2",
+      "historicalCandidateWon": false,
+      "ply": 55,
+      "baselineAction": {
+        "type": "move",
+        "x": 6,
+        "y": 0
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 6,
+        "y": 0
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 7,
+        "y": 1
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 7,
+        "y": 1
+      }
+    },
+    {
+      "game": 7,
+      "fixture": "opening-4",
+      "opponent": "sigma2",
+      "historicalCandidateWon": false,
+      "ply": 63,
+      "baselineAction": {
+        "type": "move",
+        "x": 5,
+        "y": 3
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 5,
+        "y": 3
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 4,
+        "y": 2
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "game": 9,
+      "fixture": "opening-5",
+      "opponent": "sigma2",
+      "historicalCandidateWon": true,
+      "ply": 33,
+      "baselineAction": {
+        "type": "wall",
+        "x": 7,
+        "y": 5,
+        "o": "h"
+      },
+      "safetyAction": {
+        "type": "wall",
+        "x": 7,
+        "y": 5,
+        "o": "h"
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 5,
+        "y": 3
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 5,
+        "y": 3
+      }
+    },
+    {
+      "game": 9,
+      "fixture": "opening-5",
+      "opponent": "sigma2",
+      "historicalCandidateWon": true,
+      "ply": 47,
+      "baselineAction": {
+        "type": "move",
+        "x": 6,
+        "y": 6
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 6,
+        "y": 6
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 7,
+        "y": 7
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 7,
+        "y": 7
+      }
+    },
+    {
+      "game": 10,
+      "fixture": "opening-6",
+      "opponent": "sigma2",
+      "historicalCandidateWon": true,
+      "ply": 10,
+      "baselineAction": {
+        "type": "move",
+        "x": 4,
+        "y": 4
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 4,
+        "y": 4
+      },
+      "cautiousAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      }
+    },
+    {
+      "game": 13,
+      "fixture": "opening-1",
+      "opponent": "sigma3",
+      "historicalCandidateWon": false,
+      "ply": 67,
+      "baselineAction": {
+        "type": "move",
+        "x": 5,
+        "y": 3
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 5,
+        "y": 3
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 6,
+        "y": 4
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 6,
+        "y": 4
+      }
+    },
+    {
+      "game": 13,
+      "fixture": "opening-1",
+      "opponent": "sigma3",
+      "historicalCandidateWon": false,
+      "ply": 85,
+      "baselineAction": {
+        "type": "move",
+        "x": 7,
+        "y": 4
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 7,
+        "y": 4
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 5,
+        "y": 4
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 5,
+        "y": 4
+      }
+    },
+    {
+      "game": 14,
+      "fixture": "opening-2",
+      "opponent": "sigma3",
+      "historicalCandidateWon": false,
+      "ply": 48,
+      "baselineAction": {
+        "type": "wall",
+        "x": 0,
+        "y": 4,
+        "o": "v"
+      },
+      "safetyAction": {
+        "type": "wall",
+        "x": 0,
+        "y": 4,
+        "o": "v"
+      },
+      "cautiousAction": {
+        "type": "wall",
+        "x": 1,
+        "y": 3,
+        "o": "v"
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "wall",
+        "x": 0,
+        "y": 3,
+        "o": "v"
+      }
+    },
+    {
+      "game": 14,
+      "fixture": "opening-2",
+      "opponent": "sigma3",
+      "historicalCandidateWon": false,
+      "ply": 58,
+      "baselineAction": {
+        "type": "move",
+        "x": 2,
+        "y": 2
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 2,
+        "y": 2
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 3,
+        "y": 3
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 3,
+        "y": 3
+      }
+    },
+    {
+      "game": 16,
+      "fixture": "opening-3",
+      "opponent": "sigma3",
+      "historicalCandidateWon": false,
+      "ply": 32,
+      "baselineAction": {
+        "type": "move",
+        "x": 1,
+        "y": 6
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 1,
+        "y": 6
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 2,
+        "y": 5
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 2,
+        "y": 5
+      }
+    },
+    {
+      "game": 16,
+      "fixture": "opening-3",
+      "opponent": "sigma3",
+      "historicalCandidateWon": false,
+      "ply": 40,
+      "baselineAction": {
+        "type": "wall",
+        "x": 5,
+        "y": 3,
+        "o": "h"
+      },
+      "safetyAction": {
+        "type": "wall",
+        "x": 5,
+        "y": 3,
+        "o": "h"
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 0,
+        "y": 4
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 0,
+        "y": 4
+      }
+    },
+    {
+      "game": 19,
+      "fixture": "opening-4",
+      "opponent": "sigma3",
+      "historicalCandidateWon": false,
+      "ply": 13,
+      "baselineAction": {
+        "type": "wall",
+        "x": 3,
+        "y": 0,
+        "o": "v"
+      },
+      "safetyAction": {
+        "type": "wall",
+        "x": 3,
+        "y": 0,
+        "o": "v"
+      },
+      "cautiousAction": {
+        "type": "wall",
+        "x": 4,
+        "y": 0,
+        "o": "v"
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 5,
+        "y": 2
+      }
+    },
+    {
+      "game": 19,
+      "fixture": "opening-4",
+      "opponent": "sigma3",
+      "historicalCandidateWon": false,
+      "ply": 69,
+      "baselineAction": {
+        "type": "move",
+        "x": 6,
+        "y": 5
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 6,
+        "y": 5
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 5,
+        "y": 6
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 5,
+        "y": 6
+      }
+    },
+    {
+      "game": 22,
+      "fixture": "opening-6",
+      "opponent": "sigma3",
+      "historicalCandidateWon": true,
+      "ply": 10,
+      "baselineAction": {
+        "type": "move",
+        "x": 4,
+        "y": 4
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 4,
+        "y": 4
+      },
+      "cautiousAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "wall",
+        "x": 2,
+        "y": 5,
+        "o": "h"
+      }
+    },
+    {
+      "game": 22,
+      "fixture": "opening-6",
+      "opponent": "sigma3",
+      "historicalCandidateWon": true,
+      "ply": 34,
+      "baselineAction": {
+        "type": "wall",
+        "x": 7,
+        "y": 3,
+        "o": "h"
+      },
+      "safetyAction": {
+        "type": "wall",
+        "x": 7,
+        "y": 3,
+        "o": "h"
+      },
+      "cautiousAction": {
+        "type": "wall",
+        "x": 4,
+        "y": 6,
+        "o": "v"
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 6,
+        "y": 2
+      }
+    },
+    {
+      "game": 23,
+      "fixture": "opening-6",
+      "opponent": "sigma3",
+      "historicalCandidateWon": false,
+      "ply": 25,
+      "baselineAction": {
+        "type": "move",
+        "x": 3,
+        "y": 4
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 3,
+        "y": 4
+      },
+      "cautiousAction": {
+        "type": "wall",
+        "x": 1,
+        "y": 5,
+        "o": "v"
+      },
+      "safetyChanged": false,
+      "cautiousChanged": true,
+      "originalImmediateLoss": false,
+      "safetyImmediateLoss": false,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "wall",
+        "x": 1,
+        "y": 5,
+        "o": "v"
+      }
+    }
+  ],
+  "criticalExamples": [
+    {
+      "game": 1,
+      "fixture": "opening-1",
+      "opponent": "sigma2",
+      "historicalCandidateWon": false,
+      "ply": 69,
+      "baselineAction": {
+        "type": "move",
+        "x": 6,
+        "y": 5
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 6,
+        "y": 5
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 6,
+        "y": 5
+      },
+      "safetyChanged": false,
+      "cautiousChanged": false,
+      "originalImmediateLoss": true,
+      "safetyImmediateLoss": true,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 6,
+        "y": 5
+      }
+    },
+    {
+      "game": 7,
+      "fixture": "opening-4",
+      "opponent": "sigma2",
+      "historicalCandidateWon": false,
+      "ply": 65,
+      "baselineAction": {
+        "type": "move",
+        "x": 5,
+        "y": 2
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 5,
+        "y": 2
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 5,
+        "y": 2
+      },
+      "safetyChanged": false,
+      "cautiousChanged": false,
+      "originalImmediateLoss": true,
+      "safetyImmediateLoss": true,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 5,
+        "y": 2
+      }
+    },
+    {
+      "game": 11,
+      "fixture": "opening-6",
+      "opponent": "sigma2",
+      "historicalCandidateWon": false,
+      "ply": 59,
+      "baselineAction": {
+        "type": "move",
+        "x": 2,
+        "y": 7
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 2,
+        "y": 7
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 2,
+        "y": 7
+      },
+      "safetyChanged": false,
+      "cautiousChanged": false,
+      "originalImmediateLoss": true,
+      "safetyImmediateLoss": true,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 2,
+        "y": 7
+      }
+    },
+    {
+      "game": 13,
+      "fixture": "opening-1",
+      "opponent": "sigma3",
+      "historicalCandidateWon": false,
+      "ply": 87,
+      "baselineAction": {
+        "type": "move",
+        "x": 6,
+        "y": 4
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 6,
+        "y": 4
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 6,
+        "y": 4
+      },
+      "safetyChanged": false,
+      "cautiousChanged": false,
+      "originalImmediateLoss": true,
+      "safetyImmediateLoss": true,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "game": 14,
+      "fixture": "opening-2",
+      "opponent": "sigma3",
+      "historicalCandidateWon": false,
+      "ply": 68,
+      "baselineAction": {
+        "type": "move",
+        "x": 5,
+        "y": 3
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 5,
+        "y": 3
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 5,
+        "y": 3
+      },
+      "safetyChanged": false,
+      "cautiousChanged": false,
+      "originalImmediateLoss": true,
+      "safetyImmediateLoss": true,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 5,
+        "y": 3
+      }
+    },
+    {
+      "game": 16,
+      "fixture": "opening-3",
+      "opponent": "sigma3",
+      "historicalCandidateWon": false,
+      "ply": 64,
+      "baselineAction": {
+        "type": "move",
+        "x": 6,
+        "y": 3
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 6,
+        "y": 3
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 6,
+        "y": 3
+      },
+      "safetyChanged": false,
+      "cautiousChanged": false,
+      "originalImmediateLoss": true,
+      "safetyImmediateLoss": true,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 6,
+        "y": 1
+      }
+    },
+    {
+      "game": 19,
+      "fixture": "opening-4",
+      "opponent": "sigma3",
+      "historicalCandidateWon": false,
+      "ply": 71,
+      "baselineAction": {
+        "type": "move",
+        "x": 4,
+        "y": 4
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 4,
+        "y": 4
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 4,
+        "y": 4
+      },
+      "safetyChanged": false,
+      "cautiousChanged": false,
+      "originalImmediateLoss": true,
+      "safetyImmediateLoss": true,
+      "safetyReason": "native",
+      "baselineReason": "native",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 4,
+        "y": 4
+      }
+    },
+    {
+      "game": 23,
+      "fixture": "opening-6",
+      "opponent": "sigma3",
+      "historicalCandidateWon": false,
+      "ply": 45,
+      "baselineAction": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "safetyAction": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "cautiousAction": {
+        "type": "move",
+        "x": 3,
+        "y": 6
+      },
+      "safetyChanged": false,
+      "cautiousChanged": false,
+      "originalImmediateLoss": true,
+      "safetyImmediateLoss": true,
+      "safetyReason": "visit-and-q-weighted",
+      "baselineReason": "visit-and-q-weighted",
+      "originalMctsAction": {
+        "type": "move",
+        "x": 2,
+        "y": 7
+      }
+    }
+  ],
+  "promotionEvidence": false,
+  "caveat": "Historical counterfactual action screen at fixed recorded states; no subsequent rollout for alternate actions. Cannot infer alternative-game win/loss."
+}

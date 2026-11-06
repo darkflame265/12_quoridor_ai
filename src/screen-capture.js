@@ -1,6 +1,7 @@
 import {recognizeBoard,gridGeometry} from './screen-recognition.js';
 import {snapshotFromDraft,snapshotIssues,checkedSnapshot} from './observed-state.js';
-import {recoverScreenSequence,StableScreenBoard,boardKey} from './screen-sync.js';
+import {StableScreenBoard,boardKey} from './screen-sync.js';
+import {reconcileScreenFrame} from './screen-transition.js';
 import {detectBoards,trackedBoard,gridFingerprint,retainedGridMatches} from './board-detection.js';
 import {createSourceTemplates,readSourceContext} from './source-context.js';
 import {automaticResyncSnapshot} from './screen-resync.js';
@@ -12,7 +13,8 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
  const liveControls=document.createElement('div');liveControls.innerHTML='<div class="buttons"><button id="screen-auto-pause" disabled>일시정지</button></div><label><input id="screen-auto-hint" type="checkbox" checked> 내 차례에 최선 수 자동 분석</label><p id="screen-auto-status" class="watch-note" role="status">배치를 확인해 적용하면 자동 감시가 시작됩니다.</p>';panel.append(liveControls);
  const recoveryControls=document.createElement('div');recoveryControls.innerHTML='<button id="screen-resync">현재 화면 재동기화</button>';
  const compactActions=panel.querySelector('.screen-compact-actions'),pauseButton=liveControls.querySelector('#screen-auto-pause');pauseButton.parentElement.remove();compactActions.append(pauseButton,recoveryControls.firstElementChild);
- const wallzButton=document.createElement('button');wallzButton.id='screen-wallz';wallzButton.className='primary';wallzButton.textContent='Wallz 연결';wallzButton.title='Wallz 탭 선택 후 자동 판독·적용';compactActions.prepend(wallzButton);
+ const wallzButton=document.createElement('button');wallzButton.id='screen-wallz';wallzButton.className='primary';wallzButton.textContent='게임 화면 연결';wallzButton.title='게임 탭 선택 후 자동 판독·적용';compactActions.prepend(wallzButton);
+ const more=document.createElement('details');more.className='screen-more';const moreTitle=document.createElement('summary');moreTitle.textContent='가져오기·보정';const manualOpen=panel.querySelector('#screen-open');more.append(moreTitle,manualOpen);panel.append(more);manualOpen.textContent='이미지 가져오기 · 수동 보정';manualOpen.classList.remove('primary');
  const dialog=document.createElement('dialog');dialog.id='screen-dialog';dialog.className='screen-dialog';
  dialog.innerHTML=`<div class="screen-dialog-head"><div><h2>게임 화면 가져오기</h2><p>말·벽을 읽은 뒤 직접 확인해 적용하세요. 이미지는 이 브라우저에서 처리합니다.</p></div><button id="screen-close" aria-label="화면 가져오기 닫기">닫기</button></div>
  <div class="screen-workspace"><section class="screen-source"><div class="screen-actions"><button id="screen-connect">오른쪽 게임 화면 연결</button><button id="screen-image">이미지 가져오기</button><button id="screen-freeze" disabled>현재 프레임 고정</button><input id="screen-image-file" type="file" accept="image/png,image/jpeg,image/webp" hidden></div><p class="screen-help">공유할 게임 탭/창을 선택하세요. 마우스를 원본 보드 밖으로 옮겨 벽 미리보기를 지운 뒤 프레임을 고정하세요.</p><video id="screen-video" muted autoplay playsinline hidden></video><div id="screen-empty" class="screen-empty">화면을 연결하거나 PNG·JPG·WebP를 가져오세요.</div><canvas id="screen-source-canvas" hidden aria-label="원본 이미지: 9×9 칸의 바깥 모서리를 드래그해 보드 영역 선택"></canvas><p class="screen-help">숫자·글자·테두리를 제외하고, 첫 칸 왼쪽 위부터 마지막 칸 오른쪽 아래까지 드래그하세요.</p><label>칸 사이 간격 (%)<input id="screen-gap" type="number" min="6" max="30" step="1" value="16"></label><button id="screen-recognize" class="primary" disabled>선택 영역 인식</button><p id="screen-message" role="status" aria-live="polite" class="screen-help">먼저 화면이나 이미지를 준비하세요.</p></section>
@@ -20,7 +22,7 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
  document.body.append(dialog);
  const contextControls=document.createElement('div');contextControls.innerHTML='<label><input id="screen-auto-side" type="checkbox" checked> 아래 출발 줄 색으로 내 진영 자동 설정</label><p id="screen-side-result" class="screen-help" role="status">내 진영 판독 대기</p><label><input id="screen-auto-turn" type="checkbox" checked> 원본 차례 표시 자동 판독</label><p id="screen-turn-result" class="screen-help" role="status">게임 카드·차례 표시까지 공유하세요.</p><details id="screen-manual-context"><summary>판독 실패 시 진영·차례 수동 보정</summary></details>';
  const bottomLabel=document.getElementById('screen-bottom').parentElement,turnLabel=document.getElementById('screen-turn').parentElement;bottomLabel.before(contextControls);document.getElementById('screen-manual-context').append(bottomLabel,turnLabel);
- const sourceState=document.createElement('p');sourceState.id='screen-source-state';sourceState.className='watch-note';sourceState.textContent='내 진영·현재 차례 판독 대기';panel.append(sourceState);
+ const sourceState=document.createElement('p');sourceState.id='screen-source-state';sourceState.className='watch-note';sourceState.textContent='내 진영·현재 차례 판독 대기';more.append(sourceState);
  const detectionControls=document.createElement('div');detectionControls.innerHTML='<button id="screen-find-board">보드 자동 찾기</button><p id="screen-grid-status" class="screen-help" role="status">화면을 연결하면 보드와 칸 간격을 자동으로 찾습니다.</p><div id="screen-board-candidates"></div><label>세로 칸 간격 (%)<input id="screen-gap-y" type="number" min="6" max="30" step="0.01" value="16"></label>';
  document.getElementById('screen-recognize').before(detectionControls);document.getElementById('screen-gap').step='0.01';
  const $=id=>document.getElementById(id),canvas=$('screen-source-canvas'),ctx=canvas.getContext('2d'),frame=document.createElement('canvas'),video=$('screen-video');
@@ -99,28 +101,40 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
    if(calibration.auto&&(Date.now()-lastGridCheck>=1000||w!==calibration.width||h!==calibration.height)){refreshGrid(pixels,w,h);gridChecked=true;}
    const result=await analyze(pixels);if(mine!==generation)return;const detected=result.detected;
    const before=getState?.();if(!before){pause('배치를 다시 적용하세요.');return;}
-   const target=observedSnapshot(detected,calibration.bottom,before.turn);let sourceTurn,expectedPlies;
+   const target=observedSnapshot(detected,calibration.bottom,before.turn);let sourceTurn;
    if(calibration.autoSide||calibration.autoTurn){
     lastContext=result.context;
     if(calibration.autoSide&&lastContext.bottom!==calibration.bottom)throw Error('내 진영 판독 불일치 · 출발 줄 색 변경 또는 가림을 확인하고 현재 화면 재동기화를 이용하세요.');
-    if(calibration.autoTurn&&target.winner===null){if(lastContext.relative===null)throw Error(lastContext.turnReason);sourceTurn=lastContext.relative==='self'?calibration.bottom:1-calibration.bottom;target.turn=sourceTurn;}
-    if(calibration.autoTurn&&lastContext.moveCount!==null&&calibration.sourcePly!==null){expectedPlies=lastContext.moveCount-calibration.sourcePly;if(expectedPlies<0||expectedPlies>6)throw Error('원본 수 번호가 추적 범위와 다릅니다. 되돌리기·새 게임·누락 진행을 재동기화하세요.');}
-    $('screen-source-state').textContent=`내 진영: ${calibration.bottom===0?'청록':'분홍'} · 아래 시작 · 현재: ${sourceTurn===undefined?'수 추적 대조 중':sourceTurn===calibration.bottom?'내 차례':'상대 차례'}${lastContext.moveCount===null?'':` · 원본 ${lastContext.moveCount}수`}`;
+    if(calibration.autoTurn&&lastContext.relative!==null)sourceTurn=lastContext.relative==='self'?calibration.bottom:1-calibration.bottom;
    }
-   const key=boardKey(target)+':'+(sourceTurn??'');
+   const key=boardKey(target);
    if(frameKey===key)frameCount++;else{frameKey=key;frameCount=1;}
    if(frameCount===2){observedFrames.push({time:Date.now(),board:target});while(observedFrames.length>24||observedFrames[0]?.time<Date.now()-6000)observedFrames.shift();}
-   const actions=recoverScreenSequence(before,target,observedFrames.map(f=>f.board),{expectedTurn:sourceTurn,expectedPlies});
-   const immediate=actions.length>0&&actions.length<=2&&sourceTurn!==undefined;
-   if(!immediate&&!stable.observe(target,sourceTurn)){if((boardKey(before)!==boardKey(target)||sourceTurn!==undefined&&sourceTurn!==before.turn)&&!uncertain){uncertain=true;onUncertain?.();}autoStatus('배치·차례 변화 확인 중 · 합법 진행 확인 중 · 동일한 화면 2회 대기');return;}
+   const transition=reconcileScreenFrame(before,target,observedFrames.map(f=>f.board),{
+    sourceTurn,sourceCount:calibration.autoTurn?lastContext?.moveCount:null,
+    logicalCount:calibration.sourcePly,confirmedCount:calibration.confirmedSourcePly,
+    turnConflict:calibration.autoTurn&&lastContext?.turnConflict,autoTurn:calibration.autoTurn
+   });
+   const {actions,ready,immediate}=transition;
+   target.turn=transition.next.turn;
+   $('screen-source-state').textContent=`내 진영: ${calibration.bottom===0?'청록':'분홍'} · 아래 시작 · 현재: ${target.turn===calibration.bottom?'내 차례':'상대 차례'}${ready?'':' · 차례 표시 확인 중'}${lastContext?.moveCount==null?'':` · 원본 ${lastContext.moveCount}수`}`;
+   if(!immediate&&!stable.observe(target,target.turn)){if((boardKey(before)!==boardKey(target)||!ready)&&!uncertain){uncertain=true;onUncertain?.();}autoStatus('배치 변화 확인 중 · 동일한 보드 2회 대기');return;}
    // A whole-board translation by one cell can look like two legal pawn moves.
    // Confirm geometry on this very frame before committing any changed board.
    if(calibration.auto&&!gridChecked&&boardKey(before)!==boardKey(target)){
     const moved=refreshGrid(pixels,w,h),verified=observedSnapshot(recognizeLive(pixels),calibration.bottom,before.turn);
     if(moved||boardKey(verified)!==boardKey(target)){stable.reset();autoStatus('격자 재정렬 · 배치 안정화 확인 중');return;}
    }
-   if(actions.length){if(onSync?.(actions,before)===false)throw Error('왼쪽 배치가 변경됐습니다. 다시 확인하세요.');if(calibration.autoTurn)calibration.sourcePly=lastContext?.moveCount??null;recordDiagnostic(`${actions.length}수 합법 진행 복원`);clearFrames();uncertain=false;autoStatus(`${actions.length}수 자동 반영 · ${new Date().toLocaleTimeString()}`);}
-   else {if(uncertain){uncertain=false;onRecovered?.();}autoStatus('자동 감시 중 · 원본과 일치');}
+   if(actions.length){
+    if(onSync?.(actions,before,{ready})===false)throw Error('왼쪽 배치가 변경됐습니다. 다시 확인하세요.');
+    calibration.sourcePly=transition.logicalCount;calibration.confirmedSourcePly=transition.confirmedCount;
+    recordDiagnostic(`${actions.length}수 합법 진행 복원${ready?'':' · 보드 우선 반영, 차례 표시 대조 중'}`);clearFrames();uncertain=!ready;
+    autoStatus(`${actions.length}수 자동 반영${ready?'':' · 차례 표시 확인 중'} · ${new Date().toLocaleTimeString()}`);
+   }else{
+    calibration.sourcePly=transition.logicalCount;calibration.confirmedSourcePly=transition.confirmedCount;
+    if(!ready){if(!uncertain){uncertain=true;onUncertain?.();}autoStatus('보드는 원본과 일치 · 차례 표시 확인 중');}
+    else {if(uncertain){uncertain=false;onRecovered?.();}autoStatus('자동 감시 중 · 원본과 일치');}
+   }
   }catch(error){if(mine===generation)reject(error.message);}finally{if(mine===generation)busy=false;}
  }
  function start(){if(!stream||!calibration)return;stable.reset();uncertain=true;lastVideoTime=-1;lastGridCheck=0;lastFrameAt=Date.now();timer=setInterval(tick,60);onWatchChange?.(true);autoStatus('자동 감시 시작 · 합법 수·차례 대조 후 연속 반영');controls();}
@@ -196,7 +210,7 @@ export function mountScreenCapture({onApply,onDirty,getState,onSync,onWatchChang
   if(sourceErrors().length)throw Error(sourceErrors().join(' '));if(!edited&&draft?.wallIssues?.length)throw Error(draft.wallIssues.join(' '));
   const snapshot=automatic?automaticResyncSnapshot({draft,source:sourceMeta,automaticGrid,autoSide:$('screen-auto-side').checked,autoTurn:$('screen-auto-turn').checked}):checkedSnapshot(readSnapshot());
   const next={rect:{...rect},gap:gaps(),auto:automaticGrid,autoSide:$('screen-auto-side').checked,autoTurn:$('screen-auto-turn').checked,sourcePly:$('screen-auto-turn').checked?sourceMeta?.moveCount??null:null,bottom:Number($('screen-bottom').value),width:frame.width,height:frame.height,fingerprint:gridFingerprint(frame.getContext('2d').getImageData(0,0,frame.width,frame.height),{rect,gap:gaps()})};
-  pause();onApply(snapshot,next.bottom);calibration=next;lastContext=sourceMeta;
+  next.confirmedSourcePly=next.sourcePly;pause();onApply(snapshot,next.bottom);calibration=next;lastContext=sourceMeta;
   $('screen-source-state').textContent=`내 진영: ${calibration.bottom===0?'청록':'분홍'} · 아래 시작 · ${snapshot.turn===calibration.bottom?'내':'상대'} 차례${calibration.autoTurn?' · 자동':' · 수동 보정'}`;
   recordDiagnostic(automatic?'재동기화 자동 판독 성공 · 현재 배치·차례 자동 적용':'사용자가 현재 배치·차례를 확인해 기준 상태 적용');controls();if(dialog.open)dialog.close();if(stream)start();
   message(automatic?'현재 화면을 자동 적용하고 감시를 재개했습니다.':'확인한 배치를 적용했습니다. 화면 공유 중이면 자동 감시가 시작됩니다.');

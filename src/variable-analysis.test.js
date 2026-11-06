@@ -31,8 +31,8 @@ test('risk keeps stable candidates private until the deadline',async t=>{
 test('cancelled position never publishes stale progress or a late final result',async t=>{
  const h=harness(t),task=h.begin();h.send(h.result(3));h.v.cancel();h.tick(2000);h.send(h.result(6));h.done(h.result(7));await task;assert.equal(h.shown.length,0);assert.equal(h.v.latest,null);
 });
-test('early engine completion waits until minimum time; exact results can finalize immediately',async t=>{
- const h=harness(t),task=h.begin();h.done(h.result(3));await task;assert.equal(h.shown.length,0);h.tick(500);assert.equal(h.shown.length,1);
+test('completed searches publish immediately; unfinished candidates remain private',async t=>{
+ const h=harness(t),task=h.begin();h.done(h.result(3));await task;assert.equal(h.shown.length,1);h.tick(500);assert.equal(h.shown.length,1);
  const task2=h.begin();h.send(h.result(1,4,{exact:true,outcome:1}));assert.equal(h.shown.length,2);assert.equal(h.v.reason,'exact');h.done(h.result(2));await task2;
 });
 test('deadline without a completed iteration reports an error instead of inventing a move',async t=>{

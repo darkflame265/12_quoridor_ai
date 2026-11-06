@@ -9,11 +9,14 @@ export function createSigma4Service(){
   .update(readFileSync('scripts/sigma4-bitset-wall-worker.py'))
   .update(readFileSync('scripts/sigma4-weighted-research-choice.mjs'))
   .update(readFileSync('server/sigma4-process.mjs'))
+  .update(readFileSync('scripts/sigma_search_runtime.py'))
+  .update(readFileSync('scripts/sigma_fast_walls.py'))
+  .update(readFileSync('vendor/sigma-quoridor/mcts.py'))
   .digest('hex').slice(0,12);
  return createNativeService({client:new Sigma4Process(),engineInfo:{
   id:'sigma4',label:'Sigma 4 (weighted V3)',
-  version:'4.0 PUCT 200 + original weighted V3 root choice',
-  variant:'SigmaQuoridor ONNX + 200 PUCT + weighted visit/Q root choice',
+  version:'4.0 timed PUCT up to 200 + original weighted V3 root choice',
+  variant:'SigmaQuoridor ONNX + deadline-capped PUCT + weighted visit/Q root choice',
   build,promoted:false
  }});
 }

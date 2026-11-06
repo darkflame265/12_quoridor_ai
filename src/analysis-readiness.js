@@ -2,7 +2,7 @@ import {recommendationStable,budgetReason,analysisConcerns} from './analysis-bud
 export function analysisReadiness(v,{suppressed=false}={}){
  const r=v.latest??v.displayed;
  if(suppressed)return {level:'wait',label:'화면 재확인 중',reason:'배치가 확인될 때까지 추천을 숨깁니다.'};
- if(!v.displayed)return {level:'wait',label:'후보 비교 중 · 최대 2초',reason:'0.5초부터 안정성을 확인하고, 확정한 추천만 표시합니다.'};
+ if(!v.displayed)return {level:'wait',label:'후보 비교 중 · 최대 2초',reason:'계산이 완료되면 추천을 한 번 확정해 표시합니다.'};
  const shown=v.displayed.pv[0],newest=r?.pv?.[0];
  if(v.pinned&&newest&&(shown.type!==newest.type||shown.x!==newest.x||shown.y!==newest.y||shown.type==='wall'&&shown.o!==newest.o))return {level:'wait',label:'고정 추천과 최신 결과가 다릅니다',reason:'현재 고정한 수와 새 추천을 비교하세요.'};
  const concerns=analysisConcerns(v.state,r,v.wallStreak),review=concerns.map(budgetReason).join(' · ');
@@ -34,6 +34,7 @@ function verdict(r){
  if(r.score>=29000)return '판세: 현재 탐색은 승리 수순 예상';
  if(r.progressReview?.active)return '판세: 왕복·후퇴 의심 · 전진 대안 비교 필요';
  if(r.threatDefense?.selected?.risk>=2)return `판세: 상대 연속 공격에 경로가 취약할 수 있습니다 · 위험 추정 ${r.threatDefense.selected.risk}`;
+ if(!Number.isFinite(r.score))return '판세: 승패는 확정되지 않았습니다.';
  return r.score<-120?'판세: 현재 평가상 불리':r.score>120?'판세: 현재 평가상 유리 · 승률 보장은 아닙니다.':'판세: 평가 차이가 작습니다.';
 }
 export function positionVerdict(r,pinnedDifferent=false){return (pinnedDifferent?'최신 계산 기준 · ':'')+verdict(r);}

@@ -1,0 +1,157 @@
+{
+  "version": "sigma3-response-search-isolated-root-sweep-v1",
+  "params": {
+    "maxQGap": 0.15,
+    "maxQPenalty": 0.1,
+    "minimumVisits": 15,
+    "minimumTacticalGain": 0.8,
+    "attackBeam": 6,
+    "defenderBeam": 4,
+    "wallRiskWeight": 0.35
+  },
+  "positions": 16,
+  "changes": [
+    {
+      "id": 103,
+      "base": "d7─",
+      "chosen": "c4",
+      "changed": true,
+      "gain": 1.2999999999999998,
+      "skipped": "tactical-advantage",
+      "elapsedMs": 390
+    }
+  ],
+  "rows": [
+    {
+      "id": 100,
+      "base": "f8─",
+      "chosen": "f8─",
+      "changed": false,
+      "skipped": "not-close-enough",
+      "elapsedMs": 5
+    },
+    {
+      "id": 101,
+      "base": "f5",
+      "chosen": "f5",
+      "changed": false,
+      "skipped": "not-close-enough",
+      "elapsedMs": 1
+    },
+    {
+      "id": 102,
+      "base": "d6│",
+      "chosen": "d6│",
+      "changed": false,
+      "skipped": "not-close-enough",
+      "elapsedMs": 1
+    },
+    {
+      "id": 103,
+      "base": "d7─",
+      "chosen": "c4",
+      "changed": true,
+      "gain": 1.2999999999999998,
+      "skipped": "tactical-advantage",
+      "elapsedMs": 390
+    },
+    {
+      "id": 104,
+      "base": "e6─",
+      "chosen": "e6─",
+      "changed": false,
+      "skipped": "not-close-enough",
+      "elapsedMs": 1
+    },
+    {
+      "id": 105,
+      "base": "e2",
+      "chosen": "e2",
+      "changed": false,
+      "skipped": "not-close-enough",
+      "elapsedMs": 1
+    },
+    {
+      "id": 106,
+      "base": "f7",
+      "chosen": "f7",
+      "changed": false,
+      "gain": 0,
+      "skipped": "no-proven-tactical-advantage",
+      "elapsedMs": 631
+    },
+    {
+      "id": 107,
+      "base": "e5",
+      "chosen": "e5",
+      "changed": false,
+      "skipped": "not-close-enough",
+      "elapsedMs": 0
+    },
+    {
+      "id": 25,
+      "base": "f9",
+      "chosen": "f9",
+      "changed": false,
+      "skipped": "not-close-enough",
+      "elapsedMs": 0
+    },
+    {
+      "id": 27,
+      "base": "f5─",
+      "chosen": "f5─",
+      "changed": false,
+      "skipped": "not-close-enough",
+      "elapsedMs": 0
+    },
+    {
+      "id": 29,
+      "base": "h4─",
+      "chosen": "h4─",
+      "changed": false,
+      "skipped": "not-close-enough",
+      "elapsedMs": 0
+    },
+    {
+      "id": 34,
+      "base": "c5│",
+      "chosen": "c5│",
+      "changed": false,
+      "skipped": "not-close-enough",
+      "elapsedMs": 0
+    },
+    {
+      "id": 200,
+      "base": "g5",
+      "chosen": "g5",
+      "changed": false,
+      "skipped": "not-close-enough",
+      "elapsedMs": 0
+    },
+    {
+      "id": 201,
+      "base": "f5",
+      "chosen": "f5",
+      "changed": false,
+      "skipped": "not-close-enough",
+      "elapsedMs": 0
+    },
+    {
+      "id": 203,
+      "base": "f6",
+      "chosen": "f6",
+      "changed": false,
+      "skipped": "not-close-enough",
+      "elapsedMs": 0
+    },
+    {
+      "id": 204,
+      "base": "g5",
+      "chosen": "g5",
+      "changed": false,
+      "skipped": "not-close-enough",
+      "elapsedMs": 0
+    }
+  ],
+  "productionEnabled": false
+}

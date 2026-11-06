@@ -1,10 +1,26 @@
 {
   "checks": [
-    "all three engine selectors contain only Sigma2/3/4",
+    "analysis, opponent and spectator selectors contain only Sigma2/3/4",
     "Wallz capture recognizes, auto-applies and starts monitoring",
     "current-screen resync remains automatic",
+    "own move appears without any opponent reply despite missing turn UI and stale move count",
+    "late source counter catches up without adding the same move twice",
+    "opponent move updates the board while automatic advice waits for trustworthy turn evidence",
+    "own wall also appears independently of opponent-turn captions",
     "spectator executes one legal fixture-service action",
-    "legacy engine game import preserves records and migrates analysis to Sigma4"
+    "history auto-analyzes only the last selected position with selected Sigma3, time and historical state/history",
+    "revisiting the same position/settings shows its cached result immediately without another search",
+    "manual reanalysis bypasses cache",
+    "changing think time automatically analyzes with the new budget instead of using incompatible cache",
+    "rapid previous/next navigation debounces into one search for the final selected position",
+    "changing history position cancels and discards a late historical result",
+    "returning live discards late review results and preserves the actual game",
+    "returning live also cancels a debounced analysis before it starts",
+    "legacy engine game import preserves records and migrates analysis to Sigma4",
+    "fresh workspace has no demo; four mode cards support selection, keyboard, reduced motion and responsive two-column layout; personal session restores",
+    "AI opponent uses Sigma2 while own position analysis uses Sigma4, with correct engine role in the record",
+    "changing opponent during calculation cancels old advice, applies only the new engine and keeps analysis settings independent",
+    "opponent and analysis settings survive reload; opponent controls are hidden outside AI match mode"
   ],
   "uncaughtErrors": [],
   "syntheticCaptureAndService": true

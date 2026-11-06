@@ -6,40 +6,61 @@
   <title>Quoridor · AI Studio</title>
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="/screen.css">
+  <link rel="stylesheet" href="/workspace.css">
 </head>
 <body>
 <main>
-  <header><div class="brand"><i></i> QUORIDOR <span>AI STUDIO</span></div><span class="local">LOCAL PLAYGROUND</span></header>
+  <header><div class="brand"><i></i> QUORIDOR <span>AI STUDIO</span></div><span id="app-status">로컬 분석</span></header>
   <section class="layout">
     <div class="arena">
+      <div id="players" aria-label="플레이어와 잔여 벽"></div>
       <div class="board-heading"><span id="status">당신의 차례</span><span>9 × 9 · CLASSIC</span></div>
       <div id="board"></div>
       <section id="wait-advice" class="wait-advice analysis-panel" data-level="done" aria-label="포지션 분석">
         <div class="analysis-heading"><div>포지션 분석 <span id="depth"></span></div><button id="hint" class="primary">✦ 최선 수 분석</button></div>
         <strong id="wait-label" role="status" aria-live="polite">분석 대기</strong>
         <strong id="analysis-choice" aria-live="polite">추천 대기</strong>
+        <p id="analysis-reason" aria-live="polite">추천 수가 나오면 확인된 효과를 설명합니다.</p>
+        <details class="analysis-details"><summary>상세 보기</summary>
         <div class="analysis-scroll" tabindex="0" role="region" aria-label="분석 상세 · 스크롤">
           <p id="wait-reason">배치를 확인한 뒤 분석을 시작하세요.</p><small id="wait-timing" aria-live="off"></small><p id="advice-change" hidden></p><p id="position-verdict">판세: 분석 대기</p>
           <div id="variable-controls" hidden><button id="analysis-pin" hidden disabled>추천 자동 고정</button><p id="variable-status" class="watch-note" role="status"></p></div>
           <div id="analysis" class="muted">현재 차례의 추천 수와 예상 진행을 확인하세요.</div>
-        </div>
+        </div></details>
       </section>
       <p id="instruction" class="instruction">점을 클릭해 이동 · 칸 사이에 커서를 대고 클릭해 벽 설치</p>
       <div id="result" class="result" role="status" hidden></div>
     </div>
     <aside>
-      <div id="players"></div>
+      <section id="mode-picker" class="mode-picker" aria-labelledby="mode-picker-title">
+        <div id="mode-picker-title" class="mode-picker-title">플레이 모드</div>
+        <div class="mode-grid" role="radiogroup" aria-label="플레이 모드">
+          <button type="button" class="mode-card" data-mode="ai" role="radio" aria-checked="false" tabindex="-1"><svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="8" y="12" width="24" height="21" rx="6"/><path d="M20 12V7M8 20H4v7h4m24-7h4v7h-4M16 28h8"/><circle cx="20" cy="5" r="2"/><circle cx="15" cy="21" r="1.5"/><circle cx="25" cy="21" r="1.5"/></svg><span class="mode-label">AI와 대전</span><span class="mode-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="mode-card" data-mode="sandbox" role="radio" aria-checked="false" tabindex="-1"><svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="6" y="6" width="11" height="11" rx="3"/><rect x="23" y="6" width="11" height="11" rx="3"/><rect x="6" y="23" width="11" height="11" rx="3"/><rect x="23" y="23" width="11" height="11" rx="3"/></svg><span class="mode-label">자유 대국</span><span class="mode-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="mode-card" data-mode="watch" role="radio" aria-checked="false" tabindex="-1"><svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="4" y="7" width="32" height="26" rx="5"/><path d="m17 14 11 6-11 6z"/></svg><span class="mode-label">AI 관전</span><span class="mode-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="mode-card" data-mode="screen" role="radio" aria-checked="true" tabindex="0"><svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="4" y="5" width="32" height="24" rx="4"/><path d="M20 29v6m-7 0h14M10 12h7m-7 0v6m20 4h-7m7 0v-6"/></svg><span class="mode-label">화면 연동</span><span class="mode-check" aria-hidden="true">✓</span></button>
+        </div>
+        <input id="mode" type="hidden" value="screen">
+      </section>
       <section class="panel play-settings">
         <div class="panel-title">플레이 설정</div>
-        <label>모드<select id="mode"><option value="ai">AI 대전</option><option value="sandbox">양쪽 직접 조작</option><option value="watch">AI vs AI 관전</option><option value="screen" selected>화면 연동 · 자동 감시</option></select></label>
         <label><span id="side-label">내 진영</span><select id="side"><option value="0">청록 · 선공</option><option value="1">분홍 · 후공</option></select></label>
         <label><span id="position-label">내 시작 위치</span><select id="start-position"><option value="top">위쪽</option><option value="bottom">아래쪽</option></select></label>
+        <div id="opponent-settings" hidden>
+          <label>상대 AI 엔진<select id="opponent-engine"><option value="sigma4" selected>Sigma 4</option><option value="sigma3">Sigma 3</option><option value="sigma2">Sigma 2</option></select></label>
+          <label>상대 생각 시간<select id="opponent-time"><option value="500" selected>빠르게 · 최대 0.5초</option><option value="variable">자동 · 최대 2초</option></select></label>
+          <p id="opponent-status" class="watch-note" role="status" hidden></p>
+        </div>
         <div id="human-settings">
-          <label>사용 엔진<select id="play-engine"><option value="sigma4" selected>Sigma 4 (weighted V3)</option><option value="sigma3">Sigma 3 (experimental)</option><option value="sigma2">Sigma 2</option></select></label>
+          <div class="engine-summary"><span>추천 분석 엔진</span><strong id="engine-current">Sigma 4</strong></div>
           <p id="engine-status" class="watch-note" role="status" hidden></p>
           <p id="engine-import-note" class="watch-note" role="status" hidden></p>
-          <label>AI 생각 시간<select id="time"><option value="500">빠르게 · 0.5초</option><option value="variable" selected>가변 · 0.5~2초 · 추천 확정</option><option value="2000">표준 · 2초</option><option value="5000">깊게 · 5초</option><option value="15000">정밀 · 15초</option><option value="30000">최대 · 30초</option></select></label>
-          <label>계산 코어<select id="cores"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option></select></label>
+          <label>분석 시간<select id="time"><option value="500">빠르게 · 최대 0.5초</option><option value="variable" selected>자동 · 최대 2초</option></select></label>
+          <details class="advanced-settings"><summary>분석 설정</summary>
+            <label>추천 엔진<select id="play-engine"><option value="sigma4" selected>Sigma 4</option><option value="sigma3">Sigma 3</option><option value="sigma2">Sigma 2</option></select></label>
+            <details class="developer-details"><summary>실행 정보</summary><p id="engine-meta">분석할 때 엔진 정보를 확인합니다.</p></details>
+          </details>
+          <input id="cores" type="hidden" value="1">
         </div>
         <div class="buttons"><button id="undo">↶ 무르기</button><button id="reset">새 게임</button></div>
       </section>
@@ -48,24 +69,22 @@
         <div class="watch-configs">
           <div class="watch-player" style="--accent:#31d4c2">
             <h2><i></i>청록 · 선공</h2>
-            <label>엔진<select id="watch-engine-0" aria-label="청록 엔진"><option value="sigma4">Sigma 4 (weighted V3)</option><option value="sigma3">Sigma 3 (experimental)</option><option value="sigma2" selected>Sigma 2 (baseline)</option></select></label>
+            <label>엔진<select id="watch-engine-0" aria-label="청록 엔진"><option value="sigma4">Sigma 4</option><option value="sigma3">Sigma 3</option><option value="sigma2" selected>Sigma 2</option></select></label>
             <p id="watch-engine-status-0" class="watch-note" role="status">선택한 엔진은 계산할 때 확인합니다.</p>
-            <label>생각 시간<select id="watch-time-0" aria-label="청록 생각 시간"><option value="100">0.1초</option><option value="250">0.25초</option><option value="500" selected>0.5초</option><option value="1000">1초</option><option value="2000">2초</option><option value="5000">5초</option><option value="15000">15초</option><option value="30000">30초</option></select></label>
-            <label>코어<select id="watch-cores-0" aria-label="청록 계산 코어"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option></select></label>
+            <label>응답 시간<select id="watch-time-0" aria-label="청록 응답 시간"><option value="500" selected>최대 0.5초</option><option value="2000">최대 2초</option></select></label><input id="watch-cores-0" type="hidden" value="1">
           </div>
           <div class="watch-player" style="--accent:#fa7393">
             <h2><i></i>분홍 · 후공</h2>
-            <label>엔진<select id="watch-engine-1" aria-label="분홍 엔진"><option value="sigma4" selected>Sigma 4 (weighted V3)</option><option value="sigma3">Sigma 3 (experimental)</option><option value="sigma2">Sigma 2 (baseline)</option></select></label>
+            <label>엔진<select id="watch-engine-1" aria-label="분홍 엔진"><option value="sigma4" selected>Sigma 4</option><option value="sigma3">Sigma 3</option><option value="sigma2">Sigma 2</option></select></label>
             <p id="watch-engine-status-1" class="watch-note" role="status">선택한 엔진은 계산할 때 확인합니다.</p>
-            <label>생각 시간<select id="watch-time-1" aria-label="분홍 생각 시간"><option value="100">0.1초</option><option value="250">0.25초</option><option value="500" selected>0.5초</option><option value="1000">1초</option><option value="2000">2초</option><option value="5000">5초</option><option value="15000">15초</option><option value="30000">30초</option></select></label>
-            <label>코어<select id="watch-cores-1" aria-label="분홍 계산 코어"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option></select></label>
+            <label>응답 시간<select id="watch-time-1" aria-label="분홍 응답 시간"><option value="500" selected>최대 0.5초</option><option value="2000">최대 2초</option></select></label><input id="watch-cores-1" type="hidden" value="1">
           </div>
         </div>
         <label>수 사이 간격<select id="watch-delay"><option value="0">바로 진행</option><option value="350" selected>0.35초</option><option value="750">0.75초</option><option value="1500">1.5초</option></select></label>
         <div class="watch-controls"><button id="watch-start" class="primary">▶ 시작 / 계속</button><button id="watch-pause">Ⅱ 일시정지</button><button id="watch-step">한 수 진행 →</button></div>
 
       </section>
-      <section class="panel"><div class="panel-title">기보 <span id="count">0 수</span></div><div id="history"></div><div class="buttons"><button id="save">저장</button><button id="load">불러오기</button><input id="file" type="file" accept=".json" hidden></div><p id="storage-note" class="watch-note" hidden></p></section>
+      <section class="panel"><div class="panel-title">기보 <span id="count">0 수</span></div><div id="history-legend" class="history-legend" aria-label="기보 진영 색상"></div><div id="history"></div><div id="review-controls" hidden><p id="review-position">현재 대국</p><div class="buttons"><button id="review-prev">◀ 이전</button><button id="review-next">다음 ▶</button><button id="review-now">현재로</button></div><p id="review-advice">기보를 선택하세요</p></div><div class="buttons"><button id="save">저장</button><button id="load">불러오기</button><input id="file" type="file" accept=".json" hidden></div><p id="storage-note" class="watch-note" hidden></p></section>
     </aside>
   </section>
   <footer>QUORIDOR AI STUDIO <span>개인 연습과 시뮬레이션을 위한 공간</span></footer>

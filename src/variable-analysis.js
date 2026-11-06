@@ -28,7 +28,7 @@ export class VariableAnalysis {
    this.phase=decision.phase;this.reason=decision.reason;
    if(this.latest.exact===true)finish('exact');
    else if(elapsed>=VARIABLE_MAX_MS)finish('time-limit');
-   else if(elapsed>=VARIABLE_MIN_MS&&(engineDone||decision.stop))finish(engineDone?'engine-complete':decision.reason);
+   else if(engineDone||elapsed>=VARIABLE_MIN_MS&&decision.stop)finish(engineDone?'engine-complete':decision.reason);
    else onStatus();
   };
   const accept=result=>{

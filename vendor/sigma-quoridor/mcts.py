@@ -562,7 +562,7 @@ class MCTSAgent:
     # Public API
     # ------------------------------------------------------------------
 
-    def search(self, state: State, num_sims: int | None = None) -> MCTSNode:
+    def search(self, state: State, num_sims: int | None = None, stop=None) -> MCTSNode:
         """
         Run MCTS from *state* and return the root node (with visit statistics).
 
@@ -600,11 +600,21 @@ class MCTSAgent:
             self._apply_dirichlet(root)
 
         n = num_sims if num_sims is not None else self.num_simulations
+        self.completed_simulations = 0
         if self.sim_batch_size > 1:
-            self._run_simulations_batched(root, num_sims=n)
+            # Timed callers stop only between completed batches.
+            for offset in range(0, n, self.sim_batch_size):
+                if stop is not None and stop():
+                    break
+                count = min(self.sim_batch_size, n - offset)
+                self._run_simulations_batched(root, num_sims=count)
+                self.completed_simulations += count
         else:
             for _ in range(n):
+                if stop is not None and stop():
+                    break
                 self._run_simulation(root)
+                self.completed_simulations += 1
 
         self._root = root
         return root

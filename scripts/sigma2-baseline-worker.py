@@ -1,12 +1,17 @@
-﻿import json,sys,time,os
+import json,sys,time,os
 from pathlib import Path
 import numpy as np
 import onnxruntime as ort
 ROOT=Path(__file__).resolve().parent.parent/'vendor/sigma-quoridor'
 sys.path.insert(0,str(ROOT))
 from game import State,WallAction,PawnAction,action_to_index,vert_policy_permutation
+from sigma_search_runtime import serve, timed_search, remember_candidate, install_checkpoints, checkpoint
+from sigma_fast_walls import install_fast_walls
+install_fast_walls(State)
+install_checkpoints(State)
 MODEL=ROOT/'models/best.onnx'
-SESSION=ort.InferenceSession(str(MODEL),providers=['CPUExecutionProvider'])
+from sigma_inference_cache import CachedInference
+SESSION=CachedInference(ort.InferenceSession(str(MODEL),providers=['CPUExecutionProvider']))
 PERM=vert_policy_permutation(9)
 MODE=os.getenv("SIGMA_MODE","policy")
 DIAGNOSTICS=os.getenv('SIGMA_DIAGNOSTICS')=='1'
@@ -34,6 +39,7 @@ PERSISTENT_AGENT=None
 if MODE=="puct":
  from mcts import MCTSAgent
  def evaluator(state,actions):
+  checkpoint()
   x,v=SESSION.run(None,{"input":state.to_nn_input()[None,...].astype(np.float32)})
   z=x[0]; idx=[action_to_index(a,9) for a in actions]
   if state.depth%2:idx=[int(PERM[i]) for i in idx]
@@ -155,7 +161,7 @@ def choose(s,allowed,history=None):
    # reached descendants may be scored as repeated drawn positions.
    prior_states=[h['state'] for h in (history or []) if isinstance(h,dict) and 'state' in h]
    agent.historical_keys=frozenset(state_of(v)._position_key() for v in prior_states)
-  root=agent.search(state)
+  root=timed_search(agent,state)
   children=sorted(root.children,key=lambda child:child.visit_count,reverse=True)
   choices=[c for c in children if json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')) in allowed]
   if choices:
@@ -163,6 +169,8 @@ def choose(s,allowed,history=None):
    if EXPLORATION>0 and not (VARIANT=='sigma2' and SIGMA2_DETERMINISTIC) and RNG.random()<EXPLORATION:
     pool=choices[:min(4,len(choices))]
     selected=RNG.choices([c.action for c in pool],weights=[max(1,c.visit_count) for c in pool])[0]
+ remember_candidate(s,selected,root,to_action,value,len(actions))
+ checkpoint()
  dbg={}
  if VARIANT=='sigma2' and MODE=='puct' and choices:
   # Choose only similarly visited candidates and discourage exact full-state loops.
@@ -316,6 +324,7 @@ def choose(s,allowed,history=None):
     temp=0.65 if ply<20 else SIGMA2_CHOICE_TEMP
     selected=RNG.choices(close,weights=[max(1,c.visit_count)**(1/temp) for c in close],k=1)[0].action
    else:selected=close[0].action
+ remember_candidate(s,selected,root,to_action,value,len(actions))
 
  # Only consider high-impact defensive walls if MCTS actually investigated
  # them. Distance gain alone is not evidence of a good move.
@@ -347,6 +356,7 @@ def choose(s,allowed,history=None):
    if selected_node is not None and candidate.visit_count>=max(8,selected_node.visit_count*0.08) and -candidate.q_value >= -selected_node.q_value-0.04:
     dbg['wallValueCheck']={'previous':to_action(s,selected),'selected':to_action(s,candidate.action),'opponentDistanceGain':wall_options[0][0],'visits':candidate.visit_count}
     selected=candidate.action
+ remember_candidate(s,selected,root,to_action,value,len(actions))
  # Pre-commit path-regression validation. Past loop screening was based on
  # stale historic distance grids from earlier wall layouts. Evaluate each
  # prospective action against the CURRENT board, BEFORE the first retreat,
@@ -379,6 +389,7 @@ def choose(s,allowed,history=None):
        'distanceBefore':current_distance,'distanceRejected':cost,
        'distanceChosen':next_path_cost(replacement)}
       selected=replacement.action
+ remember_candidate(s,selected,root,to_action,value,len(actions))
  # PREVENTIVE progress guard: before playing, screen strongly searched
  # candidate moves against plausible opponent pawn advances.  A move is
  # considered at risk only if it creates no immediate distance progress AND
@@ -438,8 +449,10 @@ def choose(s,allowed,history=None):
     if safe:
      selected=safe[0].action
      dbg['preventive']={'atRisk':to_action(s,current.action),'selected':to_action(s,selected),'reason':'no-improving-reply-after-opponent-pawn'}
+ remember_candidate(s,selected,root,to_action,value,len(actions))
  if VARIANT=='sigma2' and MODE=='puct' and SIGMA2_ONE_REPLY_OVERRIDE and safe_reply_choice is not None and dbg.get('terminalOverride') is None:
   selected=safe_reply_choice.action
+ remember_candidate(s,selected,root,to_action,value,len(actions))
  # Final action validation: post-search overrides must not reintroduce an exact
  # previously reached position, which earlier candidate filtering excluded.
  if VARIANT=='sigma2' and MODE=='puct' and history and dbg.get('terminalOverride') is None and choices:
@@ -471,17 +484,11 @@ def choose(s,allowed,history=None):
     replacement=strong[0]
     dbg['finalCycleGuard']={'rejected':to_action(s,selected),'chosen':to_action(s,replacement.action)}
     selected=replacement.action
+ remember_candidate(s,selected,root,to_action,value,len(actions))
  result={'pv':[to_action(s,selected)],'elapsedMs':(time.perf_counter()-start)*1000,'value':float(value[0][0]),'legalCount':len(actions),'mode':MODE,'simulations':sims if MODE=='puct' else 0,'reusedTree':VARIANT=='sigma2' and SIGMA2_REUSE}
  if DIAGNOSTICS:
   visits={json.dumps(to_action(s,c.action),sort_keys=True,separators=(',',':')):c.visit_count for c in root.children} if root else {}
   result['diagnostics']={'loopDebug':dbg,'rootChildren':[{'action':to_action(s,c.action),'visits':c.visit_count,'qFromRoot':-c.q_value if c.visit_count else None,'prior':c.base_prior} for c in (sorted(root.children,key=lambda n:n.visit_count,reverse=True)[:12] if root else [])],'rootReused':bool(root and root.visit_count != sims+1),'topCandidates':[{'action':to_action(s,a),'policyLogit':score,'visits':visits.get(json.dumps(to_action(s,a),sort_keys=True,separators=(',',':')),0)} for score,a in ranked[:8]],'rootValue':float(value[0][0])}
+ remember_candidate(s,selected,root,to_action,value,len(actions))
  return result
-print(json.dumps({"ready":True}),flush=True)
-for line in sys.stdin:
- try:
-  v=json.loads(line);r=choose(v['state'],set(v['allowed']),v.get('history',[]));r['id']=v.get('id');r['done']=True
- except Exception as e:
-  import traceback
-  traceback.print_exc(file=sys.stderr)
-  r={'id':v.get('id') if 'v' in locals() else None,'done':True,'error':str(e)}
- print(json.dumps(r),flush=True)
+serve(choose, globals())

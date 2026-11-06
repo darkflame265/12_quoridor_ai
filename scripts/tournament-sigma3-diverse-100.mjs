@@ -2,7 +2,9 @@ import {readFileSync,writeFileSync,existsSync} from 'node:fs';
 import {SigmaProcess} from '../server/sigma-process.mjs';
 import {clone,apply,legal,distance} from '../src/engine.js';
 const fixtures=JSON.parse(readFileSync('evaluation/sigma3-diverse-match-fixtures.json','utf8'));
-const resultPath='reports/sigma-selfplay/sigma3-vs-sigma2-diverse-100.json';
+const outIndex=process.argv.indexOf('--out');
+const resultPath=outIndex>=0?process.argv[outIndex+1]:'reports/sigma-selfplay/sigma3-vs-sigma2-diverse-100.json';
+if(!resultPath)throw Error('Missing --out path');
 if(existsSync(resultPath)&&!process.argv.includes('--overwrite')&&!process.argv.includes('--resume'))throw Error('Existing 100-game report preserved: pass --resume or --overwrite explicitly');
 let report={version:'sigma3-vs-sigma2-50-position-seat-swapped-200-sims',sampleSources:'4 Sigma2 tournament reports',fixtureCount:fixtures.length,simulations:200,exploration:0.15,maxContinuationPlies:130,gamesRequested:fixtures.length*2,results:[]};
 if(process.argv.includes('--resume')&&existsSync(resultPath)){const prev=JSON.parse(readFileSync(resultPath,'utf8'));if(prev.version!==report.version||prev.fixtureCount!==fixtures.length||prev.gamesRequested!==report.gamesRequested)throw Error('Resume fixtures mismatch');report=prev;}

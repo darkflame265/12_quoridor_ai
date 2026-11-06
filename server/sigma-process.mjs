@@ -14,7 +14,7 @@ export class SigmaProcess {
  constructor({variant='sigma2'}={}){this.variant=variant;this.profile=variant;this.child=null;this.pending=new Map();this.ready=null;}
  ensure(){
   if(this.child)return this.ready;
-  const child=spawn('python',['-u','scripts/sigma-inference-worker.py'],{env:{...process.env,SIGMA_MODE:'puct',SIGMA_SIMS:'50',SIGMA_VARIANT:this.variant,SIGMA2_SIMS:'200'},stdio:['pipe','pipe','pipe'],windowsHide:true});
+  const child=spawn('python',['-u',this.variant==='sigma2'?'scripts/sigma2-baseline-worker.py':'scripts/sigma-inference-worker.py'],{env:{...process.env,SIGMA_MODE:'puct',SIGMA_SIMS:'50',SIGMA_VARIANT:this.variant,SIGMA2_SIMS:'200',SIGMA2_REUSE:['sigma2','sigma3'].includes(this.variant)?'1':'0'},stdio:['pipe','pipe','pipe'],windowsHide:true});
   this.child=child;
   this.ready=new Promise((resolve,reject)=>{
    let settled=false;
@@ -36,15 +36,20 @@ export class SigmaProcess {
   return this.ready;
  }
  async health(){await this.ensure();return {engine:this.variant,ready:true};}
- async search(state,{id=randomUUID(),onProgress=()=>{}}={}){
-  await this.ensure();
+ async search(state,{id=randomUUID(),ms=500,onProgress=()=>{}}={}){
+  const started=performance.now();
+  // Direct callers receive the same latest-request policy as the HTTP service.
+  for(const pendingId of this.pending.keys())this.cancel(pendingId);
   return new Promise((resolve,reject)=>{
    const timer=setTimeout(()=>{this.pending.delete(id);reject(Error('Sigma search exceeded safety watchdog 30000ms'));},30000);
-   this.pending.set(id,{resolve,reject,timer});
-   try{this.child.stdin.write(JSON.stringify({id,state,allowed:allowed(state),history:this.variant==='sigma2'?(state.historyStates??[]).map(v=>({state:v})):[]})+'\n');}
-   catch(e){clearTimeout(timer);this.pending.delete(id);reject(e);}
+   const job={resolve,reject,timer};this.pending.set(id,job);
+   this.ensure().then(()=>{
+    // A request canceled during worker startup must never enter its queue.
+    if(this.pending.get(id)!==job)return;
+    const actions=allowed(state);this.child.stdin.write(JSON.stringify({id,state,allowed:actions,ms:Math.max(1,ms-(performance.now()-started)),history:['sigma2','sigma3'].includes(this.variant)?(state.historyStates??[]).map(v=>({state:v})):[]})+'\n');
+   }).catch(e=>{if(this.pending.get(id)!==job)return;clearTimeout(timer);this.pending.delete(id);reject(e);});
   });
  }
- cancel(id){const job=this.pending.get(id);if(job){clearTimeout(job.timer);this.pending.delete(id);job.reject(Object.assign(Error('Cancelled'),{name:'AbortError'}));}}
+ cancel(id){const job=this.pending.get(id);if(job){clearTimeout(job.timer);this.pending.delete(id);if(this.child?.stdin.writable)this.child.stdin.write(JSON.stringify({id,cancel:true})+'\n');job.reject(Object.assign(Error('Cancelled'),{name:'AbortError'}));}}
  async close(){for(const id of this.pending.keys())this.cancel(id);this.child?.kill();this.child=null;this.ready=null;}
 }

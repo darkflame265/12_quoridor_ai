@@ -5,6 +5,16 @@ test('AI match auto advice is opt-in and only restores an actual boolean',()=>{
  for(const value of [undefined,false,'true',1])assert.equal(normalizeSessionSettings({aiAutoHint:value}).aiAutoHint,false);
  assert.equal(normalizeSessionSettings({aiAutoHint:true},{startup:true}).aiAutoHint,true);
 });
+
+test('screen auto advice defaults on and is stored independently from AI match advice',()=>{
+ for(const value of [undefined,null,'false',0])assert.equal(normalizeSessionSettings({screenAutoHint:value}).screenAutoHint,true);
+ for(const aiAutoHint of [true,false])for(const screenAutoHint of [true,false]){
+  const restored=normalizeSessionSettings({aiAutoHint,screenAutoHint},{startup:true});
+  assert.equal(restored.aiAutoHint,aiAutoHint);assert.equal(restored.screenAutoHint,screenAutoHint);
+ }
+ const legacy=normalizeSessionSettings({settingsRevision:1,engine:'sigma4'});
+ assert.equal(legacy.aiAutoHint,false);assert.equal(legacy.screenAutoHint,true);
+});
 test('only Sigma 2,3,4 are supported and removed selections migrate without losing records',()=>{
  assert.deepEqual(supportedEngines,['sigma2','sigma3','sigma4']);
  const records=[{type:'move',x:4,y:7}];const migrated=normalizeSessionSettings({engine:'atlas5',records,watch:{players:[{engine:'sigma'},{engine:'atlas-goal'}]}});

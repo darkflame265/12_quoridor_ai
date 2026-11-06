@@ -37,7 +37,7 @@ const reviewCache=new Map();
 let baseState=null,observedBottom=null,screenCapture=null;
 let screenReady=false,screenRebased=false,screenSegments=[];
 let uncertaintyTimer=null,heldAnalysis=null,activeAnalysis=null,lastAnalysisTrace=null,lastShownAdvice=null;
-let pool=createPlayPool(defaultCores),opponentPool=null,watchPools=[null,null],ponderTimer=null;
+let pool=createPlayPool(defaultCores),opponentPool=null,watchPools=[null,null];
 let reasonWorker=null,reasonGeneration=0;
 function clearRecommendationReason(){
  reasonGeneration++;reasonWorker?.terminate();reasonWorker=null;
@@ -127,7 +127,7 @@ function stop(reason='control-change'){
  screenPonder.stop({clear:!['screen-position-changed','screen-auto','screen-uncertain','screen-uncertain-timeout'].includes(reason)});ponderStatus('idle');
  lastAnalysisTrace=analysisTrace();
  if(activeAnalysis&&variableAnalysis.active)recordDecision(decisionLog,{kind:'analysis-cancel',at:new Date().toISOString(),...lastAnalysisTrace,reason});
- activeAnalysis=null;clearTimeout(uncertaintyTimer);heldAnalysis=null;serial++;variableAnalysis.cancel();clearTimeout(ponderTimer);busy=false;autoAdviceActive=false;watcher.pause();pool.cancel();opponentPool?.cancel();cancelWatch();
+ activeAnalysis=null;clearTimeout(uncertaintyTimer);heldAnalysis=null;serial++;variableAnalysis.cancel();busy=false;autoAdviceActive=false;watcher.pause();pool.cancel();opponentPool?.cancel();cancelWatch();
 }
 const screenSuppressed=()=>$('#mode').value==='screen'&&screenCapture?.active&&!screenReady;
 function wallSvg(w,extra=''){
@@ -285,8 +285,7 @@ function schedule(){
   if(!human())think(true);
   else if($('#mode').value==='ai'){
     if($('#ai-auto-hint').checked){if(!hint)think(false,'ai-auto');return;}
-    clearTimeout(ponderTimer);const snapshot=clone(state);
-    ponderTimer=setTimeout(()=>{if(!busy&&!watching())pool.search(snapshot,{ms:pool.ponderMs,ponder:true}).catch(()=>{});},200);
+    // Opt-out means no unsolicited analysis or model preparation on your turn.
   }
 }
 function think(auto=false,reason='manual-analysis'){
@@ -456,7 +455,7 @@ $('#watch-delay').onchange=()=>{stop();persist();render();};
 $('#watch-start').onclick=()=>{stop();reviewPly=null;reviewHint=null;clearAnalysis();watcher.start();};
 $('#watch-pause').onclick=()=>{stop();render();};
 $('#watch-step').onclick=()=>{stop();reviewPly=null;reviewHint=null;clearAnalysis();watcher.step();};
-function sessionData(){return {aiAutoHint:$('#ai-auto-hint').checked,runtime:browserAI?'browser-wasm':'python-local',settingsRevision:1,version:baseState?3:2,...(baseState?{baseState,sourceBottom:observedBottom,screenRebased,screenSegments}:{}),records,decisionLog,mode:$('#mode').value,side:Number($('#side').value),startPosition:$('#start-position').value,time:$('#time').value,cores:$('#cores').value,engine:$('#play-engine').value,opponent:{engine:$('#opponent-engine').value,time:$('#opponent-time').value},watch:{players:[watchSettings(0),watchSettings(1)],delay:Number($('#watch-delay').value)},result:watching()?watchOutcome():null};}
+function sessionData(){return {screenAutoHint:$('#screen-auto-hint').checked,aiAutoHint:$('#ai-auto-hint').checked,runtime:browserAI?'browser-wasm':'python-local',settingsRevision:1,version:baseState?3:2,...(baseState?{baseState,sourceBottom:observedBottom,screenRebased,screenSegments}:{}),records,decisionLog,mode:$('#mode').value,side:Number($('#side').value),startPosition:$('#start-position').value,time:$('#time').value,cores:$('#cores').value,engine:$('#play-engine').value,opponent:{engine:$('#opponent-engine').value,time:$('#opponent-time').value},watch:{players:[watchSettings(0),watchSettings(1)],delay:Number($('#watch-delay').value)},result:watching()?watchOutcome():null};}
 function persist(){try{localStorage.setItem('quoridor-session',JSON.stringify(sessionData()));$('#storage-note').hidden=true;}catch{$('#storage-note').hidden=false;$('#storage-note').textContent='자동 저장 공간이 부족합니다. 기보 저장을 이용해 주세요.';}}
 function selectValue(id,value){const element=$(id);if(element.options&&[...element.options].some(option=>option.value===String(value)))element.value=String(value);else if(id==='#mode'){if(['ai','sandbox','watch','screen'].includes(String(value)))element.value=String(value);}else if(element.type==='hidden')element.value='1';}
 function restore(data,{startup=false}={}){reviewCache.clear();reviewPly=null;reviewHint=null;
@@ -465,6 +464,7 @@ function restore(data,{startup=false}={}){reviewCache.clear();reviewPly=null;rev
   observedBottom=baseState&&[0,1].includes(data.sourceBottom)?data.sourceBottom:null;screenCapture?.setBottom(observedBottom);
   selectValue('#mode',data.mode);selectValue('#side',data.side);selectValue('#time',data.time);selectValue('#cores',data.cores);selectValue('#play-engine',data.engine);selectValue('#opponent-engine',data.opponent.engine);selectValue('#opponent-time',data.opponent.time);
   $('#ai-auto-hint').checked=data.aiAutoHint;
+  $('#screen-auto-hint').checked=data.screenAutoHint;
   $('#engine-import-note').hidden=!data.unsupportedEngine;$('#engine-import-note').textContent=data.unsupportedEngine?`기보의 원본 엔진 ${data.unsupportedEngine}은 선택 목록에서 제외됐습니다. 기록은 유지하고 새 분석에는 Sigma 4를 사용합니다.`:'';
   selectValue('#start-position',data.startPosition??'top');
   if($('#mode').value==='screen'&&observedBottom!==null){$('#side').value=String(observedBottom);$('#start-position').value='bottom';}
@@ -502,6 +502,7 @@ screenCapture=mountScreenCapture({
   onDirty:()=>{if($('#mode').value==='screen'){stop();clearAnalysis();$('#analysis').textContent='새로 가져온 내용은 확인 후 적용해야 반영됩니다.';render();}}
 });
 const ponderNote=document.createElement('p');ponderNote.id='screen-ponder-status';ponderNote.hidden=true;ponderNote.className='watch-note';ponderNote.setAttribute('role','status');$('#screen-panel').append(ponderNote);ponderStatus('idle');
+$('#screen-auto-hint').addEventListener('change',persist);
 window.addEventListener('pagehide',()=>{clearRecommendationReason();stop();pool.dispose();opponentPool?.dispose();disposeWatch();screenCapture?.dispose();});
 try{
   const data=storedSession?JSON.parse(storedSession):null;

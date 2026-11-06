@@ -23,9 +23,12 @@
 
 ## 확인할 증거
 
+- 실제 브라우저 모델·서버 없는 AI 대전: `npm run browser:qa`
+- 브라우저/Python 차이와 구조: [실행 구조](ARCHITECTURE.md)
+
 - 화면·세션·기보 흐름: `npm run screen:qa`
-- 취소·시간 예산: `scripts/check-sigma-latency.mjs`
-- 벽 판정 동등성: `scripts/check_sigma_fast_walls.py`
+- 취소·시간 예산: `scripts/qa/check-sigma-latency.mjs`
+- 벽 판정 동등성: `scripts/qa/check_sigma_fast_walls.py`
 - 로컬 측정 파일: `reports/latency-fix-20261106/` (생성 보고서이므로 Git에는 기본 포함하지 않음)
 - 공개 스크린샷: `docs/images/portfolio-desktop.png`
 

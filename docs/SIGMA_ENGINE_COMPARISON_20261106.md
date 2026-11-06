@@ -39,7 +39,9 @@
 - 최신 변경으로 세 엔진 모두 시간 제한과 빠른 벽 판정·입력 캐시를 사용합니다. 이전 고정 200회 대전 성적과 그대로 합산하지 않습니다.
 - 전체 수순을 별도 감사 코드로 재생해 합법 수·승자·중복 대국 키·현재 소스 일치를 확인했습니다.
 
-## 재현
+## 과거 실험의 재현
+
+이 문서는 Python판의 과거 비교이며 Web 엔진의 실력 자료가 아닙니다. 연구 스크립트와 대량 보고서는 소스 정리 시 현재 트리에서 제거했습니다. 재현하려면 `backup-before-browser-pages-20261106` 태그를 별도 작업 폴더에서 체크아웃하고 아래 명령을 사용하세요.
 
 ```powershell
 node scripts/compare-sigma-engines.mjs
@@ -47,6 +49,6 @@ node scripts/audit-sigma-comparison.mjs
 node scripts/report-sigma-comparison.mjs
 ```
 
-전체 수순은 `reports/engine-comparison-20261106/results.json`, 감사 결과는 같은 폴더의 `audit.json`입니다. 생성 보고서는 Git에서 기본 제외됩니다. 요약과 코드 식별값은 `evaluation/sigma-engine-comparison-20261106.json`에 보존합니다. 소스나 조건이 달라지면 기존 결과에 이어서 실행하지 못하도록 검사합니다.
+해당 명령을 실행하면 전체 수순과 감사 결과가 `reports/engine-comparison-20261106/`에 생성됩니다. 생성 보고서는 Git에서 기본 제외됩니다. 최종 요약과 코드 식별값은 현재 `docs/evidence/sigma-engine-comparison-20261106.json`에 보존합니다.
 
 고정 코드 식별값: `c5e049441510dc8336fae0bc7fad4ea0d5f45ead71a601935cca6ae94ef81663`

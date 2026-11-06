@@ -83,7 +83,7 @@ if(args.includes('--stop')) {
    }
    if(!['GET','HEAD'].includes(req.method)){res.writeHead(405).end();return;}
    try{
-    const file=path.resolve(dist,'.'+decodeURIComponent(pathname==='/'?'/index.html':pathname));
+    const file=path.resolve(dist,'./'+decodeURIComponent(pathname==='/'?'/index.html':pathname));
     if(!file.startsWith(dist+path.sep)){res.writeHead(403).end();return;}
     const bytes=await readFile(file);res.setHeader('Content-Type',types[path.extname(file)]??'application/octet-stream');res.setHeader('Cache-Control','no-store');res.end(req.method==='HEAD'?undefined:bytes);
    }catch{res.writeHead(404).end();}

@@ -6,14 +6,20 @@
     "play": "node scripts/play.mjs",
     "play:stop": "node scripts/play.mjs --stop",
     "play:shortcuts": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/install-play-shortcuts.ps1",
-    "dev": "node scripts/dev.mjs",
-    "build": "vite build",
+    "dev": "node scripts/dev-web.mjs",
+    "build": "node scripts/build.mjs",
     "preview": "vite preview --host 127.0.0.1",
-    "test": "node --test \"src/*.test.js\" scripts/play-lock.test.mjs",
-    "screen:qa": "node scripts/check-screen-browser.mjs",
-    "sigma:smoke": "node scripts/check-sigma-runtime.mjs"
+    "test": "node --test \"tests/unit/*.test.js\" \"tests/unit/*.test.mjs\"",
+    "screen:qa": "node scripts/qa/check-screen-browser.mjs",
+    "sigma:smoke": "node scripts/qa/check-sigma-runtime.mjs",
+    "build:native": "node scripts/build.mjs --native",
+    "dev:native": "node scripts/dev.mjs",
+    "browser:qa": "node scripts/qa/check-browser-ai.mjs"
   },
   "devDependencies": {
     "vite": "^7.1.0"
+  },
+  "dependencies": {
+    "onnxruntime-web": "1.31.1"
   }
 }

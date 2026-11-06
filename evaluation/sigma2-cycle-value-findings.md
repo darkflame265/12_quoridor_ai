@@ -1,5 +1,0 @@
-# Sigma2 cycle valuation matched midgame experiment
-
-The exact stored 136-ply game after ply 22 was replayed as a continuous match. With Sigma2 as player zero the original loop produced 75 full-position revisits in 80 plies with no winner. The precommit distance-guard alternative avoided repeats but Sigma2 lost after 50 plies. A separate experimental Sigma2 MCTS loop-value penalty (-0.90 when shortest-path lead >=0, -0.30 otherwise) also produced a 50-ply loss by Sigma2 as player zero; this setting was disabled by default. Sigma2 as player one yielded the same player-zero victory after 29 more plies in both experimental comparisons.
-
-This is causal evidence that the local intervention changes the continuous game and reduces repetitions, but no evidence it increases playing strength. Repetition suppression by itself does not cure the underlying strategic failure. Neither the strict penalty nor the earlier precommit heuristic is enabled by default. Keep exact midgame reproduction as the regression fixture; require an improved result as well as fewer repeats before enabling.

@@ -1,8 +1,8 @@
 import {spawn} from 'node:child_process';
 import readline from 'node:readline';
 import {SigmaProcess} from './sigma-process.mjs';
-import {chooseWeightedResearchCandidate} from '../scripts/sigma4-weighted-research-choice.mjs';
-import {legal} from '../src/engine.js';
+import {chooseWeightedResearchCandidate} from '../scripts/runtime/sigma4-weighted-research-choice.mjs';
+import {legal} from '../src/game/engine.js';
 
 // Production Sigma4 uses the best-performing original weighted-root research policy (V3 settings).
 // The earlier bounded 3-ply deployment is deliberately no longer used.
@@ -13,7 +13,7 @@ export class Sigma4Process extends SigmaProcess {
  }
  ensure(){
   if(this.child)return this.ready;
-  const child=spawn('python',['-u','scripts/sigma4-bitset-wall-worker.py'],{
+  const child=spawn('python',['-u','scripts/runtime/sigma4-bitset-wall-worker.py'],{
    env:{...process.env,SIGMA_MODE:'puct',SIGMA_SIMS:'50',SIGMA_VARIANT:'sigma3',
     SIGMA2_SIMS:'200',SIGMA2_REUSE:'0',SIGMA2_DETERMINISTIC:'1',
     SIGMA_EXPLORATION:'0',SIGMA_DIAGNOSTICS:'1'},

@@ -1,7 +1,7 @@
 import {spawn} from 'node:child_process';
 import readline from 'node:readline';
 import {randomUUID} from 'node:crypto';
-import {moves,validWall} from '../src/engine.js';
+import {moves,validWall} from '../src/game/engine.js';
 
 const allowed=state=>{
  const actions=moves(state);
@@ -14,7 +14,7 @@ export class SigmaProcess {
  constructor({variant='sigma2'}={}){this.variant=variant;this.profile=variant;this.child=null;this.pending=new Map();this.ready=null;}
  ensure(){
   if(this.child)return this.ready;
-  const child=spawn('python',['-u',this.variant==='sigma2'?'scripts/sigma2-baseline-worker.py':'scripts/sigma-inference-worker.py'],{env:{...process.env,SIGMA_MODE:'puct',SIGMA_SIMS:'50',SIGMA_VARIANT:this.variant,SIGMA2_SIMS:'200',SIGMA2_REUSE:['sigma2','sigma3'].includes(this.variant)?'1':'0'},stdio:['pipe','pipe','pipe'],windowsHide:true});
+  const child=spawn('python',['-u',this.variant==='sigma2'?'scripts/runtime/sigma2-baseline-worker.py':'scripts/runtime/sigma-inference-worker.py'],{env:{...process.env,SIGMA_MODE:'puct',SIGMA_SIMS:'50',SIGMA_VARIANT:this.variant,SIGMA2_SIMS:'200',SIGMA2_REUSE:['sigma2','sigma3'].includes(this.variant)?'1':'0'},stdio:['pipe','pipe','pipe'],windowsHide:true});
   this.child=child;
   this.ready=new Promise((resolve,reject)=>{
    let settled=false;

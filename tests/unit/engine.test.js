@@ -1,0 +1,7 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {initial,moves,validWall,apply,legal,distance} from '../../src/game/engine.js';
+test('initial position and moves',()=>{const s=initial();assert.equal(distance(s,0),8);assert.equal(moves(s).length,3);assert.equal(s.left[0],10);});
+test('jump and diagonal detour',()=>{let s=initial();s.p=[{x:4,y:4},{x:4,y:3}];assert(moves(s).some(a=>a.x===4&&a.y===2));assert(!moves(s).some(a=>a.x===3&&a.y===3));s.walls=[{x:4,y:2,o:'h'}];assert(!moves(s).some(a=>a.x===4&&a.y===2));assert(moves(s).some(a=>a.x===3&&a.y===3));assert(moves(s).some(a=>a.x===5&&a.y===3));});
+test('walls cannot overlap or cross',()=>{let s=apply(initial(),{type:'wall',x:3,y:4,o:'h'});assert.equal(s.left[0],9);for(const w of [{x:3,y:4,o:'v'},{x:2,y:4,o:'h'},{x:4,y:4,o:'h'}])assert(!validWall(s,w));assert(validWall(s,{x:5,y:4,o:'h'}));});
+test('cannot close final escape',()=>{const s=initial();s.p[0]={x:0,y:8};s.walls=[{x:0,y:7,o:'h'}];assert(!validWall(s,{x:0,y:7,o:'v'}));});
+test('win ends play',()=>{const s=initial();s.p[0]={x:0,y:1};const n=apply(s,{type:'move',x:0,y:0});assert.equal(n.winner,0);assert(!legal(n,{type:'move',x:3,y:0}));});
+test('long legal simulation preserves both routes',()=>{let s=initial(),seed=7;for(let i=0;i<100&&s.winner===null;i++){seed=(seed*1664525+1013904223)>>>0;const a={type:'wall',x:seed%8,y:(seed>>>5)%8,o:seed&256?'h':'v'};s=apply(s,validWall(s,a)?a:moves(s)[seed%moves(s).length]);assert(distance(s,0)<100&&distance(s,1)<100);}});

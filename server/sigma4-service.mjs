@@ -6,11 +6,11 @@ import {Sigma4Process} from './sigma4-process.mjs';
 export function createSigma4Service(){
  const build=createHash('sha256')
   .update(readFileSync('vendor/sigma-quoridor/models/best.onnx'))
-  .update(readFileSync('scripts/sigma4-bitset-wall-worker.py'))
-  .update(readFileSync('scripts/sigma4-weighted-research-choice.mjs'))
+  .update(readFileSync('scripts/runtime/sigma4-bitset-wall-worker.py'))
+  .update(readFileSync('scripts/runtime/sigma4-weighted-research-choice.mjs'))
   .update(readFileSync('server/sigma4-process.mjs'))
-  .update(readFileSync('scripts/sigma_search_runtime.py'))
-  .update(readFileSync('scripts/sigma_fast_walls.py'))
+  .update(readFileSync('scripts/runtime/sigma_search_runtime.py'))
+  .update(readFileSync('scripts/runtime/sigma_fast_walls.py'))
   .update(readFileSync('vendor/sigma-quoridor/mcts.py'))
   .digest('hex').slice(0,12);
  return createNativeService({client:new Sigma4Process(),engineInfo:{

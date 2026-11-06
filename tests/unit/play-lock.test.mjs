@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtemp,writeFile,readFile,rm} from 'node:fs/promises';
+import {mkdtemp,writeFile,readFile,rm,mkdir} from 'node:fs/promises';
 import path from 'node:path';
 import {leaseOwner,removeUnchangedLease} from '../../scripts/play-lock.mjs';
 const root='C:/12_quoridor_ai',state={pid:123,processStartedAt:10000};
@@ -20,6 +20,7 @@ test('dead processes are stale without a metadata query',async()=>{
  assert.equal(await leaseOwner(state,{probe:()=>{throw Object.assign(Error(),{code:'ESRCH'});},inspect:async()=>{throw Error('must not run');}}),'dead');
 });
 test('cleanup serializes contenders and cannot delete a replacement lease',async t=>{
+ await mkdir('.local-app',{recursive:true});
  const base=path.resolve('.local-app'),folder=await mkdtemp(path.join(base,'play-lock-test-')),file=path.join(folder,'running.json');
  t.after(async()=>{assert(folder.startsWith(base+path.sep));await rm(folder,{recursive:true,force:true});});
  const stale={pid:1,phase:'starting'},fresh={pid:2,phase:'ready'};

@@ -1,0 +1,26 @@
+{
+  "version": "sigma4-diverse-strong-midgame-audit-v1",
+  "attempts": 32,
+  "uniqueSourcePositions": 19,
+  "distinctSeeds": 19,
+  "priorDatasetBoardOverlaps": 0,
+  "pathGapMin": -1,
+  "pathGapMax": 1,
+  "wallCountMin": 8,
+  "wallCountMax": 15,
+  "bySourcePolicy": {
+    "weighted-base": 9,
+    "native-sigma3": 1,
+    "constrained-mcts-alternative": 9
+  },
+  "development": 14,
+  "holdout": 5,
+  "verifiedLegal": true,
+  "warnings": [
+    "Distinct starting trajectories share the same source network and may still be correlated in early-game decisions",
+    "MCTS-supported alternative root selection diversifies game sources, but does not prove optimality",
+    "Accepted positions are unlabeled until independent policy continuations are completed"
+  ],
+  "trainingApproved": false,
+  "productionApproved": false
+}

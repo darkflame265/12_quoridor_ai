@@ -26,6 +26,7 @@ const defaultCores=1; // Transport compatibility, not a configurable CPU limit.
 const entry=new URLSearchParams(location.search);
 let storedSession=null;try{storedSession=localStorage.getItem('quoridor-session');}catch{}
 let state=initial(),past=[],records=[],serial=0,busy=false,hint=null,decisionLog=[];
+let autoAdviceActive=false;
 let reviewPly=null,reviewHint=null;
 let reviewPool=null,reviewAnalysis=null;
 let reviewTimer=null;
@@ -121,7 +122,7 @@ function stop(reason='control-change'){
  screenPonder.stop({clear:!['screen-position-changed','screen-auto','screen-uncertain','screen-uncertain-timeout'].includes(reason)});ponderStatus('idle');
  lastAnalysisTrace=analysisTrace();
  if(activeAnalysis&&variableAnalysis.active)recordDecision(decisionLog,{kind:'analysis-cancel',at:new Date().toISOString(),...lastAnalysisTrace,reason});
- activeAnalysis=null;clearTimeout(uncertaintyTimer);heldAnalysis=null;serial++;variableAnalysis.cancel();clearTimeout(ponderTimer);busy=false;watcher.pause();pool.cancel();opponentPool?.cancel();cancelWatch();
+ activeAnalysis=null;clearTimeout(uncertaintyTimer);heldAnalysis=null;serial++;variableAnalysis.cancel();clearTimeout(ponderTimer);busy=false;autoAdviceActive=false;watcher.pause();pool.cancel();opponentPool?.cancel();cancelWatch();
 }
 const screenSuppressed=()=>$('#mode').value==='screen'&&screenCapture?.active&&!screenReady;
 function wallSvg(w,extra=''){
@@ -131,7 +132,7 @@ function wallSvg(w,extra=''){
 const liveState=()=>state;
 function drawBoard(){
   const state=reviewPly===null?liveState():reviewPly===records.length?liveState():past[reviewPly];
-  const can=reviewPly===null&&human()&&!busy&&state.winner===null,options=can?moves(state):[],last=reviewPly===null?records.at(-1):records[reviewPly-1];
+  const can=reviewPly===null&&human()&&(!busy||autoAdviceActive)&&state.winner===null,options=can?moves(state):[],last=reviewPly===null?records.at(-1):records[reviewPly-1];
   let svg='<svg viewBox="0 0 664 664" role="img" aria-label="쿼리도 보드"><defs><filter id="pawn-depth" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity=".4"/></filter><linearGradient id="pawn-light" x2="0" y2="1"><stop stop-color="#fff" stop-opacity=".28"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>';
   for(let y=0;y<9;y++)for(let x=0;x<9;x++){
     svg+=`<rect class="cell row${flipped()?8-y:y}" x="${22+x*70}" y="${22+y*70}" width="58" height="58" rx="9"/>`;
@@ -156,6 +157,7 @@ function render(){
   $('#app-status').textContent=$('#mode').value==='screen'?(screenCapture?.active?'화면 연결됨':'화면 연결 대기'):browserAI?'브라우저 AI · 내 기기에서 계산':'로컬 분석';
   const screen=$('#mode').value==='screen';screenCapture?.setVisible(screen);
   $('#opponent-settings').hidden=$('#mode').value!=='ai'||reviewPly!==null;
+  $('#ai-auto-hint-setting').hidden=$('#mode').value!=='ai';
   $('#side-label').parentElement.hidden=screen;$('#position-label').parentElement.hidden=screen;
   const watch=watching(),outcome=watch?watchOutcome():state.winner!==null?{type:'win',winner:state.winner}:null;
   $('#watch-panel').hidden=!watch;$('#human-settings').hidden=watch&&reviewPly===null;$('#side-label').textContent=watch?'기준 진영':'내 진영';$('#position-label').textContent=watch?'기준 진영 시작 위치':'내 시작 위치';
@@ -252,6 +254,7 @@ function applyMove(action){
 function commitMove(action){if(!legal(state,action))return;stop();applyMove(action);schedule();}
 function schedule(){
   if(reviewPly!==null){scheduleReview();return;}
+  if(busy)return;
   if($('#mode').value==='screen'){
     if(screenReady&&screenCapture?.active&&screenCapture.autoHint&&baseState&&state.winner===null&&state.turn===Number($('#side').value))think(false,'screen-auto');
     else if(screenReady&&screenCapture?.active&&screenCapture.autoHint&&baseState&&state.winner===null&&state.turn!==Number($('#side').value)&&false){
@@ -267,12 +270,13 @@ function schedule(){
   if(watching()||state.winner!==null)return;
   if(!human())think(true);
   else if($('#mode').value==='ai'){
+    if($('#ai-auto-hint').checked){if(!hint)think(false,'ai-auto');return;}
     clearTimeout(ponderTimer);const snapshot=clone(state);
     ponderTimer=setTimeout(()=>{if(!busy&&!watching())pool.search(snapshot,{ms:pool.ponderMs,ponder:true}).catch(()=>{});},200);
   }
 }
 function think(auto=false,reason='manual-analysis'){
-  stop(reason);busy=true;clearAnalysis();const id=serial,source=clone(state),selectedPool=auto?getOpponentPool():watching()?watchPool(state.turn):pool;
+  stop(reason);busy=true;autoAdviceActive=reason==='ai-auto';clearAnalysis();const id=serial,source=clone(state),selectedPool=auto?getOpponentPool():watching()?watchPool(state.turn):pool;
   const selectedEngine=auto?$('#opponent-engine').value:watching()?watchSettings(state.turn).engine:$('#play-engine').value;
   const requestedMs=auto?($('#opponent-time').value==='variable'?2000:Number($('#opponent-time').value)):watching()?watchSettings(state.turn).ms:playMs();
   render();$('#analysis').textContent='가능한 이동과 벽을 분석하고 있습니다…';
@@ -282,7 +286,7 @@ function think(auto=false,reason='manual-analysis'){
   const pondered=!auto&&!watching()?screenPonder.take(selectedPool,prepared,{defenseReply,wallStreak}):null;
   selectedPool.search(prepared,{defenseReply,wallStreak,ms:requestedMs,onProgress:()=>{}}).then(r=>{
     if(id!==serial)return;if(!r.pv?.length)throw Error('추천 가능한 수가 없습니다.');
-    r={...preferCompletedSearch(r,pondered),analysisEngineId:selectedEngine,analysisRole:auto?'opponent':'analysis',analysisBudgetMs:requestedMs};writeAnalysis({...r,done:true});busy=false;if(auto){commitMove(r.pv[0]);writeAnalysis(r,'상대 선택',source);}else {persist();render();}
+    r={...preferCompletedSearch(r,pondered),analysisEngineId:selectedEngine,analysisRole:auto?'opponent':'analysis',analysisBudgetMs:requestedMs};writeAnalysis({...r,done:true});busy=false;if(auto){commitMove(r.pv[0]);if(!autoAdviceActive)writeAnalysis(r,'상대 선택',source);}else {persist();render();}
   }).catch(error=>{if(id!==serial||error.name==='AbortError')return;stop();render();showAnalysisError(error);});
 }
 function variableStatus(){
@@ -357,11 +361,11 @@ function pick(e){
   return viewAction({type:'move',x:cx,y:cy});
 }
 $('#board').onpointermove=e=>{
-  if(reviewPly!==null||!human()||busy||state.winner!==null)return;const a=pick(e),preview=a?.type==='wall'?a:null;
+  if(reviewPly!==null||!human()||busy&&!autoAdviceActive||state.winner!==null)return;const a=pick(e),preview=a?.type==='wall'?a:null;
   $('#ghost').innerHTML=preview?wallSvg({...preview,owner:state.turn},validWall(state,preview)?'ghost valid':'ghost invalid'):'';$('#board').style.cursor=a&&legal(state,a)?'pointer':'default';
 };
 $('#board').onpointerleave=()=>{if($('#ghost'))$('#ghost').innerHTML='';};
-$('#board').onclick=e=>{if(reviewPly===null&&human()&&!busy&&state.winner===null){const a=pick(e);if(a)commitMove(a);}};
+$('#board').onclick=e=>{if(reviewPly===null&&human()&&(!busy||autoAdviceActive)&&state.winner===null){const a=pick(e);if(a)commitMove(a);}};
 function clearAnalysis(){clearRecommendationReason();$('#analysis').textContent='현재 차례의 추천 수와 예상 진행을 확인하세요.';$('#analysis-choice').textContent='추천 대기';$('#depth').textContent='';$('.analysis-scroll').scrollTop=0;hint=null;}
 function resetGame(){reviewCache.clear();reviewPly=null;reviewHint=null;stop();lastShownAdvice=null;lastAnalysisTrace=null;state=initial();baseState=null;observedBottom=null;screenRebased=false;screenSegments=[];decisionLog=[];past=[];records=[];clearAnalysis();persist();render();schedule();}
 function reviewSelect(n){stop('review-position-changed');clearAnalysis();reviewPly=Math.max(0,Math.min(records.length,n));const snap=reviewPly===records.length?state:past[reviewPly];const key=boardKey(snap);const saved=decisionLog.findLast(e=>e.kind==='recommendation'&&e.position===key&&e.turn===snap.turn&&e.pv?.[0]);reviewHint=saved?.pv[0]??null;$('#review-advice').textContent=saved?'당시 추천: '+notation(reviewHint)+' · '+(saved.engine??'AI'):'선택한 배치를 자동으로 분석합니다.';render();scheduleReview();}
@@ -422,6 +426,10 @@ $('#mode').onchange=()=>{stop('mode-changed');reviewPly=null;reviewHint=null;cle
 $('#side').onchange=()=>{stop();persist();render();schedule();};
 $('#start-position').onchange=()=>{persist();render();};
 $('#time').onchange=()=>{stop();clearAnalysis();persist();render();schedule();};
+$('#ai-auto-hint').onchange=()=>{
+  if($('#mode').value==='ai'&&reviewPly===null&&human()){stop('ai-auto-toggle');clearAnalysis();persist();render();schedule();}
+  else{persist();render();}
+};
 $('#cores').value=String(defaultCores);
 $('#play-engine').onchange=$('#cores').onchange=()=>{stop();$('#cores').disabled=false;pool.dispose();pool=createPlayPool(Number($('#cores').value));clearAnalysis();persist();render();schedule();};
 $('#opponent-engine').onchange=$('#opponent-time').onchange=()=>{stop('opponent-settings-changed');opponentPool?.dispose();opponentPool=null;$('#opponent-status').hidden=true;clearAnalysis();persist();render();schedule();};
@@ -432,7 +440,7 @@ $('#watch-delay').onchange=()=>{stop();persist();render();};
 $('#watch-start').onclick=()=>{stop();reviewPly=null;reviewHint=null;clearAnalysis();watcher.start();};
 $('#watch-pause').onclick=()=>{stop();render();};
 $('#watch-step').onclick=()=>{stop();reviewPly=null;reviewHint=null;clearAnalysis();watcher.step();};
-function sessionData(){return {runtime:browserAI?'browser-wasm':'python-local',settingsRevision:1,version:baseState?3:2,...(baseState?{baseState,sourceBottom:observedBottom,screenRebased,screenSegments}:{}),records,decisionLog,mode:$('#mode').value,side:Number($('#side').value),startPosition:$('#start-position').value,time:$('#time').value,cores:$('#cores').value,engine:$('#play-engine').value,opponent:{engine:$('#opponent-engine').value,time:$('#opponent-time').value},watch:{players:[watchSettings(0),watchSettings(1)],delay:Number($('#watch-delay').value)},result:watching()?watchOutcome():null};}
+function sessionData(){return {aiAutoHint:$('#ai-auto-hint').checked,runtime:browserAI?'browser-wasm':'python-local',settingsRevision:1,version:baseState?3:2,...(baseState?{baseState,sourceBottom:observedBottom,screenRebased,screenSegments}:{}),records,decisionLog,mode:$('#mode').value,side:Number($('#side').value),startPosition:$('#start-position').value,time:$('#time').value,cores:$('#cores').value,engine:$('#play-engine').value,opponent:{engine:$('#opponent-engine').value,time:$('#opponent-time').value},watch:{players:[watchSettings(0),watchSettings(1)],delay:Number($('#watch-delay').value)},result:watching()?watchOutcome():null};}
 function persist(){try{localStorage.setItem('quoridor-session',JSON.stringify(sessionData()));$('#storage-note').hidden=true;}catch{$('#storage-note').hidden=false;$('#storage-note').textContent='자동 저장 공간이 부족합니다. 기보 저장을 이용해 주세요.';}}
 function selectValue(id,value){const element=$(id);if(element.options&&[...element.options].some(option=>option.value===String(value)))element.value=String(value);else if(id==='#mode'){if(['ai','sandbox','watch','screen'].includes(String(value)))element.value=String(value);}else if(element.type==='hidden')element.value='1';}
 function restore(data,{startup=false}={}){reviewCache.clear();reviewPly=null;reviewHint=null;
@@ -440,6 +448,7 @@ function restore(data,{startup=false}={}){reviewCache.clear();reviewPly=null;rev
   const replay=restoreObservedSession(data);const archives=data.screenSegments??[];if(!Array.isArray(archives)||archives.length>8)throw Error('이전 화면 기보 보관 형식이 올바르지 않습니다.');const segments=archives.map(segment=>{const r=restoreObservedSession(segment);return {baseState:r.baseState,records:r.records,decisionLog:Array.isArray(segment.decisionLog)?segment.decisionLog.slice(-1000):[]};});stop();lastAnalysisTrace=null;decisionLog=Array.isArray(data.decisionLog)?data.decisionLog.slice(-1000):[];screenSegments=segments;state=replay.state;past=replay.past;records=replay.records;baseState=replay.baseState;screenRebased=!!baseState&&data.screenRebased===true;
   observedBottom=baseState&&[0,1].includes(data.sourceBottom)?data.sourceBottom:null;screenCapture?.setBottom(observedBottom);
   selectValue('#mode',data.mode);selectValue('#side',data.side);selectValue('#time',data.time);selectValue('#cores',data.cores);selectValue('#play-engine',data.engine);selectValue('#opponent-engine',data.opponent.engine);selectValue('#opponent-time',data.opponent.time);
+  $('#ai-auto-hint').checked=data.aiAutoHint;
   $('#engine-import-note').hidden=!data.unsupportedEngine;$('#engine-import-note').textContent=data.unsupportedEngine?`기보의 원본 엔진 ${data.unsupportedEngine}은 선택 목록에서 제외됐습니다. 기록은 유지하고 새 분석에는 Sigma 4를 사용합니다.`:'';
   selectValue('#start-position',data.startPosition??'top');
   if($('#mode').value==='screen'&&observedBottom!==null){$('#side').value=String(observedBottom);$('#start-position').value='bottom';}

@@ -5,7 +5,7 @@ export function normalizeSessionSettings(data,{startup=false}={}){
  const time=!migrate&&['500','variable'].includes(String(data.time))?String(data.time):'variable';
  return {...data,settingsRevision:1,
   unsupportedEngine:data.engine&&!supportedEngines.includes(data.engine)?data.engine:null,
-  engine,
+  engine,aiAutoHint:data.aiAutoHint===true,
   opponent:{engine:supportedEngines.includes(data.opponent?.engine)?data.opponent.engine:engine,time:['500','variable'].includes(String(data.opponent?.time))?String(data.opponent.time):time},
   time,mode:migrate?'screen':data.mode??'screen',cores:1,
   watch:{...data.watch,players:[0,1].map(t=>{

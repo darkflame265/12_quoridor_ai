@@ -1,5 +1,10 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {AdaptiveEngine} from '../../src/ai/adaptive-engine.js';import {NativeClient} from '../../src/ai/native-client.js';import {normalizeSessionSettings,supportedEngines} from '../../src/history/session-settings.js';import {initial} from '../../src/game/engine.js';
+
+test('AI match auto advice is opt-in and only restores an actual boolean',()=>{
+ for(const value of [undefined,false,'true',1])assert.equal(normalizeSessionSettings({aiAutoHint:value}).aiAutoHint,false);
+ assert.equal(normalizeSessionSettings({aiAutoHint:true},{startup:true}).aiAutoHint,true);
+});
 test('only Sigma 2,3,4 are supported and removed selections migrate without losing records',()=>{
  assert.deepEqual(supportedEngines,['sigma2','sigma3','sigma4']);
  const records=[{type:'move',x:4,y:7}];const migrated=normalizeSessionSettings({engine:'atlas5',records,watch:{players:[{engine:'sigma'},{engine:'atlas-goal'}]}});

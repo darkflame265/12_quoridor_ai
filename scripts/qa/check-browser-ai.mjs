@@ -20,9 +20,10 @@ try{
  await send('Page.enable');await send('Runtime.enable');await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1100,deviceScaleFactor:1,mobile:false});await send('Browser.setDownloadBehavior',{behavior:'deny'},null);
  await send('Page.navigate',{url:'http://127.0.0.1:'+server.address().port+'/12_quoridor_ai/'});
  await until(`document.querySelector('#mode')?.value==='ai'&&!!document.querySelector('.move-dot')`);
- await evaluate(`document.querySelector('#time').value='500';document.querySelector('#time').dispatchEvent(new Event('change'));document.querySelector('#hint').click()`);
+ assert.equal(await evaluate(`document.querySelector('#ai-auto-hint').checked`),false);
+ await evaluate(`document.querySelector('#time').value='500';document.querySelector('#time').dispatchEvent(new Event('change'));document.querySelector('#ai-auto-hint').click()`);
  await until(`!document.querySelector('#hint').disabled&&JSON.parse(localStorage.getItem('quoridor-session')).decisionLog.some(x=>x.kind==='recommendation')`);
- const log=await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).decisionLog`);assert.ok(legal(initial(),log.findLast(x=>x.kind==='recommendation').pv[0]));checks.push('real browser ONNX inference and legal PUCT recommendation under project subpath');
+ const log=await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).decisionLog`);assert.ok(legal(initial(),log.findLast(x=>x.kind==='recommendation').pv[0]));checks.push('opt-in human-turn automatic advice runs real browser ONNX and PUCT under project subpath');
  const workerAsset=(await readFile(path.join(dist,'index.html'),'utf8'));
  const files=await (await import('node:fs/promises')).readdir(path.join(dist,'assets'));const workerFile=files.find(x=>x.startsWith('browser-engine-worker-')&&x.endsWith('.js'));
  const fixtures=JSON.parse(await readFile(path.join(root,'tests/fixtures/sigma-browser-parity.json'),'utf8'));
@@ -31,6 +32,9 @@ try{
  checks.push('WASM policy/value agree with Python ONNX on four canonical encoding fixtures');
  await evaluate(`document.querySelector('.move-dot').dispatchEvent(new MouseEvent('click',{bubbles:true,clientX:document.querySelector('.move-dot').getBoundingClientRect().x+4,clientY:document.querySelector('.move-dot').getBoundingClientRect().y+4}))`);
  await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===2`);checks.push('human move receives an actual browser AI reply without a server');
+ await until(`!document.querySelector('#hint').disabled&&!!document.querySelector('#board .recommend')`);
+ assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).decisionLog.findLast(x=>x.kind==='recommendation').role`),'analysis');
+ checks.push('browser AI match automatically shows human advice again after the opponent reply');
  await evaluate(`document.querySelector('[data-mode="sandbox"]').click()`);
  const timings=[];
  for(const engine of ['sigma2','sigma3','sigma4']){

@@ -1,10 +1,11 @@
 import {spawn} from 'node:child_process';
 import readline from 'node:readline';
 import {SigmaProcess} from './sigma-process.mjs';
-import {chooseLookaheadSigma4} from '../scripts/sigma4-lookahead-choice.mjs';
+import {chooseWeightedResearchCandidate} from '../scripts/sigma4-weighted-research-choice.mjs';
 import {legal} from '../src/engine.js';
 
-// Isolated Sigma3 model search; Sigma4 adds the bounded tactical policy.
+// Production Sigma4 uses the best-performing original weighted-root research policy (V3 settings).
+// The earlier bounded 3-ply deployment is deliberately no longer used.
 export class Sigma4Process extends SigmaProcess {
  constructor(){
   super({variant:'sigma3'});
@@ -12,7 +13,7 @@ export class Sigma4Process extends SigmaProcess {
  }
  ensure(){
   if(this.child)return this.ready;
-  const child=spawn('python',['-u','scripts/sigma-inference-worker.py'],{
+  const child=spawn('python',['-u','scripts/sigma4-bitset-wall-worker.py'],{
    env:{...process.env,SIGMA_MODE:'puct',SIGMA_SIMS:'50',SIGMA_VARIANT:'sigma3',
     SIGMA2_SIMS:'200',SIGMA2_REUSE:'0',SIGMA2_DETERMINISTIC:'1',
     SIGMA_EXPLORATION:'0',SIGMA_DIAGNOSTICS:'1'},
@@ -51,11 +52,19 @@ export class Sigma4Process extends SigmaProcess {
   for(let i=0;i<seedText.length;i++)seed=Math.imul(seed^seedText.charCodeAt(i),16777619)>>>0;
   const random=()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return(seed>>>0)/4294967296;};
   const started=performance.now();
-  const policy=chooseLookaheadSigma4(state,base,random);
-  if(!legal(state,policy.action))throw Error('Sigma4 tactical policy returned an illegal action');
+  // Parameters match the original weighted Sigma4 benchmark: 9/12 vs Sigma2,
+  // 6/12 vs Sigma3. The bitset wall worker preserves the same 200-sim decisions.
+  const policy=chooseWeightedResearchCandidate(state,base,random,{
+   rate:.72,temperature:1.2,qTemperature:.15,maxQDrop:.15,
+   minVisits:5,minVisitRatio:.06
+  });
+  if(!legal(state,policy.action))throw Error('Sigma4 weighted policy returned an illegal action');
   const extra=performance.now()-started;
   return {...base,pv:[policy.action],elapsedMs:(base.elapsedMs??0)+extra,
-   sigma4:{reason:policy.reason,changed:policy.changed,lookaheadNodes:policy.lookaheadNodes??0,
-    baseAction:native,policy:'bounded-3ply-tactical-q-visit'}};
+   sigma4:{reason:policy.reason,changed:policy.changed,
+    baseAction:native,policy:'original-weighted-v3-visit-q',
+    candidates:policy.candidates??0,
+    selectedVisits:policy.selectedVisits??null,
+    selectedQ:policy.selectedQ??null}};
  }
 }

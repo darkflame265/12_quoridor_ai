@@ -131,7 +131,7 @@ const liveState=()=>state;
 function drawBoard(){
   const state=reviewPly===null?liveState():reviewPly===records.length?liveState():past[reviewPly];
   const can=reviewPly===null&&human()&&!busy&&state.winner===null,options=can?moves(state):[],last=reviewPly===null?records.at(-1):records[reviewPly-1];
-  let svg='<svg viewBox="0 0 664 664" role="img" aria-label="쿼리도 보드">';
+  let svg='<svg viewBox="0 0 664 664" role="img" aria-label="쿼리도 보드"><defs><filter id="pawn-depth" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity=".4"/></filter><linearGradient id="pawn-light" x2="0" y2="1"><stop stop-color="#fff" stop-opacity=".28"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>';
   for(let y=0;y<9;y++)for(let x=0;x<9;x++){
     svg+=`<rect class="cell row${flipped()?8-y:y}" x="${22+x*70}" y="${22+y*70}" width="58" height="58" rx="9"/>`;
     if(x===0)svg+=`<text x="11" y="${56+y*70}">${flipped()?y+1:9-y}</text>`;
@@ -143,7 +143,7 @@ function drawBoard(){
   }
   for(const move of options){const p=viewPosition(move);svg+=`<circle class="move-dot" cx="${51+p.x*70}" cy="${51+p.y*70}" r="9"/>`;}
   state.walls.forEach((w,i)=>{svg+=wallSvg(w,last?.type==='wall'&&i===state.walls.length-1?'last-wall':'');});
-  state.p.forEach((position,t)=>{const p=viewPosition(position);svg+=`<circle class="pawn-ring" cx="${51+p.x*70}" cy="${51+p.y*70}" r="24" stroke="${colors[t]}"/><circle class="pawn" cx="${51+p.x*70}" cy="${51+p.y*70}" r="18" fill="${colors[t]}"/>`;});
+  state.p.forEach((position,t)=>{const p=viewPosition(position);svg+=`<circle class="pawn-ring" cx="${51+p.x*70}" cy="${51+p.y*70}" r="24" stroke="${colors[t]}"/><circle class="pawn" cx="${51+p.x*70}" cy="${51+p.y*70}" r="18" fill="${colors[t]}"/><circle class="pawn-sheen" cx="${51+p.x*70}" cy="${51+p.y*70}" r="17" fill="url(#pawn-light)"/>`;});
   const advice=reviewPly===null?hint:reviewHint;
   if(advice){if(advice.type==='wall')svg+=wallSvg({...advice,owner:state.turn},'recommend');else{const p=viewPosition(advice);svg+=`<circle class="recommend" cx="${51+p.x*70}" cy="${51+p.y*70}" r="23" fill="none" stroke="#f4d18a" stroke-width="3"/>`;}}
   $('#board').innerHTML=svg+'<g id="ghost"></g></svg>';
@@ -166,7 +166,7 @@ function render(){
   $('#watch-step').disabled=watcher.running||busy||!!outcome;
   for(const t of [0,1]){$(`#watch-cores-${t}`).disabled=false;}
   $('#instruction').textContent=watch?'두 AI의 대국을 관전합니다 · 금색 표시는 방금 둔 수입니다':'점을 클릭해 이동 · 칸 사이에 커서를 대고 클릭해 벽 설치';
-  $('#result').hidden=!outcome;
+  $('#result').hidden=true;
   if(outcome){$('#result').textContent=outcome.type==='win'?`${names[outcome.winner]} 승리 · ${records.length}수`:`관전 무승부 · ${outcome.reason==='repetition'?'같은 배치가 3회 반복되었습니다':'관전 최대 300수에 도달했습니다'}`;}
   drawBoard();
   const shownState=reviewPly===null?state:reviewPly===records.length?state:past[reviewPly];
@@ -196,6 +196,17 @@ function render(){
     $('#instruction').textContent=!baseState?'화면을 가져와 검토·적용하면 이 보드가 바뀝니다':screenCapture?.active?'자동 감시 중 · 안정된 합법 수를 반영하고 내 차례에 추천합니다':'자동 감시는 일시정지 상태입니다 · 화면 공유 후 감시 재개를 누르세요';
   }
   $('#hint').textContent=reviewPly===null?'✦ 최선 수 분석':'↻ 다시 분석';
+  const terminal=reviewPly===null&&outcome;
+  $('#wait-advice').dataset.phase=terminal?'terminal':busy?'thinking':reviewPly!==null?'review':hint?'ready':'idle';
+  if(terminal){
+    $('#wait-advice').dataset.level='done';$('#analysis-choice').textContent=outcome.type==='win'?`${names[outcome.winner]} 승리 · ${records.length}수`:'관전 종료 · 무승부';
+    $('#wait-label').textContent='대국 종료';$('#analysis-reason').textContent='기보에서 수를 선택하면 그 시점의 추천과 이유를 확인할 수 있습니다.';
+    $('#depth').textContent='';$('#wait-reason').textContent='기보를 선택해 복기하세요.';$('#wait-timing').textContent='';$('#position-verdict').textContent='';$('#advice-change').hidden=true;$('#variable-controls').hidden=true;
+    $('#instruction').textContent='대국이 끝났습니다 · 오른쪽 기보에서 중요한 순간을 다시 살펴보세요';
+  }else if(!hint&&reviewPly===null&&!busy){
+    $('#analysis-choice').textContent=screen&&!baseState?'게임 화면을 연결하세요':watch?'AI 대국 관전':human()?'다음 한 수를 살펴보세요':'상대의 차례';
+    $('#analysis-reason').textContent=screen&&!baseState?'게임 화면 연결 버튼으로 보드를 가져오면 추천 분석이 시작됩니다.':watch?'두 엔진의 선택을 관찰하거나 기보를 선택해 복기할 수 있습니다.':human()?'최선 수 분석을 누르면 추천 위치와 선택 이유를 알려드립니다.':'상대의 수가 반영되면 현재 배치에서 분석할 수 있습니다.';
+  }
   if(reviewPly!==null){
    const snapshot=reviewPly===records.length?state:past[reviewPly];
    $('#hint').disabled=busy||snapshot.winner!==null;

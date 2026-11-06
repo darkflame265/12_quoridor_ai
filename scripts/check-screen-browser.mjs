@@ -175,6 +175,19 @@ try{
  await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false});
  await evaluate(`document.fonts.ready`);await mkdir(path.join(root,'docs/images'),{recursive:true});
  await writeFile(path.join(root,'docs/images/portfolio-desktop.png'),Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+ const boardTop=await evaluate(`document.querySelector('#board').getBoundingClientRect().top`);
+ await evaluate(`(()=>{const saved={version:3,mode:'sandbox',side:0,startPosition:'bottom',engine:'sigma4',time:'500',baseState:{p:[{x:4,y:1},{x:0,y:4}],walls:[],left:[10,10],turn:0,winner:null},records:[{type:'move',x:4,y:0}]},input=document.querySelector('#file'),data=new DataTransfer();data.items.add(new File([JSON.stringify(saved)],'terminal.json',{type:'application/json'}));input.files=data.files;input.dispatchEvent(new Event('change'));})()`);
+ await until(`document.querySelector('#wait-advice').dataset.phase==='terminal'`);
+ assert.equal(await evaluate(`document.querySelector('#result').hidden`),true);
+ assert.equal(await evaluate(`document.querySelector('#hint').disabled`),true);
+ assert.equal(await evaluate(`document.querySelector('#analysis-choice').textContent.includes('1')`),true);
+ assert.equal(await evaluate(`document.querySelector('#board').getBoundingClientRect().top`),boardTop);
+ await new Promise(r=>setTimeout(r,250));
+ await writeFile(path.join(root,'docs/images/portfolio-terminal.png'),Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+ await send('Emulation.setDeviceMetricsOverride',{width:390,height:1000,deviceScaleFactor:1,mobile:false});
+ assert.equal(await evaluate(`document.documentElement.scrollWidth>innerWidth`),false);
+ await writeFile(path.join(root,'docs/images/portfolio-mobile.png'),Buffer.from((await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true})).data,'base64'));
+ checks.push('terminal result replaces pending advice without duplicate banner or board movement; mobile has no horizontal overflow');
  assert.deepEqual(errors,[]);await writeFile(path.join(out,'browser-smoke.json'),JSON.stringify({checks,uncaughtErrors:errors,syntheticCaptureAndService:true},null,2));console.log(JSON.stringify({checks,uncaughtErrors:errors}));
 }finally{
  if(ws?.readyState===WebSocket.OPEN){try{await send('Browser.close',{},null);}catch{}ws.close();}

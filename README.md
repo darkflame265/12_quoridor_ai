@@ -2,6 +2,8 @@
 
 쿼리도 대전·관전·기보 복기를 지원하고, 추천 수의 효과를 쉬운 문장으로 설명하는 웹 앱입니다. 화면 공유를 통한 보드 인식과 동기화도 제공합니다.
 
+[사이트 실행](https://darkflame265.github.io/12_quoridor_ai/) · [배포 상태](https://github.com/darkflame265/12_quoridor_ai/actions/workflows/pages.yml) · [배포 안내](docs/DEPLOYMENT.md)
+
 ![앱 화면](docs/images/portfolio-desktop.png)
 
 ## 브라우저 AI로 실행

@@ -1,0 +1,383 @@
+{
+  "version": "sigma4-research-residual-value-v1",
+  "description": "Research-only 6-input residual neural probability head, NOT a drop-in replacement for the 8x9x9 ONNX value evaluator",
+  "randomSeed": 20261106,
+  "featureNames": [
+    "originalValueLogitDiv4",
+    "ownMinusOpponentPathDiv10",
+    "ownMinusOpponentWallsDiv10",
+    "plyDiv100",
+    "placedWallsDiv20",
+    "remainingWallsDiv20"
+  ],
+  "oldDevelopmentCount": 308,
+  "newUnanimousDevelopmentCount": 12,
+  "newAmbiguousDevelopmentExcluded": 0,
+  "oldHoldoutCount": 89,
+  "newHoldoutCount": 4,
+  "holdoutNeverUsedToSelectEpoch": true,
+  "internalValidationGroups": [
+    "new-independent-wall-035",
+    "new-independent-wall-036",
+    "new-independent-wall-048",
+    "old-b1ca7ab6cfdaa7a3c056a7f6ec061d39eb2d3e50308125c8d7e814476001d16e",
+    "old-efe50b20f05e927002235b417778182164289f52f685a167a2f0e41ca9b3356f"
+  ],
+  "bestInternalDevelopmentEpoch": 60,
+  "bestInternalDevelopmentBrier": 0.13044893358601697,
+  "innerValidationOriginalBrier": 0.1678776928285392,
+  "development": {
+    "nPositions": 320,
+    "groups": 20,
+    "originalBrier": 0.08704787346903002,
+    "prototypeBrier": 0.06846055892404393,
+    "originalGroupMacroBrier": 0.14566527890050868,
+    "prototypeGroupMacroBrier": 0.096988244964022,
+    "originalMeanP": 0.37006522639712786,
+    "prototypeMeanP": 0.3559323505111422,
+    "observedMean": 0.3375
+  },
+  "oldHoldout": {
+    "nPositions": 89,
+    "groups": 3,
+    "originalBrier": 0.275565196765342,
+    "prototypeBrier": 0.1879188510284155,
+    "originalGroupMacroBrier": 0.2944679630320793,
+    "prototypeGroupMacroBrier": 0.21378129770585116,
+    "originalMeanP": 0.45574820636028657,
+    "prototypeMeanP": 0.341638758600352,
+    "observedMean": 0.2696629213483146
+  },
+  "newHoldout": {
+    "nPositions": 4,
+    "groups": 4,
+    "originalBrier": 0.05607566579277856,
+    "prototypeBrier": 0.053650419332958624,
+    "originalGroupMacroBrier": 0.05607566579277856,
+    "prototypeGroupMacroBrier": 0.053650419332958624,
+    "originalMeanP": 0.2588498890399933,
+    "prototypeMeanP": 0.26655397191643715,
+    "observedMean": 0.3125
+  },
+  "combinedHoldout": {
+    "nPositions": 93,
+    "groups": 7,
+    "originalBrier": 0.2661247868310382,
+    "prototypeBrier": 0.18214386471893343,
+    "originalGroupMacroBrier": 0.1582437931810503,
+    "prototypeGroupMacroBrier": 0.12227793863562686,
+    "originalMeanP": 0.4472794615293062,
+    "prototypeMeanP": 0.338409305409646,
+    "observedMean": 0.271505376344086
+  },
+  "notes": [
+    "Soft observed labels only for scoring; only unanimous new DEVELOPMENT labels used to fit",
+    "Development and holdout are disjoint by position and opening group",
+    "No existing ONNX model modified and no production worker changed",
+    "Outcomes are conditional on policies and trajectories, not solved minimax truth"
+  ],
+  "researchOnly": true,
+  "productionPromotionApproved": false,
+  "epochTrace": [
+    {
+      "epoch": 1,
+      "internalValidationGroupBrier": 0.16742173577970848,
+      "trainingLoss": 0.4558989703655243
+    },
+    {
+      "epoch": 2,
+      "internalValidationGroupBrier": 0.1668720692833952,
+      "trainingLoss": 0.45328474044799805
+    },
+    {
+      "epoch": 3,
+      "internalValidationGroupBrier": 0.16629081855770583,
+      "trainingLoss": 0.4501803517341614
+    },
+    {
+      "epoch": 4,
+      "internalValidationGroupBrier": 0.16570325599279984,
+      "trainingLoss": 0.4466870427131653
+    },
+    {
+      "epoch": 5,
+      "internalValidationGroupBrier": 0.16516504327340084,
+      "trainingLoss": 0.44307053089141846
+    },
+    {
+      "epoch": 6,
+      "internalValidationGroupBrier": 0.16472022104064377,
+      "trainingLoss": 0.43966877460479736
+    },
+    {
+      "epoch": 7,
+      "internalValidationGroupBrier": 0.16438452094226347,
+      "trainingLoss": 0.43681368231773376
+    },
+    {
+      "epoch": 8,
+      "internalValidationGroupBrier": 0.16408321944884904,
+      "trainingLoss": 0.43472525477409363
+    },
+    {
+      "epoch": 9,
+      "internalValidationGroupBrier": 0.1636777166709299,
+      "trainingLoss": 0.4332317113876343
+    },
+    {
+      "epoch": 10,
+      "internalValidationGroupBrier": 0.16307996222022936,
+      "trainingLoss": 0.4317815601825714
+    },
+    {
+      "epoch": 11,
+      "internalValidationGroupBrier": 0.1622718710738857,
+      "trainingLoss": 0.42994970083236694
+    },
+    {
+      "epoch": 12,
+      "internalValidationGroupBrier": 0.1612767812695517,
+      "trainingLoss": 0.4276321530342102
+    },
+    {
+      "epoch": 13,
+      "internalValidationGroupBrier": 0.160142300995278,
+      "trainingLoss": 0.42494815587997437
+    },
+    {
+      "epoch": 14,
+      "internalValidationGroupBrier": 0.1589346398670815,
+      "trainingLoss": 0.42211371660232544
+    },
+    {
+      "epoch": 15,
+      "internalValidationGroupBrier": 0.15773384284276276,
+      "trainingLoss": 0.41935107111930847
+    },
+    {
+      "epoch": 16,
+      "internalValidationGroupBrier": 0.1566180169391811,
+      "trainingLoss": 0.4168236255645752
+    },
+    {
+      "epoch": 17,
+      "internalValidationGroupBrier": 0.15563727923855128,
+      "trainingLoss": 0.41458725929260254
+    },
+    {
+      "epoch": 18,
+      "internalValidationGroupBrier": 0.1548020020444466,
+      "trainingLoss": 0.41257572174072266
+    },
+    {
+      "epoch": 19,
+      "internalValidationGroupBrier": 0.15409887128408623,
+      "trainingLoss": 0.4106430411338806
+    },
+    {
+      "epoch": 20,
+      "internalValidationGroupBrier": 0.1535168051728279,
+      "trainingLoss": 0.40864014625549316
+    },
+    {
+      "epoch": 21,
+      "internalValidationGroupBrier": 0.15306366848070974,
+      "trainingLoss": 0.40648335218429565
+    },
+    {
+      "epoch": 22,
+      "internalValidationGroupBrier": 0.15276641165272858,
+      "trainingLoss": 0.40418103337287903
+    },
+    {
+      "epoch": 23,
+      "internalValidationGroupBrier": 0.1526546727040934,
+      "trainingLoss": 0.4018084704875946
+    },
+    {
+      "epoch": 24,
+      "internalValidationGroupBrier": 0.15273471436525116,
+      "trainingLoss": 0.3994510769844055
+    },
+    {
+      "epoch": 25,
+      "internalValidationGroupBrier": 0.15296845134693263,
+      "trainingLoss": 0.3971458375453949
+    },
+    {
+      "epoch": 26,
+      "internalValidationGroupBrier": 0.1532776726474156,
+      "trainingLoss": 0.39485403895378113
+    },
+    {
+      "epoch": 27,
+      "internalValidationGroupBrier": 0.15357752623924176,
+      "trainingLoss": 0.3924894332885742
+    },
+    {
+      "epoch": 28,
+      "internalValidationGroupBrier": 0.15381284266720682,
+      "trainingLoss": 0.3899962902069092
+    },
+    {
+      "epoch": 29,
+      "internalValidationGroupBrier": 0.15397033700239,
+      "trainingLoss": 0.38741451501846313
+    },
+    {
+      "epoch": 30,
+      "internalValidationGroupBrier": 0.15406936491112472,
+      "trainingLoss": 0.38487255573272705
+    },
+    {
+      "epoch": 31,
+      "internalValidationGroupBrier": 0.154146193792474,
+      "trainingLoss": 0.38250842690467834
+    },
+    {
+      "epoch": 32,
+      "internalValidationGroupBrier": 0.15423920021611087,
+      "trainingLoss": 0.38037610054016113
+    },
+    {
+      "epoch": 33,
+      "internalValidationGroupBrier": 0.15437303463352595,
+      "trainingLoss": 0.3784133493900299
+    },
+    {
+      "epoch": 34,
+      "internalValidationGroupBrier": 0.15454015028693835,
+      "trainingLoss": 0.37651416659355164
+    },
+    {
+      "epoch": 35,
+      "internalValidationGroupBrier": 0.15467950016973536,
+      "trainingLoss": 0.37463513016700745
+    },
+    {
+      "epoch": 36,
+      "internalValidationGroupBrier": 0.15466289747353495,
+      "trainingLoss": 0.37281370162963867
+    },
+    {
+      "epoch": 37,
+      "internalValidationGroupBrier": 0.15432126636008525,
+      "trainingLoss": 0.3710794150829315
+    },
+    {
+      "epoch": 38,
+      "internalValidationGroupBrier": 0.1535181639856354,
+      "trainingLoss": 0.36936691403388977
+    },
+    {
+      "epoch": 39,
+      "internalValidationGroupBrier": 0.15220821724686678,
+      "trainingLoss": 0.36755606532096863
+    },
+    {
+      "epoch": 40,
+      "internalValidationGroupBrier": 0.1504437896274049,
+      "trainingLoss": 0.3656006455421448
+    },
+    {
+      "epoch": 41,
+      "internalValidationGroupBrier": 0.14836197388254696,
+      "trainingLoss": 0.3635734021663666
+    },
+    {
+      "epoch": 42,
+      "internalValidationGroupBrier": 0.14616485471525406,
+      "trainingLoss": 0.36158323287963867
+    },
+    {
+      "epoch": 43,
+      "internalValidationGroupBrier": 0.14406725067767995,
+      "trainingLoss": 0.35966914892196655
+    },
+    {
+      "epoch": 44,
+      "internalValidationGroupBrier": 0.1422138302612797,
+      "trainingLoss": 0.35779136419296265
+    },
+    {
+      "epoch": 45,
+      "internalValidationGroupBrier": 0.1406211955850632,
+      "trainingLoss": 0.35593274235725403
+    },
+    {
+      "epoch": 46,
+      "internalValidationGroupBrier": 0.1391813700303579,
+      "trainingLoss": 0.3541451692581177
+    },
+    {
+      "epoch": 47,
+      "internalValidationGroupBrier": 0.13773506775672453,
+      "trainingLoss": 0.3524569869041443
+    },
+    {
+      "epoch": 48,
+      "internalValidationGroupBrier": 0.1361994197911432,
+      "trainingLoss": 0.35080915689468384
+    },
+    {
+      "epoch": 49,
+      "internalValidationGroupBrier": 0.13466139165762978,
+      "trainingLoss": 0.3491514325141907
+    },
+    {
+      "epoch": 50,
+      "internalValidationGroupBrier": 0.13335774576109646,
+      "trainingLoss": 0.34753450751304626
+    },
+    {
+      "epoch": 51,
+      "internalValidationGroupBrier": 0.13253137521860062,
+      "trainingLoss": 0.346029132604599
+    },
+    {
+      "epoch": 52,
+      "internalValidationGroupBrier": 0.13224871926041223,
+      "trainingLoss": 0.3446253836154938
+    },
+    {
+      "epoch": 53,
+      "internalValidationGroupBrier": 0.1323374702695196,
+      "trainingLoss": 0.34329700469970703
+    },
+    {
+      "epoch": 54,
+      "internalValidationGroupBrier": 0.13247109043180233,
+      "trainingLoss": 0.34207433462142944
+    },
+    {
+      "epoch": 55,
+      "internalValidationGroupBrier": 0.13235502215048173,
+      "trainingLoss": 0.3409619629383087
+    },
+    {
+      "epoch": 56,
+      "internalValidationGroupBrier": 0.13191258253235033,
+      "trainingLoss": 0.33989253640174866
+    },
+    {
+      "epoch": 57,
+      "internalValidationGroupBrier": 0.13130623214795836,
+      "trainingLoss": 0.33882802724838257
+    },
+    {
+      "epoch": 58,
+      "internalValidationGroupBrier": 0.1307908197851572,
+      "trainingLoss": 0.3377939760684967
+    },
+    {
+      "epoch": 59,
+      "internalValidationGroupBrier": 0.13052026965133984,
+      "trainingLoss": 0.33679527044296265
+    },
+    {
+      "epoch": 60,
+      "internalValidationGroupBrier": 0.13044893358601697,
+      "trainingLoss": 0.33581092953681946
+    }
+  ]
+}

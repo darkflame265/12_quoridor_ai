@@ -1,0 +1,282 @@
+{
+  "version": "sigma4-residual-onnx-matched-match-audit-v1",
+  "gates": {
+    "all32GamesComplete": true,
+    "allMovesLegal": true,
+    "startingPositionsTrainingDisjoint": true,
+    "matchedPolicySeed": true,
+    "winningImprovement": false,
+    "500msStrict": false,
+    "productionApproved": false
+  },
+  "variants": {
+    "original": {
+      "games": 16,
+      "wins": 8,
+      "losses": 8,
+      "vsSigma2": {
+        "games": 8,
+        "wins": 4
+      },
+      "vsSigma3": {
+        "games": 8,
+        "wins": 4
+      },
+      "latency": {
+        "moves": 247,
+        "meanMs": 172.71065141700387,
+        "medianMs": 150.64800000000105,
+        "p95Ms": 365.9598999999871,
+        "p99Ms": 527.6508999999787,
+        "maxMs": 734.5083999999915,
+        "over500": 3
+      }
+    },
+    "corrected": {
+      "games": 16,
+      "wins": 8,
+      "losses": 8,
+      "vsSigma2": {
+        "games": 8,
+        "wins": 4
+      },
+      "vsSigma3": {
+        "games": 8,
+        "wins": 4
+      },
+      "latency": {
+        "moves": 247,
+        "meanMs": 188.14824251012138,
+        "medianMs": 165.45690000001923,
+        "p95Ms": 378.80259999999544,
+        "p99Ms": 498.9467000000004,
+        "maxMs": 707.539300000004,
+        "over500": 2
+      }
+    }
+  },
+  "pairedComparisons": [
+    {
+      "id": "independent-wall-021",
+      "opponent": "sigma2",
+      "candidateSide": 0,
+      "seed": 161924604,
+      "originalWon": false,
+      "correctedWon": false,
+      "changedGameSequence": false,
+      "improved": false,
+      "regressed": false,
+      "originalPlies": 34,
+      "correctedPlies": 34
+    },
+    {
+      "id": "independent-wall-021",
+      "opponent": "sigma2",
+      "candidateSide": 1,
+      "seed": 161926321,
+      "originalWon": true,
+      "correctedWon": true,
+      "changedGameSequence": true,
+      "improved": false,
+      "regressed": false,
+      "originalPlies": 46,
+      "correctedPlies": 46
+    },
+    {
+      "id": "independent-wall-021",
+      "opponent": "sigma3",
+      "candidateSide": 0,
+      "seed": 161924705,
+      "originalWon": false,
+      "correctedWon": false,
+      "changedGameSequence": false,
+      "improved": false,
+      "regressed": false,
+      "originalPlies": 34,
+      "correctedPlies": 34
+    },
+    {
+      "id": "independent-wall-021",
+      "opponent": "sigma3",
+      "candidateSide": 1,
+      "seed": 161926422,
+      "originalWon": true,
+      "correctedWon": true,
+      "changedGameSequence": false,
+      "improved": false,
+      "regressed": false,
+      "originalPlies": 44,
+      "correctedPlies": 44
+    },
+    {
+      "id": "independent-wall-025",
+      "opponent": "sigma2",
+      "candidateSide": 0,
+      "seed": 162037280,
+      "originalWon": false,
+      "correctedWon": false,
+      "changedGameSequence": true,
+      "improved": false,
+      "regressed": false,
+      "originalPlies": 76,
+      "correctedPlies": 70
+    },
+    {
+      "id": "independent-wall-025",
+      "opponent": "sigma2",
+      "candidateSide": 1,
+      "seed": 162038997,
+      "originalWon": true,
+      "correctedWon": true,
+      "changedGameSequence": true,
+      "improved": false,
+      "regressed": false,
+      "originalPlies": 70,
+      "correctedPlies": 74
+    },
+    {
+      "id": "independent-wall-025",
+      "opponent": "sigma3",
+      "candidateSide": 0,
+      "seed": 162037381,
+      "originalWon": false,
+      "correctedWon": false,
+      "changedGameSequence": true,
+      "improved": false,
+      "regressed": false,
+      "originalPlies": 70,
+      "correctedPlies": 70
+    },
+    {
+      "id": "independent-wall-025",
+      "opponent": "sigma3",
+      "candidateSide": 1,
+      "seed": 162039098,
+      "originalWon": true,
+      "correctedWon": true,
+      "changedGameSequence": true,
+      "improved": false,
+      "regressed": false,
+      "originalPlies": 70,
+      "correctedPlies": 74
+    },
+    {
+      "id": "independent-wall-037",
+      "opponent": "sigma2",
+      "candidateSide": 0,
+      "seed": 162403477,
+      "originalWon": false,
+      "correctedWon": false,
+      "changedGameSequence": true,
+      "improved": false,
+      "regressed": false,
+      "originalPlies": 52,
+      "correctedPlies": 50
+    },
+    {
+      "id": "independent-wall-037",
+      "opponent": "sigma2",
+      "candidateSide": 1,
+      "seed": 162405194,
+      "originalWon": true,
+      "correctedWon": true,
+      "changedGameSequence": true,
+      "improved": false,
+      "regressed": false,
+      "originalPlies": 52,
+      "correctedPlies": 62
+    },
+    {
+      "id": "independent-wall-037",
+      "opponent": "sigma3",
+      "candidateSide": 0,
+      "seed": 162403578,
+      "originalWon": false,
+      "correctedWon": false,
+      "changedGameSequence": true,
+      "improved": false,
+      "regressed": false,
+      "originalPlies": 52,
+      "correctedPlies": 58
+    },
+    {
+      "id": "independent-wall-037",
+      "opponent": "sigma3",
+      "candidateSide": 1,
+      "seed": 162405295,
+      "originalWon": true,
+      "correctedWon": true,
+      "changedGameSequence": true,
+      "improved": false,
+      "regressed": false,
+      "originalPlies": 60,
+      "correctedPlies": 60
+    },
+    {
+      "id": "independent-wall-041",
+      "opponent": "sigma2",
+      "candidateSide": 0,
+      "seed": 162516153,
+      "originalWon": true,
+      "correctedWon": true,
+      "changedGameSequence": true,
+      "improved": false,
+      "regressed": false,
+      "originalPlies": 67,
+      "correctedPlies": 63
+    },
+    {
+      "id": "independent-wall-041",
+      "opponent": "sigma2",
+      "candidateSide": 1,
+      "seed": 162517870,
+      "originalWon": false,
+      "correctedWon": false,
+      "changedGameSequence": true,
+      "improved": false,
+      "regressed": false,
+      "originalPlies": 67,
+      "correctedPlies": 55
+    },
+    {
+      "id": "independent-wall-041",
+      "opponent": "sigma3",
+      "candidateSide": 0,
+      "seed": 162516254,
+      "originalWon": true,
+      "correctedWon": true,
+      "changedGameSequence": true,
+      "improved": false,
+      "regressed": false,
+      "originalPlies": 63,
+      "correctedPlies": 61
+    },
+    {
+      "id": "independent-wall-041",
+      "opponent": "sigma3",
+      "candidateSide": 1,
+      "seed": 162517971,
+      "originalWon": false,
+      "correctedWon": false,
+      "changedGameSequence": true,
+      "improved": false,
+      "regressed": false,
+      "originalPlies": 69,
+      "correctedPlies": 71
+    }
+  ],
+  "totals": {
+    "paired": 16,
+    "improved": 0,
+    "regressed": 0,
+    "unchanged": 16,
+    "actionSequencesChanged": 13
+  },
+  "limitations": [
+    "Only four starting boards; each repeated for both seats and two opponents",
+    "Prior diagnostic evaluations inspected these boards, although none were used for training or epoch selection",
+    "Candidate rollouts have identical root policy and simulations, but the corrected ONNX changes MCTS leaf values",
+    "The original Sigma2 worker is user-modified in the pre-existing worktree",
+    "Warm worker timing excludes startup, network and server overhead; no strict move deadline demonstrated"
+  ]
+}

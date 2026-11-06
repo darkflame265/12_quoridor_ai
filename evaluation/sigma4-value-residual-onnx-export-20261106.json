@@ -1,0 +1,42 @@
+{
+  "version": "sigma4-value-correction-onnx-export-v1",
+  "format": "separate research-only ONNX correction head; not a drop-in 8x9x9 base network",
+  "baseNetwork": "vendor/sigma-quoridor/models/best.onnx",
+  "checkpoint": "sigma4-value-residual-research-20261106.pt",
+  "checkpointSha256": "cd438904ad278a6ee3166223a835595cbdaccca301ed3dbd6908379057eeb87e",
+  "onnxFilename": "sigma4-value-residual-research-20261106.onnx",
+  "onnxSha256": "dc741d30cb29c53c6c58c834c5cbab97e9eb62a3de7af764067c8aeb8ee06575",
+  "opset": 17,
+  "inputSchema": {
+    "features": [
+      "batch",
+      6
+    ],
+    "original_logit": [
+      "batch"
+    ]
+  },
+  "outputSchema": {
+    "corrected_value": [
+      "batch",
+      1
+    ]
+  },
+  "featureNames": [
+    "originalValueLogitDiv4",
+    "ownMinusOpponentPathDiv10",
+    "ownMinusOpponentWallsDiv10",
+    "plyDiv100",
+    "placedWallsDiv20",
+    "remainingWallsDiv20"
+  ],
+  "testSamples": 40,
+  "maxAbsoluteTorchOnnxError": 2.384185791015625e-07,
+  "exportValidated": true,
+  "productionApproved": false,
+  "warnings": [
+    "Requires original base-network value and original game state geometry features",
+    "Cannot replace best.onnx without engine changes; those changes were not made",
+    "Training targets reflect stochastic policy-conditioned outcomes, not solved game-theoretic values"
+  ]
+}

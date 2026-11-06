@@ -1,0 +1,952 @@
+{
+  "version": "sigma4-diverse-policy-value-audit-v1",
+  "sources": {
+    "gameSource": "evaluation/sigma4-crosspolicy-independent-20261106.json",
+    "gameSourceHash": "eda6b3ef7d9cca011844fcb2d237292a2e4028d09d17f2ca5182ff99a93b9cf2",
+    "networkSource": "vendor/sigma-quoridor/models/best.onnx"
+  },
+  "totals": {
+    "uniquePositions": 16,
+    "policyGames": 64,
+    "unanimous": 15,
+    "conflicted": 1,
+    "meanObservedWinFraction": 0.515625,
+    "meanNNProbability": 0.5444994801655412,
+    "brierOriginal": 0.15411610726159625,
+    "brierSearch400": 0.1125731278619684,
+    "brierOldPlatt": 0.14502869210778824
+  },
+  "development": {
+    "uniquePositions": 12,
+    "policyGames": 48,
+    "unanimous": 12,
+    "conflicted": 0,
+    "meanObservedWinFraction": 0.5833333333333334,
+    "meanNNProbability": 0.6397160105407238,
+    "brierOriginal": 0.18679625441786882,
+    "brierSearch400": 0.1318900642071965,
+    "brierOldPlatt": 0.17482000882143478
+  },
+  "holdout": {
+    "uniquePositions": 4,
+    "policyGames": 16,
+    "unanimous": 3,
+    "conflicted": 1,
+    "meanObservedWinFraction": 0.3125,
+    "meanNNProbability": 0.2588498890399933,
+    "brierOriginal": 0.05607566579277856,
+    "brierSearch400": 0.054622318826283996,
+    "brierOldPlatt": 0.0556547419668486
+  },
+  "policyResults": {
+    "weighted-vs-sigma2": {
+      "games": 16,
+      "wins": 8
+    },
+    "native-vs-sigma2": {
+      "games": 16,
+      "wins": 8
+    },
+    "weighted-vs-sigma3": {
+      "games": 16,
+      "wins": 9
+    },
+    "native-vs-sigma3": {
+      "games": 16,
+      "wins": 8
+    }
+  },
+  "positionSummaries": [
+    {
+      "id": "independent-wall-003",
+      "positionId": "72c006bd1003975d5707d5b5370b61597227fd261a1e2855700607ebd349e41d",
+      "split": "development",
+      "seed": 8303315,
+      "wallCount": 15,
+      "ply": 36,
+      "pathGap": -3,
+      "observedWinFraction": 1,
+      "observedWins": 4,
+      "policyUnanimity": true,
+      "observedOutcomes": [
+        {
+          "policy": "weighted-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 65
+        },
+        {
+          "policy": "native-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "native",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 69
+        },
+        {
+          "policy": "weighted-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 65
+        },
+        {
+          "policy": "native-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "native",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 69
+        }
+      ],
+      "originalNetworkValue": 0.9908203482627869,
+      "originalNetworkProbability": 0.9954101741313934,
+      "search400RootQ": 0.9939412661181152,
+      "search400Probability": 0.9969706330590575,
+      "priorPlattProbability": 0.9782237479513095,
+      "brierNetwork": 0.00002106650150413003,
+      "brier400": 0.000009177064062875129,
+      "brierPlatt": 0.00047420515328809685,
+      "labelQuality": "Policy-conditioned win fraction from 4 correlated continuations; not a minimax label"
+    },
+    {
+      "id": "independent-wall-004",
+      "positionId": "efbcaf322cd8f6811950f8a3b19aaf03535c36fc35a37e3a1118aa961d95e9ec",
+      "split": "development",
+      "seed": 8304972,
+      "wallCount": 16,
+      "ply": 42,
+      "pathGap": 3,
+      "observedWinFraction": 0,
+      "observedWins": 0,
+      "policyUnanimity": true,
+      "observedOutcomes": [
+        {
+          "policy": "weighted-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "weighted",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 64
+        },
+        {
+          "policy": "native-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "native",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 64
+        },
+        {
+          "policy": "weighted-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "weighted",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 64
+        },
+        {
+          "policy": "native-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "native",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 64
+        }
+      ],
+      "originalNetworkValue": 0.36188700795173645,
+      "originalNetworkProbability": 0.6809435039758682,
+      "search400RootQ": 0.007705318827280088,
+      "search400Probability": 0.50385265941364,
+      "priorPlattProbability": 0.5743480349381314,
+      "brierNetwork": 0.46368405560693327,
+      "brier400": 0.2538675023981975,
+      "brierPlatt": 0.32987566523729295,
+      "labelQuality": "Policy-conditioned win fraction from 4 correlated continuations; not a minimax label"
+    },
+    {
+      "id": "independent-wall-007",
+      "positionId": "348963fce1f1ef8a4db6cf0761ab8029376a48ec5c1a64e603f045cdcb4e5103",
+      "split": "development",
+      "seed": 8309943,
+      "wallCount": 14,
+      "ply": 36,
+      "pathGap": -2,
+      "observedWinFraction": 0,
+      "observedWins": 0,
+      "policyUnanimity": true,
+      "observedOutcomes": [
+        {
+          "policy": "weighted-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "weighted",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 74
+        },
+        {
+          "policy": "native-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "native",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 74
+        },
+        {
+          "policy": "weighted-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "weighted",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 74
+        },
+        {
+          "policy": "native-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "native",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 74
+        }
+      ],
+      "originalNetworkValue": 0.8966546058654785,
+      "originalNetworkProbability": 0.9483273029327393,
+      "search400RootQ": 0.610896014113652,
+      "search400Probability": 0.805448007056826,
+      "priorPlattProbability": 0.873437945346383,
+      "brierNetwork": 0.8993246734876834,
+      "brier400": 0.6487464920718128,
+      "brierPlatt": 0.7628938443709111,
+      "labelQuality": "Policy-conditioned win fraction from 4 correlated continuations; not a minimax label"
+    },
+    {
+      "id": "independent-wall-008",
+      "positionId": "0b1add0a16a1ae92406e98d465ba3bc3feb5efa3224498a66d595a7eb36de4e5",
+      "split": "development",
+      "seed": 8311600,
+      "wallCount": 15,
+      "ply": 42,
+      "pathGap": 3,
+      "observedWinFraction": 0,
+      "observedWins": 0,
+      "policyUnanimity": true,
+      "observedOutcomes": [
+        {
+          "policy": "weighted-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "weighted",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 54
+        },
+        {
+          "policy": "native-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "native",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 56
+        },
+        {
+          "policy": "weighted-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "weighted",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 54
+        },
+        {
+          "policy": "native-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "native",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 56
+        }
+      ],
+      "originalNetworkValue": -0.9992042183876038,
+      "originalNetworkProbability": 0.0003978908061981201,
+      "search400RootQ": 0,
+      "search400Probability": 0.5,
+      "priorPlattProbability": 0.001997438285444142,
+      "brierNetwork": 1.5831709365698998e-7,
+      "brier400": 0.25,
+      "brierPlatt": 0.000003989759704158034,
+      "labelQuality": "Policy-conditioned win fraction from 4 correlated continuations; not a minimax label"
+    },
+    {
+      "id": "independent-wall-018",
+      "positionId": "cd941ecfaf9374c7fa396c6d68efb4ac20f47681601c5cfafc072fbc568ada74",
+      "split": "development",
+      "seed": 8328170,
+      "wallCount": 16,
+      "ply": 30,
+      "pathGap": -2,
+      "observedWinFraction": 1,
+      "observedWins": 4,
+      "policyUnanimity": true,
+      "observedOutcomes": [
+        {
+          "policy": "weighted-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 65
+        },
+        {
+          "policy": "native-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "native",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 61
+        },
+        {
+          "policy": "weighted-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 65
+        },
+        {
+          "policy": "native-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "native",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 61
+        }
+      ],
+      "originalNetworkValue": 0.6801542639732361,
+      "originalNetworkProbability": 0.840077131986618,
+      "search400RootQ": 0.9283100784763353,
+      "search400Probability": 0.9641550392381677,
+      "priorPlattProbability": 0.727665752648037,
+      "brierNetwork": 0.025575323713625586,
+      "brier400": 0.0012848612120172974,
+      "brierPlatt": 0.07416594228076016,
+      "labelQuality": "Policy-conditioned win fraction from 4 correlated continuations; not a minimax label"
+    },
+    {
+      "id": "independent-wall-019",
+      "positionId": "7ec25b7632a3cf165f275699e12bb2b5efffd305352c80af3b6e7eb44a136010",
+      "split": "development",
+      "seed": 8329827,
+      "wallCount": 18,
+      "ply": 36,
+      "pathGap": -4,
+      "observedWinFraction": 1,
+      "observedWins": 4,
+      "policyUnanimity": true,
+      "observedOutcomes": [
+        {
+          "policy": "weighted-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 53
+        },
+        {
+          "policy": "native-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "native",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 53
+        },
+        {
+          "policy": "weighted-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 53
+        },
+        {
+          "policy": "native-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "native",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 53
+        }
+      ],
+      "originalNetworkValue": 0.19307270646095276,
+      "originalNetworkProbability": 0.5965363532304764,
+      "search400RootQ": 0.672817607479274,
+      "search400Probability": 0.836408803739637,
+      "priorPlattProbability": 0.5052974784562799,
+      "brierNetwork": 0.16278291426456293,
+      "brier400": 0.026762079493896605,
+      "brierPlatt": 0.24473058482171484,
+      "labelQuality": "Policy-conditioned win fraction from 4 correlated continuations; not a minimax label"
+    },
+    {
+      "id": "independent-wall-020",
+      "positionId": "54ceb6a7ec175647c7542459a1f5ada072b92fad70f36bfb6004a397bd3544c3",
+      "split": "development",
+      "seed": 8331484,
+      "wallCount": 15,
+      "ply": 42,
+      "pathGap": -3,
+      "observedWinFraction": 1,
+      "observedWins": 4,
+      "policyUnanimity": true,
+      "observedOutcomes": [
+        {
+          "policy": "weighted-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 55
+        },
+        {
+          "policy": "native-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "native",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 55
+        },
+        {
+          "policy": "weighted-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 55
+        },
+        {
+          "policy": "native-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "native",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 55
+        }
+      ],
+      "originalNetworkValue": 0.9038087725639343,
+      "originalNetworkProbability": 0.9519043862819672,
+      "search400RootQ": 0.9750165032303851,
+      "search400Probability": 0.9875082516151925,
+      "priorPlattProbability": 0.8796347329038007,
+      "brierNetwork": 0.0023131880589142284,
+      "brier400": 0.0001560437777093405,
+      "brierPlatt": 0.014487797523139403,
+      "labelQuality": "Policy-conditioned win fraction from 4 correlated continuations; not a minimax label"
+    },
+    {
+      "id": "independent-wall-026",
+      "positionId": "2628b9940fad71031bf677e5b2a5cf2e1b9feb5b68e58048709cf3be1ffb1c7d",
+      "split": "development",
+      "seed": 8341426,
+      "wallCount": 13,
+      "ply": 30,
+      "pathGap": -3,
+      "observedWinFraction": 1,
+      "observedWins": 4,
+      "policyUnanimity": true,
+      "observedOutcomes": [
+        {
+          "policy": "weighted-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 59
+        },
+        {
+          "policy": "native-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "native",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 51
+        },
+        {
+          "policy": "weighted-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 57
+        },
+        {
+          "policy": "native-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "native",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 51
+        }
+      ],
+      "originalNetworkValue": 0.9674835801124573,
+      "originalNetworkProbability": 0.9837417900562286,
+      "search400RootQ": 0.9538476136935484,
+      "search400Probability": 0.9769238068467743,
+      "priorPlattProbability": 0.9446230824618244,
+      "brierNetwork": 0.000264329390575746,
+      "brier400": 0.0005325106904449821,
+      "brierPlatt": 0.0030666029960299047,
+      "labelQuality": "Policy-conditioned win fraction from 4 correlated continuations; not a minimax label"
+    },
+    {
+      "id": "independent-wall-034",
+      "positionId": "e98c839d5aa14a09b70619d2080c415befcacb427f4f2f4327ad1fe25525d87e",
+      "split": "development",
+      "seed": 8356339,
+      "wallCount": 15,
+      "ply": 36,
+      "pathGap": 2,
+      "observedWinFraction": 1,
+      "observedWins": 4,
+      "policyUnanimity": true,
+      "observedOutcomes": [
+        {
+          "policy": "weighted-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 49
+        },
+        {
+          "policy": "native-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "native",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 51
+        },
+        {
+          "policy": "weighted-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 49
+        },
+        {
+          "policy": "native-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "native",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 51
+        }
+      ],
+      "originalNetworkValue": 0.9985834360122681,
+      "originalNetworkProbability": 0.999291718006134,
+      "search400RootQ": 0.9991862478047392,
+      "search400Probability": 0.9995931239023697,
+      "priorPlattProbability": 0.9946504084148398,
+      "brierNetwork": 5.016633828347494e-7,
+      "brier400": 1.6554815882290104e-7,
+      "brierPlatt": 0.000028618130128017255,
+      "labelQuality": "Policy-conditioned win fraction from 4 correlated continuations; not a minimax label"
+    },
+    {
+      "id": "independent-wall-035",
+      "positionId": "17cc9fe5326ee8b1cfdcc45767d3d236f149449816cff345f18149cb086d6b15",
+      "split": "development",
+      "seed": 8357996,
+      "wallCount": 18,
+      "ply": 42,
+      "pathGap": 2,
+      "observedWinFraction": 0,
+      "observedWins": 0,
+      "policyUnanimity": true,
+      "observedOutcomes": [
+        {
+          "policy": "weighted-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "weighted",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 62
+        },
+        {
+          "policy": "native-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "native",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 62
+        },
+        {
+          "policy": "weighted-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "weighted",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 62
+        },
+        {
+          "policy": "native-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "native",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 62
+        }
+      ],
+      "originalNetworkValue": -0.20623767375946045,
+      "originalNetworkProbability": 0.3968811631202698,
+      "search400RootQ": -0.5437188897770052,
+      "search400Probability": 0.2281405551114974,
+      "priorPlattProbability": 0.355978839561162,
+      "brierNetwork": 0.15751465763969819,
+      "brier400": 0.052048112886582176,
+      "brierPlatt": 0.12672093421531153,
+      "labelQuality": "Policy-conditioned win fraction from 4 correlated continuations; not a minimax label"
+    },
+    {
+      "id": "independent-wall-036",
+      "positionId": "71cf72e1460096ead7907766789e273fda4a3484800ce12237873226099035fa",
+      "split": "development",
+      "seed": 8359653,
+      "wallCount": 14,
+      "ply": 24,
+      "pathGap": -2,
+      "observedWinFraction": 0,
+      "observedWins": 0,
+      "policyUnanimity": true,
+      "observedOutcomes": [
+        {
+          "policy": "weighted-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "weighted",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 80
+        },
+        {
+          "policy": "native-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "native",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 80
+        },
+        {
+          "policy": "weighted-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "weighted",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 80
+        },
+        {
+          "policy": "native-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "native",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 80
+        }
+      ],
+      "originalNetworkValue": -0.9778826832771301,
+      "originalNetworkProbability": 0.011058658361434937,
+      "search400RootQ": -0.4651120765623167,
+      "search400Probability": 0.26744396171884166,
+      "priorPlattProbability": 0.024511065466757503,
+      "brierNetwork": 0.00012229392475493484,
+      "brier400": 0.07152627265986924,
+      "brierPlatt": 0.0006007923303156722,
+      "labelQuality": "Policy-conditioned win fraction from 4 correlated continuations; not a minimax label"
+    },
+    {
+      "id": "independent-wall-048",
+      "positionId": "6eee8acebcce4cb537f0586cf60ba7bc0f68e6d4d7a4ffa4af4477fe280f8831",
+      "split": "development",
+      "seed": 8379537,
+      "wallCount": 10,
+      "ply": 24,
+      "pathGap": 1,
+      "observedWinFraction": 1,
+      "observedWins": 4,
+      "policyUnanimity": true,
+      "observedOutcomes": [
+        {
+          "policy": "weighted-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 71
+        },
+        {
+          "policy": "native-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "native",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 69
+        },
+        {
+          "policy": "weighted-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 71
+        },
+        {
+          "policy": "native-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "native",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 69
+        }
+      ],
+      "originalNetworkValue": -0.4559558928012848,
+      "originalNetworkProbability": 0.2720220535993576,
+      "search400RootQ": -0.05403520374531435,
+      "search400Probability": 0.47298239812734283,
+      "priorPlattProbability": 0.2646149790493274,
+      "brierNetwork": 0.5299518904456966,
+      "brier400": 0.2777475526836065,
+      "brierPlatt": 0.5407911290386211,
+      "labelQuality": "Policy-conditioned win fraction from 4 correlated continuations; not a minimax label"
+    },
+    {
+      "id": "independent-wall-021",
+      "positionId": "351267628877273fd98587076bf90130b577140b274db8d97ca172a10ff8f5ba",
+      "split": "holdout",
+      "seed": 8333141,
+      "wallCount": 13,
+      "ply": 24,
+      "pathGap": 5,
+      "observedWinFraction": 0,
+      "observedWins": 0,
+      "policyUnanimity": true,
+      "observedOutcomes": [
+        {
+          "policy": "weighted-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "weighted",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 38
+        },
+        {
+          "policy": "native-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "native",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 40
+        },
+        {
+          "policy": "weighted-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "weighted",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 38
+        },
+        {
+          "policy": "native-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "native",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 40
+        }
+      ],
+      "originalNetworkValue": -0.9894953966140747,
+      "originalNetworkProbability": 0.0052523016929626465,
+      "search400RootQ": -0.9956801201140931,
+      "search400Probability": 0.002159939942953437,
+      "priorPlattProbability": 0.014021901299656154,
+      "brierNetwork": 0.000027586673073898282,
+      "brier400": 0.000004665340557165697,
+      "brierPlatt": 0.00019661371605729893,
+      "labelQuality": "Policy-conditioned win fraction from 4 correlated continuations; not a minimax label"
+    },
+    {
+      "id": "independent-wall-025",
+      "positionId": "75fffa50f9805dbf2c57b782f3b6149101c1614f68eb6cdda27e834c793aff44",
+      "split": "holdout",
+      "seed": 8339769,
+      "wallCount": 13,
+      "ply": 24,
+      "pathGap": 2,
+      "observedWinFraction": 0.25,
+      "observedWins": 1,
+      "policyUnanimity": false,
+      "observedOutcomes": [
+        {
+          "policy": "weighted-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "weighted",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 70
+        },
+        {
+          "policy": "native-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "native",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 70
+        },
+        {
+          "policy": "weighted-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 67
+        },
+        {
+          "policy": "native-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "native",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 70
+        }
+      ],
+      "originalNetworkValue": -0.8779290318489075,
+      "originalNetworkProbability": 0.061035484075546265,
+      "search400RootQ": -0.14955964976470826,
+      "search400Probability": 0.42522017511764587,
+      "priorPlattProbability": 0.0871666120162068,
+      "brierNetwork": 0.22320758827856313,
+      "brier400": 0.2182021097682585,
+      "brierPlatt": 0.21401471224228055,
+      "labelQuality": "Policy-conditioned win fraction from 4 correlated continuations; not a minimax label"
+    },
+    {
+      "id": "independent-wall-037",
+      "positionId": "fac6f1d824fec399f6434bb67ad1f8fff5e02c18b5ac3a2811482cbcb7fd88f9",
+      "split": "holdout",
+      "seed": 8361310,
+      "wallCount": 15,
+      "ply": 30,
+      "pathGap": 2,
+      "observedWinFraction": 0,
+      "observedWins": 0,
+      "policyUnanimity": true,
+      "observedOutcomes": [
+        {
+          "policy": "weighted-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "weighted",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 64
+        },
+        {
+          "policy": "native-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "native",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 58
+        },
+        {
+          "policy": "weighted-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "weighted",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 64
+        },
+        {
+          "policy": "native-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "native",
+          "winner": 1,
+          "originalPlayerWon": false,
+          "totalPlies": 58
+        }
+      ],
+      "originalNetworkValue": -0.9965240955352783,
+      "originalNetworkProbability": 0.0017379522323608398,
+      "search400RootQ": -0.9729399004305501,
+      "search400Probability": 0.01353004978472494,
+      "priorPlattProbability": 0.006092485268069183,
+      "brierNetwork": 0.0000030204779619680266,
+      "brier400": 0.0001830622471771354,
+      "brierPlatt": 0.00003711837674164003,
+      "labelQuality": "Policy-conditioned win fraction from 4 correlated continuations; not a minimax label"
+    },
+    {
+      "id": "independent-wall-041",
+      "positionId": "a26273ccf2ca72b67fbe30aa198805addfebc8dfc689d46182210e9af7344e2a",
+      "split": "holdout",
+      "seed": 8367938,
+      "wallCount": 13,
+      "ply": 30,
+      "pathGap": -5,
+      "observedWinFraction": 1,
+      "observedWins": 4,
+      "policyUnanimity": true,
+      "observedOutcomes": [
+        {
+          "policy": "weighted-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 65
+        },
+        {
+          "policy": "native-vs-sigma2",
+          "opponent": "sigma2",
+          "candidatePolicy": "native",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 67
+        },
+        {
+          "policy": "weighted-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "weighted",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 65
+        },
+        {
+          "policy": "native-vs-sigma3",
+          "opponent": "sigma3",
+          "candidatePolicy": "native",
+          "winner": 0,
+          "originalPlayerWon": true,
+          "totalPlies": 67
+        }
+      ],
+      "originalNetworkValue": 0.9347476363182068,
+      "originalNetworkProbability": 0.9673738181591034,
+      "search400RootQ": 0.980056284283692,
+      "search400Probability": 0.990028142141846,
+      "priorPlattProbability": 0.9085094347360619,
+      "brierNetwork": 0.0010644677415152515,
+      "brier400": 0.00009943794914322809,
+      "brierPlatt": 0.00837052353231491,
+      "labelQuality": "Policy-conditioned win fraction from 4 correlated continuations; not a minimax label"
+    }
+  ],
+  "candidateCount": 12,
+  "rejectedAmbiguousCount": 0,
+  "diagnosticNote": "Each of 16 independent boards has four policy continuations; group by board, never assume 64 independent training labels.",
+  "gates": {
+    "all64GamesReplayed": true,
+    "oldBankStartOverlap": false,
+    "unseenHoldoutProtected": true,
+    "unbiasedOptimalValueTargets": false,
+    "readyForFullNetworkTraining": false,
+    "productionPromotionApproved": false
+  }
+}

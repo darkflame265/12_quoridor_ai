@@ -1,0 +1,315 @@
+{
+  "version": "sigma4-strong-engine-match-audit-v1",
+  "source": {
+    "attempts": 16,
+    "uniqueStrongMidgames": 11,
+    "selectedStarts": 10,
+    "first12Available": false
+  },
+  "overall": {
+    "games": 60,
+    "headToHeadGames": 20,
+    "correctedHeadWins": 8,
+    "originalHeadWins": 12,
+    "draws": 0,
+    "externalGames": 40,
+    "externalPairs": 20,
+    "originalExternalWins": 10,
+    "correctedExternalWins": 9,
+    "externalWinsImproved": 1,
+    "externalWinsRegressed": 2,
+    "externalPairsWithDifferentSequences": 15
+  },
+  "bySplit": {
+    "development": {
+      "sourceBoards": 7,
+      "headGames": 14,
+      "headCorrectedWins": 6,
+      "headOriginalWins": 8,
+      "externalPairs": 14,
+      "externalCorrectedWins": 7,
+      "externalOriginalWins": 6,
+      "improved": 1,
+      "regressed": 0
+    },
+    "holdout": {
+      "sourceBoards": 3,
+      "headGames": 6,
+      "headCorrectedWins": 2,
+      "headOriginalWins": 4,
+      "externalPairs": 6,
+      "externalCorrectedWins": 2,
+      "externalOriginalWins": 4,
+      "improved": 0,
+      "regressed": 2
+    }
+  },
+  "byOpponent": {
+    "sigma2": {
+      "pairs": 12,
+      "originalWins": 6,
+      "correctedWins": 5
+    },
+    "sigma3": {
+      "pairs": 8,
+      "originalWins": 4,
+      "correctedWins": 4
+    }
+  },
+  "latency": {
+    "original": {
+      "moves": 756,
+      "meanMs": 161.23491984126906,
+      "p95Ms": 390.98149999999987,
+      "p99Ms": 500.62960000004387,
+      "over500": 9,
+      "maxMs": 686.624
+    },
+    "corrected": {
+      "moves": 775,
+      "meanMs": 172.73954825806413,
+      "p95Ms": 396.72810000000754,
+      "p99Ms": 499.2919000000111,
+      "over500": 7,
+      "maxMs": 648.8928999999989
+    }
+  },
+  "pairedResults": [
+    {
+      "id": "strong-play-01",
+      "split": "holdout",
+      "side": 0,
+      "opponent": "sigma2",
+      "originalWon": true,
+      "correctedWon": true,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": true
+    },
+    {
+      "id": "strong-play-01",
+      "split": "holdout",
+      "side": 1,
+      "opponent": "sigma2",
+      "originalWon": false,
+      "correctedWon": false,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": true
+    },
+    {
+      "id": "strong-play-02",
+      "split": "development",
+      "side": 0,
+      "opponent": "sigma3",
+      "originalWon": false,
+      "correctedWon": false,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": true
+    },
+    {
+      "id": "strong-play-02",
+      "split": "development",
+      "side": 1,
+      "opponent": "sigma3",
+      "originalWon": true,
+      "correctedWon": true,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": true
+    },
+    {
+      "id": "strong-play-03",
+      "split": "development",
+      "side": 0,
+      "opponent": "sigma2",
+      "originalWon": false,
+      "correctedWon": false,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": true
+    },
+    {
+      "id": "strong-play-03",
+      "split": "development",
+      "side": 1,
+      "opponent": "sigma2",
+      "originalWon": false,
+      "correctedWon": true,
+      "improved": true,
+      "regressed": false,
+      "differentSequence": true
+    },
+    {
+      "id": "strong-play-04",
+      "split": "development",
+      "side": 0,
+      "opponent": "sigma3",
+      "originalWon": true,
+      "correctedWon": true,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": false
+    },
+    {
+      "id": "strong-play-04",
+      "split": "development",
+      "side": 1,
+      "opponent": "sigma3",
+      "originalWon": false,
+      "correctedWon": false,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": false
+    },
+    {
+      "id": "strong-play-05",
+      "split": "holdout",
+      "side": 0,
+      "opponent": "sigma2",
+      "originalWon": true,
+      "correctedWon": true,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": false
+    },
+    {
+      "id": "strong-play-05",
+      "split": "holdout",
+      "side": 1,
+      "opponent": "sigma2",
+      "originalWon": false,
+      "correctedWon": false,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": true
+    },
+    {
+      "id": "strong-play-06",
+      "split": "development",
+      "side": 0,
+      "opponent": "sigma3",
+      "originalWon": false,
+      "correctedWon": false,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": true
+    },
+    {
+      "id": "strong-play-06",
+      "split": "development",
+      "side": 1,
+      "opponent": "sigma3",
+      "originalWon": true,
+      "correctedWon": true,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": true
+    },
+    {
+      "id": "strong-play-07",
+      "split": "development",
+      "side": 0,
+      "opponent": "sigma2",
+      "originalWon": true,
+      "correctedWon": true,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": false
+    },
+    {
+      "id": "strong-play-07",
+      "split": "development",
+      "side": 1,
+      "opponent": "sigma2",
+      "originalWon": false,
+      "correctedWon": false,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": false
+    },
+    {
+      "id": "strong-play-08",
+      "split": "development",
+      "side": 0,
+      "opponent": "sigma3",
+      "originalWon": true,
+      "correctedWon": true,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": true
+    },
+    {
+      "id": "strong-play-08",
+      "split": "development",
+      "side": 1,
+      "opponent": "sigma3",
+      "originalWon": false,
+      "correctedWon": false,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": true
+    },
+    {
+      "id": "strong-play-09",
+      "split": "holdout",
+      "side": 0,
+      "opponent": "sigma2",
+      "originalWon": true,
+      "correctedWon": false,
+      "improved": false,
+      "regressed": true,
+      "differentSequence": true
+    },
+    {
+      "id": "strong-play-09",
+      "split": "holdout",
+      "side": 1,
+      "opponent": "sigma2",
+      "originalWon": true,
+      "correctedWon": false,
+      "improved": false,
+      "regressed": true,
+      "differentSequence": true
+    },
+    {
+      "id": "strong-play-15",
+      "split": "development",
+      "side": 0,
+      "opponent": "sigma2",
+      "originalWon": true,
+      "correctedWon": true,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": true
+    },
+    {
+      "id": "strong-play-15",
+      "split": "development",
+      "side": 1,
+      "opponent": "sigma2",
+      "originalWon": false,
+      "correctedWon": false,
+      "improved": false,
+      "regressed": false,
+      "differentSequence": true
+    }
+  ],
+  "gates": {
+    "fullGameReplayLegal": true,
+    "distinctStartingStates": true,
+    "allGamesFinished": true,
+    "positivePairDelta": false,
+    "correctedStrictlyUnder500": false,
+    "promotionApproved": false
+  },
+  "limitations": [
+    "Ten source midgames from selfplay of two policies using the same base network; no independent solved labels",
+    "Only three source-group holdout starts in the selected ten; conclusions remain low power",
+    "Role-reversed direct games are not statistically independent of their source fixture",
+    "The source policy is MCTS based but does not ensure optimal gameplay",
+    "Local sigma2 worker has pre-existing uncommitted user changes",
+    "Warm process timings exclude start-up and remote transport"
+  ]
+}

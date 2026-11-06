@@ -1,0 +1,58 @@
+{
+  "version": "sigma4-strong-selfplay-research-promotion-gate-v1",
+  "sourceGroups": 11,
+  "usedSourceGroups": 10,
+  "distinctHoldoutGroups": 3,
+  "trueHeadToHead": {
+    "games": 60,
+    "headToHeadGames": 20,
+    "correctedHeadWins": 8,
+    "originalHeadWins": 12,
+    "draws": 0,
+    "externalGames": 40,
+    "externalPairs": 20,
+    "originalExternalWins": 10,
+    "correctedExternalWins": 9,
+    "externalWinsImproved": 1,
+    "externalWinsRegressed": 2,
+    "externalPairsWithDifferentSequences": 15
+  },
+  "latency": {
+    "original": {
+      "moves": 756,
+      "meanMs": 161.23491984126906,
+      "p95Ms": 390.98149999999987,
+      "p99Ms": 500.62960000004387,
+      "over500": 9,
+      "maxMs": 686.624
+    },
+    "corrected": {
+      "moves": 775,
+      "meanMs": 172.73954825806413,
+      "p95Ms": 396.72810000000754,
+      "p99Ms": 499.2919000000111,
+      "over500": 7,
+      "maxMs": 648.8928999999989
+    }
+  },
+  "originalOnnxSha256": "d790dac68389f7602ff8a887a2385417d3c925fe22da7164c86e9226f943908d",
+  "researchOnnxSha256": "dc741d30cb29c53c6c58c834c5cbab97e9eb62a3de7af764067c8aeb8ee06575",
+  "checks": {
+    "broadFixtureCount": false,
+    "moreHeadWins": false,
+    "moreExternalWins": false,
+    "betterNewHoldoutBrier": false,
+    "betterAggregateBrier": false,
+    "betterP95": false,
+    "strict500ms": false
+  },
+  "approval": false,
+  "reasons": [
+    "Stronger policy-generated middle-game out-of-distribution Brier regressed",
+    "Corrected model lost direct head-to-head comparison",
+    "External matched games show no win advantage",
+    "Mean and p95 latency increased and strict 500ms move limit not demonstrated",
+    "Independent source board count too small for a reliable generalization claim"
+  ],
+  "noProductionCodeTouched": true
+}

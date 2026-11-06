@@ -2,7 +2,7 @@
 
 쿼리도 대전·관전·기보 복기를 지원하고, 추천 수의 효과를 쉬운 문장으로 설명하는 웹 앱입니다. 화면 공유를 통한 보드 인식과 동기화도 제공합니다.
 
-[사이트 실행](https://darkflame265.github.io/12_quoridor_ai/) · [배포 상태](https://github.com/darkflame265/12_quoridor_ai/actions/workflows/pages.yml) · [배포 안내](docs/DEPLOYMENT.md)
+[![쿼리도 AI 체험하기 — 설치 없이 브라우저에서 실행](docs/images/play-demo.svg)](https://darkflame265.github.io/12_quoridor_ai/)
 
 ![앱 화면](docs/images/portfolio-desktop.png)
 
@@ -111,6 +111,14 @@ npm run sigma:smoke
 - `sigma:smoke`: 기존 Python 3개 엔진의 실제 합법 수 검증 (Python 필요)
 
 브라우저 QA는 Chrome 또는 Edge를 사용하며 개인 프로필을 열지 않습니다. 결과는 `reports/`에 생성합니다. 배포·저장소 공개 전환은 검증 명령에 포함되지 않습니다.
+
+## 기반 모델 및 출처
+
+[SigmaQuoridor](https://github.com/bartolomeo3000/SigmaQuoridor) — Bartosz Pokora ([bartolomeo3000](https://github.com/bartolomeo3000))
+
+SigmaQuoridor의 사전 학습 ONNX 모델과 게임·MCTS 기반 코드를 활용했습니다. 이 프로젝트에서는 브라우저 실행, UI, 화면 인식·동기화, 기보 복기와 추천 이유 설명을 구현·통합했습니다.
+
+원본의 [MIT 라이선스](vendor/sigma-quoridor/LICENSE)와 저작권 고지를 보존합니다. 기반 모델을 직접 학습한 프로젝트로 소개하지 않으며, 원본 엔진의 성능을 이 프로젝트 Web 버전의 성능으로 주장하지 않습니다.
 
 ## 기여와 라이선스
 

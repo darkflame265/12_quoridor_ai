@@ -2,6 +2,8 @@
 
 ## SigmaQuoridor 기반 파일
 
+원본 저장소: [bartolomeo3000/SigmaQuoridor](https://github.com/bartolomeo3000/SigmaQuoridor) · 저작자: Bartosz Pokora
+
 `vendor/sigma-quoridor/game.py`, `mcts.py` 및 `models/best.onnx`는 외부 SigmaQuoridor 기반 구성입니다. 신경망 모델은 이 프로젝트에서 처음부터 학습한 결과물이 아닙니다.
 
 동봉된 [LICENSE](../vendor/sigma-quoridor/LICENSE)는 MIT License이며 `Copyright (c) 2026 Bartosz Pokora`를 명시합니다. 원본 고지와 라이선스를 보존합니다. 별도 모델 권리나 학습 데이터의 출처까지 이 고지만으로 확정하지는 않습니다.

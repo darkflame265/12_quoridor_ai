@@ -35,7 +35,7 @@ export function translateText(value,language='en',depth=0){
  const raw=String(value??'');if(depth>7||!raw.trim())return raw;
  if(language==='en'&&!/[가-힣]/.test(raw)||language==='ko'&&/[가-힣]/.test(raw))return raw;
  const table=language==='ko'?ko:en,text=raw.trim(),leading=raw.slice(0,raw.indexOf(text)),trailing=raw.slice(raw.indexOf(text)+text.length);
- const done=result=>leading+result+trailing;
+ const done=result=>leading+(language==='en'?result.replace(/(?<![\d.])1 (steps|plies|walls|simulations|nodes)\b/g,(_,unit)=>'1 '+({plies:'ply'}[unit]??unit.slice(0,-1))):result)+trailing;
  if(table.exact.has(text))return done(table.exact.get(text));
  for(const p of table.patterns){const match=text.match(p.regex);if(!match)continue;
   const args={};p.ids.forEach((id,i)=>{args[id]=translateText(match[i+1],language,depth+1);});

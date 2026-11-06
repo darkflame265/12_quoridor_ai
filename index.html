@@ -10,15 +10,15 @@
 </head>
 <body>
 <main>
-  <header><div class="brand"><i></i> QUORIDOR <span>AI STUDIO</span></div><div class="header-actions"><span id="app-status">로컬 분석</span><div id="language-switch" class="language-switch" role="group" aria-label="언어 선택"><button type="button" data-language="ko" aria-label="한국어로 전환" aria-pressed="true">KR</button><button type="button" data-language="en" aria-label="영어로 전환" aria-pressed="false">EN</button></div></div></header>
+  <header><div class="brand"><i></i> QUORIDOR <span>AI STUDIO</span></div><div class="header-actions"><span id="app-status" class="status-badge" data-tone="idle">로컬 분석</span><div id="language-switch" class="language-switch" role="group" aria-label="언어 선택"><button type="button" data-language="ko" aria-label="한국어로 전환" aria-pressed="true">KR</button><button type="button" data-language="en" aria-label="영어로 전환" aria-pressed="false">EN</button></div></div></header>
   <section class="layout">
     <div class="arena">
       <div id="players" aria-label="플레이어와 잔여 벽"></div>
       <div class="board-heading"><span id="status">당신의 차례</span><span>9 × 9 · CLASSIC</span></div>
       <div id="board"></div>
       <section id="wait-advice" class="wait-advice analysis-panel" data-level="done" aria-label="포지션 분석">
-        <div class="analysis-heading"><div>포지션 분석 <span id="depth"></span></div><button id="hint" class="primary">✦ 최선 수 분석</button></div>
-        <strong id="wait-label" role="status" aria-live="polite">분석 대기</strong>
+        <div class="analysis-heading"><div>포지션 분석 <span id="recommendation-kind" class="recommendation-kind" hidden></span><span id="depth"></span></div><button id="hint" class="primary">✦ 최선 수 분석</button></div>
+        <strong id="wait-label" class="status-badge" data-tone="idle" role="status" aria-live="polite">분석 대기</strong>
         <strong id="analysis-choice" aria-live="polite">추천 대기</strong>
         <p id="analysis-reason" aria-live="polite">추천 수가 나오면 확인된 효과를 설명합니다.</p>
         <details class="analysis-details"><summary>상세 보기</summary>

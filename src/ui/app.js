@@ -29,6 +29,7 @@ const entry=new URLSearchParams(location.search);
 let storedSession=null;try{storedSession=localStorage.getItem('quoridor-session');}catch{}
 let state=initial(),past=[],records=[],serial=0,busy=false,hint=null,decisionLog=[];
 let autoAdviceActive=false;
+let analysisFailed=false;
 let reviewPly=null,reviewHint=null;
 let reviewPool=null,reviewAnalysis=null;
 let reviewTimer=null;
@@ -44,8 +45,10 @@ function clearRecommendationReason(){
  $('#readable-reason-detail')?.remove();
 }
 function showAnalysisError(error){
+ analysisFailed=true;$('#wait-label').dataset.tone='error';$('#wait-advice').dataset.phase='error';$('#wait-label').textContent='분석 실패';$('#wait-label').title='분석 실패';
  clearRecommendationReason();hint=null;if(reviewPly!==null)reviewHint=null;
  const message=analysisError(error,{browser:import.meta.env?.VITE_BROWSER_AI==='1'});$('#analysis').textContent=message;$('#analysis-reason').textContent=message;$('#analysis-choice').textContent='분석 실패';
+ $('#wait-reason').textContent=message;$('#wait-timing').textContent='';$('#position-verdict').textContent='';$('#advice-change').hidden=true;$('#variable-controls').hidden=true;
  $('#engine-meta').textContent=`최근 오류: ${String(error?.message??error)}`;drawBoard();
 }
 function showRecommendationReason(source,action){
@@ -149,6 +152,8 @@ function drawBoard(){
   state.walls.forEach((w,i)=>{svg+=wallSvg(w,last?.type==='wall'&&i===state.walls.length-1?'last-wall':'');});
   state.p.forEach((position,t)=>{const p=viewPosition(position);svg+=`<circle class="pawn-ring" cx="${51+p.x*70}" cy="${51+p.y*70}" r="24" stroke="${colors[t]}"/><circle class="pawn" cx="${51+p.x*70}" cy="${51+p.y*70}" r="18" fill="${colors[t]}"/><circle class="pawn-sheen" cx="${51+p.x*70}" cy="${51+p.y*70}" r="17" fill="url(#pawn-light)"/>`;});
   const advice=reviewPly===null?hint:reviewHint;
+  const kind=$('#recommendation-kind');kind.hidden=!advice;
+  if(advice){kind.dataset.action=advice.type;kind.innerHTML=advice.type==='wall'?'<svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="7" width="16" height="6" rx="2"/></svg><span>벽 추천</span>':'<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="5" r="3"/><path d="M8 9h4l1 5H7zM5 17h10"/></svg><span>이동 추천</span>';}
   if(advice){if(advice.type==='wall')svg+=wallSvg({...advice,owner:state.turn},'recommend');else{const p=viewPosition(advice);svg+=`<circle class="recommend" cx="${51+p.x*70}" cy="${51+p.y*70}" r="23" fill="none" stroke="#f4d18a" stroke-width="3"/>`;}}
   $('#board').innerHTML=svg+'<g id="ghost"></g></svg>';
 }
@@ -156,7 +161,10 @@ function render(){
   syncModePicker();
   variableStatus();
   $('#engine-current').textContent=engineName($('#play-engine').value);
-  $('#app-status').textContent=$('#mode').value==='screen'?(screenCapture?.active?'화면 연결됨':'화면 연결 대기'):browserAI?'브라우저 AI · 내 기기에서 계산':'로컬 분석';
+  const connected=$('#mode').value==='screen'&&$('#screen-disconnect')&&!$('#screen-disconnect').disabled;
+  $('#app-status').textContent=$('#mode').value==='screen'?(screenCapture?.active?'화면 연결됨':connected?'화면 공유 일시정지':'화면 연결 대기'):browserAI?'브라우저 AI · 내 기기에서 계산':'로컬 분석';
+  $('#app-status').dataset.tone=$('#mode').value==='screen'?(screenCapture?.active?(screenReady?'ready':'working'):connected?'working':'idle'):'ready';
+  const screenBadge=$('#screen-panel .panel-title span');if(screenBadge){screenBadge.classList.add('status-badge');screenBadge.dataset.tone=screenCapture?.active?(screenReady?'ready':'working'):connected?'working':'idle';screenBadge.textContent=screenCapture?.active?(screenReady?'감시 중':'확인 중'):connected?'일시정지':'연결 대기';}
   const screen=$('#mode').value==='screen';screenCapture?.setVisible(screen);
   $('#opponent-settings').hidden=$('#mode').value!=='ai'||reviewPly!==null;
   $('#ai-auto-hint-setting').hidden=$('#mode').value!=='ai';
@@ -178,7 +186,9 @@ function render(){
   $('#players').innerHTML=[Number($('#side').value),1-Number($('#side').value)].map(t=>{
     const title=watch?engineName(watchSettings(t).engine):$('#mode').value==='sandbox'?names[t]:screen?(t===Number($('#side').value)?'YOU':'상대 진영'):t===Number($('#side').value)?'YOU':`상대 AI · ${engineName($('#opponent-engine').value)}`;
     const stock=shownState.left[t],wallLabel=`남은 벽 ${stock}개 / 10개`;
-    return `<div class="player ${shownState.turn===t&&!outcome?'active':''}" style="--accent:${colors[t]}"><div class="avatar">${t===0?'◉':'✦'}</div><div><b>${title}</b><small>${names[t]} · 목표까지 ${distance(shownState,t)}칸</small></div><div class="wall-stock" role="img" aria-label="${wallLabel}" title="${wallLabel}"><small>WALLS</small><div class="wall-bars" aria-hidden="true">${Array.from({length:10},(_,i)=>`<i class="wall-bar${i<stock?' available':''}"></i>`).join('')}</div></div></div>`;
+    const finished=shownState.winner!==null||reviewPly===null&&!!outcome,active=!finished&&shownState.turn===t;
+    const turnLabel=finished?(shownState.winner===t?'승리':'대국 종료'):!active?'대기':reviewPly!==null?(busy?'기보 분석 중':'기보 차례'):screen&&screenSuppressed()?'차례 확인 중':busy?(!watch&&(screen||$('#mode').value==='sandbox'||t===Number($('#side').value))?'추천 분석 중':'생각 중'):watch||$('#mode').value==='sandbox'?'둘 차례':t===Number($('#side').value)?'내 차례':'상대 차례';
+    return `<div class="player ${active?'active':''}" style="--accent:${colors[t]}"><div class="avatar">${t===0?'◉':'✦'}</div><div><b>${title}</b><small>${names[t]} · 목표까지 ${distance(shownState,t)}칸</small><span class="player-turn" data-active="${active}">${turnLabel}</span></div><div class="wall-stock" role="img" aria-label="${wallLabel}" title="${wallLabel}"><small>WALLS</small><div class="wall-bars" aria-hidden="true">${Array.from({length:10},(_,i)=>`<i class="wall-bar${i<stock?' available':''}"></i>`).join('')}</div></div></div>`;
   }).join('');
   const userSide=Number($('#side').value),startSide=baseState?.turn??0,showOwners=!watching()&&$('#mode').value!=='sandbox';
   $('#history-legend').innerHTML=[0,1].map(side=>'<span class="history-legend-item side-'+side+'"><i aria-hidden="true"></i>'+(['청록','분홍'][side])+(showOwners?(side===userSide?' · 내 수':' · 상대 수'):'')+'</span>').join('');
@@ -203,7 +213,7 @@ function render(){
   }
   $('#hint').textContent=reviewPly===null?'✦ 최선 수 분석':'↻ 다시 분석';
   const terminal=reviewPly===null&&outcome;
-  $('#wait-advice').dataset.phase=terminal?'terminal':busy?'thinking':reviewPly!==null?'review':hint?'ready':'idle';
+  $('#wait-advice').dataset.phase=terminal?'terminal':analysisFailed?'error':busy?'thinking':reviewPly!==null?'review':hint?'ready':'idle';
   if(terminal){
     $('#wait-advice').dataset.level='done';$('#analysis-choice').textContent=outcome.type==='win'?`${names[outcome.winner]} 승리 · ${records.length}수`:'관전 종료 · 무승부';
     $('#wait-label').textContent='대국 종료';$('#analysis-reason').textContent='기보에서 수를 선택하면 그 시점의 추천과 이유를 확인할 수 있습니다.';
@@ -249,6 +259,7 @@ function writeAnalysis(r,label='추천',source=state){
   }
 }
 function applyMove(action){
+  analysisFailed=false;
   if(!legal(state,action))throw Error('불가능한 수입니다.');
   const trace=analysisTrace();observedAction(decisionLog,state,action,records.length+1,trace?.position===boardKey(state)&&trace.turn===state.turn?trace:null);
   lastAnalysisTrace=null;
@@ -293,6 +304,8 @@ function think(auto=false,reason='manual-analysis'){
   }).catch(error=>{if(id!==serial||error.name==='AbortError')return;stop();render();showAnalysisError(error);});
 }
 function variableStatus(){
+ $('#wait-label').dataset.tone=analysisFailed||reviewAnalysis?.phase==='error'?'error':busy||variableAnalysis.active?'working':hint||reviewHint?'ready':'idle';
+ if(analysisFailed&&reviewPly===null){$('#wait-label').textContent='분석 실패';return;}
  if(reviewPly!==null){
   const phase=reviewAnalysis?.phase??'idle';
   $('#wait-advice').dataset.level=phase==='thinking'?'wait':'done';
@@ -309,7 +322,7 @@ function variableStatus(){
  $('#wait-advice').hidden=false;
  if(!visible||!v.active&&!v.displayed){
   $('#wait-advice').dataset.level=suppressed||busy?'wait':'done';
-  const label=state.winner!==null?'대국 종료':suppressed?'화면 재확인 중':watching()?(watcher.thinking?'AI 대국 계산 중':watcher.running?'AI 대국 진행 중':'AI 대국 대기'):busy?'분석 중':$('#mode').value==='screen'&&!baseState?'화면 연결 대기':'분석 대기';
+  const label=state.winner!==null?'대국 종료':suppressed?'화면 재확인 중':watching()?(watcher.thinking?'AI 대국 계산 중':watcher.running?'AI 대국 진행 중':'AI 대국 대기'):busy?'분석 중':hint?'분석 완료':$('#mode').value==='screen'&&!baseState?'화면 연결 대기':'분석 대기';
   if($('#wait-label').textContent!==label)$('#wait-label').textContent=label;
   $('#wait-reason').textContent=suppressed?'배치를 확인한 뒤 추천을 표시합니다.':watching()?'대국 진행과 선택한 수를 아래에서 확인하세요.':!visible?'분석 결과와 예상 진행을 아래에서 확인하세요.':'화면 배치를 확인하거나 최선 수 분석을 시작하세요.';
   $('#wait-timing').textContent='';$('#advice-change').hidden=true;$('#advice-change').textContent='';$('#position-verdict').textContent=state.winner!==null?`판세: ${names[state.winner]} 승리`:'판세: 분석 대기';
@@ -369,7 +382,7 @@ $('#board').onpointermove=e=>{
 };
 $('#board').onpointerleave=()=>{if($('#ghost'))$('#ghost').innerHTML='';};
 $('#board').onclick=e=>{if(reviewPly===null&&human()&&(!busy||autoAdviceActive)&&state.winner===null){const a=pick(e);if(a)commitMove(a);}};
-function clearAnalysis(){clearRecommendationReason();$('#analysis').textContent='현재 차례의 추천 수와 예상 진행을 확인하세요.';$('#analysis-choice').textContent='추천 대기';$('#depth').textContent='';$('.analysis-scroll').scrollTop=0;hint=null;}
+function clearAnalysis(){analysisFailed=false;clearRecommendationReason();$('#analysis').textContent='현재 차례의 추천 수와 예상 진행을 확인하세요.';$('#analysis-choice').textContent='추천 대기';$('#depth').textContent='';$('.analysis-scroll').scrollTop=0;hint=null;}
 function resetGame(){reviewCache.clear();reviewPly=null;reviewHint=null;stop();lastShownAdvice=null;lastAnalysisTrace=null;state=initial();baseState=null;observedBottom=null;screenRebased=false;screenSegments=[];decisionLog=[];past=[];records=[];clearAnalysis();persist();render();schedule();}
 function reviewSelect(n){stop('review-position-changed');clearAnalysis();reviewPly=Math.max(0,Math.min(records.length,n));const snap=reviewPly===records.length?state:past[reviewPly];const key=boardKey(snap);const saved=decisionLog.findLast(e=>e.kind==='recommendation'&&e.position===key&&e.turn===snap.turn&&e.pv?.[0]);reviewHint=saved?.pv[0]??null;$('#review-advice').textContent=saved?'당시 추천: '+notation(reviewHint)+' · '+(saved.engine??'AI'):'선택한 배치를 자동으로 분석합니다.';render();scheduleReview();}
 $('#history').addEventListener('click',e=>{const item=e.target.closest('[data-review-ply]');if(item)reviewSelect(Number(item.dataset.reviewPly));});

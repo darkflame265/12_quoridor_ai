@@ -38,6 +38,19 @@ try{
  await until(`!document.querySelector('#hint').disabled&&JSON.parse(localStorage.getItem('quoridor-session')).decisionLog.some(x=>x.kind==='recommendation')`);
  const log=await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).decisionLog`);assert.ok(legal(initial(),log.findLast(x=>x.kind==='recommendation').pv[0]));checks.push('opt-in human-turn automatic advice runs real browser ONNX and PUCT under project subpath');
  assert.equal(await evaluate(`/[\uac00-\ud7a3]/.test(document.querySelector('#analysis-reason').textContent)`),false);
+ assert.equal(await evaluate(`document.querySelector('#players .active .player-turn').textContent`),'Your turn');
+ const actionKind=log.findLast(x=>x.kind==='recommendation').pv[0].type;
+ assert.equal(await evaluate(`document.querySelector('#recommendation-kind').dataset.action`),actionKind);
+ assert.equal(await evaluate(`document.querySelector('#recommendation-kind span').textContent`),actionKind==='wall'?'Wall advice':'Move advice');
+ assert.equal(await evaluate(`document.querySelector('#wait-label').dataset.tone`),'ready');
+ for(const width of [1440,390]){
+  await send('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:false});
+  assert.equal(await evaluate(`document.documentElement.scrollWidth>innerWidth`),false);
+  assert.equal(await evaluate(`document.querySelector('#recommendation-kind').getBoundingClientRect().right<document.querySelector('#hint').getBoundingClientRect().left`),true);
+  await writeFile(path.join(out,`advice-${width}.png`),Buffer.from((await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true})).data,'base64'));
+ }
+ await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1100,deviceScaleFactor:1,mobile:false});
+ checks.push('English live-turn labels, action-type advice icons and state badges fit desktop/mobile without overlap');
  const workerAsset=(await readFile(path.join(dist,'index.html'),'utf8'));
  const files=await (await import('node:fs/promises')).readdir(path.join(dist,'assets'));const workerFile=files.find(x=>x.startsWith('browser-engine-worker-')&&x.endsWith('.js'));
  const fixtures=JSON.parse(await readFile(path.join(root,'tests/fixtures/sigma-browser-parity.json'),'utf8'));

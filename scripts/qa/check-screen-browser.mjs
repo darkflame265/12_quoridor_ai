@@ -8,7 +8,7 @@ let browserPath;for(const candidate of [process.env.SCREEN_QA_CHROME,'C:/Program
 if(!browserPath)throw Error('Chrome or Edge is required for UI smoke');
 const temp=path.resolve('.local-app','qa-'+Date.now()),profile=path.join(temp,'profile');await mkdir(temp,{recursive:true});
 const fixtures={'/_qa/context.mjs':'tests/fixtures/source-screen.mjs','/_qa/screen-board.mjs':'tests/fixtures/screen-board.mjs'};
-const searches=[],apiRequests=[];let responseDelay=0,enginesOffline=false;
+const searches=[],apiRequests=[];let responseDelay=0,enginesOffline=false,preferredAction=null;
 const server=http.createServer(async(req,res)=>{try{
  const url=new URL(req.url,'http://localhost'),engine=url.pathname.match(/^\/api\/(sigma[234])\/(health|search|cancel)$/);
  if(engine){
@@ -17,7 +17,7 @@ const server=http.createServer(async(req,res)=>{try{
   let body='';for await(const chunk of req)body+=chunk;const data=JSON.parse(body);
   if(engine[2]==='cancel'){res.end('{}');return;}
   searches.push({engine:engine[1],...data});if(responseDelay)await new Promise(resolve=>setTimeout(resolve,responseDelay));
-  res.setHeader('Content-Type','application/x-ndjson');res.end(JSON.stringify({id:data.id,done:true,pv:[{type:'move',...moves(data.state)[0]}],depth:1,score:0,nodes:1,elapsedMs:1})+'\n');return;
+  res.setHeader('Content-Type','application/x-ndjson');res.end(JSON.stringify({id:data.id,done:true,pv:[preferredAction??{type:'move',...moves(data.state)[0]}],depth:1,score:0,nodes:1,elapsedMs:1})+'\n');return;
  }
  const file=fixtures[url.pathname]?path.join(root,fixtures[url.pathname]):path.resolve(dist,'.'+(url.pathname==='/'?'/index.html':url.pathname));
  if(!file.startsWith(dist+path.sep)&&!Object.values(fixtures).some(f=>file===path.join(root,f))){res.writeHead(403).end();return;}
@@ -182,9 +182,15 @@ try{
  assert.equal(autoSaved.records.length,0);assert.equal(autoSaved.aiAutoHint,true);
  assert.equal(autoSaved.decisionLog.findLast(r=>r.kind==='recommendation').engine,'sigma3');
  checks.push('AI match auto advice starts on the human first turn using the analysis engine without moving the pawn');
+ assert.equal(await evaluate(`document.querySelector('#players .active .player-turn').textContent`),'내 차례');
+ assert.equal(await evaluate(`document.querySelector('#recommendation-kind').dataset.action`),'move');
+ assert.equal(await evaluate(`document.querySelector('#wait-label').dataset.tone`),'ready');
+ assert.equal(await evaluate(`document.querySelector('#wait-label').textContent`),'분석 완료');
  responseDelay=350;let autoStart=searches.length;
  await evaluate(`document.querySelector('#time').dispatchEvent(new Event('change'))`);
  await until(`document.querySelector('#hint').disabled&&!!document.querySelector('#board .move-dot')`);
+ assert.equal(await evaluate(`document.querySelector('#players .active .player-turn').textContent`),'추천 분석 중');
+ assert.equal(await evaluate(`document.querySelector('#wait-label').dataset.tone`),'working');
  await evaluate(`document.querySelector('#ai-auto-hint').click()`);
  await new Promise(r=>setTimeout(r,450));
  assert.equal(await evaluate(`!!document.querySelector('#board .recommend')`),false);
@@ -202,6 +208,7 @@ try{
  responseDelay=0;
  await evaluate(`document.querySelector('[data-review-ply="1"]').click()`);
  await until(`!document.querySelector('#hint').disabled`);
+ assert.equal(await evaluate(`document.querySelector('#players .active .player-turn').textContent`),'기보 차례');
  await evaluate(`document.querySelector('#review-now').click()`);
  await until(`!document.querySelector('#hint').disabled&&!!document.querySelector('#board .recommend')`);
  await send('Page.reload');
@@ -212,6 +219,18 @@ try{
  checks.push('auto advice survives reload and resumes on return from history and new game');
  await importAuto(1);
  await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===1&&!document.querySelector('#hint').disabled&&!!document.querySelector('#board .recommend')`);
+ preferredAction={type:'wall',x:3,y:3,o:'h'};
+ await evaluate(`document.querySelector('#hint').click()`);
+ await until(`!document.querySelector('#hint').disabled&&document.querySelector('#recommendation-kind').dataset.action==='wall'`);
+ assert.equal(await evaluate(`document.querySelector('#recommendation-kind span').textContent`),'벽 추천');preferredAction=null;
+ enginesOffline=true;await evaluate(`document.querySelector('#hint').click()`);
+ await until(`document.querySelector('#wait-advice').dataset.phase==='error'`);
+ assert.equal(await evaluate(`document.querySelector('#wait-label').dataset.tone`),'error');
+ assert.equal(await evaluate(`document.querySelector('#recommendation-kind').hidden`),true);
+ enginesOffline=false;await evaluate(`document.querySelector('#hint').click()`);
+ await until(`!document.querySelector('#hint').disabled&&!!document.querySelector('#board .recommend')`);
+ assert.equal(await evaluate(`document.querySelector('#wait-label').dataset.tone`),'ready');
+ checks.push('turn labels distinguish live, thinking and review; pawn/wall advice icons and ready/error/retry badges stay consistent');
  assert.equal(await evaluate(`document.querySelector('#screen-auto-hint').checked`),screenAutoHint);
  await evaluate(`document.querySelector('[data-mode="screen"]').click()`);
  assert.equal(await evaluate(`document.querySelector('#ai-auto-hint-setting').hidden`),true);

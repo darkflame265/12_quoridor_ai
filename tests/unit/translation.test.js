@@ -11,6 +11,7 @@ test('English catalog covers all registered static and dynamic messages',()=>{
 });
 test('readable reasons and accessibility counts preserve measured quantities',()=>{
  assert.equal(translateText('상대의 최단 경로를 4칸 늘리는 벽입니다.','en'),"This wall adds 4 steps to the opponent's shortest route.");
+ assert.equal(translateText('상대의 최단 경로를 1칸 늘리는 벽입니다.','en'),"This wall adds 1 step to the opponent's shortest route.");
  assert.equal(translateText('남은 벽 0개 / 10개','en'),'0 of 10 walls remaining');
  assert.equal(translateText('청록 · 목표까지 7칸','en'),'Teal · 7 steps to goal');
  assert.equal(translateText('청록 · 내 수','en'),'Teal · Your move');

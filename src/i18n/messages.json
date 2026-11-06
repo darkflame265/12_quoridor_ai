@@ -1,0 +1,2074 @@
+[
+  [
+    "승리 전략 확인",
+    "Winning strategy found"
+  ],
+  [
+    "종반 계산 완료",
+    "Endgame solved"
+  ],
+  [
+    "깊이 {0}",
+    "Depth {0}"
+  ],
+  [
+    "분석 완료",
+    "Analysis complete"
+  ],
+  [
+    "분석 중",
+    "Analyzing"
+  ],
+  [
+    "{0}초",
+    "{0}s"
+  ],
+  [
+    "{0}회 탐색",
+    "{0} simulations"
+  ],
+  [
+    "{0}개 노드",
+    "{0} nodes"
+  ],
+  [
+    "AI 모델을 준비하지 못했습니다. 인터넷 연결을 확인하고 다시 분석하세요.",
+    "Could not prepare the AI model. Check your connection and try again."
+  ],
+  [
+    "앱과 엔진 버전이 다릅니다. 쿼리도 실행기를 다시 연 뒤 분석하세요.",
+    "App and engine versions differ. Restart the local launcher and analyze again."
+  ],
+  [
+    "분석 엔진에 연결하지 못했습니다. 쿼리도 앱을 실행한 뒤 다시 분석하세요.",
+    "Cannot connect to the analysis engine. Start the local app and try again."
+  ],
+  [
+    "정해진 시간 안에 분석을 완료하지 못했습니다. 배치를 확인하고 다시 분석하세요.",
+    "Analysis did not finish in time. Check the position and try again."
+  ],
+  [
+    "분석을 완료하지 못했습니다. 배치를 확인하고 다시 분석하세요.",
+    "Could not finish the analysis. Check the position and try again."
+  ],
+  [
+    "청록",
+    "Teal"
+  ],
+  [
+    "분홍",
+    "Pink"
+  ],
+  [
+    "추천 수가 나오면 확인된 효과를 설명합니다.",
+    "The recommendation will include its measured effects."
+  ],
+  [
+    "분석 실패",
+    "Analysis failed"
+  ],
+  [
+    "최근 오류: {0}",
+    "Latest error: {0}"
+  ],
+  [
+    "상대 차례 · 1개 계산 작업으로 응수 사전 계산 중",
+    "Opponent's turn · preparing one reply in the background"
+  ],
+  [
+    "사전 계산 대기 · 확인된 배치가 일치할 때만 재사용",
+    "Waiting to prepare replies · reuse only for a matching confirmed position"
+  ],
+  [
+    "사전 계산 중단 · 내 차례 분석은 정상 진행",
+    "Background calculation stopped · your analysis is still available"
+  ],
+  [
+    "사전 계산 결과 재사용 · 현재 차례 추가 분석 중",
+    "Background result reused · analyzing the current turn further"
+  ],
+  [
+    "경로 재검토 · 최근 {0}차례 · 내 거리 {1}→{2}칸 · 같은 미로의 최저 {3}칸 · 상대 {4}칸 전진{5}. 필요한 방어 후퇴일 수도 있어 합법 수를 금지하지 않고 추가 비교합니다.",
+    "Route review · last {0} turns · your distance {1}→{2} · best in this maze {3} · opponent advanced {4}{5}. A retreat may be needed for defense; legal moves remain available for comparison."
+  ],
+  [
+    " · {0}차례 전 위치로 복귀",
+    " · returned to the position from {0} turns ago"
+  ],
+  [
+    "연속 벽 {0}개와 후보 비교 · 상대 이동 후 남는 지연 {1}칸 · 내 우회 {2}칸 · 각 차례 전진 대안 합 {3}칸 · 묶음 비용 {4}점 · 재고 비용 {5}점{6}. 현재 위치를 기준으로 한 제한 비교입니다.",
+    "Comparing {0} consecutive walls · delay retained after an opponent move {1} · your detour {2} · total alternative progress {3} · sequence cost {4} · reserve cost {5}{6}. This is a limited comparison from the current position."
+  ],
+  [
+    " · 측정된 방어 효과로 비용 면제",
+    " · cost waived for a measured defensive effect"
+  ],
+  [
+    "빌드 {0}",
+    "Build {0}"
+  ],
+  [
+    "엔진 버전·빌드 불일치 · 실제 {0} · {1} · 실행기를 다시 열어 갱신하세요",
+    "Engine version/build mismatch · actual {0} · {1} · restart the launcher"
+  ],
+  [
+    "알 수 없음",
+    "Unknown"
+  ],
+  [
+    "빌드 확인 실패",
+    "Build unavailable"
+  ],
+  [
+    "내 기기에서 계산합니다",
+    "Calculating on your device"
+  ],
+  [
+    "AI 모델 준비 중 · 첫 실행은 다운로드가 필요합니다",
+    "Preparing the AI model · the first run requires a download"
+  ],
+  [
+    "연결됨",
+    "Connected"
+  ],
+  [
+    "AI 준비에 실패했습니다. 연결을 확인한 뒤 다시 시도하세요.",
+    "Could not prepare AI. Check your connection and try again."
+  ],
+  [
+    "엔진에 연결하지 못했습니다. 쿼리도 앱을 실행한 뒤 다시 분석하세요.",
+    "Cannot connect to the engine. Start the local app and analyze again."
+  ],
+  [
+    "선택 엔진 확인 중…",
+    "Checking selected engine…"
+  ],
+  [
+    "선택한 엔진은 계산할 때 확인합니다.",
+    "The selected engine is checked when calculation starts."
+  ],
+  [
+    "선택",
+    "Selected"
+  ],
+  [
+    "화면 연결됨",
+    "Screen connected"
+  ],
+  [
+    "화면 연결 대기",
+    "Waiting for screen connection"
+  ],
+  [
+    "브라우저 AI · 내 기기에서 계산",
+    "Browser AI · runs on your device"
+  ],
+  [
+    "로컬 분석",
+    "Local analysis"
+  ],
+  [
+    "기준 진영",
+    "Reference side"
+  ],
+  [
+    "내 진영",
+    "Your side"
+  ],
+  [
+    "기준 진영 시작 위치",
+    "Reference starting position"
+  ],
+  [
+    "내 시작 위치",
+    "Your starting position"
+  ],
+  [
+    "{0} 승리!",
+    "{0} wins!"
+  ],
+  [
+    "관전 종료 · 무승부",
+    "Observation ended · draw"
+  ],
+  [
+    "{0} AI가 수를 읽고 있습니다…",
+    "{0} AI is thinking…"
+  ],
+  [
+    "다음 수를 기다리고 있습니다…",
+    "Waiting for the next move…"
+  ],
+  [
+    "{0} 차례 · 관전 일시정지",
+    "{0} to move · observation paused"
+  ],
+  [
+    "{0}의 차례",
+    "{0} to move"
+  ],
+  [
+    "AI의 차례",
+    "AI's turn"
+  ],
+  [
+    "종료",
+    "Finished"
+  ],
+  [
+    "계산 중",
+    "Thinking"
+  ],
+  [
+    "자동 진행",
+    "Auto play"
+  ],
+  [
+    "일시정지",
+    "Pause"
+  ],
+  [
+    "두 AI의 대국을 관전합니다 · 금색 표시는 방금 둔 수입니다",
+    "Watching two AIs · gold marks the last move"
+  ],
+  [
+    "점을 클릭해 이동 · 칸 사이에 커서를 대고 클릭해 벽 설치",
+    "Click a dot to move · hover between squares and click to place a wall"
+  ],
+  [
+    "{0} 승리 · {1}수",
+    "{0} wins · {1} plies"
+  ],
+  [
+    "관전 무승부 · {0}",
+    "Observation draw · {0}"
+  ],
+  [
+    "같은 배치가 3회 반복되었습니다",
+    "The same position occurred three times"
+  ],
+  [
+    "관전 최대 300수에 도달했습니다",
+    "Observation reached the 300-ply limit"
+  ],
+  [
+    "상대 진영",
+    "Opponent"
+  ],
+  [
+    "상대 AI · {0}",
+    "Opponent AI · {0}"
+  ],
+  [
+    " · 내 수",
+    " · your move"
+  ],
+  [
+    " · 상대 수",
+    " · opponent move"
+  ],
+  [
+    "내 수",
+    "Your move"
+  ],
+  [
+    "상대 수",
+    "Opponent move"
+  ],
+  [
+    "수 ",
+    "Move "
+  ],
+  [
+    "벽 설치",
+    "Wall"
+  ],
+  [
+    "말 이동",
+    "Pawn move"
+  ],
+  [
+    "현재 대국",
+    "Live game"
+  ],
+  [
+    "수 직후 · 과거 기보",
+    "plies played · history"
+  ],
+  [
+    "{0} 수",
+    "{0} plies"
+  ],
+  [
+    "가져온 배치 이후 {0}수",
+    "{0} plies since import"
+  ],
+  [
+    "재동기화 이후 {0}수 · 중간 기보 누락",
+    "{0} plies since resync · some history is missing"
+  ],
+  [
+    "화면 배치 대기",
+    "Waiting for a screen position"
+  ],
+  [
+    "화면 배치 · {0} 승리",
+    "Screen position · {0} wins"
+  ],
+  [
+    "{0} · {1} 차례{2}",
+    "{0} · {1} to move{2}"
+  ],
+  [
+    "화면 자동 연동",
+    "Screen sync"
+  ],
+  [
+    "확인한 화면 배치",
+    "Confirmed screen position"
+  ],
+  [
+    " · 분석 중",
+    " · analyzing"
+  ],
+  [
+    " · 변화 확인 중",
+    " · checking changes"
+  ],
+  [
+    "화면을 가져와 검토·적용하면 이 보드가 바뀝니다",
+    "Import and confirm a screen to update this board"
+  ],
+  [
+    "자동 감시 중 · 안정된 합법 수를 반영하고 내 차례에 추천합니다",
+    "Monitoring · sync confirmed legal moves and recommend on your turn"
+  ],
+  [
+    "자동 감시는 일시정지 상태입니다 · 화면 공유 후 감시 재개를 누르세요",
+    "Monitoring is paused · share the screen and resume"
+  ],
+  [
+    "✦ 최선 수 분석",
+    "✦ Analyze best move"
+  ],
+  [
+    "↻ 다시 분석",
+    "↻ Analyze again"
+  ],
+  [
+    "대국 종료",
+    "Game over"
+  ],
+  [
+    "기보에서 수를 선택하면 그 시점의 추천과 이유를 확인할 수 있습니다.",
+    "Select a move in the history to see the recommendation and its reason."
+  ],
+  [
+    "기보를 선택해 복기하세요.",
+    "Select a move to review."
+  ],
+  [
+    "대국이 끝났습니다 · 오른쪽 기보에서 중요한 순간을 다시 살펴보세요",
+    "Game over · revisit key moments in the move history"
+  ],
+  [
+    "게임 화면을 연결하세요",
+    "Connect a game screen"
+  ],
+  [
+    "AI 대국 관전",
+    "Watching AI play"
+  ],
+  [
+    "다음 한 수를 살펴보세요",
+    "Explore your next move"
+  ],
+  [
+    "상대의 차례",
+    "Opponent's turn"
+  ],
+  [
+    "게임 화면 연결 버튼으로 보드를 가져오면 추천 분석이 시작됩니다.",
+    "Connect a game screen to import the board and start analysis."
+  ],
+  [
+    "두 엔진의 선택을 관찰하거나 기보를 선택해 복기할 수 있습니다.",
+    "Watch the engines' choices or select a move to review."
+  ],
+  [
+    "최선 수 분석을 누르면 추천 위치와 선택 이유를 알려드립니다.",
+    "Analyze best move to see the suggested position and its reason."
+  ],
+  [
+    "상대의 수가 반영되면 현재 배치에서 분석할 수 있습니다.",
+    "You can analyze the position after the opponent's move arrives."
+  ],
+  [
+    "기보 {0}수 직후 · {1} 차례{2}",
+    "After ply {0} · {1} to move{2}"
+  ],
+  [
+    "과거 기보를 보고 있습니다 · 현재로를 누르면 실시간 배치로 돌아갑니다",
+    "Reviewing history · select Live to return to the current position"
+  ],
+  [
+    "추천",
+    "Recommended"
+  ],
+  [
+    "전체 {0}수 · {1} 차례 · {2}",
+    "{0} plies · {1} to move · {2}"
+  ],
+  [
+    "계산 중 · 추천이 바뀔 수 있습니다",
+    "Calculating · the recommendation may change"
+  ],
+  [
+    "{0} · 최대 내 {1}턴. 전체 행동 중 최단 승리 여부까지 증명한 결과는 아닙니다.",
+    "{0} · at most {1} of your turns. This does not prove the shortest win among all actions."
+  ],
+  [
+    "벽을 쓰지 않는 이동 승리 전략",
+    "Winning strategy without using a wall"
+  ],
+  [
+    "마지막 벽 사용 후의 승리 전략",
+    "Winning strategy after using the last wall"
+  ],
+  [
+    "방어벽 보존 평가 · 내 벽 {0}개 / 상대 {1}개 · 단일 벽 위협 {2}칸 상당. 제한된 후보 평가이며 승패 증명은 아닙니다.",
+    "Wall reserve review · yours {0} / opponent {1} · single-wall threat {2}. Limited candidates; not a proof of the outcome."
+  ],
+  [
+    "방어벽 보존 평가의 시간 예산을 넘겨 부분 결과는 적용하지 않았습니다.",
+    "Wall reserve review timed out; partial results were not applied."
+  ],
+  [
+    "벽 소비 비교 · 관측된 연속 설치 {0}회 · 전진 가능한 이동과 비교해 약한 벽 {1}개에 비용 반영{2}",
+    "Wall spending review · {0} consecutive placements · costs applied to {1} weak walls compared with advancing{2}"
+  ],
+  [
+    " · 선택 벽 비용 {0}점",
+    " · selected wall cost {0}"
+  ],
+  [
+    "벽 소비 비교 시간 초과 · 부분 비용은 적용하지 않았습니다.",
+    "Wall spending review timed out; partial costs were not applied."
+  ],
+  [
+    "연결 벽 위험 추정 {0}{1} · 첫 벽 → 내 합법 대응 → 연결 벽을 제한 탐색{2}. 생략된 공격·방어가 있어 안전·승패 증명이 아닙니다.",
+    "Connected-wall risk {0}{1} · limited search of attack → legal reply → follow-up wall{2}. Some lines are omitted; this is not a safety or outcome proof."
+  ],
+  [
+    " · 방어 대응 추가 검토 {0}→{1}",
+    " · defensive replies reviewed {0}→{1}"
+  ],
+  [
+    " · 추천 후 추정 {0}",
+    " · estimated risk after recommendation {0}"
+  ],
+  [
+    "연결 벽 평가 시간 초과 · 부분 점수는 적용하지 않고 추가 분석을 유지합니다.",
+    "Connected-wall review timed out; partial scores were not applied."
+  ],
+  [
+    "공격·방어 응수 비교 시간 초과 · 부분 보정은 적용하지 않았습니다.",
+    "Attack/defense reply comparison timed out; partial adjustments were not applied."
+  ],
+  [
+    "현재 추천은 추가 위험 검토 후보 밖입니다. 충분히 검토됐다고 표시하지 않습니다.",
+    "This recommendation is outside the additional risk-review candidates. It is not marked as fully reviewed."
+  ],
+  [
+    "후속 공격·방어 비교 · 추천 후 위험 추정 {0} · 후속 경로 증가 {1}칸{2}{3}{4}{5} · 제한된 후보의 평가입니다.",
+    "Follow-up comparison · estimated risk {0} · route increase {1}{2}{3}{4}{5} · limited candidates only."
+  ],
+  [
+    " · 상대 {0}",
+    " · opponent {0}"
+  ],
+  [
+    " → 내 대응 {0}",
+    " → your reply {0}"
+  ],
+  [
+    " → 상대 {0}",
+    " → opponent {0}"
+  ],
+  [
+    " · 이전 대응안 {0}도 재비교했습니다.",
+    " · previous reply {0} was compared again"
+  ],
+  [
+    "불가능한 수입니다.",
+    "Illegal move."
+  ],
+  [
+    "추천 대기",
+    "Waiting for a recommendation"
+  ],
+  [
+    "가능한 이동과 벽을 분석하고 있습니다…",
+    "Analyzing legal pawn moves and walls…"
+  ],
+  [
+    "AI 준비 중",
+    "Preparing AI"
+  ],
+  [
+    "첫 실행은 모델 다운로드·준비 시간이 필요합니다. 준비 후 내 기기에서 계산합니다.",
+    "The first run downloads and prepares the model. Calculation then runs on your device."
+  ],
+  [
+    "추천 가능한 수가 없습니다.",
+    "No recommended move is available."
+  ],
+  [
+    "상대 선택",
+    "Opponent chose"
+  ],
+  [
+    "기보 {0}수 · {1}",
+    "History ply {0} · {1}"
+  ],
+  [
+    "자동 분석 대기",
+    "Auto analysis queued"
+  ],
+  [
+    "분석 대기",
+    "Waiting for analysis"
+  ],
+  [
+    "선택한 시점의 배치만 분석합니다. 현재 대국의 추천과 구분됩니다.",
+    "Analyzing only the selected historical position, separately from live advice."
+  ],
+  [
+    " · 저장된 분석 재사용",
+    " · cached analysis reused"
+  ],
+  [
+    "과거 기보 분석 · 실시간 추천이 아닙니다",
+    "Historical analysis · not live advice"
+  ],
+  [
+    "화면 재확인 중",
+    "Rechecking screen"
+  ],
+  [
+    "AI 대국 계산 중",
+    "Calculating AI game"
+  ],
+  [
+    "AI 대국 진행 중",
+    "AI game in progress"
+  ],
+  [
+    "AI 대국 대기",
+    "Waiting for AI game"
+  ],
+  [
+    "배치를 확인한 뒤 추천을 표시합니다.",
+    "Advice appears after the position is confirmed."
+  ],
+  [
+    "대국 진행과 선택한 수를 아래에서 확인하세요.",
+    "Review the game and selected move below."
+  ],
+  [
+    "분석 결과와 예상 진행을 아래에서 확인하세요.",
+    "Review the analysis and principal variation below."
+  ],
+  [
+    "화면 배치를 확인하거나 최선 수 분석을 시작하세요.",
+    "Confirm a screen position or analyze the best move."
+  ],
+  [
+    "판세: {0} 승리",
+    "Position: {0} wins"
+  ],
+  [
+    "판세: 분석 대기",
+    "Position: awaiting analysis"
+  ],
+  [
+    "현재 추천 고정",
+    "Pin current recommendation"
+  ],
+  [
+    "고정 추천 {0} / 최신 계산 {1}",
+    "Pinned {0} / latest {1}"
+  ],
+  [
+    "추천 변경: {0} → {1}",
+    "Recommendation changed: {0} → {1}"
+  ],
+  [
+    "원본 배치 재확인 중 · 추천 표시 보류",
+    "Rechecking source position · advice hidden"
+  ],
+  [
+    "추천 자동 고정",
+    "Auto-pin recommendation"
+  ],
+  [
+    "후보 비교 중 · 최대 2초 후 추천 확정",
+    "Comparing candidates · finalize within 2 seconds"
+  ],
+  [
+    "추천 확정 · {0} · {1}",
+    "Recommendation finalized · {0} · {1}"
+  ],
+  [
+    "전체 {0}수 · {1} 차례 · {2}{3}",
+    "{0} plies · {1} to move · {2}{3}"
+  ],
+  [
+    "추천 고정 · ",
+    "Pinned · "
+  ],
+  [
+    "추가 분석 중",
+    "Analyzing further"
+  ],
+  [
+    "현재 차례의 추천 수와 예상 진행을 확인하세요.",
+    "See the current recommendation and principal variation."
+  ],
+  [
+    "당시 추천: ",
+    "Recommendation at the time: "
+  ],
+  [
+    "선택한 배치를 자동으로 분석합니다.",
+    "The selected position is analyzed automatically."
+  ],
+  [
+    "기보 {0}수 추천",
+    "Recommendation after ply {0}"
+  ],
+  [
+    "{0} {1}를 아래 포지션 분석에서 확인하세요.",
+    "See {0} {1} in the position analysis below."
+  ],
+  [
+    "저장된 분석",
+    "Cached analysis"
+  ],
+  [
+    "분석 결과",
+    "Analysis result"
+  ],
+  [
+    "이미 목표 줄에 도착해 대국이 끝난 배치입니다.",
+    "A pawn has already reached its goal row; this game is over."
+  ],
+  [
+    "선택한 배치에 대한 합법 추천을 얻지 못했습니다.",
+    "No legal recommendation was obtained for this position."
+  ],
+  [
+    "자동 저장 공간이 부족합니다. 기보 저장을 이용해 주세요.",
+    "Browser storage is full. Save the game to a file."
+  ],
+  [
+    "이전 화면 기보 보관 형식이 올바르지 않습니다.",
+    "Invalid archived screen-history format."
+  ],
+  [
+    "기보의 원본 엔진 {0}은 선택 목록에서 제외됐습니다. 기록은 유지하고 새 분석에는 Sigma 4를 사용합니다.",
+    "Original engine {0} is no longer selectable. Moves are kept; new analysis uses Sigma 4."
+  ],
+  [
+    "불러오기 실패: {0}",
+    "Import failed: {0}"
+  ],
+  [
+    "원본 배치 변화 확인 중 · 확인 전에는 추천을 표시하지 않습니다.",
+    "Checking source changes · advice stays hidden until confirmed."
+  ],
+  [
+    "새로 가져온 내용은 확인 후 적용해야 반영됩니다.",
+    "Confirm and apply the imported position to update the board."
+  ],
+  [
+    "가로벽",
+    "horizontal wall"
+  ],
+  [
+    "세로벽",
+    "vertical wall"
+  ],
+  [
+    "이동하면 목표 줄에 도착해 바로 승리합니다.",
+    "This move reaches the goal row and wins immediately."
+  ],
+  [
+    "상대의 최단 경로를 {0}칸 늘리는 벽입니다.",
+    "This wall adds {0} steps to the opponent's shortest route."
+  ],
+  [
+    "상대가 바로 이동할 수 있는 칸을 {0}곳에서 {1}곳으로 줄입니다.",
+    "This reduces the opponent's immediate legal moves from {0} to {1}."
+  ],
+  [
+    "현재 배치에서는 상대의 최단 경로를 늘리지 않는 벽입니다.",
+    "This wall does not lengthen the opponent's current shortest route."
+  ],
+  [
+    " 나도 {0}칸 더 돌아가야 합니다.",
+    " Your own route also becomes {0} steps longer."
+  ],
+  [
+    "목표까지 남은 최단 경로를 {0}칸 줄이는 전진입니다.",
+    "This advance shortens your remaining route by {0} steps."
+  ],
+  [
+    "목표까지 남은 경로가 {0}칸 늘어나는 이동입니다. 방어 효과는 아직 확인되지 않았습니다.",
+    "This move lengthens your route by {0} steps. A defensive benefit has not yet been confirmed."
+  ],
+  [
+    "말을 옮겨도 남은 최단 경로는 {0}칸으로 같습니다.",
+    "Your shortest route remains {0} steps after this move."
+  ],
+  [
+    "현재 벽 배치 기준: 내 최단 경로 {0}→{1}칸, 상대 {2}→{3}칸. 말 점프·앞으로 놓일 벽을 포함한 도착 턴 수는 아닙니다.",
+    "With the current walls: your shortest route {0}→{1}, opponent {2}→{3}. These are not arrival turns accounting for jumps or future walls."
+  ],
+  [
+    "주의: 이 수를 두면 상대가 다음 이동으로 바로 도착할 수 있습니다.",
+    "Caution: this move lets the opponent reach the goal on their next move."
+  ],
+  [
+    "추천의 안전성을 보장할 수 없는 배치입니다.",
+    "The recommendation cannot be considered safe in this position."
+  ],
+  [
+    "상대의 {0}에 의한 우회를 {1}칸에서 {2}칸으로 줄입니다.",
+    "This reduces the detour caused by the opponent's {0} from {1} to {2} steps."
+  ],
+  [
+    "상대의 {0} 설치를 막아, 그 벽으로 인한 {1}칸 우회를 피합니다.",
+    "This prevents the opponent's {0}, avoiding its {1}-step detour."
+  ],
+  [
+    "현재 배치와 이 수를 둔 배치에서 같은 상대 벽을 비교한 결과입니다. 상대가 실제로 그 벽을 선택한다는 뜻은 아닙니다.",
+    "The same opponent wall was compared before and after this move. This does not mean the opponent will actually choose it."
+  ],
+  [
+    "상대 경로를 {0}칸 늘리고, {1} 공격의 피해도 줄이는 공방의 수입니다.",
+    "This adds {0} steps to the opponent's route and reduces the damage of a {1} attack."
+  ],
+  [
+    " 대신 내 경로는 {0}칸 늘어납니다.",
+    " In exchange, your route grows by {0} steps."
+  ],
+  [
+    "상대 경로를 늘리는 합법 벽이 없어, 벽을 아끼며 {0}칸 전진합니다.",
+    "No legal wall lengthens the opponent's route, so save a wall and advance {0} steps."
+  ],
+  [
+    "지금 벽으로 늘릴 수 있는 상대 경로는 최대 {0}칸입니다. 벽을 아끼며 {1}칸 전진합니다.",
+    "A wall can currently add at most {0} steps to the opponent's route. Save a wall and advance {1} steps."
+  ],
+  [
+    "합법 벽 {0}개를 비교했을 때 상대 최단 경로 증가의 최댓값은 {1}칸입니다. 방어벽의 가치까지 전부 비교한 결론은 아닙니다.",
+    "Among {0} legal walls, the largest increase to the opponent's route is {1} steps. This does not fully compare defensive wall value."
+  ],
+  [
+    "설명용 벽 비교는 시간 안에 확인한 후보만 포함합니다.",
+    "The explanation compares only walls checked within its time budget."
+  ],
+  [
+    "이동 점 없음 · 차례 근거 없음",
+    "No move dots · no evidence of whose turn it is"
+  ],
+  [
+    "말·벽 배치를 확정하지 못해 이동 점을 검증하지 않았습니다.",
+    "Pawn/wall positions were not confirmed, so move dots were not checked."
+  ],
+  [
+    "유효한 진행 중 배치가 없어 이동 점을 검증하지 않았습니다.",
+    "No valid ongoing position is available to verify move dots."
+  ],
+  [
+    "양쪽 진영의 이동 점이 동시에 합법 이동 전체와 일치합니다.",
+    "Both sides' move dots match their complete legal move sets."
+  ],
+  [
+    "이동 점이 해당 색 말의 합법 이동 전체와 일치하지 않습니다.",
+    "Move dots do not match the complete legal moves for that color."
+  ],
+  [
+    "{0} 이동 점 {1}개 · 합법 이동 전체 일치",
+    "{0}: {1} move dots · complete legal move set matches"
+  ],
+  [
+    "두 말의 위치를 모두 지정하세요.",
+    "Specify both pawn positions."
+  ],
+  [
+    "벽은 최대 20개까지 지정할 수 있습니다.",
+    "At most 20 walls are allowed."
+  ],
+  [
+    "잔여 벽은 각각 0~10개여야 합니다.",
+    "Each remaining-wall count must be between 0 and 10."
+  ],
+  [
+    "현재 차례를 선택하세요.",
+    "Select whose turn it is."
+  ],
+  [
+    "두 말이 같은 칸에 있습니다.",
+    "Both pawns occupy the same square."
+  ],
+  [
+    "양쪽 말이 동시에 목표 줄에 있습니다. 시작 방향을 확인하세요.",
+    "Both pawns are on goal rows. Check the starting orientation."
+  ],
+  [
+    "승리 상태가 말 위치와 다릅니다.",
+    "The winner does not match the pawn positions."
+  ],
+  [
+    "종료 상태의 차례가 올바르지 않습니다.",
+    "Invalid side to move for a finished game."
+  ],
+  [
+    "벽의 위치·방향·색상을 확인하세요.",
+    "Check the wall position, orientation and color."
+  ],
+  [
+    "겹침·교차·경로 차단 또는 벽 수 초과가 있습니다.",
+    "A wall overlaps, crosses, blocks all routes, or exceeds the wall limit."
+  ],
+  [
+    "{0} 잔여 벽과 설치된 벽 수가 맞지 않습니다.",
+    "{0}: remaining walls do not match placed walls."
+  ],
+  [
+    "기보 형식 오류",
+    "Invalid game file format"
+  ],
+  [
+    "불가능한 수가 포함된 기보입니다.",
+    "The game file contains an illegal move."
+  ],
+  [
+    "게임 화면 연결",
+    "Connect game screen"
+  ],
+  [
+    "게임 탭 선택 후 자동 판독·적용",
+    "Select a game tab to recognize and apply automatically"
+  ],
+  [
+    "가져오기·보정",
+    "Import & correct"
+  ],
+  [
+    "이미지 가져오기 · 수동 보정",
+    "Import image · manual correction"
+  ],
+  [
+    "내 진영·현재 차례 판독 대기",
+    "Waiting to detect your side and turn"
+  ],
+  [
+    "보드와 격자는 자동으로 찾습니다. 자동 탐지가 실패했거나 어긋났을 때만 9×9 칸의 바깥 모서리를 드래그해 보정하세요.",
+    "The board and grid are detected automatically. Drag the outside corners of the 9×9 squares only if detection fails or is misaligned."
+  ],
+  [
+    "가로 칸 간격 (%)",
+    "Horizontal gap (%)"
+  ],
+  [
+    "차례는 원본 문구·활성 카드와 수 추적으로 대조합니다. 잔여 벽은 설치된 벽 색으로 추정하므로 원본 숫자와 확인하세요.",
+    "Turn evidence combines source text, active cards and move tracking. Wall counts are estimated from placed wall colors; check the source counts."
+  ],
+  [
+    "검토 후 적용 · 차례와 잔여 벽은 원본과 대조하세요.",
+    "Review before applying · compare turn and wall counts with the source."
+  ],
+  [
+    "화면 인식 작업이 중단됐습니다. 다음 프레임에서 다시 시도합니다.",
+    "Screen recognition stopped. Retrying on the next frame."
+  ],
+  [
+    "아래 출발 줄 색을 읽지 못했습니다. 전체 보드를 공유하거나 수동 보정하세요.",
+    "Cannot read the bottom starting-row color. Share the whole board or correct manually."
+  ],
+  [
+    "원본 차례를 읽지 못했습니다. 차례 표시까지 공유하거나 수동 보정하세요.",
+    "Cannot read the source turn. Include the turn indicator or correct manually."
+  ],
+  [
+    "내 진영: {0} · 아래 시작 · 자동",
+    "Your side: {0} · starts at bottom · automatic"
+  ],
+  [
+    "내 진영: 판독 대기 · 아래 출발 줄을 확인하세요.",
+    "Your side: awaiting detection · check the bottom starting row."
+  ],
+  [
+    "내 진영: {0} · 아래 시작 · 수동 보정",
+    "Your side: {0} · starts at bottom · manual"
+  ],
+  [
+    "차례 표시 판독 대기",
+    "Waiting to read turn indicator"
+  ],
+  [
+    "현재: {0} 차례 · 수동 보정",
+    "Current turn: {0} · manually corrected"
+  ],
+  [
+    "내",
+    "Yours"
+  ],
+  [
+    "상대",
+    "Opponent"
+  ],
+  [
+    "초기 진영·차례 판독 보류 · {0}",
+    "Initial side/turn pending · {0}"
+  ],
+  [
+    "벽 후보 충돌 · {0}",
+    "Conflicting wall candidates · {0}"
+  ],
+  [
+    "벽 과다 검출 · 청록 {0}개 / 분홍 {1}개 (각 최대 10개)",
+    "Too many walls detected · Teal {0} / Pink {1} (at most 10 each)"
+  ],
+  [
+    "격자 자동 정렬 완료 · {0}/81칸 확인",
+    "Grid aligned · {0}/81 squares confirmed"
+  ],
+  [
+    "격자를 찾았습니다. {0} 말·벽·진영·차례를 확인하고 보정하세요.",
+    "Grid found. {0} Check pawns, walls, sides and turn."
+  ],
+  [
+    "보드와 가로·세로 간격을 자동으로 찾았습니다. 말·벽·진영·차례를 확인하고 적용하세요.",
+    "Board and horizontal/vertical gaps detected. Review pawns, walls, sides and turn before applying."
+  ],
+  [
+    "여러 격자를 찾았습니다. 사용할 보드를 선택하세요.",
+    "Multiple grids found. Select the board to use."
+  ],
+  [
+    "9×9 격자를 찾지 못했습니다. 전체 보드가 보이게 하거나 직접 영역을 드래그하세요.",
+    "No 9×9 grid found. Show the entire board or drag its area manually."
+  ],
+  [
+    "보드 {0} · 위치 {1}, {2}",
+    "Board {0} · position {1}, {2}"
+  ],
+  [
+    "자동 감시 일시정지",
+    "Monitoring paused"
+  ],
+  [
+    "영역·배치를 변경했습니다. 검토 후 다시 적용하세요.",
+    "Area or position changed. Review and apply again."
+  ],
+  [
+    "갱신 보류 · {0}",
+    "Update held · {0}"
+  ],
+  [
+    "전체 재탐지 실패 · 확인된 기존 격자를 모서리 색상 증거로 유지",
+    "Full detection failed · keeping the confirmed grid using corner-color evidence"
+  ],
+  [
+    "격자 추적 실패 · 전체 9×9 칸과 선택 대상을 확인하세요.",
+    "Grid tracking failed. Check that all 9×9 squares and the selected source are visible."
+  ],
+  [
+    "새 영상 프레임을 받지 못했습니다. 공유 상태를 확인하세요.",
+    "No new video frame. Check screen sharing."
+  ],
+  [
+    "공유 화면 크기가 바뀌었습니다. 프레임을 고정하고 영역을 다시 지정하세요.",
+    "Shared-screen size changed. Freeze a frame and select the area again."
+  ],
+  [
+    "배치를 다시 적용하세요.",
+    "Apply the position again."
+  ],
+  [
+    "내 진영 판독 불일치 · 출발 줄 색 변경 또는 가림을 확인하고 현재 화면 재동기화를 이용하세요.",
+    "Your side no longer matches. Check starting-row colors or occlusion, then resync."
+  ],
+  [
+    "내 진영: {0} · 아래 시작 · 현재: {1}{2}{3}",
+    "Your side: {0} · starts at bottom · current: {1}{2}{3}"
+  ],
+  [
+    "내 차례",
+    "Your turn"
+  ],
+  [
+    "상대 차례",
+    "Opponent's turn"
+  ],
+  [
+    " · 차례 표시 확인 중",
+    " · verifying turn indicator"
+  ],
+  [
+    " · 원본 {0}수",
+    " · source ply {0}"
+  ],
+  [
+    "배치 변화 확인 중 · 동일한 보드 2회 대기",
+    "Position changing · waiting for two matching frames"
+  ],
+  [
+    "격자 재정렬 · 배치 안정화 확인 중",
+    "Grid realigned · checking position stability"
+  ],
+  [
+    "왼쪽 배치가 변경됐습니다. 다시 확인하세요.",
+    "The local position changed. Check it again."
+  ],
+  [
+    "{0}수 합법 진행 복원{1}",
+    "Recovered {0} legal plies{1}"
+  ],
+  [
+    " · 보드 우선 반영, 차례 표시 대조 중",
+    " · board updated first; cross-checking turn"
+  ],
+  [
+    "{0}수 자동 반영{1} · {2}",
+    "Synced {0} plies{1} · {2}"
+  ],
+  [
+    "보드는 원본과 일치 · 차례 표시 확인 중",
+    "Board matches source · checking turn indicator"
+  ],
+  [
+    "자동 감시 중 · 원본과 일치",
+    "Monitoring · matches source"
+  ],
+  [
+    "자동 감시 시작 · 합법 수·차례 대조 후 연속 반영",
+    "Monitoring started · sync after checking legal moves and turn"
+  ],
+  [
+    "감시 재개",
+    "Resume monitoring"
+  ],
+  [
+    "공유 중 · 자동 감시 활성",
+    "Sharing · monitoring active"
+  ],
+  [
+    "공유 중 · 자동 감시는 일시정지",
+    "Sharing · monitoring paused"
+  ],
+  [
+    "마지막 프레임/이미지 · 실시간 갱신 없음",
+    "Last frame/image · no live updates"
+  ],
+  [
+    "연결된 화면 없음",
+    "No screen connected"
+  ],
+  [
+    "화면 공유 중지 · 자동 감시 종료",
+    "Screen sharing stopped · monitoring ended"
+  ],
+  [
+    "화면 크기를 읽지 못했습니다.",
+    "Cannot read screen dimensions."
+  ],
+  [
+    "연결된 화면을 아직 읽을 수 없습니다.",
+    "Cannot read the connected screen yet."
+  ],
+  [
+    "공유할 게임 탭 또는 창을 선택하세요.",
+    "Select the game tab or window to share."
+  ],
+  [
+    "화면 공유를 사용할 수 없습니다. 이미지 가져오기를 이용하세요.",
+    "Screen sharing is unavailable. Import an image instead."
+  ],
+  [
+    "화면 공유가 종료됐습니다. 마지막 프레임은 다시 검토할 수 있습니다.",
+    "Screen sharing ended. You can still review the last frame."
+  ],
+  [
+    "Wallz 연결 완료 · 자동 감시 시작",
+    "Wallz connected · monitoring started"
+  ],
+  [
+    "화면 공유가 취소됐거나 허용되지 않았습니다. 다시 연결하거나 이미지를 가져오세요.",
+    "Screen sharing was cancelled or denied. Reconnect or import an image."
+  ],
+  [
+    "자동 적용 보류 · {0}",
+    "Automatic apply held · {0}"
+  ],
+  [
+    "32MB 이하 PNG·JPG·WebP 파일을 선택하세요.",
+    "Choose a PNG, JPG or WebP file up to 32 MB."
+  ],
+  [
+    "이미지를 읽고 있습니다…",
+    "Reading image…"
+  ],
+  [
+    "이미지를 읽지 못했습니다: {0}",
+    "Could not read image: {0}"
+  ],
+  [
+    "수동 영역 보정 · 자동 추적을 사용하려면 보드 자동 찾기를 누르세요.",
+    "Manual area correction · select Find board automatically to resume tracking."
+  ],
+  [
+    "격자가 칸과 맞는지 확인한 뒤 영역을 인식하세요.",
+    "Check grid alignment before recognizing the area."
+  ],
+  [
+    "벽 {0}개 · 자동 말 후보 청록 {1}/분홍 {2}{3}{4}",
+    "{0} walls · pawn candidates Teal {1}/Pink {2}{3}{4}"
+  ],
+  [
+    " · 수동 보정됨",
+    " · manually corrected"
+  ],
+  [
+    "{0} {1}벽 · {2}열 {3}행",
+    "{0} {1} wall · column {2}, row {3}"
+  ],
+  [
+    "가로",
+    "horizontal"
+  ],
+  [
+    "세로",
+    "vertical"
+  ],
+  [
+    "삭제",
+    "Delete"
+  ],
+  [
+    "보드 영역을 180×180 픽셀 이상으로 선택하세요.",
+    "Select a board area of at least 180×180 pixels."
+  ],
+  [
+    "자동 판독을 마쳤습니다. 말·벽·출발 방향·차례·잔여 벽을 검토하고 적용하세요.",
+    "Recognition complete. Review pawns, walls, orientation, turn and wall counts before applying."
+  ],
+  [
+    "내 진영: {0} · 아래 시작 · {1} 차례{2}",
+    "Your side: {0} · starts at bottom · {1} to move{2}"
+  ],
+  [
+    " · 자동",
+    " · automatic"
+  ],
+  [
+    " · 수동 보정",
+    " · manual correction"
+  ],
+  [
+    "재동기화 자동 판독 성공 · 현재 배치·차례 자동 적용",
+    "Automatic resync succeeded · position and turn applied"
+  ],
+  [
+    "사용자가 현재 배치·차례를 확인해 기준 상태 적용",
+    "User confirmed the current position and turn as the reference"
+  ],
+  [
+    "현재 화면을 자동 적용하고 감시를 재개했습니다.",
+    "Current screen applied; monitoring resumed."
+  ],
+  [
+    "확인한 배치를 적용했습니다. 화면 공유 중이면 자동 감시가 시작됩니다.",
+    "Confirmed position applied. Monitoring starts if screen sharing is active."
+  ],
+  [
+    "배치 검토를 위해 일시정지했습니다. 검토·적용 후 감시를 다시 시작하세요.",
+    "Paused to review the position. Apply it to resume monitoring."
+  ],
+  [
+    "현재 화면 재동기화 · 판독 중",
+    "Resyncing current screen · recognizing"
+  ],
+  [
+    "공유 중인 화면이 없습니다. 화면을 연결해 주세요.",
+    "No screen is being shared. Connect a screen first."
+  ],
+  [
+    "재동기화 자동 적용 완료 · 자동 감시 재개",
+    "Resync applied · monitoring resumed"
+  ],
+  [
+    "자동 적용 보류 · {0} 현재 배치·차례를 확인해 적용해 주세요.",
+    "Automatic apply held · {0} Confirm the current position and turn, then apply."
+  ],
+  [
+    "Wallz 탭을 선택해 주세요. 선택 후 자동으로 판독합니다.",
+    "Select the Wallz tab. Recognition starts after selection."
+  ],
+  [
+    "보드 영역과 간격을 확인하세요.",
+    "Check board area and gaps."
+  ],
+  [
+    "이미지 픽셀을 읽을 수 없습니다.",
+    "Cannot read image pixels."
+  ],
+  [
+    "보드 영역이 이미지 밖에 있습니다.",
+    "Board area extends beyond the image."
+  ],
+  [
+    "{0} 말 후보 {1}개: 검토 보드에서 위치를 지정하세요.",
+    "{0}: {1} pawn candidates. Specify the position on the review board."
+  ],
+  [
+    "보드를 자동 확정하지 못했습니다. 영역을 확인해 주세요.",
+    "Could not confirm the board automatically. Check its area."
+  ],
+  [
+    "진영·차례의 자동 판독이 꺼져 있습니다. 현재 값을 확인해 적용해 주세요.",
+    "Automatic side/turn detection is off. Confirm the current values and apply."
+  ],
+  [
+    "아래 출발 줄 색을 확정하지 못했습니다.",
+    "Cannot confirm the bottom starting-row color."
+  ],
+  [
+    "현재 차례를 확정하지 못했습니다.",
+    "Cannot confirm whose turn it is."
+  ],
+  [
+    "벽이 사라지거나 색이 바뀌었습니다. 되돌리기·새 게임은 배치를 다시 적용하세요.",
+    "A wall disappeared or changed color. Reapply the position after undo or a new game."
+  ],
+  [
+    "현재 차례에서 가능한 한두 수로 연결되지 않습니다. 원본 차례·보드 영역을 확인하고 다시 적용하세요.",
+    "The position cannot be reached in one or two legal plies. Check source turn and board area, then reapply."
+  ],
+  [
+    "원본 차례와 수 번호가 수 추적 결과와 충돌합니다.",
+    "Source turn and move count conflict with move tracking."
+  ],
+  [
+    "원본 수 번호는 같은데 배치가 바뀌었습니다. 미리보기·애니메이션 또는 판독 오류를 확인하세요.",
+    "Position changed without a move-count change. Check previews, animations or recognition errors."
+  ],
+  [
+    "원본 차례와 수 추적이 일치하지 않습니다. 현재 화면 재동기화가 필요합니다.",
+    "Source turn and move tracking disagree. Resync the current screen."
+  ],
+  [
+    "벽 삭제·되돌리기 감지 · 현재 화면 재동기화를 이용하세요.",
+    "Wall removal/undo detected · resync the current screen."
+  ],
+  [
+    "진행 복원 계산 한도 초과 · 현재 화면 재동기화를 이용하세요.",
+    "Recovery calculation limit reached · resync the current screen."
+  ],
+  [
+    "놓친 수의 진행 순서가 여러 개입니다 · 중간 기보를 만들지 않고 재동기화 확인을 기다립니다.",
+    "Multiple move orders are possible · waiting for resync instead of inventing history."
+  ],
+  [
+    "6수 이내 진행을 복원하지 못했습니다 · 현재 화면 재동기화를 이용하세요.",
+    "Could not recover within 6 plies · resync the current screen."
+  ],
+  [
+    "원본 수 번호가 이전에 확인한 수보다 작아졌습니다. 되돌리기·새 게임은 재동기화하세요.",
+    "Source move count decreased. Resync after undo or a new game."
+  ],
+  [
+    "원본 수 번호가 추적 범위를 벗어났습니다. 현재 화면을 재동기화하세요.",
+    "Source move count is outside the tracking range. Resync the current screen."
+  ],
+  [
+    "기보 숫자가 보드보다 먼저 바뀌었습니다. 다음 프레임의 배치를 확인합니다.",
+    "Move count changed before the board. Checking the next frame."
+  ],
+  [
+    "아래 출발 줄 {0} · 위 출발 줄 {1}",
+    "Bottom starting row {0} · top starting row {1}"
+  ],
+  [
+    "위·아래 출발 줄의 색을 확정하지 못했습니다.",
+    "Cannot confirm top/bottom starting-row colors."
+  ],
+  [
+    "이동 점・차례 문구·활성 카드의 근거가 서로 충돌합니다.",
+    "Move dots, turn text and active-card evidence conflict."
+  ],
+  [
+    "차례 표시 판독 실패 · 합법 이동 점 또는 원본 문구·카드를 확인하고 필요하면 수동 보정하세요.",
+    "Could not read the turn. Check legal move dots or source text/cards; correct manually if needed."
+  ],
+  [
+    "{0} 차례 · {1}",
+    "{0} to move · {1}"
+  ],
+  [
+    "원본 문구 판독",
+    "Source text recognized"
+  ],
+  [
+    "활성 카드 판독",
+    "Active card recognized"
+  ],
+  [
+    "연결된 벽 후보의 위치를 유일하게 구분하지 못했습니다. 벽 보정 또는 현재 화면 재동기화가 필요합니다.",
+    "Cannot uniquely locate connected wall candidates. Correct the walls or resync."
+  ],
+  [
+    "선택한 Sigma 엔진을 사용할 수 없습니다. 앱을 다시 실행해 주세요.",
+    "Selected Sigma engine unavailable. Restart the app."
+  ],
+  [
+    "최근 경로에서 왕복·후퇴 감지 · 전진 대안 재검토",
+    "Repeated movement/retreat detected · review advancing alternatives"
+  ],
+  [
+    "연결 벽 상황 · 깊은 후보 비교 필요",
+    "Connected-wall position · deeper comparison needed"
+  ],
+  [
+    "상대 공격과 방어 응수 비교",
+    "Comparing attacking walls and defensive replies"
+  ],
+  [
+    "완전 탐색 결과",
+    "Exhaustive search result"
+  ],
+  [
+    "여러 깊이에서 추천·평가 안정",
+    "Recommendation and evaluation stable across depths"
+  ],
+  [
+    "말 이동 경주에서 열세 · 벽 대안 비교",
+    "Behind in the pawn race · compare wall alternatives"
+  ],
+  [
+    "위험 평가 자료 부족",
+    "Insufficient risk assessment data"
+  ],
+  [
+    "연결 벽 공격 위험",
+    "Connected-wall attack risk"
+  ],
+  [
+    "남은 방어벽 부족",
+    "Low defensive wall reserve"
+  ],
+  [
+    "연속 벽 소비",
+    "Consecutive wall spending"
+  ],
+  [
+    "골인 근접",
+    "Near the goal"
+  ],
+  [
+    "추천 또는 평가 변화 중",
+    "Recommendation or evaluation changing"
+  ],
+  [
+    "최소 관찰 시간 확보",
+    "Allow a minimum observation period"
+  ],
+  [
+    "이번 계산 종료",
+    "Calculation finished"
+  ],
+  [
+    "2초 계산 완료",
+    "2-second calculation complete"
+  ],
+  [
+    "배치가 확인될 때까지 추천을 숨깁니다.",
+    "Advice stays hidden until the position is confirmed."
+  ],
+  [
+    "후보 비교 중 · 최대 2초",
+    "Comparing candidates · up to 2 seconds"
+  ],
+  [
+    "계산이 완료되면 추천을 한 번 확정해 표시합니다.",
+    "One recommendation is finalized when calculation completes."
+  ],
+  [
+    "고정 추천과 최신 결과가 다릅니다",
+    "Pinned and latest recommendations differ"
+  ],
+  [
+    "현재 고정한 수와 새 추천을 비교하세요.",
+    "Compare the pinned move with the new recommendation."
+  ],
+  [
+    "정확 종반 계산 완료",
+    "Exact endgame calculation complete"
+  ],
+  [
+    "현재 배치의 승리",
+    "Win in the current position"
+  ],
+  [
+    "현재 배치의 무승부",
+    "Draw in the current position"
+  ],
+  [
+    "현재 배치의 패배",
+    "Loss in the current position"
+  ],
+  [
+    "정확 계산 결과를 확인하세요.",
+    "Review the exact calculation result."
+  ],
+  [
+    "계산 종료 · 검토 사항 남음",
+    "Calculation ended · concerns remain"
+  ],
+  [
+    "{0}. 계산 종료가 위험 해소를 뜻하지는 않습니다.",
+    "{0}. Finishing calculation does not mean the risk is resolved."
+  ],
+  [
+    "추천 확정 · 결과는 추정",
+    "Recommendation finalized · estimated result"
+  ],
+  [
+    "2초 계산을 마쳤습니다. 해당 배치에서는 이 추천을 유지합니다.",
+    "Two seconds complete. This recommendation is kept for this position."
+  ],
+  [
+    "여러 완료 깊이에서 추천이 안정돼 확정했습니다.",
+    "The recommendation stabilized across completed depths."
+  ],
+  [
+    "엔진 계산을 마치고 추천을 확정했습니다.",
+    "The engine finished and finalized its recommendation."
+  ],
+  [
+    "대기 권장 · 추천 변경",
+    "Consider waiting · recommendation changed"
+  ],
+  [
+    "새 추천을 확인하세요.{0}",
+    "Check the new recommendation.{0}"
+  ],
+  [
+    "대기 권장 · 추가 검토 중",
+    "Consider waiting · reviewing further"
+  ],
+  [
+    "추천 잠정 안정 · 계산 중",
+    "Recommendation provisionally stable · still calculating"
+  ],
+  [
+    "최근 세 깊이에서 추천이 같았습니다. 착수 안전이나 추가 계산의 실익을 보장하지 않습니다.",
+    "The last three depths agreed. This does not guarantee safety or a benefit from waiting."
+  ],
+  [
+    "다음 완료 결과 대기 중",
+    "Waiting for the next completed result"
+  ],
+  [
+    "새 완료 결과가 아직 없습니다. 더 좋은 수가 나올 가능성은 판단할 수 없습니다.",
+    "No new completed result yet. A better move cannot be predicted."
+  ],
+  [
+    "후보 비교 중",
+    "Comparing candidates"
+  ],
+  [
+    "완료된 다음 비교 결과를 기다립니다.",
+    "Waiting for the next completed comparison."
+  ],
+  [
+    "분석 경과 {0}초",
+    "Analysis elapsed {0}s"
+  ],
+  [
+    "계산 예산 잔여 {0}초",
+    "Calculation budget remaining {0}s"
+  ],
+  [
+    "계산 종료",
+    "Calculation ended"
+  ],
+  [
+    "마지막 완료 결과 {0}초 전",
+    "Last completed result {0}s ago"
+  ],
+  [
+    "완료 깊이 {0}{1}",
+    "Completed depth {0}{1}"
+  ],
+  [
+    " · 사전 계산 재사용",
+    " · background result reused"
+  ],
+  [
+    "다음 결과 완료 시점은 미정",
+    "Next result completion time is unknown"
+  ],
+  [
+    "판세 분석 준비 중",
+    "Preparing position assessment"
+  ],
+  [
+    "판세: 정확 종반 판정 · {0}",
+    "Position: exact endgame result · {0}"
+  ],
+  [
+    "승리",
+    "Win"
+  ],
+  [
+    "무승부",
+    "Draw"
+  ],
+  [
+    "패배",
+    "Loss"
+  ],
+  [
+    "결과 확인 필요",
+    "Result needs review"
+  ],
+  [
+    "판세: 승리 전략 확인 · 최단 수순 보장은 아님",
+    "Position: winning strategy found · shortest line not guaranteed"
+  ],
+  [
+    "판세: 말 이동 경주에서 열세 · 벽 전략까지 포함한 패배 확정은 아닙니다.",
+    "Position: behind in the pawn race · not a proven loss when walls are included."
+  ],
+  [
+    "판세: 현재 탐색은 패배 수순 예상",
+    "Position: current search predicts a losing line"
+  ],
+  [
+    "판세: 현재 탐색은 승리 수순 예상",
+    "Position: current search predicts a winning line"
+  ],
+  [
+    "판세: 왕복·후퇴 의심 · 전진 대안 비교 필요",
+    "Position: possible repetition/retreat · compare advancing moves"
+  ],
+  [
+    "판세: 상대 연속 공격에 경로가 취약할 수 있습니다 · 위험 추정 {0}",
+    "Position: route may be vulnerable to consecutive attacks · estimated risk {0}"
+  ],
+  [
+    "판세: 승패는 확정되지 않았습니다.",
+    "Position: outcome is not proven."
+  ],
+  [
+    "판세: 현재 평가상 불리",
+    "Position: currently evaluated as unfavorable"
+  ],
+  [
+    "판세: 현재 평가상 유리 · 승률 보장은 아닙니다.",
+    "Position: currently evaluated as favorable · no win-rate guarantee."
+  ],
+  [
+    "판세: 평가 차이가 작습니다.",
+    "Position: evaluation is close."
+  ],
+  [
+    "최신 계산 기준 · ",
+    "Based on latest calculation · "
+  ],
+  [
+    "후반 완전 해법: 현재 위치는 패배입니다.",
+    "Exact endgame: this position is lost."
+  ],
+  [
+    "후반 완전 해법: 현재 위치는 무승부입니다.",
+    "Exact endgame: this position is drawn."
+  ],
+  [
+    "탐색에서 패배 수순을 감지했습니다. 제한 시간 내 탐색 판단입니다.",
+    "Search found a losing line within its time limit."
+  ],
+  [
+    "골인 경로 위험 · 상대 벽 {0}개 · 연속 방어벽으로 우회할 위험이 있습니다.",
+    "Goal-route risk · opponent has {0} walls · consecutive walls may cause a detour."
+  ],
+  [
+    "현재 탐색에서 불리하게 평가합니다. 평가 점수는 승률이 아닙니다.",
+    "Current search evaluates this as unfavorable. The score is not a win probability."
+  ],
+  [
+    "브라우저 AI 실행 실패. 페이지를 새로고침해 주세요.",
+    "Browser AI failed. Refresh the page."
+  ],
+  [
+    "브라우저 AI 준비 시간이 초과되었습니다. 새로고침 후 다시 시도하세요.",
+    "Browser AI preparation timed out. Refresh and try again."
+  ],
+  [
+    "AI 모델 다운로드 실패. 연결을 확인하고 다시 시도하세요.",
+    "AI model download failed. Check your connection and try again."
+  ],
+  [
+    "내 경로 {0}칸 · 상대 경로 {1}칸",
+    "Your route {0} · opponent route {1}"
+  ],
+  [
+    "현재 최단 경로 직접 차단 없음",
+    "Does not directly block the current shortest route"
+  ],
+  [
+    "상대 최단 경로 {0}번째 구간 차단",
+    "Blocks segment {0} of the opponent's shortest route"
+  ],
+  [
+    "상대 최단 경로 {0}번째 구간에서 효과",
+    "Affects segment {0} of the opponent's shortest route"
+  ],
+  [
+    "{0} · 상대 경로 {1}칸 · 내 경로 {2}칸 · 설치 1턴 · 상대 이동 후 유지되는 거리 증가 {3}칸",
+    "{0} · opponent route {1} · your route {2} · costs 1 turn to place · route increase retained after an opponent move {3}"
+  ],
+  [
+    "AI가 합법적인 수를 반환하지 않았습니다.",
+    "AI returned an illegal move."
+  ],
+  [
+    "2초 안에 완료된 탐색 결과를 얻지 못했습니다. 다시 분석해 주세요.",
+    "No completed search result within 2 seconds. Analyze again."
+  ],
+  [
+    "당신의 차례",
+    "Your turn"
+  ],
+  [
+    "포지션 분석",
+    "Position analysis"
+  ],
+  [
+    "상세 보기",
+    "Details"
+  ],
+  [
+    "배치를 확인한 뒤 분석을 시작하세요.",
+    "Confirm the position before starting analysis."
+  ],
+  [
+    "플레이 모드",
+    "Play mode"
+  ],
+  [
+    "AI와 대전",
+    "Play against AI"
+  ],
+  [
+    "자유 대국",
+    "Free play"
+  ],
+  [
+    "AI 관전",
+    "Watch AI"
+  ],
+  [
+    "화면 연동",
+    "Screen sync"
+  ],
+  [
+    "플레이 설정",
+    "Play settings"
+  ],
+  [
+    "청록 · 선공",
+    "Teal · first"
+  ],
+  [
+    "분홍 · 후공",
+    "Pink · second"
+  ],
+  [
+    "위쪽",
+    "Top"
+  ],
+  [
+    "아래쪽",
+    "Bottom"
+  ],
+  [
+    "상대 AI 엔진",
+    "Opponent engine"
+  ],
+  [
+    "상대 생각 시간",
+    "Opponent think time"
+  ],
+  [
+    "빠르게 · 최대 0.5초",
+    "Quick · up to 0.5s"
+  ],
+  [
+    "자동 · 최대 2초",
+    "Auto · up to 2s"
+  ],
+  [
+    "추천 분석 엔진",
+    "Analysis engine"
+  ],
+  [
+    "분석 시간",
+    "Analysis time"
+  ],
+  [
+    "내 차례에 최선 수 자동 분석",
+    "Auto-analyze the best move on my turn"
+  ],
+  [
+    "분석 설정",
+    "Analysis settings"
+  ],
+  [
+    "추천 엔진",
+    "Recommendation engine"
+  ],
+  [
+    "실행 정보",
+    "Runtime information"
+  ],
+  [
+    "분석할 때 엔진 정보를 확인합니다.",
+    "Engine information appears when analysis starts."
+  ],
+  [
+    "↶ 무르기",
+    "↶ Undo"
+  ],
+  [
+    "새 게임",
+    "New game"
+  ],
+  [
+    "엔진",
+    "Engine"
+  ],
+  [
+    "응답 시간",
+    "Think time"
+  ],
+  [
+    "최대 0.5초",
+    "Up to 0.5s"
+  ],
+  [
+    "최대 2초",
+    "Up to 2s"
+  ],
+  [
+    "수 사이 간격",
+    "Move interval"
+  ],
+  [
+    "바로 진행",
+    "Immediately"
+  ],
+  [
+    "0.35초",
+    "0.35s"
+  ],
+  [
+    "0.75초",
+    "0.75s"
+  ],
+  [
+    "1.5초",
+    "1.5s"
+  ],
+  [
+    "▶ 시작 / 계속",
+    "▶ Start / resume"
+  ],
+  [
+    "Ⅱ 일시정지",
+    "Ⅱ Pause"
+  ],
+  [
+    "한 수 진행 →",
+    "Play one move →"
+  ],
+  [
+    "기보",
+    "Move history"
+  ],
+  [
+    "0 수",
+    "0 plies"
+  ],
+  [
+    "◀ 이전",
+    "◀ Previous"
+  ],
+  [
+    "다음 ▶",
+    "Next ▶"
+  ],
+  [
+    "현재로",
+    "Live"
+  ],
+  [
+    "기보를 선택하세요",
+    "Select a move to review"
+  ],
+  [
+    "저장",
+    "Save"
+  ],
+  [
+    "불러오기",
+    "Import"
+  ],
+  [
+    "개인 연습과 시뮬레이션을 위한 공간",
+    "A space for personal practice and simulation"
+  ],
+  [
+    "플레이어와 잔여 벽",
+    "Players and remaining walls"
+  ],
+  [
+    "분석 상세 · 스크롤",
+    "Analysis details · scrollable"
+  ],
+  [
+    "청록 엔진",
+    "Teal engine"
+  ],
+  [
+    "청록 응답 시간",
+    "Teal think time"
+  ],
+  [
+    "분홍 엔진",
+    "Pink engine"
+  ],
+  [
+    "분홍 응답 시간",
+    "Pink think time"
+  ],
+  [
+    "기보 진영 색상",
+    "Move colors by side"
+  ],
+  [
+    "쿼리도 보드",
+    "Quoridor board"
+  ],
+  [
+    "첫 수를 기다리고 있습니다.",
+    "Waiting for the first move."
+  ],
+  [
+    "현재 화면에서 재동기화했습니다. 복원하지 못한 중간 기보는 만들지 않습니다.",
+    "Resynced from the current screen. Missing moves are not invented."
+  ],
+  [
+    "자동 감시",
+    "Monitoring"
+  ],
+  [
+    "화면 연결 · 이미지 인식",
+    "Connect screen · recognize image"
+  ],
+  [
+    "공유 중지",
+    "Stop sharing"
+  ],
+  [
+    "배치를 확인해 적용하면 자동 감시가 시작됩니다.",
+    "Confirm and apply the position to start monitoring."
+  ],
+  [
+    "현재 화면 재동기화",
+    "Resync current screen"
+  ],
+  [
+    "게임 화면 가져오기",
+    "Import game screen"
+  ],
+  [
+    "말·벽을 읽은 뒤 직접 확인해 적용하세요. 이미지는 이 브라우저에서 처리합니다.",
+    "Review detected pawns and walls before applying. Images are processed in this browser."
+  ],
+  [
+    "닫기",
+    "Close"
+  ],
+  [
+    "오른쪽 게임 화면 연결",
+    "Connect the game screen"
+  ],
+  [
+    "이미지 가져오기",
+    "Import image"
+  ],
+  [
+    "현재 프레임 고정",
+    "Freeze current frame"
+  ],
+  [
+    "공유할 게임 탭/창을 선택하세요. 마우스를 원본 보드 밖으로 옮겨 벽 미리보기를 지운 뒤 프레임을 고정하세요.",
+    "Select a game tab/window. Move your cursor off the source board to remove wall previews before freezing."
+  ],
+  [
+    "화면을 연결하거나 PNG·JPG·WebP를 가져오세요.",
+    "Connect a screen or import a PNG, JPG or WebP image."
+  ],
+  [
+    "숫자·글자·테두리를 제외하고, 첫 칸 왼쪽 위부터 마지막 칸 오른쪽 아래까지 드래그하세요.",
+    "Exclude labels and borders. Drag from the first square's top-left to the last square's bottom-right."
+  ],
+  [
+    "칸 사이 간격 (%)",
+    "Gap between squares (%)"
+  ],
+  [
+    "선택 영역 인식",
+    "Recognize selected area"
+  ],
+  [
+    "먼저 화면이나 이미지를 준비하세요.",
+    "Connect a screen or import an image first."
+  ],
+  [
+    "인식 결과 검토·보정",
+    "Review & correct recognition"
+  ],
+  [
+    "단색 청록·분홍 말/벽 테마를 우선 지원합니다. 점은 말로, 회색 미리보기는 벽으로 확정하지 않습니다.",
+    "Solid teal/pink themes are supported first. Small dots are not pawns; gray previews are not confirmed walls."
+  ],
+  [
+    "클릭 보정",
+    "Correction tool"
+  ],
+  [
+    "청록 말",
+    "Teal pawn"
+  ],
+  [
+    "분홍 말",
+    "Pink pawn"
+  ],
+  [
+    "청록 가로벽",
+    "Teal horizontal wall"
+  ],
+  [
+    "청록 세로벽",
+    "Teal vertical wall"
+  ],
+  [
+    "분홍 가로벽",
+    "Pink horizontal wall"
+  ],
+  [
+    "분홍 세로벽",
+    "Pink vertical wall"
+  ],
+  [
+    "벽 지우기",
+    "Erase wall"
+  ],
+  [
+    "보정 벽 전체 지우기",
+    "Clear corrected walls"
+  ],
+  [
+    "원본의 아래쪽 출발 진영",
+    "Source bottom starting side"
+  ],
+  [
+    "현재 차례 (직접 선택)",
+    "Side to move (manual)"
+  ],
+  [
+    "청록 잔여 벽",
+    "Teal walls remaining"
+  ],
+  [
+    "분홍 잔여 벽",
+    "Pink walls remaining"
+  ],
+  [
+    "차례는 자동으로 읽지 않습니다. 잔여 벽은 설치된 벽 색으로 추정하므로 원본 숫자와 직접 대조하세요.",
+    "Turn is selected manually. Wall counts are estimated from placed wall colors; check the source counts."
+  ],
+  [
+    "설치 벽으로 잔여 수 재계산",
+    "Recount remaining walls"
+  ],
+  [
+    "확인한 배치를 왼쪽에 적용",
+    "Apply confirmed position"
+  ],
+  [
+    "화면 가져오기 닫기",
+    "Close screen import"
+  ],
+  [
+    "원본 이미지: 9×9 칸의 바깥 모서리를 드래그해 보드 영역 선택",
+    "Source image: drag the outside corners of the 9×9 squares to select the board"
+  ],
+  [
+    "인식 배치 보정 보드",
+    "Recognition correction board"
+  ],
+  [
+    "아래 출발 줄 색으로 내 진영 자동 설정",
+    "Detect my side from the bottom starting-row color"
+  ],
+  [
+    "내 진영 판독 대기",
+    "Waiting to detect your side"
+  ],
+  [
+    "원본 차례 표시 자동 판독",
+    "Detect the source turn automatically"
+  ],
+  [
+    "게임 카드·차례 표시까지 공유하세요.",
+    "Include player cards and the turn indicator in the shared screen."
+  ],
+  [
+    "판독 실패 시 진영·차례 수동 보정",
+    "Correct side/turn manually if detection fails"
+  ],
+  [
+    "보드 자동 찾기",
+    "Find board automatically"
+  ],
+  [
+    "화면을 연결하면 보드와 칸 간격을 자동으로 찾습니다.",
+    "Connect a screen to detect the board and square gaps automatically."
+  ],
+  [
+    "세로 칸 간격 (%)",
+    "Vertical gap (%)"
+  ],
+  [
+    "원본 방향의 배치 보정: 클릭해 말 또는 벽 지정",
+    "Source orientation: click to set a pawn or wall"
+  ]
+]

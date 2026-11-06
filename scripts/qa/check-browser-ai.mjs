@@ -18,12 +18,26 @@ try{
  ws.addEventListener('message',e=>{const r=JSON.parse(e.data);if(r.id){const p=pending.get(r.id);if(p){clearTimeout(p.timer);pending.delete(r.id);r.error?p.reject(Error(r.error.message)):p.resolve(r.result);}}else if(r.method==='Runtime.exceptionThrown')errors.push(r.params.exceptionDetails.exception?.description??r.params.exceptionDetails.text);});
  const target=await send('Target.createTarget',{url:'about:blank'},null);session=(await send('Target.attachToTarget',{targetId:target.targetId,flatten:true},null)).sessionId;
  await send('Page.enable');await send('Runtime.enable');await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1100,deviceScaleFactor:1,mobile:false});await send('Browser.setDownloadBehavior',{behavior:'deny'},null);
+ await send('Page.addScriptToEvaluateOnNewDocument',{source:"Object.defineProperty(navigator,'language',{get:()=> 'en-US'})"});
  await send('Page.navigate',{url:'http://127.0.0.1:'+server.address().port+'/12_quoridor_ai/'});
  await until(`document.querySelector('#mode')?.value==='ai'&&!!document.querySelector('.move-dot')`);
+ assert.equal(await evaluate(`document.documentElement.lang`),'en');
+ assert.equal(await evaluate(`document.querySelector('[data-mode="ai"] .mode-label').textContent`),'Play against AI');
+ assert.equal(await evaluate(`document.querySelectorAll('#players .wall-bar').length`),20);
+ assert.deepEqual(await evaluate(`[...document.querySelectorAll('#players .wall-stock')].map(x=>({count:x.querySelectorAll('.available').length,label:x.getAttribute('aria-label')}))`),[{count:10,label:'10 of 10 walls remaining'},{count:10,label:'10 of 10 walls remaining'}]);
+ const originalTop=await evaluate(`document.querySelector('#board').getBoundingClientRect().top`);
+ await evaluate(`document.querySelector('[data-language="ko"]').click()`);
+ assert.equal(await evaluate(`document.documentElement.lang`),'ko');
+ assert.equal(await evaluate(`document.querySelector('#board').getBoundingClientRect().top`),originalTop);
+ await evaluate(`document.querySelector('[data-language="en"]').click()`);
+ assert.equal(await evaluate(`document.querySelector('#board').getBoundingClientRect().top`),originalTop);
+ assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.length`),0);
+ checks.push('browser language initializes English; 10 wall bars and accessible counts; KR/EN toggles preserve board position and game');
  assert.equal(await evaluate(`document.querySelector('#ai-auto-hint').checked`),false);
  await evaluate(`document.querySelector('#time').value='500';document.querySelector('#time').dispatchEvent(new Event('change'));document.querySelector('#ai-auto-hint').click()`);
  await until(`!document.querySelector('#hint').disabled&&JSON.parse(localStorage.getItem('quoridor-session')).decisionLog.some(x=>x.kind==='recommendation')`);
  const log=await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).decisionLog`);assert.ok(legal(initial(),log.findLast(x=>x.kind==='recommendation').pv[0]));checks.push('opt-in human-turn automatic advice runs real browser ONNX and PUCT under project subpath');
+ assert.equal(await evaluate(`/[\uac00-\ud7a3]/.test(document.querySelector('#analysis-reason').textContent)`),false);
  const workerAsset=(await readFile(path.join(dist,'index.html'),'utf8'));
  const files=await (await import('node:fs/promises')).readdir(path.join(dist,'assets'));const workerFile=files.find(x=>x.startsWith('browser-engine-worker-')&&x.endsWith('.js'));
  const fixtures=JSON.parse(await readFile(path.join(root,'tests/fixtures/sigma-browser-parity.json'),'utf8'));
@@ -51,6 +65,21 @@ try{
  await evaluate(`document.querySelector('[data-mode="watch"]').click();document.querySelector('#watch-step').click()`);
  await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===3`);
  checks.push('spectator executes a real browser AI move');
+ await evaluate(`document.querySelector('[data-mode="screen"]').click();document.querySelector('#screen-open').click()`);
+ assert.equal(await evaluate(`document.querySelector('#screen-dialog h2').textContent`),'Import game screen');
+ assert.equal(await evaluate(`/[\uac00-\ud7a3]/.test(document.querySelector('#screen-dialog').innerText)`),false);
+ await evaluate(`document.querySelector('#screen-close').click()`);
+ const languageLayouts=[];
+ for(const width of [1440,390])for(const lang of ['ko','en']){
+  await send('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:false});
+  await evaluate(`document.querySelector('[data-language="${lang}"]').click()`);
+  assert.equal(await evaluate(`document.documentElement.scrollWidth>innerWidth`),false);languageLayouts.push({width,lang});
+  if(lang==='en'){await new Promise(r=>setTimeout(r,250));await writeFile(path.join(out,`english-${width}.png`),Buffer.from((await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true})).data,'base64'));}
+ }
+ checks.push('English screen-import dialog is translated; both languages fit desktop/mobile');
+ await send('Page.reload');await until(`!!document.querySelector('#language-switch')&&document.documentElement.lang==='en'`);
+ assert.equal(await evaluate(`localStorage.getItem('quoridor-language')`),'en');
+ checks.push('selected language survives reload');
  await evaluate(`document.querySelector('[data-mode="sandbox"]').click();document.querySelector('#play-engine').value='sigma2';document.querySelector('#play-engine').dispatchEvent(new Event('change'));document.querySelector('#hint').click();document.querySelector('[data-mode="screen"]').click()`);
  await new Promise(r=>setTimeout(r,800));assert.equal(await evaluate(`document.querySelector('#mode').value`),'screen');assert.equal(await evaluate(`document.querySelector('#analysis-choice').textContent.includes('Sigma')`),false);
  assert.equal(requests.some(x=>x.includes('/api/')),false);checks.push('changing mode cancels browser advice; no engine API requests occur');

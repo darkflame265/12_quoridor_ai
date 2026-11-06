@@ -19,9 +19,11 @@ import {analysisRisk} from '../ai/analysis-risk.js';
 import {recommendationReason} from './recommendation-reason.js';
 import {mountModePicker} from './mode-picker.js';
 import {analysisDepth,analysisMetadata,analysisError} from './analysis-presentation.js';
+import {mountLocalization} from '../i18n/localize.js';
 
 const $=s=>document.querySelector(s),colors=['#31d4c2','#fa7393'],names=['청록','분홍'];
 const syncModePicker=mountModePicker($('#mode'),$('#mode-picker'));
+const localization=mountLocalization();
 const defaultCores=1; // Transport compatibility, not a configurable CPU limit.
 const entry=new URLSearchParams(location.search);
 let storedSession=null;try{storedSession=localStorage.getItem('quoridor-session');}catch{}
@@ -175,7 +177,8 @@ function render(){
   const shownState=reviewPly===null?state:reviewPly===records.length?state:past[reviewPly];
   $('#players').innerHTML=[Number($('#side').value),1-Number($('#side').value)].map(t=>{
     const title=watch?engineName(watchSettings(t).engine):$('#mode').value==='sandbox'?names[t]:screen?(t===Number($('#side').value)?'YOU':'상대 진영'):t===Number($('#side').value)?'YOU':`상대 AI · ${engineName($('#opponent-engine').value)}`;
-    return `<div class="player ${shownState.turn===t&&!outcome?'active':''}" style="--accent:${colors[t]}"><div class="avatar">${t===0?'◉':'✦'}</div><div><b>${title}</b><small>${names[t]} · 목표까지 ${distance(shownState,t)}칸</small></div><div class="walls-count"><b>${shownState.left[t]}</b><small>WALLS</small><div>${'▏'.repeat(shownState.left[t])}</div></div></div>`;
+    const stock=shownState.left[t],wallLabel=`남은 벽 ${stock}개 / 10개`;
+    return `<div class="player ${shownState.turn===t&&!outcome?'active':''}" style="--accent:${colors[t]}"><div class="avatar">${t===0?'◉':'✦'}</div><div><b>${title}</b><small>${names[t]} · 목표까지 ${distance(shownState,t)}칸</small></div><div class="wall-stock" role="img" aria-label="${wallLabel}" title="${wallLabel}"><small>WALLS</small><div class="wall-bars" aria-hidden="true">${Array.from({length:10},(_,i)=>`<i class="wall-bar${i<stock?' available':''}"></i>`).join('')}</div></div></div>`;
   }).join('');
   const userSide=Number($('#side').value),startSide=baseState?.turn??0,showOwners=!watching()&&$('#mode').value!=='sandbox';
   $('#history-legend').innerHTML=[0,1].map(side=>'<span class="history-legend-item side-'+side+'"><i aria-hidden="true"></i>'+(['청록','분홍'][side])+(showOwners?(side===userSide?' · 내 수':' · 상대 수'):'')+'</span>').join('');
@@ -458,7 +461,7 @@ function restore(data,{startup=false}={}){reviewCache.clear();reviewPly=null;rev
 }
 $('#save').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(sessionData(),null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=watching()?'quoridor-ai-vs-ai.json':'quoridor-game.json';a.click();URL.revokeObjectURL(url);};
 $('#load').onclick=()=>$('#file').click();
-$('#file').onchange=async e=>{try{const file=e.target.files[0];if(file)restore(JSON.parse(await file.text()));}catch(error){alert(`불러오기 실패: ${error.message}`);}e.target.value='';};
+$('#file').onchange=async e=>{try{const file=e.target.files[0];if(file)restore(JSON.parse(await file.text()));}catch(error){alert(localization.translate(`불러오기 실패: ${error.message}`));}e.target.value='';};
 screenCapture=mountScreenCapture({
   getState:()=>$('#mode').value==='screen'&&baseState?clone(state):null,
   onSync:(actions,before,{ready=true}={})=>{

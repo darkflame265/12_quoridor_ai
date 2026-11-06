@@ -34,6 +34,7 @@ try{
  ws.addEventListener('message',e=>{const r=JSON.parse(e.data);if(r.id){const p=pending.get(r.id);if(p){clearTimeout(p.timer);pending.delete(r.id);r.error?p.reject(Error(r.error.message)):p.resolve(r.result);}}else if(r.method==='Runtime.exceptionThrown')errors.push(r.params.exceptionDetails.exception?.description??r.params.exceptionDetails.text);});
  const target=await send('Target.createTarget',{url:'about:blank'},null);session=(await send('Target.attachToTarget',{targetId:target.targetId,flatten:true},null)).sessionId;
  await send('Page.enable');await send('Runtime.enable');await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1100,deviceScaleFactor:1,mobile:false});await send('Browser.setDownloadBehavior',{behavior:'deny'},null);
+ await send('Page.addScriptToEvaluateOnNewDocument',{source:"Object.defineProperty(navigator,'language',{get:()=> 'ko-KR'})"});
  await send('Page.navigate',{url:'http://127.0.0.1:'+server.address().port+'/?workspace=1'});await until(`!!document.querySelector('#screen-wallz')`);
  for(const id of ['play-engine','opponent-engine','watch-engine-0','watch-engine-1'])assert.deepEqual((await evaluate(`[...document.querySelector('#${id}').options].map(o=>o.value)`)).sort(),['sigma2','sigma3','sigma4']);checks.push('analysis, opponent and spectator selectors contain only Sigma2/3/4');
  await evaluate(`(async()=>{const {paintSourceScreen}=await import('/_qa/context.mjs');window.qaSource=document.createElement('canvas');window.qaStream=null;window.qaPaint=o=>{paintSourceScreen(qaSource,{rounded:true,muted:true,labelSize:8,size:8,...o});qaStream?.getVideoTracks()[0].requestFrame?.();};qaPaint({bottom:0,relative:'opponent',plies:12});Object.defineProperty(navigator.mediaDevices,'getDisplayMedia',{configurable:true,value:async()=>{qaStream=qaSource.captureStream(30);return qaStream;}});document.querySelector('#screen-auto-hint').checked=false;document.querySelector('#screen-wallz').click();})()`);
@@ -69,6 +70,8 @@ try{
  await until(`JSON.parse(localStorage.getItem('quoridor-session')).records.length===4`);
  assert.equal(await evaluate(`JSON.parse(localStorage.getItem('quoridor-session')).records.at(-1).type`),'wall');
  checks.push('own wall also appears independently of opponent-turn captions');
+ assert.deepEqual(await evaluate(`[...document.querySelectorAll('#players .wall-stock')].map(x=>({total:x.querySelectorAll('.wall-bar').length,remaining:x.querySelectorAll('.available').length}))`),[{total:10,remaining:7},{total:10,remaining:9}]);
+ checks.push('wall spending dims the used slots while keeping all ten bars for both players');
  await evaluate(`qaPaint({bottom:0,relative:'opponent',plies:12})`);await new Promise(resolve=>setTimeout(resolve,200));
  await evaluate(`document.querySelector('#screen-resync').click()`);
  await until(`!document.querySelector('#screen-dialog').open&&JSON.parse(localStorage.getItem('quoridor-session')).records.length===0`);

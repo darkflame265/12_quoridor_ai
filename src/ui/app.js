@@ -127,7 +127,7 @@ function stop(reason='control-change'){
 const screenSuppressed=()=>$('#mode').value==='screen'&&screenCapture?.active&&!screenReady;
 function wallSvg(w,extra=''){
   w=viewAction({...w,type:'wall'});const x=22+w.x*70,y=22+w.y*70;
-  return `<rect class="wall ${extra}" x="${w.o==='h'?x-2:x+60}" y="${w.o==='h'?y+60:y-2}" width="${w.o==='h'?132:10}" height="${w.o==='h'?10:132}" rx="5" fill="${colors[w.owner??state.turn]}"/>`;
+  return `<rect class="wall ${extra}" x="${w.o==='h'?x-2:x+60}" y="${w.o==='h'?y+60:y-2}" width="${w.o==='h'?132:10}" height="${w.o==='h'?10:132}" rx="5" fill="${colors[w.owner??state.turn]}" style="--wall-color:${colors[w.owner??state.turn]}"/>`;
 }
 const liveState=()=>state;
 function drawBoard(){
